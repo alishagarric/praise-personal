@@ -32,15 +32,10 @@
     &__info {
       padding-top: var(--pxSize);
 
-      p {
-        font-size: 0.75rem;
-      }
-
       a {
         opacity: 1;
         will-change: opacity;
         transition: all 0.25s ease;
-        font-size: 0.75rem;
 
         &:hover {
           opacity: 0.5;

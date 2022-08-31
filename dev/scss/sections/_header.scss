@@ -212,10 +212,6 @@
 
             &__content {
               flex: 4;
-
-              > * {
-                font-size: 1rem;
-              }
             }
 
             &:hover {
@@ -366,7 +362,6 @@
     &__label,
     &__cta,
     &__cta__btn {
-      font-size: 2rem;
       font-weight: 600;
       padding: calc(var(--pxSize) / 3) 0;
 
@@ -420,14 +415,12 @@
 
         &__label.p-lg {
           opacity: 0.5;
-          font-size: 0.8rem;
           text-transform: uppercase;
         }
 
         &__submenu-list {
           li {
             a {
-              font-size: 2rem;
               padding: 0;
             }
           }
