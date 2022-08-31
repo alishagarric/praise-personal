@@ -1,0 +1,66 @@
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{%- style -%}
+  ul.blog-posts {
+    --grid-columns: 1;
+  }
+
+@media screen and (min-width: 750px) {
+  ul.blog-posts {
+    --grid-columns: 2;
+  }
+}
+{%- endstyle -%}
+
+{%- paginate blog.articles by section.settings.posts_per_page -%}
+<div class="container">
+  <h1>{{ blog.title | escape }}</h1>
+    <ul class="list-unstyled grid blog-posts" role="list">
+      {%- for article in blog.articles -%}
+        <li>
+          <div class="card">
+            {%- if article.image -%}
+              <div class="media" style="--width: {{ article.image.width }}; --height: {{ article.image.height }};">
+                {{ article.image | image_url: width: article.image.width | image_tag }}
+              </div>
+            {%- endif -%}
+            <h2>
+              <a href="{{ article.url }}">{{ article.title | truncate: 50 | escape }}</a>
+            </h2>
+            <div>
+              {{ article.published_at | time_tag: format: 'date' }}
+              &nbsp;|&nbsp;
+              {{ article.author }}
+            </div>
+            <p>{{ article.excerpt_or_content | strip_html | truncatewords: 20 }} </p>
+          </div>
+        </li>
+      {%- endfor -%}
+    </ul>
+    {%- if paginate.pages > 1 -%}
+      {%- render 'pagination', paginate: paginate -%}
+    {%- endif -%}
+  </div>
+{%- endpaginate -%}
+
+{% schema %}
+{
+  "name": "t:sections.main-blog.name",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.main-blog.settings.header.content"
+    },
+    {
+      "type": "range",
+      "id": "posts_per_page",
+      "default": 4,
+      "min": 1,
+      "max": 12,
+      "step": 1,
+      "label": "t:sections.main-blog.settings.posts_per_page.label"
+    }
+  ]
+}
+{% endschema %}

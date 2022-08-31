@@ -1,0 +1,317 @@
+{
+  "settings_schema": {
+    "social_media": {
+      "name": "Sociala medier",
+      "settings": {
+        "header": {
+          "content": "Sociala konton"
+        },
+        "social_twitter_link": {
+          "label": "Twitter",
+          "info": "https://twitter.com/shopify"
+        },
+        "social_facebook_link": {
+          "label": "Facebook",
+          "info": "https://facebook.com/shopify"
+        },
+        "social_pinterest_link": {
+          "label": "Pinterest",
+          "info": "https://pinterest.com/shopify"
+        },
+        "social_instagram_link": {
+          "label": "Instagram",
+          "info": "https://instagram.com/shopify"
+        },
+        "social_tiktok_link": {
+          "label": "TikTok",
+          "info": "https://tiktok.com/@shopify"
+        },
+        "social_tumblr_link": {
+          "label": "Tumblr",
+          "info": "http://shopify.tumblr.com"
+        },
+        "social_snapchat_link": {
+          "label": "Snapchat",
+          "info": "https://www.snapchat.com/add/shopify"
+        },
+        "social_youtube_link": {
+          "label": "YouTube",
+          "info": "https://www.youtube.com/user/shopify"
+        },
+        "social_vimeo_link": {
+          "label": "Vimeo",
+          "info": "https://vimeo.com/shopify"
+        }
+      }
+    }
+  },
+  "sections": {
+    "announcement-bar": {
+      "name": "Meddelandefält",
+      "settings": {
+        "text": {
+          "label": "Text"
+        }
+      }
+    },
+    "apps": {
+      "name": "Appar",
+      "presets": {
+        "name": "Appar"
+      }
+    },
+    "image-with-text": {
+      "name": "Bild med text",
+      "settings": {
+        "image": {
+          "label": "Bild"
+        }
+      },
+      "blocks": {
+        "heading": {
+          "name": "Rubrik",
+          "settings": {
+            "heading": {
+              "label": "Rubrik"
+            }
+          }
+        },
+        "text": {
+          "name": "Text",
+          "settings": {
+            "text": {
+              "label": "Innehåll"
+            }
+          }
+        },
+        "button": {
+          "name": "Knapp",
+          "settings": {
+            "button_label": {
+              "label": "Knappetikett",
+              "info": "Lämna etiketten tom för att dölja knappen."
+            },
+            "button_link": {
+              "label": "Knapplänk"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Bild med text"
+      }
+    },
+    "footer": {
+      "name": "Sidfot"
+    },
+    "main-blog": {
+      "name": "Blogginlägg",
+      "settings": {
+        "header": {
+          "content": "Kort för blogginlägg"
+        },
+        "posts_per_page": {
+          "label": "Antal inlägg per sida"
+        }
+      }
+    },
+    "main-page": {
+      "name": "Sida"
+    },
+    "custom-liquid": {
+      "name": "Anpassa Liquid",
+      "settings": {
+        "custom_liquid": {
+          "label": "Anpassa Liquid",
+          "info": "Lägg till appfragment eller annan Liquid-kod för att skapa avancerade anpassningar."
+        }
+      },
+      "presets": {
+        "name": "Anpassa Liquid"
+      }
+    },
+    "page": {
+      "name": "Sida",
+      "settings": {
+        "page": {
+          "label": "Sida"
+        }
+      },
+      "presets": {
+        "name": "Sida"
+      }
+    },
+    "main-login": {
+      "name": "Inloggning"
+    },
+    "main-register": {
+      "name": "Registrering"
+    },
+    "rich-text": {
+      "name": "RTF",
+      "blocks": {
+        "heading": {
+          "name": "Rubrik",
+          "settings": {
+            "heading": {
+              "label": "Rubrik"
+            }
+          }
+        },
+        "text": {
+          "name": "Text",
+          "settings": {
+            "text": {
+              "label": "Innehåll"
+            }
+          }
+        },
+        "button": {
+          "name": "Knapp",
+          "settings": {
+            "button_label": {
+              "label": "Knappetikett",
+              "info": "Lämna etiketten tom för att dölja knappen."
+            },
+            "button_link": {
+              "label": "Knapplänk"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "RTF"
+      }
+    },
+    "main-article": {
+      "name": "Bloggpost",
+      "blocks": {
+        "featured_image": {
+          "name": "Utvald bild"
+        },
+        "title": {
+          "name": "Titel"
+        },
+        "details": {
+          "name": "Uppgifter"
+        },
+        "content": {
+          "name": "Innehåll"
+        }
+      }
+    },
+    "main-product": {
+      "name": "Produktinformation",
+      "blocks": {
+        "text": {
+          "name": "Text",
+          "settings": {
+            "text": {
+              "label": "Text"
+            }
+          }
+        },
+        "title": {
+          "name": "Titel"
+        },
+        "price": {
+          "name": "Pris"
+        },
+        "quantity_selector": {
+          "name": "Kvantitetsväljare"
+        },
+        "variant_picker": {
+          "name": "Variantväljare"
+        },
+        "buy_buttons": {
+          "name": "Köpknappar"
+        },
+        "pickup_availability": {
+          "name": "Hämtningstillgänglighet"
+        },
+        "description": {
+          "name": "Beskrivning"
+        },
+        "rating": {
+          "name": "Produktbetyg",
+          "settings": {
+            "paragraph": {
+              "content": "Lägg till en produktbedömningsapp för att visa ett betyg. [Mer information](https://help.shopify.com/manual/online-store/themes/theme-structure/theme-features#featured-product-rating)"
+            }
+          }
+        }
+      }
+    },
+    "main-reset-password": {
+      "name": "Lösenordsåterställning"
+    },
+    "main-list-collections": {
+      "name": "Kategorilistsida",
+      "settings": {
+        "title": {
+          "label": "Rubrik"
+        },
+        "collections_per_page": {
+          "label": "Antal kategorier per sida"
+        }
+      }
+    },
+    "main-addresses": {
+      "name": "Adresser"
+    },
+    "contact-form": {
+      "name": "Kontaktformulär",
+      "heading": "Rubrik",
+      "presets": {
+        "name": "Kontaktformulär"
+      }
+    },
+    "product-recommendations": {
+      "name": "Produktrekommendationer",
+      "settings": {
+        "heading": {
+          "label": "Rubrik"
+        },
+        "paragraph": {
+          "content": "Dynamiska rekommendationer använder order- och produktinformation för att ändras och förbättras över tid. [Mer information](https://help.shopify.com/themes/development/recommended-products)"
+        }
+      }
+    },
+    "main-account": {
+      "name": "Konto"
+    },
+    "featured-blog": {
+      "name": "Bloggposter",
+      "settings": {
+        "heading": {
+          "label": "Rubrik"
+        },
+        "blog": {
+          "label": "Blogg"
+        }
+      },
+      "presets": {
+        "name": "Bloggposter"
+      }
+    },
+    "email-signup": {
+      "name": "E-postregistrering",
+      "settings": {
+        "heading": {
+          "label": "Rubrik"
+        }
+      },
+      "presets": {
+        "name": "E-postregistrering"
+      }
+    },
+    "password-header": {
+      "name": "Lösenord sidhuvud",
+      "settings": {
+        "logo": {
+          "label": "Logotypbild"
+        }
+      }
+    }
+  }
+}

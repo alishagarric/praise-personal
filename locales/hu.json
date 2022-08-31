@@ -1,0 +1,313 @@
+{
+  "general": {
+    "continue_shopping": "Vásárlás folytatása",
+    "newsletter": {
+      "heading": "Hírlevél",
+      "email": "E-mail-cím",
+      "subscribe": "Feliratkozás",
+      "success": "Köszönjük a feliratkozást"
+    },
+    "localization": {
+      "country": {
+        "label": "Ország",
+        "option_label": "{{ name }} ({{ currency_iso_code }} {{ currency_symbol }})",
+        "update": "Ország/régió frissítése"
+      },
+      "language": {
+        "label": "Nyelv",
+        "update": "Nyelv módosítása"
+      }
+    },
+    "social": {
+      "links": {
+        "twitter": "Twitter",
+        "facebook": "Facebook",
+        "pinterest": "Pinterest",
+        "instagram": "Instagram",
+        "tiktok": "TikTok",
+        "tumblr": "Tumblr",
+        "snapchat": "Snapchat",
+        "youtube": "YouTube",
+        "vimeo": "Vimeo"
+      }
+    },
+    "pagination": {
+      "label": "Tördelés",
+      "page": "{{ number }}. oldal",
+      "next": "Következő oldal",
+      "previous": "Előző oldal"
+    },
+    "search": {
+      "search": "Keresés",
+      "no_results": "Nincs találat",
+      "no_terms": "Írj be egy keresőszót",
+      "results": "{{ count }} találat erre: {{ terms }}"
+    },
+    "password_page": {
+      "login_form_heading": "Belépés a webáruházba jelszóval:",
+      "login_form_password_label": "Saját jelszó",
+      "login_form_error": "Téves jelszót írtál be.",
+      "login_form_submit": "Belépés",
+      "admin_link_html": "Te vagy a webáruház tulajdonosa? <a href=\"/admin\" class=\"link underlined-link\">Itt tudsz bejelentkezni</a>",
+      "powered_by_shopify_html": "A bolt szolgáltatója a {{ shopify }}"
+    },
+    "dialog": {
+      "close": "Bezárás",
+      "close_modal": "Bezárás modális"
+    },
+    "media": {
+      "3d": "3D"
+    }
+  },
+  "templates": {
+    "404": {
+      "title": "Nem találjuk az oldalt",
+      "subtext": "404-es hiba történt."
+    },
+    "contact": {
+      "form": {
+        "name": "Név",
+        "email": "E-mail-cím",
+        "phone": "Telefonszám",
+        "comment": "Hozzászólás",
+        "send": "Küldés",
+        "post_success": "Köszönjük, hogy írtál nekünk. A lehető legrövidebb időn belül válaszolni fogunk.",
+        "error_heading": "Kérjük, helyesbítsd a következőket:"
+      }
+    }
+  },
+  "sections": {
+    "page": {
+      "title": "Oldal címe"
+    },
+    "cart": {
+      "title": "Kosár",
+      "total": "Végösszeg",
+      "note": "Megjegyzések a rendeléssel kapcsolatban",
+      "checkout": "Megrendelés",
+      "empty": "A kosarad üres",
+      "cart_error": "Hiba történt a kosár frissítése közben. Próbálkozz újra.",
+      "cart_quantity_error_html": "Ebből a termékből legfeljebb {{ quantity }} darabot rakhatsz a kosárba.",
+      "taxes_and_shipping_policy_at_checkout_html": "Az adókat és a <a href=\"{{ link }}\">szállítási költséget</a> a megrendeléskor számítjuk ki",
+      "taxes_included_but_shipping_at_checkout": "Tartalmazza a megrendeléskor kiszámított adót és szállítási költséget",
+      "taxes_included_and_shipping_policy_html": "Tartalmazza az adót. A megrendeléskor kiszámított <a href=\"{{ link }}\">szállítási költség</a>.",
+      "taxes_and_shipping_at_checkout": "Az adókat és a szállítási költséget a megrendeléskor számítjuk ki",
+      "headings": {
+        "product": "Termék",
+        "price": "Ár",
+        "total": "Végösszeg",
+        "quantity": "Mennyiség",
+        "image": "Termék képe"
+      },
+      "update": "Frissítés",
+      "login": {
+        "title": "Már van fiókod?",
+        "paragraph_html": "<a href=\"{{ link }}\" class=\"link underlined-link\">Jelentkezz be</a> a gyorsabb fizetéshez."
+      }
+    },
+    "featured_blog": {
+      "view_all": "Az összes megtekintése",
+      "onboarding_title": "Blogbejegyzés",
+      "onboarding_content": "Itt foglalhatod össze a vásárlóidnak, miről szól a blogbejegyzésed"
+    },
+    "header": {
+      "account": "Fiók",
+      "cart": "Kosár",
+      "search": "Keresés",
+      "login": "Felhasználónév",
+      "menu": "Menü"
+    }
+  },
+  "accessibility": {
+    "unit_price_separator": "/",
+    "error": "Hiba",
+    "skip_to_content": "Ugrás a tartalomhoz",
+    "refresh_page": "Ha kiválasztasz egy lehetőséget, a teljes oldal frissül.",
+    "filter_active_values": "aktív értékek",
+    "by": "Készítette:",
+    "vendor": "Forgalmazó:",
+    "skip_to_text": "Ugrás a szöveghez",
+    "video_exit_message": "{{ title }}: a teljes képernyős videó ugyanabban az ablakban nyílik meg.",
+    "loading": "Betöltés folyamatban",
+    "skip_to_product_info": "Ugrás a termékadatokra"
+  },
+  "products": {
+    "product": {
+      "on_sale": "Akciós",
+      "sold_out": "Elfogyott",
+      "price": {
+        "from_price_html": "Indulóár: {{ price }}",
+        "regular_price": "Normál ár",
+        "sale_price": "Akciós ár",
+        "unit_price": "Egységár",
+        "starting_at": "Kezdőár:"
+      },
+      "add_to_cart": "Hozzáadás a kosárhoz",
+      "include_taxes": "Tartalmazza az adót.",
+      "shipping_policy_html": "A megrendeléskor kiszámított <a href=\"{{ link }}\">szállítási költség</a>.",
+      "product_variants": "Termékváltozatok",
+      "total_reviews": "összes értékelés",
+      "star_reviews_info": "{{ rating_max }}/{{ rating_value }} csillag",
+      "quantity": {
+        "label": "Mennyiség",
+        "input_label": "{{ product }} mennyisége"
+      },
+      "xr_button": "Megtekintés a saját környezetben",
+      "xr_button_label": "Megtekintés a saját környezetben: kiterjesztettvalóság-alapú ablakban töltődik be az elem",
+      "unavailable": "Nincs készleten"
+    },
+    "facets": {
+      "filter_and_sort_button": "Szűrés és rendezés",
+      "from": "Legalacsonyabb ár:",
+      "max_price": "A legmagasabb ár {{ price }}",
+      "reset": "Alaphelyzet",
+      "sort_by_label": "Rendezési szempont:",
+      "to": "Legmagasabb ár:",
+      "use_fewer_filters_html": "Nincs találat.  Használj kevesebb szűrőt, vagy <a href=\"{{ link }}\">kapcsold ki az összeset</a>."
+    },
+    "pickup_availability": {
+      "available": "Személyesen átvehető",
+      "unavailable": "Személyesen egyelőre nem vehető át",
+      "view_info": {
+        "one": "Webáruház adatai",
+        "other": "Kapható más webáruházakban?"
+      },
+      "error": "Nem sikerült betölteni az átvehetőségi adatokat"
+    },
+    "price": {
+      "from_price_html": "Indulóár: {{ price }}",
+      "regular_price": "Normál ár",
+      "sale_price": "Akciós ár",
+      "unit_price": "Egységár"
+    },
+    "quantity": {
+      "label": "Mennyiség",
+      "input_label": "{{ product }} mennyisége"
+    },
+    "unavailable": "Nincs készleten"
+  },
+  "customer": {
+    "login_page": {
+      "cancel": "Mégse",
+      "create_account": "Fiók létrehozása",
+      "email": "E-mail-cím",
+      "forgot_password": "Elfelejtetted a jelszavadat?",
+      "guest_continue": "Tovább",
+      "guest_title": "Folytatás vendégként",
+      "password": "Jelszó",
+      "title": "Felhasználónév",
+      "sign_in": "Bejelentkezés",
+      "submit": "Küldés"
+    },
+    "recover_password": {
+      "title": "Új jelszó létrehozása",
+      "subtext": "Küldünk egy e-mailt, amellyel új jelszót készíthetsz magadnak.",
+      "success": "E-mailben elküldtük a jelszó módosításához szükséges hivatkozást."
+    },
+    "register": {
+      "title": "Fiók létrehozása",
+      "first_name": "Utónév",
+      "last_name": "Vezetéknév",
+      "email": "E-mail-cím",
+      "password": "Jelszó",
+      "submit": "Létrehozás"
+    },
+    "reset_password": {
+      "title": "Új fiókjelszó létrehozása",
+      "subtext": "Írd be az ehhez az e-mail-címhez tartozó új jelszót: {{ email }}.",
+      "password": "Jelszó",
+      "password_confirm": "Jelszó megerősítése",
+      "submit": "Új jelszó készítése"
+    },
+    "activate_account": {
+      "title": "Fiók aktiválása",
+      "subtext": "A fiók aktiválásához hozz létre egy jelszót.",
+      "password": "Jelszó",
+      "password_confirm": "Jelszó megerősítése",
+      "submit": "Fiók aktiválása",
+      "cancel": "Meghívás elutasítása"
+    },
+    "order": {
+      "discount": "Kedvezmény",
+      "title": "Rendelés: {{ name }}",
+      "date_html": "Megrendelés dátuma: {{ date }}",
+      "cancelled_html": "Megrendelés lemondva: {{ date }}",
+      "cancelled_reason": "Ok: {{ reason }}",
+      "billing_address": "Számlázási cím",
+      "payment_status": "Fizetési állapot",
+      "shipping_address": "Szállítási cím",
+      "fulfillment_status": "Teljesítési állapot",
+      "shipping": "Szállítás",
+      "tax": "Adó",
+      "product": "Termék",
+      "sku": "Termékváltozat",
+      "price": "Ár",
+      "quantity": "Mennyiség",
+      "total": "Végösszeg",
+      "fulfilled_at_html": "Teljesítés dátuma: {{ date }}",
+      "track_shipment": "Csomagkövetés",
+      "tracking_url": "Hivatkozás a csomagkövetéshez",
+      "tracking_company": "Futárszolgálat",
+      "tracking_number": "Fuvarlevélszám",
+      "subtotal": "Részösszeg",
+      "total_duties": "Vámok"
+    },
+    "account": {
+      "title": "Fiók",
+      "details": "Fiókadatok",
+      "view_addresses": "Címek megtekintése ({{ count }})",
+      "return": "Vissza a fiókadatokhoz"
+    },
+    "log_out": "Kijelentkezés",
+    "orders": {
+      "title": "Korábbi rendelések",
+      "order_number": "Rendelés: {{ name }}",
+      "date": "Dátum",
+      "payment_status": "Fizetési állapot",
+      "fulfillment_status": "Teljesítési állapot",
+      "total": "Végösszeg",
+      "none": "Még nem rendeltél semmit.",
+      "order_number_link": "Rendelés száma: {{ number }}",
+      "order_number_summary": "Rendelés ({{ name }}) összefoglalója"
+    },
+    "addresses": {
+      "title": "Címek",
+      "default": "Alapértelmezett",
+      "add_new": "Új cím hozzáadása",
+      "edit_address": "Cím szerkesztése",
+      "first_name": "Utónév",
+      "last_name": "Vezetéknév",
+      "company": "Cégnév",
+      "address1": "1. cím",
+      "address2": "2. cím",
+      "city": "Település",
+      "country": "Ország/régió",
+      "province": "Megye",
+      "zip": "Irányítószám",
+      "phone": "Telefonszám",
+      "set_default": "Beállítás alapértelmezett címként",
+      "add": "Cím hozzáadása",
+      "update": "Cím frissítése",
+      "cancel": "Mégse",
+      "edit": "Szerkesztés",
+      "delete": "Törlés",
+      "delete_confirm": "Biztos, hogy törlöd a címet?"
+    }
+  },
+  "blogs": {
+    "article": {
+      "back_to_blog": "Vissza a blogba"
+    }
+  },
+  "gift_cards": {
+    "issued": {
+      "title": "Íme a(z) {{ shop }} boltban levásárolható, {{ value }} értékű ajándékkártyád!",
+      "subtext": "Ajándékkártya",
+      "expired": "Lejárt",
+      "remaining_html": "Egyenleg: {{ balance }}",
+      "gift_card_code": "Ajándékkártya kódja",
+      "qr_image_alt": "Ezt a QR-kódot beszkennelve beválthatod az ajándékkártyát.",
+      "add_to_apple_wallet": "Hozzáadás az Apple Wallethoz"
+    }
+  }
+}

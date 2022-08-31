@@ -1,0 +1,109 @@
+{{ 'component-dialog.css' | asset_url | stylesheet_tag }}
+
+<header class="header">
+  <div class="container">
+    <details class="dialog drawer overlay">
+      <summary aria-haspopup="dialog" aria-controls="MenuDrawer">
+        <span class="button">{{ 'sections.header.menu' | t }}</span>
+        <span class="dialog-close button" aria-label="Close menu">{{ 'general.dialog.close' | t }}</span>
+      </summary>
+      <nav id="MenuDrawer" role="dialog" aria-label="Menu" aria-modal="true">
+        <div class="dialog-body">
+          <ul class="menu list-unstyled" role="list">
+            {%- for link in section.settings.menu.links -%}
+              <li>
+                {%- if link.links != blank -%}
+                  <details class="disclosure">
+                    <summary class="menu-item{% if link.child_active %} active{% endif %}" 
+                      role="button"
+                      aria-expanded="true"
+                      aria-controls="MenuItem-{{ forloop.index }}-Submenu"
+                    >
+                      <span>
+                        {{ link.title | escape }}
+                      </span>
+                    </summary>
+                    <div id="MenuItem-{{ forloop.index }}-Submenu">
+                      <ul class="submenu list-unstyled" role="list">
+                        {%- for childlink in link.links -%}
+                          <li>
+                            <a href="{{ childlink.url }}"
+                              class="menu-item{% if childlink.current %} active{% endif %}" 
+                              {% if childlink.current %} aria-current="page"{% endif %}
+                            >
+                              {{ childlink.title | escape }}
+                            </a>
+                          </li>
+                        {%- endfor -%}
+                      </ul>
+                    </div>
+                  </details>
+                {%- else -%}
+                  <a href="{{ link.url }}"
+                    class="menu-item{% if link.current %} active{% endif %}"
+                    {% if link.current %} aria-current="page"{% endif %}
+                  >
+                    <span {%- if link.current %} class="active"{% endif %}>
+                      {{ link.title | escape }}
+                    </span>
+                  </a>
+                {%- endif -%}
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      </nav>
+    </details>
+
+    <div class="logo">
+      {%- if request.page_type == 'index' -%}
+        <h1>
+      {%- endif -%}
+        <a href="{{ routes.root_url }}">
+          {%- if section.settings.logo != blank -%}
+            {{ section.settings.logo |
+              image_url: width: 250 |
+              image_tag: width: 125, alt: section.settings.logo.alt | default: shop.name | escape 
+            }}
+          {%- else -%}
+            <span class="h2">{{ shop.name }}</span>
+          {%- endif -%}
+        </a>
+      {%- if request.page_type == "index" -%}
+        </h1>
+      {%- endif -%}
+    </div>
+    
+    <div class="utility-links">
+      <a href="{{ routes.search_url }}">{{ 'sections.header.search' | t }}</a>
+      {%- if customer -%}
+        <a href="{{ routes.account_url }}">{{ 'sections.header.account' | t }}</a>
+      {%- else -%}
+        <a href="{{ routes.account_login_url }}">{{ 'sections.header.login' | t }}</a>
+      {%- endif -%}
+      <a href="{{ routes.cart_url }}">
+        {{ 'sections.header.cart' | t }} <span id="CartBubble">{% unless cart == empty %}({{ cart.item_count }}){% endunless %}</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "default": "main-menu",
+      "label": "Menu"
+    }
+  ]
+}
+{% endschema %}

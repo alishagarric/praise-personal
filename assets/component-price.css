@@ -1,0 +1,16 @@
+.price {
+  font-size: 1.6rem;
+}
+
+.price > * {
+  display: block;
+}
+
+s.regular-price {
+  margin-right: 10px;
+}
+
+.unit-price {
+  display: block;
+  font-size: 1.1rem;
+}

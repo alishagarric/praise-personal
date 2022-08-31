@@ -1,0 +1,50 @@
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+
+<div class="container">
+  <h1>{{ section.settings.title | escape }}</h1>
+  {%- paginate collections by section.settings.collections_per_page -%}
+    <ol class="list-unstyled grid" role="list">
+      {%- for collection in collections -%}
+        <li>
+          <div class="card">
+            <div class="media" style="--width: {{ collection.featured_image.width }}; --height: {{ collection.featured_image.height }};">
+              {{ collection.featured_image | image_url: width: collection.featured_image.width | image_tag }}
+            </div>
+            <h2>
+              <a href="{{ collection.url }}">
+                {{ collection.title }}
+              </a>
+            </h2>
+            <p>{{- collection.description | strip_html | truncatewords: 12 -}}</p>
+          </div>
+        </li>
+      {%- endfor -%}
+    </ol>
+    {%- if paginate.pages > 1 -%}
+      {%- render 'pagination', paginate: paginate -%}
+    {%- endif -%}
+  {%- endpaginate -%}
+</div>
+{% schema %}
+{
+  "name": "t:sections.main-list-collections.name",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "t:sections.main-list-collections.settings.title.label",
+      "default": "Collections"
+    },
+    {
+      "type": "range",
+      "id": "collections_per_page",
+      "default": 4,
+      "min": 1,
+      "max": 12,
+      "step": 1,
+      "label": "t:sections.main-list-collections.settings.collections_per_page.label"
+    }
+  ]
+}
+{% endschema %}

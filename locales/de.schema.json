@@ -1,0 +1,317 @@
+{
+  "settings_schema": {
+    "social_media": {
+      "name": "Social Media",
+      "settings": {
+        "header": {
+          "content": "Social-Media-Konten"
+        },
+        "social_twitter_link": {
+          "label": "Twitter",
+          "info": "https://twitter.com/shopify"
+        },
+        "social_facebook_link": {
+          "label": "Facebook",
+          "info": "https://facebook.com/shopify"
+        },
+        "social_pinterest_link": {
+          "label": "Pinterest",
+          "info": "https://pinterest.com/shopify"
+        },
+        "social_instagram_link": {
+          "label": "Instagram",
+          "info": "http://instagram.com/shopify"
+        },
+        "social_tiktok_link": {
+          "label": "TikTok",
+          "info": "https://vimeo.com/shopify"
+        },
+        "social_tumblr_link": {
+          "label": "Tumblr",
+          "info": "http://shopify.tumblr.com"
+        },
+        "social_snapchat_link": {
+          "label": "Snapchat",
+          "info": "https://www.snapchat.com/add/shopify"
+        },
+        "social_youtube_link": {
+          "label": "YouTube",
+          "info": "https://www.youtube.com/shopify"
+        },
+        "social_vimeo_link": {
+          "label": "Vimeo",
+          "info": "https://vimeo.com/shopify"
+        }
+      }
+    }
+  },
+  "sections": {
+    "announcement-bar": {
+      "name": "Ankündigungsleiste",
+      "settings": {
+        "text": {
+          "label": "Text"
+        }
+      }
+    },
+    "apps": {
+      "name": "Apps",
+      "presets": {
+        "name": "Apps"
+      }
+    },
+    "image-with-text": {
+      "name": "Bild mit Text",
+      "settings": {
+        "image": {
+          "label": "Bild"
+        }
+      },
+      "blocks": {
+        "heading": {
+          "name": "Überschrift",
+          "settings": {
+            "heading": {
+              "label": "Überschrift"
+            }
+          }
+        },
+        "text": {
+          "name": "Text",
+          "settings": {
+            "text": {
+              "label": "Inhalt"
+            }
+          }
+        },
+        "button": {
+          "name": "Schaltfläche",
+          "settings": {
+            "button_label": {
+              "label": "Schaltflächenbeschriftung",
+              "info": "Lasse die Beschriftung leer, um die Schaltfläche auszublenden."
+            },
+            "button_link": {
+              "label": "Schaltflächenlink"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Bild mit Text"
+      }
+    },
+    "footer": {
+      "name": "Fußzeile"
+    },
+    "main-blog": {
+      "name": "Blog-Beiträge",
+      "settings": {
+        "header": {
+          "content": "Blog-Beitrags-Karte"
+        },
+        "posts_per_page": {
+          "label": "Anzahl der Beiträge pro Seite"
+        }
+      }
+    },
+    "main-page": {
+      "name": "Seite"
+    },
+    "custom-liquid": {
+      "name": "Benutzerdefiniertes Liquid",
+      "settings": {
+        "custom_liquid": {
+          "label": "Benutzerdefiniertes Liquid",
+          "info": "Füge App-Snippets oder anderen Liquid-Code hinzu, um fortgeschrittene Anpassungen zu erstellen."
+        }
+      },
+      "presets": {
+        "name": "Benutzerdefiniertes Liquid"
+      }
+    },
+    "page": {
+      "name": "Seite",
+      "settings": {
+        "page": {
+          "label": "Seite"
+        }
+      },
+      "presets": {
+        "name": "Seite"
+      }
+    },
+    "main-login": {
+      "name": "Login"
+    },
+    "main-register": {
+      "name": "Registrierung"
+    },
+    "rich-text": {
+      "name": "Rich Text",
+      "blocks": {
+        "heading": {
+          "name": "Überschrift",
+          "settings": {
+            "heading": {
+              "label": "Überschrift"
+            }
+          }
+        },
+        "text": {
+          "name": "Text",
+          "settings": {
+            "text": {
+              "label": "Inhalt"
+            }
+          }
+        },
+        "button": {
+          "name": "Schaltfläche",
+          "settings": {
+            "button_label": {
+              "label": "Schaltflächenbeschriftung",
+              "info": "Lasse die Beschriftung leer, um die Schaltfläche auszublenden."
+            },
+            "button_link": {
+              "label": "Schaltflächenlink"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Rich Text"
+      }
+    },
+    "main-article": {
+      "name": "Blog-Beitrag",
+      "blocks": {
+        "featured_image": {
+          "name": "Feature-Bild"
+        },
+        "title": {
+          "name": "Titel"
+        },
+        "details": {
+          "name": "Details"
+        },
+        "content": {
+          "name": "Inhalt"
+        }
+      }
+    },
+    "main-product": {
+      "name": "Produktinformationen",
+      "blocks": {
+        "text": {
+          "name": "Text",
+          "settings": {
+            "text": {
+              "label": "Text"
+            }
+          }
+        },
+        "title": {
+          "name": "Titel"
+        },
+        "price": {
+          "name": "Preis"
+        },
+        "quantity_selector": {
+          "name": "Mengenauswahl"
+        },
+        "variant_picker": {
+          "name": "Variantenauswahl"
+        },
+        "buy_buttons": {
+          "name": "Buy Buttons"
+        },
+        "pickup_availability": {
+          "name": "Verfügbarkeit von Abholungen"
+        },
+        "description": {
+          "name": "Beschreibung"
+        },
+        "rating": {
+          "name": "Produktbewertung",
+          "settings": {
+            "paragraph": {
+              "content": "Um eine Bewertung anzuzeigen, musst du eine Produktbewertungs-App hinzufügen. [Mehr Informationen](https://help.shopify.com/manual/online-store/themes/theme-structure/theme-features#featured-product-rating)"
+            }
+          }
+        }
+      }
+    },
+    "main-reset-password": {
+      "name": "Passwortzurücksetzung"
+    },
+    "main-list-collections": {
+      "name": "Listenseite für Kategorien",
+      "settings": {
+        "title": {
+          "label": "Überschrift"
+        },
+        "collections_per_page": {
+          "label": "Anzahl pro Kategorien pro Seite"
+        }
+      }
+    },
+    "main-addresses": {
+      "name": "Adressen"
+    },
+    "contact-form": {
+      "name": "Kontaktformular",
+      "heading": "Überschrift",
+      "presets": {
+        "name": "Kontaktformular"
+      }
+    },
+    "product-recommendations": {
+      "name": "Produktempfehlungen",
+      "settings": {
+        "heading": {
+          "label": "Überschrift"
+        },
+        "paragraph": {
+          "content": "Dynamische Empfehlungen nutzen Bestell- und Produktinformationen, um sich mit der Zeit zu verändern und zu verbessern. [Mehr Informationen](https://help.shopify.com/themes/development/recommended-products)"
+        }
+      }
+    },
+    "main-account": {
+      "name": "Konto"
+    },
+    "featured-blog": {
+      "name": "Blog-Beiträge",
+      "settings": {
+        "heading": {
+          "label": "Überschrift"
+        },
+        "blog": {
+          "label": "Blog"
+        }
+      },
+      "presets": {
+        "name": "Blog-Beiträge"
+      }
+    },
+    "email-signup": {
+      "name": "E-Mail-Anmeldung",
+      "settings": {
+        "heading": {
+          "label": "Überschrift"
+        }
+      },
+      "presets": {
+        "name": "E-Mail-Anmeldung"
+      }
+    },
+    "password-header": {
+      "name": "Passwort-Header",
+      "settings": {
+        "logo": {
+          "label": "Logo-Bild"
+        }
+      }
+    }
+  }
+}

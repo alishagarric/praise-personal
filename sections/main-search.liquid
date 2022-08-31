@@ -1,0 +1,58 @@
+<div class="container">
+  <h1>{{ 'general.search.search' | t }}</h1>
+
+  <form action="{{ routes.search_url }}" method="get" role="search">
+    <label for="Search">{{ 'general.search.search' | t }}</label>
+    <input
+      id="Search"
+      type="search"
+      name="q"
+      value="{{ search.terms }}"
+    >
+    <input name="options[prefix]" type="hidden" value="last">
+    <button>{{ 'general.search.search' | t }}</button>
+  </form>
+</div>
+
+{% if search.performed %}
+  <div class="container">
+    <h2>{{ 'general.search.results' | t: terms: search.terms, count: search.results_count }}</h2>
+  </div>
+{% endif %}
+
+{% if search.results == empty and search.filters == empty %}
+  <div class="container">
+    {% if search.performed %}
+      <p>{{ 'general.search.no_results' | t }}</p>
+    {% else %}
+      <p>{{ 'general.search.no_terms' | t }}</p>
+    {% endif %}
+  </div>
+{% elsif search.results.size == 0 and search.filters != empty %}
+  {% render 'filter-and-sort', results: search %}
+
+  <div class="container">
+    {%- liquid
+      assign sort_by = search.sort_by | default: search.default_sort_by
+      assign terms = search.terms | escape
+      assign search_url = '?q=' | append: terms | append: '&options%5Bprefix%5D=last&sort_by=' | append: sort_by
+    -%}
+
+    <p>{{ 'products.facets.use_fewer_filters_html' | t: link: search_url }}</p>
+  </div>
+{% else %}
+  {% render 'filter-and-sort', results: search %}
+
+  {%- paginate search.results by 8 -%}
+    <div class="container">
+      <ul class="grid list-unstyled" role="list">
+        {%- for product in search.results -%}
+          <li>
+            {% render 'product-card', card_product: product %}
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+    {% render 'pagination', paginate: paginate %}
+  {%- endpaginate -%}
+{% endif %}

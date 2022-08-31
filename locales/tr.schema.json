@@ -1,0 +1,317 @@
+{
+  "sections": {
+    "announcement-bar": {
+      "name": "Duyuru çubuğu",
+      "settings": {
+        "text": {
+          "label": "Metin"
+        }
+      }
+    },
+    "apps": {
+      "name": "Uygulamalar",
+      "presets": {
+        "name": "Uygulamalar"
+      }
+    },
+    "image-with-text": {
+      "name": "Metin içeren görsel",
+      "settings": {
+        "image": {
+          "label": "Görsel"
+        }
+      },
+      "blocks": {
+        "heading": {
+          "name": "Başlık",
+          "settings": {
+            "heading": {
+              "label": "Başlık"
+            }
+          }
+        },
+        "text": {
+          "name": "Metin",
+          "settings": {
+            "text": {
+              "label": "İçerik"
+            }
+          }
+        },
+        "button": {
+          "name": "Düğme",
+          "settings": {
+            "button_label": {
+              "label": "Düğme etiketi",
+              "info": "Düğmeyi gizlemek için etiketi boş bırakın."
+            },
+            "button_link": {
+              "label": "Düğme bağlantısı"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Metin içeren görsel"
+      }
+    },
+    "main-blog": {
+      "name": "Blog gönderileri",
+      "settings": {
+        "header": {
+          "content": "Blog gönderisi kartı"
+        },
+        "posts_per_page": {
+          "label": "Sayfa başına gönderi sayısı"
+        }
+      }
+    },
+    "main-page": {
+      "name": "Sayfa"
+    },
+    "custom-liquid": {
+      "name": "Özel Liquid",
+      "settings": {
+        "custom_liquid": {
+          "label": "Özel Liquid",
+          "info": "Gelişmiş özelleştirmeler oluşturmak için uygulama parçacıkları veya başka bir Liquid kodu ekleyin."
+        }
+      },
+      "presets": {
+        "name": "Özel Liquid"
+      }
+    },
+    "page": {
+      "name": "Sayfa",
+      "settings": {
+        "page": {
+          "label": "Sayfa"
+        }
+      },
+      "presets": {
+        "name": "Sayfa"
+      }
+    },
+    "footer": {
+      "name": "Altbilgi"
+    },
+    "main-login": {
+      "name": "Giriş"
+    },
+    "main-register": {
+      "name": "Kayıt"
+    },
+    "rich-text": {
+      "name": "Zengin metin",
+      "blocks": {
+        "heading": {
+          "name": "Başlık",
+          "settings": {
+            "heading": {
+              "label": "Başlık"
+            }
+          }
+        },
+        "text": {
+          "name": "Metin rengi",
+          "settings": {
+            "text": {
+              "label": "İçerik"
+            }
+          }
+        },
+        "button": {
+          "name": "Düğme",
+          "settings": {
+            "button_label": {
+              "label": "Düğme etiketi",
+              "info": "Düğmeyi gizlemek için etiketi boş bırakın."
+            },
+            "button_link": {
+              "label": "Düğme bağlantısı"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Zengin metin"
+      }
+    },
+    "main-article": {
+      "name": "Blog gönderisi",
+      "blocks": {
+        "featured_image": {
+          "name": "Öne çıkan görsel"
+        },
+        "title": {
+          "name": "Ad"
+        },
+        "details": {
+          "name": "Ayrıntılar"
+        },
+        "content": {
+          "name": "İçerik"
+        }
+      }
+    },
+    "main-product": {
+      "name": "Ürün bilgileri",
+      "blocks": {
+        "text": {
+          "name": "Metin",
+          "settings": {
+            "text": {
+              "label": "Metin"
+            }
+          }
+        },
+        "title": {
+          "name": "Ad"
+        },
+        "price": {
+          "name": "Fiyat"
+        },
+        "quantity_selector": {
+          "name": "Adet seçici"
+        },
+        "variant_picker": {
+          "name": "Varyasyon seçici"
+        },
+        "buy_buttons": {
+          "name": "Satın al düğmeleri"
+        },
+        "pickup_availability": {
+          "name": "Teslim alım kullanılabilirliği"
+        },
+        "description": {
+          "name": "Açıklama"
+        },
+        "rating": {
+          "name": "Ürün puanı",
+          "settings": {
+            "paragraph": {
+              "content": "Puan göstermek için bir ürün puanlandırma uygulaması ekleyin. [Daha fazla bilgi edinin](https://help.shopify.com/manual/online-store/themes/theme-structure/theme-features#featured-product-rating)"
+            }
+          }
+        }
+      }
+    },
+    "main-reset-password": {
+      "name": "Parola sıfırlama"
+    },
+    "main-list-collections": {
+      "name": "Koleksiyonlar listesi sayfası",
+      "settings": {
+        "title": {
+          "label": "Başlık"
+        },
+        "collections_per_page": {
+          "label": "Sayfa başına koleksiyon sayısı"
+        }
+      }
+    },
+    "main-addresses": {
+      "name": "Adresler"
+    },
+    "contact-form": {
+      "name": "İletişim Formu",
+      "heading": "Başlık",
+      "presets": {
+        "name": "İletişim formu"
+      }
+    },
+    "product-recommendations": {
+      "name": "Ürün önerileri",
+      "settings": {
+        "heading": {
+          "label": "Başlık"
+        },
+        "paragraph": {
+          "content": "Dinamik önerilerinin zamanla değişmesi ve gelişmesi için sipariş ve ürün bilgileri kullanılır. [Daha fazla bilgi edinin](https://help.shopify.com/themes/development/recommended-products)"
+        }
+      }
+    },
+    "main-account": {
+      "name": "Hesap"
+    },
+    "featured-blog": {
+      "name": "Blog gönderileri",
+      "settings": {
+        "heading": {
+          "label": "Başlık"
+        },
+        "blog": {
+          "label": "Blog"
+        }
+      },
+      "presets": {
+        "name": "Blog gönderileri"
+      }
+    },
+    "email-signup": {
+      "name": "E-posta kaydı",
+      "settings": {
+        "heading": {
+          "label": "Başlık"
+        }
+      },
+      "presets": {
+        "name": "E-posta kaydı"
+      }
+    },
+    "password-header": {
+      "name": "Parola üstbilgisi",
+      "settings": {
+        "logo": {
+          "label": "Logo görseli"
+        }
+      }
+    }
+  },
+  "settings_schema": {
+    "social_media": {
+      "name": "Sosyal medya",
+      "settings": {
+        "header": {
+          "content": "Sosyal medya hesapları"
+        },
+        "social_twitter_link": {
+          "label": "Twitter",
+          "info": "https://twitter.com/shopify"
+        },
+        "social_facebook_link": {
+          "label": "Facebook",
+          "info": "https://facebook.com/shopify"
+        },
+        "social_pinterest_link": {
+          "label": "Pinterest",
+          "info": "https://pinterest.com/shopify"
+        },
+        "social_instagram_link": {
+          "label": "Instagram",
+          "info": "http://instagram.com/shopify"
+        },
+        "social_tiktok_link": {
+          "label": "TikTok",
+          "info": "https://tiktok.com/@shopify"
+        },
+        "social_tumblr_link": {
+          "label": "Tumblr",
+          "info": "https://shopify.tumblr.com"
+        },
+        "social_snapchat_link": {
+          "label": "Snapchat",
+          "info": "https://www.snapchat.com/add/shopify"
+        },
+        "social_youtube_link": {
+          "label": "YouTube",
+          "info": "https://www.youtube.com/shopify"
+        },
+        "social_vimeo_link": {
+          "label": "Vimeo",
+          "info": "https://vimeo.com/shopify"
+        }
+      }
+    }
+  }
+}

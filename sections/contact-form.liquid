@@ -1,0 +1,104 @@
+<div class="container">
+  <h2>{{ section.settings.heading | escape }}</h2>
+  
+  {%- form 'contact', id: 'ContactForm' -%}
+    {% comment %} 
+      Check if the form submitted successfully 
+      If not it could only have come from the email field which is the only required field
+    {% endcomment %}
+    {%- if form.posted_successfully? -%}
+      <p class="message-success">{{ 'templates.contact.form.post_success' | t }}</p>
+    {%- elsif form.errors -%}
+      <p class="message-error">
+        {{ 'templates.contact.form.error_heading' | t }}
+        <a href="#ContactForm-email">
+          {{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}
+        </a>    
+      </p>
+    {%- endif -%}
+  
+    {% comment %} 
+      Name field 
+      The inputs need to have an attribute of name="contact[information_id]", where information_id briefly 
+      identifies the information that you're collecting. These titles appear in contact notifications, and 
+      must be unique within the form. The emails sent to the buyer related to contact us form submissions 
+      uses the name string for the label in the email and thus needs to be translated.
+    {% endcomment %}
+    <label for="ContactForm-name">{{ 'templates.contact.form.name' | t }}</label>
+    <input
+      autocomplete="name"
+      type="text"
+      id="ContactForm-name"
+      name="contact[{{ 'templates.contact.form.name' | t }}]"
+      value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
+    >
+  
+    {% comment %} 
+      Email field, which is required  
+      Aria is used for accessibility
+    {% endcomment %}
+    <label for="ContactForm-email">{{ 'templates.contact.form.email' | t }}<span aria-hidden="true">*</span></label>
+    <input autocomplete="email" type="email" id="ContactForm-email" name="contact[email]" spellcheck="false" autocapitalize="off" aria-required="true"
+      value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+      {% if form.errors contains 'email' %}
+        aria-invalid="true"
+        aria-describedby="ContactForm-email-error"
+      {% endif %}
+      >
+    {% comment %} Print email errors {% endcomment %}
+    {%- if form.errors contains 'email' -%}
+      <small id="ContactForm-email-error">
+        <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
+        <span class="message-error">{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}</span>
+      </small>
+    {%- endif -%}
+  
+    {% comment %} Phone field {% endcomment %}
+    <label for="ContactForm-phone">{{ 'templates.contact.form.phone' | t }}</label>
+    <input
+      type="tel"
+      id="ContactForm-phone"
+      autocomplete="tel"
+      name="contact[{{ 'templates.contact.form.phone' | t }}]"
+      pattern="[0-9\-]*"
+      value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+    >
+  
+    {% comment %} Comment field {% endcomment %}
+    <label for="ContactForm-body">{{ 'templates.contact.form.comment' | t }}</label>
+    <textarea
+      id="ContactForm-body"
+      name="contact[{{ 'templates.contact.form.comment' | t }}]"
+    >
+      {{- form.body -}}
+    </textarea>    
+    
+    <div>
+      <button class="button">
+        {{ 'templates.contact.form.send' | t }}
+      </button>
+    </div> 
+    
+  {%- endform -%}
+  </div>
+  
+{% schema %}
+{
+  "name": "t:sections.contact-form.name",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Contact form",
+      "label": "t:sections.contact-form.heading"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.contact-form.presets.name"
+    }
+  ]
+}
+{% endschema %}

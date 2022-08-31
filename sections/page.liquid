@@ -1,0 +1,40 @@
+<div class="container">
+  <h2>
+    {%- if section.settings.page.title != blank -%}
+      {{ section.settings.page.title | escape }}
+    {%- else -%}
+      {{ 'sections.page.title' | t }}
+    {%- endif -%}  
+  </h2>
+
+  <div>
+    {%- if section.settings.page.content != blank -%}
+      {{ section.settings.page.content }}
+    {%- else -%}
+      <div class="grid">
+        {{ 'page' | placeholder_svg_tag: 'page-placeholder' }}
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Page",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "page",
+      "id": "page",
+      "label": "t:sections.page.settings.page.label"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.page.presets.name"
+    }
+  ]
+}
+{% endschema %}

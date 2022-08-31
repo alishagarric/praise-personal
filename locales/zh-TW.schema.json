@@ -1,0 +1,317 @@
+{
+  "settings_schema": {
+    "social_media": {
+      "name": "社交媒體社群媒體",
+      "settings": {
+        "header": {
+          "content": "社群帳號"
+        },
+        "social_twitter_link": {
+          "label": "Twitter",
+          "info": "https://twitter.com/shopify"
+        },
+        "social_facebook_link": {
+          "label": "Facebook",
+          "info": "https://facebook.com/shopify"
+        },
+        "social_pinterest_link": {
+          "label": "Pinterest",
+          "info": "https://pinterest.com/shopify"
+        },
+        "social_instagram_link": {
+          "label": "Instagram",
+          "info": "http://instagram.com/shopify"
+        },
+        "social_tiktok_link": {
+          "label": "TikTok",
+          "info": "https://tiktok.com/@shopify"
+        },
+        "social_tumblr_link": {
+          "label": "Tumblr",
+          "info": "https://shopify.tumblr.com"
+        },
+        "social_snapchat_link": {
+          "label": "Snapchat",
+          "info": "https://www.snapchat.com/add/shopify"
+        },
+        "social_youtube_link": {
+          "label": "YouTube",
+          "info": "https://www.youtube.com/shopify"
+        },
+        "social_vimeo_link": {
+          "label": "Vimeo",
+          "info": "https://vimeo.com/shopify"
+        }
+      }
+    }
+  },
+  "sections": {
+    "announcement-bar": {
+      "name": "公告列",
+      "settings": {
+        "text": {
+          "label": "文字"
+        }
+      }
+    },
+    "apps": {
+      "name": "應用程式",
+      "presets": {
+        "name": "應用程式"
+      }
+    },
+    "image-with-text": {
+      "name": "附文字的圖片",
+      "settings": {
+        "image": {
+          "label": "圖片"
+        }
+      },
+      "blocks": {
+        "heading": {
+          "name": "標題",
+          "settings": {
+            "heading": {
+              "label": "標題"
+            }
+          }
+        },
+        "text": {
+          "name": "文字",
+          "settings": {
+            "text": {
+              "label": "內容"
+            }
+          }
+        },
+        "button": {
+          "name": "按鈕",
+          "settings": {
+            "button_label": {
+              "label": "按鈕標籤",
+              "info": "將標籤留白以隱藏按鈕。"
+            },
+            "button_link": {
+              "label": "按鈕連結"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "附文字的圖片"
+      }
+    },
+    "footer": {
+      "name": "頁尾"
+    },
+    "main-blog": {
+      "name": "網誌文章",
+      "settings": {
+        "header": {
+          "content": "網誌文章卡片"
+        },
+        "posts_per_page": {
+          "label": "每頁文章數"
+        }
+      }
+    },
+    "main-page": {
+      "name": "頁面"
+    },
+    "custom-liquid": {
+      "name": "自訂 Liquid",
+      "settings": {
+        "custom_liquid": {
+          "label": "自訂 Liquid",
+          "info": "新增應用程式程式碼片段或其他 Liquid 程式碼以建立進階自訂內容。"
+        }
+      },
+      "presets": {
+        "name": "自訂 Liquid"
+      }
+    },
+    "page": {
+      "name": "頁面",
+      "settings": {
+        "page": {
+          "label": "頁面"
+        }
+      },
+      "presets": {
+        "name": "頁面"
+      }
+    },
+    "main-login": {
+      "name": "登入"
+    },
+    "main-register": {
+      "name": "註冊"
+    },
+    "rich-text": {
+      "name": "RTF 文字",
+      "blocks": {
+        "heading": {
+          "name": "標題",
+          "settings": {
+            "heading": {
+              "label": "標題"
+            }
+          }
+        },
+        "text": {
+          "name": "文字",
+          "settings": {
+            "text": {
+              "label": "內容"
+            }
+          }
+        },
+        "button": {
+          "name": "按鈕",
+          "settings": {
+            "button_label": {
+              "label": "按鈕標籤",
+              "info": "將標籤留白以隱藏按鈕。"
+            },
+            "button_link": {
+              "label": "按鈕連結"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "RTF 文字"
+      }
+    },
+    "main-article": {
+      "name": "網誌文章",
+      "blocks": {
+        "featured_image": {
+          "name": "主要圖片"
+        },
+        "title": {
+          "name": "標題"
+        },
+        "details": {
+          "name": "詳細資訊"
+        },
+        "content": {
+          "name": "內容"
+        }
+      }
+    },
+    "main-product": {
+      "name": "商品資訊",
+      "blocks": {
+        "text": {
+          "name": "文字",
+          "settings": {
+            "text": {
+              "label": "文字"
+            }
+          }
+        },
+        "title": {
+          "name": "標題"
+        },
+        "price": {
+          "name": "價格"
+        },
+        "quantity_selector": {
+          "name": "數量選擇器"
+        },
+        "variant_picker": {
+          "name": "子類選擇器"
+        },
+        "buy_buttons": {
+          "name": "購買按鈕"
+        },
+        "pickup_availability": {
+          "name": "取貨服務適用地區"
+        },
+        "description": {
+          "name": "說明"
+        },
+        "rating": {
+          "name": "商品評等",
+          "settings": {
+            "paragraph": {
+              "content": "新增商品評等應用程式，即可顯示評等。[瞭解詳情](https://help.shopify.com/manual/online-store/themes/theme-structure/theme-features#featured-product-rating)"
+            }
+          }
+        }
+      }
+    },
+    "main-reset-password": {
+      "name": "重設密碼"
+    },
+    "main-list-collections": {
+      "name": "商品系列清單頁面",
+      "settings": {
+        "title": {
+          "label": "標題"
+        },
+        "collections_per_page": {
+          "label": "每頁商品系列數"
+        }
+      }
+    },
+    "main-addresses": {
+      "name": "地址"
+    },
+    "contact-form": {
+      "name": "聯絡表單",
+      "heading": "標題",
+      "presets": {
+        "name": "聯絡表單"
+      }
+    },
+    "product-recommendations": {
+      "name": "商品推薦",
+      "settings": {
+        "heading": {
+          "label": "標題"
+        },
+        "paragraph": {
+          "content": "動態推薦會使用訂單和商品資訊，以隨著時間改變與改進。[瞭解詳情](https://help.shopify.com/themes/development/recommended-products)"
+        }
+      }
+    },
+    "main-account": {
+      "name": "帳號"
+    },
+    "featured-blog": {
+      "name": "網誌文章",
+      "settings": {
+        "heading": {
+          "label": "標題"
+        },
+        "blog": {
+          "label": "網誌"
+        }
+      },
+      "presets": {
+        "name": "網誌文章"
+      }
+    },
+    "email-signup": {
+      "name": "電子郵件訂閱",
+      "settings": {
+        "heading": {
+          "label": "標題"
+        }
+      },
+      "presets": {
+        "name": "電子郵件訂閱"
+      }
+    },
+    "password-header": {
+      "name": "密碼頁首",
+      "settings": {
+        "logo": {
+          "label": "標誌圖片"
+        }
+      }
+    }
+  }
+}

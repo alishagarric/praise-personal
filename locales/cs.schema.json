@@ -1,0 +1,317 @@
+{
+  "settings_schema": {
+    "social_media": {
+      "name": "Sociální sítě",
+      "settings": {
+        "header": {
+          "content": "Účty na sociálních sítích"
+        },
+        "social_twitter_link": {
+          "label": "Twitter",
+          "info": "https://twitter.com/shopify"
+        },
+        "social_facebook_link": {
+          "label": "Facebook",
+          "info": "https://facebook.com/shopify"
+        },
+        "social_pinterest_link": {
+          "label": "Pinterest",
+          "info": "https://pinterest.com/shopify"
+        },
+        "social_instagram_link": {
+          "label": "Instagram",
+          "info": "http://instagram.com/shopify"
+        },
+        "social_tiktok_link": {
+          "label": "TikTok",
+          "info": "https://tiktok.com/@shopify"
+        },
+        "social_tumblr_link": {
+          "label": "Tumblr",
+          "info": "https://shopify.tumblr.com"
+        },
+        "social_snapchat_link": {
+          "label": "Snapchat",
+          "info": "https://www.snapchat.com/add/shopify"
+        },
+        "social_youtube_link": {
+          "label": "YouTube",
+          "info": "https://www.youtube.com/shopify"
+        },
+        "social_vimeo_link": {
+          "label": "Vimeo",
+          "info": "https://vimeo.com/shopify"
+        }
+      }
+    }
+  },
+  "sections": {
+    "announcement-bar": {
+      "name": "Panel oznámení",
+      "settings": {
+        "text": {
+          "label": "Text"
+        }
+      }
+    },
+    "apps": {
+      "name": "Aplikace",
+      "presets": {
+        "name": "Aplikace"
+      }
+    },
+    "image-with-text": {
+      "name": "Obrázek s textem",
+      "settings": {
+        "image": {
+          "label": "Obrázek"
+        }
+      },
+      "blocks": {
+        "heading": {
+          "name": "Nadpis",
+          "settings": {
+            "heading": {
+              "label": "Nadpis"
+            }
+          }
+        },
+        "text": {
+          "name": "Text",
+          "settings": {
+            "text": {
+              "label": "Obsah"
+            }
+          }
+        },
+        "button": {
+          "name": "Tlačítko",
+          "settings": {
+            "button_label": {
+              "label": "Text tlačítka",
+              "info": "Pokud chcete tlačítko skrýt, nezadávejte žádný text."
+            },
+            "button_link": {
+              "label": "Tlačítkový odkaz"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Obrázek s textem"
+      }
+    },
+    "footer": {
+      "name": "Zápatí"
+    },
+    "main-blog": {
+      "name": "Blogové příspěvky",
+      "settings": {
+        "header": {
+          "content": "Karta blogového příspěvku"
+        },
+        "posts_per_page": {
+          "label": "Počet příspěvků na stránku"
+        }
+      }
+    },
+    "main-page": {
+      "name": "Stránka"
+    },
+    "custom-liquid": {
+      "name": "Vlastní kód Liquidu",
+      "settings": {
+        "custom_liquid": {
+          "label": "Vlastní kód Liquidu",
+          "info": "Přidejte fragmenty aplikací nebo jiný kód Liquidu a vytvořte pokročilá přizpůsobení."
+        }
+      },
+      "presets": {
+        "name": "Vlastní kód Liquidu"
+      }
+    },
+    "page": {
+      "name": "Stránka",
+      "settings": {
+        "page": {
+          "label": "Stránka"
+        }
+      },
+      "presets": {
+        "name": "Stránka"
+      }
+    },
+    "main-article": {
+      "name": "Blogový příspěvek",
+      "blocks": {
+        "featured_image": {
+          "name": "Propagovaný obrázek"
+        },
+        "title": {
+          "name": "Název"
+        },
+        "details": {
+          "name": "Podrobnosti"
+        },
+        "content": {
+          "name": "Obsah"
+        }
+      }
+    },
+    "main-login": {
+      "name": "Přihlášení"
+    },
+    "main-register": {
+      "name": "Registrace"
+    },
+    "rich-text": {
+      "name": "Formát RTF",
+      "blocks": {
+        "heading": {
+          "name": "Nadpis",
+          "settings": {
+            "heading": {
+              "label": "Nadpis"
+            }
+          }
+        },
+        "text": {
+          "name": "Text",
+          "settings": {
+            "text": {
+              "label": "Obsah"
+            }
+          }
+        },
+        "button": {
+          "name": "Tlačítko",
+          "settings": {
+            "button_label": {
+              "label": "Text tlačítka",
+              "info": "Pokud chcete tlačítko skrýt, nezadávejte žádný text."
+            },
+            "button_link": {
+              "label": "Tlačítkový odkaz"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Formát RTF"
+      }
+    },
+    "main-product": {
+      "name": "Informace o produktu",
+      "blocks": {
+        "text": {
+          "name": "Text",
+          "settings": {
+            "text": {
+              "label": "Text"
+            }
+          }
+        },
+        "title": {
+          "name": "Název"
+        },
+        "price": {
+          "name": "Cena"
+        },
+        "quantity_selector": {
+          "name": "Výběr množství"
+        },
+        "variant_picker": {
+          "name": "Výběr varianty"
+        },
+        "buy_buttons": {
+          "name": "Tlačítka Koupit"
+        },
+        "pickup_availability": {
+          "name": "Dostupnost vyzvednutí"
+        },
+        "description": {
+          "name": "Popis"
+        },
+        "rating": {
+          "name": "Hodnocení produktů",
+          "settings": {
+            "paragraph": {
+              "content": "Pokud chcete zobrazovat hodnocení, přidejte si aplikaci pro hodnocení produktů. [Zjistit více](https://help.shopify.com/manual/online-store/themes/theme-structure/theme-features#featured-product-rating)"
+            }
+          }
+        }
+      }
+    },
+    "main-reset-password": {
+      "name": "Reset hesla"
+    },
+    "main-list-collections": {
+      "name": "Stránka se seznamem kolekcí",
+      "settings": {
+        "title": {
+          "label": "Nadpis"
+        },
+        "collections_per_page": {
+          "label": "Počet kolekcí na stránku"
+        }
+      }
+    },
+    "main-addresses": {
+      "name": "Adresy"
+    },
+    "contact-form": {
+      "name": "Kontaktní formulář",
+      "heading": "Nadpis",
+      "presets": {
+        "name": "Kontaktní formulář"
+      }
+    },
+    "product-recommendations": {
+      "name": "Doporučení produktů",
+      "settings": {
+        "heading": {
+          "label": "Nadpis"
+        },
+        "paragraph": {
+          "content": "Dynamická doporučení využívají informace o objednávkách a produktech, aby se postupem času měnila a vylepšovala. [Zjistit více](https://help.shopify.com/themes/development/recommended-products)"
+        }
+      }
+    },
+    "main-account": {
+      "name": "Účet"
+    },
+    "featured-blog": {
+      "name": "Blogové příspěvky",
+      "settings": {
+        "heading": {
+          "label": "Nadpis"
+        },
+        "blog": {
+          "label": "Blog"
+        }
+      },
+      "presets": {
+        "name": "Blogové příspěvky"
+      }
+    },
+    "email-signup": {
+      "name": "Přihlášení k odběru e-mailů",
+      "settings": {
+        "heading": {
+          "label": "Nadpis"
+        }
+      },
+      "presets": {
+        "name": "Přihlášení k odběru e-mailů"
+      }
+    },
+    "password-header": {
+      "name": "Záhlaví hesla",
+      "settings": {
+        "logo": {
+          "label": "Obrázek loga"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,317 @@
+{
+  "sections": {
+    "announcement-bar": {
+      "name": "Ilmoituspalkki",
+      "settings": {
+        "text": {
+          "label": "Teksti"
+        }
+      }
+    },
+    "apps": {
+      "name": "Sovellukset",
+      "presets": {
+        "name": "Sovellukset"
+      }
+    },
+    "image-with-text": {
+      "name": "Kuva tekstillä",
+      "settings": {
+        "image": {
+          "label": "Kuva"
+        }
+      },
+      "blocks": {
+        "heading": {
+          "name": "Otsikko",
+          "settings": {
+            "heading": {
+              "label": "Otsikko"
+            }
+          }
+        },
+        "text": {
+          "name": "Teksti",
+          "settings": {
+            "text": {
+              "label": "Sisältö"
+            }
+          }
+        },
+        "button": {
+          "name": "Painike",
+          "settings": {
+            "button_label": {
+              "label": "Tekstipainike",
+              "info": "Jos haluat piilottaa painikkeen, jätä painikkeen teksti tyhjäksi."
+            },
+            "button_link": {
+              "label": "Painikelinkki"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Kuva tekstillä"
+      }
+    },
+    "main-blog": {
+      "name": "Blogipostaukset",
+      "settings": {
+        "header": {
+          "content": "Blogipostauskortti"
+        },
+        "posts_per_page": {
+          "label": "Postausten määrä sivua kohden"
+        }
+      }
+    },
+    "main-page": {
+      "name": "Sivu"
+    },
+    "custom-liquid": {
+      "name": "Mukautettu Liquid",
+      "settings": {
+        "custom_liquid": {
+          "label": "Mukautettu Liquid",
+          "info": "Luo vaativampia mukautuksia lisäämällä sovelluksen koodinpätkiä tai muita Liquid-koodeja."
+        }
+      },
+      "presets": {
+        "name": "Mukautettu Liquid"
+      }
+    },
+    "page": {
+      "name": "Sivu",
+      "settings": {
+        "page": {
+          "label": "Sivu"
+        }
+      },
+      "presets": {
+        "name": "Sivu"
+      }
+    },
+    "footer": {
+      "name": "Alatunniste"
+    },
+    "main-login": {
+      "name": "Kirjautuminen"
+    },
+    "main-register": {
+      "name": "Rekisteröinti"
+    },
+    "rich-text": {
+      "name": "Rich text",
+      "blocks": {
+        "heading": {
+          "name": "Otsikko",
+          "settings": {
+            "heading": {
+              "label": "Otsikko"
+            }
+          }
+        },
+        "text": {
+          "name": "Teksti",
+          "settings": {
+            "text": {
+              "label": "Sisältö"
+            }
+          }
+        },
+        "button": {
+          "name": "Painike",
+          "settings": {
+            "button_label": {
+              "label": "Tekstipainike",
+              "info": "Jos haluat piilottaa painikkeen, jätä painikkeen teksti tyhjäksi."
+            },
+            "button_link": {
+              "label": "Painikelinkki"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Rich text"
+      }
+    },
+    "main-article": {
+      "name": "Blogipostaus",
+      "blocks": {
+        "featured_image": {
+          "name": "Esittelykuva"
+        },
+        "title": {
+          "name": "Nimi"
+        },
+        "details": {
+          "name": "Tiedot"
+        },
+        "content": {
+          "name": "Sisältö"
+        }
+      }
+    },
+    "main-product": {
+      "name": "Tuotetiedot",
+      "blocks": {
+        "text": {
+          "name": "Teksti",
+          "settings": {
+            "text": {
+              "label": "Teksti"
+            }
+          }
+        },
+        "title": {
+          "name": "Nimi"
+        },
+        "price": {
+          "name": "Hinta"
+        },
+        "quantity_selector": {
+          "name": "Määrän valitsin"
+        },
+        "variant_picker": {
+          "name": "Versionvalitsin"
+        },
+        "buy_buttons": {
+          "name": "Osta-painikkeet"
+        },
+        "pickup_availability": {
+          "name": "Noudon saatavuus"
+        },
+        "description": {
+          "name": "Kuvaus"
+        },
+        "rating": {
+          "name": "Tuoteluokitus",
+          "settings": {
+            "paragraph": {
+              "content": "Näytä luokitus lisäämällä tuotearviointisovellus. [Lisätietoja](https://help.shopify.com/manual/online-store/themes/theme-structure/theme-features#featured-product-rating)"
+            }
+          }
+        }
+      }
+    },
+    "main-reset-password": {
+      "name": "Salasanan palautus"
+    },
+    "main-list-collections": {
+      "name": "Kokoelmaluettelosivu",
+      "settings": {
+        "title": {
+          "label": "Otsikko"
+        },
+        "collections_per_page": {
+          "label": "Kokoelmien määrä sivulla"
+        }
+      }
+    },
+    "contact-form": {
+      "name": "Yhteydenottolomake",
+      "heading": "Otsikko",
+      "presets": {
+        "name": "Yhteydenottolomake"
+      }
+    },
+    "product-recommendations": {
+      "name": "Tuotesuositukset",
+      "settings": {
+        "heading": {
+          "label": "Otsikko"
+        },
+        "paragraph": {
+          "content": "Dynaamisissa suosituksissa käytetään tilaus- ja tuotetietoja, jotta suositukset muuttuvat ja paranevat ajan myötä. [Lisätietoja](https://help.shopify.com/themes/development/recommended-products)"
+        }
+      }
+    },
+    "main-account": {
+      "name": "Tili"
+    },
+    "featured-blog": {
+      "name": "Blogipostaukset",
+      "settings": {
+        "heading": {
+          "label": "Otsikko"
+        },
+        "blog": {
+          "label": "Blogi"
+        }
+      },
+      "presets": {
+        "name": "Blogipostaukset"
+      }
+    },
+    "email-signup": {
+      "name": "Sähköpostirekisteröityminen",
+      "settings": {
+        "heading": {
+          "label": "Otsikko"
+        }
+      },
+      "presets": {
+        "name": "Sähköpostirekisteröityminen"
+      }
+    },
+    "password-header": {
+      "name": "Salasanaylätunniste",
+      "settings": {
+        "logo": {
+          "label": "Logokuva"
+        }
+      }
+    },
+    "main-addresses": {
+      "name": "Osoitteet"
+    }
+  },
+  "settings_schema": {
+    "social_media": {
+      "name": "Sosiaalinen media",
+      "settings": {
+        "header": {
+          "content": "Sosiaalisen median tilit"
+        },
+        "social_twitter_link": {
+          "label": "Twitter",
+          "info": "https://twitter.com/shopify"
+        },
+        "social_facebook_link": {
+          "label": "Facebook",
+          "info": "https://facebook.com/shopify"
+        },
+        "social_pinterest_link": {
+          "label": "Pinterest",
+          "info": "https://pinterest.com/shopify"
+        },
+        "social_instagram_link": {
+          "label": "Instagram",
+          "info": "https://instagram.com/shopify"
+        },
+        "social_tiktok_link": {
+          "label": "TikTok",
+          "info": "https://tiktok.com/@shopify"
+        },
+        "social_tumblr_link": {
+          "label": "Tumblr",
+          "info": "http://shopify.tumblr.com"
+        },
+        "social_snapchat_link": {
+          "label": "Snapchat",
+          "info": "https://www.snapchat.com/add/shopify"
+        },
+        "social_youtube_link": {
+          "label": "YouTube",
+          "info": "https://www.youtube.com/shopify"
+        },
+        "social_vimeo_link": {
+          "label": "Vimeo",
+          "info": "https://vimeo.com/shopify"
+        }
+      }
+    }
+  }
+}

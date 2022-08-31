@@ -1,0 +1,25 @@
+{{ 'section-main-collection-banner.css' | asset_url | stylesheet_tag }}
+
+<div class="container grid">
+  {% unless collection.image == blank %}
+    <div>
+      <div class="media" style="--width: {{ collection.image.width }}; --height: {{ collection.image.height }};">
+        {{
+          collection.image |
+          image_url: width: 2000 |
+          image_tag: widths: "360, 584, 750, 960, 1168, 1340, 1500", sizes: "(min-width: 1200px) 584px, (min-width: 750px) and (max-width: 1199px) calc(50vw), 100vw", loading: "eager"
+        }}
+      </div>
+    </div>
+  {% endunless %}
+  <div>
+    <h1>{{ collection.title | escape }}</h1>
+    <div>{{ collection.description }}</div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "class": "section-main-collection-banner"
+}
+{% endschema %}

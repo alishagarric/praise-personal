@@ -1,0 +1,317 @@
+{
+  "sections": {
+    "announcement-bar": {
+      "name": "Aankondigingsbalk",
+      "settings": {
+        "text": {
+          "label": "Tekst"
+        }
+      }
+    },
+    "apps": {
+      "name": "Apps",
+      "presets": {
+        "name": "Apps"
+      }
+    },
+    "image-with-text": {
+      "name": "Afbeelding met tekst",
+      "settings": {
+        "image": {
+          "label": "Afbeelding"
+        }
+      },
+      "blocks": {
+        "heading": {
+          "name": "Koptekst",
+          "settings": {
+            "heading": {
+              "label": "Koptekst"
+            }
+          }
+        },
+        "text": {
+          "name": "Tekst",
+          "settings": {
+            "text": {
+              "label": "Content"
+            }
+          }
+        },
+        "button": {
+          "name": "Knop",
+          "settings": {
+            "button_label": {
+              "label": "Knoplabel",
+              "info": "Laat het label leeg om de knop te verbergen."
+            },
+            "button_link": {
+              "label": "Knoplink"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Afbeelding met tekst"
+      }
+    },
+    "main-blog": {
+      "name": "Blogposts",
+      "settings": {
+        "header": {
+          "content": "Kaart blogpost"
+        },
+        "posts_per_page": {
+          "label": "Aantal posts per pagina"
+        }
+      }
+    },
+    "main-page": {
+      "name": "Pagina"
+    },
+    "custom-liquid": {
+      "name": "Aangepaste Liquid",
+      "settings": {
+        "custom_liquid": {
+          "label": "Aangepaste Liquid",
+          "info": "Voeg app-fragmenten of andere Liquid-code toe om geavanceerde aanpassingen aan te maken."
+        }
+      },
+      "presets": {
+        "name": "Aangepaste Liquid"
+      }
+    },
+    "page": {
+      "name": "Pagina",
+      "settings": {
+        "page": {
+          "label": "Pagina"
+        }
+      },
+      "presets": {
+        "name": "Pagina"
+      }
+    },
+    "footer": {
+      "name": "Voettekst"
+    },
+    "main-login": {
+      "name": "Inloggen"
+    },
+    "main-register": {
+      "name": "Registratie"
+    },
+    "rich-text": {
+      "name": "Tekst met opmaak",
+      "blocks": {
+        "heading": {
+          "name": "Koptekst",
+          "settings": {
+            "heading": {
+              "label": "Koptekst"
+            }
+          }
+        },
+        "text": {
+          "name": "Tekst",
+          "settings": {
+            "text": {
+              "label": "Inhoud"
+            }
+          }
+        },
+        "button": {
+          "name": "Knop",
+          "settings": {
+            "button_label": {
+              "label": "Knoplabel",
+              "info": "Laat het label leeg om de knop te verbergen."
+            },
+            "button_link": {
+              "label": "Knoplink"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Tekst met opmaak"
+      }
+    },
+    "main-article": {
+      "name": "Blogpost",
+      "blocks": {
+        "featured_image": {
+          "name": "Uitgelichte afbeelding"
+        },
+        "title": {
+          "name": "Titel"
+        },
+        "details": {
+          "name": "Gegevens"
+        },
+        "content": {
+          "name": "Content"
+        }
+      }
+    },
+    "main-product": {
+      "name": "Productinformatie",
+      "blocks": {
+        "text": {
+          "name": "Tekst",
+          "settings": {
+            "text": {
+              "label": "Tekst"
+            }
+          }
+        },
+        "title": {
+          "name": "Titel"
+        },
+        "price": {
+          "name": "Prijs"
+        },
+        "quantity_selector": {
+          "name": "Hoeveelheidskiezer"
+        },
+        "variant_picker": {
+          "name": "Variantkiezer"
+        },
+        "buy_buttons": {
+          "name": "Koopknoppen"
+        },
+        "pickup_availability": {
+          "name": "Beschikbaarheid voor afhaling"
+        },
+        "description": {
+          "name": "Beschrijving"
+        },
+        "rating": {
+          "name": "Productbeoordeling",
+          "settings": {
+            "paragraph": {
+              "content": "Voeg een app voor productbeoordelingen toe om een beoordeling weer te geven. [Meer informatie](https://help.shopify.com/manual/online-store/themes/theme-structure/theme-features#featured-product-rating)"
+            }
+          }
+        }
+      }
+    },
+    "main-reset-password": {
+      "name": "Wachtwoord opnieuw instellen"
+    },
+    "main-list-collections": {
+      "name": "Collectie paginalijst",
+      "settings": {
+        "title": {
+          "label": "Koptekst"
+        },
+        "collections_per_page": {
+          "label": "Aantal collecties per pagina"
+        }
+      }
+    },
+    "main-addresses": {
+      "name": "Adressen"
+    },
+    "contact-form": {
+      "name": "Contactformulier",
+      "heading": "Koptekst",
+      "presets": {
+        "name": "Contactformulier"
+      }
+    },
+    "product-recommendations": {
+      "name": "Productaanbevelingen",
+      "settings": {
+        "heading": {
+          "label": "Koptekst"
+        },
+        "paragraph": {
+          "content": "Dynamische aanbevelingen gebruiken bestellings- en productinformatie om in de loop van de tijd te veranderen en te verbeteren. [Meer informatie](https://help.shopify.com/themes/development/recommended-products)"
+        }
+      }
+    },
+    "main-account": {
+      "name": "Account"
+    },
+    "featured-blog": {
+      "name": "Blogposts",
+      "settings": {
+        "heading": {
+          "label": "Koptekst"
+        },
+        "blog": {
+          "label": "Blog"
+        }
+      },
+      "presets": {
+        "name": "Blogposts"
+      }
+    },
+    "email-signup": {
+      "name": "Aanmelding voor het ontvangen van e-mails",
+      "settings": {
+        "heading": {
+          "label": "Koptekst"
+        }
+      },
+      "presets": {
+        "name": "Aanmelding voor het ontvangen van e-mails"
+      }
+    },
+    "password-header": {
+      "name": "Wachtwoord koptekst",
+      "settings": {
+        "logo": {
+          "label": "Afbeelding van logo"
+        }
+      }
+    }
+  },
+  "settings_schema": {
+    "social_media": {
+      "name": "Social media",
+      "settings": {
+        "header": {
+          "content": "Socialmedia-accounts"
+        },
+        "social_twitter_link": {
+          "label": "Twitter",
+          "info": "https://twitter.com/shopify"
+        },
+        "social_facebook_link": {
+          "label": "Facebook",
+          "info": "https://facebook.com/shopify"
+        },
+        "social_pinterest_link": {
+          "label": "Pinterest",
+          "info": "https://pinterest.com/shopify"
+        },
+        "social_instagram_link": {
+          "label": "Instagram",
+          "info": "http://instagram.com/shopify"
+        },
+        "social_tiktok_link": {
+          "label": "TikTok",
+          "info": "https://tiktok.com/@shopify"
+        },
+        "social_tumblr_link": {
+          "label": "Tumblr",
+          "info": "https://shopify.tumblr.com"
+        },
+        "social_snapchat_link": {
+          "label": "Snapchat",
+          "info": "https://www.snapchat.com/add/shopify"
+        },
+        "social_youtube_link": {
+          "label": "YouTube",
+          "info": "https://www.youtube.com/shopify"
+        },
+        "social_vimeo_link": {
+          "label": "Vimeo",
+          "info": "https://vimeo.com/shopify"
+        }
+      }
+    }
+  }
+}
