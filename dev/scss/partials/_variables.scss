@@ -1,137 +1,25 @@
 // --------------------------------------------------
 // Colors
 
-:root {
-  --color-cream: 255, 248, 238;
-  --color-dark-cream: 243, 239, 225;
-  --color-ground: 61, 41, 13;
-  --color-sun: 213, 122, 32;
-  --color-sky: 163, 205, 221;
-  --color-tan: 255, 233, 188;
-  --color-grass: 54, 106, 47;
-  --color-black: 0, 0, 0;
-  --color-btn-hover: rgba(var(--color-ground));
-  --color-btn-hover-txt: rgba(var(--color-cream));
-}
-
 :root,
-.color-background-1,
-.color-cream {
-  --color-foreground: rgba(var(--color-ground));
-  --color-background: rgba(var(--color-cream));
-  --color-background-alt: rgba(var(--color-dark-cream));
-  --color-accent: rgba(var(--color-sun));
-  --color-btn: rgba(var(--color-grass));
-  --color-btn-txt: rgba(var(--color-cream));
+.__theme-default {
+  /*
+  --color-background: rgba(var(--color-background));
+  --color-background-alt: rgba(var(--color-background-alt));
+  --color-text: rgba(var(--color-text));
+  --color-foreground: rgba(var(--color-foreground));
+  --color-foreground-text: rgba(var(--color-foreground-text));
+  --color-border: rgba(var(--color-border));
+  */
 }
 
-.__btn-clr-cream {
-  --color-btn: rgba(var(--color-cream));
-  --color-btn-txt: rgba(var(--color-ground));
-  --color-btn-hover: rgba(var(--color-ground));
-  --color-btn-hover-txt: rgba(var(--color-cream));
-}
-
-.color-background-2,
-.color-dark-cream {
-  --color-foreground: rgba(var(--color-ground));
-  --color-background: rgba(var(--color-dark-cream));
-  --color-background-alt: rgba(var(--color-cream));
-  --color-accent: rgba(var(--color-sun));
-  --color-btn: rgba(var(--color-ground));
-  --color-btn-txt: rgba(var(--color-dark-cream));
-  --color-btn-hover: rgba(var(--color-cream));
-  --color-btn-hover-txt: rgba(var(--color-ground));
-}
-
-.__btn-clr-dark-cream {
-  --color-btn: rgba(var(--color-dark-cream));
-  --color-btn-txt: rgba(var(--color-ground));
-  --color-btn-hover: rgba(var(--color-ground));
-  --color-btn-hover-txt: rgba(var(--color-cream));
-}
-
-.color-inverse,
-.color-ground {
-  --color-foreground: rgba(var(--color-cream));
-  --color-background: rgba(var(--color-ground));
-  --color-background-alt: lighten(var(--color-ground), 10);
-  --color-accent: rgba(var(--color-sun));
-  --color-btn: rgba(var(--color-cream));
-  --color-btn-txt: rgba(var(--color-ground));
-}
-
-.__btn-clr-ground {
-  --color-btn: rgba(var(--color-ground));
-  --color-btn-txt: rgba(var(--color-cream));
-  --color-btn-hover: rgba(var(--color-dark-cream));
-  --color-btn-hover-txt: rgba(var(--color-ground));
-}
-
-.color-grass {
-  --color-foreground: rgba(var(--color-cream));
-  --color-background: rgba(var(--color-grass));
-  --color-background-alt: lighten(var(--color-grass), 10);
-  --color-accent: rgba(var(--color-cream));
-  --color-btn: rgba(var(--color-cream));
-  --color-btn-txt: rgba(var(--color-grass));
-}
-
-.accent-grass {
-  --color-accent: rgba(var(--color-grass));
-}
-
-.__btn-clr-grass {
-  --color-btn: rgba(var(--color-grass));
-  --color-btn-txt: rgba(var(--color-cream));
-}
-
-.color-sun {
-  --color-foreground: rgba(var(--color-ground));
-  --color-background: rgba(var(--color-sun));
-  --color-background-alt: lighten(var(--color-sun), 10);
-  --color-accent: rgba(var(--color-ground));
-  --color-btn: rgba(var(--color-ground));
-  --color-btn-txt: rgba(var(--color-sun));
-  --color-btn-hover: rgba(var(--color-cream));
-  --color-btn-hover-txt: rgba(var(--color-ground));
-}
-
-.__btn-clr-sun {
-  --color-btn: rgba(var(--color-sun));
-  --color-btn-txt: rgba(var(--color-ground));
-}
-
-.color-sky {
-  --color-foreground: rgba(var(--color-ground));
-  --color-background: rgba(var(--color-sky));
-  --color-background-alt: lighten(var(--color-sky), 10);
-  --color-accent: rgba(var(--color-ground));
-  --color-btn: rgba(var(--color-ground));
-  --color-btn-txt: rgba(var(--color-sky));
-  --color-btn-hover: rgba(var(--color-cream));
-  --color-btn-hover-txt: rgba(var(--color-ground));
-}
-
-.__btn-clr-sky {
-  --color-btn: rgba(var(--color-sky));
-  --color-btn-txt: rgba(var(--color-ground));
-}
-
-.color-tan {
-  --color-foreground: rgba(var(--color-ground));
-  --color-background: rgba(var(--color-tan));
-  --color-background-alt: lighten(var(--color-tan), 10);
-  --color-accent: rgba(var(--color-ground));
-  --color-btn: rgba(var(--color-ground));
-  --color-btn-txt: rgba(var(--color-tan));
-  --color-btn-hover: rgba(var(--color-cream));
-  --color-btn-hover-txt: rgba(var(--color-ground));
-}
-
-.__btn-clr-tan {
-  --color-btn: rgba(var(--color-tan));
-  --color-btn-txt: rgba(var(--color-ground));
+.__btn-clr-something {
+  /*
+  --color-btn: rgba(var(--color-background));
+  --color-btn-txt: rgba(var(--color-background));
+  --color-btn-hover: rgba(var(--color-background));
+  --color-btn-hover-txt: rgba(var(--color-background));
+  */
 }
 
 // Sizing

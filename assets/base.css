@@ -8,13 +8,13 @@
 }
 
 *:focus-visible {
-  outline: 1px solid var(--color-outline);
+  outline: 1px solid var(--color-outline); /* TODO change this to a lower opacity version of the --text-color or foreground-color variable */
   outline-offset: 0;
 }
 
 /* Fallback for browsers that don't support `:focus-visible` */
 *:focus {
-  outline: 1px solid var(--color-outline);
+  outline: 1px solid var(--color-outline); /* TODO change this to a lower opacity version of the --text-color or foreground-color variable */
   outline-offset: 0;
 }
 
