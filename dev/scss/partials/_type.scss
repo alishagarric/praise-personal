@@ -22,82 +22,82 @@ h6,
 
 h1,
 .h1 {
-  font-size: 4rem;
+  font-size: calc(4rem * var(--font-heading-scale));
   font-weight: 900;
 
   @media (max-width: 1024px) {
-    font-size: 2.6rem;
+    font-size: calc(2.6rem * var(--font-heading-scale));
   }
 
   @media (max-width: 676px) {
-    font-size: 2.25rem;
+    font-size: calc(2.25rem * var(--font-heading-scale));
   }
 }
 
 h2,
 .h2 {
-  font-size: 3rem;
+  font-size: calc(3rem * var(--font-heading-scale));
   font-weight: 900;
 
   @media (max-width: 1024px) {
-    font-size: 2rem;
+    font-size: calc(2rem * var(--font-heading-scale));
   }
 
   @media (max-width: 676px) {
-    font-size: 1.5rem;
+    font-size: calc(1.5rem * var(--font-heading-scale));
   }
 }
 
 h3,
 .h3 {
-  font-size: 3rem;
+  font-size: calc(3rem * var(--font-heading-scale));
   font-weight: 500;
 
   @media (max-width: 1024px) {
-    font-size: 2rem;
+    font-size: calc(2rem * var(--font-heading-scale));
   }
 
   @media (max-width: 676px) {
-    font-size: 1.5rem;
+    font-size: calc(1.5rem * var(--font-heading-scale));
   }
 }
 
 h4,
 .h4 {
-  font-size: 2.25rem;
+  font-size: calc(2.25rem * var(--font-heading-scale));
 
   @media (max-width: 1024px) {
-    font-size: 1.75rem;
+    font-size: calc(1.75rem * var(--font-heading-scale));
   }
 
   @media (max-width: 676px) {
-    font-size: 1.25rem;
+    font-size: calc(1.25rem * var(--font-heading-scale));
   }
 }
 
 h5,
 .h5 {
-  font-size: 1.75rem;
+  font-size: calc(1.75rem * var(--font-heading-scale));
 
   @media (max-width: 1024px) {
-    font-size: 1.65rem;
+    font-size: calc(1.65rem * var(--font-heading-scale));
   }
 
   @media (max-width: 676px) {
-    font-size: 1.25rem;
+    font-size: calc(1.25rem * var(--font-heading-scale));
   }
 }
 
 h6,
 .h6 {
-  font-size: 1.3125rem;
+  font-size: calc(1.3125rem * var(--font-heading-scale));
 
   @media (max-width: 1024px) {
-    font-size: 1.3rem;
+    font-size: calc(1.3rem * var(--font-heading-scale));
   }
 
   @media (max-width: 676px) {
-    font-size: 1.2rem;
+    font-size: calc(1.2rem * var(--font-heading-scale));
   }
 }
 
@@ -113,20 +113,20 @@ p,
 
 p,
 .p {
-  font-size: 1.125rem;
+  font-size: calc(1.125rem * var(--font-body-scale));
 }
 
 .p-sm,
 .p-sm > p {
-  font-size: 1rem;
+  font-size: calc(1rem * var(--font-heading-scale));
 }
 
 .p-lg,
 .p-lg > p {
-  font-size: 1.375rem;
+  font-size: calc(1.375rem * var(--font-heading-scale));
 
   @media (max-width: 1024px) {
-    font-size: 1.2rem;
+    font-size: calc(1.2rem * var(--font-heading-scale));
   }
 }
 
@@ -140,16 +140,16 @@ p,
 }
 
 .caption {
-  font-size: 1.125rem;
+  font-size: calc(1.125rem * var(--font-heading-scale));
 }
 
 .caption-sm {
-  font-size: 0.75rem;
+  font-size: calc(0.75rem * var(--font-heading-scale));
 }
 
 .caption-lg {
   font-weight: 700;
-  font-size: 1.3125rem;
+  font-size: calc(1.3125rem * var(--font-heading-scale));
 }
 
 a {
@@ -167,27 +167,27 @@ li {
 .__article-txt,
 .__article-txt-p-sm {
   h1 {
-    font-size: 2.25rem;
+    font-size: calc(2.25rem * var(--font-heading-scale));
   }
 
   h2 {
-    font-size: 1.75rem;
+    font-size: calc(1.75rem * var(--font-heading-scale));
   }
 
   h3 {
-    font-size: 1.31rem;
+    font-size: calc(1.31rem * var(--font-heading-scale));
   }
 
   h4 {
-    font-size: 1.125rem;
+    font-size: calc(1.125rem * var(--font-heading-scale));
   }
 
   h5 {
-    font-size: 1rem;
+    font-size: calc(1rem * var(--font-heading-scale));
   }
 
   h6 {
-    font-size: 0.9rem;
+    font-size: calc(0.9rem * var(--font-heading-scale));
   }
 
   a {
@@ -223,7 +223,7 @@ li {
   blockquote p {
     padding-left: 0;
     font-style: italic;
-    font-size: 1rem;
+    font-size: calc(1rem * var(--font-heading-scale));
     font-weight: 600;
     padding-left: 1.5rem;
     position: relative;
@@ -245,7 +245,7 @@ li {
     margin-bottom: 1rem;
 
     li {
-      font-size: 0.9rem;
+      font-size: calc(0.9rem * var(--font-heading-scale));
     }
   }
 
@@ -267,10 +267,10 @@ li {
 .__article-txt-p-lg,
 .__article-txt.p-lg {
   p {
-    font-size: 1.375rem;
+    font-size: calc(1.375rem * var(--font-heading-scale));
 
     @media (max-width: 1024px) {
-      font-size: 1.2rem;
+      font-size: calc(1.2rem * var(--font-heading-scale));
     }
   }
 }
@@ -278,6 +278,6 @@ li {
 .__article-txt-p-sm,
 .__article-txt.p-sm {
   p {
-    font-size: 0.875rem;
+    font-size: calc(0.875rem * var(--font-heading-scale));
   }
 }
