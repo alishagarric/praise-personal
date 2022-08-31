@@ -1,4 +1,30 @@
 {
   "current": {
+    "type_header_font": "abril_fatface_n4",
+    "heading_scale": 120,
+    "type_body_font": "archivo_narrow_n4",
+    "body_scale": 110,
+    "sections": {
+      "announcement-bar": {
+        "type": "announcement-bar",
+        "settings": {
+          "text": "Welcome to our store"
+        }
+      },
+      "header": {
+        "type": "header",
+        "settings": {
+          "menu": "main-menu"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+        }
+      }
+    },
+    "content_for_index": [
+
+    ]
   }
 }
