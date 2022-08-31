@@ -1,0 +1,177 @@
+.article-card {
+  --articleCardImageRatio: 85%;
+  display: block;
+
+  &__image {
+    padding-top: var(--articleCardImageRatio);
+    position: relative;
+    overflow: hidden;
+
+    &__placeholder,
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1);
+      will-change: transform;
+      transition: all 0.25s ease;
+    }
+
+    &__placeholder {
+      background: repeating-linear-gradient(
+        45deg,
+        var(--color-background-alt),
+        var(--color-background-alt) calc(var(--pxSize) / 4),
+        var(--color-background) calc(var(--pxSize) / 4),
+        var(--color-background) calc(var(--pxSize) / 2)
+      );
+    }
+  }
+
+  &__content {
+    padding: calc(var(--pxSize) / 3);
+
+    &__heading {
+      margin: 0;
+    }
+
+    &__text {
+      grid-column: 1 / -1;
+      margin-bottom: 0;
+      font-size: 1rem;
+    }
+  }
+
+  &:hover {
+    .article-card {
+      &__image {
+        &__placeholder,
+        img {
+          transform: scale(1.05);
+        }
+      }
+    }
+  }
+
+  //default layout, add new layouts here with :not selector as needed
+  &:not(.__style-condensed):not(.__style-horizontal):not(.__style-teaser) {
+    .article-card {
+      &__content {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: calc(var(--pxSize) / 3);
+
+        &__heading {
+          grid-column: 1 / 2;
+        }
+
+        &__date {
+          grid-column: 2 / 3;
+        }
+      }
+    }
+  }
+
+  &.__style-horizontal {
+    display: flex;
+
+    .article-card {
+      &__image {
+        padding-top: calc(var(--articleCardImageRatio) / 2);
+      }
+
+      &__content {
+        display: flex;
+        flex-direction: column;
+        padding: var(--pxSize);
+
+        &__text {
+          margin-top: calc(var(--pxSize) / 3);
+        }
+      }
+
+      &__content,
+      &__image {
+        flex: 1;
+      }
+    }
+  }
+
+  &.__style-teaser {
+    display: flex;
+
+    .article-card {
+      &__content {
+        display: flex;
+        flex-direction: column;
+        padding: 0 calc(var(--pxSize) / 2);
+        justify-content: center;
+        flex: 2;
+      }
+
+      &__image {
+        flex: 1;
+        padding-top: calc(var(--articleCardImageRatio) / 3);
+      }
+    }
+  }
+
+  @media screen and (max-width: 676px) {
+    background: var(--color-background-alt);
+
+    //default layout, add new layouts here with :not selector as needed
+    &:not(.__style-condensed):not(.__style-teaser) {
+      .article-card {
+        &__content {
+          padding: calc(var(--pxSize));
+          display: flex !important;
+          flex-direction: column;
+
+          &__date {
+            order: -1;
+          }
+
+          &__heading {
+            order: 0;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+
+    &.__style-horizontal {
+      flex-direction: column;
+
+      .article-card {
+        &__image {
+          padding-top: var(--articleCardImageRatio);
+        }
+      }
+    }
+
+    &.__style-condensed {
+      display: flex;
+
+      .article-card {
+        &__image {
+          flex: 1;
+          padding-top: calc(var(--articleCardImageRatio) / 3);
+        }
+
+        &__content {
+          flex: 2;
+          display: flex;
+          flex-direction: column-reverse;
+          justify-content: center;
+
+          &__date {
+            margin-bottom: calc(var(--pxSize) / 3);
+          }
+        }
+      }
+    }
+  }
+}

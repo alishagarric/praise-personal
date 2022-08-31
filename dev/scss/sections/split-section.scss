@@ -1,0 +1,122 @@
+.split-section {
+  --splitSectionSpace: calc(var(--sectionHorizontalSpacing) / 1.5);
+  --splitSectionRatio: 37%;
+  display: flex;
+  gap: var(--splitSectionSpace);
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    &__heading {
+      &:not(:first-child) {
+        margin-top: 1rem;
+      }
+    }
+
+    &__icon {
+      img {
+        height: calc(var(--pxSize) * 1.25);
+        width: auto;
+      }
+    }
+  }
+
+  &__image {
+    position: relative;
+
+    img {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      object-fit: cover;
+      width: calc(var(--sectionHorizontalSpacing) + 100%);
+    }
+  }
+
+  &:not(.__layout-reversed) {
+    .split-section {
+      &__image {
+        img {
+          left: 0;
+        }
+      }
+    }
+  }
+
+  &.__layout-reversed {
+    flex-direction: row-reverse;
+
+    .split-section {
+      &__image {
+        img {
+          right: 0;
+        }
+      }
+    }
+  }
+
+  &:not(.__image-style-square) {
+    .split-section {
+      &__text,
+      &__image {
+        min-height: calc(var(--vwSize) * 18);
+        flex: 1;
+      }
+
+      &__image {
+        flex: 0 0 var(--splitSectionRatio);
+      }
+    }
+
+    &.__image-style-wide {
+      --splitSectionRatio: 50%;
+    }
+  }
+
+  &.__image-style-square {
+    --splitSectionSpace: calc(var(--sectionHorizontalSpacing) / 2);
+    align-items: center;
+
+    .split-section {
+      &__image {
+        flex: 0 0 calc(var(--vwSize) * 15);
+        padding-top: calc(var(--vwSize) * 15);
+
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 676px) {
+    --splitSectionSpace: var(--sectionVerticalSpacing);
+    flex-direction: column-reverse;
+
+    &__image {
+      width: 100%;
+      padding-top: calc(100% * 2 / 3);
+
+      img {
+        width: 100%;
+      }
+    }
+
+    &.__layout-reversed {
+      flex-direction: column-reverse;
+    }
+
+    &.__image-style-square {
+      --splitSectionSpace: var(--sectionVerticalSpacing);
+
+      .split-section {
+        &__image {
+          padding-top: 100%;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,343 @@
+//Main structures
+////////////////////////////////////
+
+html {
+  height: 100%;
+}
+
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100%;
+  background: var(--color-background);
+  color: var(--color-foreground);
+
+  ::selection {
+    background: var(--color-accent); /* WebKit/Blink Browsers */
+  }
+  ::-moz-selection {
+    background: var(--color-accent); /* Gecko Browsers */
+  }
+
+  &.__mobile-overflow-none {
+    overflow: hidden;
+  }
+
+  main {
+    > *:first-child:not(.section-image__wrapper):not(.content-with-bg-image__wrapper) {
+      margin-top: var(--navHeight);
+    }
+  }
+}
+
+//Sections' space and color defaults
+////////////////////////////////////
+main > section > div,
+body > div > section,
+body > div > footer {
+  padding: calc(var(--sectionVerticalSpacing) * var(--topSpacingRatio))
+    var(--sectionHorizontalSpacing)
+    calc(var(--sectionVerticalSpacing) * var(--bottomSpacingRatio))
+    var(--sectionHorizontalSpacing);
+  position: relative;
+  color: var(--color-foreground);
+
+  &:after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--color-background);
+    z-index: -1;
+  }
+}
+
+//How the nav position effects sticky elements
+.__visible-nav + main {
+  --stickyElementTransition: translateY(var(--navHeight));
+}
+
+//Form styles
+////////////////////////////////////
+form {
+  button,
+  input,
+  textarea {
+    font-family: var(--font-body-family);
+    letter-spacing: 0.04rem;
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  button,
+  input[type="submit"],
+  input[type="text"],
+  input[type="email"] {
+    height: var(--inputHeight);
+    padding: 0 calc(var(--inputHeight) / 3);
+    font-size: 1rem;
+    border-radius: 0px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    border: 1px solid var(--color-foreground);
+    background: transparent;
+  }
+
+  textarea {
+    font-size: 1rem;
+    border-radius: 0px;
+    padding: calc(var(--inputHeight) / 3);
+  }
+
+  ::placeholder {
+    color: var(--color-foreground);
+    opacity: 50%;
+  }
+
+  button,
+  input[type="submit"] {
+    background: var(--color-accent);
+    color: var(--color-foreground);
+    font-weight: 600;
+    border: none;
+    border-radius: 7px;
+
+    &:hover {
+      cursor: pointer;
+      opacity: 0.7;
+    }
+  }
+
+  &.__form-styles {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--inputHeight) / 3);
+
+    > div {
+      display: flex;
+      gap: calc(var(--inputHeight) / 3);
+
+      > input {
+        flex: 1;
+      }
+    }
+  }
+
+  @media screen and (max-width: 676px) {
+    &.__form-styles {
+      & > div {
+        display: block;
+      }
+
+      input {
+        width: 100%;
+
+        &:first-of-type {
+          margin-bottom: calc(var(--inputHeight) / 3);
+        }
+      }
+    }
+  }
+}
+
+//Button styles
+////////////////////////////////////
+
+.btn {
+  height: var(--btnHeight);
+  line-height: var(--btnHeight);
+  border-radius: 7px;
+  background: var(--color-btn);
+  color: var(--color-btn-txt);
+  padding: 0 calc(var(--btnHeight) / 2);
+  display: inline-flex;
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin: 1rem 0 0 0;
+  align-items: center;
+  -webkit-appearance: none;
+
+  &:hover {
+    background: var(--color-btn-hover);
+    color: var(--color-btn-hover-txt);
+  }
+}
+
+.__with-border {
+  background: none;
+  border: 2px solid var(--color-accent);
+  color: var(--color-accent);
+  width: fit-content;
+  border-radius: 2px;
+
+  &:hover {
+    background: var(--color-accent);
+    color: var(--color-btn-txt);
+
+    svg {
+      stroke: var(--color-btn-txt);
+    }
+  }
+
+  svg {
+    stroke: var(--color-accent);
+    width: calc(var(--btnHeight) / 3);
+    margin-left: calc(var(--btnHeight) / 4);
+  }
+}
+
+//Breadcrumb styles
+////////////////////////////////////
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: calc(var(--pxSize));
+
+  svg {
+    width: calc(var(--pxSize) / 3);
+    margin: 0 calc(var(--pxSize) / 5);
+    height: auto;
+
+    * {
+      fill: var(--color-foreground);
+    }
+  }
+
+  &__current {
+    font-weight: 500;
+  }
+
+  &__link {
+    white-space: nowrap;
+    margin: 0;
+  }
+}
+
+//Modal styles
+////////////////////////////////////
+
+.cmnc-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(var(--color-black), 0.2);
+  z-index: 999;
+
+  &.__active {
+    display: block;
+  }
+
+  &__exit {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: transparent;
+    border: none;
+    padding: calc(var(--pxSize) / 3);
+    z-index: 10;
+
+    svg {
+      height: calc(var(--pxSize) / 2);
+      width: auto;
+      transform: rotate(45deg) scale(1);
+      will-change: transform;
+      transition: all 0.25s ease;
+    }
+
+    &:hover {
+      cursor: pointer;
+
+      svg {
+        transform: rotate(45deg) scale(1.1);
+      }
+    }
+  }
+
+  &__plants {
+    position: absolute;
+    display: flex;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    gap: 6%;
+
+    svg {
+      width: calc(88% / 2);
+      height: auto;
+
+      * {
+        fill: var(--color-accent);
+      }
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80vw;
+    max-height: 80vh;
+    background: var(--color-background);
+    color: var(--color-text);
+    overflow: auto;
+    display: flex;
+
+    box-shadow: 0px calc(var(--pxSize) / 4) calc(var(--pxSize) / 2)
+      rgba(var(--color-black), 0.2);
+
+    &__text,
+    &__image {
+      flex: 50%;
+    }
+
+    &__image {
+      position: relative;
+
+      img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    &__text {
+      position: relative;
+      padding: var(--sectionVerticalSpacing) var(--pxSize);
+    }
+  }
+
+  @media screen and (max-width: 676px) {
+    &__exit {
+      svg {
+        fill: rgba(var(--color-cream), 1);
+      }
+    }
+
+    &__content {
+      flex-direction: column;
+
+      &__image {
+        min-height: 20vh;
+      }
+    }
+  }
+}

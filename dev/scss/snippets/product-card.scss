@@ -1,0 +1,244 @@
+.product-card {
+  --productCardImageRatio: 30%;
+  display: grid;
+  flex: 1;
+
+  &__image {
+    padding-top: var(--productCardImageRatio);
+    position: relative;
+    overflow: hidden;
+
+    &__placeholder,
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1);
+      will-change: transform;
+      transition: all 0.25s ease;
+      object-fit: contain;
+    }
+
+    &__placeholder {
+      background: repeating-linear-gradient(
+        45deg,
+        var(--color-background-alt),
+        var(--color-background-alt) calc(var(--pxSize) / 4),
+        var(--color-background) calc(var(--pxSize) / 4),
+        var(--color-background) calc(var(--pxSize) / 2)
+      );
+    }
+  }
+
+  &__content {
+    &__info {
+      display: grid;
+      gap: 0 calc(var(--pxSize) / 4);
+      grid-template-columns: auto auto;
+      align-items: center;
+
+      > * {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__heading {
+    grid-column: 1 / 2;
+  }
+
+  &__code {
+    grid-column: 2 / 3;
+    text-align: right;
+    opacity: 0.7;
+  }
+
+  &__price {
+    grid-column: 1 / 3;
+  }
+
+  &.__style {
+    &-stacked {
+      --productCardImageRatio: 100%;
+
+      .product-card {
+        &__image {
+          margin-bottom: calc(var(--pxSize) / 3);
+        }
+      }
+    }
+  }
+
+  /*
+  TODO: include Jose's code below, it was th initial styles for the non-stacked version
+
+  &__stars {
+    display: flex;
+    align-items: center;
+
+    span {
+      margin-left: calc(var(--sectionHorizontalSpacing) / 18);
+    }
+  }
+
+
+
+  &__reviews {
+    &-number {
+      display: none;
+    }
+  }
+
+  &__content {
+    padding: calc(var(--pxSize) / 3);
+
+    button {
+      display: none;
+    }
+
+    &__code {
+      display: none;
+    }
+
+    &__heading {
+      margin: 0;
+    }
+
+    &__text {
+      grid-column: 1 / -1;
+      margin-bottom: 0;
+    }
+  }
+
+  &__price {
+    text-transform: uppercase;
+    margin-bottom: 0.7rem;
+    margin-top: 0.6 rem;
+  }
+
+  &:hover {
+    .product-card {
+      &__image {
+        &__placeholder,
+        img {
+          transform: scale(1.05);
+        }
+      }
+    }
+  }
+
+  &.also-like {
+    --articleCardImageRatio: 30%;
+    display: flex;
+    padding-right: calc(var(--sectionHorizontalSpacing) / 4);
+
+    .product-card {
+      &__image {
+        flex: 1;
+        min-width: 100px;
+      }
+
+      &__reviews {
+        display: none;
+
+        &-number {
+          display: block;
+          color: var(color-background-alt);
+          margin-left: 2px;
+        }
+      }
+
+      &__stars {
+        justify-content: flex-end;
+        svg {
+          width: 13px;
+        }
+      }
+
+      &__content {
+        flex: 2;
+        padding-left: 0;
+
+        &__info {
+          padding: calc(var(--pxSize) / 5);
+        }
+
+        button {
+          width: 100%;
+          margin-top: 0;
+        }
+
+        &__info {
+          display: grid;
+          grid-template-columns: repeat(2, auto);
+          grid-row-gap: calc(var(--pxSize) / 5);
+          column-gap: calc(var(--pxSize) * 2);
+
+          > * {
+            white-space: nowrap;
+          }
+        }
+
+        &__heading {
+          text-transform: uppercase;
+          font-size: 1.15rem;
+        }
+
+        &__code {
+          display: block;
+          opacity: 0.5;
+          text-align: end;
+        }
+
+        p {
+          margin-bottom: 0;
+        }
+
+        button {
+          display: block;
+          grid-column: 1 / -1;
+          border-radius: 0;
+        }
+
+        > * {
+          align-self: center;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 676px) {
+    &__stars {
+      justify-content: space-between;
+    }
+
+    &__content {
+      button {
+        grid-column: 1 / -1;
+        color: var(--color-btn-txt);
+      }
+    }
+
+    &.also-like {
+      .product-card {
+        &__content {
+          &__heading {
+            font-size: 1rem;
+          }
+
+          &__info {
+            column-gap: 0;
+
+            > * {
+              white-space: normal;
+            }
+          }
+        }
+      }
+    }
+  }
+  */
+}
