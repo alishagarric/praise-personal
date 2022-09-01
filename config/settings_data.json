@@ -6,6 +6,13 @@
     "heading_scale": 115,
     "type_body_font": "lato_n4",
     "body_scale": 100,
+    "border_color": "#d0d0d0",
+    "background_color_2": "#f4f3ee",
+    "border_color_2": "#7d7d7d",
+    "background_color_3": "#ffff00",
+    "border_color_3": "#7d7d7d",
+    "button_color_3": "#FFFFFF",
+    "button_text_color_3": "#000000",
     "sections": {
       "announcement-bar": {
         "type": "announcement-bar",
