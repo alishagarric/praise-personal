@@ -1,0 +1,297 @@
+{% style %}
+    #Split-section-{{ section.id }} {
+      --topSpacingRatio: {{section.settings.top_spacing}} / 100;
+      --bottomSpacingRatio: {{section.settings.bottom_spacing}} / 100;
+    }
+ {% endstyle %}
+
+<div id="Split-section-{{ section.id }}" class="split-section __layout-{{section.settings.layout}} __image-style-{{section.settings.image_style}} color-{{section.settings.color_scheme}}">
+  <div class="split-section__text">    
+       
+
+
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when 'heading' -%}
+          {% if section.settings.hero %}
+            <h1 class="split-section__text__heading {{ block.settings.heading_size }}">{{ block.settings.heading }}</h1>
+          {% else %}
+            <h2 class="split-section__text__heading {{ block.settings.heading_size }}">{{ block.settings.heading }}</h2>
+          {% endif %}
+
+        {%- when 'text' -%}
+          <div class="split-section__text__rich-text __article-txt" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
+        {%- when 'button' -%}
+          {% render 'button', class: "content-with-bg-image", button_label: block.settings.button_label, button_link: block.settings.button_link, button_color: block.settings.button_color %}
+
+        {%- when 'icon' -%}
+          {%- if block.settings.icon != blank -%}
+            <div class="split-section__text__icon">
+              {% render 'next-gen-img', image: block.settings.icon %}
+            </div>
+          {%- endif -%}
+
+      {%- endcase -%}
+    {%- endfor -%}
+  </div>
+  <div class="split-section__image">
+    {%- if section.settings.image != blank -%}
+      {% render 'next-gen-img', image: section.settings.image %}
+    {%- else -%}
+      {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Split section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Image Options"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image",
+      "info": "Auto-cropped to fill available space."
+    },
+    {
+      "type": "header",
+      "content": "Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "hero",
+      "label": "Use as hero?",
+      "info": "Should be selected if this section is the first or second on a page and contains the page title. There should only be one page title/hero used per page."
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "options": [
+        {
+          "value": "cream",
+          "label": "Cream (Default)"
+        },
+        {
+          "value": "dark-cream",
+          "label": "Dark Cream"
+        },
+        {
+          "value": "grass",
+          "label": "Grass"
+        },
+        {
+          "value": "sun",
+          "label": "Sun"
+        },
+        {
+          "value": "ground",
+          "label": "Ground"
+        },
+        {
+          "value": "sky",
+          "label": "Sky"
+        },
+        {
+          "value": "tan",
+          "label": "Tan"
+        }
+      ],
+      "default": "cream",
+      "label": "Color Scheme"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "options": [
+        {
+          "value": "default",
+          "label": "Align Image Right"
+        },
+        {
+          "value": "reversed",
+          "label": "Align Image Left"
+        }
+      ],
+      "default": "default",
+      "label": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "image_style",
+      "options": [
+        {
+          "value": "default",
+          "label": "Standard, Without Space"
+        },
+        {
+          "value": "wide",
+          "label": "Wide, Without Space"
+        },
+        {
+          "value": "square",
+          "label": "Square, With Space"
+        }
+      ],
+      "default": "default",
+      "label": "Image Style"
+    },
+    {
+      "type": "header",
+      "content": "Section Spacing"
+    },
+    {
+      "type": "range",
+      "id": "top_spacing",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "Top Spacing",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "bottom_spacing",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "Bottom Spacing",
+      "default": 50
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "Heading",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Lorem ipsum",
+          "label": "Heading"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+              "value": "h4",
+              "label": "Large"
+            },
+            {
+              "value": "h5",
+              "label": "Medium"
+            },
+            {
+              "value": "caption-lg",
+              "label": "Small"
+            }
+          ],
+          "default": "h5",
+          "label": "Heading Size"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
+          "label": "Description"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "Button",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_label",
+          "default": "Button label",
+          "label": "Button Label"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+      },
+        {
+         "type": "select",
+         "id": "button_color",
+         "label": "Button Color",
+         "default": "default",
+         "options":[
+            {
+               "value":"default",
+               "label":"Default"
+            },
+            {
+               "value":"cream",
+               "label":"Cream"
+            },
+            {
+               "value":"dark-cream",
+               "label":"Dark Cream"
+            },
+            {
+               "value":"grass",
+               "label":"Grass"
+            },
+            {
+               "value":"sun",
+               "label":"Sun"
+            },
+            {
+               "value":"ground",
+               "label":"Ground"
+            },
+            {
+               "value":"sky",
+               "label":"Sky"
+            },
+            {
+               "value":"tan",
+               "label":"Tan"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "icon",
+      "name": "Icon",
+      "settings": [
+        {
+          "type":"image_picker",
+          "id":"icon",
+          "label":"Icon"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Split section",
+      "blocks": [
+        {
+          "type": "text"
+        },
+        {
+          "type": "button"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
