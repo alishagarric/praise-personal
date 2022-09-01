@@ -1,82 +1,97 @@
+{% style %}
+    #Section-footer-{{ section.id }} {
+      --color-foreground: {{section.settings.text_color}};
+      --color-background: {{section.settings.background_color}};
+
+      --color-foreground-footer: {{section.settings.alt_text_color}};
+      --color-background-footer: {{section.settings.alt_background_color}};
+
+    }
+ {% endstyle %}
 
 {% assign icons = false %}
-{% render 'newsletter-row' %}
+{% comment %}
+  {% render 'newsletter-row' %}
+{% endcomment %}
 
-<footer class="section-footer">
-
-  <div class="section-footer__branding">
-    <div class="section-footer__branding__logo">{% render 'svg-logo-stacked' %}</div>
-  </div>
-
-  {%- if section.blocks.size > 0 -%}
-    <div class="section-footer__blocks">
-      {%- for block in section.blocks -%}
-        
-          {%- case block.type -%}
-            {%- when 'link_list' -%}
-              <div class="section-footer__blocks__block" {{ block.shopify_attributes }}>
-                {%- if block.settings.heading != blank -%}
-                  <p class="section-footer__header caption">{{- block.settings.heading | escape -}}</p>
-                {%- endif -%}
-                {%- if block.settings.menu != blank -%}
-                  <ul class="section-footer__links list-unstyled">
-                    {%- for link in block.settings.menu.links -%}
-                      <li class="section-footer__links__item">
-                        <a class="section-footer__links__item__link p-sm" href="{{ link.url }}">
-                          {{ link.title }}
-                        </a>
-                      </li>
-                    {%- endfor -%}
-                  </ul>
-                {%- endif -%}
-              </div>
-              
-
-              {%- when 'icon' -%}
-                {% assign icons = true %}
-            {%- endcase -%}
-        
-      {%- endfor -%}
-    </div>
-  {%- endif -%}
-
-  {% if icons == true %}
-    <div class="section-footer__badges">
-      {%- for block in section.blocks -%}
-        {%- case block.type -%}
-          {%- when 'icon' -%}
-            <div class="section-footer__badges__badge">
-              {%- if block.settings.icon != blank -%}
-                {% render 'next-gen-img', image: block.settings.icon %}
-              {%- endif -%}
-            </div>      
-          {%- endcase -%}
-      {%- endfor -%}
-    </div>
-{% endif %}
-
-  <div class="section-footer__bottom">
-
-    <small class="section-footer__bottom__copywright p-sm">&copy; {{ shop.name }}. {{ 'now' | date: "%Y" }}</small>
-
-    {%- if section.settings.secondary_links %}
-      <ul class="section-footer__bottom__sec-links section-footer__links list-unstyled">
-        {%- for link in section.settings.secondary_links.links -%}
-          <li class="section-footer__links__item">
-            <a class="section-footer__links__item__link p-sm" href="{{ link.url }}">
-              {{ link.title }}
-            </a>
-          </li>
-        {%- endfor -%}
-      </ul>
-    {%- endif -%}
-
-    {%- if section.settings.show_social -%}
-      <div class="section-footer__bottom__social">
-        {% render 'social-icons' %}
+<footer id="Section-footer-{{ section.id }}" class="section-footer">
+    
+    <div class="section-footer__col">
+      <div class="section-footer__branding">
+        <div class="section-footer__branding__logo">{% render 'svg-logo-stacked' %}</div>
       </div>
-    {%- endif -%}
-  </div>
+
+
+      {%- if section.settings.show_social -%}
+        <div class="section-footer__bottom__social">
+          {% render 'social-icons' %}
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="section-footer__col">
+      {%- if section.blocks.size > 0 -%}
+        <div class="section-footer__blocks">
+          {%- for block in section.blocks -%}
+            
+              {%- case block.type -%}
+                {%- when 'link_list' -%}
+                  <div class="section-footer__blocks__block" {{ block.shopify_attributes }}>
+                    {%- if block.settings.heading != blank -%}
+                      <p class="section-footer__header caption">{{- block.settings.heading | escape -}}</p>
+                    {%- endif -%}
+                    {%- if block.settings.menu != blank -%}
+                      <ul class="section-footer__links list-unstyled">
+                        {%- for link in block.settings.menu.links -%}
+                          <li class="section-footer__links__item">
+                            <a class="section-footer__links__item__link p-sm" href="{{ link.url }}">
+                              {{ link.title }}
+                            </a>
+                          </li>
+                        {%- endfor -%}
+                      </ul>
+                    {%- endif -%}
+                  </div>
+                  
+
+                  {%- when 'icon' -%}
+                    {% assign icons = true %}
+                {%- endcase -%}
+            
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      {% if icons == true %}
+        <div class="section-footer__badges">
+          {%- for block in section.blocks -%}
+            {%- case block.type -%}
+              {%- when 'icon' -%}
+                <div class="section-footer__badges__badge">
+                  {%- if block.settings.icon != blank -%}
+                    {% render 'next-gen-img', image: block.settings.icon %}
+                  {%- endif -%}
+                </div>      
+              {%- endcase -%}
+          {%- endfor -%}
+        </div>
+      {% endif %}
+
+      <small class="section-footer__bottom__copywright p-sm">&copy; {{ shop.name }}. {{ 'now' | date: "%Y" }}</small>
+
+      {%- if section.settings.secondary_links %}
+        <ul class="section-footer__bottom__sec-links section-footer__links list-unstyled">
+          {%- for link in section.settings.secondary_links.links -%}
+            <li class="section-footer__links__item">
+              <a class="section-footer__links__item__link p-sm" href="{{ link.url }}">
+                {{ link.title }}
+              </a>
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+    </div>
+
 </footer>
 
 

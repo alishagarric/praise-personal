@@ -2,62 +2,29 @@
   color: var(--color-foreground);
   background: var(--color-background);
   position: relative;
-  padding: var(--sectionVerticalSpacing) var(--sectionHorizontalSpacing);
-  display: grid;
-  grid-template-columns: auto auto;
+  display: flex;
+  padding: 0;
 
-  &__plant-decor {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    position: absolute;
-    bottom: 100%;
-    left: 0;
-    right: 0;
-    gap: 2%;
-    overflow: hidden;
+  &__col {
+    padding: var(--sectionVerticalSpacing) var(--sectionHorizontalSpacing);
 
-    svg {
-      width: 100%;
-      height: auto;
-
-      * {
-        fill: var(--color-background);
-      }
+    &:first-of-type {
+      color: var(--color-foreground-footer);
+      background-color: var(--color-background-footer);
     }
   }
 
   &__branding {
-    grid-column: 1 / 2;
-
-    &__info {
-      padding-top: var(--pxSize);
-
-      a {
-        opacity: 1;
-        will-change: opacity;
-        transition: all 0.25s ease;
-
-        &:hover {
-          opacity: 0.5;
-        }
-      }
-    }
-
     &__logo {
       svg {
         width: 100%;
         height: auto;
         max-width: 170px;
-
-        * {
-          fill: var(--color-foreground);
-        }
       }
     }
   }
 
   &__badges {
-    grid-column: 1/2;
     padding-top: calc(var(--pxSize) / 3);
     display: flex;
     flex-flow: row wrap;
