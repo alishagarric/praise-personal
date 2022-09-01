@@ -2,10 +2,6 @@
     #Section-footer-{{ section.id }} {
       --color-foreground: {{section.settings.text_color}};
       --color-background: {{section.settings.background_color}};
-
-      --color-foreground-footer: {{section.settings.alt_text_color}};
-      --color-background-footer: {{section.settings.alt_background_color}};
-
     }
  {% endstyle %}
 
@@ -16,7 +12,7 @@
 
 <footer id="Section-footer-{{ section.id }}" class="section-footer">
     
-    <div class="section-footer__col">
+    <div class="section-footer__col __theme-{{section.settings.theme}}">
       <div class="section-footer__branding">
         <div class="section-footer__branding__logo">{% render 'svg-logo-stacked' %}</div>
       </div>
@@ -317,30 +313,25 @@
       "label": "Text Color"
     },
     {
-      "type": "color",
-      "id": "alt_background_color",
-      "default": "#FFFFFF",
-      "label": "Alternative Background Color"
+      "type": "select",
+      "id": "theme",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary (Default)"
+        },
+        {
+          "value": "secondary",
+          "label": "Secondary"
+        },
+        {
+          "value": "tertiary",
+          "label": "Tertiary"
+        }
+      ],
+      "default": "primary",
+      "label": "Accent Theme"
     },
-    {
-      "type": "color",
-      "id": "alt_text_color",
-      "default": "#FFFFFF",
-      "label": "Alternative Text Color"
-    },
-    {
-      "type": "color",
-      "id": "button_color",
-      "default": "#000000",
-      "label": "Button Color"
-    },
-    {
-      "type": "color",
-      "id": "button_text_color",
-      "default": "#FFFFFF",
-      "label": "Button Text Color",
-      "info": "Must have enough contrast between the chosen button color."
-    }
   ],
   "default": {
     "blocks": [

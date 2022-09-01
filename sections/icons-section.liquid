@@ -1,0 +1,156 @@
+{% style %}
+    #Icons-section-{{ section.id }} {
+      --topSpacingRatio: {{section.settings.top_spacing}} / 100;
+      --bottomSpacingRatio: {{section.settings.bottom_spacing}} / 100;
+      --iconHeight: {{section.settings.icon_height}}px;
+    }
+
+   @media screen and (max-width: 676px) {
+      {% if section.settings.icon_height > 400 %}
+         #Icons-section-{{ section.id }} {
+            --iconHeight: {{ section.settings.icon_height | times: 0.6}}px;
+         }
+      {% endif %}
+   }
+ {% endstyle %}
+
+<div id="Icons-section-{{ section.id }}" class="icons-section color-{{section.settings.color_scheme}} {% if section.settings.image != blank %}__has-image{% endif %}"  
+>
+   <div class="icons-section__icons __layout-{% if section.settings.layout %}{{ section.settings.layout }}{% else %}default{% endif%}">
+      {%- for block in section.blocks -%}
+         {%- case block.type -%}
+            {%- when 'image' -%}
+               <div class="icons-section__icons__icon">
+                  {%- if block.settings.icon != blank -%}
+                     {% render 'next-gen-img', image: block.settings.icon %}
+                  {%- else -%}
+                     {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                  {%- endif -%}
+
+                  {% if block.settings.text != "" %}
+                     <p class="p-sm">{{block.settings.text }}</p>
+                  {% endif %}
+               </div>         
+         {%- endcase -%}
+      {%- endfor -%}
+   </div>
+</div>
+
+{% schema %}
+{
+  "name": "Icons Section",
+  "tag": "section",
+  "class": "section",
+   "settings":[
+      {
+         "type": "header",
+         "content": "Settings"
+      },
+      {
+         "type": "select",
+         "id": "layout",
+         "options": [
+            {
+               "value":"three-col",
+               "label":"Three Columns (Default)"
+            },
+            {
+               "value":"row",
+               "label":"Row(s)"
+            },
+            {
+               "value":"two-col",
+               "label":"Two Columns"
+            }
+         ],
+         "default":"three-col",
+         "label":"Layout"
+      },
+      {
+         "type":"range",
+         "id":"icon_height",
+         "min":50,
+         "max":500,
+         "step":10,
+         "unit":"px",
+         "label":"Icon Height",
+         "default":100
+      },
+      {
+         "type": "select",
+         "id": "theme",
+         "options": [
+         {
+            "value": "primary",
+            "label": "Primary (Default)"
+         },
+         {
+            "value": "secondary",
+            "label": "Secondary"
+         },
+         {
+            "value": "tertiary",
+            "label": "Tertiary"
+         }
+         ],
+         "default": "primary",
+         "label": "Theme"
+      },
+      {
+         "type":"range",
+         "id":"top_spacing",
+         "min":0,
+         "max":100,
+         "step":10,
+         "unit":"%",
+         "label":"Top Spacing",
+         "default":50
+      },
+      {
+         "type":"range",
+         "id":"bottom_spacing",
+         "min":0,
+         "max":100,
+         "step":10,
+         "unit":"%",
+         "label":"Bottom Spacing",
+         "default":50
+      }
+   ],
+   "blocks":[
+      {
+         "type":"image",
+         "name":"Icon",
+         "settings":[
+          {
+            "type":"image_picker",
+            "id":"icon",
+            "label":"Icon"
+          },
+          {
+            "type":"text",
+            "id":"text",
+            "label":"Icon Text",
+            "default": "Lorem ipsum"
+          }
+         ]
+      }
+   ],
+   "presets":[
+      {
+         "name":"Icons Section",
+         "blocks": [
+            {
+               "type": "icon"
+            },
+            {
+               "type": "icon"
+            },
+            {
+               "type": "icon"
+            }
+         ]
+      }
+   ]
+}
+{% endschema %}
