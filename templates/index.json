@@ -13,14 +13,14 @@
         "1662063884b661ea2d-0": {
           "type": "text",
           "settings": {
-            "text": "<p>Atypical cookies and treats that push the boundaires of indulgence</p>"
+            "text": "<p>Atypical cookies and treats that push the boundaires of indulgence<\/p>"
           }
         },
         "1662063884b661ea2d-1": {
           "type": "button",
           "settings": {
             "button_label": "Shop treats",
-            "button_link": "shopify://collections",
+            "button_link": "shopify:\/\/collections",
             "button_color": "default"
           }
         }
@@ -31,20 +31,66 @@
         "1662063884b661ea2d-1"
       ],
       "settings": {
-        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash.jpg",
+        "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash.jpg",
         "hero": true,
+        "alignment": "center",
         "theme": "default",
         "layout": "reversed",
         "image_style": "wide",
-        "alignment": "center",
         "top_spacing": 0,
+        "bottom_spacing": 50
+      }
+    },
+    "1662066517d31dd7ec": {
+      "type": "split-section",
+      "blocks": {
+        "1662066517b59e31e0-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "A chunky take on chocolate chip",
+            "heading_size": "h4"
+          }
+        },
+        "1662066517b59e31e0-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Atypical cookies and treats that push the boundaries of indulgence. An odea to the well-baanced classic cookie. This season we are celebrating all the nostalgia and what pairs best with chocolate chips.<\/p>"
+          }
+        },
+        "1662066517b59e31e0-2": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop treats",
+            "button_link": "shopify:\/\/collections",
+            "button_color": "default"
+          }
+        }
+      },
+      "block_order": [
+        "1662066517b59e31e0-0",
+        "1662066517b59e31e0-1",
+        "1662066517b59e31e0-2"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_cd0b890c-b357-4857-9c0d-36126dbfab86.jpg",
+        "hero": false,
+        "alignment": "center",
+        "theme": "primary",
+        "layout": "default",
+        "image_style": "wide",
+        "top_spacing": 50,
         "bottom_spacing": 50
       }
     },
     "example": {
       "type": "example",
-      "settings": {}
+      "settings": {
+      }
     }
   },
-  "order": ["1662063884d9fa6284", "example"]
+  "order": [
+    "1662063884d9fa6284",
+    "1662066517d31dd7ec",
+    "example"
+  ]
 }
