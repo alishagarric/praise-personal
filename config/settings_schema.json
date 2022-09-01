@@ -1,11 +1,11 @@
 [
   {
     "name": "theme_info",
-    "theme_name": "Accelerator",
-    "theme_version": "0.1.0-alpha",
-    "theme_author": "Shopify",
-    "theme_documentation_url": "https://help.shopify.com/en/manual/online-store/themes",
-    "theme_support_url": "https://support.shopify.com/"
+    "theme_name": "Praise",
+    "theme_version": "0.1.0",
+    "theme_author": "Commence Studio",
+    "theme_documentation_url": "https://commence.studio",
+    "theme_support_url": "https://commence.studio"
   },
   {
     "name": "t:settings_schema.social_media.name",
@@ -138,47 +138,63 @@
         "unit": "%",
         "label": "t:settings_schema.typography.settings.body_scale.label",
         "default": 100
+      }
+    ]
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Default Theme"
       },
       {
-        "name": "Colors",
-        "settings": [
-          {
-            "type": "header",
-            "content": "Default Theme"
-          },
-          {
-            "type": "color",
-            "id": "background_color",
-            "default": "#FFFFFF",
-            "label": "Background Color"
-          },
-          {
-            "type": "color",
-            "id": "alt_background_color",
-            "default": "#F4F3EE",
-            "label": "Alternative Background Color"
-          },
-          {
-            "type": "color",
-            "id": "text_color",
-            "default": "#000000",
-            "label": "Text Color",
-            "info": "Must have enough contrast between both the chosen background and alternative background color."
-          },
-          {
-            "type": "color",
-            "id": "button_color",
-            "default": "#000000",
-            "label": "Button Color"
-          },
-          {
-            "type": "color",
-            "id": "button_text_color",
-            "default": "#FFFFFF",
-            "label": "Button Text Color",
-            "info": "Must have enough contrast between the chosen button color."
-          }
-        ]
+        "type": "color",
+        "id": "background_color",
+        "default": "#FFFFFF",
+        "label": "Background Color"
+      },
+      {
+        "type": "color",
+        "id": "alt_background_color",
+        "default": "#F4F3EE",
+        "label": "Alternative Background Color"
+      },
+      {
+        "type": "color",
+        "id": "text_color",
+        "default": "#000000",
+        "label": "Text Color",
+        "info": "Must have enough contrast between both the chosen background and alternative background color."
+      },
+      {
+        "type": "color",
+        "id": "button_color",
+        "default": "#000000",
+        "label": "Button Color"
+      },
+      {
+        "type": "color",
+        "id": "button_text_color",
+        "default": "#FFFFFF",
+        "label": "Button Text Color",
+        "info": "Must have enough contrast between the chosen button color."
+      },
+      {
+        "type": "header",
+        "content": "Feedback Colors"
+      },
+      {
+        "type": "color",
+        "id": "error_color",
+        "default": "#DC143C",
+        "label": "Error Color"
+      },
+      {
+        "type": "color",
+        "id": "success_color",
+        "default": "#008000",
+        "label": "Success Color"
       }
     ]
   }
