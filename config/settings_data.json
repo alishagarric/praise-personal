@@ -22,6 +22,17 @@
       "footer": {
         "type": "footer",
         "settings": {
+          "newsletter_enable": true,
+          "newsletter_heading": "Subscribe to our newsletter",
+          "newsletter_description": "",
+          "show_social": false,
+          "secondary_links": "",
+          "background_color": "#000000",
+          "text_color": "#ffffff",
+          "alt_background_color": "{{ shop.brand.colors.secondary[0].background }}",
+          "alt_text_color": "#000000",
+          "button_color": "#ffffff",
+          "button_text_color": "#000000"
         }
       }
     },
