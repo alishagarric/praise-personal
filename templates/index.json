@@ -13,14 +13,14 @@
         "1662063884b661ea2d-0": {
           "type": "text",
           "settings": {
-            "text": "<p>Atypical cookies and treats that push the boundaires of indulgence<\/p>"
+            "text": "<p>Atypical cookies and treats that push the boundaires of indulgence</p>"
           }
         },
         "1662063884b661ea2d-1": {
           "type": "button",
           "settings": {
             "button_label": "Shop treats",
-            "button_link": "shopify:\/\/collections",
+            "button_link": "shopify://collections",
             "button_color": "default"
           }
         }
@@ -31,23 +31,20 @@
         "1662063884b661ea2d-1"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash.jpg",
+        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash.jpg",
         "hero": true,
-        "color_scheme": "cream",
+        "theme": "default",
         "layout": "reversed",
-        "image_style": "default",
+        "image_style": "wide",
+        "alignment": "center",
         "top_spacing": 0,
         "bottom_spacing": 50
       }
     },
     "example": {
       "type": "example",
-      "settings": {
-      }
+      "settings": {}
     }
   },
-  "order": [
-    "1662063884d9fa6284",
-    "example"
-  ]
+  "order": ["1662063884d9fa6284", "example"]
 }

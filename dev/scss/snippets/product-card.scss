@@ -23,13 +23,7 @@
     }
 
     &__placeholder {
-      background: repeating-linear-gradient(
-        45deg,
-        var(--color-background-alt),
-        var(--color-background-alt) calc(var(--pxSize) / 4),
-        var(--color-background) calc(var(--pxSize) / 4),
-        var(--color-background) calc(var(--pxSize) / 2)
-      );
+      background: var(--color-background);
     }
   }
 

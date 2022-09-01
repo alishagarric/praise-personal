@@ -21,13 +21,7 @@
     }
 
     &__placeholder {
-      background: repeating-linear-gradient(
-        45deg,
-        var(--color-background-alt),
-        var(--color-background-alt) calc(var(--pxSize) / 4),
-        var(--color-background) calc(var(--pxSize) / 4),
-        var(--color-background) calc(var(--pxSize) / 2)
-      );
+      background: var(--color-background);
     }
   }
 
@@ -119,7 +113,7 @@
   }
 
   @media screen and (max-width: 676px) {
-    background: var(--color-background-alt);
+    background: var(--color-background);
 
     //default layout, add new layouts here with :not selector as needed
     &:not(.__style-condensed):not(.__style-teaser) {

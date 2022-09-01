@@ -146,7 +146,23 @@
     "settings": [
       {
         "type": "header",
-        "content": "Default Theme"
+        "content": "Feedback Colors"
+      },
+      {
+        "type": "color",
+        "id": "error_color",
+        "default": "#DC143C",
+        "label": "Error Color"
+      },
+      {
+        "type": "color",
+        "id": "success_color",
+        "default": "#008000",
+        "label": "Success Color"
+      },
+      {
+        "type": "header",
+        "content": "Primary Theme"
       },
       {
         "type": "color",
@@ -156,16 +172,16 @@
       },
       {
         "type": "color",
-        "id": "alt_background_color",
-        "default": "#F4F3EE",
-        "label": "Alternative Background Color"
-      },
-      {
-        "type": "color",
         "id": "text_color",
         "default": "#000000",
         "label": "Text Color",
-        "info": "Must have enough contrast between both the chosen background and alternative background color."
+        "info": "Must have enough contrast between the chosen background color."
+      },
+      {
+        "type": "color",
+        "id": "border_color",
+        "default": "#000000",
+        "label": "Border Color"
       },
       {
         "type": "color",
@@ -182,19 +198,75 @@
       },
       {
         "type": "header",
-        "content": "Feedback Colors"
+        "content": "Secondary Theme"
       },
       {
         "type": "color",
-        "id": "error_color",
-        "default": "#DC143C",
-        "label": "Error Color"
+        "id": "background_color_2",
+        "default": "#FFFFFF",
+        "label": "Background Color"
       },
       {
         "type": "color",
-        "id": "success_color",
-        "default": "#008000",
-        "label": "Success Color"
+        "id": "text_color_2",
+        "default": "#000000",
+        "label": "Text Color",
+        "info": "Must have enough contrast between the chosen background color."
+      },
+      {
+        "type": "color",
+        "id": "border_color_2",
+        "default": "#000000",
+        "label": "Border Color"
+      },
+      {
+        "type": "color",
+        "id": "button_color_2",
+        "default": "#000000",
+        "label": "Button Color"
+      },
+      {
+        "type": "color",
+        "id": "button_text_color_2",
+        "default": "#FFFFFF",
+        "label": "Button Text Color",
+        "info": "Must have enough contrast between the chosen button color."
+      },
+      {
+        "type": "header",
+        "content": "Tertiary Theme"
+      },
+      {
+        "type": "color",
+        "id": "background_color_3",
+        "default": "#FFFFFF",
+        "label": "Background Color"
+      },
+      {
+        "type": "color",
+        "id": "text_color_3",
+        "default": "#000000",
+        "label": "Text Color",
+        "info": "Must have enough contrast between the chosen background color."
+      },
+      {
+        "type": "color",
+        "id": "border_color_3",
+        "default": "#000000",
+        "label": "Border Color"
+      },
+      {
+        "type": "color",
+        "id": "button_color_3",
+        "default": "#000000",
+        "label": "Button Color"
+      },
+      {
+        "type": "color",
+        "id": "button_text_color_3",
+        "default": "#FFFFFF",
+        "label": "Button Text Color",
+        "info": "Must have enough contrast between the chosen button color."
       }
     ]
   }

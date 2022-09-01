@@ -5,11 +5,8 @@
     }
  {% endstyle %}
 
-<div id="Split-section-{{ section.id }}" class="split-section __layout-{{section.settings.layout}} __image-style-{{section.settings.image_style}} color-{{section.settings.color_scheme}}">
-  <div class="split-section__text">    
-       
-
-
+<div id="Split-section-{{ section.id }}" class="split-section __layout-{{section.settings.layout}} __image-style-{{section.settings.image_style}} color-{{section.settings.theme}}">
+  <div class="split-section__text __alignment-{{section.settings.alignment}}">    
     {%- for block in section.blocks -%}
       {%- case block.type -%}
         {%- when 'heading' -%}
@@ -70,39 +67,43 @@
     },
     {
       "type": "select",
-      "id": "color_scheme",
+      "id": "alignment",
       "options": [
         {
-          "value": "cream",
-          "label": "Cream (Default)"
+          "value": "default",
+          "label": "Left (Default)"
         },
         {
-          "value": "dark-cream",
-          "label": "Dark Cream"
+          "value": "center",
+          "label": "Center"
         },
         {
-          "value": "grass",
-          "label": "Grass"
-        },
-        {
-          "value": "sun",
-          "label": "Sun"
-        },
-        {
-          "value": "ground",
-          "label": "Ground"
-        },
-        {
-          "value": "sky",
-          "label": "Sky"
-        },
-        {
-          "value": "tan",
-          "label": "Tan"
+          "value": "right",
+          "label": "Right"
         }
       ],
-      "default": "cream",
-      "label": "Color Scheme"
+      "default": "default",
+      "label": "Text Alignment"
+    },
+    {
+      "type": "select",
+      "id": "theme",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary (Default)"
+        },
+        {
+          "value": "secondary",
+          "label": "Secondary"
+        },
+        {
+          "value": "tertiary",
+          "label": "Tertiary"
+        }
+      ],
+      "default": "primary",
+      "label": "Theme"
     },
     {
       "type": "select",
@@ -110,7 +111,7 @@
       "options": [
         {
           "value": "default",
-          "label": "Align Image Right"
+          "label": "Align Image Right (Default)"
         },
         {
           "value": "reversed",
@@ -126,7 +127,7 @@
       "options": [
         {
           "value": "default",
-          "label": "Standard, Without Space"
+          "label": "Standard, Without Space (Default)"
         },
         {
           "value": "wide",
@@ -237,32 +238,16 @@
                "label":"Default"
             },
             {
-               "value":"cream",
-               "label":"Cream"
+               "value":"primary",
+               "label":"Primary"
             },
             {
-               "value":"dark-cream",
-               "label":"Dark Cream"
+               "value":"secondary",
+               "label":"Secondary"
             },
             {
-               "value":"grass",
-               "label":"Grass"
-            },
-            {
-               "value":"sun",
-               "label":"Sun"
-            },
-            {
-               "value":"ground",
-               "label":"Ground"
-            },
-            {
-               "value":"sky",
-               "label":"Sky"
-            },
-            {
-               "value":"tan",
-               "label":"Tan"
+               "value":"tertiary",
+               "label":"Tertiary"
             }
           ]
         }
@@ -284,6 +269,9 @@
     {
       "name": "Split section",
       "blocks": [
+        {
+          "type": "heading"
+        },
         {
           "type": "text"
         },

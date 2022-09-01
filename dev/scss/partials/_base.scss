@@ -3,14 +3,20 @@
 
 html {
   height: 100%;
+  background: var(--color-background);
+  color: var(--color-foreground);
+
+  * {
+    font-family: var(--font-body-family);
+    font-style: var(--font-body-style);
+    font-weight: var(--font-body-weight);
+  }
 }
 
 body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   min-height: 100%;
-  background: var(--color-background);
-  color: var(--color-foreground);
 
   ::selection {
     background: var(--color-accent); /* WebKit/Blink Browsers */
@@ -150,21 +156,22 @@ form {
 .btn {
   height: var(--btnHeight);
   line-height: var(--btnHeight);
-  border-radius: 7px;
-  background: var(--color-btn);
-  color: var(--color-btn-txt);
+  border-radius: 4px;
+  background: var(--color-foreground);
+  color: var(--color-foreground-text);
   padding: 0 calc(var(--btnHeight) / 2);
   display: inline-flex;
+  text-transform: uppercase;
   text-align: center;
-  font-size: calc(0.875rem * var(--font-body-scale));
+  font-size: calc(1rem * var(--font-body-scale));
+  letter-spacing: calc(0.05rem * var(--font-body-scale));
   font-weight: 500;
   margin: 1rem 0 0 0;
   align-items: center;
   -webkit-appearance: none;
 
   &:hover {
-    background: var(--color-btn-hover);
-    color: var(--color-btn-hover-txt);
+    opacity: 0.8;
   }
 }
 

@@ -1,0 +1,16 @@
+{% comment %}
+  Renders a button
+
+  Accepts:
+  - button_label: {String}
+  - button_link: {Url}
+  - button_color: {String}
+  - class: {String}
+
+  Usage:
+  {% render 'button', class: "featured-product", button_label: section.settings.button_label, button_link: section.settings.button_link %}
+{% endcomment %}
+
+{% if button_link and button_label %}
+  <a href="{{ button_link }}" class="{% if class %}{{ class }}__btn{% endif %} btn __btn-clr-{{ button_color }}">{{ button_label }}</a>
+{% endif %}
