@@ -19,7 +19,7 @@
    <div class="icons-section__icons __layout-{% if section.settings.layout %}{{ section.settings.layout }}{% else %}default{% endif%}">
       {%- for block in section.blocks -%}
          {%- case block.type -%}
-            {%- when 'image' -%}
+            {%- when 'icon' -%}
                <div class="icons-section__icons__icon">
                   {%- if block.settings.icon != blank -%}
                      {% render 'next-gen-img', image: block.settings.icon %}
@@ -119,7 +119,7 @@
    ],
    "blocks":[
       {
-         "type":"image",
+         "type":"icon",
          "name":"Icon",
          "settings":[
           {
