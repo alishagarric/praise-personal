@@ -1,6 +1,87 @@
-<footer class="footer">
+
+{% assign icons = false %}
+{% render 'newsletter-row' %}
+
+<footer class="section-footer">
+
+  <div class="section-footer__branding">
+    <div class="section-footer__branding__logo">{% render 'svg-logo-stacked' %}</div>
+  </div>
+
+  {%- if section.blocks.size > 0 -%}
+    <div class="section-footer__blocks">
+      {%- for block in section.blocks -%}
+        
+          {%- case block.type -%}
+            {%- when 'link_list' -%}
+              <div class="section-footer__blocks__block" {{ block.shopify_attributes }}>
+                {%- if block.settings.heading != blank -%}
+                  <p class="section-footer__header caption">{{- block.settings.heading | escape -}}</p>
+                {%- endif -%}
+                {%- if block.settings.menu != blank -%}
+                  <ul class="section-footer__links list-unstyled">
+                    {%- for link in block.settings.menu.links -%}
+                      <li class="section-footer__links__item">
+                        <a class="section-footer__links__item__link p-sm" href="{{ link.url }}">
+                          {{ link.title }}
+                        </a>
+                      </li>
+                    {%- endfor -%}
+                  </ul>
+                {%- endif -%}
+              </div>
+              
+
+              {%- when 'icon' -%}
+                {% assign icons = true %}
+            {%- endcase -%}
+        
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+
+  {% if icons == true %}
+    <div class="section-footer__badges">
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'icon' -%}
+            <div class="section-footer__badges__badge">
+              {%- if block.settings.icon != blank -%}
+                {% render 'next-gen-img', image: block.settings.icon %}
+              {%- endif -%}
+            </div>      
+          {%- endcase -%}
+      {%- endfor -%}
+    </div>
+{% endif %}
+
+  <div class="section-footer__bottom">
+
+    <small class="section-footer__bottom__copywright p-sm">&copy; {{ shop.name }}. {{ 'now' | date: "%Y" }}</small>
+
+    {%- if section.settings.secondary_links %}
+      <ul class="section-footer__bottom__sec-links section-footer__links list-unstyled">
+        {%- for link in section.settings.secondary_links.links -%}
+          <li class="section-footer__links__item">
+            <a class="section-footer__links__item__link p-sm" href="{{ link.url }}">
+              {{ link.title }}
+            </a>
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+
+    {%- if section.settings.show_social -%}
+      <div class="section-footer__bottom__social">
+        {% render 'social-icons' %}
+      </div>
+    {%- endif -%}
+  </div>
+</footer>
+
+
+{% comment %}<footer class="footer">
   <div class="container">
-    {% comment %} Newsletter {% endcomment %}
     <div>
       <h2>{{ 'general.newsletter.heading' | t }}</h2>
       {%- form 'customer' -%}
@@ -128,9 +209,131 @@
     </div>
   </div>
 </footer>
+{% endcomment %}
 
 {% schema %}
 {
-  "name": "t:sections.footer.name"
+  "name": "Footer",
+  "blocks": [
+    {
+      "type": "link_list",
+      "name": "Menu",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "default": "footer",
+          "label": "Menu",
+          "info": "Displays only top-level menu items."
+        }
+      ]
+    },
+    {
+      "type": "icon",
+      "name": "Icon",
+      "settings": [
+          {
+            "type":"image_picker",
+            "id":"icon",
+            "label":"Icon"
+          }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.footer.settings.header__1.content",
+      "info": "t:sections.footer.settings.header__1.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "newsletter_enable",
+      "default": true,
+      "label": "t:sections.footer.settings.newsletter_enable.label"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_heading",
+      "default": "Subscribe to our newsletter",
+      "label": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Social Media Icons",
+      "info": "To display your social media accounts, link them in your theme settings."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_social",
+      "default": false,
+      "label": "t:sections.footer.settings.show_social.label"
+    },
+    {
+      "type": "link_list",
+      "info": "Displays only top-level menu items.",
+      "id": "secondary_links",
+      "label": "Secondary Links"
+    },
+    {
+      "type": "header",
+      "content": "Footer Theme"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "default": "#FFFFFF",
+      "label": "Background Color"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "default": "#000000",
+      "label": "Text Color"
+    },
+    {
+      "type": "color",
+      "id": "alt_background_color",
+      "default": "#FFFFFF",
+      "label": "Alternative Background Color"
+    },
+    {
+      "type": "color",
+      "id": "alt_text_color",
+      "default": "#FFFFFF",
+      "label": "Alternative Text Color"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "default": "#000000",
+      "label": "Button Color"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "default": "#FFFFFF",
+      "label": "Button Text Color",
+      "info": "Must have enough contrast between the chosen button color."
+    }
+  ],
+  "default": {
+    "blocks": [
+      {
+        "type": "link_list"
+      }
+    ]
+  }
 }
 {% endschema %}
+
