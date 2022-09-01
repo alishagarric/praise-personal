@@ -23,10 +23,10 @@
         "type": "footer",
         "settings": {
           "newsletter_enable": true,
-          "newsletter_heading": "Subscribe to our newsletter",
-          "newsletter_description": "",
+          "newsletter_heading": "Stay in the know",
+          "newsletter_description": "Be the first to receive new releases, special offers and more",
           "show_social": false,
-          "secondary_links": "",
+          "secondary_links": "footer",
           "background_color": "#000000",
           "text_color": "#ffffff",
           "alt_background_color": "{{ shop.brand.colors.secondary[0].background }}",
