@@ -82,6 +82,44 @@
         "bottom_spacing": 50
       }
     },
+    "1662067471929f7e31": {
+      "type": "icons-section",
+      "blocks": {
+        "1662067471e878020c-0": {
+          "type": "icon",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Frame.png",
+            "text": "We make your treats fresh and full of fresh homemade ingredients"
+          }
+        },
+        "1662067471e878020c-1": {
+          "type": "icon",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Frame.png",
+            "text": "We make your treats fresh and full of fresh homemade ingredients"
+          }
+        },
+        "1662067471e878020c-2": {
+          "type": "icon",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Frame.png",
+            "text": "We make your treats fresh and full of fresh homemade ingredients"
+          }
+        }
+      },
+      "block_order": [
+        "1662067471e878020c-0",
+        "1662067471e878020c-1",
+        "1662067471e878020c-2"
+      ],
+      "settings": {
+        "layout": "three-col",
+        "icon_height": 50,
+        "theme": "secondary",
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
+    },
     "example": {
       "type": "example",
       "settings": {
@@ -91,6 +129,7 @@
   "order": [
     "1662063884d9fa6284",
     "1662066517d31dd7ec",
+    "1662067471929f7e31",
     "example"
   ]
 }
