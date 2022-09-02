@@ -29,7 +29,7 @@
       "settings": {
         "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_549b821c-6850-42f3-ae03-51e8af8116c6.jpg",
         "overlay": 50,
-        "overlay_theme": "primary",
+        "overlay_theme": "4",
         "hero": true,
         "alignment": "center",
         "theme": "primary",
