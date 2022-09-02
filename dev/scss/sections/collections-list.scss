@@ -1,0 +1,27 @@
+.collections-list {
+  padding-left: calc(var(--pxSize) / 3);
+  padding-right: calc(var(--pxSize) / 3);
+
+  &__heading {
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 1rem auto;
+  }
+
+  &__container {
+    gap: calc(var(--pxSize) / 3);
+    position: relative;
+    display: flex;
+    flex-flow: row wrap;
+
+    > * {
+      flex: 1;
+    }
+  }
+
+  @media screen and (max-width: 676px) {
+    &__container {
+      flex-direction: column;
+    }
+  }
+}
