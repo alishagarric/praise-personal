@@ -1,0 +1,23 @@
+{% comment %}
+    Renders a collection card
+
+    Expects:
+    - collection: {Object} Collection object
+
+    Usage:
+    {% render 'collection-card' collection: collection %}
+{% endcomment %}
+
+<div class="collection-card">
+  {% if collection.image %}
+    <div class="collection-card__image">
+      {% render 'next-gen-img', image: collection.image %}
+    </div>
+  {% endif %}
+  <h3 class="collection-card__title h6">{{collection.title}}</h3>
+  {% if collection.description %}
+    <p>{{ collection.description }}</p>
+  {% endif %}
+  {% comment %}TODO: How to make hardcoded button label language diverse {% endcomment %}
+  {% render 'button', button_label: "Shop Collection", button_link: collection.url, class: "collection-card", style: "underline" %}
+</div>

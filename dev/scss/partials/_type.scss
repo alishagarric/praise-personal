@@ -192,7 +192,7 @@ li {
 
   a {
     position: relative;
-    color: var(--color-accent);
+    color: var(--color-foreground);
     opacity: 1;
     will-change: opacity;
     transition: all 0.25s ease;
@@ -204,7 +204,7 @@ li {
       right: 0;
       bottom: 0;
       height: 1px;
-      background: var(--color-accent);
+      background: var(--color-foreground);
       transform: scale(1);
       will-change: transform;
       transition: all 0.25s ease;

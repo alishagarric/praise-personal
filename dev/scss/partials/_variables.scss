@@ -2,42 +2,42 @@
 // Colors
 
 .__theme-primary {
-  --color-background: rgba(var(--color-background));
-  --color-text: rgba(var(--color-text));
-  --color-foreground: rgba(var(--color-foreground));
-  --color-foreground-text: rgba(var(--color-foreground-text));
-  --color-border: rgba(var(--color-border));
+  --color-background: var(--color-background);
+  --color-text: var(--color-text);
+  --color-foreground: var(--color-foreground);
+  --color-foreground-text: var(--color-foreground-text);
+  --color-border: var(--color-border);
 }
 
 .__btn-clr-primary {
-  --color-foreground: rgba(var(--color-background));
-  --color-foreground-text: rgba(var(--color-text));
+  --color-foreground: var(--color-background);
+  --color-foreground-text: var(--color-text);
 }
 
 .__theme-secondary {
-  --color-background: rgba(var(--color-background-2));
-  --color-text: rgba(var(--color-text-2));
-  --color-foreground: rgba(var(--color-foreground-2));
-  --color-foreground-text: rgba(var(--color-foreground-text-2));
-  --color-border: rgba(var(--color-border-2));
+  --color-background: var(--color-background-2);
+  --color-text: var(--color-text-2);
+  --color-foreground: var(--color-foreground-2);
+  --color-foreground-text: var(--color-foreground-text-2);
+  --color-border: var(--color-border-2);
 }
 
 .__btn-clr-secondary {
-  --color-foreground: rgba(var(--color-background-2));
-  --color-foreground-text: rgba(var(--color-text-2));
+  --color-foreground: var(--color-background-2);
+  --color-foreground-text: var(--color-text-2);
 }
 
 .__theme-tertiary {
-  --color-background: rgba(var(--color-background-3));
-  --color-text: rgba(var(--color-text-3));
-  --color-foreground: rgba(var(--color-foreground-3));
-  --color-foreground-text: rgba(var(--color-foreground-text-3));
-  --color-border: rgba(var(--color-border-3));
+  --color-background: var(--color-background-3);
+  --color-text: var(--color-text-3);
+  --color-foreground: var(--color-foreground-3);
+  --color-foreground-text: var(--color-foreground-text-3);
+  --color-border: var(--color-border-3);
 }
 
 .__btn-clr-tertiary {
-  --color-foreground: rgba(var(--color-background-3));
-  --color-foreground-text: rgba(var(--color-text-3));
+  --color-foreground: var(--color-background-3);
+  --color-foreground-text: var(--color-text-3);
 }
 
 // Sizing

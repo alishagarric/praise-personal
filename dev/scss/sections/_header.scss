@@ -81,7 +81,7 @@
 
     &:hover {
       cursor: pointer;
-      color: var(--color-accent);
+      color: var(--color-foreground);
     }
   }
 
@@ -99,10 +99,10 @@
     }
 
     &.__active {
-      color: var(--color-accent);
+      color: var(--color-foreground);
 
       &:after {
-        border-color: var(--color-accent);
+        border-color: var(--color-foreground);
       }
 
       + * {
@@ -166,7 +166,7 @@
             padding: calc(var(--pxSize) / 5) 0;
 
             &:hover {
-              color: var(--color-accent);
+              color: var(--color-foreground);
             }
           }
 
@@ -216,7 +216,7 @@
 
             &:hover {
               * {
-                color: var(--color-accent);
+                color: var(--color-foreground);
               }
             }
           }
@@ -319,7 +319,7 @@
       width: 100%;
       height: auto;
       * {
-        fill: var(--color-accent);
+        fill: var(--color-foreground);
       }
     }
   }

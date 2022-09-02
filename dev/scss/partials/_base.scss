@@ -19,10 +19,10 @@ body {
   min-height: 100%;
 
   ::selection {
-    background: var(--color-accent); /* WebKit/Blink Browsers */
+    background: var(--color-foreground); /* WebKit/Blink Browsers */
   }
   ::-moz-selection {
-    background: var(--color-accent); /* Gecko Browsers */
+    background: var(--color-foreground); /* Gecko Browsers */
   }
 
   &.__mobile-overflow-none {
@@ -38,8 +38,7 @@ body {
 
 //Sections' space and color defaults
 ////////////////////////////////////
-main > section > div,
-body > div > section,
+body > main > section > div,
 body > div > footer {
   padding: calc(var(--sectionVerticalSpacing) * var(--topSpacingRatio))
     var(--sectionHorizontalSpacing)
@@ -106,7 +105,7 @@ form {
 
   button,
   input[type="submit"] {
-    background: var(--color-accent);
+    background: var(--color-foreground);
     color: var(--color-foreground);
     font-weight: 600;
     border: none;
@@ -173,28 +172,50 @@ form {
   &:hover {
     opacity: 0.8;
   }
-}
 
-.__with-border {
-  background: none;
-  border: 2px solid var(--color-accent);
-  color: var(--color-accent);
-  width: fit-content;
-  border-radius: 2px;
+  &.__with-border {
+    background: none;
+    border: 2px solid var(--color-foreground);
+    color: var(--color-foreground);
+    width: fit-content;
+    border-radius: 2px;
 
-  &:hover {
-    background: var(--color-accent);
-    color: var(--color-btn-txt);
+    &:hover {
+      background: var(--color-foreground);
+      color: var(--color-foreground-text);
+
+      svg {
+        stroke: var(--color-foreground-text);
+      }
+    }
 
     svg {
-      stroke: var(--color-btn-txt);
+      stroke: var(--color-foreground);
+      width: calc(var(--btnHeight) / 3);
+      margin-left: calc(var(--btnHeight) / 4);
     }
   }
 
-  svg {
-    stroke: var(--color-accent);
-    width: calc(var(--btnHeight) / 3);
-    margin-left: calc(var(--btnHeight) / 4);
+  &.__with-underline {
+    background: none;
+    color: var(--color-text);
+    border: none;
+    height: auto;
+    line-height: 1.2;
+    position: relative;
+    display: inline-block;
+    padding: 0 0 0.25rem 0;
+    margin: 0;
+
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 1px;
+      width: 100%;
+      background-color: var(--color-text);
+    }
   }
 }
 
@@ -282,7 +303,7 @@ form {
       height: auto;
 
       * {
-        fill: var(--color-accent);
+        fill: var(--color-foreground);
       }
     }
   }

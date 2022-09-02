@@ -86,18 +86,7 @@
         </div>
       </li>
       <li>
-        <h5>Collection card</h5>
-        <div class="card">
-          <div
-            class="media"
-            style="--width: {{ collection.image.width | default: 100 }}; --height: {{ collection.image.width | default: 100 }};"
-          >
-            {{ 'collection-1' | placeholder_svg_tag }}
-          </div>
-          <h2>
-            <a href="#">Collection title</a>
-          </h2>
-        </div>
+        {% render 'collection-card', collection: collections['back-in-stock'] %}
       </li>
       <li>
         <h5>Product card</h5>

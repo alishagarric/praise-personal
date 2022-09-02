@@ -14,7 +14,7 @@
    }
  {% endstyle %}
 
-<div id="Icons-section-{{ section.id }}" class="icons-section color-{{section.settings.color_scheme}} {% if section.settings.image != blank %}__has-image{% endif %}"  
+<div id="Icons-section-{{ section.id }}" class="icons-section __theme-{{ section.settings.theme }} {% if section.settings.image != blank %}__has-image{% endif %}"  
 >
    <div class="icons-section__icons __layout-{% if section.settings.layout %}{{ section.settings.layout }}{% else %}default{% endif%}">
       {%- for block in section.blocks -%}
@@ -26,6 +26,10 @@
                   {%- else -%}
                      {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
                   {%- endif -%}
+
+                  {% if block.settings.heading != "" %}
+                     <h3 class="h6">{{block.settings.heading }}</h3>
+                  {% endif %}
 
                   {% if block.settings.text != "" %}
                      <p class="p-sm">{{block.settings.text }}</p>
@@ -69,7 +73,7 @@
       {
          "type":"range",
          "id":"icon_height",
-         "min":50,
+         "min":30,
          "max":500,
          "step":10,
          "unit":"px",
@@ -122,17 +126,22 @@
          "type":"icon",
          "name":"Icon",
          "settings":[
-          {
-            "type":"image_picker",
-            "id":"icon",
-            "label":"Icon"
-          },
-          {
-            "type":"text",
-            "id":"text",
-            "label":"Icon Text",
-            "default": "Lorem ipsum"
-          }
+            {
+               "type":"image_picker",
+               "id":"icon",
+               "label":"Icon"
+            },
+            {
+               "type": "text",
+               "id": "heading",
+               "label": "Heading"
+            },
+            {
+               "type":"text",
+               "id":"text",
+               "label":"Description",
+               "default": "Lorem ipsum"
+            }
          ]
       }
    ],

@@ -5,7 +5,7 @@
     }
  {% endstyle %}
 
-<div id="Split-section-{{ section.id }}" class="split-section __layout-{{section.settings.layout}} __image-style-{{section.settings.image_style}} color-{{section.settings.theme}}">
+<div id="Split-section-{{ section.id }}" class="split-section __layout-{{section.settings.layout}} __image-style-{{section.settings.image_style}} __theme-{{section.settings.theme}}">
   <div class="split-section__text __alignment-{{section.settings.alignment}}">    
     {%- for block in section.blocks -%}
       {%- case block.type -%}
