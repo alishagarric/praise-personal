@@ -2,11 +2,11 @@
 // Colors
 
 .__theme-primary {
-  --color-background: var(--color-background);
-  --color-text: var(--color-text);
-  --color-foreground: var(--color-foreground);
-  --color-foreground-text: var(--color-foreground-text);
-  --color-border: var(--color-border);
+  --color-background: var(--color-background-default);
+  --color-text: var(--color-text-default);
+  --color-foreground: var(--color-foreground-default);
+  --color-foreground-text: var(--color-foreground-text-default);
+  --color-border: var(--color-border-default);
 }
 
 .__btn-clr-primary {

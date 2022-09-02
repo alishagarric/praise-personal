@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="{{ request.locale.iso_code }}">
+<html class="no-js __theme-primary" lang="{{ request.locale.iso_code }}">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -54,13 +54,14 @@
         --font-body-scale: {{ settings.body_scale | divided_by: 100.0 }};
         --font-heading-scale: {{ settings.heading_scale | times: 1.0 | divided_by: settings.body_scale }};
 
-        --color-background: {{ settings.background_color }};
-        --color-text: {{ settings.text_color }};
-        --color-foreground: {{ settings.button_color }};
-        --color-foreground-text: {{ settings.button_text_color }};
-        --color-border: {{ settings.border_color }};
         --color-error: {{ settings.error_color }};
         --color-success: {{ settings.success_color }};
+
+        --color-background-default: {{ settings.background_color }};
+        --color-text-default: {{ settings.text_color }};
+        --color-foreground-default: {{ settings.button_color }};
+        --color-foreground-text-default: {{ settings.button_text_color }};
+        --color-border-default: {{ settings.border_color }};
 
         --color-background-2: {{ settings.background_color_2 }};
         --color-text-2: {{ settings.text_color_2 }};
