@@ -1,7 +1,5 @@
 {% style %}
     #Section-footer-{{ section.id }} {
-      --color-foreground: {{section.settings.text_color}};
-      --color-background: {{section.settings.background_color}};
     }
  {% endstyle %}
 
@@ -12,7 +10,7 @@
 
 <footer id="Section-footer-{{ section.id }}" class="section-footer">
     
-    <div class="section-footer__col __theme-{{section.settings.theme}}">
+    <div class="section-footer__col __theme-{{section.settings.accent_theme}}">
       <div class="section-footer__branding">
         <div class="section-footer__branding__logo">{% render 'svg-logo-stacked' %}</div>
       </div>
@@ -25,7 +23,7 @@
       {%- endif -%}
     </div>
 
-    <div class="section-footer__col">
+    <div class="section-footer__col __theme-{{section.settings.theme}}">
       {%- if section.blocks.size > 0 -%}
         <div class="section-footer__blocks">
           {%- for block in section.blocks -%}
@@ -301,37 +299,61 @@
       "content": "Footer Theme"
     },
     {
-      "type": "color",
-      "id": "background_color",
-      "default": "#FFFFFF",
-      "label": "Background Color"
-    },
-    {
-      "type": "color",
-      "id": "text_color",
-      "default": "#000000",
-      "label": "Text Color"
-    },
-    {
       "type": "select",
       "id": "theme",
       "options": [
         {
           "value": "primary",
-          "label": "Primary (Default)"
+          "label": "Primary Theme"
         },
         {
-          "value": "secondary",
-          "label": "Secondary"
+          "value": "2",
+          "label": "2nd Theme"
         },
         {
-          "value": "tertiary",
-          "label": "Tertiary"
+          "value": "3",
+          "label": "3rd Theme"
+        },
+        {
+          "value": "4",
+          "label": "4th Theme"
+        },
+        {
+          "value": "5",
+          "label": "5th Theme"
+        }
+      ],
+      "default": "primary",
+      "label": "Theme"
+    },
+    {
+      "type": "select",
+      "id": "accent_theme",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary Theme"
+        },
+        {
+          "value": "2",
+          "label": "2nd Theme"
+        },
+        {
+          "value": "3",
+          "label": "3rd Theme"
+        },
+        {
+          "value": "4",
+          "label": "4th Theme"
+        },
+        {
+          "value": "5",
+          "label": "5th Theme"
         }
       ],
       "default": "primary",
       "label": "Accent Theme"
-    },
+    }
   ],
   "default": {
     "blocks": [

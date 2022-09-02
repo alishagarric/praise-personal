@@ -4,8 +4,8 @@
     "theme_name": "Praise",
     "theme_version": "0.1.0",
     "theme_author": "Commence Studio",
-    "theme_documentation_url": "https:\/\/commence.studio",
-    "theme_support_url": "https:\/\/commence.studio"
+    "theme_documentation_url": "https://commence.studio",
+    "theme_support_url": "https://commence.studio"
   },
   {
     "name": "t:settings_schema.social_media.name",
@@ -88,7 +88,7 @@
         "type": "url",
         "id": "custom_heading_font_link",
         "label": "Custom Font Link",
-        "info": "Advanced. If using a custom Adobe font, Adobe will give you a link like 'https:\/\/use.typekit.net\/xxxxxxx.css to paste here. If using downloaded .woff or .woff2 files, upload those files as well as their corresponding .css file to your Shopify Files and paste the link for the css file here."
+        "info": "Advanced. If using a custom Adobe font, Adobe will give you a link like 'https://use.typekit.net/xxxxxxx.css to paste here. If using downloaded .woff or .woff2 files, upload those files as well as their corresponding .css file to your Shopify Files and paste the link for the css file here."
       },
       {
         "type": "text",
@@ -121,7 +121,7 @@
         "type": "url",
         "id": "custom_body_font_link",
         "label": "Custom Font Link",
-        "info": "Advanced. If using a custom Adobe font, Adobe will give you a link like 'https:\/\/use.typekit.net\/xxxxxxx.css to paste here. If using downloaded .woff or .woff2 files, upload those files as well as their corresponding .css file to your Shopify Files and paste the link for the css file here."
+        "info": "Advanced. If using a custom Adobe font, Adobe will give you a link like 'https://use.typekit.net/xxxxxxx.css to paste here. If using downloaded .woff or .woff2 files, upload those files as well as their corresponding .css file to your Shopify Files and paste the link for the css file here."
       },
       {
         "type": "text",
@@ -198,7 +198,7 @@
       },
       {
         "type": "header",
-        "content": "Secondary Theme"
+        "content": "2nd Theme"
       },
       {
         "type": "color",
@@ -234,7 +234,7 @@
       },
       {
         "type": "header",
-        "content": "Tertiary Theme"
+        "content": "3rd Theme"
       },
       {
         "type": "color",
@@ -264,6 +264,78 @@
       {
         "type": "color",
         "id": "button_text_color_3",
+        "default": "#FFFFFF",
+        "label": "Button Text Color",
+        "info": "Must have enough contrast between the chosen button color."
+      },
+      {
+        "type": "header",
+        "content": "4th Theme"
+      },
+      {
+        "type": "color",
+        "id": "background_color_4",
+        "default": "#FFFFFF",
+        "label": "Background Color"
+      },
+      {
+        "type": "color",
+        "id": "text_color_4",
+        "default": "#000000",
+        "label": "Text Color",
+        "info": "Must have enough contrast between the chosen background color."
+      },
+      {
+        "type": "color",
+        "id": "border_color_4",
+        "default": "#000000",
+        "label": "Border Color"
+      },
+      {
+        "type": "color",
+        "id": "button_color_4",
+        "default": "#000000",
+        "label": "Button Color"
+      },
+      {
+        "type": "color",
+        "id": "button_text_color_4",
+        "default": "#FFFFFF",
+        "label": "Button Text Color",
+        "info": "Must have enough contrast between the chosen button color."
+      },
+      {
+        "type": "header",
+        "content": "5th Theme"
+      },
+      {
+        "type": "color",
+        "id": "background_color_5",
+        "default": "#FFFFFF",
+        "label": "Background Color"
+      },
+      {
+        "type": "color",
+        "id": "text_color_5",
+        "default": "#000000",
+        "label": "Text Color",
+        "info": "Must have enough contrast between the chosen background color."
+      },
+      {
+        "type": "color",
+        "id": "border_color_5",
+        "default": "#000000",
+        "label": "Border Color"
+      },
+      {
+        "type": "color",
+        "id": "button_color_5",
+        "default": "#000000",
+        "label": "Button Color"
+      },
+      {
+        "type": "color",
+        "id": "button_text_color_5",
         "default": "#FFFFFF",
         "label": "Button Text Color",
         "info": "Must have enough contrast between the chosen button color."

@@ -14,7 +14,7 @@
   --color-foreground-text: var(--color-text);
 }
 
-.__theme-secondary {
+.__theme-2 {
   --color-background: var(--color-background-2);
   --color-text: var(--color-text-2);
   --color-foreground: var(--color-foreground-2);
@@ -22,12 +22,12 @@
   --color-border: var(--color-border-2);
 }
 
-.__btn-clr-secondary {
+.__btn-clr-2 {
   --color-foreground: var(--color-background-2);
   --color-foreground-text: var(--color-text-2);
 }
 
-.__theme-tertiary {
+.__theme-3 {
   --color-background: var(--color-background-3);
   --color-text: var(--color-text-3);
   --color-foreground: var(--color-foreground-3);
@@ -35,9 +35,35 @@
   --color-border: var(--color-border-3);
 }
 
-.__btn-clr-tertiary {
+.__btn-clr-3 {
   --color-foreground: var(--color-background-3);
   --color-foreground-text: var(--color-text-3);
+}
+
+.__theme-4 {
+  --color-background: var(--color-background-4);
+  --color-text: var(--color-text-4);
+  --color-foreground: var(--color-foreground-4);
+  --color-foreground-text: var(--color-foreground-text-4);
+  --color-border: var(--color-border-4);
+}
+
+.__btn-clr-4 {
+  --color-foreground: var(--color-background-4);
+  --color-foreground-text: var(--color-text-4);
+}
+
+.__theme-5 {
+  --color-background: var(--color-background-5);
+  --color-text: var(--color-text-5);
+  --color-foreground: var(--color-foreground-5);
+  --color-foreground-text: var(--color-foreground-text-5);
+  --color-border: var(--color-border-5);
+}
+
+.__btn-clr-5 {
+  --color-foreground: var(--color-background-5);
+  --color-foreground-text: var(--color-text-5);
 }
 
 // Sizing

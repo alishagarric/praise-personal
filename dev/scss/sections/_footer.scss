@@ -1,5 +1,5 @@
 .section-footer {
-  color: var(--color-foreground);
+  color: var(--color-text);
   background: var(--color-background);
   position: relative;
   display: flex;
@@ -9,8 +9,8 @@
     padding: var(--sectionVerticalSpacing) var(--sectionHorizontalSpacing);
 
     &:first-of-type {
-      color: var(--color-foreground-footer);
-      background-color: var(--color-background-footer);
+      color: var(--color-text);
+      background: var(--color-background);
     }
   }
 
