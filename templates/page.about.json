@@ -4,9 +4,44 @@
       "type": "main-page",
       "settings": {
       }
+    },
+    "166214275854e11719": {
+      "type": "image-banner",
+      "blocks": {
+        "b7e49cf4-a327-4afa-8bef-dc076022f79e": {
+          "type": "heading",
+          "settings": {
+            "heading": "About Us",
+            "heading_size": "h4"
+          }
+        },
+        "599e2d68-7d31-4caf-baa2-43362684a30b": {
+          "type": "text",
+          "settings": {
+            "text": "<p>All our cookies use natural ingredients and are made in Williamsburg at our Brooklyn bakery.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "b7e49cf4-a327-4afa-8bef-dc076022f79e",
+        "599e2d68-7d31-4caf-baa2-43362684a30b"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_549b821c-6850-42f3-ae03-51e8af8116c6.jpg",
+        "overlay": 50,
+        "overlay_theme": "primary",
+        "hero": true,
+        "alignment": "center",
+        "theme": "primary",
+        "top_spacing": 0,
+        "bottom_spacing": 0,
+        "top_internal_spacing": 250,
+        "bottom_internal_spacing": 30
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "166214275854e11719"
   ]
 }
