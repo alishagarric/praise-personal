@@ -41,6 +41,18 @@
         "bottom_spacing": 50
       }
     },
+    "1663189358d1a4ecd6": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "back-in-stock",
+        "heading": "Shop Our Bestsellers",
+        "text": "<p>Functional handbags made of luxurious and honest materials to improve people's lives in small but mighty ways.<\/p>",
+        "collection_text_content": false,
+        "theme": "primary",
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
+    },
     "1662066517d31dd7ec": {
       "type": "split-section",
       "blocks": {
@@ -172,6 +184,7 @@
   },
   "order": [
     "1662063884d9fa6284",
+    "1663189358d1a4ecd6",
     "1662066517d31dd7ec",
     "1662067471929f7e31",
     "1662139175fd63525b",
