@@ -1,0 +1,82 @@
+.marquee {
+  --horizontalGalleryGap: calc(var(--pxSize) / 5);
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+
+  @keyframes galleryMarquee {
+    from {
+      transform: translateX(0%);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  @keyframes galleryCopyMarquee {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0%);
+    }
+  }
+  &__container {
+    overflow: hidden;
+    position: relative;
+
+    &.__paused {
+      .marquee__container__inner {
+        -webkit-animation-play-state: paused;
+        -moz-animation-play-state: paused;
+        -o-animation-play-state: paused;
+        animation-play-state: paused;
+      }
+    }
+
+    //Hide scrollbars
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__section {
+    display: flex;
+    gap: var(--horizontalGalleryGap);
+    position: relative;
+    left: 0;
+    will-change: left;
+    transition: left 0.5s ease-in;
+    width: 100%;
+    animation: galleryMarquee 20s linear infinite;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0;
+
+    p {
+      margin-bottom: 0;
+    }
+
+    &:last-of-type {
+      position: absolute;
+      top: 0;
+      left: 0;
+      animation: galleryCopyMarquee 20s linear infinite;
+    }
+
+    //force flex gap to exist between last item and this pseudo item
+    &:after {
+      content: "";
+      display: block;
+      position: relative;
+      min-width: 1px;
+      margin-left: -1px;
+    }
+  }
+
+  @media screen and (max-width: 676px) {
+    --horizontalGalleryGap: calc(var(--pxSize) / 4);
+  }
+}
