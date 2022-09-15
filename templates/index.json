@@ -13,14 +13,14 @@
         "1662063884b661ea2d-0": {
           "type": "text",
           "settings": {
-            "text": "<p>Atypical cookies and treats that push the boundaires of indulgence<\/p>"
+            "text": "<p>Atypical cookies and treats that push the boundaires of indulgence</p>"
           }
         },
         "1662063884b661ea2d-1": {
           "type": "button",
           "settings": {
             "button_label": "Shop treats",
-            "button_link": "shopify:\/\/collections",
+            "button_link": "shopify://collections",
             "button_color": "default"
           }
         }
@@ -31,7 +31,7 @@
         "1662063884b661ea2d-1"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash.jpg",
+        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash.jpg",
         "hero": true,
         "alignment": "center",
         "theme": "primary",
@@ -45,8 +45,9 @@
       "type": "featured-collection",
       "settings": {
         "collection": "back-in-stock",
+        "crop_shape": "circle",
         "heading": "Shop Our Bestsellers",
-        "text": "<p>Functional handbags made of luxurious and honest materials to improve people's lives in small but mighty ways.<\/p>",
+        "text": "<p>Functional handbags made of luxurious and honest materials to improve people's lives in small but mighty ways.</p>",
         "collection_text_content": false,
         "theme": "primary",
         "top_spacing": 50,
@@ -66,14 +67,14 @@
         "1662066517b59e31e0-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Atypical cookies and treats that push the boundaries of indulgence. An odea to the well-baanced classic cookie. This season we are celebrating all the nostalgia and what pairs best with chocolate chips.<\/p>"
+            "text": "<p>Atypical cookies and treats that push the boundaries of indulgence. An odea to the well-baanced classic cookie. This season we are celebrating all the nostalgia and what pairs best with chocolate chips.</p>"
           }
         },
         "1662066517b59e31e0-2": {
           "type": "button",
           "settings": {
             "button_label": "Shop treats",
-            "button_link": "shopify:\/\/collections",
+            "button_link": "shopify://collections",
             "button_color": "default"
           }
         }
@@ -84,7 +85,7 @@
         "1662066517b59e31e0-2"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_cd0b890c-b357-4857-9c0d-36126dbfab86.jpg",
+        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_cd0b890c-b357-4857-9c0d-36126dbfab86.jpg",
         "hero": false,
         "alignment": "center",
         "theme": "primary",
@@ -100,7 +101,7 @@
         "1662067471e878020c-0": {
           "type": "icon",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/Frame.png",
+            "icon": "shopify://shop_images/Frame.png",
             "heading": "One-of-a-kind treats",
             "text": "We make your treats fresh and full of fresh homemade ingredients"
           }
@@ -108,7 +109,7 @@
         "1662067471e878020c-1": {
           "type": "icon",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/Frame.png",
+            "icon": "shopify://shop_images/Frame.png",
             "heading": "One-of-a-kind treats",
             "text": "We make your treats fresh and full of fresh homemade ingredients"
           }
@@ -116,7 +117,7 @@
         "1662067471e878020c-2": {
           "type": "icon",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/Frame.png",
+            "icon": "shopify://shop_images/Frame.png",
             "heading": "One-of-a-kind treats",
             "text": "We make your treats fresh and full of fresh homemade ingredients"
           }
@@ -178,8 +179,7 @@
     },
     "example": {
       "type": "example",
-      "settings": {
-      }
+      "settings": {}
     }
   },
   "order": [

@@ -1,44 +1,37 @@
 {% comment %}
-  Renders a product card.  Can be used in a grid or on its own.
+  Renders a product card
+
+  Expects: 
+  - product: {Object} Product object
+  - class: {String} optional
+  - id: {String} optional
+  - crop: optional. circle, rounded-square, default
 
   Usage:
   <ul class="container grid" class="list-unstyled" role="list">
     {%- for product in collection.products -%}
       <li>
-        {% render 'product-card', card_product: product %}
+        {% render 'product-card', product: product %}
       </li>
     {%- endfor -%}
   </ul>
 
-  Accepts:
-  - card_product: {Product object}
 {% endcomment %}
 
-{{ 'component-card.css' | asset_url | stylesheet_tag }}
 
-<div class="card">
-  <div
-    class="media"
-    style="--width: {{ card_product.featured_image.width }}; --height: {{ card_product.featured_image.height }};"
-  >
-    {% unless card_product.featured_image.src == blank %}
-      {{
-        card_product.featured_image.src |
-        image_url: width: 1440 |
-        image_tag: widths: '360, 450, 540, 630, 720, 900, 1050, 1200, 1320, 1440', sizes: "(min-width: 1200px) 269px, (min-width: 990px) calc(25vw - 30px - 96px), (min-width: 750px) calc(50vw - 30px - 32px), calc(100vw - 30px)", alt: card_product.featured_image.alt, loading: "lazy" |
-        escape
-      }}
-    {% endunless %}
-  </div>
+<a class="product-card {{ class }} __crop-{{ crop }}" id="{{ id }}" href="{{ product.url }}">
+  {% if product.metafields.custom.phrase %}
+    <p class="product-card__phrase h6">{{ product.metafields.custom.phrase }}</p>
+  {% endif %}
 
-  <h2 class="h4">
-    <a href="{{ card_product.url }}">{{ card_product.title }}</a>
-  </h2>
+  {% if product.featured_image %}
+    <div class="product-card__image">
+      {% render 'next-gen-img', image: product.featured_image %}
+    </div>
+  {% endif %}
 
-  <p>
-    <span class="visually-hidden">{{ 'accessibility.by' | t }}</span>
-    <small>{{ card_product.vendor | escape }}</small>
-  </p>
+  <h3 class="product-card__title h6">{{product.title}}</h3>
 
-  {%- render 'price', product: card_product -%}
-</div>
+
+  {% comment %}{%- render 'price', product: card_product -%}{% endcomment %}
+</a>

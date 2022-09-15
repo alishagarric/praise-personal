@@ -5,16 +5,46 @@
     }
  {% endstyle %}
  
+ {% if section.settings.collection_text_content %}
+  {% assign section_heading = section.settings.collection.title %}
+  {% assign section_text = section.settings.collection.description %}
+ {% else %}
+  {% if section.settings.heading %}
+      {% assign section_heading = section.settings.heading %}
+  {% endif %}
+    {% if section.settings.text %}
+    {% assign section_text = section.settings.text %}
+  {% endif %}
+ {% endif %}
+
  <div id="Featured-collection-{{ section.id }}" class="featured-collection __theme-{{section.settings.color_scheme}}"  
 >
-  {% if section.settings.heading %}
-    <h2 class="featured-collection__heading h4">{{ section.settings.heading }}</h2>
+  {% if section_heading or section_text %}
+    <div class="featured-collection__text">
+        {% if section_heading %}
+          <h2 class="featured-collection__text__heading h4">{{ section_heading }}</h2>
+        {% endif %}
+        {% if section_text %}
+          <p class="featured-collection__text__desc">{{ section_text }}</p>
+        {% endif %}
+    </div>
   {% endif %}
 
   <div class="featured-collection__container">
-    {% for product in section.settings.collection %}
-      {% render 'product-card' product: product %}
-    {% endfor %}
+    <div class="featured-collection__container__cards">
+      {% for product in section.settings.collection.products %}
+        {% assign card_id = section.id | append: forloop.index %}
+        {% render 'product-card' product: product, crop: section.settings.crop_shape, class: "featured-collection__container__cards__card", id: card_id %}
+      {% endfor %}
+    </div>
+    <div class="featured-collection__container__controls">
+      {% for product in section.settings.collection.products %}
+        {% assign card_id = section.id | append: forloop.index %}
+        <a href="#{{ card_id }}" style="background-color: {{product.metafields.custom.color }}">
+          <span class="visually-hidden">{{ product.title }}</span>
+        </a>
+      {% endfor %}
+    </div>
   </div>
 
 </div>
@@ -33,6 +63,26 @@
       "type": "collection",
       "id": "collection",
       "label": "Collection"
+    },
+    {
+      "type": "select",
+      "id": "crop_shape",
+      "options": [
+        {
+          "value": "default",
+          "label": "No Crop (Default)"
+        },
+        {
+          "value": "circle",
+          "label": "Circle"
+        },
+        {
+          "value": "rounded-square",
+          "label": "Rounded Square"
+        }
+      ],
+      "default": "default",
+      "label": "Image Crop Shape"
     },
     {
       "type": "header",
@@ -54,7 +104,7 @@
       "type": "checkbox",
       "id": "collection_text_content",
       "label": "Use collection title and description for text content?",
-      "info": "If chosen, collection title and description will replace heading and description added above, if any."
+      "info": "If chosen, the collection title and description will replace the heading and description added above, if any."
     },
     {
       "type": "header",
