@@ -13,9 +13,9 @@
         {% for block in section.blocks %}
           {% case block.type %}
               {% when 'text' %}
-                <p style="transform: scale({{ 100 | divided_by: section.settings.font_scale }})">{{ block.settings.text}}</p>
+                <p style="transform: scale({{ section.settings.font_scale | divided_by: 100.0 }})">{{ block.settings.text}}</p>
                 {% if blocks_length == 1 %}
-                  <p style="transform: scale({{ 100 | divided_by: section.settings.font_scale }})">{{ block.settings.text}}</p>
+                  <p style="transform: scale({{ section.settings.font_scale | divided_by: 100.0 }})">{{ block.settings.text}}</p>
                 {% endif %}
           {% endcase %}
         {% endfor %}
