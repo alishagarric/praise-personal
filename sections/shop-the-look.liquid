@@ -1,0 +1,147 @@
+{% style %}
+    #Shop-the-look-{{ section.id }} {
+      --topSpacingRatio: {{section.settings.top_spacing}} / 100;
+      --bottomSpacingRatio: {{section.settings.bottom_spacing}} / 100;
+    }
+ {% endstyle %}
+
+
+<div id="Shop-the-look-{{ section.id }}" class="shop-the-look __theme-{{section.settings.theme}}">
+  <div class="shop-the-look__image">
+    {% if section.settings.image %}
+      {% render 'next-gen-img' image: section.settings.image %}
+    {% endif %}
+
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'product' %}
+          <div style="left: {{ block.settings.horizontal_pos }}; top: {{ block.settings.horizontal_pos }}; background-color: {{ block.settings.product.metafields.custom.color }}"><span class="visually-hidden">{{ block.settings.product.title }}</div>
+      {% endcase %}
+    {% endfor %}
+  </div>
+
+  <div class="shop-the-look__products">
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'product' %}
+          {% render 'product-card' product: block.settings.product %}
+      {% endcase %}
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Shop the Look",
+  "tag": "section",
+  "settings": [
+    {
+    "type": "image",
+    "id": "image",
+    "label": "Image"
+    },
+    {
+      "type": "header",
+      "content": "Settings"
+    },
+    {
+      "type": "select",
+      "id": "theme",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary Theme"
+        },
+        {
+          "value": "2",
+          "label": "2nd Theme"
+        },
+        {
+          "value": "3",
+          "label": "3rd Theme"
+        },
+        {
+          "value": "4",
+          "label": "4th Theme"
+        },
+        {
+          "value": "5",
+          "label": "5th Theme"
+        }
+      ],
+      "default": "primary",
+      "label": "Theme"
+    },
+    {
+      "type": "header",
+      "content": "Section Spacing"
+    },
+    {
+      "type": "range",
+      "id": "top_spacing",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "Top Spacing",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "bottom_spacing",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "Bottom Spacing",
+      "default": 50
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "range",
+          "id": "horizontal_pos",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "label": "Dot Horizontal Position",
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "vertical_pos",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "label": "Dot Vertical Position",
+          "default": 50
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Shop the Look",
+      "blocks": [
+        {
+          "type": "product"
+        },
+        {
+          "type": "product"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
