@@ -22,7 +22,7 @@
 
     &:after {
       content: "";
-      background: var(--color-foreground);
+      background: var(--initialBgColor);
       position: absolute;
       top: 0;
       left: 0;
@@ -52,6 +52,7 @@
     &__controls {
       text-align: center;
       z-index: 2;
+      display: none; /* TODO: remove this if we decide not to go the css snap route */
 
       a {
         display: inline-block;

@@ -5,6 +5,7 @@
     - product: {Object} Product Liquid object (optional)
     - use_variant: {Boolean} Renders selected or first variant price instead of overall product pricing (optional)
     - show_badges: {Boolean} Renders 'Sale' and 'Sold Out' tags if the product matches the condition (optional)
+    - class: {String}
 
     Usage:
     {% render 'price', product: product %}
@@ -34,7 +35,7 @@
   endif
 -%}
 
-<div class="price">
+<div class="price {{ class }}">
   <div>
     {%- if onsale %}
       {%- unless product.price_varies == false and product.compare_at_price_varies %}

@@ -2,6 +2,7 @@
     #Featured-collection-{{ section.id }} {
       --topSpacingRatio: {{section.settings.top_spacing}} / 100;
       --bottomSpacingRatio: {{section.settings.bottom_spacing}} / 100;
+      --initialBgColor: {{ section.settings.collection.products[0].metafields.custom.color }}
     }
  {% endstyle %}
  
@@ -34,7 +35,7 @@
     <div class="featured-collection__container__cards">
       {% for product in section.settings.collection.products %}
         {% assign card_id = section.id | append: forloop.index %}
-        {% render 'product-card' product: product, crop: section.settings.crop_shape, class: "featured-collection__container__cards__card", id: card_id %}
+        {% render 'product-card' product: product, crop: section.settings.crop_shape, show_phrase: true, alignment: "center", price_position: "not-visible", alt_header: true, class: "featured-collection__container__cards__card", id: card_id %}
       {% endfor %}
     </div>
     <div class="featured-collection__container__controls">

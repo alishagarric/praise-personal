@@ -24,6 +24,12 @@ h6,
   line-height: 1.15;
   word-break: break-word;
   margin: 0 0 1rem 0;
+
+  &.alt {
+    font-family: var(--font-body-family);
+    font-style: var(--font-body-style);
+    font-weight: var(--font-body-weight);
+  }
 }
 
 h1,

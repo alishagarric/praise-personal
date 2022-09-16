@@ -15,16 +15,30 @@
     {% for block in section.blocks %}
       {% case block.type %}
         {% when 'product' %}
-          <div style="left: {{ block.settings.horizontal_pos }}; top: {{ block.settings.horizontal_pos }}; background-color: {{ block.settings.product.metafields.custom.color }}"><span class="visually-hidden">{{ block.settings.product.title }}</div>
+          <div 
+            class="shop-the-look__dot" 
+            style="
+              left: {{ block.settings.horizontal_pos }}%; 
+              top: {{ block.settings.horizontal_pos }}%; 
+              background-color: {{ block.settings.product.metafields.custom.color }}; 
+              border-color:rgba({{ block.settings.product.metafields.custom.color.value.red }}, {{ block.settings.product.metafields.custom.color.value.green }}, {{ block.settings.product.metafields.custom.color.value.blue }}, .5);
+            ">
+            <span class="visually-hidden">{{ block.settings.product.title }}</span>
+          </div>
+
+          {% if initial_bg_color == blank %}
+            {% assign initial_bg_color = block.settings.product.metafields.custom.color %}
+          {% endif %}
+
       {% endcase %}
     {% endfor %}
   </div>
 
-  <div class="shop-the-look__products">
+  <div class="shop-the-look__products" style="background-color: {{ section.blocks[0].settings.product.metafields.custom.color }}">
     {% for block in section.blocks %}
       {% case block.type %}
         {% when 'product' %}
-          {% render 'product-card' product: block.settings.product %}
+          {% render 'product-card' class: "shop-the-look__products__product", product: block.settings.product, crop: section.settings.crop_shape %}
       {% endcase %}
     {% endfor %}
   </div>
@@ -36,9 +50,33 @@
   "tag": "section",
   "settings": [
     {
+      "type": "header",
+      "content": "Content"
+    },
+    {
       "type": "image_picker",
       "id": "image",
       "label": "Image"
+    },
+    {
+      "type": "select",
+      "id": "crop_shape",
+      "options": [
+        {
+          "value": "default",
+          "label": "No Crop (Default)"
+        },
+        {
+          "value": "circle",
+          "label": "Circle"
+        },
+        {
+          "value": "rounded-square",
+          "label": "Rounded Square"
+        }
+      ],
+      "default": "default",
+      "label": "Image Crop Shape"
     },
     {
       "type": "header",

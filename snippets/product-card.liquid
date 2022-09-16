@@ -6,6 +6,12 @@
   - class: {String} optional
   - id: {String} optional
   - crop: optional. circle, rounded-square, default
+  - alt_header: {Bool} optional bool
+  - alignment: {String} optional. default, center, right
+  - show_phrase: {Bool} optional.
+  - show_bg_color: {Bool} optional.
+  - show_description: {Bool} optional.
+  - price_position: {String} optional. default, bottom, not-visible
 
   Usage:
   <ul class="container grid" class="list-unstyled" role="list">
@@ -18,20 +24,44 @@
 
 {% endcomment %}
 
+{% assign crop = crop | default: "default" %}
+{% assign alt_header = alt_header | default: false %}
+{% assign alignment = alignment | default: "default" %}
+{% assign show_phrase = show_phrase | default: false %}
+{% assign show_bg_color = show_bg_color | default: false %}
+{% assign show_description = show_description | default: false %}
+{% assign price_position = price_position | default: "default" %}
 
-<a class="product-card {{ class }} __crop-{{ crop }}" id="{{ id }}" href="{{ product.url }}">
-  {% if product.metafields.custom.phrase %}
+
+<a class="product-card {{ class }} __crop-{{ crop }} __alignment-{{ alignment }} {% if show_bg_color and product.metafields.custom.color %}__include-bg{% endif %}" id="{{ id }}" href="{{ product.url }}">
+  {% if show_bg_color and product.metafields.custom.color %}
+    {% style %}
+      --productCardBgColor: {{ product.metafields.custom.color }};
+    {% endstyle %}
+  {% endif %}
+
+  {% if show_phrase and product.metafields.custom.phrase %}
     <p class="product-card__phrase h6">{{ product.metafields.custom.phrase }}</p>
   {% endif %}
 
   {% if product.featured_image %}
-    <div class="product-card__image">
+    <div class="product-card__image" style="padding-top: {{ section.settings.image.width | divided_by: section.settings.image.height | times: 100 }}%">
       {% render 'next-gen-img', image: product.featured_image %}
     </div>
   {% endif %}
 
-  <h3 class="product-card__title h6">{{product.title}}</h3>
+  <div class="product-card__row">
+    <h3 class="product-card__title h6 {% if alt_header == true %}alt{% endif %}">{{product.title}}</h3>
+    {% if price_position == "default" %}
+      {%- render 'price', class: "product-card__price" product: card_product -%}
+    {% endif %}
+  </div>
 
+  {% if show_description and product.description %}
+    <p>{{ product.description }}</p>
+  {% endif %}
 
-  {% comment %}{%- render 'price', product: card_product -%}{% endcomment %}
+    {% if price_position == "bottom" %}
+      {%- render 'price', product: card_product -%}
+    {% endif %}
 </a>
