@@ -58,7 +58,7 @@
   "settings": [
     {
       "type": "header",
-      "content": "Collection"
+      "content": "Collection and Card Settings"
     },
     {
       "type": "collection",
@@ -83,7 +83,7 @@
         }
       ],
       "default": "default",
-      "label": "Image Crop Shape"
+      "label": "Product Image Crop Shape"
     },
     {
       "type": "header",
@@ -158,6 +158,64 @@
       "unit": "%",
       "label": "Bottom Spacing",
       "default": 50
+    }
+  ],
+  "blocks": [
+    {
+      "type": "phrase",
+      "name": "Phrase",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "select",
+          "id": "font_type",
+          "default": "default",
+          "label": "Font Type",
+          "options": [
+            {
+              "value": "alt",
+              "label": "Body Font"
+            },
+            {
+              "value": "default",
+              "label": "Heading Font"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "title",
+      "name": "Title",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "select",
+          "id": "font_type",
+          "default": "default",
+          "label": "Font Type",
+          "options": [
+            {
+              "value": "alt",
+              "label": "Body Font"
+            },
+            {
+              "value": "default",
+              "label": "Heading Font"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "description",
+      "name": "Description",
+      "limit": 1
+    },
+    {
+      "type": "price",
+      "name": "Price",
+      "limit": 1
     }
   ],
   "presets": [
