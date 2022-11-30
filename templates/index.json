@@ -150,9 +150,11 @@
       ],
       "settings": {
         "layout": "three-col",
+        "heading": "The magic to Ritual Baking",
+        "heading_size": "h5",
         "icon_height": 50,
         "theme": "2",
-        "top_spacing": 50,
+        "top_spacing": 70,
         "bottom_spacing": 50
       }
     },
@@ -215,11 +217,24 @@
             "horizontal_pos": 80,
             "vertical_pos": 19
           }
+        },
+        "1663290308334a8c59-2": {
+          "type": "product",
+          "settings": {
+            "product": "all-hail-sugar",
+            "horizontal_pos": 80,
+            "vertical_pos": 19
+          }
         }
       },
       "block_order": [
         "1663290308334a8c59-0",
+<<<<<<< HEAD
         "1663290308334a8c59-1"
+=======
+        "1663290308334a8c59-1",
+        "1663290308334a8c59-2"
+>>>>>>> e5179f0 (:rocket: deploying: get flickity to work, apply flickity to featured collection, apply flickity to shop the look, add heading to icons sections, add customizations to product card and add flickity style overrides file)
       ],
       "settings": {
         "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_bbf54c90-3c31-4e00-962c-f12d6b17cf77.jpg",

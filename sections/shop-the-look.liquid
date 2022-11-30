@@ -1,48 +1,67 @@
+{% liquid
+  assign products_count = section.blocks | size
+  assign section_theme = section.settings.theme
+  assign top_spacing = section.settings.top_spacing
+  assign bottom_spacing = section.settings.bottom_spacing
+  assign featured_image = section.settings.image 
+%}
+
 {% style %}
     #Shop-the-look-{{ section.id }} {
-      --topSpacingRatio: {{section.settings.top_spacing}} / 100;
-      --bottomSpacingRatio: {{section.settings.bottom_spacing}} / 100;
+      --topSpacingRatio: {{ top_spacing }} / 100;
+      --bottomSpacingRatio: {{ bottom_spacing }} / 100;
     }
  {% endstyle %}
 
 
-<div id="Shop-the-look-{{ section.id }}" class="shop-the-look __theme-{{section.settings.theme}}">
+<shop-the-look 
+  id="Shop-the-look-{{ section.id }}" 
+  class="shop-the-look __theme-{{ section_theme }}"
+  data-slider="{% if products_count > 1 %}true{% else %}false{% endif %}" 
+>
   <div class="shop-the-look__image">
-    {% if section.settings.image %}
-      {% render 'next-gen-img' image: section.settings.image %}
+    {% if featured_image %}
+      {% render 'next-gen-img' image: featured_image %}
     {% endif %}
 
+    <div class="shop-the-look__dots">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'product' %}
+            <div 
+              class="shop-the-look__dots__dot" 
+              style="
+                left: {{ block.settings.horizontal_pos }}%; 
+                top: {{ block.settings.horizontal_pos }}%; 
+                background-color: {{ block.settings.product.metafields.custom.color }}; 
+                border-color:rgba({{ block.settings.product.metafields.custom.color.value.red }}, {{ block.settings.product.metafields.custom.color.value.green }}, {{ block.settings.product.metafields.custom.color.value.blue }}, .5);
+              ">
+              <span class="visually-hidden">{{ block.settings.product.title }}</span>
+            </div>
+
+        {% endcase %}
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="shop-the-look__products">
     {% for block in section.blocks %}
       {% case block.type %}
         {% when 'product' %}
-          <div 
-            class="shop-the-look__dot" 
-            style="
-              left: {{ block.settings.horizontal_pos }}%; 
-              top: {{ block.settings.horizontal_pos }}%; 
-              background-color: {{ block.settings.product.metafields.custom.color }}; 
-              border-color:rgba({{ block.settings.product.metafields.custom.color.value.red }}, {{ block.settings.product.metafields.custom.color.value.green }}, {{ block.settings.product.metafields.custom.color.value.blue }}, .5);
-            ">
-            <span class="visually-hidden">{{ block.settings.product.title }}</span>
-          </div>
-
-          {% if initial_bg_color == blank %}
-            {% assign initial_bg_color = block.settings.product.metafields.custom.color %}
-          {% endif %}
-
+          {% render 'product-card' product: block.settings.product, crop: 'rounded-square', show_phrase: false, alignment: "left", price_position: "bottom", alt_header: false, class: "shop-the-look__products__product", quick_add: true %}
       {% endcase %}
     {% endfor %}
   </div>
 
-  <div class="shop-the-look__products" style="background-color: {{ section.blocks[0].settings.product.metafields.custom.color }}">
+  <div class="shop-the-look__background-color">
     {% for block in section.blocks %}
       {% case block.type %}
         {% when 'product' %}
-          {% render 'product-card' class: "shop-the-look__products__product", product: block.settings.product, crop: section.settings.crop_shape %}
+          <div class="shop-the-look__background-color__item" style="background-color: {{ block.settings.product.metafields.custom.color }};"></div>
       {% endcase %}
     {% endfor %}
   </div>
-</div>
+</shop-the-look>
 
 {% schema %}
 {
@@ -73,6 +92,18 @@
         {
           "value": "rounded-square",
           "label": "Rounded Square"
+        },
+        {
+          "value": "square",
+          "label": "Square"
+        },
+        {
+          "value": "portrait",
+          "label": "Portrait"
+        },
+        {
+          "value": "landscape",
+          "label": "Landscape"
         }
       ],
       "default": "default",

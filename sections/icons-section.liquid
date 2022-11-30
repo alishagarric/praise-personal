@@ -16,6 +16,10 @@
 
 <div id="Icons-section-{{ section.id }}" class="icons-section __theme-{{ section.settings.theme }} {% if section.settings.image != blank %}__has-image{% endif %}"  
 >
+   {% if section.settings.heading %}
+      <h2 class="icons-section__heading {{ section.settings.heading_size }}">{{ section.settings.heading }}</h2>
+   {% endif %}
+
    <div class="icons-section__icons __layout-{% if section.settings.layout %}{{ section.settings.layout }}{% else %}default{% endif%}">
       {%- for block in section.blocks -%}
          {%- case block.type -%}
@@ -49,6 +53,32 @@
       {
          "type": "header",
          "content": "Settings"
+      },
+      {
+         "type": "text",
+         "id": "heading",
+         "default": "Lorem ipsum",
+         "label": "Heading"
+      },
+      {
+         "type": "select",
+         "id": "heading_size",
+         "options": [
+         {
+            "value": "h4",
+            "label": "Large"
+         },
+         {
+            "value": "h5",
+            "label": "Medium"
+         },
+         {
+            "value": "caption-lg",
+            "label": "Small"
+         }
+         ],
+         "default": "h5",
+         "label": "Heading Size"
       },
       {
          "type": "select",

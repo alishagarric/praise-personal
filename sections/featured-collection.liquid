@@ -1,24 +1,36 @@
-{% style %}
+ {% liquid
+  assign featured_collection = section.settings.collection
+  assign products_count = featured_collection.products | size
+  assign collection_text_content = section.settings.collection_text_content
+  assign collection_heading = section.settings.heading
+  assign collection_text = section.settings.text
+  assign crop_shape = section.settings.crop_shape
+  assign section_theme = section.settings.theme
+  assign top_spacing = section.settings.top_spacing
+  assign bottom_spacing =section.settings.bottom_spacing
+
+  if collection_text_content
+    assign section_heading = featured_collection.title
+    assign section_text = featured_collection.description
+  else
+    if collection_heading
+        assign section_heading = collection_heading
+    endif
+      if collection_text
+      assign section_text = collection_text
+    endif
+  endif
+%}
+
+ {% style %}
     #Featured-collection-{{ section.id }} {
-      --topSpacingRatio: {{section.settings.top_spacing}} / 100;
-      --bottomSpacingRatio: {{section.settings.bottom_spacing}} / 100;
-      --initialBgColor: {{ section.settings.collection.products[0].metafields.custom.color }}
+      --topSpacingRatio: {{ top_spacing }} / 100;
+      --bottomSpacingRatio: {{ bottom_spacing }} / 100;
+      --initialBgColor: {{ featured_collection.products[0].metafields.custom.color }}
     }
  {% endstyle %}
- 
- {% if section.settings.collection_text_content %}
-  {% assign section_heading = section.settings.collection.title %}
-  {% assign section_text = section.settings.collection.description %}
- {% else %}
-  {% if section.settings.heading %}
-      {% assign section_heading = section.settings.heading %}
-  {% endif %}
-    {% if section.settings.text %}
-    {% assign section_text = section.settings.text %}
-  {% endif %}
- {% endif %}
 
- <div id="Featured-collection-{{ section.id }}" class="featured-collection __theme-{{section.settings.color_scheme}}"  
+ <div id="Featured-collection-{{ section.id }}" class="featured-collection __theme-{{section_theme}}"  
 >
   {% if section_heading or section_text %}
     <div class="featured-collection__text">
@@ -31,22 +43,29 @@
     </div>
   {% endif %}
 
-  <div class="featured-collection__container">
-    <div class="featured-collection__container__cards">
-      {% for product in section.settings.collection.products %}
-        {% assign card_id = section.id | append: forloop.index %}
-        {% render 'product-card' product: product, crop: section.settings.crop_shape, show_phrase: true, alignment: "center", price_position: "not-visible", alt_header: true, class: "featured-collection__container__cards__card", id: card_id %}
+  <featured-collection 
+    class="featured-collection__container"
+    data-slider="{% if products_count > 1 %}true{% else %}false{% endif %}" 
+  >
+
+    <div class="featured-collection__cards">
+      {% for product in featured_collection.products %}
+        {% render 'product-card' product: product, crop: crop_shape, show_phrase: true, alignment: "center", price_position: "not-visible", alt_header: true, class: "featured-collection__cards__card" %}
       {% endfor %}
     </div>
-    <div class="featured-collection__container__controls">
-      {% for product in section.settings.collection.products %}
-        {% assign card_id = section.id | append: forloop.index %}
-        <a href="#{{ card_id }}" style="background-color: {{product.metafields.custom.color }}">
+    <div class="featured-collection__controls">
+      {% for product in featured_collection.products %}
+        <div class="featured-collection__controls__control" style="--productColor: {{product.metafields.custom.color }};">
           <span class="visually-hidden">{{ product.title }}</span>
-        </a>
+        </div>
       {% endfor %}
     </div>
-  </div>
+    <div class="featured-collection__background-color">
+      {% for product in featured_collection.products %}
+        <div class="featured-collection__background-color__item" style="background-color: {{product.metafields.custom.color }};"></div>
+      {% endfor %}
+    </div>
+  </featured-collection>
 
 </div>
 
@@ -80,6 +99,18 @@
         {
           "value": "rounded-square",
           "label": "Rounded Square"
+        },
+        {
+          "value": "square",
+          "label": "Square"
+        },
+        {
+          "value": "portrait",
+          "label": "Portrait"
+        },
+        {
+          "value": "landscape",
+          "label": "Landscape"
         }
       ],
       "default": "default",

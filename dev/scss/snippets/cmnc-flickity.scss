@@ -1,0 +1,53 @@
+/* ---- previous/next buttons ---- */
+
+.flickity-prev-next-button.previous {
+  left: var(--pxSize);
+}
+
+.flickity-prev-next-button.next {
+  right: var(--pxSize);
+}
+
+/* right to left */
+.flickity-rtl .flickity-prev-next-button.previous {
+  right: var(--pxSize);
+}
+
+.flickity-rtl .flickity-prev-next-button.next {
+  left: var(--pxSize);
+}
+
+.flickity-prev-next-button .flickity-button-icon {
+  left: 35%;
+  top: 35%;
+  width: 30%;
+  height: 30%;
+}
+
+/* ---- flickity-button ---- */
+
+.flickity-button {
+  border-radius: 4px;
+  background: var(--color-text);
+
+  svg {
+    * {
+      fill: var(--color-background);
+    }
+  }
+}
+
+.cmnc-flickity-buttons-bottom {
+  .flickity-page-dots {
+    height: var(--btnHeight);
+    display: flex;
+    align-items: center;
+    margin-top: var(--pxSize);
+  }
+
+  .flickity-button {
+    top: auto;
+    bottom: 0;
+    transform: translate(0, 0);
+  }
+}

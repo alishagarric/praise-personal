@@ -4,14 +4,14 @@
   Expects: 
   - product: {Object} Product object
   - class: {String} optional
-  - id: {String} optional
-  - crop: optional. circle, rounded-square, default
+  - crop: optional. circle, rounded-square, square, portrait, landscape, default (adapt)
   - alt_header: {Bool} optional bool
   - alignment: {String} optional. default, center, right
   - show_phrase: {Bool} optional.
   - show_bg_color: {Bool} optional.
   - show_description: {Bool} optional.
   - price_position: {String} optional. default, bottom, not-visible
+  - quick_add: {Bool} optional
 
   Usage:
   <ul class="container grid" class="list-unstyled" role="list">
@@ -33,20 +33,32 @@
 {% assign price_position = price_position | default: "default" %}
 
 
-<a class="product-card {{ class }} __crop-{{ crop }} __alignment-{{ alignment }} {% if show_bg_color and product.metafields.custom.color %}__include-bg{% endif %}" id="{{ id }}" href="{{ product.url }}">
-  {% if show_bg_color and product.metafields.custom.color %}
-    {% style %}
-      --productCardBgColor: {{ product.metafields.custom.color }};
-    {% endstyle %}
-  {% endif %}
+{% assign image_height = product.featured_image.height | times: 1.0 %}
+{% assign image_ratio = product.featured_image.width | divided_by: image_height | times: 100 %}
+
+
+<a 
+  class="product-card {{ class }} __crop-{{ crop }} __alignment-{{ alignment }} {% if show_bg_color and product.metafields.custom.color %}__include-bg{% endif %}" 
+  href="{{ product.url }}" 
+  style="{% if product.metafields.custom.color %}--productColor: {{ product.metafields.custom.color }}{% endif %}"
+>
 
   {% if show_phrase and product.metafields.custom.phrase %}
     <p class="product-card__phrase h6">{{ product.metafields.custom.phrase }}</p>
   {% endif %}
 
-  {% if product.featured_image %}
-    <div class="product-card__image" style="padding-top: {{ section.settings.image.width | divided_by: section.settings.image.height | times: 100 }}%">
+
+  <div class="product-card__image" style="padding-top: {{ image_ratio }}%">
+    {% if product.featured_image %}
       {% render 'next-gen-img', image: product.featured_image %}
+    {% else %}
+      <h3 class="p-lg">{{ product.title }}</h3>
+    {% endif %}
+  </div>
+
+  {% if quick_add %}
+    <div class="product-card__quick-add-btn">
+      <button class="btn" aria-label="Quick Buy">+</button>
     </div>
   {% endif %}
 
@@ -61,7 +73,7 @@
     <p>{{ product.description }}</p>
   {% endif %}
 
-    {% if price_position == "bottom" %}
-      {%- render 'price', product: card_product -%}
-    {% endif %}
+  {% if price_position == "bottom" %}
+    {%- render 'price', product: card_product -%}
+  {% endif %}
 </a>

@@ -1,4 +1,5 @@
 .featured-collection {
+  --navControlSize: calc(var(--vwSize) * 0.75);
   display: flex;
   padding-right: 0;
   padding-left: 0;
@@ -19,60 +20,87 @@
     flex: 0 0 70%;
     max-width: 70%;
     position: relative;
+  }
 
-    &:after {
-      content: "";
-      background: var(--initialBgColor);
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 50%;
-      z-index: 0;
+  &__cards {
+    position: relative;
+    padding-right: var(--pxSize);
+    padding-top: var(--pxSize);
+    z-index: 1;
+
+    &__card {
+      width: calc(100% / 3);
+      padding-left: var(--pxSize);
     }
+  }
 
-    &__cards {
-      display: flex;
-      scroll-snap-type: x mandatory;
-      overflow-x: scroll;
-      scroll-behavior: smooth;
-      position: relative;
-      z-index: 1;
-      padding-right: var(--pxSize);
+  &__controls {
+    text-align: center;
+    margin: var(--navControlSize) 0;
 
-      &__card {
-        flex: 0 0 calc(100% / 3);
-        flex-shrink: 0;
-        scroll-snap-align: center;
+    &__control {
+      display: inline-block;
+      width: var(--navControlSize);
+      height: var(--navControlSize);
+      border-radius: 50%;
+      outline: none;
+      cursor: pointer;
 
-        padding-left: var(--pxSize);
+      &:not(:first-child) {
+        margin-left: calc(var(--navControlSize) / 2);
+      }
+
+      &:hover,
+      &:focus {
+        opacity: 1;
+      }
+
+      &:before,
+      &:after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        display: block;
+      }
+
+      &:before {
+        transform: scale(0.8);
+        background-color: var(--productColor);
+      }
+
+      &.is-selected {
+        &:after {
+          border: 1px solid var(--color-border);
+        }
       }
     }
+  }
 
-    &__controls {
-      text-align: center;
-      z-index: 2;
-      display: none; /* TODO: remove this if we decide not to go the css snap route */
+  &__background-color {
+    z-index: 0;
+    pointer-events: none;
+    position: absolute;
+    height: 100%;
+    inset: 0;
 
-      a {
-        display: inline-block;
-        width: 0.85em;
-        height: 0.85em;
-        border-radius: 50%;
-        outline: none;
-        background-color: #fff;
-        opacity: 0.8;
-        cursor: pointer;
-        transition: opacity 0.2s;
+    .flickity-viewport {
+      height: 100% !important;
+    }
 
-        &:not(:first-child) {
-          margin-left: 0.25em;
-        }
+    .flickity-slider {
+      transform: translateX(0) !important;
+    }
 
-        &:hover,
-        &:focus {
-          opacity: 1;
-        }
+    &__item {
+      width: 100%;
+      height: 75%;
+      transition: opacity 0.4s;
+      opacity: 0;
+      transform: translateX(0) !important;
+
+      &.is-selected {
+        opacity: 1;
       }
     }
   }
