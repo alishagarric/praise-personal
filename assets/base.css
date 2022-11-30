@@ -27,10 +27,6 @@ body {
   margin: 0;
 }
 
-p {
-  max-width: 75ch;
-}
-
 dt {
   margin-top: 10px;
   font-weight: bold;

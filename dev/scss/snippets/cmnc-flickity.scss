@@ -51,3 +51,18 @@
     transform: translate(0, 0);
   }
 }
+
+.standard-flickity-dot {
+  display: inline-block;
+  width: calc(var(--pxSize) / 4);
+  height: calc(var(--pxSize) / 4);
+  margin: 0 calc(var(--pxSize) / 8);
+  background: var(--color-text);
+  border-radius: 50%;
+  opacity: 0.25;
+  cursor: pointer;
+}
+
+.flickity-page-dots .dot {
+  @extend .standard-flickity-dot;
+}

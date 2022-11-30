@@ -7,7 +7,10 @@
   assign crop_shape = section.settings.crop_shape
   assign section_theme = section.settings.theme
   assign top_spacing = section.settings.top_spacing
-  assign bottom_spacing =section.settings.bottom_spacing
+  assign bottom_spacing = section.settings.bottom_spacing
+  assign stack_text_content = section.settings.stack_text_content
+  assign show_phrase = section.settings.show_phrase
+  assign theme_slider = section.settings.theme_slider
 
   if collection_text_content
     assign section_heading = featured_collection.title
@@ -30,15 +33,17 @@
     }
  {% endstyle %}
 
- <div id="Featured-collection-{{ section.id }}" class="featured-collection __theme-{{section_theme}}"  
+ <div id="Featured-collection-{{ section.id }}" class="featured-collection __theme-{{section_theme}} {% if stack_text_content %}__layout-stacked{% endif %} {% if theme_slider %}__theme-slider {% endif %}"  
 >
-  {% if section_heading or section_text %}
-    <div class="featured-collection__text">
+  {% if section_heading != blank or section_text != blank %}
+    <div class="featured-collection__text __align-{{section.settings.alignment}}">
         {% if section_heading %}
           <h2 class="featured-collection__text__heading h4">{{ section_heading }}</h2>
         {% endif %}
         {% if section_text %}
-          <p class="featured-collection__text__desc">{{ section_text }}</p>
+          <div class="featured-collection__text__desc">
+            {{ section_text }}
+          </div>
         {% endif %}
     </div>
   {% endif %}
@@ -50,21 +55,23 @@
 
     <div class="featured-collection__cards">
       {% for product in featured_collection.products %}
-        {% render 'product-card' product: product, crop: crop_shape, show_phrase: true, alignment: "center", price_position: "not-visible", alt_header: true, class: "featured-collection__cards__card" %}
+        {% render 'product-card' product: product, crop: crop_shape, show_phrase: show_phrase, alignment: "center", price_position: "not-visible", alt_header: true, class: "featured-collection__cards__card" %}
       {% endfor %}
     </div>
     <div class="featured-collection__controls">
       {% for product in featured_collection.products %}
-        <div class="featured-collection__controls__control" style="--productColor: {{product.metafields.custom.color }};">
+        <div class="featured-collection__controls__control" style="--productColor: {% if theme_slider %}{{product.metafields.custom.color }}{% else %}var(--color-text) {% endif %};">
           <span class="visually-hidden">{{ product.title }}</span>
         </div>
       {% endfor %}
     </div>
-    <div class="featured-collection__background-color">
-      {% for product in featured_collection.products %}
-        <div class="featured-collection__background-color__item" style="background-color: {{product.metafields.custom.color }};"></div>
-      {% endfor %}
-    </div>
+    {% if theme_slider %}
+      <div class="featured-collection__background-color">
+        {% for product in featured_collection.products %}
+          <div class="featured-collection__background-color__item" style="background-color: {{product.metafields.custom.color }};"></div>
+        {% endfor %}
+      </div>
+    {% endif %}
   </featured-collection>
 
 </div>
@@ -117,6 +124,16 @@
       "label": "Product Image Crop Shape"
     },
     {
+      "type": "checkbox",
+      "id": "show_phrase",
+      "label": "Show product phrase?"
+    },
+    {
+      "type": "checkbox",
+      "id": "theme_slider",
+      "label": "Theme slider with product colors?"
+    },
+    {
       "type": "header",
       "content": "Text Content"
     },
@@ -137,6 +154,31 @@
       "id": "collection_text_content",
       "label": "Use collection title and description for text content?",
       "info": "If chosen, the collection title and description will replace the heading and description added above, if any."
+    },
+    {
+      "type": "checkbox",
+      "id": "stack_text_content",
+      "label": "Stack content on top of collection products?"
+    },
+    {
+      "type": "radio",
+      "id": "alignment",
+      "label": "Text Alignment",
+      "options": [
+        {
+          "value":"left",
+          "label":"Left"
+        },
+        {
+          "value":"center",
+          "label":"Center"
+        },
+        {
+          "value":"right",
+          "label":"Right"
+        }
+      ],
+      "default":"left"
     },
     {
       "type": "header",

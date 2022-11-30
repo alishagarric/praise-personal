@@ -31,7 +31,7 @@
     position: absolute;
     width: 50%;
     text-align: center;
-    right: 0;
+    right: 10%;
     top: 0;
     transform: rotate(5deg);
     z-index: 1;
@@ -55,7 +55,7 @@
     }
   }
 
-  &.__alignment {
+  &.__align {
     &-center {
       text-align: center;
 
