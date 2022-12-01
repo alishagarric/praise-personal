@@ -14661,6 +14661,7 @@ var FeaturedCollection = /*#__PURE__*/function (_HTMLElement) {
     value: function init() {
       var _this2 = this;
 
+      console.log(this.dataset);
       setTimeout(function () {
         var _Flickity;
 
@@ -14668,10 +14669,10 @@ var FeaturedCollection = /*#__PURE__*/function (_HTMLElement) {
           accessibility: false,
           rightToLeft: theme.config.rtl,
           prevNextButtons: false,
-          pageDots: false,
+          pageDots: _this2.dataset.customControls == "true" ? false : true,
           wrapAround: true,
           selectedAttraction: 0.2
-        }, _defineProperty(_Flickity, "prevNextButtons", false), _defineProperty(_Flickity, "autoPlay", false), _defineProperty(_Flickity, "friction", 0.8), _defineProperty(_Flickity, "adaptiveHeight", false), _Flickity));
+        }, _defineProperty(_Flickity, "prevNextButtons", _this2.dataset.customControls == "true" ? false : true), _defineProperty(_Flickity, "autoPlay", false), _defineProperty(_Flickity, "friction", 0.8), _defineProperty(_Flickity, "adaptiveHeight", false), _Flickity));
         _this2.flickityBackground = new Flickity(_this2.background, {
           accessibility: false,
           rightToLeft: theme.config.rtl,

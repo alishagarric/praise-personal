@@ -284,15 +284,16 @@ class FeaturedCollection extends HTMLElement {
   }
 
   init() {
+    console.log(this.dataset);
     setTimeout(() => {
       this.flickity = new Flickity(this.slides, {
         accessibility: false,
         rightToLeft: theme.config.rtl,
         prevNextButtons: false,
-        pageDots: false,
+        pageDots: this.dataset.customControls == "true" ? false : true,
         wrapAround: true,
         selectedAttraction: 0.2,
-        prevNextButtons: false,
+        prevNextButtons: this.dataset.customControls == "true" ? false : true,
         autoPlay: false,
         friction: 0.8,
         adaptiveHeight: false,

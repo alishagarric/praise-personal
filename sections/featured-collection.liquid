@@ -1,6 +1,5 @@
  {% liquid
   assign featured_collection = section.settings.collection
-  assign products_count = featured_collection.products | size
   assign collection_text_content = section.settings.collection_text_content
   assign collection_heading = section.settings.heading
   assign collection_text = section.settings.text
@@ -11,6 +10,21 @@
   assign stack_text_content = section.settings.stack_text_content
   assign show_phrase = section.settings.show_phrase
   assign theme_slider = section.settings.theme_slider
+  assign price_pos = section.settings.price
+  assign product_text_alignment = section.settings.product_text_alignment
+  assign alt_header  = section.settings.alt_header
+  assign show_description = section.settings.show_description
+
+  assign products_count = featured_collection.products | size
+  assign initiate_flickity = false
+  
+  if products_count > 3 and stack_text_content == false
+    assign initiate_flickity = true
+  endif
+
+  if products_count > 4 and stack_text_content == true
+    assign initiate_flickity = true
+  endif 
 
   if collection_text_content
     assign section_heading = featured_collection.title
@@ -33,7 +47,7 @@
     }
  {% endstyle %}
 
- <div id="Featured-collection-{{ section.id }}" class="featured-collection __theme-{{section_theme}} {% if stack_text_content %}__layout-stacked{% endif %} {% if theme_slider %}__theme-slider {% endif %}"  
+ <div id="Featured-collection-{{ section.id }}" class="featured-collection __theme-{{section_theme}} {% if stack_text_content %}__layout-stacked{% endif %} {% if theme_slider %}__theme-slider {% endif %} {% if initiate_flickity == false %}__no-slider {% endif %}"  
 >
   {% if section_heading != blank or section_text != blank %}
     <div class="featured-collection__text __align-{{section.settings.alignment}}">
@@ -50,22 +64,39 @@
 
   <featured-collection 
     class="featured-collection__container"
-    data-slider="{% if products_count > 1 %}true{% else %}false{% endif %}" 
+    data-slider="{% if initiate_flickity %}true{% else %}false{% endif %}" 
+    data-custom-controls="{{ theme_slider }}"
   >
 
+    {% comment %}
+      Main Flickity slider that is only initiated when there are enough
+      products in the collection. If theme_slider is toggled on, controls
+      (arrows and dots) are not added to this slider, but if it is, then 
+      a whole new controls Flickity slider is created below
+    {% endcomment %}
     <div class="featured-collection__cards">
       {% for product in featured_collection.products %}
-        {% render 'product-card' product: product, crop: crop_shape, show_phrase: show_phrase, alignment: "center", price_position: "not-visible", alt_header: true, class: "featured-collection__cards__card" %}
+        {% render 'product-card' product: product, crop: crop_shape, show_phrase: show_phrase, alignment: product_text_alignment, show_description: show_description, price_position: price_pos, alt_header: alt_header, class: "featured-collection__cards__card" %}
       {% endfor %}
     </div>
-    <div class="featured-collection__controls">
-      {% for product in featured_collection.products %}
-        <div class="featured-collection__controls__control" style="--productColor: {% if theme_slider %}{{product.metafields.custom.color }}{% else %}var(--color-text) {% endif %};">
-          <span class="visually-hidden">{{ product.title }}</span>
-        </div>
-      {% endfor %}
-    </div>
-    {% if theme_slider %}
+
+    {% if initiate_flickity and theme_slider %}
+      {% comment %}
+        Controls Flickity slider that contains only themed dots and the
+        arrows. Only used when theme_slider is toggled on
+      {% endcomment %}
+      <div class="featured-collection__controls">
+        {% for product in featured_collection.products %}
+          <div class="featured-collection__controls__control" style="--productColor: {% if theme_slider %}{{product.metafields.custom.color }}{% else %}var(--color-text) {% endif %};">
+            <span class="visually-hidden">{{ product.title }}</span>
+          </div>
+        {% endfor %}
+      </div>
+
+    {% comment %}
+      Background Flickity slider that contains only background colors. 
+      Only used when theme_slider is toggled on
+    {% endcomment %}
       <div class="featured-collection__background-color">
         {% for product in featured_collection.products %}
           <div class="featured-collection__background-color__item" style="background-color: {{product.metafields.custom.color }};"></div>
@@ -84,12 +115,77 @@
   "settings": [
     {
       "type": "header",
-      "content": "Collection and Card Settings"
+      "content": "Collection Settings"
     },
     {
       "type": "collection",
       "id": "collection",
       "label": "Collection"
+    },
+    {
+      "type": "checkbox",
+      "id": "theme_slider",
+      "label": "Theme collection slider with product colors?",
+      "info": "Only applies when there's enough products in the collection to initiate a slider."
+    },
+    {
+      "type": "header",
+      "content": "Product Card Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_phrase",
+      "label": "Show product phrase?"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_description",
+      "label": "Show product description?"
+    },
+    {
+      "type": "checkbox",
+      "id": "alt_header",
+      "label": "Use body font instead of header font for product title?"
+    },
+    {
+      "type": "select", 
+      "id": "product_text_alignment",
+      "options": [
+        {
+          "value": "default",
+          "label": "Left (Default)"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "default",
+      "label": "Product Text Alignment"
+    },
+    {
+      "type": "select",
+      "id": "price",
+      "options": [
+        {
+          "value": "default",
+          "label": "Right of Title (Default)"
+        },
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        },
+        {
+          "value": "not-visible",
+          "label": "Not Visible"
+        }
+      ],
+      "default": "default",
+      "label": "Price Position"
     },
     {
       "type": "select",
@@ -124,16 +220,6 @@
       "label": "Product Image Crop Shape"
     },
     {
-      "type": "checkbox",
-      "id": "show_phrase",
-      "label": "Show product phrase?"
-    },
-    {
-      "type": "checkbox",
-      "id": "theme_slider",
-      "label": "Theme slider with product colors?"
-    },
-    {
       "type": "header",
       "content": "Text Content"
     },
@@ -158,7 +244,7 @@
     {
       "type": "checkbox",
       "id": "stack_text_content",
-      "label": "Stack content on top of collection products?"
+      "label": "Stack text content on top of collection products?"
     },
     {
       "type": "radio",
@@ -231,64 +317,6 @@
       "unit": "%",
       "label": "Bottom Spacing",
       "default": 50
-    }
-  ],
-  "blocks": [
-    {
-      "type": "phrase",
-      "name": "Phrase",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "select",
-          "id": "font_type",
-          "default": "default",
-          "label": "Font Type",
-          "options": [
-            {
-              "value": "alt",
-              "label": "Body Font"
-            },
-            {
-              "value": "default",
-              "label": "Heading Font"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "title",
-      "name": "Title",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "select",
-          "id": "font_type",
-          "default": "default",
-          "label": "Font Type",
-          "options": [
-            {
-              "value": "alt",
-              "label": "Body Font"
-            },
-            {
-              "value": "default",
-              "label": "Heading Font"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "description",
-      "name": "Description",
-      "limit": 1
-    },
-    {
-      "type": "price",
-      "name": "Price",
-      "limit": 1
     }
   ],
   "presets": [

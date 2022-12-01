@@ -130,7 +130,8 @@
       }
 
       img {
-        transform: scale(0.9) translate(0, 5.6%);
+        transform: scale(0.9);
+        transform-origin: bottom;
       }
     }
   }
