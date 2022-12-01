@@ -4,7 +4,7 @@
   Expects: 
   - product: {Object} Product object
   - class: {String} optional
-  - crop: optional. circle, rounded-square, square, portrait, landscape, default (adapt)
+  - crop: {String} optional. circle, rounded-square, square, portrait, landscape, default (adapt)
   - alt_header: {Bool} optional bool
   - alignment: {String} optional. default, center, right
   - show_phrase: {Bool} optional.
@@ -14,7 +14,7 @@
   - quick_add: {Bool} optional
 
   Usage:
-  <ul class="container grid" class="list-unstyled" role="list">
+  <ul class="list-unstyled" role="list">
     {%- for product in collection.products -%}
       <li>
         {% render 'product-card', product: product %}

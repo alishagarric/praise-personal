@@ -1,169 +1,77 @@
 .article-card {
-  --articleCardImageRatio: 85%;
-  display: block;
+  position: relative;
 
   &__image {
-    padding-top: var(--articleCardImageRatio);
+    margin-bottom: calc(var(--btnHeight) / 2);
+    width: 100%;
     position: relative;
     overflow: hidden;
 
-    &__placeholder,
     img {
       position: absolute;
-      top: 0;
-      left: 0;
+      inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transform: scale(1);
-      will-change: transform;
-      transition: all 0.25s ease;
-    }
-
-    &__placeholder {
-      background: var(--color-background);
     }
   }
 
-  &__content {
-    padding: calc(var(--pxSize) / 3);
+  *:last-child {
+    margin-bottom: 0;
 
-    &__heading {
-      margin: 0;
-    }
-
-    &__text {
-      grid-column: 1 / -1;
+    * {
       margin-bottom: 0;
     }
   }
 
-  &:hover {
-    .article-card {
-      &__image {
-        &__placeholder,
+  &.__align {
+    &-center {
+      text-align: center;
+    }
+
+    &-right {
+      text-align: right;
+    }
+  }
+
+  &.__crop {
+    &-circle {
+      .product-card__image {
+        border-radius: 50%;
+        padding-top: 100% !important;
+
         img {
-          transform: scale(1.05);
-        }
-      }
-    }
-  }
-
-  //default layout, add new layouts here with :not selector as needed
-  &:not(.__style-condensed):not(.__style-horizontal):not(.__style-teaser) {
-    .article-card {
-      &__content {
-        display: grid;
-        grid-template-columns: 1fr auto;
-        gap: calc(var(--pxSize) / 3);
-
-        &__heading {
-          grid-column: 1 / 2;
-        }
-
-        &__date {
-          grid-column: 2 / 3;
-        }
-      }
-    }
-  }
-
-  &.__style-horizontal {
-    display: flex;
-
-    .article-card {
-      &__image {
-        padding-top: calc(var(--articleCardImageRatio) / 2);
-      }
-
-      &__content {
-        display: flex;
-        flex-direction: column;
-        padding: var(--pxSize);
-
-        &__text {
-          margin-top: calc(var(--pxSize) / 3);
-        }
-      }
-
-      &__content,
-      &__image {
-        flex: 1;
-      }
-    }
-  }
-
-  &.__style-teaser {
-    display: flex;
-
-    .article-card {
-      &__content {
-        display: flex;
-        flex-direction: column;
-        padding: 0 calc(var(--pxSize) / 2);
-        justify-content: center;
-        flex: 2;
-      }
-
-      &__image {
-        flex: 1;
-        padding-top: calc(var(--articleCardImageRatio) / 3);
-      }
-    }
-  }
-
-  @media screen and (max-width: 676px) {
-    background: var(--color-background);
-
-    //default layout, add new layouts here with :not selector as needed
-    &:not(.__style-condensed):not(.__style-teaser) {
-      .article-card {
-        &__content {
-          padding: calc(var(--pxSize));
-          display: flex !important;
-          flex-direction: column;
-
-          &__date {
-            order: -1;
-          }
-
-          &__heading {
-            order: 0;
-            font-weight: 600;
-          }
+          border-radius: 50%;
         }
       }
     }
 
-    &.__style-horizontal {
-      flex-direction: column;
+    &-rounded-square {
+      .product-card__image {
+        border-radius: 20%;
+        padding-top: 100% !important;
 
-      .article-card {
-        &__image {
-          padding-top: var(--articleCardImageRatio);
+        img {
+          border-radius: 20%;
         }
       }
     }
 
-    &.__style-condensed {
-      display: flex;
+    &-square {
+      .product-card__image {
+        padding-top: 100% !important;
+      }
+    }
 
-      .article-card {
-        &__image {
-          flex: 1;
-          padding-top: calc(var(--articleCardImageRatio) / 3);
-        }
+    &-landscape {
+      .product-card__image {
+        padding-top: 66.66% !important;
+      }
+    }
 
-        &__content {
-          flex: 2;
-          display: flex;
-          flex-direction: column-reverse;
-          justify-content: center;
-
-          &__date {
-            margin-bottom: calc(var(--pxSize) / 3);
-          }
-        }
+    &-portrait {
+      .product-card__image {
+        padding-top: 133.33% !important;
       }
     }
   }

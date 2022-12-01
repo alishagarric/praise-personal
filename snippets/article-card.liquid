@@ -1,0 +1,69 @@
+{% comment %}
+  Renders an article card
+
+  Expects: 
+  - article: {Object} Article object
+  - class: {String} optional
+  - crop: {String} optional. circle, rounded-square, square, portrait, landscape, default (adapt)
+  - alt_header: {Bool} optional bool
+  - alignment: {String} optional. default, center, right
+  - show_description: {Bool} optional.
+  - show_date: {Bool} optional.
+  - show_author: {Bool} optional.
+  - show_assc_product: {String} optional. not-visible, circle, rounded-square, square, portrait, landscape, default(adapt)
+  - button_text: {String} optional
+
+  Usage:
+  <ul class="list-unstyled" role="list">
+    {%- for article in blog.articles -%}
+      <li>
+        {% render 'article-card', article: article %}
+      </li>
+    {%- endfor -%}
+  </ul>
+
+{% endcomment %}
+
+{% assign crop = crop | default: "default" %}
+{% assign alt_header = alt_header | default: false %}
+{% assign alignment = alignment | default: "default" %}
+{% assign show_bg_color = show_bg_color | default: false %}
+{% assign show_description = show_description | default: false %}
+{% assign show_date = show_date | default: false %}
+{% assign show_author = show_author | default: false %}
+{% assign show_assc_product = show_assc_product | default: "default" %}
+
+
+{% assign image_height = article.image.height | times: 1.0 %}
+{% assign image_ratio = article.image.width | divided_by: image_height | times: 100 %}
+
+
+<a 
+  class="article-card {{ class }} __crop-{{ crop }} __align-{{ alignment }}" 
+  href="{{ article.url }}" 
+>
+
+  <div class="article-card__image" style="padding-top: {{ image_ratio }}%">
+    {% if article.image %}
+      {% render 'next-gen-img', image: article.image %}
+    {% else %}
+      <h3 class="p-lg">{{ article.title }}</h3>
+    {% endif %}
+  </div>
+
+  <h3 class="article-card__title h6 {% if alt_header == true %}alt{% endif %}">
+    {{ article.title | escape }}
+  </h3>
+
+  {% if show_date %}
+    <span class="p">{{ article.published_at | time_tag: format: 'date' }}</span>
+  {% endif %}
+
+  {% if show_author %}
+     <span>{{ article.author }}</span>
+  {% endif %}
+
+  {% if show_description and article.excerpt_or_content %}
+     <p>{{ article.excerpt_or_content | strip_html | truncatewords: 20 }}</p>
+  {% endif %}
+</a>
