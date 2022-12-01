@@ -5,19 +5,18 @@
   assign alignment = section.settings.alignment
 %}
 
- {% style %}
-    #Featured-collection-{{ section.id }} {
-      --topSpacingRatio: {{ top_spacing }} / 100;
-      --bottomSpacingRatio: {{ bottom_spacing }} / 100;
-      --initialBgColor: {{ featured_collection.products[0].metafields.custom.color }}
-    }
- {% endstyle %}
+{% style %}
+  #Featured-collection-{{ section.id }} {
+    --topSpacingRatio: {{ top_spacing }} / 100;
+    --bottomSpacingRatio: {{ bottom_spacing }} / 100;
+  }
+{% endstyle %}
 
 <div id="Rich-text-{{ section.id }}" class="rich-text __theme-{{ section_theme }} __align-{{ alignment }}">
   {%- for block in section.blocks -%}
     {%- case block.type -%}
       {%- when 'heading' -%}
-        <h2 class="rich-text__heading {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>{{ block.settings.heading | escape }}</h2>
+        {% render 'heading', class: "rich-text", heading: block.settings.heading, heading_size: block.settings.heading_size %}
       {%- when 'text' -%}
         <div class="p" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
       {%- when 'button' -%}
@@ -37,21 +36,21 @@
       "content": "Settings"
     },
     {
-      "type":"radio",
-      "id":"alignment",
-      "label":"Alignment",
+      "type": "radio",
+      "id": "alignment",
+      "label": "Alignment",
       "options":[
         {
-            "value":"left",
+            "value": "left",
             "label":"Left"
         },
         {
-            "value":"center",
-            "label":"Center"
+            "value": "center",
+            "label": "Center"
         },
         {
-            "value":"right",
-            "label":"Right"
+            "value": "right",
+            "label": "Right"
         }
       ],
       "default":"left"

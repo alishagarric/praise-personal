@@ -19,11 +19,7 @@
                <div class="image-banner__caption caption">{{ block.settings.caption }}</div>
 
             {%- when 'heading' -%}
-               {% if section.settings.hero %}
-                  <h1 class="image-banner__heading {% if block.settings.heading_size %}{{block.settings.heading_size}}{% else %}h2{% endif %}">{{ block.settings.heading | escape }}</h1>
-               {% else %}
-                  <h2 class="image-banner__heading {% if block.settings.heading_size %}{{block.settings.heading_size}}{% endif %}">{{ block.settings.heading | escape }}</h2>
-               {% endif %}
+               {% render 'heading', class: "image-banner", use_as_hero: section.settings.hero, heading: block.settings.heading, heading_size: block.settings.heading_size %}
 
             {%- when 'subheading' -%}
                {% if section.settings.hero %}

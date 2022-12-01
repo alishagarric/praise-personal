@@ -1,13 +1,18 @@
-{%- style -%}
-  .placeholder-content {
-    width: 25%;
-  }
-{%- endstyle -%}
+ {% liquid
+  assign section_theme = section.settings.theme
+  assign top_spacing = section.settings.top_spacing
+  assign bottom_spacing = section.settings.bottom_spacing
+%}
 
-<div class="container">
-  {%- if section.settings.heading != blank -%}
-    <h2>{{ section.settings.heading | escape }}</h2>
-  {%- endif -%}
+{% style %}
+  #Featured-blog-{{ section.id }} {
+    --topSpacingRatio: {{ top_spacing }} / 100;
+    --bottomSpacingRatio: {{ bottom_spacing }} / 100;
+  }
+{% endstyle %}
+
+<div id="Featured-blog-{{ section.id }}" class="featured-blog __theme-{{ section_theme }}">
+   {% render 'heading', class: "featured-blog", heading: section.settings.heading, heading_size: section.settings.heading_size %}
   
   {%- if section.settings.blog != blank and section.settings.blog.articles_count > 0 -%}
     <ul class="grid list-unstyled" role="list">
@@ -48,6 +53,40 @@
   "tag": "section",
   "class": "section",
   "settings": [
+    {
+      "type": "header",
+      "content": "Settings"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Lorem ipsum",
+      "label": "Heading"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+            "value": "h2",
+            "label": "X-Large"
+        },
+        {
+            "value": "h4",
+            "label": "Large"
+        },
+        {
+            "value": "h5",
+            "label": "Medium"
+        },
+        {
+            "value": "caption-lg",
+            "label": "Small"
+        }
+      ],
+      "default": "h5",
+      "label": "Heading Size"
+    },
     {
       "type": "text",
       "id": "heading",

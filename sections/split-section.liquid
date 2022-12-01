@@ -10,12 +10,7 @@
     {%- for block in section.blocks -%}
       {%- case block.type -%}
         {%- when 'heading' -%}
-          {% if section.settings.hero %}
-            <h1 class="split-section__text__heading {{ block.settings.heading_size }}">{{ block.settings.heading }}</h1>
-          {% else %}
-            <h2 class="split-section__text__heading {{ block.settings.heading_size }}">{{ block.settings.heading }}</h2>
-          {% endif %}
-
+            {% render 'heading', class: "split-section__text", use_as_hero: section.settings.hero, heading: block.settings.heading, heading_size: block.settings.heading_size %}
         {%- when 'text' -%}
           <div class="split-section__text__rich-text __article-txt" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
         {%- when 'button' -%}

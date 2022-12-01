@@ -1,0 +1,26 @@
+{% comment %}
+  Renders a heading
+
+  Accepts:
+  - heading_size: {String} "h2", "h4", "h5", "caption-lg"
+  - heading: {String}
+  - class: {String}
+  - use_as_hero: {Boolen} Optional
+
+
+  Usage:
+  {% render 'heading', class: "split-section__text", use_as_hero: section.settings.hero, heading: block.settings.heading, heading_size: block.settings.heading_size %}
+{% endcomment %}
+
+
+{% if section.settings.heading != blank %}
+  {% if use_as_hero == true %}
+    <h1 class="{% if class %}{{ class }}__heading{% endif %} {{ section.settings.heading_size }}" {{ block.shopify_attributes }}>
+      {{ section.settings.heading | escape }}
+    </h1>
+  {% else %}
+    <h2 class="{% if class %}{{ class }}__heading{% endif %} {{ section.settings.heading_size }}" {{ block.shopify_attributes }}>
+      {{ section.settings.heading | escape }}
+    </h2>
+  {% endif %}
+{% endif %}
