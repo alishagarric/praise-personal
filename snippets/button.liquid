@@ -13,6 +13,12 @@
   {% render 'button', class: "featured-product", button_label: section.settings.button_label, button_link: section.settings.button_link %}
 {% endcomment %}
 
-{% if button_link and button_label %}
-  <a href="{{ button_link }}" class="{% if class %}{{ class }}__btn{% endif %} btn __btn-clr-{{ button_color }} {% if style %}__with-{{ style }}{% endif %}">{{ button_label }}</a>
+{% if button_label %}
+  <a 
+    {% if button_link %}href="{{ button_link }}"{% else %}role="link" aria-disabled="true"{% endif %}
+    class="{% if class %}{{ class }}__btn{% endif %} btn __btn-clr-{{ button_color }} {% if style %}__with-{{ style }}{% endif %}"
+    {{ block.shopify_attributes }}
+  >
+    {{- button_label | escape -}}
+  </a>
 {% endif %}

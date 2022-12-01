@@ -306,6 +306,25 @@
         "top_spacing": 50,
         "bottom_spacing": 50
       }
+    },
+    "rich-text": {
+      "type": "rich-text",
+      "settings": {
+        "alignment": "center",
+        "theme": "primary",
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      },
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Ritual baking is a place for indulgence",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": ["heading"]
     }
   },
   "order": [
@@ -318,6 +337,7 @@
     "16632903088cf5de6e",
     "example",
     "166329465577f05b4c",
-    "1663294968d8440c8d"
+    "1663294968d8440c8d",
+    "rich-text"
   ]
 }

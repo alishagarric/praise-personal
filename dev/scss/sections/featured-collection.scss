@@ -16,7 +16,7 @@
     padding: calc(var(--sectionHorizontalSpacing) / 2);
 
     &__desc {
-      max-width: 750px;
+      max-width: var(--maxWidth);
       margin-left: auto;
       margin-right: auto;
     }
