@@ -22,18 +22,6 @@
         width: auto;
       }
     }
-
-    &.__align {
-      &-center {
-        text-align: center;
-        align-items: center;
-      }
-
-      &-right {
-        text-align: right;
-        align-items: flex-end;
-      }
-    }
   }
 
   &__image {

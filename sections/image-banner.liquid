@@ -9,7 +9,7 @@
  {% endstyle %}
 
 
-<div id="Image-banner-{{ section.id }}" class="image-banner __theme-{{section.settings.color_scheme}} __align-{{section.settings.alignment}}">
+<div id="Image-banner-{{ section.id }}" class="image-banner __theme-{{ section.settings.theme }} __align-{{section.settings.alignment}}">
    <div class="image-banner__inner __theme-{{section.settings.overlay_theme}}">
 
       {%- for block in section.blocks -%}

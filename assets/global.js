@@ -14724,11 +14724,6 @@ var FeaturedCollection = /*#__PURE__*/function (_HTMLElement) {
         }
       }, 300);
     }
-  }, {
-    key: "getSwipeDirection",
-    value: function getSwipeDirection(moveVector) {
-      return moveVector.x > 0 ? "right" : "left";
-    }
   }]);
 
   return FeaturedCollection;
@@ -14847,17 +14842,67 @@ var ShopTheLook = /*#__PURE__*/function (_HTMLElement2) {
         }
       }, 300);
     }
-  }, {
-    key: "getSwipeDirection",
-    value: function getSwipeDirection(moveVector) {
-      return moveVector.x > 0 ? "right" : "left";
-    }
   }]);
 
   return ShopTheLook;
 }( /*#__PURE__*/_wrapNativeSuper(HTMLElement));
 
 customElements.define("shop-the-look", ShopTheLook);
+/* Featured Blog Logic */
+///////////////////////////////
+///////////////////////////////
+
+var FeaturedBlog = /*#__PURE__*/function (_HTMLElement3) {
+  _inherits(FeaturedBlog, _HTMLElement3);
+
+  var _super3 = _createSuper(FeaturedBlog);
+
+  function FeaturedBlog() {
+    var _this7;
+
+    _classCallCheck(this, FeaturedBlog);
+
+    _this7 = _super3.call(this);
+
+    if (_this7.dataset.slider == "true") {
+      _this7.slides = _this7.querySelector(".featured-blog__articles");
+      theme.initWhenVisible({
+        element: _assertThisInitialized(_this7),
+        callback: _this7.init.bind(_assertThisInitialized(_this7)),
+        threshold: 600
+      });
+    }
+
+    return _this7;
+  }
+
+  _createClass(FeaturedBlog, [{
+    key: "init",
+    value: function init() {
+      var _this8 = this;
+
+      setTimeout(function () {
+        _this8.flickity = new Flickity(_this8.slides, {
+          accessibility: false,
+          rightToLeft: theme.config.rtl,
+          prevNextButtons: true,
+          arrowShape: "M38.39,17.65a3.91,3.91,0,0,0-1.12-1.51,3.83,3.83,0,0,0-1.69-.8A3.84,3.84,0,0,0,32.1,16.4L1.33,47.17a3.83,3.83,0,0,0-.83,4.2,3.85,3.85,0,0,0,.83,1.25L32.1,83.38a3.81,3.81,0,0,0,2.72,1.13,3.85,3.85,0,0,0,2.73-6.57L13.34,53.74h83a3.85,3.85,0,1,0,0-7.69h-83l24.21-24.2a3.8,3.8,0,0,0,1.05-2A3.86,3.86,0,0,0,38.39,17.65Z",
+          pageDots: false,
+          wrapAround: true,
+          cellAlign: "center",
+          selectedAttraction: 0.2,
+          autoPlay: false,
+          friction: 0.8,
+          adaptiveHeight: false
+        });
+      });
+    }
+  }]);
+
+  return FeaturedBlog;
+}( /*#__PURE__*/_wrapNativeSuper(HTMLElement));
+
+customElements.define("featured-blog", FeaturedBlog);
 /* Logic the Shopify Starter Included */
 ////////////////////////////////////////
 ///////////////////////////////////////
@@ -14876,7 +14921,7 @@ document.querySelectorAll(".disclosure").forEach(function (details) {
 });
 
 function debounce(fn, wait) {
-  var _this7 = this;
+  var _this9 = this;
 
   var t;
   return function () {
@@ -14886,7 +14931,7 @@ function debounce(fn, wait) {
 
     clearTimeout(t);
     t = setTimeout(function () {
-      return fn.apply(_this7, args);
+      return fn.apply(_this9, args);
     }, wait);
   };
 }

@@ -14,54 +14,55 @@
  {% endstyle %}
 
 
-<shop-the-look 
+<div
   id="Shop-the-look-{{ section.id }}" 
   class="shop-the-look __theme-{{ section_theme }}"
-  data-slider="{% if products_count > 1 %}true{% else %}false{% endif %}" 
 >
-  <div class="shop-the-look__image">
-    {% if featured_image %}
-      {% render 'next-gen-img' image: featured_image %}
-    {% endif %}
+  <shop-the-look class="shop-the-look__inner" data-slider="{% if products_count > 1 %}true{% else %}false{% endif %}" >
+    <div class="shop-the-look__image">
+      {% if featured_image %}
+        {% render 'next-gen-img' image: featured_image %}
+      {% endif %}
 
-    <div class="shop-the-look__dots">
+      <div class="shop-the-look__dots">
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'product' %}
+              <div 
+                class="shop-the-look__dots__dot" 
+                style="
+                  left: {{ block.settings.horizontal_pos }}%; 
+                  top: {{ block.settings.horizontal_pos }}%; 
+                  background-color: {{ block.settings.product.metafields.custom.color }}; 
+                  border-color:rgba({{ block.settings.product.metafields.custom.color.value.red }}, {{ block.settings.product.metafields.custom.color.value.green }}, {{ block.settings.product.metafields.custom.color.value.blue }}, .5);
+                ">
+                <span class="visually-hidden">{{ block.settings.product.title }}</span>
+              </div>
+
+          {% endcase %}
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="shop-the-look__products">
       {% for block in section.blocks %}
         {% case block.type %}
           {% when 'product' %}
-            <div 
-              class="shop-the-look__dots__dot" 
-              style="
-                left: {{ block.settings.horizontal_pos }}%; 
-                top: {{ block.settings.horizontal_pos }}%; 
-                background-color: {{ block.settings.product.metafields.custom.color }}; 
-                border-color:rgba({{ block.settings.product.metafields.custom.color.value.red }}, {{ block.settings.product.metafields.custom.color.value.green }}, {{ block.settings.product.metafields.custom.color.value.blue }}, .5);
-              ">
-              <span class="visually-hidden">{{ block.settings.product.title }}</span>
-            </div>
-
+            {% render 'product-card' product: block.settings.product, crop: 'rounded-square', show_phrase: false, alignment: "left", price_position: "bottom", alt_header: false, class: "shop-the-look__products__product", quick_add: true %}
         {% endcase %}
       {% endfor %}
     </div>
-  </div>
 
-  <div class="shop-the-look__products">
-    {% for block in section.blocks %}
-      {% case block.type %}
-        {% when 'product' %}
-          {% render 'product-card' product: block.settings.product, crop: 'rounded-square', show_phrase: false, alignment: "left", price_position: "bottom", alt_header: false, class: "shop-the-look__products__product", quick_add: true %}
-      {% endcase %}
-    {% endfor %}
-  </div>
-
-  <div class="shop-the-look__background-color">
-    {% for block in section.blocks %}
-      {% case block.type %}
-        {% when 'product' %}
-          <div class="shop-the-look__background-color__item" style="background-color: {{ block.settings.product.metafields.custom.color }};"></div>
-      {% endcase %}
-    {% endfor %}
-  </div>
-</shop-the-look>
+    <div class="shop-the-look__background-color">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'product' %}
+            <div class="shop-the-look__background-color__item" style="background-color: {{ block.settings.product.metafields.custom.color }};"></div>
+        {% endcase %}
+      {% endfor %}
+    </div>
+  </shop-the-look>
+</div>
 
 {% schema %}
 {

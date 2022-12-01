@@ -52,6 +52,20 @@
   }
 }
 
+.cmnc-flickity-buttons-wide {
+  .flickity-button {
+    &.previous {
+      left: 0;
+      transform: translate(-100%, -50%);
+    }
+
+    &.next {
+      right: 0;
+      transform: translate(100%, -50%);
+    }
+  }
+}
+
 .standard-flickity-dot {
   display: inline-block;
   width: calc(var(--pxSize) / 4);

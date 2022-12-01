@@ -7,20 +7,20 @@
           "type": "heading",
           "settings": {
             "heading": "More treats to beat this heat",
-            "heading_size": "h5"
+            "heading_size": "h2"
           }
         },
         "1662063884b661ea2d-0": {
           "type": "text",
           "settings": {
-            "text": "<p>Atypical cookies and treats that push the boundaires of indulgence<\/p>"
+            "text": "<p>Atypical cookies and treats that push the boundaires of indulgence</p>"
           }
         },
         "1662063884b661ea2d-1": {
           "type": "button",
           "settings": {
             "button_label": "Shop treats",
-            "button_link": "shopify:\/\/collections",
+            "button_link": "shopify://collections",
             "button_color": "default"
           }
         }
@@ -31,7 +31,7 @@
         "1662063884b661ea2d-1"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash.jpg",
+        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash.jpg",
         "hero": true,
         "alignment": "center",
         "theme": "primary",
@@ -51,9 +51,7 @@
           }
         }
       },
-      "block_order": [
-        "text"
-      ],
+      "block_order": ["text"],
       "settings": {
         "font_scale": 80,
         "theme": "2",
@@ -73,7 +71,7 @@
         "price": "not-visible",
         "crop_shape": "circle",
         "heading": "Shop Our Bestsellers",
-        "text": "<p>Functional handbags made of luxurious and honest materials to improve people's lives in small but mighty ways.<\/p>",
+        "text": "<p>Functional handbags made of luxurious and honest materials to improve people's lives in small but mighty ways.</p>",
         "collection_text_content": false,
         "stack_text_content": false,
         "alignment": "left",
@@ -95,14 +93,14 @@
         "1662066517b59e31e0-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Atypical cookies and treats that push the boundaries of indulgence. An odea to the well-baanced classic cookie. This season we are celebrating all the nostalgia and what pairs best with chocolate chips.<\/p>"
+            "text": "<p>Atypical cookies and treats that push the boundaries of indulgence. An odea to the well-baanced classic cookie. This season we are celebrating all the nostalgia and what pairs best with chocolate chips.</p>"
           }
         },
         "1662066517b59e31e0-2": {
           "type": "button",
           "settings": {
             "button_label": "Shop treats",
-            "button_link": "shopify:\/\/collections",
+            "button_link": "shopify://collections",
             "button_color": "default"
           }
         }
@@ -113,7 +111,7 @@
         "1662066517b59e31e0-2"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_cd0b890c-b357-4857-9c0d-36126dbfab86.jpg",
+        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_cd0b890c-b357-4857-9c0d-36126dbfab86.jpg",
         "hero": false,
         "alignment": "center",
         "theme": "primary",
@@ -129,7 +127,7 @@
         "1662067471e878020c-0": {
           "type": "icon",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/Frame.png",
+            "icon": "shopify://shop_images/Frame.png",
             "heading": "One-of-a-kind treats",
             "text": "We make your treats fresh and full of fresh homemade ingredients"
           }
@@ -137,7 +135,7 @@
         "1662067471e878020c-1": {
           "type": "icon",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/Frame.png",
+            "icon": "shopify://shop_images/Frame.png",
             "heading": "One-of-a-kind treats",
             "text": "We make your treats fresh and full of fresh homemade ingredients"
           }
@@ -145,7 +143,7 @@
         "1662067471e878020c-2": {
           "type": "icon",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/Frame.png",
+            "icon": "shopify://shop_images/Frame.png",
             "heading": "One-of-a-kind treats",
             "text": "We make your treats fresh and full of fresh homemade ingredients"
           }
@@ -241,7 +239,7 @@
         "1663290308334a8c59-2"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_bbf54c90-3c31-4e00-962c-f12d6b17cf77.jpg",
+        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_bbf54c90-3c31-4e00-962c-f12d6b17cf77.jpg",
         "crop_shape": "default",
         "theme": "primary",
         "top_spacing": 50,
@@ -251,8 +249,7 @@
     "example": {
       "type": "example",
       "disabled": true,
-      "settings": {
-      }
+      "settings": {}
     },
     "77926ee0-c4cd-4878-a4bf-192a1c0681ed": {
       "type": "image-banner",
@@ -268,7 +265,7 @@
           "type": "button",
           "settings": {
             "button_label": "Learn more",
-            "button_link": "shopify:\/\/collections\/back-in-stock",
+            "button_link": "shopify://collections/back-in-stock",
             "button_color": "default"
           }
         }
@@ -278,7 +275,7 @@
         "dfa21165-42de-44ad-b3ef-d70913dbfb50"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_a6c4dcf8-a5c2-45ab-8711-f1aa9365378c.jpg",
+        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_a6c4dcf8-a5c2-45ab-8711-f1aa9365378c.jpg",
         "overlay": 40,
         "overlay_theme": "3",
         "hero": false,
@@ -303,14 +300,14 @@
         "831626aa-2a7e-4c72-a237-2377291357ad": {
           "type": "text",
           "settings": {
-            "text": "<p>Atypical cookies and treats that push the boundaires of indulgence<\/p>"
+            "text": "<p>Atypical cookies and treats that push the boundaires of indulgence</p>"
           }
         },
         "66fa0e52-e179-47ed-951d-4756ccecc86c": {
           "type": "button",
           "settings": {
             "button_label": "Shop the Collection",
-            "button_link": "shopify:\/\/collections\/back-in-stock",
+            "button_link": "shopify://collections/back-in-stock",
             "button_color": "3"
           }
         }
@@ -321,7 +318,7 @@
         "66fa0e52-e179-47ed-951d-4756ccecc86c"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_e7c90847-70c1-47f4-a82d-2369a2b4a718.jpg",
+        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_e7c90847-70c1-47f4-a82d-2369a2b4a718.jpg",
         "overlay": 20,
         "overlay_theme": "4",
         "hero": false,
@@ -345,7 +342,7 @@
         "price": "bottom",
         "crop_shape": "square",
         "heading": "Shop Our Bestsellers",
-        "text": "<p>Functional handbags made of luxurious and honest materials to improve people's lives in small but mighty ways.<\/p>",
+        "text": "<p>Functional handbags made of luxurious and honest materials to improve people's lives in small but mighty ways.</p>",
         "collection_text_content": false,
         "stack_text_content": true,
         "alignment": "center",
@@ -365,9 +362,7 @@
           }
         }
       },
-      "block_order": [
-        "heading"
-      ],
+      "block_order": ["heading"],
       "settings": {
         "alignment": "center",
         "theme": "primary",
@@ -378,9 +373,15 @@
     "9b7e1c54-0b63-432c-bf6b-6416486399ff": {
       "type": "featured-blog",
       "settings": {
-        "heading": "Ritual in the News",
+        "heading": "From the blog",
         "heading_size": "h5",
-        "blog": "news"
+        "blog": "news",
+        "theme": "2",
+        "alt_header": true,
+        "show_date": true,
+        "show_description": true,
+        "alignment": "center",
+        "crop_shape": "rounded-square"
       }
     }
   },

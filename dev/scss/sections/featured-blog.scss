@@ -1,4 +1,26 @@
 .featured-blog {
+  &__heading {
+    text-align: center;
+  }
+
+  &__articles {
+    @extend .cmnc-flickity-buttons-wide;
+
+    &__article-container {
+      width: calc(100% / 3);
+      padding: calc(var(--pxSize) / 2);
+    }
+  }
+
+  &.__no-slider {
+    .featured-blog {
+      &__articles {
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+
   @media screen and (max-width: 1024px) {
   }
 

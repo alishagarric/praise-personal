@@ -13,14 +13,14 @@
 {% endcomment %}
 
 
-{% if section.settings.heading != blank %}
+{% if heading != blank %}
   {% if use_as_hero == true %}
-    <h1 class="{% if class %}{{ class }}__heading{% endif %} {{ section.settings.heading_size }}" {{ block.shopify_attributes }}>
-      {{ section.settings.heading | escape }}
+    <h1 class="{% if class %}{{ class }}__heading{% endif %} {{ heading_size }}" {{ block.shopify_attributes }}>
+      {{ heading | escape }}
     </h1>
   {% else %}
-    <h2 class="{% if class %}{{ class }}__heading{% endif %} {{ section.settings.heading_size }}" {{ block.shopify_attributes }}>
-      {{ section.settings.heading | escape }}
+    <h2 class="{% if class %}{{ class }}__heading{% endif %} {{ heading_size }}" {{ block.shopify_attributes }}>
+      {{ heading | escape }}
     </h2>
   {% endif %}
 {% endif %}

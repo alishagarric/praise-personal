@@ -38,7 +38,7 @@
 
 
 <a 
-  class="product-card {{ class }} __crop-{{ crop }} __align-{{ alignment }} {% if show_bg_color and product.metafields.custom.color %}__include-bg{% endif %}" 
+  class="product-card {{ class }} __align-{{ alignment }} {% if show_bg_color and product.metafields.custom.color %}__include-bg{% endif %}" 
   href="{{ product.url }}" 
   style="{% if product.metafields.custom.color %}--productColor: {{ product.metafields.custom.color }}{% endif %}"
 >
@@ -48,7 +48,7 @@
   {% endif %}
 
 
-  <div class="product-card__image" style="padding-top: {{ image_ratio }}%">
+  <div class="product-card__image __crop-{{ crop }}" style="padding-top: {{ image_ratio }}%">
     {% if product.featured_image %}
       {% render 'next-gen-img', image: product.featured_image %}
     {% else %}

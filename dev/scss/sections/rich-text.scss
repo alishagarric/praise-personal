@@ -13,16 +13,4 @@
       margin-bottom: 0;
     }
   }
-
-  &.__align {
-    &-center {
-      text-align: center;
-      align-items: center;
-    }
-
-    &-right {
-      text-align: right;
-      align-items: flex-end;
-    }
-  }
 }

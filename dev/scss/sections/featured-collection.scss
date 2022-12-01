@@ -20,17 +20,6 @@
       margin-left: auto;
       margin-right: auto;
     }
-
-    &.__align {
-      &-center {
-        text-align: center;
-      }
-
-      &-right {
-        text-align: right;
-        margin-left: auto;
-      }
-    }
   }
 
   &__container {
@@ -116,8 +105,8 @@
 
   &.__no-slider {
     &.__layout-stacked {
-      padding-left: var(--sectionVerticalSpacing);
-      padding-right: var(--sectionVerticalSpacing);
+      padding-left: var(--sectionHorizontalSpacing);
+      padding-right: var(--sectionHorizontalSpacing);
     }
 
     .featured-collection {

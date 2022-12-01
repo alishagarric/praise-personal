@@ -1,0 +1,70 @@
+.__align {
+  &-center {
+    text-align: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+
+    > * {
+      justify-content: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  &-right {
+    text-align: right;
+    align-items: flex-end;
+    margin-left: auto;
+
+    > * {
+      justify-content: flex-end;
+      margin-left: auto;
+    }
+  }
+}
+
+.image-container {
+  position: relative;
+  overflow: hidden;
+
+  img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.__crop {
+  &-circle {
+    border-radius: 50%;
+    padding-top: 100% !important;
+
+    img {
+      border-radius: 50%;
+    }
+  }
+
+  &-rounded-square {
+    border-radius: 20%;
+    padding-top: 100% !important;
+
+    img {
+      border-radius: 20%;
+    }
+  }
+
+  &-square {
+    padding-top: 100% !important;
+  }
+
+  &-landscape {
+    padding-top: 66.66% !important;
+  }
+
+  &-portrait {
+    padding-top: 133.33% !important;
+  }
+}
