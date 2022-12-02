@@ -1,3 +1,8 @@
+{% liquid
+   assign crop_shape = section.settings.crop_shape
+
+%}
+
 {% style %}
     #Image-banner-{{ section.id }} {
       --topSpacingRatio: {{section.settings.top_spacing}} / 100;
@@ -9,40 +14,42 @@
  {% endstyle %}
 
 
-<div id="Image-banner-{{ section.id }}" class="image-banner __theme-{{ section.settings.theme }} __align-{{section.settings.alignment}}">
-   <div class="image-banner__inner __theme-{{section.settings.overlay_theme}}">
+<div id="Image-banner-{{ section.id }}" class="image-banner __theme-{{ section.settings.theme }} __align-{{section.settings.alignment}} {% if crop_shape == "default" %}__fullwidth-bg{% endif%}">
+   <div class="image-banner__inner {% if crop_shape == "default" %}__theme-{{ section.settings.overlay_theme }} {% endif %}">
 
-      {%- for block in section.blocks -%}
-         {%- case block.type -%}
+      {% if section.blocks.size > 0 %}
+         <div class="image-banner__text-container">
+            {%- for block in section.blocks -%}
+               {%- case block.type -%}
 
-            {%- when 'caption' -%}
-               <div class="image-banner__caption caption">{{ block.settings.caption }}</div>
+                  {%- when 'caption' -%}
+                     <div class="image-banner__caption caption">{{ block.settings.caption }}</div>
 
-            {%- when 'heading' -%}
-               {% render 'heading', class: "image-banner", use_as_hero: section.settings.hero, heading: block.settings.heading, heading_size: block.settings.heading_size %}
+                  {%- when 'heading' -%}
+                     {% render 'heading', class: "image-banner", use_as_hero: section.settings.hero, heading: block.settings.heading, heading_size: block.settings.heading_size %}
 
-            {%- when 'subheading' -%}
-               {% if section.settings.hero %}
-                  <h2 class="image-banner__subheading h5">{{ block.settings.subheading }}</h2>
-               {% else %}
-                  <h3 class="image-banner__subheading h5">{{ block.settings.subheading }}</h3>
-               {% endif %}
+                  {%- when 'subheading' -%}
+                     {% if section.settings.hero %}
+                        <h2 class="image-banner__subheading h5">{{ block.settings.subheading }}</h2>
+                     {% else %}
+                        <h3 class="image-banner__subheading h5">{{ block.settings.subheading }}</h3>
+                     {% endif %}
 
-            {%- when 'text' -%}
-               <div class="image-banner__text __article-txt">{{ block.settings.text }}</div>
+                  {%- when 'text' -%}
+                     <div class="image-banner__text __article-txt">{{ block.settings.text }}</div>
 
-            {%- when 'button' -%}
-                 {% render 'button', class: "image-banner", button_label: block.settings.button_label, button_link: block.settings.button_link, button_color: block.settings.button_color %}
-         {%- endcase -%}
-      {%- endfor -%}
-
-
+                  {%- when 'button' -%}
+                     {% render 'button', class: "image-banner", button_label: block.settings.button_label, button_link: block.settings.button_link, button_color: block.settings.button_color %}
+               {%- endcase -%}
+            {%- endfor -%}
+         </div>
+      {% endif %}
 
 
       {%- if section.settings.image != blank -%}
-         {% render 'next-gen-img', image: section.settings.image %}
-      {%- else -%}
-         {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+         <div class="image-banner__image __crop-{{ crop_shape }} {% if crop_shape != "default" %}__theme-{{ section.settings.overlay_theme }} {% endif %}">
+            {% render 'next-gen-img', image: section.settings.image %}
+         </div>
       {%- endif -%}
 
    </div>
@@ -101,6 +108,38 @@
          ],
          "default": "primary",
          "label": "Overlay Theme"
+      },
+      {
+         "type": "select",
+         "id": "crop_shape",
+         "options": [
+         {
+            "value": "default",
+            "label": "No Crop (Default)"
+         },
+         {
+            "value": "circle",
+            "label": "Circle"
+         },
+         {
+            "value": "rounded-square",
+            "label": "Rounded Square"
+         },
+         {
+            "value": "square",
+            "label": "Square"
+         },
+         {
+            "value": "portrait",
+            "label": "Portrait"
+         },
+         {
+            "value": "landscape",
+            "label": "Landscape"
+         }
+         ],
+         "default": "default",
+         "label": "Product Image Crop Shape"
       },
       {
          "type": "header",

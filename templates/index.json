@@ -279,10 +279,11 @@
         "overlay": 40,
         "overlay_theme": "3",
         "hero": false,
-        "alignment": "left",
+        "alignment": "center",
+        "crop_shape": "circle",
         "theme": "primary",
-        "top_spacing": 0,
-        "bottom_spacing": 0,
+        "top_spacing": 100,
+        "bottom_spacing": 100,
         "top_internal_spacing": 100,
         "bottom_internal_spacing": 100
       }
