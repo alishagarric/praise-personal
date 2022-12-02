@@ -7,42 +7,70 @@
     #Multicolumn-{{ section.id }} {
       --topSpacingRatio: {{section.settings.top_spacing}} / 100;
       --bottomSpacingRatio: {{section.settings.bottom_spacing}} / 100;
+      --desktopColumns: {{ section.settings.columns_desktop }}
     }
  {% endstyle %}
 
 
-<div id="Multicolumn-{{ section.id }}" class="multicolumn __theme-{{ section.settings.theme }} __align-{{section.settings.alignment}}">
-   <div class="multicolumn__inner">
+<div id="Multicolumn-{{ section.id }}" class="multicolumn __theme-{{ section.settings.theme }} {% if section.settings.slider %}__with-slider{% endif %}">
+   <multicolumn-slider class="multicolumn__inner" data-slider="{{ section.settings.slider }}">
 
       {% if section.blocks.size > 0 %}
         {%- for block in section.blocks -%}
             {%- case block.type -%}
+
               {%- when 'quote' -%}
-                <div class="multicolumn__item {% if block.settings.theme %}__theme-{{ block.settings.theme }}{% endif %}">
-                  <div class="multicolumn__quote p">{{ block.settings.quote }}</div>
-                  {%- if section.settings.logo != blank -%}
-                    <div class="multicolumn__image">
-                        {% render 'next-gen-img', image: block.settings.logo %}
-                    </div>
-                  {%- endif -%}
+                <div class="multicolumn__item __align-{{section.settings.alignment}} {% if block.settings.background_theme %}__theme-{{ block.settings.background_theme }}{% endif %}">
+                  <div class="multicolumn__item__card __crop-{{ block.settings.card_corners }}">
+
+                    {% if block.settings.quote != blank %}
+                      <div class="multicolumn__quote p-sm">
+                        {% if block.settings.quotations == true %}{% render 'svg-quotes'%}{% endif %}
+                          {{ block.settings.quote }}
+                        {% if block.settings.quotations == true %}{% render 'svg-quotes'%}{% endif %}
+                      </div>
+                    {% endif %}
+
+                    {% if block.settings.details != blank %}
+                      <div class="multicolumn__details p-sm">{{ block.settings.details }}</div>
+                    {% endif %}
+
+                    {%- if block.settings.logo != blank -%}
+                      <div class="multicolumn__image">
+                          {% render 'next-gen-img', image: block.settings.logo %}
+                      </div>
+                    {%- endif -%}
+                  </div>
                 </div>
+
               {%- when 'image' -%}
-                <div class="multicolumn__item">
+                {% assign image_height = block.settings.image.height | times: 1.0 %}
+                {% assign image_width = block.settings.image.width | times: 1.0 %}
+                {% assign image_ratio = image_height| divided_by: image_width | times: 100 %}
+
+                <div class="multicolumn__item __align-{{section.settings.alignment}}">
                   {%- if block.settings.image != blank -%}
-                    <div class="multicolumn__image __crop-{{ block.settings.crop_shape }} {% if block.settings.overlay_theme %}__theme-{{ block.settings.overlay_theme }} {% endif %}">
-                        {% render 'next-gen-img', image: section.settings.image %}
+                    <div class="multicolumn__image __crop-{{ block.settings.crop_shape }} {% if block.settings.overlay_theme %}__theme-{{ block.settings.overlay_theme }}{% endif %} --overlayOpacity: calc({{section.settings.overlay}} / 100);" style="padding-top: {{ image_ratio }}%">
+                      {% render 'next-gen-img', image: block.settings.image %}
+                      {% if block.settings.overlap == true %}
+                        {% render 'heading', class: "multicolumn", heading: block.settings.heading, heading_size: block.settings.heading_size %}
+                      {% endif %}
                     </div>
                   {%- endif -%}
-                  {% render 'heading', class: "multicolumn__heading", heading: block.settings.heading, heading_size: 'h4' %}
+                  {% if block.settings.overlap == false or block.settings.image == blank %}
+                    {% render 'heading', class: "multicolumn", heading: block.settings.heading, heading_size: block.settings.heading_size %}
+                  {% endif %}
+                  
                   {%- if block.settings.text -%}
                     <div class="multicolum__text __article-txt" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
                   {%- endif -%}
                   {% render 'button', class: "multicolumn", button_label: block.settings.button_label, button_link: block.settings.button_link, button_color: block.settings.button_color %}
                 </div>
+
             {%- endcase -%}
         {%- endfor -%}
       {% endif %}
-   </div>
+    </multicolumn-slider>
 </div>
 
 {% schema %}
@@ -123,24 +151,24 @@
          "content": "Spacing"
       },
       {
-         "type":"range",
-         "id":"top_spacing",
-         "min":0,
-         "max":100,
-         "step":10,
-         "unit":"%",
-         "label":"Top Spacing",
-         "default":0
+         "type": "range",
+         "id": "top_spacing",
+         "min": 0,
+         "max": 100,
+         "step": 10,
+         "unit": "%",
+         "label": "Top Spacing",
+         "default": 50
       },
       {
-         "type":"range",
-         "id":"bottom_spacing",
-         "min":0,
-         "max":100,
-         "step":10,
-         "unit":"%",
-         "label":"Bottom Spacing",
-         "default":0
+         "type": "range",
+         "id": "bottom_spacing",
+         "min": 0,
+         "max": 100,
+         "step": 10,
+         "unit": "%",
+         "label": "Bottom Spacing",
+         "default": 50
       }
    ],
    "blocks": [
@@ -255,12 +283,19 @@
                 "label": "Medium"
               },
               {
-                "value": "caption-lg",
+                "value": "h6",
                 "label": "Small"
               }
             ],
             "default": "h5",
             "label": "Heading Size"
+          },
+          {
+            "type": "checkbox",
+            "id": "overlap",
+            "label": "Enable overlap?",
+            "info": "Requires both heading and image field content.",
+            "default": false
           },
           {
             "type": "richtext",
@@ -325,6 +360,7 @@
             "type": "checkbox",
             "id": "quotations",
             "label": "Show quotation marks?",
+            "info": "Requires quote field to have content.",
             "default": true
           },
           {
