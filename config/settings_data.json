@@ -40,7 +40,7 @@
             "settings": {
               "label": "New",
               "heading_0": "",
-              "text_0": "",
+              "text_0": "<p><\/p>",
               "button_label": "",
               "button_link": "",
               "heading_1": "Peanut Butter Collection",
@@ -62,10 +62,10 @@
               "button_label": "Shop Treats",
               "button_link": "shopify:\/\/collections",
               "heading_1": "",
-              "text_1": "",
+              "text_1": "<p><\/p>",
               "link_1": "",
               "heading_2": "",
-              "text_2": "",
+              "text_2": "<p><\/p>",
               "link_2": ""
             }
           },
@@ -82,7 +82,7 @@
               "link_1": "shopify:\/\/pages\/contact",
               "image_1": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_e7c90847-70c1-47f4-a82d-2369a2b4a718.jpg",
               "heading_2": "",
-              "text_2": "",
+              "text_2": "<p><\/p>",
               "link_2": ""
             }
           }
@@ -93,11 +93,12 @@
           "4bcead02-00f4-4d86-8020-30bd7dd0b9a4"
         ],
         "settings": {
-          "always_show_nav": false,
+          "logo": "shopify:\/\/shop_images\/logo_black.png",
           "menu": "mega-menu",
           "button_label": "Button label",
           "button_link": "",
-          "button_color": "default"
+          "button_color": "default",
+          "always_show_nav": false
         }
       },
       "footer": {
