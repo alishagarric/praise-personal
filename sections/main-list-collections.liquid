@@ -1,6 +1,8 @@
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 
 <div class="container">
+  <div class="section" style="font-family: Arial; font-weight: bold; font-size: 36px; color: magenta;"> "Main List Collections Section" to be completed during "Shopping" phase</div>
+
   <h1>{{ section.settings.title | escape }}</h1>
   {%- paginate collections by section.settings.collections_per_page -%}
     <ol class="list-unstyled grid" role="list">

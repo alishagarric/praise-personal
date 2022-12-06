@@ -1,7 +1,10 @@
-{% render 'filter-and-sort', results: collection %}
+    <div class="section" style="font-family: Arial; font-weight: bold; font-size: 36px; color: magenta;"> "Main Collection Grid Section" to be completed during "Shopping" phase</div>
+
+    {% render 'filter-and-sort', results: collection %}
 
 {%- paginate collection.products by 8 -%}
   <div class="container">
+
     {%- if collection.products.size == 0 -%}
       {{ 'products.facets.use_fewer_filters_html' | t: link: collection.url }}
     {%- endif -%}

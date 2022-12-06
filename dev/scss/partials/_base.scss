@@ -85,8 +85,6 @@ form {
     margin: 0;
   }
 
-  button,
-  input[type="submit"],
   input[type="text"],
   input[type="email"] {
     height: var(--inputHeight);
@@ -109,20 +107,6 @@ form {
   ::placeholder {
     color: var(--color-foreground);
     opacity: 50%;
-  }
-
-  button,
-  input[type="submit"] {
-    background: var(--color-foreground);
-    color: var(--color-foreground);
-    font-weight: 600;
-    border: none;
-    border-radius: 7px;
-
-    &:hover {
-      cursor: pointer;
-      opacity: 0.7;
-    }
   }
 
   &.__form-styles {
@@ -160,7 +144,9 @@ form {
 //Button styles
 ////////////////////////////////////
 
-.btn {
+.btn,
+button,
+input[type="submit"] {
   height: var(--btnHeight);
   line-height: var(--btnHeight);
   border-radius: 4px;
