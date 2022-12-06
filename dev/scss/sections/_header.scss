@@ -39,13 +39,9 @@
   &__logo {
     display: flex;
 
-    svg {
+    img {
       height: calc(var(--navHeight) * 0.4);
       width: auto;
-
-      * {
-        fill: var(--color-foreground);
-      }
     }
   }
 
@@ -132,18 +128,6 @@
       height: 100vh;
       background: var(--color-foreground);
       opacity: 0.5;
-    }
-
-    //pretty dotted divider
-    &__divider {
-      position: absolute;
-      inset: 0 0 auto 0;
-      display: flex;
-
-      svg {
-        width: 50%;
-        height: auto;
-      }
     }
 
     //each block inside dropdown
@@ -246,8 +230,7 @@
     }
   }
 
-  &__hamburger,
-  &__mobile-divider {
+  &__hamburger {
     display: none;
   }
 
@@ -295,31 +278,9 @@
         transform: rotate(-45deg) translate(0, calc(var(--navHeight) * 0.08));
       }
 
-      //mobile divider
-      + .site-header__mobile-divider {
-        display: flex;
-      }
-
       //main links
       ~ .site-header__main-links {
         display: block;
-      }
-    }
-  }
-
-  &__mobile-divider {
-    position: fixed;
-    top: var(--navHeight);
-    left: 0;
-    right: 0;
-    z-index: 999;
-    display: none;
-
-    svg {
-      width: 100%;
-      height: auto;
-      * {
-        fill: var(--color-foreground);
       }
     }
   }
@@ -392,10 +353,6 @@
 
       &:before {
         content: none;
-      }
-
-      &__divider {
-        display: none;
       }
 
       // Used to dull out other links that aren't part of the active dropdown

@@ -4,22 +4,62 @@
  {% endstyle %}
 
 {% assign icons = false %}
-{% comment %}
-  {% render 'newsletter-row' %}
-{% endcomment %}
 
 <footer id="Section-footer-{{ section.id }}" class="section-footer">
     
     <div class="section-footer__col __theme-{{section.settings.accent_theme}}">
       <div class="section-footer__branding">
-        <div class="section-footer__branding__logo">{% render 'svg-logo-stacked' %}</div>
+        <div class="section-footer__branding__logo">{{ shop.name }}</div>
       </div>
 
+      {% comment %} Newsletter {% endcomment %}
+      {% if section.settings.newsletter_enable %}
+        {% render 'newsletter-signup'%}
+      {% endif %}
 
+
+      {% comment %} Social Icons {% endcomment %}
       {%- if section.settings.show_social -%}
-        <div class="section-footer__bottom__social">
+        <ul class="section-footer__social">
           {% render 'social-icons' %}
-        </div>
+        </ul>
+      {%- endif -%}
+      
+      {% comment %} Country selector {% endcomment %}
+      {%- if localization.available_countries.size > 1 -%}
+        {%- form 'localization' -%}
+          <label for="CountryList--{{ section.id }}">{{ 'general.localization.country.label' | t }}</label>
+          <select name="country_code" id="CountryList--{{ section.id }}">
+            {%- for country in localization.available_countries -%}
+              <option 
+                value="{{ country.iso_code }}"
+                {%- if country.iso_code == localization.country.iso_code %} selected{% endif -%}
+              >
+                {{ 'general.localization.country.option_label' | t: name: country.name, currency_iso_code: country.currency.iso_code, currency_symbol: country.currency.symbol }}
+              </option>
+            {%- endfor -%}
+          </select>
+          <button type="submit">{{ 'general.localization.country.update' | t }}</button>
+        {%- endform -%}
+      {%- endif -%}
+
+
+      {% comment %} Language selector {% endcomment %}
+      {%- if localization.available_languages.size > 1 -%}
+        {%- form 'localization' -%}
+          <label for="LanguageList--{{ section.id }}">{{ 'general.localization.language.label' | t }}</label>
+          <select name="locale_code" id="LanguageList--{{ section.id }}">
+            {%- for language in localization.available_languages -%}
+              <option 
+                value="{{ language.iso_code }}" lang="{{ language.iso_code }}"
+                {%- if language.iso_code == localization.language.iso_code %} selected{% endif %} 
+              >
+                {{ language.endonym_name | capitalize }}
+              </option>
+            {%- endfor -%}
+          </select>
+          <button type="submit">{{ 'general.localization.language.update' | t }}</button>
+        {%- endform -%}
       {%- endif -%}
     </div>
 
@@ -32,7 +72,7 @@
                 {%- when 'link_list' -%}
                   <div class="section-footer__blocks__block" {{ block.shopify_attributes }}>
                     {%- if block.settings.heading != blank -%}
-                      <p class="section-footer__header caption">{{- block.settings.heading | escape -}}</p>
+                      <p class="section-footer__header h6 alt">{{- block.settings.heading | escape -}}</p>
                     {%- endif -%}
                     {%- if block.settings.menu != blank -%}
                       <ul class="section-footer__links list-unstyled">
@@ -71,154 +111,24 @@
         </div>
       {% endif %}
 
-      <small class="section-footer__bottom__copywright p-sm">&copy; {{ shop.name }}. {{ 'now' | date: "%Y" }}</small>
+      <div class="section-footer__row">
+        {%- if section.settings.secondary_links %}
+          <ul class="section-footer__sec-links list-unstyled">
+            {%- for link in section.settings.secondary_links.links -%}
+              <li class="section-footer__sec-links__item">
+                <a class="section-footer__sec-links__item__link p-sm" href="{{ link.url }}">
+                  {{ link.title }}
+                </a>
+              </li>
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
 
-      {%- if section.settings.secondary_links %}
-        <ul class="section-footer__bottom__sec-links section-footer__links list-unstyled">
-          {%- for link in section.settings.secondary_links.links -%}
-            <li class="section-footer__links__item">
-              <a class="section-footer__links__item__link p-sm" href="{{ link.url }}">
-                {{ link.title }}
-              </a>
-            </li>
-          {%- endfor -%}
-        </ul>
-      {%- endif -%}
+        <span class="section-footer__copywright p-sm">&copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: routes.root_url }}</span>
+      </div>
     </div>
 
 </footer>
-
-
-{% comment %}<footer class="footer">
-  <div class="container">
-    <div>
-      <h2>{{ 'general.newsletter.heading' | t }}</h2>
-      {%- form 'customer' -%}
-        <label for="NewsletterEmail--{{ section.id }}">{{ 'general.newsletter.email' | t }}</label>
-        <input
-          id="NewsletterEmail--{{ section.id }}"
-          type="email"
-          name="contact[email]"
-          value="{{ form.email }}"
-          aria-required="true"
-          autocorrect="off"
-          autocapitalize="off"
-          autocomplete="email"
-          required
-          {% if form.errors %}
-            autofocus
-            aria-invalid="true"
-            aria-describedby="NewsletterError--{{ section.id }}"
-          {% elsif form.posted_successfully? %}
-            aria-describedby="NewsletterSuccess--{{ section.id }}"
-          {% endif %}
-        >
-        {%- if form.errors -%}
-          <small id="NewsletterError--{{ section.id }}" class="message-error">{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}</small>
-        {%- elsif form.posted_successfully? -%}
-          <small id="NewsletterSuccess--{{ section.id }}" class="message-success" tabindex="-1" autofocus>{{ 'general.newsletter.success' | t }}</small>
-        {%- endif -%}  
-        <input type="hidden" name="contact[tags]" value="newsletter">
-        <button type="submit">{{ 'general.newsletter.subscribe' | t }}</button>
-      {%- endform -%}
-    </div>
-
-    <div class="grid">
-      {% comment %} Country selector {% endcomment %}
-      {%- if localization.available_countries.size > 1 -%}
-        {%- form 'localization' -%}
-          <label for="CountryList--{{ section.id }}">{{ 'general.localization.country.label' | t }}</label>
-          <select name="country_code" id="CountryList--{{ section.id }}">
-            {%- for country in localization.available_countries -%}
-              <option 
-                value="{{ country.iso_code }}"
-                {%- if country.iso_code == localization.country.iso_code %} selected{% endif -%}
-              >
-                {{ 'general.localization.country.option_label' | t: name: country.name, currency_iso_code: country.currency.iso_code, currency_symbol: country.currency.symbol }}
-              </option>
-            {%- endfor -%}
-          </select>
-          <button type="submit">{{ 'general.localization.country.update' | t }}</button>
-        {%- endform -%}
-      {%- endif -%}
-
-      {% comment %} Language selector {% endcomment %}
-      {%- if localization.available_languages.size > 1 -%}
-        {%- form 'localization' -%}
-          <label for="LanguageList--{{ section.id }}">{{ 'general.localization.language.label' | t }}</label>
-          <select name="locale_code" id="LanguageList--{{ section.id }}">
-            {%- for language in localization.available_languages -%}
-              <option 
-                value="{{ language.iso_code }}" lang="{{ language.iso_code }}"
-                {%- if language.iso_code == localization.language.iso_code %} selected{% endif %} 
-              >
-                {{ language.endonym_name | capitalize }}
-              </option>
-            {%- endfor -%}
-          </select>
-          <button type="submit">{{ 'general.localization.language.update' | t }}</button>
-        {%- endform -%}
-      {%- endif -%}
-
-      {% comment %} Social media icons {% endcomment %}
-      {% comment %} TODO: Add SVG social media icons (if required) {% endcomment %}
-      <ul class="list-unstyled" role="list">
-        {%- if settings.social_twitter_link != blank -%}
-          <li>
-            <a href="{{ settings.social_twitter_link }}">{{ 'general.social.links.twitter' | t }}</a>
-          </li>
-        {%- endif -%}
-        {%- if settings.social_facebook_link != blank -%}
-          <li>
-            <a href="{{ settings.social_facebook_link }}">{{ 'general.social.links.facebook' | t }}</a>
-          </li>
-        {%- endif -%}
-        {%- if settings.social_pinterest_link != blank -%}
-          <li>
-            <a href="{{ settings.social_pinterest_link }}">{{ 'general.social.links.pinterest' | t }}</a>
-          </li>
-        {%- endif -%}
-        {%- if settings.social_instagram_link != blank -%}
-          <li>
-            <a href="{{ settings.social_instagram_link }}">{{ 'general.social.links.instagram' | t }}</a>
-          </li>
-        {%- endif -%}
-        {%- if settings.social_tiktok_link != blank -%}
-          <li>
-            <a href="{{ settings.social_tiktok_link }}">{{ 'general.social.links.tiktok' | t }}</a>
-          </li>
-        {%- endif -%}
-        {%- if settings.social_tumblr_link != blank -%}
-          <li>
-            <a href="{{ settings.social_tumblr_link }}">{{ 'general.social.links.tumblr' | t }}</a>
-          </li>
-        {%- endif -%}
-        {%- if settings.social_snapchat_link != blank -%}
-          <li>
-            <a href="{{ settings.social_snapchat_link }}">{{ 'general.social.links.snapchat' | t }}</a>
-          </li>
-        {%- endif -%}
-        {%- if settings.social_youtube_link != blank -%}
-          <li>
-            <a href="{{ settings.social_youtube_link }}">{{ 'general.social.links.youtube' | t }}</a>
-          </li>
-        {%- endif -%}
-        {%- if settings.social_vimeo_link != blank -%}
-          <li>
-            <a href="{{ settings.social_vimeo_link }}">{{ 'general.social.links.vimeo' | t }}</a>
-          </li>
-        {%- endif -%}
-      </ul>
-
-      {% comment %} Copyright {% endcomment %}
-      <p>
-        <span>&copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: routes.root_url }}</span>
-        <span>{{ powered_by_link }}</span>
-      </p>
-    </div>
-  </div>
-</footer>
-{% endcomment %}
 
 {% schema %}
 {
@@ -324,7 +234,8 @@
         }
       ],
       "default": "primary",
-      "label": "Theme"
+      "label": "Theme",
+      "info": "Theme used for the right side of the footer."
     },
     {
       "type": "select",
@@ -352,7 +263,8 @@
         }
       ],
       "default": "primary",
-      "label": "Accent Theme"
+      "label": "Accent Theme",
+      "info": "Theme used for the left side of the footer."
     }
   ],
   "default": {

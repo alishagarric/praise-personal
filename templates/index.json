@@ -118,7 +118,9 @@
         "layout": "default",
         "image_style": "wide",
         "top_spacing": 0,
-        "bottom_spacing": 0
+        "bottom_spacing": 0,
+        "top_internal_spacing": 100,
+        "bottom_internal_spacing": 100
       }
     },
     "1662067471929f7e31": {

@@ -1,0 +1,20 @@
+{% comment %}
+    Renders a featured page link, originally made to be used in a navigation dropdown
+
+    Expects:
+    - page: {object} required
+    - image: {object} required
+    - className: {string} optional
+
+    Usage:
+    {% render 'nav-dropdown-page' page: page %}
+{% endcomment %}
+
+{% if page and image %}
+  <a href="{{ page.url }}" class="{{ className }} __featured-page">
+    <div class="{{ className }}__image">
+      {% render 'next-gen-img' image: image, alt: page.title %}
+    </div>
+    <span class="{{ className }}__label p-sm">{{ page.title }}</span>
+  </a>
+{% endif %}

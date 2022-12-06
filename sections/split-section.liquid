@@ -2,6 +2,8 @@
     #Split-section-{{ section.id }} {
       --topSpacingRatio: {{section.settings.top_spacing}} / 100;
       --bottomSpacingRatio: {{section.settings.bottom_spacing}} / 100;
+      --topInternalSpacingRatio: {{section.settings.top_internal_spacing}} / 100;
+      --bottomInternalSpacingRatio: {{section.settings.bottom_internal_spacing}} / 100;
     }
  {% endstyle %}
 
@@ -145,8 +147,32 @@
       "label": "Image Style"
     },
     {
+        "type": "header",
+        "content": "Internal Spacing"
+    },
+    {
+        "type":"range",
+        "id":"top_internal_spacing",
+        "min":0,
+        "max":300,
+        "step":10,
+        "unit":"%",
+        "label":"Top Spacing",
+        "default":100
+    },
+    {
+        "type":"range",
+        "id":"bottom_internal_spacing",
+        "min":0,
+        "max":300,
+        "step":10,
+        "unit":"%",
+        "label":"Bottom Spacing",
+        "default":100
+    },
+    {
       "type": "header",
-      "content": "Section Spacing"
+      "content": "External Spacing"
     },
     {
       "type": "range",

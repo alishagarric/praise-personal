@@ -9,6 +9,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    padding-top: calc(
+      var(--sectionVerticalSpacing) * var(--topInternalSpacingRatio)
+    );
+    padding-bottom: calc(
+      var(--sectionVerticalSpacing) * var(--bottomInternalSpacingRatio)
+    );
 
     &__heading {
       &:not(:first-child) {

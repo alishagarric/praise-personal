@@ -1,0 +1,23 @@
+{% comment %}
+    Renders a menu list of articles, originally made to be used in a navigation dropdown
+
+    Expects:
+    - menu: {object} required
+    - className: {string} optional
+
+    Usage:
+    {% render 'nav-dropdown-articles' menu: menu %}
+{% endcomment %}
+
+{% if menu %}
+  <div class="{{ className }} __articles">
+    <span class="{{ className }}__label p-lg">{{menu.title }}</span>
+    <ul class="{{ className }}__articles-list">
+      {% for item in menu.links %}
+        <li>
+          {% render 'article-card', article: item.object, style: "teaser" %}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endif %}

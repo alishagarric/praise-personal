@@ -1,0 +1,21 @@
+{% comment %}
+    Renders a text block, originally made to be used in a navigation dropdown
+
+    Expects:
+    - heading: {string} optional
+    - text: {string} optional
+    - button_label: {string} optional
+    - button_link: {url} optional
+    - className: {string} optional
+
+    Usage:
+    {% render 'nav-dropdown-text-block' heading: heading %}
+{% endcomment %}
+
+{% if heading or text or button_label and button_link %}
+  <div class="{{ className }} __text-block">
+    {% if heading %} <span>{{ heading }}</span>{% endif %}
+    {% if text %}<p class="__article-txt">{{ text }}</p>{% endif %}
+    {% if button_label and button_link %}<a href="{{ button_link }}" class="btn">{{ button_label }}</a>{% endif %}
+  </div>
+{% endif %}
