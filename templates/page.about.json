@@ -25,6 +25,7 @@
         "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_549b821c-6850-42f3-ae03-51e8af8116c6.jpg",
         "overlay": 50,
         "overlay_theme": "4",
+        "crop_shape": "default",
         "hero": true,
         "alignment": "center",
         "theme": "primary",
@@ -33,9 +34,116 @@
         "top_internal_spacing": 250,
         "bottom_internal_spacing": 30
       }
+    },
+    "9d904fcd-6812-4896-8f08-b91f0da96ef5": {
+      "type": "image-banner",
+      "blocks": {
+        "4f06eecd-6680-4fb2-b54f-f68ede63926d": {
+          "type": "heading",
+          "settings": {
+            "heading": "Our  Mission",
+            "heading_size": "h2"
+          }
+        },
+        "eb3534e5-bccc-4b1d-8995-da0c99665bba": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Atypical cookies and treats that push the boundaries of indulgence. An ode to the well-balanced classic cookie. This season we are celebrating all the nostalgia and what pairs best with chocolate chips.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "4f06eecd-6680-4fb2-b54f-f68ede63926d",
+        "eb3534e5-bccc-4b1d-8995-da0c99665bba"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_549b821c-6850-42f3-ae03-51e8af8116c6.jpg",
+        "overlay": 70,
+        "overlay_theme": "5",
+        "crop_shape": "rounded-square",
+        "hero": false,
+        "alignment": "left",
+        "theme": "primary",
+        "top_spacing": 40,
+        "bottom_spacing": 40,
+        "top_internal_spacing": 100,
+        "bottom_internal_spacing": 100
+      }
+    },
+    "f2989769-c365-432b-8663-172dec4d23d5": {
+      "type": "icons-section",
+      "blocks": {
+        "template--16406887071966__f2989769-c365-432b-8663-172dec4d23d5-167036307199fd24ce-0": {
+          "type": "icon",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Group_100.png",
+            "heading": "",
+            "text": "Value"
+          }
+        },
+        "template--16406887071966__f2989769-c365-432b-8663-172dec4d23d5-167036307199fd24ce-1": {
+          "type": "icon",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Vector.png",
+            "heading": "",
+            "text": "Value"
+          }
+        },
+        "template--16406887071966__f2989769-c365-432b-8663-172dec4d23d5-167036307199fd24ce-2": {
+          "type": "icon",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Group.png",
+            "heading": "",
+            "text": "Value"
+          }
+        },
+        "4b3a915a-bee5-49f9-9a78-d84f78290651": {
+          "type": "icon",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Group_100.png",
+            "heading": "",
+            "text": "Lorem ipsum"
+          }
+        },
+        "50db8156-e4c0-4c21-b289-6ccb2088a577": {
+          "type": "icon",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Vector.png",
+            "heading": "",
+            "text": "Lorem ipsum"
+          }
+        },
+        "445bc021-ee04-4b20-a595-7cc635211260": {
+          "type": "icon",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Group.png",
+            "heading": "",
+            "text": "Lorem ipsum"
+          }
+        }
+      },
+      "block_order": [
+        "template--16406887071966__f2989769-c365-432b-8663-172dec4d23d5-167036307199fd24ce-0",
+        "template--16406887071966__f2989769-c365-432b-8663-172dec4d23d5-167036307199fd24ce-1",
+        "template--16406887071966__f2989769-c365-432b-8663-172dec4d23d5-167036307199fd24ce-2",
+        "4b3a915a-bee5-49f9-9a78-d84f78290651",
+        "50db8156-e4c0-4c21-b289-6ccb2088a577",
+        "445bc021-ee04-4b20-a595-7cc635211260"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h5",
+        "layout": "row",
+        "icon_height": 60,
+        "theme": "primary",
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
     }
   },
   "order": [
-    "166214275854e11719"
+    "166214275854e11719",
+    "9d904fcd-6812-4896-8f08-b91f0da96ef5",
+    "f2989769-c365-432b-8663-172dec4d23d5"
   ]
 }
