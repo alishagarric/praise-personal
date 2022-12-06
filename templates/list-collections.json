@@ -6,9 +6,75 @@
         "title": "Collections",
         "collections_per_page": 4
       }
+    },
+    "85c58e07-278d-42c1-b9f3-f6bab28fee7f": {
+      "type": "split-section",
+      "blocks": {
+        "template--16398178844894__85c58e07-278d-42c1-b9f3-f6bab28fee7f-16703627747c9db086-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "We dreamt of this (a lot)",
+            "heading_size": "h2"
+          }
+        },
+        "template--16398178844894__85c58e07-278d-42c1-b9f3-f6bab28fee7f-16703627747c9db086-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Atypical cookies and treats that push the boundaries of indulgence. An odea to the well-baanced classic cookie. This season we are celebrating all the nostalgia and what pairs best with chocolate chips.<\/p>"
+          }
+        },
+        "template--16398178844894__85c58e07-278d-42c1-b9f3-f6bab28fee7f-16703627747c9db086-2": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop lemon cookies",
+            "button_link": "shopify:\/\/collections\/back-in-stock",
+            "button_color": "default"
+          }
+        }
+      },
+      "block_order": [
+        "template--16398178844894__85c58e07-278d-42c1-b9f3-f6bab28fee7f-16703627747c9db086-0",
+        "template--16398178844894__85c58e07-278d-42c1-b9f3-f6bab28fee7f-16703627747c9db086-1",
+        "template--16398178844894__85c58e07-278d-42c1-b9f3-f6bab28fee7f-16703627747c9db086-2"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_e7c90847-70c1-47f4-a82d-2369a2b4a718.jpg",
+        "hero": false,
+        "alignment": "center",
+        "theme": "primary",
+        "layout": "reversed",
+        "image_style": "wide",
+        "top_internal_spacing": 100,
+        "bottom_internal_spacing": 100,
+        "top_spacing": 0,
+        "bottom_spacing": 0
+      }
+    },
+    "7691bbe1-f26e-4754-a188-f70a1bca5076": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "back-in-stock",
+        "theme_slider": false,
+        "show_phrase": false,
+        "show_description": false,
+        "alt_header": false,
+        "product_text_alignment": "default",
+        "price": "default",
+        "crop_shape": "rounded-square",
+        "heading": "Stock your cabinet",
+        "text": "",
+        "collection_text_content": false,
+        "stack_text_content": true,
+        "alignment": "center",
+        "theme": "2",
+        "top_spacing": 0,
+        "bottom_spacing": 50
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "85c58e07-278d-42c1-b9f3-f6bab28fee7f",
+    "7691bbe1-f26e-4754-a188-f70a1bca5076"
   ]
 }
