@@ -22,7 +22,7 @@
               image_tag: width: 125, alt: section.settings.logo.alt | default: shop.name | escape 
             }}
           {%- else -%}
-            <span class="h4">{{ shop.name }}</span>
+            <span class="{{ className }}__logo__text h4">{{ shop.name }}</span>
           {%- endif -%}
         </a>
       {%- if request.page_type == "index" -%}
@@ -36,57 +36,81 @@
     {% comment %} All the links {% endcomment %}
     <div class="{{ className }}__main-links">
 
+      {% for primary_link in section.settings.menu.links %}
+
+        {% comment %} Regular link (no nested links) {% endcomment %}
+        {% if primary_link.levels == 0 %}
+          <a class="{{ className }}__plain-link p-sm" href="{{ primary_link.url }}" class="p-sm">{{ primary_link.title }}</a>
+
+        {% comment %} Link with nested links (dropdown) {% endcomment %}
+        {% else %}
+          {% capture dropdown %}
+            <div class="{{ className }}__dropdown {% if primary_link.levels == 1 %}__skinny{% endif %}">
+              <div class="{{ className }}__dropdown__inner">
+                {% assign blockClassName = className | append: "__dropdown__block" %}
+
+                {% if primary_link.levels == 1 %}
+                  {% render 'nav-dropdown-submenu' menu: primary_link.links, className: blockClassName %}
+                {% else %}
+                  {% for secondary_link in primary_link.links %}
+                    {% render 'nav-dropdown-submenu' label: secondary_link.title, label_link: secondary_link.url, menu: secondary_link.links, className: blockClassName %}
+                  {% endfor %}
+                {% endif %}
+
+   
+                {% for block in section.blocks %}
+                  {% comment %}TODO are we going to give the option for nav-dropdown-article.liquid {% endcomment %}
+                  {% case block.type %}
+                    {% when 'mega_menu' %}
+                      {% if block.settings.label == primary_link.title %}
+                        {% comment %} Text Block {% endcomment %}
+                        {% render 'nav-dropdown-text-block' heading: block.settings.heading_0, text: block.settings.text_0, button_label: block.settings.button_label, button_link: block.settings.button_link, button_color: block.settings.button_color, className: blockClassName %}
+
+                        {% comment %} Promotion 1 {% endcomment %}
+                        {% if block.settings.heading_1 or block.settings.image_1 %}
+                          {% render 'nav-dropdown-promotion' heading: block.settings.heading_1, text: block.settings.text_1, link: block.settings.link_1, image: block.settings.image_1, className: blockClassName %}
+                        {% endif %}
+
+                        {% comment %} Promotion 2 {% endcomment %}
+                        {% if block.settings.heading_2 or block.settings.image_2 %}
+                          {% render 'nav-dropdown-promotion' heading: block.settings.heading_2, text: block.settings.text_2, link: block.settings.link_2, image: block.settings.image_2, className: blockClassName %}
+                        {% endif %}
+                        {% break %}
+                      {% endif %}
+
+                  {% endcase %}
+                {% endfor %}
+              </div>
+            </div>
+          {% endcapture %}
+          <dropdown-button class="{{ className }}__label p-sm">
+            {{ primary_link.title }}
+            {% if primary_link.levels == 1 %}
+              {{ dropdown }}
+            {% endif %}
+          </dropdown-button>
+            {% if primary_link.levels > 1 %}
+              {{ dropdown }}
+            {% endif %}
+        {% endif %}
+      {% endfor %}
+
       {% for block in section.blocks %}
         {% case block.type %}
 
-          {% comment %} Regular link (no nested links) {% endcomment %}
-          {% when 'link' %}
-            {% if block.settings.label and block.settings.link %}
-              <a class="{{ className }}__plain-link p-sm" href="{{ block.settings.link }}" class="p-sm">{{ block.settings.label }}</a>
-            {% endif %}
 
-          {% comment %} Link with nested links (dropdown) {% endcomment %}
-          {% when 'label' %}
-            {% if block.settings.label %}
-              {% assign labelIndex = forloop.index0 %}
-
-                <dropdown-button class="{{ className }}__label p-sm">{{ block.settings.label }}</dropdown-button>
-                <div class="{{ className }}__dropdown">
-                  {% for block in section.blocks %}
-                    {% assign blockClassName = className | append: "__dropdown__block" %}
-
-                    {% if forloop.index0 > labelIndex %}
-                      {% case block.type %}
-                        {% when 'link' %}
-                          {% break %}
-                        {% when 'label' %}
-                          {% break %}
-                        {% when 'submenu' %}
-                          {% render 'nav-dropdown-submenu' menu: block.settings.menu, className: blockClassName %}
-                        {% when 'text' %}
-                          {% render 'nav-dropdown-text-block' heading: block.settings.heading, text: block.settings.text, button_label: block.settings.button_label, button_link: block.settings.button_link, className: blockClassName %}
-                        {% when 'page' %}
-                          {% render 'nav-dropdown-page' page: block.settings.page, image: block.settings.image, className: blockClassName %}
-                        {% when 'articles' %}
-                          {% render 'nav-dropdown-articles' menu: block.settings.menu, className: blockClassName %}
-
-                      {% endcase %}
-                    {% endif %}
-                  {% endfor %}
-                </div>
-              {% endif %}
-            
-
-            {% comment %} CTA {% endcomment %}
-            {% when 'cta' %}
-              {% assign ctaClassName = className | append: "__cta" %}
-              <div class="{{ ctaClassName }}">
-                {% render 'button', class: ctaClassName, button_label: block.settings.button_label, button_link: block.settings.button_link %}
-              </div>
 
 
         {% endcase %}
       {% endfor %}
+
+      {% comment %} CTA {% endcomment %}
+      {% if section.settings.button_label and section.settings.button_link %}
+        {% assign ctaClassName = className | append: "__cta" %}
+        <div class="{{ ctaClassName }}">
+          {% render 'button', class: ctaClassName, button_label: section.settings.button_label, button_link: section.settings.button_link %}
+        </div>
+      {% endif %}
     </div>
 
     {% comment %} All the icons/tools 
@@ -291,7 +315,7 @@
 
 {% schema %}
 {
-  "name": "t:sections.header.name",
+  "name": "Header",
   "class": "section-header",
   "settings": [
     {
@@ -409,8 +433,7 @@
         {
           "type": "image_picker",
           "id": "image_1",
-          "label": "Image",
-          "info": "Should represent chosen page"
+          "label": "Image"
         },
         {
           "type": "header",
@@ -434,9 +457,7 @@
         {
           "type": "image_picker",
           "id": "image_2",
-          "label": "Image",
-          "info": "Should represent chosen page"
-        }
+          "label": "Image"        }
       ]  
     }
   ]

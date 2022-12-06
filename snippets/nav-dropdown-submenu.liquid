@@ -2,25 +2,33 @@
     Renders a submenu list, originally made to be used in a navigation dropdown
 
     Expects:
-    - menu: {object} required
+    - menu: {object} required. An array of links
+    - label: {string} optional
+    - label_link: {url} optional
     - className: {string} optional
 
     Usage:
     {% render 'nav-dropdown-submenu' menu: menu %}
 {% endcomment %}
 
-{% if menu %}
+{% if menu.size > 0 %}
   <div class="{{ className }} __submenu">
-    <span class="{{ className }}__label p-lg">{{ menu.title }}</span>
-      <ul class="{{ className }}__submenu-list">
-        {% for link in menu.links %}
-          <li>
-            <a href="{{ link.url }}" class="p-sm">
-              {{ link.title }}
-            </a>
-          </li>
-        {% endfor %}
-      </ul>
+    {% if label %}
+      {% if label_link and label_link != "#" %}
+        <a href="{{ label_link }}" class="{{ className }}__label p-lg">{{ label }}</a>
+      {% else %}
+        <span class="{{ className }}__label p-lg">{{ label }}</span>
+      {% endif %}
+    {% endif %}
+    <ul class="{{ className }}__submenu-list">
+      {% for link in menu %}
+        <li>
+          <a href="{{ link.url }}" class="p-sm">
+            {{ link.title }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
     </span>
   </div>
 {% endif %}

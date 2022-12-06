@@ -30,7 +30,9 @@ body {
   }
 
   main {
-    > *:first-child:not(.section-image__wrapper):not(.content-with-bg-image__wrapper) {
+    > *:first-child:not(.section-image__wrapper):not(
+        .content-with-bg-image__wrapper
+      ) {
       margin-top: var(--navHeight);
     }
   }
@@ -168,6 +170,7 @@ form {
   display: inline-flex;
   text-transform: uppercase;
   text-align: center;
+  white-space: nowrap;
   font-size: calc(1rem * var(--font-body-scale));
   letter-spacing: calc(0.05rem * var(--font-body-scale));
   font-weight: 500;

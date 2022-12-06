@@ -1,0 +1,41 @@
+{% comment %}
+    Renders a featured promotion link, originally made to be used in a navigation dropdown
+
+    Expects:
+    - heading: {string} optional
+    - text: {string } optional
+    - link: {url} optional
+    - image: {object} required
+    - className: {string} optional
+
+    Usage:
+    {% render 'nav-dropdown-page' page: page %}
+{% endcomment %}
+
+{% if heading or image or text %}
+  {% capture promo %}
+      {% if image %}
+        <div class="{{ className }}__image">
+          {% render 'next-gen-img' image: image, alt: heading %}
+        </div>
+      {% endif %}
+      {% if heading %}
+        <div class="{{ className }}__label h6">{{ heading }}</div>
+      {% endif %}
+      {% if text %}
+        <div class="p-sm">
+          {{ text }}
+        </div>
+      {% endif %}
+  {% endcapture %}
+
+  {% if link %}
+  <a href="{{ link }}" class="{{ className }} __featured-page">
+    {{ promo }}
+  </a>
+  {% else %}
+    <div class="{{ className }} __featured-page">
+      {{ promo }}
+    </div>
+  {% endif %}
+{% endif %}

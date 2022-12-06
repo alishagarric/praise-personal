@@ -6,16 +6,17 @@
     - text: {string} optional
     - button_label: {string} optional
     - button_link: {url} optional
+    - button_color: {string} optional
     - className: {string} optional
 
     Usage:
     {% render 'nav-dropdown-text-block' heading: heading %}
 {% endcomment %}
 
-{% if heading or text or button_label and button_link %}
+{% if heading or text or button_label %}
   <div class="{{ className }} __text-block">
-    {% if heading %} <span>{{ heading }}</span>{% endif %}
-    {% if text %}<p class="__article-txt">{{ text }}</p>{% endif %}
-    {% if button_label and button_link %}<a href="{{ button_link }}" class="btn">{{ button_label }}</a>{% endif %}
+    {% if heading %} <div class="h6">{{ heading }}</div>{% endif %}
+    {% if text %}<div class="p-sm">{{ text }}</div>{% endif %}
+    {% render 'button', button_label: button_label, button_link: button_link, button_color: button_color %}
   </div>
 {% endif %}

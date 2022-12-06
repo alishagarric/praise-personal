@@ -39,6 +39,15 @@
   &__logo {
     display: flex;
 
+    * {
+      margin-bottom: 0;
+    }
+
+    &__text {
+      display: block;
+      font-size: calc(var(--vwSize) * var(--font-heading-scale));
+    }
+
     img {
       height: calc(var(--navHeight) * 0.4);
       width: auto;
@@ -83,6 +92,8 @@
 
   // dropdown label
   &__label {
+    position: relative;
+
     &:after {
       content: "";
       display: block;
@@ -101,8 +112,9 @@
         border-color: var(--color-foreground);
       }
 
-      + * {
-        display: flex;
+      + .site-header__dropdown,
+      .site-header__dropdown {
+        display: block;
       }
     }
   }
@@ -111,27 +123,57 @@
   &__dropdown {
     display: none;
     position: fixed;
-    gap: var(--pxSize);
     top: var(--navHeight);
     left: 0;
     right: 0;
     width: 100%;
-    background: var(--color-background);
-    padding: var(--pxSize) calc(var(--pxSize) * 1.5);
+
+    &__inner {
+      position: relative;
+      background: var(--color-background);
+      padding: var(--pxSize) calc(var(--pxSize) * 1.5);
+      width: 100%;
+      display: flex;
+      gap: var(--pxSize);
+    }
+
+    &.__skinny {
+      position: absolute;
+      right: unset;
+      width: auto;
+
+      .site-header__dropdown {
+        &__inner {
+          padding: calc(var(--pxSize) / 2);
+          flex-direction: column;
+          gap: calc(var(--pxSize) / 2);
+        }
+
+        &__block {
+          max-width: unset;
+        }
+      }
+    }
 
     //overlay over page content
     &:before {
       content: "";
       position: absolute;
-      inset: 100% 0 auto 0;
-      width: 100%;
+      width: 200vw;
+      left: 50%;
+      top: 0;
       height: 100vh;
+      transform: translateX(-50%);
       background: var(--color-foreground);
       opacity: 0.5;
     }
 
     //each block inside dropdown
     &__block {
+      position: relative;
+      z-index: 2;
+      max-width: 30%;
+
       .p-sm {
         font-weight: 600;
       }
@@ -176,6 +218,10 @@
           will-change: transform;
           transition: all 0.25s ease;
         }
+
+        + * {
+          margin-top: 1rem;
+        }
       }
 
       //any block's article list
@@ -215,6 +261,10 @@
       &.__featured-page {
         max-width: 250px;
         flex: 1;
+      }
+
+      &.__text-block {
+        order: -1;
       }
 
       // all blocks hover states
