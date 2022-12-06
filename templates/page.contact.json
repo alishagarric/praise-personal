@@ -7,5 +7,7 @@
       }
     }
   },
-  "order": ["form"]
+  "order": [
+    "form"
+  ]
 }

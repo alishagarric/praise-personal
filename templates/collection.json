@@ -9,10 +9,127 @@
       "type": "main-collection-grid",
       "settings": {
       }
+    },
+    "1f0676f2-7350-438a-8c08-755d0e96e91c": {
+      "type": "split-section",
+      "blocks": {
+        "template--16398178320606__1f0676f2-7350-438a-8c08-755d0e96e91c-167036242761bb5f6f-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "The magic to Ritual Baking",
+            "heading_size": "h2"
+          }
+        },
+        "faa0ab05-f202-4604-9f8d-ec9ce47ab66e": {
+          "type": "heading",
+          "settings": {
+            "heading": "One-of-a-kind treats",
+            "heading_size": "h6"
+          }
+        },
+        "template--16398178320606__1f0676f2-7350-438a-8c08-755d0e96e91c-167036242761bb5f6f-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We make your treats fresh and full of fresh homemade ingredients<\/p>"
+          }
+        },
+        "ed1e9851-3636-42d4-a893-3a209b698beb": {
+          "type": "heading",
+          "settings": {
+            "heading": "One-of-a-kind treats",
+            "heading_size": "h6"
+          }
+        },
+        "beb59bd5-9975-4951-8793-5945bef55541": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We make your treats fresh and full of fresh homemade ingredients<\/p>"
+          }
+        },
+        "8f342885-0c8b-40c0-be2a-55faca141de9": {
+          "type": "heading",
+          "settings": {
+            "heading": "One-of-a-kind treats",
+            "heading_size": "h6"
+          }
+        },
+        "f021710a-65cb-4f6e-a252-e76e92e84a88": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We make your treats fresh and full of fresh homemade ingredients<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "template--16398178320606__1f0676f2-7350-438a-8c08-755d0e96e91c-167036242761bb5f6f-0",
+        "faa0ab05-f202-4604-9f8d-ec9ce47ab66e",
+        "template--16398178320606__1f0676f2-7350-438a-8c08-755d0e96e91c-167036242761bb5f6f-1",
+        "ed1e9851-3636-42d4-a893-3a209b698beb",
+        "beb59bd5-9975-4951-8793-5945bef55541",
+        "8f342885-0c8b-40c0-be2a-55faca141de9",
+        "f021710a-65cb-4f6e-a252-e76e92e84a88"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_e7c90847-70c1-47f4-a82d-2369a2b4a718.jpg",
+        "hero": false,
+        "alignment": "default",
+        "theme": "2",
+        "layout": "reversed",
+        "image_style": "square",
+        "top_internal_spacing": 0,
+        "bottom_internal_spacing": 0,
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
+    },
+    "d7ab5552-b9ce-4e1e-89aa-af7c046263d2": {
+      "type": "split-section",
+      "blocks": {
+        "template--16398178320606__d7ab5552-b9ce-4e1e-89aa-af7c046263d2-167036242761bb5f6f-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "We dreamt of this (a lot)",
+            "heading_size": "h2"
+          }
+        },
+        "template--16398178320606__d7ab5552-b9ce-4e1e-89aa-af7c046263d2-167036242761bb5f6f-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Atypical cookies and treats that push the boundaries of indulgence. An odea to the well-baanced classic cookie. This season we are celebrating all the nostalgia and what pairs best with chocolate chips.<\/p>"
+          }
+        },
+        "template--16398178320606__d7ab5552-b9ce-4e1e-89aa-af7c046263d2-167036242761bb5f6f-2": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop lemon cookies",
+            "button_link": "shopify:\/\/collections\/back-in-stock",
+            "button_color": "default"
+          }
+        }
+      },
+      "block_order": [
+        "template--16398178320606__d7ab5552-b9ce-4e1e-89aa-af7c046263d2-167036242761bb5f6f-0",
+        "template--16398178320606__d7ab5552-b9ce-4e1e-89aa-af7c046263d2-167036242761bb5f6f-1",
+        "template--16398178320606__d7ab5552-b9ce-4e1e-89aa-af7c046263d2-167036242761bb5f6f-2"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_bbf54c90-3c31-4e00-962c-f12d6b17cf77.jpg",
+        "hero": false,
+        "alignment": "default",
+        "theme": "primary",
+        "layout": "default",
+        "image_style": "wide",
+        "top_internal_spacing": 100,
+        "bottom_internal_spacing": 100,
+        "top_spacing": 0,
+        "bottom_spacing": 0
+      }
     }
   },
   "order": [
     "main-banner",
-    "main-product-grid"
+    "main-product-grid",
+    "1f0676f2-7350-438a-8c08-755d0e96e91c",
+    "d7ab5552-b9ce-4e1e-89aa-af7c046263d2"
   ]
 }
