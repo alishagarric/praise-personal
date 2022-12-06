@@ -10,42 +10,49 @@
 
   <{% if style == "on-scroll" %}sticky-header{% else %}header{% endif %} class="{{ className }} __style-{{ style }} {% if section.settings.always_show_nav %}__always-show-nav{% endif %}">
 
-    {% comment %} Logo {% endcomment %}
-    <div class="{{ className }}__logo">
-      {%- if request.page_type == 'index' -%}
-        <h1>
-      {%- endif -%}
-        <a href="{{ routes.root_url }}">
-          {%- if section.settings.logo != blank -%}
-            {{ section.settings.logo |
-              image_url: width: 250 |
-              image_tag: width: 125, alt: section.settings.logo.alt | default: shop.name | escape 
-            }}
-          {%- else -%}
-            <span class="{{ className }}__logo__text h4">{{ shop.name }}</span>
-          {%- endif -%}
-        </a>
-      {%- if request.page_type == "index" -%}
-        </h1>
-      {%- endif -%}
-    </div>
-
     {% comment %} Mobile hamburger button and divider {% endcomment %}
     <hamburger-button class="{{ className }}__hamburger"><span></span></hamburger-button>
 
     {% comment %} All the links {% endcomment %}
-    <div class="{{ className }}__main-links">
+    <nav class="{{ className }}__main {% if section.settings.logo_placement == "center" %}__center-links{% endif%}">
+
+      {% comment %} Logo {% endcomment %}
+      <div class="{{ className }}__logo" {% if section.settings.logo_placement == "center" %}style="--logoOrder: {{ section.settings.menu.links.size | divided_by: 2 }}"{% endif %}>
+        {%- if request.page_type == 'index' -%}
+          <h1>
+        {%- endif -%}
+          <a href="{{ routes.root_url }}">
+            {%- if section.settings.logo != blank -%}
+              {{ section.settings.logo |
+                image_url: width: 250 |
+                image_tag: width: 125, alt: section.settings.logo.alt | default: shop.name | escape 
+              }}
+            {%- else -%}
+              <span class="{{ className }}__logo__text h4">{{ shop.name }}</span>
+            {%- endif -%}
+          </a>
+        {%- if request.page_type == "index" -%}
+          </h1>
+        {%- endif -%}
+      </div>
 
       {% for primary_link in section.settings.menu.links %}
 
         {% comment %} Regular link (no nested links) {% endcomment %}
         {% if primary_link.levels == 0 %}
-          <a class="{{ className }}__plain-link p-sm" href="{{ primary_link.url }}" class="p-sm">{{ primary_link.title }}</a>
+          <a 
+            class="{{ className }}__plain-link p-sm" href="{{ primary_link.url }}" 
+            style="--linkOrder: {{ forloop.index0 }}" 
+            {% if link.current %} aria-current="page"{% endif %}
+          >
+            {{ primary_link.title | escape }}
+          </a>
 
         {% comment %} Link with nested links (dropdown) {% endcomment %}
         {% else %}
+
           {% capture dropdown %}
-            <div class="{{ className }}__dropdown {% if primary_link.levels == 1 %}__skinny{% endif %}">
+            <div class="{{ className }}__dropdown {% if primary_link.levels == 1 %}__skinny{% endif %}" style="--linkOrder: {{ forloop.index0 }}">
               <div class="{{ className }}__dropdown__inner">
                 {% assign blockClassName = className | append: "__dropdown__block" %}
 
@@ -83,7 +90,8 @@
               </div>
             </div>
           {% endcapture %}
-          <dropdown-button class="{{ className }}__label p-sm">
+
+          <dropdown-button class="{{ className }}__label p-sm" style="--linkOrder: {{ forloop.index0 }}">
             {{ primary_link.title }}
             {% if primary_link.levels == 1 %}
               {{ dropdown }}
@@ -94,30 +102,28 @@
             {% endif %}
         {% endif %}
       {% endfor %}
+    </nav>
 
-      {% for block in section.blocks %}
-        {% case block.type %}
-
-
-
-
-        {% endcase %}
-      {% endfor %}
-
-      {% comment %} CTA {% endcomment %}
-      {% if section.settings.button_label and section.settings.button_link %}
-        {% assign ctaClassName = className | append: "__cta" %}
-        <div class="{{ ctaClassName }}">
-          {% render 'button', class: ctaClassName, button_label: section.settings.button_label, button_link: section.settings.button_link %}
-        </div>
-      {% endif %}
+    {% comment %} Utility Links {% endcomment %}
+    <div class="{{ className }}__utility-links">
+      <a href="{{ routes.search_url }}">{% render 'svg-search' %}</a>
+      {%- if customer -%}
+        <a class="{{ className }}__plain-link" href="{{ routes.account_url }}">{{ 'sections.header.account' | t }}</a>
+      {%- else -%}
+        <a class="{{ className }}__plain-link" href="{{ routes.account_login_url }}">{{ 'sections.header.login' | t }}</a>
+      {%- endif -%}
+      <a href="{{ routes.cart_url }}">
+        {% render 'svg-cart'%} <span id="CartBubble">{% unless cart == empty %}({{ cart.item_count }}){% endunless %}</span>
+      </a>
     </div>
 
-    {% comment %} All the icons/tools 
-    <div class="{{ className }}__icons">
-
-    </div>
-    {% endcomment %}
+    {% comment %} CTA {% endcomment %}
+    {% if section.settings.button_label and section.settings.button_link %}
+      {% assign ctaClassName = className | append: "__cta" %}
+      <div class="{{ ctaClassName }}">
+        {% render 'button', class: ctaClassName, button_label: section.settings.button_label, button_link: section.settings.button_link %}
+      </div>
+    {% endif %}
 
   </{% if style == "on-scroll" %}sticky-header{% else %}header{% endif %}>
 {% endfor %}
@@ -236,83 +242,6 @@
 
 {% endjavascript %}
 
-
-
-
-{% comment %}
-{{ 'component-dialog.css' | asset_url | stylesheet_tag }}
-
-<header class="header">
-  <div class="container">
-    <details class="dialog drawer overlay">
-      <summary aria-haspopup="dialog" aria-controls="MenuDrawer">
-        <span class="button">{{ 'sections.header.menu' | t }}</span>
-        <span class="dialog-close button" aria-label="Close menu">{{ 'general.dialog.close' | t }}</span>
-      </summary>
-      <nav id="MenuDrawer" role="dialog" aria-label="Menu" aria-modal="true">
-        <div class="dialog-body">
-          <ul class="menu list-unstyled" role="list">
-            {%- for link in section.settings.menu.links -%}
-              <li>
-                {%- if link.links != blank -%}
-                  <details class="disclosure">
-                    <summary class="menu-item{% if link.child_active %} active{% endif %}" 
-                      role="button"
-                      aria-expanded="true"
-                      aria-controls="MenuItem-{{ forloop.index }}-Submenu"
-                    >
-                      <span>
-                        {{ link.title | escape }}
-                      </span>
-                    </summary>
-                    <div id="MenuItem-{{ forloop.index }}-Submenu">
-                      <ul class="submenu list-unstyled" role="list">
-                        {%- for childlink in link.links -%}
-                          <li>
-                            <a href="{{ childlink.url }}"
-                              class="menu-item{% if childlink.current %} active{% endif %}" 
-                              {% if childlink.current %} aria-current="page"{% endif %}
-                            >
-                              {{ childlink.title | escape }}
-                            </a>
-                          </li>
-                        {%- endfor -%}
-                      </ul>
-                    </div>
-                  </details>
-                {%- else -%}
-                  <a href="{{ link.url }}"
-                    class="menu-item{% if link.current %} active{% endif %}"
-                    {% if link.current %} aria-current="page"{% endif %}
-                  >
-                    <span {%- if link.current %} class="active"{% endif %}>
-                      {{ link.title | escape }}
-                    </span>
-                  </a>
-                {%- endif -%}
-              </li>
-            {%- endfor -%}
-          </ul>
-        </div>
-      </nav>
-    </details>
-    
-    <div class="utility-links">
-      <a href="{{ routes.search_url }}">{{ 'sections.header.search' | t }}</a>
-      {%- if customer -%}
-        <a href="{{ routes.account_url }}">{{ 'sections.header.account' | t }}</a>
-      {%- else -%}
-        <a href="{{ routes.account_login_url }}">{{ 'sections.header.login' | t }}</a>
-      {%- endif -%}
-      <a href="{{ routes.cart_url }}">
-        {{ 'sections.header.cart' | t }} <span id="CartBubble">{% unless cart == empty %}({{ cart.item_count }}){% endunless %}</span>
-      </a>
-    </div>
-  </div>
-</header>
-
-{% endcomment %}
-
 {% schema %}
 {
   "name": "Header",
@@ -322,6 +251,22 @@
       "type": "image_picker",
       "id": "logo",
       "label": "logo"
+    },
+    {
+        "type": "radio",
+        "id": "logo_placement",
+        "label": "Logo Placement",
+        "options":[
+          {
+            "value":"left",
+            "label":"Left"
+          },
+          {
+            "value":"center",
+            "label":"Center"
+          }
+        ],
+      "default":"left"
     },
     {
       "type": "link_list",

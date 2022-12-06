@@ -15,16 +15,16 @@
   <div class="{{ className }} __submenu">
     {% if label %}
       {% if label_link and label_link != "#" %}
-        <a href="{{ label_link }}" class="{{ className }}__label p-lg">{{ label }}</a>
+        <a href="{{ label_link }}" class="{{ className }}__label p-lg">{{ label | escape }}</a>
       {% else %}
-        <span class="{{ className }}__label p-lg">{{ label }}</span>
+        <span class="{{ className }}__label p-lg">{{ label | escape }}</span>
       {% endif %}
     {% endif %}
     <ul class="{{ className }}__submenu-list">
       {% for link in menu %}
         <li>
           <a href="{{ link.url }}" class="p-sm">
-            {{ link.title }}
+            {{ link.title | escape}}
           </a>
         </li>
       {% endfor %}

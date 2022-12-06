@@ -15,7 +15,7 @@
 
 {% if heading or text or button_label %}
   <div class="{{ className }} __text-block">
-    {% if heading %} <div class="h6">{{ heading }}</div>{% endif %}
+    {% if heading %} <div class="h6">{{ heading | escape }}</div>{% endif %}
     {% if text %}<div class="p-sm">{{ text }}</div>{% endif %}
     {% render 'button', button_label: button_label, button_link: button_link, button_color: button_color %}
   </div>

@@ -11,7 +11,7 @@
 
 {% if menu %}
   <div class="{{ className }} __articles">
-    <span class="{{ className }}__label p-lg">{{menu.title }}</span>
+    <span class="{{ className }}__label p-lg">{{menu.title | escape }}</span>
     <ul class="{{ className }}__articles-list">
       {% for item in menu.links %}
         <li>

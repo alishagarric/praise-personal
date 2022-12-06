@@ -38,9 +38,17 @@
   // Logo
   &__logo {
     display: flex;
+    height: 100%;
+    order: var(--logoOrder);
 
     * {
       margin-bottom: 0;
+    }
+
+    a {
+      display: grid;
+      height: 100%;
+      place-content: center;
     }
 
     &__text {
@@ -49,7 +57,7 @@
     }
 
     img {
-      height: calc(var(--navHeight) * 0.4);
+      height: calc(var(--navHeight) * 0.6);
       width: auto;
     }
   }
@@ -69,11 +77,23 @@
   }
 
   // All the links container
-  &__main-links {
+  &__main {
     display: flex;
     gap: var(--pxSize);
     flex: 1;
     align-self: stretch;
+
+    &.__center-links {
+      justify-content: center;
+    }
+  }
+
+  // Search, Account and Cart
+  &__utility-links {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    gap: calc(var(--pxSize) / 4);
   }
 
   // All the links text (dropdown labels and plain links)
@@ -83,6 +103,7 @@
     font-weight: 500;
     display: flex;
     align-items: center;
+    order: var(--linkOrder);
 
     &:hover {
       cursor: pointer;
@@ -127,6 +148,7 @@
     left: 0;
     right: 0;
     width: 100%;
+    order: var(--linkOrder);
 
     &__inner {
       position: relative;
@@ -144,7 +166,7 @@
 
       .site-header__dropdown {
         &__inner {
-          padding: calc(var(--pxSize) / 2);
+          padding: calc(var(--pxSize) / 4) calc(var(--pxSize) / 2);
           flex-direction: column;
           gap: calc(var(--pxSize) / 2);
         }
@@ -329,7 +351,7 @@
       }
 
       //main links
-      ~ .site-header__main-links {
+      ~ .site-header__main {
         display: block;
       }
     }
@@ -353,7 +375,7 @@
       }
     }
 
-    &__main-links {
+    &__main {
       display: none;
       position: fixed;
       top: var(--navHeight);
