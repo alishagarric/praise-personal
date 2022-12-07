@@ -13,7 +13,7 @@
         "599e2d68-7d31-4caf-baa2-43362684a30b": {
           "type": "text",
           "settings": {
-            "text": "<p>All our cookies use natural ingredients and are made in Williamsburg at our Brooklyn bakery.<\/p>"
+            "text": "<p>All our cookies use natural ingredients and are made in Williamsburg at our Brooklyn bakery.</p>"
           }
         }
       },
@@ -22,7 +22,7 @@
         "599e2d68-7d31-4caf-baa2-43362684a30b"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_549b821c-6850-42f3-ae03-51e8af8116c6.jpg",
+        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_549b821c-6850-42f3-ae03-51e8af8116c6.jpg",
         "overlay": 50,
         "overlay_theme": "4",
         "crop_shape": "default",
@@ -48,7 +48,7 @@
         "eb3534e5-bccc-4b1d-8995-da0c99665bba": {
           "type": "text",
           "settings": {
-            "text": "<p>Atypical cookies and treats that push the boundaries of indulgence. An ode to the well-balanced classic cookie. This season we are celebrating all the nostalgia and what pairs best with chocolate chips.<\/p>"
+            "text": "<p>Atypical cookies and treats that push the boundaries of indulgence. An ode to the well-balanced classic cookie. This season we are celebrating all the nostalgia and what pairs best with chocolate chips.</p>"
           }
         }
       },
@@ -57,7 +57,7 @@
         "eb3534e5-bccc-4b1d-8995-da0c99665bba"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_549b821c-6850-42f3-ae03-51e8af8116c6.jpg",
+        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_549b821c-6850-42f3-ae03-51e8af8116c6.jpg",
         "overlay": 70,
         "overlay_theme": "5",
         "crop_shape": "rounded-square",
@@ -76,7 +76,7 @@
         "template--16406887071966__f2989769-c365-432b-8663-172dec4d23d5-167036307199fd24ce-0": {
           "type": "icon",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/Group_100.png",
+            "icon": "shopify://shop_images/Group_100.png",
             "heading": "",
             "text": "Value"
           }
@@ -84,7 +84,7 @@
         "template--16406887071966__f2989769-c365-432b-8663-172dec4d23d5-167036307199fd24ce-1": {
           "type": "icon",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/Vector.png",
+            "icon": "shopify://shop_images/Vector.png",
             "heading": "",
             "text": "Value"
           }
@@ -92,7 +92,7 @@
         "template--16406887071966__f2989769-c365-432b-8663-172dec4d23d5-167036307199fd24ce-2": {
           "type": "icon",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/Group.png",
+            "icon": "shopify://shop_images/Group.png",
             "heading": "",
             "text": "Value"
           }
@@ -100,7 +100,7 @@
         "4b3a915a-bee5-49f9-9a78-d84f78290651": {
           "type": "icon",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/Group_100.png",
+            "icon": "shopify://shop_images/Group_100.png",
             "heading": "",
             "text": "Lorem ipsum"
           }
@@ -108,7 +108,7 @@
         "50db8156-e4c0-4c21-b289-6ccb2088a577": {
           "type": "icon",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/Vector.png",
+            "icon": "shopify://shop_images/Vector.png",
             "heading": "",
             "text": "Lorem ipsum"
           }
@@ -116,7 +116,7 @@
         "445bc021-ee04-4b20-a595-7cc635211260": {
           "type": "icon",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/Group.png",
+            "icon": "shopify://shop_images/Group.png",
             "heading": "",
             "text": "Lorem ipsum"
           }
@@ -131,9 +131,10 @@
         "445bc021-ee04-4b20-a595-7cc635211260"
       ],
       "settings": {
-        "heading": "",
+        "heading": "Test",
         "heading_size": "h5",
-        "layout": "row",
+        "layout": "3",
+        "alignment": "left",
         "icon_height": 60,
         "theme": "primary",
         "top_spacing": 50,

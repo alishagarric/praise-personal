@@ -1,7 +1,5 @@
 .icons-section {
   &__heading {
-    text-align: center;
-
     + * {
       padding-top: calc(var(--pxSize) / 2);
     }
@@ -10,12 +8,10 @@
   &__icons {
     display: flex;
     flex-flow: row wrap;
-    justify-content: center;
-    gap: var(--pxSize) 0;
+    gap: var(--vwSize) 0;
 
     &__icon {
       text-align: center;
-      padding: 0 calc(var(--pxSize));
 
       img {
         height: var(--iconHeight);
@@ -24,27 +20,14 @@
       }
     }
 
-    &.__layout {
-      &-default,
-      &-three-col {
-        .icons-section__icons__icon {
-          flex: 0 0 calc(100% / 3);
-        }
-      }
+    &.__layout-rows {
+      gap: calc(var(--vwSize));
+    }
 
-      &-two-col {
-        .icons-section__icons__icon {
-          flex: 0 0 50%;
-        }
-      }
-
-      &-row {
-        justify-content: unset;
-        gap: calc(var(--pxSize) / 3);
-
-        .icons-section__icons__icon {
-          padding: 0;
-        }
+    &:not(.__layout-rows) {
+      .icons-section__icons__icon {
+        flex: 0 0 calc(100% / var(--numColumns));
+        padding: 0 calc(var(--vwSize));
       }
     }
   }

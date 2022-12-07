@@ -14,11 +14,11 @@
    }
  {% endstyle %}
 
-<div id="Icons-section-{{ section.id }}" class="icons-section __theme-{{ section.settings.theme }} {% if section.settings.image != blank %}__has-image{% endif %}"  
+<div id="Icons-section-{{ section.id }}" class="icons-section __theme-{{ section.settings.theme }} __align-{{section.settings.alignment}}"  
 >
    {% render 'heading', class: "icons-section", heading: section.settings.heading, heading_size: section.settings.heading_size %}
 
-   <div class="icons-section__icons __layout-{% if section.settings.layout %}{{ section.settings.layout }}{% else %}default{% endif%}">
+   <div class="icons-section__icons {% if section.settings.layout == "rows" %}__layout-rows{% endif%}" style="--numColumns: {{ section.settings.layout }};">
       {%- for block in section.blocks -%}
          {%- case block.type -%}
             {%- when 'icon' -%}
@@ -87,20 +87,36 @@
          "id": "layout",
          "options": [
             {
-               "value":"three-col",
-               "label":"Three Columns (Default)"
+               "value": "rows",
+               "label": "Row(s)"
             },
             {
-               "value":"row",
-               "label":"Row(s)"
+               "value": "2",
+               "label": "Two Columns"
             },
             {
-               "value":"two-col",
-               "label":"Two Columns"
+               "value": "3",
+               "label": "Three Columns (Default)"
+            },
+            {
+               "value": "4",
+               "label": "Four Columns"
+            },
+            {
+               "value": "5",
+               "label": "Five Columns"
+            },
+            {
+               "value": "6",
+               "label": "Six Columns"
+            },
+            {
+               "value": "7",
+               "label": "Seven Columns"
             }
          ],
-         "default":"three-col",
-         "label":"Layout"
+         "default": "3",
+         "label": "Layout"
       },
       {
          "type":"range",
@@ -111,6 +127,26 @@
          "unit":"px",
          "label":"Icon Height",
          "default":100
+      },
+      {
+         "type":"radio",
+         "id":"alignment",
+         "label":"Alignment",
+         "options":[
+            {
+               "value":"left",
+               "label":"Left"
+            },
+            {
+               "value":"center",
+               "label":"Center (Default)"
+            },
+            {
+               "value":"right",
+               "label":"Right"
+            }
+         ],
+         "default":"center"
       },
       {
          "type": "select",
