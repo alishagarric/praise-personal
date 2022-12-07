@@ -1,52 +1,48 @@
 {
   "sections": {
-    "form": {
-      "type": "contact-form",
-      "settings": {
-        "heading": "Contact Us"
-      }
-    },
     "1662063884d9fa6284": {
       "type": "split-section",
       "blocks": {
         "20cf5bbf-ba1c-4586-bb93-3f7a3fe1b475": {
           "type": "heading",
           "settings": {
-            "heading": "More treats to beat this heat",
+            "heading": "Contact Us",
             "heading_size": "h2"
           }
         },
         "1662063884b661ea2d-0": {
           "type": "text",
           "settings": {
-            "text": "<p>Atypical cookies and treats that push the boundaires of indulgence</p>"
-          }
-        },
-        "1662063884b661ea2d-1": {
-          "type": "button",
-          "settings": {
-            "button_label": "Shop treats",
-            "button_link": "shopify://collections",
-            "button_color": "default"
+            "text": "<p>Our customer service hours are Monday through Friday 9am to 6pm PST.<\/p><p>We can help answer any questions about our products, shippings, or anything else on your mind!<\/p><p><strong>Call Us<\/strong><br\/>818-777-5577<\/p><p><strong>Visit Us<\/strong><br\/>1557 S McCarran Blvd<br\/>New York, NY 21212<\/p>"
           }
         }
       },
       "block_order": [
         "20cf5bbf-ba1c-4586-bb93-3f7a3fe1b475",
-        "1662063884b661ea2d-0",
-        "1662063884b661ea2d-1"
+        "1662063884b661ea2d-0"
       ],
       "settings": {
-        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash.jpg",
+        "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_549b821c-6850-42f3-ae03-51e8af8116c6.jpg",
         "hero": true,
-        "alignment": "center",
-        "theme": "primary",
+        "alignment": "default",
+        "theme": "2",
         "layout": "reversed",
         "image_style": "wide",
+        "top_internal_spacing": 100,
+        "bottom_internal_spacing": 100,
         "top_spacing": 0,
         "bottom_spacing": 0
       }
+    },
+    "form": {
+      "type": "contact-form",
+      "settings": {
+        "heading": "Contact Us"
+      }
     }
   },
-  "order": ["1662063884d9fa6284", "form"]
+  "order": [
+    "1662063884d9fa6284",
+    "form"
+  ]
 }

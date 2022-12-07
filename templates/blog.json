@@ -11,7 +11,9 @@
           }
         }
       },
-      "block_order": ["heading"],
+      "block_order": [
+        "heading"
+      ],
       "settings": {
         "alignment": "center",
         "theme": "primary",
@@ -34,5 +36,9 @@
       }
     }
   },
-  "order": ["rich-text", "split-slider", "main"]
+  "order": [
+    "rich-text",
+    "split-slider",
+    "main"
+  ]
 }
