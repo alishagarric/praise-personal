@@ -20,54 +20,19 @@
             "heading_size": "h2"
           }
         },
-        "faa0ab05-f202-4604-9f8d-ec9ce47ab66e": {
-          "type": "heading",
+        "1bdd81eb-fea5-4259-8a4c-ae4b17255381": {
+          "type": "icon",
           "settings": {
+            "icon": "shopify:\/\/shop_images\/Frame.png",
             "heading": "One-of-a-kind treats",
-            "heading_size": "h6"
-          }
-        },
-        "template--16398178320606__1f0676f2-7350-438a-8c08-755d0e96e91c-167036242761bb5f6f-1": {
-          "type": "text",
-          "settings": {
-            "text": "<p>We make your treats fresh and full of fresh homemade ingredients<\/p>"
-          }
-        },
-        "ed1e9851-3636-42d4-a893-3a209b698beb": {
-          "type": "heading",
-          "settings": {
-            "heading": "One-of-a-kind treats",
-            "heading_size": "h6"
-          }
-        },
-        "beb59bd5-9975-4951-8793-5945bef55541": {
-          "type": "text",
-          "settings": {
-            "text": "<p>We make your treats fresh and full of fresh homemade ingredients<\/p>"
-          }
-        },
-        "8f342885-0c8b-40c0-be2a-55faca141de9": {
-          "type": "heading",
-          "settings": {
-            "heading": "One-of-a-kind treats",
-            "heading_size": "h6"
-          }
-        },
-        "f021710a-65cb-4f6e-a252-e76e92e84a88": {
-          "type": "text",
-          "settings": {
-            "text": "<p>We make your treats fresh and full of fresh homemade ingredients<\/p>"
+            "text": "<p>We make your treats fresh and full of fresh homemade ingredients<\/p>",
+            "layout": "row"
           }
         }
       },
       "block_order": [
         "template--16398178320606__1f0676f2-7350-438a-8c08-755d0e96e91c-167036242761bb5f6f-0",
-        "faa0ab05-f202-4604-9f8d-ec9ce47ab66e",
-        "template--16398178320606__1f0676f2-7350-438a-8c08-755d0e96e91c-167036242761bb5f6f-1",
-        "ed1e9851-3636-42d4-a893-3a209b698beb",
-        "beb59bd5-9975-4951-8793-5945bef55541",
-        "8f342885-0c8b-40c0-be2a-55faca141de9",
-        "f021710a-65cb-4f6e-a252-e76e92e84a88"
+        "1bdd81eb-fea5-4259-8a4c-ae4b17255381"
       ],
       "settings": {
         "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_e7c90847-70c1-47f4-a82d-2369a2b4a718.jpg",
