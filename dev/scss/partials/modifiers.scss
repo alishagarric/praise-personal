@@ -56,6 +56,12 @@
     padding-top: 66.66%;
   }
 
+  &-wide,
+  &-rounded-wide,
+  &-semicircle-wide {
+    padding-top: 30%;
+  }
+
   &-portrait,
   &-rounded-portrait,
   &-semicircle-portrait,
@@ -66,7 +72,8 @@
   &-circle,
   &-semicircle,
   &-semicircle-portrait,
-  &-semicircle-landscape {
+  &-semicircle-landscape,
+  &-semicircle-wide {
     border-radius: 4000px;
 
     &:after,
@@ -78,12 +85,13 @@
   &-rounded,
   &-rounded-square,
   &-rounded-portrait,
-  &-rounded-landscape {
-    border-radius: var(--pxSize);
+  &-rounded-landscape,
+  &-rounded-wide {
+    border-radius: calc(var(--vwSize) * 2);
 
     &:after,
     img {
-      border-radius: var(--pxSize);
+      border-radius: var(--vwSize);
     }
   }
 
