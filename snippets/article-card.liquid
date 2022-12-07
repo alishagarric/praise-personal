@@ -5,7 +5,7 @@
   - article: {Object} Article object
   - class: {String} optional
   - crop: {String} optional. circle, rounded-square, square, portrait, landscape, default (adapt)
-  - alt_header: {Bool} optional bool
+  - alt_heading: {Bool} optional bool
   - alignment: {String} optional. default, center, right
   - show_description: {Bool} optional.
   - show_date: {Bool} optional.
@@ -25,7 +25,7 @@
 {% endcomment %}
 
 {% assign crop = crop | default: "default" %}
-{% assign alt_header = alt_header | default: false %}
+{% assign alt_heading = alt_heading | default: false %}
 {% assign alignment = alignment | default: "default" %}
 {% assign show_description = show_description | default: false %}
 {% assign show_date = show_date | default: false %}
@@ -43,7 +43,7 @@
   href="{{ article.url }}" 
 >
 
-  <div class="article-card__image __crop-{{ crop }}" style="padding-top: {{ image_ratio }}%">
+  <div class="article-card__image __crop-{{ crop }}" style="--imageRatio: {{ image_ratio }}%">
     {% if article.image %}
       {% render 'next-gen-img', image: article.image %}
     {% else %}
@@ -56,7 +56,7 @@
     {% endif %}
   </div>
 
-  <h3 class="article-card__title h6 {% if alt_header == true %}alt{% endif %}">
+  <h3 class="article-card__title h6 {% if alt_heading == true %}alt{% endif %}">
     {{ article.title | escape }}
   </h3>
 

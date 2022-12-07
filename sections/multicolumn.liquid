@@ -50,7 +50,7 @@
 
                 <div class="multicolumn__item __align-{{section.settings.alignment}}">
                   {%- if block.settings.image != blank -%}
-                    <div class="multicolumn__image __crop-{{ block.settings.crop_shape }} {% if block.settings.overlay_theme %}__theme-{{ block.settings.overlay_theme }}{% endif %} --overlayOpacity: calc({{section.settings.overlay}} / 100);" style="padding-top: {{ image_ratio }}%">
+                    <div class="multicolumn__image __crop-{{ block.settings.crop_shape }} {% if block.settings.overlay_theme %}__theme-{{ block.settings.overlay_theme }}{% endif %} --overlayOpacity: calc({{section.settings.overlay}} / 100);" style="--imageRatio: {{ image_ratio }}%;">
                       {% render 'next-gen-img', image: block.settings.image %}
                       {% if block.settings.overlap == true %}
                         {% render 'heading', class: "multicolumn", heading: block.settings.heading, heading_size: block.settings.heading_size %}
@@ -228,30 +228,50 @@
             "type": "select",
             "id": "crop_shape",
             "options": [
-            {
+              {
                 "value": "default",
                 "label": "No Crop (Default)"
-            },
-            {
-                "value": "circle",
-                "label": "Circle"
-            },
-            {
-                "value": "rounded-square",
-                "label": "Rounded Square"
-            },
-            {
+              },
+              {
                 "value": "square",
                 "label": "Square"
-            },
-            {
+              },
+              {
+                "value": "rounded-square",
+                "label": "Rounded Square"
+              },
+              {
+                "value": "circle",
+                "label": "Circle"
+              },
+              {
                 "value": "portrait",
                 "label": "Portrait"
-            },
-            {
+              },
+              {
+                "value": "rounded-portrait",
+                "label": "Rounded Portrait"
+              },
+              {
+                "value": "semicircle-portrait",
+                "label": "Semicircle Portrait"
+              },
+              {
                 "value": "landscape",
                 "label": "Landscape"
-            }
+              },
+              {
+                "value": "rounded-landscape",
+                "label": "Rounded Landscape"
+              },
+              {
+                "value": "semicircle-landscape",
+                "label": "Semicircle Landscape"
+              },
+              {
+                "value": "arch",
+                "label": "Semicircle Arch"
+              }
             ],
             "default": "default",
             "label": "Image Crop Shape"
@@ -410,12 +430,12 @@
                   "label": "Square Corners (Default)"
               },
               {
-                  "value": "rounded-square",
+                  "value": "rounded",
                   "label": "Rounded Corners"
               },
               {
-                  "value": "circle",
-                  "label": "Extra Rounded Corners"
+                  "value": "semicircle",
+                  "label": "Semicircle Corners"
               }
             ],
             "default": "default",

@@ -48,7 +48,7 @@
       {% for block in section.blocks %}
         {% case block.type %}
           {% when 'product' %}
-            {% render 'product-card' product: block.settings.product, crop: 'rounded-square', show_phrase: false, alignment: "left", price_position: "bottom", alt_header: false, class: "shop-the-look__products__product", quick_add: true %}
+            {% render 'product-card' product: block.settings.product, crop: section.settings.crop_shape, show_phrase: false, alignment: "left", price_position: "bottom", alt_heading: false, class: "shop-the-look__products__product", quick_add: true %}
         {% endcase %}
       {% endfor %}
     </div>
@@ -87,28 +87,48 @@
           "label": "No Crop (Default)"
         },
         {
-          "value": "circle",
-          "label": "Circle"
+          "value": "square",
+          "label": "Square"
         },
         {
           "value": "rounded-square",
           "label": "Rounded Square"
         },
         {
-          "value": "square",
-          "label": "Square"
+          "value": "circle",
+          "label": "Circle"
         },
         {
           "value": "portrait",
           "label": "Portrait"
         },
         {
+          "value": "rounded-portrait",
+          "label": "Rounded Portrait"
+        },
+        {
+          "value": "semicircle-portrait",
+          "label": "Semicircle Portrait"
+        },
+        {
           "value": "landscape",
           "label": "Landscape"
+        },
+        {
+          "value": "rounded-landscape",
+          "label": "Rounded Landscape"
+        },
+        {
+          "value": "semicircle-landscape",
+          "label": "Semicircle Landscape"
+        },
+        {
+          "value": "arch",
+          "label": "Semicircle Arch"
         }
       ],
       "default": "default",
-      "label": "Image Crop Shape"
+      "label": "Product Image Crop Shape"
     },
     {
       "type": "header",

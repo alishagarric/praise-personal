@@ -2,7 +2,7 @@
   assign section_theme = section.settings.theme
   assign top_spacing = section.settings.top_spacing
   assign bottom_spacing = section.settings.bottom_spacing
-  assign alt_header = section.settings.alt_header
+  assign alt_heading = section.settings.alt_heading
   assign show_date = section.settings.show_date
   assign show_author = section.settings.show_author
   assign show_description = section.settings.show_description
@@ -35,7 +35,7 @@
       <ul class="featured-blog__articles list-unstyled" role="list">
         {%- for article in section_blog.articles -%} 
           <li class="featured-blog__articles__article-container">
-            {% render 'article-card', class: "featured-blog__card", crop: crop_shape, show_assc_product: show_assc_product, button_label: button_label, alignment: alignment, show_description: show_description, show_author: show_author, show_date: show_date, alt_header: alt_header, article: article %}
+            {% render 'article-card', class: "featured-blog__card", crop: crop_shape, show_assc_product: show_assc_product, button_label: button_label, alignment: alignment, show_description: show_description, show_author: show_author, show_date: show_date, alt_heading: alt_heading, article: article %}
           </li>
         {% endfor %}
       </ul>
@@ -104,8 +104,8 @@
     },
     {
       "type": "checkbox",
-      "id": "alt_header",
-      "label": "Use body font instead of header font for article title?"
+      "id": "alt_heading",
+      "label": "Use body font instead of heading font for article title?"
     },
     {
       "type": "checkbox",
@@ -164,24 +164,44 @@
           "label": "No Crop (Default)"
         },
         {
-          "value": "circle",
-          "label": "Circle"
+          "value": "square",
+          "label": "Square"
         },
         {
           "value": "rounded-square",
           "label": "Rounded Square"
         },
         {
-          "value": "square",
-          "label": "Square"
+          "value": "circle",
+          "label": "Circle"
         },
         {
           "value": "portrait",
           "label": "Portrait"
         },
         {
+          "value": "rounded-portrait",
+          "label": "Rounded Portrait"
+        },
+        {
+          "value": "semicircle-portrait",
+          "label": "Semicircle Portrait"
+        },
+        {
           "value": "landscape",
           "label": "Landscape"
+        },
+        {
+          "value": "rounded-landscape",
+          "label": "Rounded Landscape"
+        },
+        {
+          "value": "semicircle-landscape",
+          "label": "Semicircle Landscape"
+        },
+        {
+          "value": "arch",
+          "label": "Semicircle Arch"
         }
       ],
       "default": "default",

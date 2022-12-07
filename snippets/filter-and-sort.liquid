@@ -10,7 +10,7 @@
 
 {{ 'component-filter-and-sort.css' | asset_url | stylesheet_tag }}
 
-<form id="FacetFiltersForm" class="container filters">
+<form id="FacetFiltersForm" class="container filters" style="background: magenta;">
   <div class="filters-wrapper">
     {% unless results.terms == nil %}
       <input type="hidden" name="q" value="{{ results.terms }}">

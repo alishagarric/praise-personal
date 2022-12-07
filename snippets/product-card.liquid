@@ -5,7 +5,7 @@
   - product: {Object} Product object
   - class: {String} optional
   - crop: {String} optional. circle, rounded-square, square, portrait, landscape, default (adapt)
-  - alt_header: {Bool} optional bool
+  - alt_heading: {Bool} optional bool
   - alignment: {String} optional. default, center, right
   - show_phrase: {Bool} optional.
   - show_bg_color: {Bool} optional.
@@ -25,7 +25,7 @@
 {% endcomment %}
 
 {% assign crop = crop | default: "default" %}
-{% assign alt_header = alt_header | default: false %}
+{% assign alt_heading = alt_heading | default: false %}
 {% assign alignment = alignment | default: "default" %}
 {% assign show_phrase = show_phrase | default: false %}
 {% assign show_bg_color = show_bg_color | default: false %}
@@ -48,7 +48,7 @@
   {% endif %}
 
 
-  <div class="product-card__image __crop-{{ crop }}" style="padding-top: {{ image_ratio }}%">
+  <div class="product-card__image __crop-{{ crop }}" style="--imageRatio: {{ image_ratio }}%">
     {% if product.featured_image %}
       {% render 'next-gen-img', image: product.featured_image %}
     {% else %}
@@ -63,14 +63,14 @@
   {% endif %}
 
   <div class="product-card__row">
-    <h3 class="product-card__title h6 {% if alt_header == true %}alt{% endif %}">{{product.title}}</h3>
+    <h3 class="product-card__title h6 {% if alt_heading == true %}alt{% endif %}">{{product.title}}</h3>
     {% if price_position == "default" %}
       {%- render 'price', class: "product-card__price" product: card_product -%}
     {% endif %}
   </div>
 
   {% if show_description and product.description %}
-    <p>{{ product.description }}</p>
+    <p class="p-sm">{{ product.description }}</p>
   {% endif %}
 
   {% if price_position == "bottom" %}

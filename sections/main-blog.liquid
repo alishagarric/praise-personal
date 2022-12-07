@@ -12,8 +12,7 @@
 {%- endstyle -%}
 
 {%- paginate blog.articles by section.settings.posts_per_page -%}
-<div class="container">
-  <div class="section" style="font-family: Arial; font-weight: bold; font-size: 36px; color: magenta;"> "Main Blog Section" to be completed during "The Rest" phase</div>
+<div class="container" style="background: magenta;">
   <h1>{{ blog.title | escape }}</h1>
     <ul class="list-unstyled grid blog-posts" role="list">
       {%- for article in blog.articles -%}

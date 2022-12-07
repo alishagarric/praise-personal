@@ -12,7 +12,8 @@
   assign theme_slider = section.settings.theme_slider
   assign price_pos = section.settings.price
   assign product_text_alignment = section.settings.product_text_alignment
-  assign alt_header  = section.settings.alt_header
+  assign alt_heading  = section.settings.alt_heading
+  assign alt_title  = section.settings.alt_title
   assign show_description = section.settings.show_description
 
   assign products_count = featured_collection.products | size
@@ -51,7 +52,7 @@
   {% if section_heading != blank or section_text != blank %}
     <div class="featured-collection__text __align-{{section.settings.alignment}}">
         {% if section_heading %}
-          <h2 class="featured-collection__text__heading h4">{{ section_heading }}</h2>
+          <h2 class="featured-collection__text__heading h4 {% if alt_heading %}alt{% endif %}">{{ section_heading }}</h2>
         {% endif %}
         {% if section_text %}
           <div class="featured-collection__text__desc">
@@ -75,7 +76,7 @@
     {% endcomment %}
     <div class="featured-collection__cards">
       {% for product in featured_collection.products %}
-        {% render 'product-card' product: product, crop: crop_shape, show_phrase: show_phrase, alignment: product_text_alignment, show_description: show_description, price_position: price_pos, alt_header: alt_header, class: "featured-collection__cards__card" %}
+        {% render 'product-card' product: product, crop: crop_shape, show_phrase: show_phrase, alignment: product_text_alignment, show_description: show_description, price_position: price_pos, alt_heading: alt_title, class: "featured-collection__cards__card" %}
       {% endfor %}
     </div>
 
@@ -143,8 +144,8 @@
     },
     {
       "type": "checkbox",
-      "id": "alt_header",
-      "label": "Use body font instead of header font for product title?"
+      "id": "alt_title",
+      "label": "Use body font instead of heading font for product title?"
     },
     {
       "type": "select", 
@@ -195,24 +196,44 @@
           "label": "No Crop (Default)"
         },
         {
-          "value": "circle",
-          "label": "Circle"
+          "value": "square",
+          "label": "Square"
         },
         {
           "value": "rounded-square",
           "label": "Rounded Square"
         },
         {
-          "value": "square",
-          "label": "Square"
+          "value": "circle",
+          "label": "Circle"
         },
         {
           "value": "portrait",
           "label": "Portrait"
         },
         {
+          "value": "rounded-portrait",
+          "label": "Rounded Portrait"
+        },
+        {
+          "value": "semicircle-portrait",
+          "label": "Semicircle Portrait"
+        },
+        {
           "value": "landscape",
           "label": "Landscape"
+        },
+        {
+          "value": "rounded-landscape",
+          "label": "Rounded Landscape"
+        },
+        {
+          "value": "semicircle-landscape",
+          "label": "Semicircle Landscape"
+        },
+        {
+          "value": "arch",
+          "label": "Semicircle Arch"
         }
       ],
       "default": "default",
@@ -227,6 +248,11 @@
       "id": "heading",
       "label": "Heading",
       "default": "Lorem Ipsum"
+    },
+    {
+      "type": "checkbox",
+      "id": "alt_heading",
+      "label": "Use body font instead of heading font for heading?"
     },
     {
       "type": "richtext",

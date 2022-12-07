@@ -1,4 +1,5 @@
 .multicolumn {
+  --multicolumnSectionTextColor: var(--color-text);
   padding-left: 0;
   padding-right: 0;
 
@@ -9,7 +10,7 @@
       height: 100%;
       background: var(--color-background);
       color: var(--color-text);
-      padding: calc(var(--vwSize) * 2) !important;
+      padding: calc(var(--vwSize) * 2);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -46,6 +47,7 @@
 
   &__image {
     @extend .image-container;
+    overflow: visible;
 
     &:after {
       content: "";
@@ -64,8 +66,25 @@
         position: absolute;
         z-index: 3;
         bottom: 0;
-        padding: 0 calc(var(--pxSize) / 3);
-        color: var(--color-text);
+        padding: 0;
+        color: var(--multicolumnSectionTextColor);
+        margin: 0;
+      }
+    }
+
+    &.__crop {
+      &-square,
+      &-default,
+      &-portrait,
+      &-landscape,
+      &-arch {
+        .multicolumn {
+          &__heading {
+            padding: 0 calc(var(--pxSize) / 3);
+            color: var(--color-text);
+            margin-bottom: 1rem;
+          }
+        }
       }
     }
   }

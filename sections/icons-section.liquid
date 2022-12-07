@@ -16,7 +16,7 @@
 
 <div id="Icons-section-{{ section.id }}" class="icons-section __theme-{{ section.settings.theme }} __align-{{section.settings.alignment}}"  
 >
-   {% render 'heading', class: "icons-section", heading: section.settings.heading, heading_size: section.settings.heading_size %}
+   {% render 'heading', class: "icons-section", heading: section.settings.heading, heading_size: section.settings.heading_size, alt_heading: section.settings.alt_heading %}
 
    <div class="icons-section__icons {% if section.settings.layout == "rows" %}__layout-rows{% endif%}" style="--numColumns: {{ section.settings.layout }};">
       {%- for block in section.blocks -%}
@@ -81,6 +81,11 @@
          ],
          "default": "h5",
          "label": "Heading Size"
+      },
+      {
+         "type": "checkbox",
+         "id": "alt_heading",
+         "label": "Use body font instead of heading font for heading?"
       },
       {
          "type": "select",

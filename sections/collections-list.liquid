@@ -7,7 +7,7 @@
  
  <div id="Collections-list-{{ section.id }}" class="collections-list __theme-{{ section.settings.theme }}"  
 >
-  {% render 'heading', class: "collections-list", heading: section.settings.heading, heading_size: section.settings.heading_size %}
+  {% render 'heading', class: "collections-list", heading: section.settings.heading, alt_heading: section.settings.alt_heading, heading_size: section.settings.heading_size %}
 
 
   <div class="collections-list__container">
@@ -57,6 +57,11 @@
         ],
         "default": "h4",
         "label": "Heading Size"
+    },
+    {
+      "type": "checkbox",
+      "id": "alt_heading",
+      "label": "Use body font instead of heading font for heading?"
     },
     {
       "type": "header",

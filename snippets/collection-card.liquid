@@ -16,7 +16,7 @@
   {% endif %}
   <h3 class="collection-card__title h6">{{collection.title}}</h3>
   {% if collection.description %}
-    <p>{{ collection.description }}</p>
+    <p class="p-sm">{{ collection.description }}</p>
   {% endif %}
   {% comment %}TODO: How to make hardcoded button label language diverse {% endcomment %}
   {% render 'button', button_label: "Shop Collection", button_link: collection.url, class: "collection-card", style: "underline" %}

@@ -1,7 +1,6 @@
 {{ 'section-main-collection-banner.css' | asset_url | stylesheet_tag }}
 
-<div class="container grid">
-  <div class="section" style="font-family: Arial; font-weight: bold; font-size: 36px; color: magenta;"> "Main Collection Banner Section" to be completed during "Shopping" phase</div>
+<div class="container grid" style="background: magenta;">
   {% unless collection.image == blank %}
     <div>
       <div class="media" style="--width: {{ collection.image.width }}; --height: {{ collection.image.height }};">
