@@ -1,6 +1,5 @@
 {% liquid
    assign crop_shape = section.settings.crop_shape
-
 %}
 
 {% style %}
@@ -12,8 +11,8 @@
  {% endstyle %}
 
 
-<div id="Multicolumn-{{ section.id }}" class="multicolumn __theme-{{ section.settings.theme }} {% if section.settings.slider %}__with-slider{% endif %}">
-   <multicolumn-slider class="multicolumn__inner" data-slider="{{ section.settings.slider }}">
+<div id="Multicolumn-{{ section.id }}" class="multicolumn __theme-{{ section.settings.theme }} __layout-{{ section.settings.layout }}">
+   <multicolumn-slider class="multicolumn__inner" data-slider="{{ section.settings.layout }}">
 
       {% if section.blocks.size > 0 %}
         {%- for block in section.blocks -%}
@@ -113,10 +112,24 @@
          "default": 3
       },
       {
-        "type": "checkbox",
-        "id": "slider",
-        "label": "Enable slider?",
-        "default": false
+         "type": "select",
+         "id": "layout",
+         "options": [
+            {
+               "value": "default",
+               "label": "Stacking Columns"
+            },
+            {
+               "value": "slider",
+               "label": "Slider"
+            },
+            {
+               "value": "marquee",
+               "label": "Marquee"
+            }
+         ],
+         "default": "default",
+         "label": "Layout"
       },
       {
          "type": "select",

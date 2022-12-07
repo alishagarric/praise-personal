@@ -1,5 +1,32 @@
 {
   "sections": {
+    "rich-text": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "The Ritual Journal",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": ["heading"],
+      "settings": {
+        "alignment": "center",
+        "theme": "primary",
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
+    },
+    "split-slider": {
+      "type": "split-slider",
+      "settings": {
+        "theme": "primary",
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
+    },
     "main": {
       "type": "main-blog",
       "settings": {
@@ -7,7 +34,5 @@
       }
     }
   },
-  "order": [
-    "main"
-  ]
+  "order": ["rich-text", "split-slider", "main"]
 }

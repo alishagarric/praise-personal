@@ -1,0 +1,76 @@
+{% style %}
+    #Split-slider-{{ section.id }} {
+      --topSpacingRatio: {{section.settings.top_spacing}} / 100;
+      --bottomSpacingRatio: {{section.settings.bottom_spacing}} / 100;
+    }
+ {% endstyle %}
+ 
+ <div id="Split-slider-{{ section.id }}" class="split-slider __theme-{{section.settings.theme}}" style="background: magenta;"></div>
+
+ {% schema %}
+{
+  "name": "Split Slider",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "theme",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary Theme"
+        },
+        {
+          "value": "2",
+          "label": "2nd Theme"
+        },
+        {
+          "value": "3",
+          "label": "3rd Theme"
+        },
+        {
+          "value": "4",
+          "label": "4th Theme"
+        },
+        {
+          "value": "5",
+          "label": "5th Theme"
+        }
+      ],
+      "default": "primary",
+      "label": "Theme"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "top_spacing",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "Top Spacing",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "bottom_spacing",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "Bottom Spacing",
+      "default": 50
+    }
+  ],
+  "blocks": [
+  ],
+  "presets": [
+    {
+      "name": "Split Slider"
+    }
+  ]
+}
+{% endschema %}

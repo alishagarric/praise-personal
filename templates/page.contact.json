@@ -5,9 +5,48 @@
       "settings": {
         "heading": "Contact Us"
       }
+    },
+    "1662063884d9fa6284": {
+      "type": "split-section",
+      "blocks": {
+        "20cf5bbf-ba1c-4586-bb93-3f7a3fe1b475": {
+          "type": "heading",
+          "settings": {
+            "heading": "More treats to beat this heat",
+            "heading_size": "h2"
+          }
+        },
+        "1662063884b661ea2d-0": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Atypical cookies and treats that push the boundaires of indulgence</p>"
+          }
+        },
+        "1662063884b661ea2d-1": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop treats",
+            "button_link": "shopify://collections",
+            "button_color": "default"
+          }
+        }
+      },
+      "block_order": [
+        "20cf5bbf-ba1c-4586-bb93-3f7a3fe1b475",
+        "1662063884b661ea2d-0",
+        "1662063884b661ea2d-1"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash.jpg",
+        "hero": true,
+        "alignment": "center",
+        "theme": "primary",
+        "layout": "reversed",
+        "image_style": "wide",
+        "top_spacing": 0,
+        "bottom_spacing": 0
+      }
     }
   },
-  "order": [
-    "form"
-  ]
+  "order": ["1662063884d9fa6284", "form"]
 }

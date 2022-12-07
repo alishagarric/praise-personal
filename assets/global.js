@@ -14919,7 +14919,7 @@ var Multicolumn = /*#__PURE__*/function (_HTMLElement4) {
 
     _this9 = _super4.call(this);
 
-    if (_this9.dataset.slider == "true") {
+    if (_this9.dataset.slider == "slider" || _this9.dataset.slider == "marquee") {
       _this9.slides = _assertThisInitialized(_this9);
       theme.initWhenVisible({
         element: _assertThisInitialized(_this9),
@@ -14938,19 +14938,30 @@ var Multicolumn = /*#__PURE__*/function (_HTMLElement4) {
 
       setTimeout(function () {
         _this10.flickity = new Flickity(_this10.slides, {
-          accessibility: false,
           rightToLeft: theme.config.rtl,
-          prevNextButtons: true,
+          prevNextButtons: _this10.dataset.slider == "slider" ? true : false,
           arrowShape: "M38.39,17.65a3.91,3.91,0,0,0-1.12-1.51,3.83,3.83,0,0,0-1.69-.8A3.84,3.84,0,0,0,32.1,16.4L1.33,47.17a3.83,3.83,0,0,0-.83,4.2,3.85,3.85,0,0,0,.83,1.25L32.1,83.38a3.81,3.81,0,0,0,2.72,1.13,3.85,3.85,0,0,0,2.73-6.57L13.34,53.74h83a3.85,3.85,0,1,0,0-7.69h-83l24.21-24.2a3.8,3.8,0,0,0,1.05-2A3.86,3.86,0,0,0,38.39,17.65Z",
-          pageDots: true,
-          wrapAround: false,
-          cellAlign: "left",
-          selectedAttraction: 0.2,
-          autoPlay: false,
-          friction: 0.8,
-          adaptiveHeight: false
+          autoPlay: _this10.dataset.slider == "slider" ? false : true,
+          percentPosition: _this10.dataset.slider == "marquee" ? true : false,
+          pageDots: _this10.dataset.slider == "slider" ? true : false,
+          wrapAround: _this10.dataset.slider == "slider" ? false : true,
+          cellAlign: _this10.dataset.slider == "slider" ? "left" : "center",
+          selectedAttraction: _this10.dataset.slider == "slider" ? 0.2 : 0.025,
+          friction: _this10.dataset.slider == "slider" ? 0.8 : 0.28,
+          adaptiveHeight: false,
+          resize: _this10.dataset.slider == "marquee" ? true : false
         });
       });
+      this.play();
+    } // Main function that 'plays' the marquee.
+
+  }, {
+    key: "play",
+    value: function play() {
+      // Set the decrement of position x
+      this.flickity.x -= 1.5; // Settle position into the slider
+
+      this.flickity.settle(this.flickity.x);
     }
   }]);
 

@@ -89,11 +89,18 @@
     }
   }
 
-  &.__with-slider {
+  &.__layout-marquee,
+  &.__layout-slider {
     .multicolumn {
       &__item {
         width: calc(100% / var(--desktopColumns));
+      }
+    }
+  }
 
+  &.__layout-slider {
+    .multicolumn {
+      &__item {
         &:first-child {
           padding-left: var(--sectionHorizontalSpacing);
           width: calc(
@@ -104,7 +111,7 @@
     }
   }
 
-  &:not(.__with-slider) {
+  &.__layout-default {
     .multicolumn {
       &__inner {
         display: grid;
