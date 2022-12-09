@@ -64,6 +64,18 @@
       transform: translate(100%, -50%);
     }
   }
+
+  @media screen and (max-width: 1024px) {
+    .flickity-button {
+      &.previous {
+        transform: translate(0, -50%);
+      }
+
+      &.next {
+        transform: translate(0, -50%);
+      }
+    }
+  }
 }
 
 .standard-flickity-dot {

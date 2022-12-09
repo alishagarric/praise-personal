@@ -6,7 +6,8 @@
     #Multicolumn-{{ section.id }} {
       --topSpacingRatio: {{section.settings.top_spacing}} / 100;
       --bottomSpacingRatio: {{section.settings.bottom_spacing}} / 100;
-      --desktopColumns: {{ section.settings.columns_desktop }}
+      --desktopColumns: {{ section.settings.columns_desktop }};
+      --mobileColumns: {{ section.settings.columns_mobile }}
     }
  {% endstyle %}
 
@@ -110,6 +111,15 @@
          "step": 1,
          "label": "Desktop Columns Per Row",
          "default": 3
+      },
+      {
+         "type": "range",
+         "id": "columns_mobile",
+         "min": 1,
+         "max": 3,
+         "step": 1,
+         "label": "Mobile Columns Per Row",
+         "default": 2
       },
       {
          "type": "select",

@@ -11,7 +11,8 @@
   assign show_assc_product = section.settings.show_assc_product
   assign crop_shape = section.settings.crop_shape
   assign section_blog = section.settings.blog
-  assign article_count = section_blog.article | size
+  assign article_count = section_blog.articles.size
+  assign mobile_layout = section.settings.mobile_layout
 
   assign initiate_flickity = false
 
@@ -27,7 +28,7 @@
   }
 {% endstyle %}
 
-<div id="Featured-blog-{{ section.id }}" class="featured-blog __theme-{{ section_theme }} {% if initiate_flickity == false %}__no-slider{% endif %}">
+<div id="Featured-blog-{{ section.id }}" class="featured-blog __theme-{{ section_theme }} {% if initiate_flickity == false %}__no-slider{% endif %} __mobile-{{ mobile_layout }}">
   <featured-blog class="featured-blog__inner" data-slider="{{ initiate_flickity }}">
     {% render 'heading', class: "featured-blog", heading: section.settings.heading, heading_size: section.settings.heading_size %}
     
@@ -206,6 +207,26 @@
       ],
       "default": "default",
       "label": "Product Image Crop Shape"
+    },
+    {
+      "type": "radio",
+      "label": "Mobile Layout",
+      "id": "mobile_layout",
+      "options": [
+        {
+          "value": "slider",
+          "label": "Slider"
+        },
+        {
+          "value":"stacked",
+          "label":"Stack All Articles"
+        },
+        {
+          "value":"stacked-4",
+          "label":"Stack Max 4 Articles"
+        }
+      ],
+      "default":"slider"
     },
     {
       "type": "header",
