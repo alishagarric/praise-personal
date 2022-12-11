@@ -18,7 +18,7 @@
 >
    {% render 'heading', class: "icons-section", heading: section.settings.heading, heading_size: section.settings.heading_size, alt_heading: section.settings.alt_heading %}
 
-   <div class="icons-section__icons {% if section.settings.layout == "rows" %}__layout-rows{% endif%}" style="--numColumns: {{ section.settings.layout }};">
+   <div class="icons-section__icons {% if section.settings.layout == "rows" %}__layout-rows{% endif%} {% if section.settings.mobile_layout == "rows" %}__mobile-layout-rows{% endif%}" style="--numColumns: {{ section.settings.layout }}; --mobileNumColumns: {{ section.settings.mobile_layout }};">
       {%- for block in section.blocks -%}
          {%- case block.type -%}
             {%- when 'icon' -%}
@@ -118,6 +118,26 @@
             {
                "value": "7",
                "label": "Seven Columns"
+            }
+         ],
+         "default": "3",
+         "label": "Layout"
+      },
+      {
+         "type": "select",
+         "id": "mobile_layout",
+         "options": [
+            {
+               "value": "rows",
+               "label": "Row(s)"
+            },
+            {
+               "value": "2",
+               "label": "Two Columns"
+            },
+            {
+               "value": "3",
+               "label": "Three Columns (Default)"
             }
          ],
          "default": "3",

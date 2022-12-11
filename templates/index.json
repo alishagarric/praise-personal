@@ -164,6 +164,7 @@
         "heading_size": "h5",
         "alt_heading": true,
         "layout": "3",
+        "mobile_layout": "1",
         "icon_height": 50,
         "theme": "2",
         "top_spacing": 70,

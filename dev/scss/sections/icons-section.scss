@@ -1,4 +1,6 @@
 .icons-section {
+  --iconsSectionGap: var(--vwSize);
+
   &__heading {
     + * {
       padding-top: calc(var(--pxSize) / 2);
@@ -21,17 +23,39 @@
     }
 
     &.__layout-rows {
-      gap: calc(var(--vwSize));
+      gap: var(--iconsSectionGap);
     }
 
     &:not(.__layout-rows) {
+      gap: var(--iconsSectionGap) 0;
+
       .icons-section__icons__icon {
         flex: 0 0 calc(100% / var(--numColumns));
-        padding: 0 calc(var(--vwSize));
+        padding: 0 var(--iconsSectionGap);
       }
     }
   }
 
   @media screen and (max-width: 676px) {
+    --iconsSectionGap: var(--pxSize);
+
+    &__icons {
+      &.__mobile-layout-rows {
+        gap: var(--iconsSectionGap);
+
+        .icons-section__icons__icon {
+          padding: 0;
+        }
+      }
+
+      &:not(.__mobile-layout-rows) {
+        gap: var(--iconsSectionGap) 0;
+
+        .icons-section__icons__icon {
+          flex: 0 0 calc(100% / var(--mobileNumColumns));
+          padding: 0 var(--iconsSectionGap);
+        }
+      }
+    }
   }
 }
