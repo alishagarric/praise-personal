@@ -102,9 +102,9 @@
     .multicolumn {
       &__item {
         &:first-child {
-          padding-left: var(--sectionHorizontalSpacing);
+          padding-left: var(--sectionGuttersSpacing);
           width: calc(
-            calc(100% / var(--desktopColumns)) + var(--sectionHorizontalSpacing)
+            calc(100% / var(--desktopColumns)) + var(--sectionGuttersSpacing)
           );
         }
       }

@@ -43,18 +43,18 @@
 
         .flickity-button {
           &.previous {
-            left: var(--sectionHorizontalSpacing);
+            left: var(--sectionGuttersSpacing);
           }
 
           &.next {
-            right: var(--sectionHorizontalSpacing);
+            right: var(--sectionGuttersSpacing);
           }
         }
 
         .featured-blog {
           &__articles {
             &__article-container {
-              padding-left: var(--sectionHorizontalSpacing);
+              padding-left: var(--sectionGuttersSpacing);
               padding-right: 0;
             }
           }

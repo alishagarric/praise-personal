@@ -73,7 +73,7 @@
   --vwSize: 2vw;
 
   --sectionVerticalSpacing: 100px;
-  --sectionHorizontalSpacing: calc(var(--vwSize) * 5.5);
+  --sectionGuttersSpacing: calc(var(--vwSize) * 5.5);
 
   --topSpacingRatio: 1;
   --bottomSpacingRatio: 1;
@@ -96,7 +96,7 @@
     --vwSize: 1.6vw;
 
     --sectionVerticalSpacing: 70px;
-    --sectionHorizontalSpacing: calc(var(--vwSize) * 3);
+    --sectionGuttersSpacing: calc(var(--vwSize) * 3);
 
     --navHeight: 65px;
     --inputHeight: 48px;
@@ -108,7 +108,7 @@
     --vwSize: 1.2vw;
 
     --sectionVerticalSpacing: 50px;
-    --sectionHorizontalSpacing: 20px;
+    --sectionGuttersSpacing: 20px;
 
     --navHeight: 60px;
     --inputHeight: 45px;

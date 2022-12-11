@@ -67,8 +67,8 @@
       &__inner {
         position: relative;
         display: block;
-        padding-right: var(--sectionHorizontalSpacing);
-        padding-left: var(--sectionHorizontalSpacing);
+        padding-right: var(--sectionGuttersSpacing);
+        padding-left: var(--sectionGuttersSpacing);
         color: var(--color-foreground);
       }
 

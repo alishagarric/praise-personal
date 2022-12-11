@@ -16,6 +16,7 @@
   assign alt_title  = section.settings.alt_title
   assign show_description = section.settings.show_description
   assign quick_add = section.settings.quick_add
+  assign alignment = section.settings.alignment
 
   assign products_count = featured_collection.products | size
   assign initiate_flickity = false
@@ -51,7 +52,7 @@
  <div id="Featured-collection-{{ section.id }}" class="featured-collection __theme-{{section_theme}} {% if stack_text_content %}__layout-stacked{% endif %} {% if theme_slider %}__theme-slider {% endif %} {% if initiate_flickity == false %}__no-slider {% endif %}"  
 >
   {% if section_heading != blank or section_text != blank %}
-    <div class="featured-collection__text __align-{{section.settings.alignment}}">
+    <div class="featured-collection__text __align-{{ alignment }}">
         {% if section_heading %}
           <h2 class="featured-collection__text__heading h4 {% if alt_heading %}alt{% endif %}">{{ section_heading }}</h2>
         {% endif %}

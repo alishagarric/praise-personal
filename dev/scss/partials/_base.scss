@@ -43,9 +43,9 @@ body {
 body > main > section > div,
 body > div > footer {
   padding: calc(var(--sectionVerticalSpacing) * var(--topSpacingRatio))
-    var(--sectionHorizontalSpacing)
+    var(--sectionGuttersSpacing)
     calc(var(--sectionVerticalSpacing) * var(--bottomSpacingRatio))
-    var(--sectionHorizontalSpacing);
+    var(--sectionGuttersSpacing);
   position: relative;
   color: var(--color-foreground);
 

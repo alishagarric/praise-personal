@@ -9,12 +9,12 @@
 
     &:first-of-type {
       padding: var(--sectionVerticalSpacing) var(--sectionVerticalSpacing)
-        var(--sectionVerticalSpacing) var(--sectionHorizontalSpacing);
+        var(--sectionVerticalSpacing) var(--sectionGuttersSpacing);
       flex: 2;
     }
 
     &:last-of-type {
-      padding: var(--sectionVerticalSpacing) var(--sectionHorizontalSpacing)
+      padding: var(--sectionVerticalSpacing) var(--sectionGuttersSpacing)
         var(--sectionVerticalSpacing) var(--sectionVerticalSpacing);
       flex: 3;
     }

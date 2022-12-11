@@ -1,5 +1,5 @@
 .split-section {
-  --splitSectionSpace: calc(var(--sectionHorizontalSpacing) / 1.5);
+  --splitSectionSpace: calc(var(--sectionGuttersSpacing) / 1.5);
   --splitSectionRatio: 37%;
   display: flex;
   gap: var(--splitSectionSpace);
@@ -64,7 +64,7 @@
       top: 0;
       height: 100%;
       object-fit: cover;
-      width: calc(var(--sectionHorizontalSpacing) + 100%);
+      width: calc(var(--sectionGuttersSpacing) + 100%);
     }
   }
 
@@ -109,7 +109,7 @@
   }
 
   &.__image-style-square {
-    --splitSectionSpace: calc(var(--sectionHorizontalSpacing) / 2);
+    --splitSectionSpace: calc(var(--sectionGuttersSpacing) / 2);
     align-items: center;
 
     .split-section {
@@ -127,10 +127,17 @@
   @media screen and (max-width: 676px) {
     --splitSectionSpace: var(--sectionVerticalSpacing);
     flex-direction: column-reverse;
+    gap: 0;
 
     &__image {
-      width: 100%;
-      padding-top: calc(100% * 2 / 3);
+      padding-left: 0;
+      padding-right: 0;
+      overflow: hidden;
+      width: calc(
+        var(--sectionGuttersSpacing) + var(--sectionGuttersSpacing) + 100%
+      );
+      left: calc(var(--sectionGuttersSpacing) * -1);
+      min-height: var(--mobileImageHeight) !important;
 
       img {
         width: 100%;
@@ -141,14 +148,12 @@
       flex-direction: column-reverse;
     }
 
+    &.__layout-mobile-reversed {
+      flex-direction: column;
+    }
+
     &.__image-style-square {
       --splitSectionSpace: var(--sectionVerticalSpacing);
-
-      .split-section {
-        &__image {
-          padding-top: 100%;
-        }
-      }
     }
   }
 }

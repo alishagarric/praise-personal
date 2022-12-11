@@ -358,7 +358,7 @@
   }
 
   @media screen and (max-width: 1000px) {
-    padding: 0 var(--sectionHorizontalSpacing);
+    padding: 0 var(--sectionGuttersSpacing);
 
     &__logo {
       flex: 1;
@@ -384,9 +384,8 @@
       bottom: 0;
       height: calc(100vh - var(--navHeight));
       background-color: var(--color-background);
-      padding: var(--sectionHorizontalSpacing) var(--sectionHorizontalSpacing)
-        calc(var(--sectionHorizontalSpacing) * 2)
-        var(--sectionHorizontalSpacing);
+      padding: var(--sectionGuttersSpacing) var(--sectionGuttersSpacing)
+        calc(var(--sectionGuttersSpacing) * 2) var(--sectionGuttersSpacing);
       overflow: auto;
     }
 

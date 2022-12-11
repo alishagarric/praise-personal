@@ -1,13 +1,14 @@
 {% style %}
     #Split-section-{{ section.id }} {
-      --topSpacingRatio: {{section.settings.top_spacing}} / 100;
-      --bottomSpacingRatio: {{section.settings.bottom_spacing}} / 100;
-      --topInternalSpacingRatio: {{section.settings.top_internal_spacing}} / 100;
-      --bottomInternalSpacingRatio: {{section.settings.bottom_internal_spacing}} / 100;
+      --topSpacingRatio: {{ section.settings.top_spacing }} / 100;
+      --bottomSpacingRatio: {{ section.settings.bottom_spacing }} / 100;
+      --topInternalSpacingRatio: {{ section.settings.top_internal_spacing }} / 100;
+      --bottomInternalSpacingRatio: {{ section.settings.bottom_internal_spacing }} / 100;
+      --mobileImageHeight: {{ section.settings.mobile_image_height }}px;
     }
  {% endstyle %}
 
-<div id="Split-section-{{ section.id }}" class="split-section __layout-{{section.settings.layout}} __image-style-{{section.settings.image_style}} __theme-{{section.settings.theme}}">
+<div id="Split-section-{{ section.id }}" class="split-section __layout-{{section.settings.layout}} __layout-mobile-{{ section.settings.mobile_layout }} __image-style-{{section.settings.image_style}} __theme-{{section.settings.theme}}">
   <div class="split-section__text __align-{{section.settings.alignment}}">    
     {%- for block in section.blocks -%}
       {%- case block.type -%}
@@ -131,6 +132,32 @@
       ],
       "default": "default",
       "label": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "mobile_layout",
+      "options": [
+        {
+          "value": "default",
+          "label": "Image On Top (Default)"
+        },
+        {
+          "value": "reversed",
+          "label": "Text On Top"
+        }
+      ],
+      "default": "default",
+      "label": "Mobile Layout"
+    },
+    {
+      "type": "range",
+      "id": "mobile_image_height",
+      "min": 200,
+      "max": 600,
+      "step": 50,
+      "unit": "px",
+      "label": "Mobile Image Height",
+      "default": 450
     },
     {
       "type": "select",
