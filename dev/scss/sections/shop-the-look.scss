@@ -97,5 +97,23 @@
   }
 
   @media screen and (max-width: 676px) {
+    &__inner {
+      display: block;
+    }
+
+    &__image,
+    &__products {
+      max-width: 100%;
+    }
+
+    &__image {
+      height: var(--mobileImageHeight);
+    }
+
+    &__products {
+      &__product {
+        width: 85%;
+      }
+    }
   }
 }

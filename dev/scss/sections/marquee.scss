@@ -1,5 +1,5 @@
 .marquee {
-  --horizontalGalleryGap: calc(var(--pxSize) / 5);
+  // --marqueeGap: calc(var(--pxSize) / 5);
   padding-right: 0 !important;
   padding-left: 0 !important;
 
@@ -12,14 +12,6 @@
     }
   }
 
-  @keyframes galleryCopyMarquee {
-    from {
-      transform: translateX(100%);
-    }
-    to {
-      transform: translateX(0%);
-    }
-  }
   &__container {
     overflow: hidden;
     position: relative;
@@ -42,41 +34,21 @@
     }
   }
 
-  &__section {
-    display: flex;
-    gap: var(--horizontalGalleryGap);
-    position: relative;
-    left: 0;
-    will-change: left;
-    transition: left 0.5s ease-in;
+  &__text {
+    will-change: transform;
     width: 100%;
-    animation: galleryMarquee 20s linear infinite;
-    display: flex;
-    justify-content: space-between;
+    animation: galleryMarquee var(--marqueeSpeed) linear infinite;
     margin-bottom: 0;
-
-    p {
-      margin-bottom: 0;
-    }
-
-    &:last-of-type {
-      position: absolute;
-      top: 0;
-      left: 0;
-      animation: galleryCopyMarquee 20s linear infinite;
-    }
-
-    //force flex gap to exist between last item and this pseudo item
-    &:after {
-      content: "";
-      display: block;
-      position: relative;
-      min-width: 1px;
-      margin-left: -1px;
-    }
+    width: var(--marqueeCharacterCount);
+    text-shadow: var(--marqueeCharacterCount) 0 var(--color-text),
+      calc(var(--marqueeCharacterCount) * 2) 0 var(--color-text),
+      calc(var(--marqueeCharacterCount) * 3) 0 var(--color-text),
+      calc(var(--marqueeCharacterCount) * 4) 0 var(--color-text),
+      calc(var(--marqueeCharacterCount) * 5) 0 var(--color-text),
+      calc(var(--marqueeCharacterCount) * 6) 0 var(--color-text);
   }
 
   @media screen and (max-width: 676px) {
-    --horizontalGalleryGap: calc(var(--pxSize) / 4);
+    //   --marqueeGap: calc(var(--pxSize) / 4);
   }
 }

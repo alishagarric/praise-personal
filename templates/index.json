@@ -44,17 +44,11 @@
     },
     "marquee": {
       "type": "marquee",
-      "blocks": {
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "Yeah, we heard you’re vegan, but our cookies aren’t"
-          }
-        }
-      },
-      "block_order": ["text"],
       "settings": {
-        "font_scale": 80,
+        "text": "Yeah, we heard you’re vegan, but our cookies aren’t",
+        "text_size": "h6",
+        "alt_heading": false,
+        "speed": 6,
         "theme": "2",
         "top_spacing": 20,
         "bottom_spacing": 20
@@ -249,7 +243,8 @@
       ],
       "settings": {
         "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_bbf54c90-3c31-4e00-962c-f12d6b17cf77.jpg",
-        "crop_shape": "default",
+        "crop_shape": "rounded-square",
+        "mobile_image_height": 400,
         "theme": "primary",
         "top_spacing": 50,
         "bottom_spacing": 50
