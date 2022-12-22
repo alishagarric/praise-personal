@@ -20,28 +20,7 @@
             {%- case block.type -%}
 
               {%- when 'quote' -%}
-                <div class="multicolumn__item __align-{{section.settings.alignment}} {% if block.settings.background_theme %}__theme-{{ block.settings.background_theme }}{% endif %}">
-                  <div class="multicolumn__item__card __crop-{{ block.settings.card_corners }}">
-
-                    {% if block.settings.quote != blank %}
-                      <div class="multicolumn__quote p-sm">
-                        {% if block.settings.quotations == true %}{% render 'svg-quotes'%}{% endif %}
-                          {{ block.settings.quote }}
-                        {% if block.settings.quotations == true %}{% render 'svg-quotes'%}{% endif %}
-                      </div>
-                    {% endif %}
-
-                    {% if block.settings.details != blank %}
-                      <div class="multicolumn__details p-sm">{{ block.settings.details }}</div>
-                    {% endif %}
-
-                    {%- if block.settings.logo != blank -%}
-                      <div class="multicolumn__image">
-                          {% render 'next-gen-img', image: block.settings.logo %}
-                      </div>
-                    {%- endif -%}
-                  </div>
-                </div>
+                {% render 'quote-card' quote: block.settings.quote, alignment: section.settings.alignment, background_theme: block.settings.background_theme, card_corners: block.settings.card_corners, quotations: block.settings.quotations, details: block.settings.details, logo: block.settings.logo, class: "multicolumn__item" %}
 
               {%- when 'image' -%}
                 {% assign image_height = block.settings.image.height | times: 1.0 %}
@@ -132,10 +111,6 @@
             {
                "value": "slider",
                "label": "Slider"
-            },
-            {
-               "value": "marquee",
-               "label": "Marquee"
             }
          ],
          "default": "default",

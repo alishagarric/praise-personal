@@ -1,5 +1,5 @@
 {% style %}
-    #Marquee-{{ section.id }} {
+    #Text-marquee-{{ section.id }} {
       --topSpacingRatio: {{section.settings.top_spacing}} / 100;
       --bottomSpacingRatio: {{section.settings.bottom_spacing}} / 100;
       --marqueeCharacterCount: {{ section.settings.text | size }}ch;
@@ -8,8 +8,8 @@
  {% endstyle %}
 
 {% if section.settings.text %}
-  <div id="Marquee-{{ section.id }}" class="marquee __theme-{{ section.settings.theme }}">
-    <p class="marquee__text {{ section.settings.text_size }} {% if section.settings.alt_heading %}alt{% endif%}">
+  <div id="Text-marquee-{{ section.id }}" class="text-marquee __theme-{{ section.settings.theme }}">
+    <p class="text-marquee__text {{ section.settings.text_size }} {% if section.settings.alt_heading %}alt{% endif%}">
       {{ section.settings.text }}
     </p>
   </div>
@@ -17,7 +17,7 @@
 
 {% schema %}
 {
-  "name": "Marquee",
+  "name": "Text Marquee",
   "tag": "section",
   "settings": [
     {
@@ -124,7 +124,7 @@
   ],
   "presets": [
     {
-      "name": "Marquee"
+      "name": "Text Marquee"
     }
   ]
 }

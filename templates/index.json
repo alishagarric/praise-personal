@@ -42,8 +42,8 @@
         "bottom_spacing": 0
       }
     },
-    "marquee": {
-      "type": "marquee",
+    "text-marquee": {
+      "type": "text-marquee",
       "settings": {
         "text": "Yeah, we heard you’re vegan, but our cookies aren’t",
         "text_size": "h6",
@@ -397,12 +397,12 @@
       }
     },
     "bd10db7c-6fad-4554-8a11-8fb51fd79804": {
-      "type": "multicolumn",
+      "type": "content-marquee",
       "blocks": {
         "830e5ff8-b1ac-469b-91e1-0a5d71ab525c": {
           "type": "quote",
           "settings": {
-            "quote": "<p>Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.</p>",
+            "quote": "<p>1 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.</p>",
             "quotations": true,
             "details": "",
             "logo": "shopify://shop_images/image_14.png",
@@ -413,7 +413,7 @@
         "5bfa76eb-f1fb-4649-8d9f-0771396e136f": {
           "type": "quote",
           "settings": {
-            "quote": "<p>Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.</p>",
+            "quote": "<p>2 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.</p>",
             "quotations": true,
             "details": "",
             "logo": "shopify://shop_images/image_14.png",
@@ -424,7 +424,7 @@
         "6ba997ed-491d-48f4-bad3-c9cb67930f72": {
           "type": "quote",
           "settings": {
-            "quote": "<p>Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.</p>",
+            "quote": "<p>3 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.</p>",
             "quotations": true,
             "details": "",
             "logo": "shopify://shop_images/image_14.png",
@@ -435,7 +435,7 @@
         "367cc0c5-6fad-45cb-aa18-67496c784724": {
           "type": "quote",
           "settings": {
-            "quote": "<p>Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.</p>",
+            "quote": "<p>4 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.</p>",
             "quotations": true,
             "details": "",
             "logo": "shopify://shop_images/image_14.png",
@@ -446,22 +446,11 @@
         "367cc0c5-6fad-45cb-aa18-67496c784724-1": {
           "type": "quote",
           "settings": {
-            "quote": "<p>Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.</p>",
+            "quote": "<p>5 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.</p>",
             "quotations": true,
             "details": "",
             "logo": "shopify://shop_images/image_14.png",
             "background_theme": "4",
-            "card_corners": "rounded"
-          }
-        },
-        "367cc0c5-6fad-45cb-aa18-67496c784724-2": {
-          "type": "quote",
-          "settings": {
-            "quote": "<p>Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.</p>",
-            "quotations": true,
-            "details": "",
-            "logo": "shopify://shop_images/image_14.png",
-            "background_theme": "5",
             "card_corners": "rounded"
           }
         }
@@ -471,15 +460,12 @@
         "5bfa76eb-f1fb-4649-8d9f-0771396e136f",
         "6ba997ed-491d-48f4-bad3-c9cb67930f72",
         "367cc0c5-6fad-45cb-aa18-67496c784724",
-        "367cc0c5-6fad-45cb-aa18-67496c784724-1",
-        "367cc0c5-6fad-45cb-aa18-67496c784724-2"
+        "367cc0c5-6fad-45cb-aa18-67496c784724-1"
       ],
       "settings": {
         "alignment": "center",
-        "columns_desktop": 4,
-        "columns_mobile": 1,
-        "layout": "default",
         "theme": "2",
+        "speed": 6,
         "top_spacing": 50,
         "bottom_spacing": 50
       }
@@ -487,7 +473,7 @@
   },
   "order": [
     "1662063884d9fa6284",
-    "marquee",
+    "text-marquee",
     "1663189358d1a4ecd6",
     "1662066517d31dd7ec",
     "1662067471929f7e31",

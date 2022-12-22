@@ -1,0 +1,40 @@
+{% comment %}
+    Renders a quote card
+
+    Expects:
+    - class: 
+    - quote: {string} Richtext, expected but optional
+    - quotations: {bool} optional
+    - details: {string} Richtext, optional
+    - logo: {image}, optional
+    - background_theme: {string}, optional
+    - card_corners: {string} default, rounded, semicircle
+    - class: {string} optional
+    - alignment: {string} left, center right
+
+    Usage:
+    {% render 'quote-card' quote: block.settings.quote %}
+{% endcomment %}
+
+<div class="quote-card {{ class}} __align-{{ alignment }} {% if background_theme %}__theme-{{ background_theme }}{% endif %}">
+  <div class="quote-card__inner __crop-{{ card_corners }}">
+
+    {% if quote != blank %}
+      <div class="quote-card__quote p-sm">
+        {% if quotations == true %}{% render 'svg-quotes'%}{% endif %}
+          {{ quote }}
+        {% if quotations == true %}{% render 'svg-quotes'%}{% endif %}
+      </div>
+    {% endif %}
+
+    {% if details != blank %}
+      <div class="quote-card__details p-sm">{{ details }}</div>
+    {% endif %}
+
+    {%- if logo != blank -%}
+      <div class="quote-card__image">
+          {% render 'next-gen-img', image: logo %}
+      </div>
+    {%- endif -%}
+  </div>
+</div>

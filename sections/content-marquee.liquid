@@ -1,0 +1,210 @@
+{% assign card_width_divisor = 4 %}
+
+{% style %}
+    #Content-marquee-{{ section.id }} {
+      --topSpacingRatio: {{section.settings.top_spacing}} / 100;
+      --bottomSpacingRatio: {{section.settings.bottom_spacing}} / 100;
+      --contentMarqueeSpeed: {{ section.settings.speed | minus: 11 | times: -1 | times: section.blocks.size }}s;
+      --contentMarqueeCardCount: {{ section.blocks.size }};
+      --contentMarqueeDivisor: {{ card_width_divisor }};
+    }
+ {% endstyle %}
+
+{% if section.blocks.size > 1 %}
+  <div id="Content-marquee-{{ section.id }}" class="content-marquee __theme-{{ section.settings.theme }}">
+    <content-marquee class="content-marquee__container">
+      {% for i in (1..card_width_divisor) %}
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'quote'%}
+              {% render 'quote-card' quote: block.settings.quote, alignment: section.settings.alignment, background_theme: block.settings.background_theme, card_corners: block.settings.card_corners, quotations: block.settings.quotations, details: block.settings.details, logo: block.settings.logo, class: "content-marquee__item" %}
+          {% endcase %}
+        {% endfor %}
+      {% endfor %}
+    </content-marquee>
+  </div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Content Marquee",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Settings"
+    },
+    {
+        "type": "radio",
+        "id": "alignment",
+        "label": "Text Alignment",
+        "options": [
+          {
+              "value": "left",
+              "label":"Left"
+          },
+          {
+              "value": "center",
+              "label": "Center"
+          },
+          {
+              "value": "right",
+              "label": "Right"
+          }
+        ],
+        "default": "left"
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "unit": "x",
+      "label": "Speed",
+      "default": 5
+    },
+    {
+      "type": "select",
+      "id": "theme",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary Theme"
+        },
+        {
+          "value": "2",
+          "label": "2nd Theme"
+        },
+        {
+          "value": "3",
+          "label": "3rd Theme"
+        },
+        {
+          "value": "4",
+          "label": "4th Theme"
+        },
+        {
+          "value": "5",
+          "label": "5th Theme"
+        }
+      ],
+      "default": "primary",
+      "label": "Theme"
+    },
+    {
+      "type": "header",
+      "content": "Section Spacing"
+    },
+    {
+      "type": "range",
+      "id": "top_spacing",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "Top Spacing",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "bottom_spacing",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "Bottom Spacing",
+      "default": 50
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "default": "Lorem ipsum",
+      "label": "Text"
+    }
+  ],
+  "blocks": [
+      {
+        "type": "quote",
+        "name": "Quote",
+        "settings": [
+          {
+            "type": "richtext",
+            "id": "quote",
+            "label": "Quote"
+          },
+          {
+            "type": "checkbox",
+            "id": "quotations",
+            "label": "Show quotation marks?",
+            "info": "Requires quote field to have content.",
+            "default": true
+          },
+          {
+            "type": "richtext",
+            "id": "details",
+            "label": "Extra Details"
+          },
+          {
+            "type": "image_picker",
+            "id": "logo",
+            "label": "Logo"
+          },
+          {
+            "type": "select",
+            "id": "background_theme",
+            "options": [
+                {
+                  "value": "primary",
+                  "label": "Primary Theme"
+                },
+                {
+                  "value": "2",
+                  "label": "2nd Theme"
+                },
+                {
+                  "value": "3",
+                  "label": "3rd Theme"
+                },
+                {
+                  "value": "4",
+                  "label": "4th Theme"
+                },
+                {
+                  "value": "5",
+                  "label": "5th Theme"
+                }
+            ],
+            "default": "primary",
+            "label": "Theme"
+          },
+          {
+            "type": "select",
+            "id": "card_corners",
+            "options": [
+              {
+                  "value": "default",
+                  "label": "Square Corners (Default)"
+              },
+              {
+                  "value": "rounded",
+                  "label": "Rounded Corners"
+              },
+              {
+                  "value": "semicircle",
+                  "label": "Semicircle Corners"
+              }
+            ],
+            "default": "default",
+            "label": "Card Corners"
+          }
+        ]
+      }
+  ],
+  "presets": [
+    {
+      "name": "Content Marquee"
+    }
+  ]
+}
+{% endschema %}

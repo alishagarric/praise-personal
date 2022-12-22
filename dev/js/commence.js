@@ -505,7 +505,7 @@ class Multicolumn extends HTMLElement {
   constructor() {
     super();
 
-    if (this.dataset.slider == "slider" || this.dataset.slider == "marquee") {
+    if (this.dataset.slider == "slider") {
       this.slides = this;
 
       theme.initWhenVisible({
@@ -524,7 +524,7 @@ class Multicolumn extends HTMLElement {
         arrowShape:
           "M38.39,17.65a3.91,3.91,0,0,0-1.12-1.51,3.83,3.83,0,0,0-1.69-.8A3.84,3.84,0,0,0,32.1,16.4L1.33,47.17a3.83,3.83,0,0,0-.83,4.2,3.85,3.85,0,0,0,.83,1.25L32.1,83.38a3.81,3.81,0,0,0,2.72,1.13,3.85,3.85,0,0,0,2.73-6.57L13.34,53.74h83a3.85,3.85,0,1,0,0-7.69h-83l24.21-24.2a3.8,3.8,0,0,0,1.05-2A3.86,3.86,0,0,0,38.39,17.65Z",
         autoPlay: this.dataset.slider == "slider" ? false : true,
-        percentPosition: this.dataset.slider == "marquee" ? true : false,
+        percentPosition: this.dataset.slider == false,
 
         pageDots: this.dataset.slider == "slider" ? true : false,
         wrapAround: this.dataset.slider == "slider" ? false : true,
@@ -533,23 +533,81 @@ class Multicolumn extends HTMLElement {
         selectedAttraction: this.dataset.slider == "slider" ? 0.2 : 0.025,
         friction: this.dataset.slider == "slider" ? 0.8 : 0.28,
         adaptiveHeight: false,
-        resize: this.dataset.slider == "marquee" ? true : false,
+        resize: this.dataset.slider == false,
       });
     });
-
-    this.play();
-  }
-
-  // Main function that 'plays' the marquee.
-  play() {
-    // Set the decrement of position x
-    this.flickity.x -= 1.5;
-
-    // Settle position into the slider
-    this.flickity.settle(this.flickity.x);
   }
 }
 customElements.define("multicolumn-slider", Multicolumn);
+
+/* Content Marquee Logic */
+///////////////////////////////
+///////////////////////////////
+
+class ContentMarquee extends HTMLElement {
+  constructor() {
+    super();
+
+    this.marquee = this;
+
+    this.isDown = false;
+
+    this.mouseMoved = 0;
+
+    this.leftPos = 0;
+
+    theme.initWhenVisible({
+      element: this,
+      callback: this.init.bind(this),
+      threshold: 600,
+    });
+  }
+
+  init() {
+    this.addEventListener(
+      "mousedown",
+      function (e) {
+        this.isDown = true;
+        this.marquee.style.transition = "none";
+        this.marquee.parentElement.style.transform = "scale(1.05)";
+      },
+      true
+    );
+
+    this.addEventListener(
+      "mouseup",
+      function () {
+        this.isDown = false;
+        this.mouseMoved = 0;
+        this.leftPos = parseInt(this.marquee.style.left);
+        this.marquee.parentElement.style.transform = "none";
+        this.returnToOriginalPos();
+      },
+      true
+    );
+
+    this.addEventListener(
+      "mousemove",
+      function (event) {
+        event.preventDefault();
+        if (this.isDown) {
+          this.mouseMoved = event.movementX + this.mouseMoved;
+          this.marquee.style.left = this.mouseMoved + this.leftPos + "px";
+        }
+      },
+      true
+    );
+  }
+
+  returnToOriginalPos() {
+    if (this.leftPos != 0) {
+      this.marquee.style.transition = "left .25s ease";
+      this.marquee.style.left = 0;
+      this.leftPos = 0;
+    }
+  }
+}
+customElements.define("content-marquee", ContentMarquee);
 
 /* Logic the Shopify Starter Included */
 ////////////////////////////////////////

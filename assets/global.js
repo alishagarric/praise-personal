@@ -14920,7 +14920,7 @@ var Multicolumn = /*#__PURE__*/function (_HTMLElement4) {
 
     _this9 = _super4.call(this);
 
-    if (_this9.dataset.slider == "slider" || _this9.dataset.slider == "marquee") {
+    if (_this9.dataset.slider == "slider") {
       _this9.slides = _assertThisInitialized(_this9);
       theme.initWhenVisible({
         element: _assertThisInitialized(_this9),
@@ -14943,26 +14943,16 @@ var Multicolumn = /*#__PURE__*/function (_HTMLElement4) {
           prevNextButtons: _this10.dataset.slider == "slider" ? true : false,
           arrowShape: "M38.39,17.65a3.91,3.91,0,0,0-1.12-1.51,3.83,3.83,0,0,0-1.69-.8A3.84,3.84,0,0,0,32.1,16.4L1.33,47.17a3.83,3.83,0,0,0-.83,4.2,3.85,3.85,0,0,0,.83,1.25L32.1,83.38a3.81,3.81,0,0,0,2.72,1.13,3.85,3.85,0,0,0,2.73-6.57L13.34,53.74h83a3.85,3.85,0,1,0,0-7.69h-83l24.21-24.2a3.8,3.8,0,0,0,1.05-2A3.86,3.86,0,0,0,38.39,17.65Z",
           autoPlay: _this10.dataset.slider == "slider" ? false : true,
-          percentPosition: _this10.dataset.slider == "marquee" ? true : false,
+          percentPosition: _this10.dataset.slider == false,
           pageDots: _this10.dataset.slider == "slider" ? true : false,
           wrapAround: _this10.dataset.slider == "slider" ? false : true,
           cellAlign: _this10.dataset.slider == "slider" ? "left" : "center",
           selectedAttraction: _this10.dataset.slider == "slider" ? 0.2 : 0.025,
           friction: _this10.dataset.slider == "slider" ? 0.8 : 0.28,
           adaptiveHeight: false,
-          resize: _this10.dataset.slider == "marquee" ? true : false
+          resize: _this10.dataset.slider == false
         });
       });
-      this.play();
-    } // Main function that 'plays' the marquee.
-
-  }, {
-    key: "play",
-    value: function play() {
-      // Set the decrement of position x
-      this.flickity.x -= 1.5; // Settle position into the slider
-
-      this.flickity.settle(this.flickity.x);
     }
   }]);
 
@@ -14970,6 +14960,72 @@ var Multicolumn = /*#__PURE__*/function (_HTMLElement4) {
 }( /*#__PURE__*/_wrapNativeSuper(HTMLElement));
 
 customElements.define("multicolumn-slider", Multicolumn);
+/* Content Marquee Logic */
+///////////////////////////////
+///////////////////////////////
+
+var ContentMarquee = /*#__PURE__*/function (_HTMLElement5) {
+  _inherits(ContentMarquee, _HTMLElement5);
+
+  var _super5 = _createSuper(ContentMarquee);
+
+  function ContentMarquee() {
+    var _this11;
+
+    _classCallCheck(this, ContentMarquee);
+
+    _this11 = _super5.call(this);
+    _this11.marquee = _assertThisInitialized(_this11);
+    _this11.isDown = false;
+    _this11.mouseMoved = 0;
+    _this11.leftPos = 0;
+    theme.initWhenVisible({
+      element: _assertThisInitialized(_this11),
+      callback: _this11.init.bind(_assertThisInitialized(_this11)),
+      threshold: 600
+    });
+    return _this11;
+  }
+
+  _createClass(ContentMarquee, [{
+    key: "init",
+    value: function init() {
+      this.addEventListener("mousedown", function (e) {
+        this.isDown = true;
+        this.marquee.style.transition = "none";
+        this.marquee.parentElement.style.transform = "scale(1.05)";
+      }, true);
+      this.addEventListener("mouseup", function () {
+        this.isDown = false;
+        this.mouseMoved = 0;
+        this.leftPos = parseInt(this.marquee.style.left);
+        this.marquee.parentElement.style.transform = "none";
+        this.returnToOriginalPos();
+      }, true);
+      this.addEventListener("mousemove", function (event) {
+        event.preventDefault();
+
+        if (this.isDown) {
+          this.mouseMoved = event.movementX + this.mouseMoved;
+          this.marquee.style.left = this.mouseMoved + this.leftPos + "px";
+        }
+      }, true);
+    }
+  }, {
+    key: "returnToOriginalPos",
+    value: function returnToOriginalPos() {
+      if (this.leftPos != 0) {
+        this.marquee.style.transition = "left .25s ease";
+        this.marquee.style.left = 0;
+        this.leftPos = 0;
+      }
+    }
+  }]);
+
+  return ContentMarquee;
+}( /*#__PURE__*/_wrapNativeSuper(HTMLElement));
+
+customElements.define("content-marquee", ContentMarquee);
 /* Logic the Shopify Starter Included */
 ////////////////////////////////////////
 ///////////////////////////////////////
@@ -14988,7 +15044,7 @@ document.querySelectorAll(".disclosure").forEach(function (details) {
 });
 
 function debounce(fn, wait) {
-  var _this11 = this;
+  var _this12 = this;
 
   var t;
   return function () {
@@ -14998,7 +15054,7 @@ function debounce(fn, wait) {
 
     clearTimeout(t);
     t = setTimeout(function () {
-      return fn.apply(_this11, args);
+      return fn.apply(_this12, args);
     }, wait);
   };
 }

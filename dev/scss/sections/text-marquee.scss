@@ -1,9 +1,8 @@
-.marquee {
-  // --marqueeGap: calc(var(--pxSize) / 5);
+.text-marquee {
   padding-right: 0 !important;
   padding-left: 0 !important;
 
-  @keyframes galleryMarquee {
+  @keyframes textMarquee {
     from {
       transform: translateX(0%);
     }
@@ -16,16 +15,8 @@
     overflow: hidden;
     position: relative;
 
-    &.__paused {
-      .marquee__container__inner {
-        -webkit-animation-play-state: paused;
-        -moz-animation-play-state: paused;
-        -o-animation-play-state: paused;
-        animation-play-state: paused;
-      }
-    }
-
     //Hide scrollbars
+
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
 
@@ -37,7 +28,7 @@
   &__text {
     will-change: transform;
     width: 100%;
-    animation: galleryMarquee var(--marqueeSpeed) linear infinite;
+    animation: textMarquee var(--marqueeSpeed) linear infinite;
     margin-bottom: 0;
     width: var(--marqueeCharacterCount);
     text-shadow: var(--marqueeCharacterCount) 0 var(--color-text),
@@ -46,9 +37,5 @@
       calc(var(--marqueeCharacterCount) * 4) 0 var(--color-text),
       calc(var(--marqueeCharacterCount) * 5) 0 var(--color-text),
       calc(var(--marqueeCharacterCount) * 6) 0 var(--color-text);
-  }
-
-  @media screen and (max-width: 676px) {
-    //   --marqueeGap: calc(var(--pxSize) / 4);
   }
 }

@@ -1,0 +1,43 @@
+.quote-card {
+  --quoteCardPadding: var(--pxSize);
+  &__inner {
+    height: 100%;
+    background: var(--color-background);
+    color: var(--color-text);
+    padding: var(--quoteCardPadding);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__quote {
+    svg:first-child {
+      margin-bottom: 1rem;
+    }
+
+    svg:not(:first-child) {
+      transform: scale(-1, -1);
+    }
+  }
+
+  &__details {
+    flex: 1;
+  }
+
+  &__image {
+    @extend .image-container;
+    padding-top: 20%;
+
+    + * {
+      margin-top: calc(var(--pxSize) / 2);
+    }
+
+    img {
+      object-fit: contain;
+    }
+  }
+
+  @media screen and (max-width: 676px) {
+    --quoteCardPadding: calc(var(--pxSize) * 2) calc(var(--pxSize) / 2);
+  }
+}
