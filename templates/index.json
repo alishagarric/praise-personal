@@ -289,7 +289,7 @@
         "top_spacing": 100,
         "bottom_spacing": 100,
         "top_internal_spacing": 100,
-        "bottom_internal_spacing": 100
+        "bottom_internal_spacing": 0
       }
     },
     "166329465577f05b4c": {

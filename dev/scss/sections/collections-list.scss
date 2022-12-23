@@ -13,29 +13,31 @@
   }
 
   &__container {
-    gap: var(--collections-list-space) 0;
-    position: relative;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-
     > * {
       flex: 0 0 25%;
-      padding: 0 calc(var(--collections-list-space) / 2);
+      padding: var(--collections-list-space)
+        calc(var(--collections-list-space) / 2) 0
+        calc(var(--collections-list-space) / 2);
     }
+  }
+
+  .overflow-slider__arrow {
+    margin-right: calc(var(--collections-list-space) / 2);
   }
 
   @media screen and (max-width: 1024px) {
     &__container {
       > * {
-        flex: 50%;
+        flex: 0 0 50%;
       }
     }
   }
 
   @media screen and (max-width: 676px) {
     &__container {
-      flex-direction: column;
+      > * {
+        flex: 0 0 75%;
+      }
     }
   }
 }

@@ -1,0 +1,121 @@
+overflow-slider,
+.overflow-slider {
+  --overflowSliderArrowSize: calc(var(--pxSize) * 4 / 5);
+  position: relative;
+
+  &__container {
+    overflow: auto;
+    scroll-behavior: smooth;
+    display: flex;
+    padding-top: var(--overflowSliderArrowSize);
+    padding-bottom: var(--overflowSliderArrowSize);
+
+    &::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--color-text);
+      outline: none;
+      border-radius: 30px;
+      cursor: grab;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: var(--color-border);
+      border-radius: 30px;
+      margin: 10px 60px 0;
+    }
+  }
+
+  &__arrow {
+    height: var(--overflowSliderArrowSize);
+    width: var(--overflowSliderArrowSize);
+    border-radius: 4px;
+    background-color: var(--color-foreground);
+    display: grid;
+    place-content: center;
+    position: absolute;
+    top: 0;
+    right: calc(var(--overflowSliderArrowSize) * 1.5);
+
+    svg * {
+      fill: var(--color-foreground-text);
+      width: 40%;
+      height: auto;
+    }
+
+    &.next {
+      right: 0;
+
+      svg {
+        transform: scale(-1);
+      }
+    }
+
+    &.hide {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+  }
+
+  &.__hide-desktop-arrows {
+    .overflow-slider {
+      &__arrow {
+        display: none;
+      }
+
+      &__container {
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    &.__hide-tablet-arrows {
+      .overflow-slider {
+        &__container {
+          padding-top: 0;
+          padding-bottom: 0;
+        }
+
+        &__arrow {
+          display: none;
+        }
+      }
+    }
+
+    &.__hide-desktop-arrows {
+      .overflow-slider {
+        &__arrow {
+          display: grid;
+        }
+
+        &__container {
+          padding-top: var(--overflowSliderArrowSize);
+          padding-bottom: var(--overflowSliderArrowSize);
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 676px) {
+    &__container {
+      padding-top: 0;
+    }
+
+    &__arrow {
+      display: none;
+    }
+
+    &.__hide-desktop-arrows {
+      .overflow-slider {
+        &__arrow {
+          display: none;
+        }
+      }
+    }
+  }
+}

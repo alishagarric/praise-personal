@@ -91,4 +91,10 @@
       }
     }
   }
+
+  @media screen and (max-width: 676px) {
+    &__text-container {
+      grid-column: 1 / -1;
+    }
+  }
 }

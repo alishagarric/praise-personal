@@ -1,3 +1,13 @@
+{% liquid
+  if section.blocks.size < 5
+    assign hide_arrows_on_desktop = true 
+  endif
+  if section.blocks.size < 3
+    assign hide_arrows_on_tablet = true
+  endif
+
+%}
+
 {% style %}
     #Collections-list-{{ section.id }} {
       --topSpacingRatio: {{section.settings.top_spacing}} / 100;
@@ -9,12 +19,15 @@
 >
   {% render 'heading', class: "collections-list", heading: section.settings.heading, alt_heading: section.settings.alt_heading, heading_size: section.settings.heading_size %}
 
+  <overflow-slider class="overflow-slider {% if hide_arrows_on_desktop %}__hide-desktop-arrows{% endif %} {% if hide_arrows_on_tablet %}__hide-tablet-arrows{% endif %}">
+    <div class="collections-list__container overflow-slider__container">
+      {% for block in section.blocks %}
+        {% render 'collection-card' collection: block.settings.collection %}
+      {% endfor %}
+    </div>
 
-  <div class="collections-list__container">
-    {% for block in section.blocks %}
-      {% render 'collection-card' collection: block.settings.collection %}
-    {% endfor %}
-  </div>
+    {% render 'overflow-slider-arrows' %}
+  </overflow-slider>
 
 </div>
 

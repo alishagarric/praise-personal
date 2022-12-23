@@ -6,26 +6,10 @@
   }
 
   &__articles {
-    @extend .cmnc-flickity-buttons-wide;
-
-    // Control Flickity using css: https://flickity.metafizzy.co/options.html#watchcss
-    &:after {
-      content: "flickity";
-      display: none; /* hide :after */
-    }
-
     &__article-container {
-      width: var(--featuredBlogCardSize);
-      padding: calc(var(--pxSize) / 2);
-    }
-  }
-
-  &.__no-slider {
-    .featured-blog {
-      &__articles {
-        display: flex;
-        justify-content: center;
-      }
+      flex: 0 0 var(--featuredBlogCardSize);
+      padding: calc(var(--pxSize) / 2) calc(var(--pxSize) / 2) 0
+        calc(var(--pxSize) / 2);
     }
   }
 
@@ -37,42 +21,21 @@
     --featuredBlogCardSize: 75%;
 
     &.__mobile {
-      &-slider {
-        padding-right: 0;
-        padding-left: 0;
-
-        .flickity-button {
-          &.previous {
-            left: var(--sectionGuttersSpacing);
-          }
-
-          &.next {
-            right: var(--sectionGuttersSpacing);
-          }
-        }
-
-        .featured-blog {
-          &__articles {
-            &__article-container {
-              padding-left: var(--sectionGuttersSpacing);
-              padding-right: 0;
-            }
-          }
-        }
-      }
-
       &-stacked,
       &-stacked-4 {
         --featuredBlogCardSize: 100%;
 
         .featured-blog {
           &__articles {
-            &:after {
-              content: "";
-            }
+            flex-direction: column;
+            overflow: unset;
 
             &__article-container {
               padding: var(--pxSize) 0;
+            }
+
+            ~ .overflow-slider__arrow {
+              display: none;
             }
           }
         }

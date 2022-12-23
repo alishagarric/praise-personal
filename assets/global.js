@@ -14848,24 +14848,24 @@ var ShopTheLook = /*#__PURE__*/function (_HTMLElement2) {
 }( /*#__PURE__*/_wrapNativeSuper(HTMLElement));
 
 customElements.define("shop-the-look", ShopTheLook);
-/* Featured Blog Logic */
+/* Multicolumn Logic */
 ///////////////////////////////
 ///////////////////////////////
 
-var FeaturedBlog = /*#__PURE__*/function (_HTMLElement3) {
-  _inherits(FeaturedBlog, _HTMLElement3);
+var Multicolumn = /*#__PURE__*/function (_HTMLElement3) {
+  _inherits(Multicolumn, _HTMLElement3);
 
-  var _super3 = _createSuper(FeaturedBlog);
+  var _super3 = _createSuper(Multicolumn);
 
-  function FeaturedBlog() {
+  function Multicolumn() {
     var _this7;
 
-    _classCallCheck(this, FeaturedBlog);
+    _classCallCheck(this, Multicolumn);
 
     _this7 = _super3.call(this);
 
-    if (_this7.dataset.slider == "true") {
-      _this7.slides = _this7.querySelector(".featured-blog__articles");
+    if (_this7.dataset.slider == "slider") {
+      _this7.slides = _assertThisInitialized(_this7);
       theme.initWhenVisible({
         element: _assertThisInitialized(_this7),
         callback: _this7.init.bind(_assertThisInitialized(_this7)),
@@ -14876,81 +14876,25 @@ var FeaturedBlog = /*#__PURE__*/function (_HTMLElement3) {
     return _this7;
   }
 
-  _createClass(FeaturedBlog, [{
+  _createClass(Multicolumn, [{
     key: "init",
     value: function init() {
       var _this8 = this;
 
       setTimeout(function () {
         _this8.flickity = new Flickity(_this8.slides, {
-          accessibility: false,
           rightToLeft: theme.config.rtl,
-          watchCSS: true,
-          prevNextButtons: true,
+          prevNextButtons: _this8.dataset.slider == "slider" ? true : false,
           arrowShape: "M38.39,17.65a3.91,3.91,0,0,0-1.12-1.51,3.83,3.83,0,0,0-1.69-.8A3.84,3.84,0,0,0,32.1,16.4L1.33,47.17a3.83,3.83,0,0,0-.83,4.2,3.85,3.85,0,0,0,.83,1.25L32.1,83.38a3.81,3.81,0,0,0,2.72,1.13,3.85,3.85,0,0,0,2.73-6.57L13.34,53.74h83a3.85,3.85,0,1,0,0-7.69h-83l24.21-24.2a3.8,3.8,0,0,0,1.05-2A3.86,3.86,0,0,0,38.39,17.65Z",
-          pageDots: false,
-          wrapAround: true,
-          cellAlign: "left",
-          selectedAttraction: 0.2,
-          autoPlay: false,
-          friction: 0.8,
-          adaptiveHeight: false
-        });
-      });
-    }
-  }]);
-
-  return FeaturedBlog;
-}( /*#__PURE__*/_wrapNativeSuper(HTMLElement));
-
-customElements.define("featured-blog", FeaturedBlog);
-/* Multicolumn Logic */
-///////////////////////////////
-///////////////////////////////
-
-var Multicolumn = /*#__PURE__*/function (_HTMLElement4) {
-  _inherits(Multicolumn, _HTMLElement4);
-
-  var _super4 = _createSuper(Multicolumn);
-
-  function Multicolumn() {
-    var _this9;
-
-    _classCallCheck(this, Multicolumn);
-
-    _this9 = _super4.call(this);
-
-    if (_this9.dataset.slider == "slider") {
-      _this9.slides = _assertThisInitialized(_this9);
-      theme.initWhenVisible({
-        element: _assertThisInitialized(_this9),
-        callback: _this9.init.bind(_assertThisInitialized(_this9)),
-        threshold: 600
-      });
-    }
-
-    return _this9;
-  }
-
-  _createClass(Multicolumn, [{
-    key: "init",
-    value: function init() {
-      var _this10 = this;
-
-      setTimeout(function () {
-        _this10.flickity = new Flickity(_this10.slides, {
-          rightToLeft: theme.config.rtl,
-          prevNextButtons: _this10.dataset.slider == "slider" ? true : false,
-          arrowShape: "M38.39,17.65a3.91,3.91,0,0,0-1.12-1.51,3.83,3.83,0,0,0-1.69-.8A3.84,3.84,0,0,0,32.1,16.4L1.33,47.17a3.83,3.83,0,0,0-.83,4.2,3.85,3.85,0,0,0,.83,1.25L32.1,83.38a3.81,3.81,0,0,0,2.72,1.13,3.85,3.85,0,0,0,2.73-6.57L13.34,53.74h83a3.85,3.85,0,1,0,0-7.69h-83l24.21-24.2a3.8,3.8,0,0,0,1.05-2A3.86,3.86,0,0,0,38.39,17.65Z",
-          autoPlay: _this10.dataset.slider == "slider" ? false : true,
-          percentPosition: _this10.dataset.slider == false,
-          pageDots: _this10.dataset.slider == "slider" ? true : false,
-          wrapAround: _this10.dataset.slider == "slider" ? false : true,
-          cellAlign: _this10.dataset.slider == "slider" ? "left" : "center",
-          selectedAttraction: _this10.dataset.slider == "slider" ? 0.2 : 0.025,
-          friction: _this10.dataset.slider == "slider" ? 0.8 : 0.28,
+          autoPlay: _this8.dataset.slider == "slider" ? false : true,
+          percentPosition: _this8.dataset.slider == false,
+          pageDots: _this8.dataset.slider == "slider" ? true : false,
+          wrapAround: _this8.dataset.slider == "slider" ? false : true,
+          cellAlign: _this8.dataset.slider == "slider" ? "left" : "center",
+          selectedAttraction: _this8.dataset.slider == "slider" ? 0.2 : 0.025,
+          friction: _this8.dataset.slider == "slider" ? 0.8 : 0.28,
           adaptiveHeight: false,
-          resize: _this10.dataset.slider == false
+          resize: _this8.dataset.slider == false
         });
       });
     }
@@ -14964,27 +14908,27 @@ customElements.define("multicolumn-slider", Multicolumn);
 ///////////////////////////////
 ///////////////////////////////
 
-var ContentMarquee = /*#__PURE__*/function (_HTMLElement5) {
-  _inherits(ContentMarquee, _HTMLElement5);
+var ContentMarquee = /*#__PURE__*/function (_HTMLElement4) {
+  _inherits(ContentMarquee, _HTMLElement4);
 
-  var _super5 = _createSuper(ContentMarquee);
+  var _super4 = _createSuper(ContentMarquee);
 
   function ContentMarquee() {
-    var _this11;
+    var _this9;
 
     _classCallCheck(this, ContentMarquee);
 
-    _this11 = _super5.call(this);
-    _this11.marquee = _assertThisInitialized(_this11);
-    _this11.isDown = false;
-    _this11.mouseMoved = 0;
-    _this11.leftPos = 0;
+    _this9 = _super4.call(this);
+    _this9.marquee = _assertThisInitialized(_this9);
+    _this9.isDown = false;
+    _this9.mouseMoved = 0;
+    _this9.leftPos = 0;
     theme.initWhenVisible({
-      element: _assertThisInitialized(_this11),
-      callback: _this11.init.bind(_assertThisInitialized(_this11)),
+      element: _assertThisInitialized(_this9),
+      callback: _this9.init.bind(_assertThisInitialized(_this9)),
       threshold: 600
     });
-    return _this11;
+    return _this9;
   }
 
   _createClass(ContentMarquee, [{
@@ -15026,6 +14970,76 @@ var ContentMarquee = /*#__PURE__*/function (_HTMLElement5) {
 }( /*#__PURE__*/_wrapNativeSuper(HTMLElement));
 
 customElements.define("content-marquee", ContentMarquee);
+/* Overflow Slider Logic */
+///////////////////////////////
+///////////////////////////////
+
+var OverflowSlider = /*#__PURE__*/function (_HTMLElement5) {
+  _inherits(OverflowSlider, _HTMLElement5);
+
+  var _super5 = _createSuper(OverflowSlider);
+
+  function OverflowSlider() {
+    var _this10;
+
+    _classCallCheck(this, OverflowSlider);
+
+    _this10 = _super5.call(this);
+    _this10.slider = _assertThisInitialized(_this10);
+    _this10.sliderContainer = _this10.querySelector(".overflow-slider__container");
+    _this10.prevArrow = _this10.querySelector(".overflow-slider__arrow.prev");
+    _this10.nextArrow = _this10.querySelector(".overflow-slider__arrow.next");
+    if (!_this10.prevArrow || !_this10.nextArrow) return _possibleConstructorReturn(_this10);
+    theme.initWhenVisible({
+      element: _assertThisInitialized(_this10),
+      callback: _this10.init.bind(_assertThisInitialized(_this10)),
+      threshold: 600
+    });
+    return _this10;
+  }
+
+  _createClass(OverflowSlider, [{
+    key: "init",
+    value: function init() {
+      var _this11 = this;
+
+      [this.prevArrow, this.nextArrow].forEach(function (arrow) {
+        arrow.addEventListener("click", function () {
+          _this11.moveSlide(arrow.classList.contains("prev"));
+        });
+      });
+      this.sliderContainer.addEventListener("scroll", function () {
+        var scrollPercentage = _this11.sliderContainer.scrollLeft / (_this11.sliderContainer.scrollWidth - _this11.sliderContainer.clientWidth) * 100;
+        var hidePrev = scrollPercentage <= 2;
+        var hideNext = scrollPercentage >= 98;
+
+        if (hidePrev) {
+          _this11.prevArrow.classList.add("hide");
+        } else {
+          _this11.prevArrow.classList.remove("hide");
+        }
+
+        if (hideNext) {
+          _this11.nextArrow.classList.add("hide");
+        } else {
+          _this11.nextArrow.classList.remove("hide");
+        }
+      });
+    }
+  }, {
+    key: "moveSlide",
+    value: function moveSlide(prevPressed) {
+      var slideWidth = this.sliderContainer.firstElementChild.offsetWidth + this.sliderContainer.scrollLeft;
+      var direction = prevPressed ? -1 : 1;
+      var endPos = slideWidth * direction;
+      this.sliderContainer.scrollLeft = endPos;
+    }
+  }]);
+
+  return OverflowSlider;
+}( /*#__PURE__*/_wrapNativeSuper(HTMLElement));
+
+customElements.define("overflow-slider", OverflowSlider);
 /* Logic the Shopify Starter Included */
 ////////////////////////////////////////
 ///////////////////////////////////////

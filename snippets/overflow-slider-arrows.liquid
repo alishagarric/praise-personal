@@ -1,0 +1,18 @@
+{% comment %}
+  Renders an overflow slider arrows
+
+  Expects: Nada
+
+  Usage:
+  <overflow-slider class="{% if hide_arrows_on_desktop %}__hide-desktop-arrows{% endif %} {% if hide_arrows_on_tablet %}__hide-tablet-arrows{% endif%}">
+    {% render 'overflow-slider-arrows' %}
+  </overflow-slider>
+
+{% endcomment %}
+
+<div class="overflow-slider__arrow next">
+  {% render 'svg-slider-arrow' %}
+</div>
+<div class="overflow-slider__arrow prev hide">
+  {% render 'svg-slider-arrow' %}
+</div>

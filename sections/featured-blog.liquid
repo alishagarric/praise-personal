@@ -11,13 +11,13 @@
   assign show_assc_product = section.settings.show_assc_product
   assign crop_shape = section.settings.crop_shape
   assign section_blog = section.settings.blog
-  assign article_count = section_blog.articles.size
   assign mobile_layout = section.settings.mobile_layout
 
-  assign initiate_flickity = false
-
-  if article_count > 3 
-    assign initiate_flickity = true
+  if section_blog.articles.size < 4
+    assign hide_arrows_on_desktop = true 
+  endif
+  if section_blog.articles.size < 3
+    assign hide_arrows_on_tablet = true
   endif
 %}
 
@@ -28,12 +28,12 @@
   }
 {% endstyle %}
 
-<div id="Featured-blog-{{ section.id }}" class="featured-blog __theme-{{ section_theme }} {% if initiate_flickity == false %}__no-slider{% endif %} __mobile-{{ mobile_layout }}">
-  <featured-blog class="featured-blog__inner" data-slider="{{ initiate_flickity }}">
-    {% render 'heading', class: "featured-blog", heading: section.settings.heading, heading_size: section.settings.heading_size %}
+<div id="Featured-blog-{{ section.id }}" class="featured-blog __theme-{{ section_theme }} __mobile-{{ mobile_layout }}">
+  {% render 'heading', class: "featured-blog", heading: section.settings.heading, heading_size: section.settings.heading_size %}
+  <overflow-slider class="featured-blog__inner overflow-slider {% if hide_arrows_on_desktop %}__hide-desktop-arrows{% endif %} {% if hide_arrows_on_tablet %}__hide-tablet-arrows{% endif %}">
     
     {%- if section_blog != blank and section_blog.articles_count > 0 -%}
-      <ul class="featured-blog__articles list-unstyled" role="list">
+      <ul class="featured-blog__articles list-unstyled overflow-slider__container" role="list">
         {%- for article in section_blog.articles -%} 
           <li class="featured-blog__articles__article-container">
             {% render 'article-card', class: "featured-blog__card", crop: crop_shape, show_assc_product: show_assc_product, button_label: button_label, alignment: alignment, show_description: show_description, show_author: show_author, show_date: show_date, alt_heading: alt_heading, article: article %}
@@ -51,7 +51,10 @@
         {% endfor %}
       </ul>
     {%- endif -%}
-  </featured-blog>
+
+
+    {% render 'overflow-slider-arrows' %}
+  </overflow-slider>
 </div>
     
   {% schema %}
