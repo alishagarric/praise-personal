@@ -175,7 +175,7 @@
       },
       {
          "type": "header",
-         "content": "Settings"
+         "content": "Content"
       },
       {
          "type": "checkbox",
@@ -202,6 +202,10 @@
             }
          ],
          "default":"left"
+      },
+      {
+         "type": "header",
+         "content": "Settings"
       },
       {
          "type": "select",
@@ -232,41 +236,13 @@
          "label": "Theme"
       },
       {
-         "type": "header",
-         "content": "External Spacing"
-      },
-      {
-         "type":"range",
-         "id":"top_spacing",
-         "min":0,
-         "max":100,
-         "step":10,
-         "unit":"%",
-         "label":"Top Spacing",
-         "default":0
-      },
-      {
-         "type":"range",
-         "id":"bottom_spacing",
-         "min":0,
-         "max":100,
-         "step":10,
-         "unit":"%",
-         "label":"Bottom Spacing",
-         "default":0
-      },
-      {
-         "type": "header",
-         "content": "Internal Spacing"
-      },
-      {
          "type":"range",
          "id":"top_internal_spacing",
          "min":0,
          "max":300,
          "step":10,
          "unit":"%",
-         "label":"Top Spacing",
+         "label":"Top Text Content Spacing",
          "default":100
       },
       {
@@ -276,9 +252,29 @@
          "max":300,
          "step":10,
          "unit":"%",
-         "label":"Bottom Spacing",
+         "label":"Bottom Text Content Spacing",
          "default":100
-      }
+      },
+      {
+         "type":"range",
+         "id":"top_spacing",
+         "min":0,
+         "max":100,
+         "step":10,
+         "unit":"%",
+         "label":"Top Section Spacing",
+         "default":0
+      },
+      {
+         "type":"range",
+         "id":"bottom_spacing",
+         "min":0,
+         "max":100,
+         "step":10,
+         "unit":"%",
+         "label":"Bottom Section Spacing",
+         "default":0
+      },
    ],
    "blocks": [
       {
