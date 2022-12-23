@@ -4,9 +4,30 @@
       "type": "main-page",
       "settings": {
       }
+    },
+    "821dd889-5988-459e-a8c5-4efc656fbc6f": {
+      "type": "featured-blog",
+      "settings": {
+        "heading": "Lorem ipsum",
+        "heading_size": "h5",
+        "blog": "news",
+        "alt_heading": false,
+        "show_date": false,
+        "show_description": false,
+        "show_author": false,
+        "show_assc_product": false,
+        "button_label": "",
+        "alignment": "left",
+        "crop_shape": "default",
+        "mobile_layout": "slider",
+        "theme": "primary",
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "821dd889-5988-459e-a8c5-4efc656fbc6f"
   ]
 }
