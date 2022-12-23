@@ -17,8 +17,8 @@
         "show_author": false,
         "show_assc_product": false,
         "button_label": "Go to Article",
-        "alignment": "left",
         "crop_shape": "default",
+        "alignment": "left",
         "mobile_layout": "slider",
         "theme": "primary",
         "top_spacing": 50,
@@ -27,6 +27,17 @@
     },
     "a57e6883-f37a-4f22-8bb7-09e9c635c2f3": {
       "type": "collections-list",
+      "blocks": {
+        "518b58a9-d5f6-4547-a18b-66c4c81caa98": {
+          "type": "collection",
+          "settings": {
+            "collection": "back-in-stock"
+          }
+        }
+      },
+      "block_order": [
+        "518b58a9-d5f6-4547-a18b-66c4c81caa98"
+      ],
       "settings": {
         "heading": "Lorem ipsum dolor sit",
         "heading_size": "h4",
@@ -38,13 +49,27 @@
     },
     "39965a53-c8bc-4313-8b32-518d1351c245": {
       "type": "content-marquee",
+      "blocks": {
+        "25746131-97b5-4b5b-b44b-d0be8d917eaa": {
+          "type": "quote",
+          "settings": {
+            "quote": "",
+            "quotations": true,
+            "details": "",
+            "background_theme": "primary",
+            "card_corners": "default"
+          }
+        }
+      },
+      "block_order": [
+        "25746131-97b5-4b5b-b44b-d0be8d917eaa"
+      ],
       "settings": {
         "alignment": "left",
         "speed": 5,
         "theme": "primary",
         "top_spacing": 50,
-        "bottom_spacing": 50,
-        "text": "Lorem ipsum"
+        "bottom_spacing": 50
       }
     },
     "c0ea4ec6-4d3a-42cd-8b57-23e3e2954624": {
@@ -123,6 +148,48 @@
     },
     "b5349033-51cf-416a-a2d8-3749c6efde5b": {
       "type": "image-banner",
+      "blocks": {
+        "9ec863a4-404a-4349-b92d-7d1e9ff05d3f": {
+          "type": "caption",
+          "settings": {
+            "caption": "Lorem ipsum"
+          }
+        },
+        "976e54c9-8a12-4c5a-81f0-65706de418c0": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+          }
+        },
+        "91b75688-9a90-4a85-b82c-c5bf871aeac6": {
+          "type": "heading",
+          "settings": {
+            "heading": "Lorem ipsum dolor sit",
+            "heading_size": "h2"
+          }
+        },
+        "2bb4323f-df2f-4263-bb04-dba52befec8d": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.<\/p>"
+          }
+        },
+        "8eee9214-0504-4e0e-b055-347b9287e4f3": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_color": "default"
+          }
+        }
+      },
+      "block_order": [
+        "9ec863a4-404a-4349-b92d-7d1e9ff05d3f",
+        "976e54c9-8a12-4c5a-81f0-65706de418c0",
+        "91b75688-9a90-4a85-b82c-c5bf871aeac6",
+        "2bb4323f-df2f-4263-bb04-dba52befec8d",
+        "8eee9214-0504-4e0e-b055-347b9287e4f3"
+      ],
       "settings": {
         "overlay": 50,
         "overlay_theme": "primary",
@@ -138,6 +205,37 @@
     },
     "1a9f5d09-5b3a-42bb-aeee-7bbcbbbd32e8": {
       "type": "multicolumn",
+      "blocks": {
+        "89004e85-ba20-432a-9e1e-15b60572eae0": {
+          "type": "image",
+          "settings": {
+            "overlay": 0,
+            "overlay_theme": "primary",
+            "crop_shape": "default",
+            "heading": "Lorem ipsum",
+            "heading_size": "h5",
+            "overlap": false,
+            "text": "",
+            "button_label": "Button label",
+            "button_link": "",
+            "button_color": "default"
+          }
+        },
+        "682505da-843e-4347-a45f-3fa8dd1ad20b": {
+          "type": "quote",
+          "settings": {
+            "quote": "",
+            "quotations": true,
+            "details": "",
+            "background_theme": "primary",
+            "card_corners": "default"
+          }
+        }
+      },
+      "block_order": [
+        "89004e85-ba20-432a-9e1e-15b60572eae0",
+        "682505da-843e-4347-a45f-3fa8dd1ad20b"
+      ],
       "settings": {
         "alignment": "left",
         "columns_desktop": 3,
@@ -248,13 +346,13 @@
         "template--16667010040030__70f7cdf8-7e14-4ba9-920d-7518a5d3328a-16718204906faa1cc7-2"
       ],
       "settings": {
+        "image_style": "default",
         "hero": false,
         "alignment": "default",
-        "theme": "primary",
         "layout": "default",
         "mobile_layout": "default",
         "mobile_image_height": 450,
-        "image_style": "default",
+        "theme": "primary",
         "top_internal_spacing": 100,
         "bottom_internal_spacing": 100,
         "top_spacing": 50,
@@ -264,13 +362,13 @@
     "001ce40f-b335-4d71-ac99-15dcd1b69253": {
       "type": "text-marquee",
       "settings": {
+        "text": "Lorem ipsum",
         "text_size": "h6",
         "alt_heading": false,
         "speed": 5,
         "theme": "primary",
         "top_spacing": 50,
-        "bottom_spacing": 50,
-        "text": "Lorem ipsum"
+        "bottom_spacing": 50
       }
     }
   },
