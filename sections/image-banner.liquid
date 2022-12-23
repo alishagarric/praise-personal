@@ -28,13 +28,6 @@
                   {%- when 'heading' -%}
                      {% render 'heading', class: "image-banner", use_as_hero: section.settings.hero, heading: block.settings.heading, heading_size: block.settings.heading_size %}
 
-                  {%- when 'subheading' -%}
-                     {% if section.settings.hero %}
-                        <h2 class="image-banner__subheading h5">{{ block.settings.subheading }}</h2>
-                     {% else %}
-                        <h3 class="image-banner__subheading h5">{{ block.settings.subheading }}</h3>
-                     {% endif %}
-
                   {%- when 'text' -%}
                      <div class="image-banner__text __article-txt">{{ block.settings.text }}</div>
 
@@ -63,7 +56,7 @@
    "settings":[
       {
          "type": "header",
-         "content": "Background Image"
+         "content": "Image Content"
       },  
       {
          "type": "image_picker",
@@ -115,7 +108,7 @@
          "options": [
             {
                "value": "default",
-               "label": "No Crop (Default)"
+               "label": "No Crop)"
             },
             {
                "value": "square",
@@ -274,7 +267,7 @@
          "unit":"%",
          "label":"Bottom Section Spacing",
          "default":0
-      },
+      }
    ],
    "blocks": [
       {
@@ -324,19 +317,6 @@
                ],
                "default": "h2",
                "label": "Heading Size"
-            }
-         ]
-      },
-      {
-         "type": "subheading",
-         "name": "Subheading",
-         "limit": 1,
-         "settings": [
-            {
-               "type": "text",
-               "id": "subheading",
-               "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-               "label": "Subheading"
             }
          ]
       },
