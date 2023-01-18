@@ -262,11 +262,11 @@
     "10af1c74-0a5c-4dbb-833f-ec4495c9398f": {
       "type": "text-marquee",
       "settings": {
-        "text": "Lorem ipsum",
+        "text": "Lorem ipsum dolor enim ad minim veniam    ",
         "text_size": "h6",
         "alt_heading": false,
         "speed": 5,
-        "theme": "primary",
+        "theme": "2",
         "top_spacing": 50,
         "bottom_spacing": 50
       }
