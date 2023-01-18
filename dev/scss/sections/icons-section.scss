@@ -15,7 +15,8 @@
     &__icon {
       text-align: center;
 
-      img {
+      img,
+      svg {
         height: var(--iconHeight);
         width: auto;
         margin-bottom: 1rem;
