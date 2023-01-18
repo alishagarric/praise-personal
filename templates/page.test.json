@@ -121,6 +121,33 @@
     },
     "7449cf6a-8315-49ea-8ca9-819e2901905f": {
       "type": "image-banner",
+      "blocks": {
+        "9086ae07-4bd6-42c0-8cbe-399aba1aba25": {
+          "type": "heading",
+          "settings": {
+            "heading": "Lorem ipsum dolor sit",
+            "heading_size": "h2"
+          }
+        },
+        "831626aa-2a7e-4c72-a237-2377291357ad": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>"
+          }
+        },
+        "66fa0e52-e179-47ed-951d-4756ccecc86c": {
+          "type": "button",
+          "settings": {
+            "button_label": "Laboris Nisi",
+            "button_color": "default"
+          }
+        }
+      },
+      "block_order": [
+        "9086ae07-4bd6-42c0-8cbe-399aba1aba25",
+        "831626aa-2a7e-4c72-a237-2377291357ad",
+        "66fa0e52-e179-47ed-951d-4756ccecc86c"
+      ],
       "settings": {
         "overlay": 50,
         "overlay_theme": "primary",

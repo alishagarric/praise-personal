@@ -39,11 +39,14 @@
       {% endif %}
 
 
-      {%- if section.settings.image != blank -%}
+      
          <div class="image-banner__image __crop-{{ crop_shape }} {% if crop_shape != "default" %}__theme-{{ section.settings.overlay_theme }} {% endif %}">
-            {% render 'next-gen-img', image: section.settings.image %}
+            {%- if section.settings.image != blank -%}
+               {% render 'next-gen-img', image: section.settings.image %}
+            {%- else -%}
+               {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+            {%- endif -%}
          </div>
-      {%- endif -%}
 
    </div>
 </div>
@@ -341,7 +344,7 @@
             {
                "type": "text",
                "id": "button_label",
-               "default": "Button label",
+               "default": "Laboris Nisi",
                "label": "Button Label"
             },
             {
@@ -386,7 +389,18 @@
    ],
    "presets": [
       {
-         "name":"Image Banner"
+         "name":"Image Banner",
+         "blocks": [
+            {
+               "type": "heading"
+            },
+            {
+               "type": "text"
+            },
+            {
+               "type": "button"
+            }
+         ]
       }
    ]
 }

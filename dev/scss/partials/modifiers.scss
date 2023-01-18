@@ -30,7 +30,8 @@
   position: relative;
   overflow: hidden;
 
-  img {
+  img,
+  svg {
     position: absolute;
     inset: 0;
     width: 100%;
