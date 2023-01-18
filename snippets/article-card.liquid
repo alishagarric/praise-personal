@@ -37,7 +37,7 @@
 {% assign image_width = article.image.width | times: 1.0 %}
 {% assign image_ratio = image_height| divided_by: image_width | times: 100 %}
 
-
+YO
 <a 
   class="article-card {{ class }} __align-{{ alignment }}" 
   href="{{ article.url }}" 
@@ -47,7 +47,7 @@
     {% if article.image %}
       {% render 'next-gen-img', image: article.image %}
     {% else %}
-      <h3 class="p-lg">{{ article.title }}</h3>
+      <h3 class="p-lg">{% if article %}{{ article.title }}{% else %}{{ sections.main-article.name | t }}{% endif %}</h3>
     {% endif %}
 
     {% if show_assc_product and article.metafields.custom.associated_product %}

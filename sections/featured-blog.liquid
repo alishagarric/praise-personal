@@ -13,7 +13,7 @@
   assign section_blog = section.settings.blog
   assign mobile_layout = section.settings.mobile_layout
 
-  if section_blog.articles.size < 4
+  if section_blog == blank or section_blog.articles.size < 4
     assign hide_arrows_on_desktop = true 
   endif
   if section_blog.articles.size < 3
