@@ -13,6 +13,18 @@
     }
   }
 
+  &-left {
+    text-align: left;
+    align-items: flex-start;
+    margin-right: auto;
+
+    > *,
+    p {
+      justify-content: flex-start;
+      margin-right: auto;
+    }
+  }
+
   &-right {
     text-align: right;
     align-items: flex-end;
