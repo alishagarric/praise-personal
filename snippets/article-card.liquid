@@ -35,17 +35,24 @@
 
 {% assign image_height = article.image.height | times: 1.0 %}
 {% assign image_width = article.image.width | times: 1.0 %}
-{% assign image_ratio = image_height| divided_by: image_width | times: 100 %}
+{% assign image_ratio = image_height | divided_by: image_width | times: 100 %}
 
-
+{% unless article != blank %}
+  {% assign article_url = "/" %}
+  {% assign article_title = "Enim ad minim veniam" %}
+  {% assign image_ratio = 100 %}
+  {% assign alignment = "center" %}
+{% endunless %}
 <a 
   class="article-card {{ class }} __align-{{ alignment }}" 
-  href="{{ article.url }}" 
+  href="{{ article_url }}" 
 >
 
   <div class="article-card__image __crop-{{ crop }}" style="--imageRatio: {{ image_ratio }}%">
-    {% if article.image %}
+    {% if article and article.image %}
       {% render 'next-gen-img', image: article.image %}
+    {% elsif article == blank %}
+      {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
     {% else %}
       <h3 class="p-lg">{% if article %}{{ article.title }}{% else %}{{ sections.main-article.name | t }}{% endif %}</h3>
     {% endif %}
@@ -57,7 +64,7 @@
   </div>
 
   <h3 class="article-card__title h6 {% if alt_heading == true %}alt{% endif %}">
-    {{ article.title | escape }}
+    {{ article_title | escape }}
   </h3>
 
   {% if show_date %}

@@ -13,7 +13,7 @@
   assign section_blog = section.settings.blog
   assign mobile_layout = section.settings.mobile_layout
 
-  if section_blog == blank or section_blog.articles.size < 4
+  if section_blog.articles.size < 4
     assign hide_arrows_on_desktop = true 
   endif
   if section_blog.articles.size < 3
@@ -30,6 +30,7 @@
 
 <div id="Featured-blog-{{ section.id }}" class="featured-blog __theme-{{ section_theme }} __mobile-{{ mobile_layout }}">
   {% render 'heading', class: "featured-blog", heading: section.settings.heading, heading_size: section.settings.heading_size %}
+
   <overflow-slider class="featured-blog__inner overflow-slider {% if hide_arrows_on_desktop %}__hide-desktop-arrows{% endif %} {% if hide_arrows_on_tablet %}__hide-tablet-arrows{% endif %}">
     
     {%- if section_blog != blank and section_blog.articles_count > 0 -%}
@@ -43,10 +44,10 @@
 
     {% comment %}TODO optional view all articles button {% endcomment %}
     {%- else -%}
-      <ul class="featured-blog__articles list-unstyled" role="list">
-        {%- for i in (1..3) -%} 
+      <ul class="featured-blog__articles list-unstyled overflow-slider__container" role="list">
+        {%- for i in (1..4) -%} 
           <li class="featured-blog__articles__article-container">
-            {% render 'article-card' %}
+            {% render 'article-card', class: "featured-blog__card", crop: crop_shape, article: article %}
           </li>
         {% endfor %}
       </ul>
