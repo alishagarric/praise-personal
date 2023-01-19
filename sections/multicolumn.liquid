@@ -46,6 +46,12 @@
                   {% render 'button', class: "multicolumn", button_label: block.settings.button_label, button_link: block.settings.button_link, button_color: block.settings.button_color %}
                 </div>
 
+              {%- when 'product' -%}
+                {% render 'product-card', product: block.settings.product %}
+
+              {%- when 'collection' -%}
+                {% render 'collection-card', collection: block.settings.collection %}
+
             {%- endcase -%}
         {%- endfor -%}
       {% endif %}
@@ -438,6 +444,28 @@
             ],
             "default": "default",
             "label": "Card Corners"
+          }
+        ]
+      }, 
+      {
+        "type": "collection",
+        "name": "Collection",
+        "settings": [
+          {
+            "type": "collection",
+            "id": "collection",
+            "label": "Collection"
+          }
+        ]
+      },
+      {
+        "type": "product",
+        "name": "Product",
+        "settings": [
+          {
+            "type": "product",
+            "id": "product",
+            "label": "Product"
           }
         ]
       }
