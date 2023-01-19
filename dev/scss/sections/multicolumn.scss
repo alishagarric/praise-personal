@@ -2,11 +2,8 @@
   --multicolumnSectionTextColor: var(--color-text);
   --multiColumnHalfGap: calc(var(--pxSize) / 6);
 
-  &__inner {
-    padding: 0 var(--multiColumnHalfGap);
-  }
-
   &__container {
+    padding: 0 var(--multiColumnHalfGap);
     margin-left: calc(var(--sectionGuttersSpacing) * -1);
     margin-right: calc(var(--sectionGuttersSpacing) * -1);
   }
@@ -75,13 +72,6 @@
 
       &__item {
         flex: 0 0 calc(100% / var(--desktopColumns));
-
-        &:first-child {
-          //  padding-left: var(--sectionGuttersSpacing);
-          /* width: calc(
-            calc(100% / var(--desktopColumns)) + var(--sectionGuttersSpacing)
-          );*/
-        }
       }
     }
   }

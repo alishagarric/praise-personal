@@ -2,15 +2,19 @@
     assign crop_shape = section.settings.crop_shape
     assign hide_arrows_on_desktop = true
     assign hide_arrows_on_tablet = true
-    assign blocks_size = 0
+    assign placeholder_blocks_size = 3
+    assign blocks_size = placeholder_blocks_size
 
-    for block in section.blocks
-      assign blocks_size = blocks_size | plus: 1
-      case block.type
-        when 'products' or 'collections'
-          assign blocks_size = blocks_size | plus: block.settings.products.count | plus: block.settings.collections.count | minus: 1
-      endcase
-    endfor
+    if section.blocks.size > 0
+      assign blocks_size = 0
+      for block in section.blocks
+        assign blocks_size = blocks_size | plus: 1
+        case block.type
+          when 'products' or 'collections'
+            assign blocks_size = blocks_size | plus: block.settings.products.count | plus: block.settings.collections.count | minus: 1
+        endcase
+      endfor
+    endif 
 
     if section.settings.layout == "slider" and blocks_size > section.settings.columns_desktop
       assign hide_arrows_on_desktop = false
@@ -75,16 +79,23 @@
 
                 {%- when 'products' -%}
                   {% for product in block.settings.products %}
-                    {% render 'product-card', product: product, class: "multicolumn__item __align" block.settings.alignment %}
+                    {% render 'product-card', product: product, class: "multicolumn__item", alignment: block.settings.alignment %}
                   {% endfor %}
 
                 {%- when 'collections' -%}
                   {% for collection in block.settings.collections %}
-                    {% render 'collection-card', collection: collection, class: "multicolumn__item __align-" block.settings.alignment %}
+                    {% render 'collection-card', collection: collection, class: "multicolumn__item", alignment: block.settings.alignment %}
                   {% endfor %}
 
               {%- endcase -%}
           {%- endfor -%}
+
+        {% else %}
+          {% for i in (1..placeholder_blocks_size) %}
+            <div class="multicolumn__item">
+              {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+            </div>
+          {% endfor %}
         {% endif %}
       </div>
 
