@@ -2,7 +2,8 @@
   "sections": {
     "main": {
       "type": "main-page",
-      "settings": {}
+      "settings": {
+      }
     },
     "1f684236-a923-47f5-8d36-9a941e408de5": {
       "type": "featured-blog",
@@ -67,7 +68,7 @@
         "crop_shape": "default",
         "heading": "Lorem Ipsum",
         "alt_heading": false,
-        "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>",
+        "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.<\/p>",
         "collection_text_content": false,
         "stack_text_content": false,
         "alignment": "left",
@@ -132,7 +133,7 @@
         "831626aa-2a7e-4c72-a237-2377291357ad": {
           "type": "text",
           "settings": {
-            "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>"
+            "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.<\/p>"
           }
         },
         "66fa0e52-e179-47ed-951d-4756ccecc86c": {
@@ -186,7 +187,7 @@
         "template--16667010040030__d1f9e67d-b8b8-464c-a769-992c81e48842-167182361312243674-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>"
+            "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.<\/p>"
           }
         },
         "template--16667010040030__d1f9e67d-b8b8-464c-a769-992c81e48842-167182361312243674-2": {
@@ -255,7 +256,7 @@
         "template--16667010040030__cdbdecf3-98b2-409a-a20f-dddec1c5b4ff-1671823613772c429b-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>"
+            "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.<\/p>"
           }
         },
         "template--16667010040030__cdbdecf3-98b2-409a-a20f-dddec1c5b4ff-1671823613772c429b-2": {

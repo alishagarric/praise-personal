@@ -32,12 +32,15 @@
       ],
       "settings": {
         "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash.jpg",
+        "image_style": "wide",
         "hero": true,
         "alignment": "center",
-        "theme": "primary",
         "layout": "reversed",
+        "mobile_layout": "default",
         "mobile_image_height": 400,
-        "image_style": "wide",
+        "theme": "primary",
+        "top_internal_spacing": 100,
+        "bottom_internal_spacing": 100,
         "top_spacing": 0,
         "bottom_spacing": 0
       }
@@ -45,13 +48,13 @@
     "text-marquee": {
       "type": "text-marquee",
       "settings": {
+        "text": "Yeah, we heard you’re vegan, but our cookies aren’t",
         "text_size": "h6",
         "alt_heading": false,
         "speed": 6,
         "theme": "2",
         "top_spacing": 20,
-        "bottom_spacing": 20,
-        "text": "Yeah, we heard you’re vegan, but our cookies aren’t"
+        "bottom_spacing": 20
       }
     },
     "1663189358d1a4ecd6": {
@@ -61,6 +64,7 @@
         "theme_slider": true,
         "show_phrase": true,
         "show_description": false,
+        "quick_add": false,
         "alt_title": true,
         "product_text_alignment": "center",
         "price": "not-visible",
@@ -108,12 +112,13 @@
       ],
       "settings": {
         "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_cd0b890c-b357-4857-9c0d-36126dbfab86.jpg",
+        "image_style": "wide",
         "hero": false,
         "alignment": "center",
-        "theme": "primary",
         "layout": "default",
         "mobile_layout": "reversed",
-        "image_style": "wide",
+        "mobile_image_height": 450,
+        "theme": "primary",
         "top_internal_spacing": 100,
         "bottom_internal_spacing": 100,
         "top_spacing": 0,
@@ -160,6 +165,7 @@
         "layout": "3",
         "mobile_layout": "1",
         "icon_height": 50,
+        "alignment": "center",
         "theme": "2",
         "top_spacing": 70,
         "bottom_spacing": 50
@@ -287,10 +293,10 @@
         "hero": false,
         "alignment": "left",
         "theme": "primary",
-        "top_spacing": 100,
-        "bottom_spacing": 100,
         "top_internal_spacing": 100,
-        "bottom_internal_spacing": 0
+        "bottom_internal_spacing": 0,
+        "top_spacing": 100,
+        "bottom_spacing": 100
       }
     },
     "166329465577f05b4c": {
@@ -331,10 +337,10 @@
         "hero": false,
         "alignment": "left",
         "theme": "primary",
-        "top_spacing": 0,
-        "bottom_spacing": 0,
         "top_internal_spacing": 200,
-        "bottom_internal_spacing": 300
+        "bottom_internal_spacing": 300,
+        "top_spacing": 0,
+        "bottom_spacing": 0
       }
     },
     "1663294968d8440c8d": {
@@ -344,6 +350,8 @@
         "theme_slider": false,
         "show_phrase": false,
         "show_description": true,
+        "quick_add": false,
+        "alt_title": false,
         "product_text_alignment": "default",
         "price": "bottom",
         "crop_shape": "square",
@@ -353,6 +361,18 @@
         "collection_text_content": false,
         "stack_text_content": true,
         "alignment": "center",
+        "theme": "primary",
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
+    },
+    "ff755975-bca6-4b0c-b183-f92584c32baa": {
+      "type": "multicolumn",
+      "settings": {
+        "alignment": "left",
+        "columns_desktop": 3,
+        "columns_mobile": 2,
+        "layout": "default",
         "theme": "primary",
         "top_spacing": 50,
         "bottom_spacing": 50
@@ -391,8 +411,8 @@
         "show_author": false,
         "show_assc_product": false,
         "button_label": "",
-        "alignment": "center",
         "crop_shape": "rounded-square",
+        "alignment": "center",
         "mobile_layout": "stacked-4",
         "theme": "2",
         "top_spacing": 50,
@@ -486,6 +506,7 @@
     "77926ee0-c4cd-4878-a4bf-192a1c0681ed",
     "166329465577f05b4c",
     "1663294968d8440c8d",
+    "ff755975-bca6-4b0c-b183-f92584c32baa",
     "rich-text",
     "9b7e1c54-0b63-432c-bf6b-6416486399ff",
     "bd10db7c-6fad-4554-8a11-8fb51fd79804"
