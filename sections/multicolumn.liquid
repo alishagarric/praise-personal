@@ -1,5 +1,24 @@
 {% liquid
-   assign crop_shape = section.settings.crop_shape
+    assign crop_shape = section.settings.crop_shape
+    assign hide_arrows_on_desktop = true
+    assign hide_arrows_on_tablet = true
+    assign blocks_size = 0
+
+    for block in section.blocks
+      assign blocks_size = blocks_size | plus: 1
+      case block.type
+        when 'products' or 'collections'
+          assign blocks_size = blocks_size | plus: block.settings.products.count | plus: block.settings.collections.count | minus: 1
+      endcase
+    endfor
+
+    if section.settings.layout == "slider" and blocks_size > section.settings.columns_desktop
+      assign hide_arrows_on_desktop = false
+    endif
+
+    if section.settings.layout == "slider" and blocks_size > section.settings.columns_mobile
+      assign hide_arrows_on_tablet = false
+    endif
 %}
 
 {% style %}
@@ -12,50 +31,66 @@
  {% endstyle %}
 
 
-<div id="Multicolumn-{{ section.id }}" class="multicolumn __theme-{{ section.settings.theme }} __layout-{{ section.settings.layout }}">
-   <multicolumn-slider class="multicolumn__inner" data-slider="{{ section.settings.layout }}">
+<div id="Multicolumn-{{ section.id }}" class="multicolumn __theme-{{ section.settings.theme }} __layout-{{ section.settings.layout }} __align-{{section.settings.alignment}}">
 
-      {% if section.blocks.size > 0 %}
-        {%- for block in section.blocks -%}
-            {%- case block.type -%}
+  {% render 'heading', class: "multicolumn", heading: section.settings.heading, alt_heading: section.settings.alt_heading, heading_size: section.settings.heading_size %}
 
-              {%- when 'quote' -%}
-                {% render 'quote-card' quote: block.settings.quote, alignment: section.settings.alignment, background_theme: block.settings.background_theme, card_corners: block.settings.card_corners, quotations: block.settings.quotations, details: block.settings.details, logo: block.settings.logo, class: "multicolumn__item" %}
+  {% if section.settings.description %}
+    {{ section.settings.description }}
+  {% endif %}
 
-              {%- when 'image' -%}
-                {% assign image_height = block.settings.image.height | times: 1.0 %}
-                {% assign image_width = block.settings.image.width | times: 1.0 %}
-                {% assign image_ratio = image_height| divided_by: image_width | times: 100 %}
+   <overflow-slider class="multicolumn__inner overflow-slider {% if hide_arrows_on_desktop %}__hide-desktop-arrows{% endif %} {% if hide_arrows_on_tablet %}__hide-tablet-arrows{% endif%}">
+      <div class="overflow-slider__container multicolumn__container">
 
-                <div class="multicolumn__item __align-{{section.settings.alignment}}">
-                  {%- if block.settings.image != blank -%}
-                    <div class="multicolumn__image __crop-{{ block.settings.crop_shape }} {% if block.settings.overlay_theme %}__theme-{{ block.settings.overlay_theme }}{% endif %} --overlayOpacity: calc({{section.settings.overlay}} / 100);" style="--imageRatio: {{ image_ratio }}%;">
-                      {% render 'next-gen-img', image: block.settings.image %}
-                      {% if block.settings.overlap == true %}
-                        {% render 'heading', class: "multicolumn", heading: block.settings.heading, heading_size: block.settings.heading_size %}
-                      {% endif %}
-                    </div>
-                  {%- endif -%}
-                  {% if block.settings.overlap == false or block.settings.image == blank %}
-                    {% render 'heading', class: "multicolumn", heading: block.settings.heading, heading_size: block.settings.heading_size %}
-                  {% endif %}
-                  
-                  {%- if block.settings.text -%}
-                    <div class="multicolum__text __article-txt" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
-                  {%- endif -%}
-                  {% render 'button', class: "multicolumn", button_label: block.settings.button_label, button_link: block.settings.button_link, button_color: block.settings.button_color %}
-                </div>
+        {% if section.blocks.size > 0 %}
+          {%- for block in section.blocks -%}
+              {%- case block.type -%}
 
-              {%- when 'product' -%}
-                {% render 'product-card', product: block.settings.product %}
+                {%- when 'quote' -%}
+                  {% render 'quote-card' quote: block.settings.quote, alignment: block.settings.alignment, background_theme: block.settings.background_theme, card_corners: block.settings.card_corners, quotations: block.settings.quotations, details: block.settings.details, logo: block.settings.logo, class: "multicolumn__item" %}
 
-              {%- when 'collection' -%}
-                {% render 'collection-card', collection: block.settings.collection %}
+                {%- when 'image' -%}
+                  {% assign image_height = block.settings.image.height | times: 1.0 %}
+                  {% assign image_width = block.settings.image.width | times: 1.0 %}
+                  {% assign image_ratio = image_height| divided_by: image_width | times: 100 %}
 
-            {%- endcase -%}
-        {%- endfor -%}
-      {% endif %}
-    </multicolumn-slider>
+                  <div class="multicolumn__item __align-{{block.settings.alignment}}">
+                    {%- if block.settings.image != blank -%}
+                      <div class="multicolumn__image __crop-{{ block.settings.crop_shape }} {% if block.settings.overlay_theme %}__theme-{{ block.settings.overlay_theme }}{% endif %} --overlayOpacity: calc({{section.settings.overlay}} / 100);" style="--imageRatio: {{ image_ratio }}%;">
+                        {% render 'next-gen-img', image: block.settings.image %}
+                        {% if block.settings.overlap == true %}
+                          {% render 'heading', class: "multicolumn", heading: block.settings.heading, heading_size: block.settings.heading_size %}
+                        {% endif %}
+                      </div>
+                    {%- endif -%}
+                    {% if block.settings.overlap == false or block.settings.image == blank %}
+                      {% render 'heading', class: "multicolumn", heading: block.settings.heading, heading_size: block.settings.heading_size %}
+                    {% endif %}
+                    
+                    {%- if block.settings.text -%}
+                      <div class="multicolumn__text __article-txt" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
+                    {%- endif -%}
+                    {% render 'button', class: "multicolumn", button_label: block.settings.button_label, button_link: block.settings.button_link, button_color: block.settings.button_color %}
+                  </div>
+
+                {%- when 'products' -%}
+                  {% for product in block.settings.products %}
+                    {% render 'product-card', product: product, class: "multicolumn__item __align" block.settings.alignment %}
+                  {% endfor %}
+
+                {%- when 'collections' -%}
+                  {% for collection in block.settings.collections %}
+                    {% render 'collection-card', collection: collection, class: "multicolumn__item __align-" block.settings.alignment %}
+                  {% endfor %}
+
+              {%- endcase -%}
+          {%- endfor -%}
+        {% endif %}
+      </div>
+
+
+      {% render 'overflow-slider-arrows', class: "multicolumn__arrow"%}
+    </overflow-slider>
 </div>
 
 {% schema %}
@@ -65,8 +100,49 @@
    "class":"multicolumn__wrapper",
    "settings": [
       {
-         "type": "header",
-         "content": "General"
+        "type": "header",
+        "content": "Text Content"
+      },
+      {
+          "type": "text",
+          "id": "heading",
+          "default": "Lorem ipsum dolor sit",
+          "label": "Heading"
+      },
+      {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+                "value": "h2",
+                "label": "X-Large"
+            },
+            {
+                "value": "h4",
+                "label": "Large"
+            },
+            {
+                "value": "h5",
+                "label": "Medium"
+            },
+            {
+                "value": "h6",
+                "label": "Small"
+            }
+          ],
+          "default": "h4",
+          "label": "Heading Size"
+      },
+      {
+        "type": "checkbox",
+        "id": "alt_heading",
+        "label": "Use body font instead of heading font for heading?"
+      },
+      {
+        "type": "richtext",
+        "id": "text",
+        "default": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>",
+        "label": "Description"
       },
       {
          "type": "radio",
@@ -86,7 +162,11 @@
                "label": "Right"
             }
          ],
-         "default": "left"
+         "default": "center"
+      },
+      {
+         "type": "header",
+         "content": "General"
       },
       {
          "type": "range",
@@ -327,6 +407,26 @@
             "label": "Description"
           },
           {
+            "type": "radio",
+            "id": "alignment",
+            "label": "Text Alignment",
+            "options": [
+                {
+                  "value": "left",
+                  "label":"Left"
+                },
+                {
+                  "value": "center",
+                  "label": "Center"
+                },
+                {
+                  "value": "right",
+                  "label": "Right"
+                }
+            ],
+            "default": "left"
+          },
+          {
             "type": "text",
             "id": "button_label",
             "default": "Laboris Nisi",
@@ -393,6 +493,26 @@
             "label": "Extra Details"
           },
           {
+            "type": "radio",
+            "id": "alignment",
+            "label": "Text Alignment",
+            "options": [
+                {
+                  "value": "left",
+                  "label":"Left"
+                },
+                {
+                  "value": "center",
+                  "label": "Center"
+                },
+                {
+                  "value": "right",
+                  "label": "Right"
+                }
+            ],
+            "default": "center"
+          },
+          {
             "type": "image_picker",
             "id": "logo",
             "label": "Logo"
@@ -455,6 +575,26 @@
             "type": "product_list",
             "id": "products",
             "label": "Products"
+          },
+          {
+            "type": "radio",
+            "id": "alignment",
+            "label": "Text Alignment",
+            "options": [
+                {
+                  "value": "left",
+                  "label":"Left"
+                },
+                {
+                  "value": "center",
+                  "label": "Center"
+                },
+                {
+                  "value": "right",
+                  "label": "Right"
+                }
+            ],
+            "default": "left"
           }
         ]
       },
@@ -466,6 +606,26 @@
             "type": "collection_list",
             "id": "collections",
             "label": "Collections"
+          },
+          {
+            "type": "radio",
+            "id": "alignment",
+            "label": "Text Alignment",
+            "options": [
+                {
+                  "value": "left",
+                  "label":"Left"
+                },
+                {
+                  "value": "center",
+                  "label": "Center"
+                },
+                {
+                  "value": "right",
+                  "label": "Right"
+                }
+            ],
+            "default": "left"
           }
         ]
       }
