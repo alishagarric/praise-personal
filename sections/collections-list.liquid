@@ -20,11 +20,21 @@
   {% render 'heading', class: "collections-list", heading: section.settings.heading, alt_heading: section.settings.alt_heading, heading_size: section.settings.heading_size %}
 
   <overflow-slider class="overflow-slider {% if hide_arrows_on_desktop %}__hide-desktop-arrows{% endif %} {% if hide_arrows_on_tablet %}__hide-tablet-arrows{% endif %}">
-    <div class="collections-list__container overflow-slider__container">
-      {% for block in section.blocks %}
-        {% render 'collection-card' collection: block.settings.collection %}
-      {% endfor %}
-    </div>
+    <ul class="collections-list__container list-unstyled overflow-slider__container">
+      {% if section.blocks.size > 0 %}
+        {% for block in section.blocks %}
+          <li>
+          {% render 'collection-card' collection: block.settings.collection %}
+          </li> 
+        {% endfor %}
+      {% else %}
+        {%- for i in (1..4) -%}
+          <li>
+            {% render 'collection-card' %}
+          </li> 
+        {%- endfor -%}
+      {% endif %}
+    </ul>
 
     {% render 'overflow-slider-arrows' %}
   </overflow-slider>

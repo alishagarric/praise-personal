@@ -37,6 +37,9 @@
 {% assign image_width = article.image.width | times: 1.0 %}
 {% assign image_ratio = image_height | divided_by: image_width | times: 100 %}
 
+{% assign article_url = article.url %}
+{% assign article_title = article.title %}
+
 {% unless article != blank %}
   {% assign article_url = "/" %}
   {% assign article_title = "Enim ad minim veniam" %}
@@ -54,7 +57,7 @@
     {% elsif article == blank %}
       {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
     {% else %}
-      <h3 class="p-lg">{% if article %}{{ article.title }}{% else %}{{ sections.main-article.name | t }}{% endif %}</h3>
+      <h3 class="p-lg">{{ article_title }}</h3>
     {% endif %}
 
     {% if show_assc_product and article.metafields.custom.associated_product %}
