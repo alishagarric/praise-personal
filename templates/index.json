@@ -368,6 +368,31 @@
     },
     "ff755975-bca6-4b0c-b183-f92584c32baa": {
       "type": "multicolumn",
+      "blocks": {
+        "318e36c7-3055-4cbf-b625-939c1028416e": {
+          "type": "products",
+          "settings": {
+            "products": [
+              "all-hail-sugar",
+              "cravings-beware",
+              "copy-of-cravings-beware",
+              "the-king"
+            ]
+          }
+        },
+        "55b67c32-820f-43ed-8e2d-7b621238fb95": {
+          "type": "collections",
+          "settings": {
+            "collections": [
+              "back-in-stock"
+            ]
+          }
+        }
+      },
+      "block_order": [
+        "318e36c7-3055-4cbf-b625-939c1028416e",
+        "55b67c32-820f-43ed-8e2d-7b621238fb95"
+      ],
       "settings": {
         "alignment": "left",
         "columns_desktop": 3,
