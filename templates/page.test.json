@@ -38,7 +38,7 @@
     "35c1267a-d1f8-4124-8907-e708a58431f8": {
       "type": "content-marquee",
       "settings": {
-        "alignment": "left",
+        "alignment": "center",
         "speed": 5,
         "theme": "primary",
         "top_spacing": 50,

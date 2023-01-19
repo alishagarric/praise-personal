@@ -11,6 +11,12 @@
   }
 
   &__quote {
+    margin-bottom: 0;
+
+    + * {
+      margin-top: 1rem;
+    }
+
     svg:first-child {
       margin-bottom: 1rem;
     }
