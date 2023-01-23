@@ -40,6 +40,10 @@
       width: var(--featuredCollectionCardWidth);
       padding: 0 calc(var(--pxSize) / 2);
       margin-bottom: calc(var(--sectionVerticalSpacing) / 2);
+
+      .product-card__phrase {
+        color: var(--featuredCollectionThemedTextColor);
+      }
     }
   }
 
@@ -105,47 +109,10 @@
   }
 
   &.__no-slider {
-    &.__layout-stacked {
-      padding-left: var(--sectionGuttersSpacing);
-      padding-right: var(--sectionGuttersSpacing);
-    }
-
     .featured-collection {
       &__cards {
         display: flex;
         justify-content: center;
-      }
-    }
-  }
-
-  &.__layout-stacked {
-    display: block;
-
-    .featured-collection {
-      &__text,
-      &__container {
-        border: none;
-        max-width: none;
-      }
-
-      &__cards {
-        &__card {
-          width: 25%;
-        }
-      }
-
-      &__text {
-        padding-bottom: 0;
-      }
-    }
-  }
-
-  &.__theme-slider {
-    &.__layout-stacked {
-      .featured-collection {
-        &__text {
-          padding-bottom: calc(var(--sectionVerticalSpacing) / 4);
-        }
       }
     }
   }
@@ -171,16 +138,6 @@
 
     .flickity-viewport {
       overflow: visible;
-    }
-
-    &.__layout-stacked {
-      .featured-collection {
-        &__cards {
-          &__card {
-            width: var(--featuredCollectionCardWidth);
-          }
-        }
-      }
     }
 
     &.__no-slider {

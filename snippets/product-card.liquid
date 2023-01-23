@@ -24,6 +24,7 @@
 
 {% endcomment %}
 
+
 {% assign crop = crop | default: "default" %}
 {% assign alt_heading = alt_heading | default: false %}
 {% assign alignment = alignment | default: "default" %}
@@ -32,15 +33,25 @@
 {% assign show_description = show_description | default: false %}
 {% assign price_position = price_position | default: "default" %}
 
-
+{% assign product_url = product.url %}
+{% assign product_title = product.title %}
 {% assign image_height = product.featured_image.height | times: 1.0 %}
 {% assign image_ratio = product.featured_image.width | divided_by: image_height | times: 100 %}
+
+{% unless product != blank %}
+  {% assign product_url = "/" %}
+  {% assign product_title = "Enim ad minim" %}
+  {% assign image_ratio = 100 %}
+{% endunless %}
+
 
 
 <a 
   class="product-card {{ class }} __align-{{ alignment }} {% if show_bg_color and product.metafields.custom.color %}__include-bg{% endif %}" 
-  href="{{ product.url }}" 
+  href="{{ product_url }}" 
   style="{% if product.metafields.custom.color %}--productColor: {{ product.metafields.custom.color }}{% endif %}"
+  data-bg-color="{% if product.metafields.custom.color %} {{ product.metafields.custom.color }} {% else %}var(--color-background){% endif %}"
+  data-text-color="{% if product.metafields.custom.text_color %} {{ product.metafields.custom.text_color }} {% else %}var(--color-text){% endif %}"
 >
 
   {% if show_phrase and product.metafields.custom.phrase %}
@@ -49,10 +60,12 @@
 
 
   <div class="product-card__image __crop-{{ crop }}" style="--imageRatio: {{ image_ratio }}%">
-    {% if product.featured_image %}
+    {% if product and product.featured_image %}
       {% render 'next-gen-img', image: product.featured_image %}
+    {% elsif product == blank %}
+      {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
     {% else %}
-      <h3 class="p-lg">{{ product.title }}</h3>
+      <h3 class="p-lg">{{ product_title }}</h3>
     {% endif %}
   </div>
 
@@ -63,7 +76,9 @@
   {% endif %}
 
   <div class="product-card__row">
-    <h3 class="product-card__title h6 {% if alt_heading == true %}alt{% endif %}">{{product.title}}</h3>
+    <h3 class="product-card__title h6 {% if alt_heading == true %}alt{% endif %}">
+      {{ product_title }}
+    </h3>
     {% if price_position == "default" %}
       {%- render 'price', class: "product-card__price" product: card_product -%}
     {% endif %}

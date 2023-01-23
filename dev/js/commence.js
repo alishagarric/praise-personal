@@ -284,7 +284,6 @@ class FeaturedCollection extends HTMLElement {
   }
 
   init() {
-    console.log(this.dataset);
     setTimeout(() => {
       this.flickity = new Flickity(this.slides, {
         accessibility: false,
@@ -337,6 +336,13 @@ class FeaturedCollection extends HTMLElement {
       this.flickityControls.on("change", (index) => {
         this.flickity.select(index);
         this.flickityBackground.select(index);
+        var themedTextColor = this.slides
+          .querySelector(".is-selected")
+          .getAttribute("data-text-color");
+        this.slides.style.setProperty(
+          "--featuredCollectionThemedTextColor",
+          themedTextColor
+        );
       });
     });
   }

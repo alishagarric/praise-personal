@@ -14661,7 +14661,6 @@ var FeaturedCollection = /*#__PURE__*/function (_HTMLElement) {
     value: function init() {
       var _this2 = this;
 
-      console.log(this.dataset);
       setTimeout(function () {
         var _Flickity;
 
@@ -14710,6 +14709,10 @@ var FeaturedCollection = /*#__PURE__*/function (_HTMLElement) {
           _this2.flickity.select(index);
 
           _this2.flickityBackground.select(index);
+
+          var themedTextColor = _this2.slides.querySelector(".is-selected").getAttribute("data-text-color");
+
+          _this2.slides.style.setProperty("--featuredCollectionThemedTextColor", themedTextColor);
         });
       });
     }
