@@ -293,6 +293,56 @@
         "top_spacing": 50,
         "bottom_spacing": 50
       }
+    },
+    "5342c31a-ae8a-4791-860a-cfa6c59360d6": {
+      "type": "content-marquee",
+      "blocks": {
+        "3c77e5e9-a264-4c7b-b3d9-1aa0b59ad4a9": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_a6c4dcf8-a5c2-45ab-8711-f1aa9365378c.jpg",
+            "overlay": 0,
+            "overlay_theme": "primary",
+            "crop_shape": "default",
+            "heading": "Lorem ipsum",
+            "heading_size": "h5",
+            "overlap": false,
+            "text": "",
+            "alignment": "left",
+            "button_label": "Laboris Nisi",
+            "button_link": "",
+            "button_color": "default"
+          }
+        },
+        "4142bce0-38fc-4f0f-a864-8cbc12da7967": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash.jpg",
+            "overlay": 0,
+            "overlay_theme": "primary",
+            "crop_shape": "default",
+            "heading": "Lorem ipsum",
+            "heading_size": "h5",
+            "overlap": false,
+            "text": "",
+            "alignment": "left",
+            "button_label": "Laboris Nisi",
+            "button_link": "shopify:\/\/collections\/back-in-stock",
+            "button_color": "default"
+          }
+        }
+      },
+      "block_order": [
+        "3c77e5e9-a264-4c7b-b3d9-1aa0b59ad4a9",
+        "4142bce0-38fc-4f0f-a864-8cbc12da7967"
+      ],
+      "settings": {
+        "alignment": "center",
+        "speed": 5,
+        "theme": "primary",
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
     }
   },
   "order": [
@@ -307,6 +357,7 @@
     "56b949e4-d083-4bc7-95ab-a990c1575f1d",
     "b179a3e5-e091-4a47-aa6e-57c08f3fe9a2",
     "ce02e8aa-f37c-46fe-bffb-0a5ca600f991",
-    "92c30198-8f2c-4493-97a9-49556b7ebbcb"
+    "92c30198-8f2c-4493-97a9-49556b7ebbcb",
+    "5342c31a-ae8a-4791-860a-cfa6c59360d6"
   ]
 }
