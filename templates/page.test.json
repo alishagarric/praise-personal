@@ -221,6 +221,26 @@
         "bottom_spacing": 0
       }
     },
+    "b179a3e5-e091-4a47-aa6e-57c08f3fe9a2": {
+      "type": "featured-blog",
+      "settings": {
+        "heading": "Lorem ipsum dolor sit",
+        "heading_size": "h5",
+        "blog": "",
+        "alt_heading": false,
+        "show_date": false,
+        "show_description": false,
+        "show_author": false,
+        "show_assc_product": false,
+        "button_label": "",
+        "crop_shape": "default",
+        "alignment": "left",
+        "mobile_layout": "slider",
+        "theme": "primary",
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
+    },
     "ce02e8aa-f37c-46fe-bffb-0a5ca600f991": {
       "type": "multicolumn",
       "settings": {
@@ -285,6 +305,7 @@
     "13355434-d857-4ad6-a479-714b2df7f492",
     "ea3a7d55-b687-4a6c-bdf9-f9c9a5bf8f71",
     "56b949e4-d083-4bc7-95ab-a990c1575f1d",
+    "b179a3e5-e091-4a47-aa6e-57c08f3fe9a2",
     "ce02e8aa-f37c-46fe-bffb-0a5ca600f991",
     "92c30198-8f2c-4493-97a9-49556b7ebbcb"
   ]
