@@ -1,0 +1,43 @@
+.content-card {
+  &__image {
+    @extend .image-container;
+    overflow: visible;
+
+    &:after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: var(--overlayOpacity);
+      background: var(--color-background);
+    }
+
+    + * {
+      margin-top: calc(var(--pxSize) / 2);
+    }
+
+    &__heading {
+      position: absolute;
+      z-index: 3;
+      bottom: 0;
+      padding: 0;
+      color: var(--contentCardSectionTextColor);
+      margin: 0;
+    }
+
+    &.__crop {
+      &-square,
+      &-default,
+      &-portrait,
+      &-landscape,
+      &-arch {
+        .content-card {
+          &__heading {
+            padding: 0 calc(var(--pxSize) / 3);
+            color: var(--color-text);
+            margin-bottom: 1rem;
+          }
+        }
+      }
+    }
+  }
+}

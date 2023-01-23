@@ -54,28 +54,7 @@
                   {% render 'quote-card' quote: block.settings.quote, alignment: block.settings.alignment, background_theme: block.settings.background_theme, card_corners: block.settings.card_corners, quotations: block.settings.quotations, details: block.settings.details, logo: block.settings.logo, class: "multicolumn__item" %}
 
                 {%- when 'image' -%}
-                  {% assign image_height = block.settings.image.height | times: 1.0 %}
-                  {% assign image_width = block.settings.image.width | times: 1.0 %}
-                  {% assign image_ratio = image_height| divided_by: image_width | times: 100 %}
-
-                  <div class="multicolumn__item __align-{{block.settings.alignment}}">
-                    {%- if block.settings.image != blank -%}
-                      <div class="multicolumn__image __crop-{{ block.settings.crop_shape }} {% if block.settings.overlay_theme %}__theme-{{ block.settings.overlay_theme }}{% endif %} --overlayOpacity: calc({{section.settings.overlay}} / 100);" style="--imageRatio: {{ image_ratio }}%;">
-                        {% render 'next-gen-img', image: block.settings.image %}
-                        {% if block.settings.overlap == true %}
-                          {% render 'heading', class: "multicolumn", heading: block.settings.heading, heading_size: block.settings.heading_size %}
-                        {% endif %}
-                      </div>
-                    {%- endif -%}
-                    {% if block.settings.overlap == false or block.settings.image == blank %}
-                      {% render 'heading', class: "multicolumn", heading: block.settings.heading, heading_size: block.settings.heading_size %}
-                    {% endif %}
-                    
-                    {%- if block.settings.text -%}
-                      <div class="multicolumn__text __article-txt" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
-                    {%- endif -%}
-                    {% render 'button', class: "multicolumn", button_label: block.settings.button_label, button_link: block.settings.button_link, button_color: block.settings.button_color %}
-                  </div>
+                  {% render 'content-card' class: 'multicolumn__item', image: block.settings.image, alignment: block.settings.alignment, crop_shape: block.settings.crop_shape, overlay_theme: block.settings.overlay_theme, overlay: section.settings.overlay, heading: block.settings.heading heading_size: block.settings.heading_size, button_link: block.settings.button_link, button_color: block.settings.button_color, text: block.settings.text %}
 
                 {%- when 'products' -%}
                   {% for product in block.settings.products %}

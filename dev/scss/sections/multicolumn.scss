@@ -1,5 +1,4 @@
 .multicolumn {
-  --multicolumnSectionTextColor: var(--color-text);
   --multiColumnHalfGap: calc(var(--pxSize) / 6);
 
   &__container {
@@ -17,51 +16,6 @@
     transform: translateX(
       calc(var(--sectionGuttersSpacing) - calc(var(--multiColumnHalfGap) * 2))
     );
-  }
-
-  //This is the image with text card that really should be a component
-  &__image {
-    @extend .image-container;
-    overflow: visible;
-
-    &:after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      opacity: var(--overlayOpacity);
-      background: var(--color-background);
-    }
-
-    + * {
-      margin-top: calc(var(--pxSize) / 2);
-    }
-
-    .multicolumn {
-      &__heading {
-        position: absolute;
-        z-index: 3;
-        bottom: 0;
-        padding: 0;
-        color: var(--multicolumnSectionTextColor);
-        margin: 0;
-      }
-    }
-
-    &.__crop {
-      &-square,
-      &-default,
-      &-portrait,
-      &-landscape,
-      &-arch {
-        .multicolumn {
-          &__heading {
-            padding: 0 calc(var(--pxSize) / 3);
-            color: var(--color-text);
-            margin-bottom: 1rem;
-          }
-        }
-      }
-    }
   }
 
   &.__layout-slider {
