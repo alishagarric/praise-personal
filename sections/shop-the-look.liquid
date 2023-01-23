@@ -23,19 +23,30 @@
     <div class="shop-the-look__image">
       {% if featured_image %}
         {% render 'next-gen-img' image: featured_image %}
+      {% else %}
+        {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
       {% endif %}
 
       <div class="shop-the-look__dots">
         {% for block in section.blocks %}
           {% case block.type %}
             {% when 'product' %}
+              {% if product == blank %}
+                {% assign horizontal_pos = 50 %}
+                {% assign vertical_pos = 50 %}
+                {% assign border_color = "0,0,0" %}
+              {% else %}
+                {% assign horizontal_pos = block.settings.horizontal_pos %}
+                {% assign vertical_pos = block.settings.vertical_pos %}
+                {% assign border_color = block.settings.product.metafields.custom.color.value.red | append: "," | append: block.settings.product.metafields.custom.color.value.green | append: "," | append: block.settings.product.metafields.custom.color.value.blue %}
+              {% endif %}
               <div 
                 class="shop-the-look__dots__dot" 
                 style="
-                  left: {{ block.settings.horizontal_pos }}%; 
-                  top: {{ block.settings.horizontal_pos }}%; 
-                  background-color: {{ block.settings.product.metafields.custom.color }}; 
-                  border-color:rgba({{ block.settings.product.metafields.custom.color.value.red }}, {{ block.settings.product.metafields.custom.color.value.green }}, {{ block.settings.product.metafields.custom.color.value.blue }}, .5);
+                  left: {{ horizontal_pos }}%; 
+                  top: {{ vertical_pos }}%; 
+                  background-color: rgb({{ border_color }}); 
+                  border-color:rgba({{ border_color }}, .5);
                 ">
                 <span class="visually-hidden">{{ block.settings.product.title }}</span>
               </div>
