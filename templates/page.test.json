@@ -5,261 +5,23 @@
       "settings": {
       }
     },
-    "1f684236-a923-47f5-8d36-9a941e408de5": {
-      "type": "featured-blog",
-      "settings": {
-        "heading": "Lorem ipsum",
-        "heading_size": "h5",
-        "blog": "",
-        "alt_heading": false,
-        "show_date": false,
-        "show_description": false,
-        "show_author": false,
-        "show_assc_product": false,
-        "button_label": "",
-        "crop_shape": "default",
-        "alignment": "left",
-        "mobile_layout": "slider",
-        "theme": "primary",
-        "top_spacing": 50,
-        "bottom_spacing": 50
-      }
-    },
-    "a98b86ef-33e6-4c98-a02a-b86cf0de4d26": {
-      "type": "collections-list",
-      "settings": {
-        "heading": "Lorem ipsum dolor sit",
-        "heading_size": "h4",
-        "alt_heading": false,
-        "theme": "primary",
-        "top_spacing": 50,
-        "bottom_spacing": 50
-      }
-    },
-    "35c1267a-d1f8-4124-8907-e708a58431f8": {
-      "type": "content-marquee",
-      "settings": {
-        "alignment": "center",
-        "speed": 5,
-        "theme": "primary",
-        "top_spacing": 50,
-        "bottom_spacing": 50
-      }
-    },
-    "eec216a0-cdcd-4bcf-af94-605462dc56fb": {
-      "type": "divider",
-      "settings": {
-        "theme": "primary",
-        "top_spacing": 50,
-        "bottom_spacing": 50
-      }
-    },
-    "d31e685d-4773-43ef-8409-d525161b620d": {
-      "type": "featured-collection",
-      "settings": {
-        "collection": "",
-        "theme_slider": false,
-        "show_phrase": false,
-        "show_description": false,
-        "quick_add": false,
-        "alt_title": false,
-        "product_text_alignment": "default",
-        "price": "default",
-        "crop_shape": "default",
-        "heading": "Lorem Ipsum",
-        "alt_heading": false,
-        "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.<\/p>",
-        "collection_text_content": false,
-        "stack_text_content": false,
-        "alignment": "left",
-        "theme": "primary",
-        "top_spacing": 50,
-        "bottom_spacing": 50
-      }
-    },
-    "95e076c0-023c-45cb-83eb-4548889a5eae": {
-      "type": "icons-section",
-      "blocks": {
-        "template--16667010040030__95e076c0-023c-45cb-83eb-4548889a5eae-16718234069257a870-0": {
-          "type": "icon",
-          "settings": {
-            "heading": "",
-            "text": "Lorem ipsum"
-          }
-        },
-        "template--16667010040030__95e076c0-023c-45cb-83eb-4548889a5eae-16718234069257a870-1": {
-          "type": "icon",
-          "settings": {
-            "heading": "",
-            "text": "Lorem ipsum"
-          }
-        },
-        "template--16667010040030__95e076c0-023c-45cb-83eb-4548889a5eae-16718234069257a870-2": {
-          "type": "icon",
-          "settings": {
-            "heading": "",
-            "text": "Lorem ipsum"
-          }
-        }
-      },
-      "block_order": [
-        "template--16667010040030__95e076c0-023c-45cb-83eb-4548889a5eae-16718234069257a870-0",
-        "template--16667010040030__95e076c0-023c-45cb-83eb-4548889a5eae-16718234069257a870-1",
-        "template--16667010040030__95e076c0-023c-45cb-83eb-4548889a5eae-16718234069257a870-2"
-      ],
-      "settings": {
-        "heading": "Lorem ipsum",
-        "heading_size": "h5",
-        "alt_heading": false,
-        "layout": "3",
-        "mobile_layout": "3",
-        "icon_height": 100,
-        "alignment": "center",
-        "theme": "primary",
-        "top_spacing": 50,
-        "bottom_spacing": 50
-      }
-    },
-    "7449cf6a-8315-49ea-8ca9-819e2901905f": {
-      "type": "image-banner",
-      "blocks": {
-        "9086ae07-4bd6-42c0-8cbe-399aba1aba25": {
-          "type": "heading",
-          "settings": {
-            "heading": "Lorem ipsum dolor sit",
-            "heading_size": "h2"
-          }
-        },
-        "831626aa-2a7e-4c72-a237-2377291357ad": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.<\/p>"
-          }
-        },
-        "66fa0e52-e179-47ed-951d-4756ccecc86c": {
-          "type": "button",
-          "settings": {
-            "button_label": "Laboris Nisi",
-            "button_color": "default"
-          }
-        }
-      },
-      "block_order": [
-        "9086ae07-4bd6-42c0-8cbe-399aba1aba25",
-        "831626aa-2a7e-4c72-a237-2377291357ad",
-        "66fa0e52-e179-47ed-951d-4756ccecc86c"
-      ],
-      "settings": {
-        "overlay": 50,
-        "overlay_theme": "primary",
-        "crop_shape": "default",
-        "hero": false,
-        "alignment": "left",
-        "theme": "primary",
-        "top_internal_spacing": 100,
-        "bottom_internal_spacing": 100,
-        "top_spacing": 0,
-        "bottom_spacing": 0
-      }
-    },
-    "fc70c8d0-14ec-450c-9939-e5b1871c5722": {
-      "type": "multicolumn",
-      "settings": {
-        "alignment": "left",
-        "columns_desktop": 3,
-        "columns_mobile": 2,
-        "layout": "default",
-        "theme": "primary",
-        "top_spacing": 50,
-        "bottom_spacing": 50
-      }
-    },
-    "d1f9e67d-b8b8-464c-a769-992c81e48842": {
-      "type": "rich-text",
-      "blocks": {
-        "template--16667010040030__d1f9e67d-b8b8-464c-a769-992c81e48842-167182361312243674-0": {
-          "type": "heading",
-          "settings": {
-            "heading": "Lorem ipsum",
-            "heading_size": "h5"
-          }
-        },
-        "template--16667010040030__d1f9e67d-b8b8-464c-a769-992c81e48842-167182361312243674-1": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.<\/p>"
-          }
-        },
-        "template--16667010040030__d1f9e67d-b8b8-464c-a769-992c81e48842-167182361312243674-2": {
-          "type": "button",
-          "settings": {
-            "button_label": "Button label",
-            "button_link": "",
-            "button_color": "default"
-          }
-        }
-      },
-      "block_order": [
-        "template--16667010040030__d1f9e67d-b8b8-464c-a769-992c81e48842-167182361312243674-0",
-        "template--16667010040030__d1f9e67d-b8b8-464c-a769-992c81e48842-167182361312243674-1",
-        "template--16667010040030__d1f9e67d-b8b8-464c-a769-992c81e48842-167182361312243674-2"
-      ],
-      "settings": {
-        "alignment": "left",
-        "theme": "primary",
-        "top_spacing": 50,
-        "bottom_spacing": 50
-      }
-    },
-    "b14205b9-d7d1-44fa-8431-582dcb9490b8": {
-      "type": "shop-the-look",
-      "blocks": {
-        "template--16667010040030__b14205b9-d7d1-44fa-8431-582dcb9490b8-167182361336f0cf5a-0": {
-          "type": "product",
-          "settings": {
-            "product": "",
-            "horizontal_pos": 50,
-            "vertical_pos": 50
-          }
-        },
-        "template--16667010040030__b14205b9-d7d1-44fa-8431-582dcb9490b8-167182361336f0cf5a-1": {
-          "type": "product",
-          "settings": {
-            "product": "",
-            "horizontal_pos": 50,
-            "vertical_pos": 50
-          }
-        }
-      },
-      "block_order": [
-        "template--16667010040030__b14205b9-d7d1-44fa-8431-582dcb9490b8-167182361336f0cf5a-0",
-        "template--16667010040030__b14205b9-d7d1-44fa-8431-582dcb9490b8-167182361336f0cf5a-1"
-      ],
-      "settings": {
-        "crop_shape": "default",
-        "mobile_image_height": 450,
-        "theme": "primary",
-        "top_spacing": 50,
-        "bottom_spacing": 50
-      }
-    },
-    "cdbdecf3-98b2-409a-a20f-dddec1c5b4ff": {
+    "0978cd8e-e514-47cf-ac5e-00b5a4841ee4": {
       "type": "split-section",
       "blocks": {
-        "template--16667010040030__cdbdecf3-98b2-409a-a20f-dddec1c5b4ff-1671823613772c429b-0": {
+        "template--16667010040030__0978cd8e-e514-47cf-ac5e-00b5a4841ee4-16744357773c9b5e8e-0": {
           "type": "heading",
           "settings": {
             "heading": "Lorem ipsum",
             "heading_size": "h5"
           }
         },
-        "template--16667010040030__cdbdecf3-98b2-409a-a20f-dddec1c5b4ff-1671823613772c429b-1": {
+        "template--16667010040030__0978cd8e-e514-47cf-ac5e-00b5a4841ee4-16744357773c9b5e8e-1": {
           "type": "text",
           "settings": {
             "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.<\/p>"
           }
         },
-        "template--16667010040030__cdbdecf3-98b2-409a-a20f-dddec1c5b4ff-1671823613772c429b-2": {
+        "template--16667010040030__0978cd8e-e514-47cf-ac5e-00b5a4841ee4-16744357773c9b5e8e-2": {
           "type": "button",
           "settings": {
             "button_label": "Laboris Nisi",
@@ -269,9 +31,9 @@
         }
       },
       "block_order": [
-        "template--16667010040030__cdbdecf3-98b2-409a-a20f-dddec1c5b4ff-1671823613772c429b-0",
-        "template--16667010040030__cdbdecf3-98b2-409a-a20f-dddec1c5b4ff-1671823613772c429b-1",
-        "template--16667010040030__cdbdecf3-98b2-409a-a20f-dddec1c5b4ff-1671823613772c429b-2"
+        "template--16667010040030__0978cd8e-e514-47cf-ac5e-00b5a4841ee4-16744357773c9b5e8e-0",
+        "template--16667010040030__0978cd8e-e514-47cf-ac5e-00b5a4841ee4-16744357773c9b5e8e-1",
+        "template--16667010040030__0978cd8e-e514-47cf-ac5e-00b5a4841ee4-16744357773c9b5e8e-2"
       ],
       "settings": {
         "image_style": "default",
@@ -287,10 +49,10 @@
         "bottom_spacing": 50
       }
     },
-    "10af1c74-0a5c-4dbb-833f-ec4495c9398f": {
+    "fcaa494f-a34f-4f27-94ea-7739c3c85310": {
       "type": "text-marquee",
       "settings": {
-        "text": "Lorem ipsum dolor enim ad minim veniam    ",
+        "text": "Lorem ipsum dolor enim ad minim veniam",
         "text_size": "h6",
         "alt_heading": false,
         "speed": 5,
@@ -298,21 +60,232 @@
         "top_spacing": 50,
         "bottom_spacing": 50
       }
+    },
+    "5b6c79ec-6ed6-42d0-9152-89ee02e3c2e1": {
+      "type": "content-marquee",
+      "settings": {
+        "alignment": "center",
+        "speed": 5,
+        "theme": "primary",
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
+    },
+    "420412b0-5ff1-498b-8638-a4506a52792d": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "",
+        "theme_slider": false,
+        "show_phrase": false,
+        "show_description": false,
+        "quick_add": false,
+        "alt_title": false,
+        "product_text_alignment": "default",
+        "price": "default",
+        "crop_shape": "default",
+        "heading": "Lorem Ipsum",
+        "alt_heading": false,
+        "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.<\/p>",
+        "collection_text_content": false,
+        "theme": "primary",
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
+    },
+    "26436845-ef08-408c-b334-f56747ca7916": {
+      "type": "icons-section",
+      "blocks": {
+        "template--16667010040030__26436845-ef08-408c-b334-f56747ca7916-1674435829b28255b0-0": {
+          "type": "icon",
+          "settings": {
+            "heading": "",
+            "text": "Nostrud exercitation"
+          }
+        },
+        "template--16667010040030__26436845-ef08-408c-b334-f56747ca7916-1674435829b28255b0-1": {
+          "type": "icon",
+          "settings": {
+            "heading": "",
+            "text": "Nostrud exercitation"
+          }
+        },
+        "template--16667010040030__26436845-ef08-408c-b334-f56747ca7916-1674435829b28255b0-2": {
+          "type": "icon",
+          "settings": {
+            "heading": "",
+            "text": "Nostrud exercitation"
+          }
+        }
+      },
+      "block_order": [
+        "template--16667010040030__26436845-ef08-408c-b334-f56747ca7916-1674435829b28255b0-0",
+        "template--16667010040030__26436845-ef08-408c-b334-f56747ca7916-1674435829b28255b0-1",
+        "template--16667010040030__26436845-ef08-408c-b334-f56747ca7916-1674435829b28255b0-2"
+      ],
+      "settings": {
+        "heading": "Lorem ipsum",
+        "heading_size": "h5",
+        "alt_heading": false,
+        "layout": "3",
+        "mobile_layout": "3",
+        "icon_height": 100,
+        "alignment": "center",
+        "theme": "primary",
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
+    },
+    "13355434-d857-4ad6-a479-714b2df7f492": {
+      "type": "collections-list",
+      "settings": {
+        "heading": "Lorem ipsum dolor sit",
+        "heading_size": "h4",
+        "alt_heading": false,
+        "theme": "primary",
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
+    },
+    "ea3a7d55-b687-4a6c-bdf9-f9c9a5bf8f71": {
+      "type": "shop-the-look",
+      "blocks": {
+        "template--16667010040030__ea3a7d55-b687-4a6c-bdf9-f9c9a5bf8f71-1674435869e5f9bf79-0": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "horizontal_pos": 50,
+            "vertical_pos": 50
+          }
+        },
+        "template--16667010040030__ea3a7d55-b687-4a6c-bdf9-f9c9a5bf8f71-1674435869e5f9bf79-1": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "horizontal_pos": 50,
+            "vertical_pos": 50
+          }
+        }
+      },
+      "block_order": [
+        "template--16667010040030__ea3a7d55-b687-4a6c-bdf9-f9c9a5bf8f71-1674435869e5f9bf79-0",
+        "template--16667010040030__ea3a7d55-b687-4a6c-bdf9-f9c9a5bf8f71-1674435869e5f9bf79-1"
+      ],
+      "settings": {
+        "crop_shape": "default",
+        "mobile_image_height": 450,
+        "theme": "primary",
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
+    },
+    "56b949e4-d083-4bc7-95ab-a990c1575f1d": {
+      "type": "image-banner",
+      "blocks": {
+        "template--16667010040030__56b949e4-d083-4bc7-95ab-a990c1575f1d-1674435855d662b82a-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Lorem ipsum dolor sit",
+            "heading_size": "h2"
+          }
+        },
+        "template--16667010040030__56b949e4-d083-4bc7-95ab-a990c1575f1d-1674435855d662b82a-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.<\/p>"
+          }
+        },
+        "template--16667010040030__56b949e4-d083-4bc7-95ab-a990c1575f1d-1674435855d662b82a-2": {
+          "type": "button",
+          "settings": {
+            "button_label": "Laboris Nisi",
+            "button_link": "",
+            "button_color": "default"
+          }
+        }
+      },
+      "block_order": [
+        "template--16667010040030__56b949e4-d083-4bc7-95ab-a990c1575f1d-1674435855d662b82a-0",
+        "template--16667010040030__56b949e4-d083-4bc7-95ab-a990c1575f1d-1674435855d662b82a-1",
+        "template--16667010040030__56b949e4-d083-4bc7-95ab-a990c1575f1d-1674435855d662b82a-2"
+      ],
+      "settings": {
+        "overlay": 50,
+        "overlay_theme": "primary",
+        "crop_shape": "default",
+        "hero": false,
+        "alignment": "left",
+        "theme": "primary",
+        "top_internal_spacing": 100,
+        "bottom_internal_spacing": 100,
+        "top_spacing": 0,
+        "bottom_spacing": 0
+      }
+    },
+    "ce02e8aa-f37c-46fe-bffb-0a5ca600f991": {
+      "type": "multicolumn",
+      "settings": {
+        "heading": "Lorem ipsum dolor sit",
+        "heading_size": "h4",
+        "alt_heading": false,
+        "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.<\/p>",
+        "alignment": "center",
+        "columns_desktop": 3,
+        "columns_mobile": 2,
+        "layout": "default",
+        "theme": "primary",
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
+    },
+    "92c30198-8f2c-4493-97a9-49556b7ebbcb": {
+      "type": "rich-text",
+      "blocks": {
+        "template--16667010040030__92c30198-8f2c-4493-97a9-49556b7ebbcb-167443595750c84ff0-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Lorem ipsum",
+            "heading_size": "h5"
+          }
+        },
+        "template--16667010040030__92c30198-8f2c-4493-97a9-49556b7ebbcb-167443595750c84ff0-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.<\/p>"
+          }
+        },
+        "template--16667010040030__92c30198-8f2c-4493-97a9-49556b7ebbcb-167443595750c84ff0-2": {
+          "type": "button",
+          "settings": {
+            "button_label": "Laboris Nisi",
+            "button_link": "",
+            "button_color": "default"
+          }
+        }
+      },
+      "block_order": [
+        "template--16667010040030__92c30198-8f2c-4493-97a9-49556b7ebbcb-167443595750c84ff0-0",
+        "template--16667010040030__92c30198-8f2c-4493-97a9-49556b7ebbcb-167443595750c84ff0-1",
+        "template--16667010040030__92c30198-8f2c-4493-97a9-49556b7ebbcb-167443595750c84ff0-2"
+      ],
+      "settings": {
+        "alignment": "left",
+        "theme": "primary",
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
     }
   },
   "order": [
     "main",
-    "1f684236-a923-47f5-8d36-9a941e408de5",
-    "a98b86ef-33e6-4c98-a02a-b86cf0de4d26",
-    "35c1267a-d1f8-4124-8907-e708a58431f8",
-    "eec216a0-cdcd-4bcf-af94-605462dc56fb",
-    "d31e685d-4773-43ef-8409-d525161b620d",
-    "95e076c0-023c-45cb-83eb-4548889a5eae",
-    "7449cf6a-8315-49ea-8ca9-819e2901905f",
-    "fc70c8d0-14ec-450c-9939-e5b1871c5722",
-    "d1f9e67d-b8b8-464c-a769-992c81e48842",
-    "b14205b9-d7d1-44fa-8431-582dcb9490b8",
-    "cdbdecf3-98b2-409a-a20f-dddec1c5b4ff",
-    "10af1c74-0a5c-4dbb-833f-ec4495c9398f"
+    "0978cd8e-e514-47cf-ac5e-00b5a4841ee4",
+    "fcaa494f-a34f-4f27-94ea-7739c3c85310",
+    "5b6c79ec-6ed6-42d0-9152-89ee02e3c2e1",
+    "420412b0-5ff1-498b-8638-a4506a52792d",
+    "26436845-ef08-408c-b334-f56747ca7916",
+    "13355434-d857-4ad6-a479-714b2df7f492",
+    "ea3a7d55-b687-4a6c-bdf9-f9c9a5bf8f71",
+    "56b949e4-d083-4bc7-95ab-a990c1575f1d",
+    "ce02e8aa-f37c-46fe-bffb-0a5ca600f991",
+    "92c30198-8f2c-4493-97a9-49556b7ebbcb"
   ]
 }
