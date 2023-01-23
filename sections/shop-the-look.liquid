@@ -31,7 +31,7 @@
         {% for block in section.blocks %}
           {% case block.type %}
             {% when 'product' %}
-              {% if product == blank %}
+              {% if block.settings.product == blank %}
                 {% assign horizontal_pos = 50 %}
                 {% assign vertical_pos = 50 %}
                 {% assign border_color = "0,0,0" %}
@@ -43,8 +43,8 @@
               <div 
                 class="shop-the-look__dots__dot" 
                 style="
-                  left: {{ horizontal_pos }}%; 
-                  top: {{ vertical_pos }}%; 
+                  --shopTheLookDotleft: {{ horizontal_pos }}%; 
+                  --shopTheLookDotTop: {{ vertical_pos }}%; 
                   background-color: rgb({{ border_color }}); 
                   border-color:rgba({{ border_color }}, .5);
                 ">

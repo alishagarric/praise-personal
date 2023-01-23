@@ -34,6 +34,10 @@
 
     .flickity-viewport {
       height: 100% !important;
+
+      .flickity-slider {
+        transform: none !important;
+      }
     }
 
     &__dot {
@@ -44,9 +48,13 @@
       border-style: solid;
       -webkit-background-clip: padding-box; /* for Safari */
       background-clip: padding-box;
-      transform: translate(-50%, -50%);
       will-change: padding, border-width;
       transition: all 0.25s ease;
+
+      //Don't allow flickity to overide our css
+      transform: translate(-50%, -50%) !important;
+      left: var(--shopTheLookDotleft) !important;
+      top: var(--shopTheLookDotTop) !important;
 
       &.is-selected {
         border-width: calc(var(--pxSize) / 8);
