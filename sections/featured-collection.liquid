@@ -47,6 +47,7 @@
   id="Featured-collection-{{ section.id }}" 
   class="featured-collection __theme-{{section_theme}} {% if theme_slider %}__theme-slider {% endif %} {% if initiate_flickity == false %}__no-slider {% endif %}"  
 >
+  {% comment %} Text Content {% endcomment %}
   {% if section_heading != blank or section_text != blank %}
     <div class="featured-collection__text">
         {% if section_heading %}

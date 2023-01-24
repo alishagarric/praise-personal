@@ -7,9 +7,10 @@
     }
  {% endstyle %}
 
+{% comment %} Text marquee {% endcomment %}
 {% if section.settings.text %}
   <div id="Text-marquee-{{ section.id }}" class="text-marquee __theme-{{ section.settings.theme }}">
-    <p class="text-marquee__text {{ section.settings.text_size }} {% if section.settings.alt_heading %}alt{% endif%}">
+    <p class="text-marquee__text {{ section.settings.text_size }} {% if section.settings.alt_heading %}alt{% endif %}">
       {{ section.settings.text }}
     </p>
   </div>

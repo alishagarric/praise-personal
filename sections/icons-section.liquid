@@ -16,8 +16,10 @@
 
 <div id="Icons-section-{{ section.id }}" class="icons-section __theme-{{ section.settings.theme }} __align-{{section.settings.alignment}}"  
 >
+   {% comment %} Text Content {% endcomment %}
    {% render 'heading', class: "icons-section", heading: section.settings.heading, heading_size: section.settings.heading_size, alt_heading: section.settings.alt_heading %}
 
+   {% comment %} Icons {% endcomment %}
    <div class="icons-section__icons {% if section.settings.layout == "rows" %}__layout-rows{% endif%} {% if section.settings.mobile_layout == "rows" %}__mobile-layout-rows{% endif%}" style="--numColumns: {{ section.settings.layout }}; --mobileNumColumns: {{ section.settings.mobile_layout }};">
       {%- for block in section.blocks -%}
          {%- case block.type -%}

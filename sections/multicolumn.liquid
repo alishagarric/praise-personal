@@ -37,30 +37,37 @@
 
 <div id="Multicolumn-{{ section.id }}" class="multicolumn __theme-{{ section.settings.theme }} __layout-{{ section.settings.layout }} __align-{{section.settings.alignment}}">
 
+  {% comment %} Text Content {% endcomment %}
   {% render 'heading', class: "multicolumn", heading: section.settings.heading, alt_heading: section.settings.alt_heading, heading_size: section.settings.heading_size %}
 
   {% if section.settings.description %}
     {{ section.settings.description }}
   {% endif %}
 
+  {% comment %} Content Container (slider or stacked depending on layout) {% endcomment %}
    <overflow-slider class="multicolumn__inner overflow-slider {% if hide_arrows_on_desktop %}__hide-desktop-arrows{% endif %} {% if hide_arrows_on_tablet %}__hide-tablet-arrows{% endif%}">
       <div class="overflow-slider__container multicolumn__container">
 
+        {% comment %} Real Content {% endcomment %}
         {% if section.blocks.size > 0 %}
           {%- for block in section.blocks -%}
               {%- case block.type -%}
 
+                {% comment %} Type Quote {% endcomment %}
                 {%- when 'quote' -%}
                   {% render 'quote-card' quote: block.settings.quote, alignment: block.settings.alignment, background_theme: block.settings.background_theme, card_corners: block.settings.card_corners, quotations: block.settings.quotations, details: block.settings.details, logo: block.settings.logo, class: "multicolumn__item" %}
 
+                {% comment %} Type Content Card {% endcomment %}
                 {%- when 'image' -%}
                   {% render 'content-card' class: 'multicolumn__item', image: block.settings.image, alignment: block.settings.alignment, crop_shape: block.settings.crop_shape, overlay_theme: block.settings.overlay_theme, overlay: section.settings.overlay, heading: block.settings.heading heading_size: block.settings.heading_size, button_link: block.settings.button_link, button_color: block.settings.button_color, text: block.settings.text %}
 
+                {% comment %} Type Product Cards {% endcomment %}
                 {%- when 'products' -%}
                   {% for product in block.settings.products %}
                     {% render 'product-card', product: product, class: "multicolumn__item", alignment: block.settings.alignment %}
                   {% endfor %}
 
+                {% comment %} Type Collection Cards {% endcomment %}
                 {%- when 'collections' -%}
                   {% for collection in block.settings.collections %}
                     {% render 'collection-card', collection: collection, class: "multicolumn__item", alignment: block.settings.alignment, button_label: block.settings.button_label %}
@@ -69,6 +76,7 @@
               {%- endcase -%}
           {%- endfor -%}
 
+        {% comment %} Placeholder Content {% endcomment %}
         {% else %}
           {% for i in (1..placeholder_blocks_size) %}
             <div class="multicolumn__item">
@@ -78,8 +86,8 @@
         {% endif %}
       </div>
 
-
-      {% render 'overflow-slider-arrows', class: "multicolumn__arrow"%}
+      {% comment %} Slider arrows (required for slider) {% endcomment %}
+      {% render 'overflow-slider-arrows', class: "multicolumn__arrow" %}
     </overflow-slider>
 </div>
 

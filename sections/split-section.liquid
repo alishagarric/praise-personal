@@ -9,16 +9,23 @@
  {% endstyle %}
 
 <div id="Split-section-{{ section.id }}" class="split-section __layout-{{section.settings.layout}} __layout-mobile-{{ section.settings.mobile_layout }} __image-style-{{section.settings.image_style}} __theme-{{section.settings.theme}}">
-  <div class="split-section__text __align-{{section.settings.alignment}}">    
+  <div class="split-section__text __align-{{section.settings.alignment}}">   
+
+    {% comment %} Text content column {% endcomment %}
     {%- for block in section.blocks -%}
       {%- case block.type -%}
+
+        {% comment %} Type Heading {% endcomment %}
         {%- when 'heading' -%}
           {% render 'heading', class: "split-section__text", use_as_hero: section.settings.hero, heading: block.settings.heading, heading_size: block.settings.heading_size %}
+        
+        {% comment %} Type Text {% endcomment %}
         {%- when 'text' -%}
           <div class="split-section__text__rich-text __article-txt" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
         {%- when 'button' -%}
           {% render 'button', class: "content-with-bg-image", button_label: block.settings.button_label, button_link: block.settings.button_link, button_color: block.settings.button_color %}
 
+        {% comment %} Type Icon {% endcomment %}
         {%- when 'icon' -%}
           {%- if block.settings.icon != blank or block.settings.heading != blank or block.settings.text != blank -%}
             <div class="split-section__text__icon __layout-{{ block.settings.layout }}">
@@ -35,6 +42,8 @@
       {%- endcase -%}
     {%- endfor -%}
   </div>
+
+  {% comment %} Image content column {% endcomment %}
   <div class="split-section__image">
     {%- if section.settings.image != blank -%}
       {% render 'next-gen-img', image: section.settings.image %}

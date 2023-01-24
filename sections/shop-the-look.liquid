@@ -19,7 +19,9 @@
   id="Shop-the-look-{{ section.id }}" 
   class="shop-the-look __theme-{{ section_theme }}"
 >
-  <shop-the-look class="shop-the-look__inner" data-slider="{% if products_count > 1 %}true{% else %}false{% endif %}" >
+  <shop-the-look class="shop-the-look__inner" data-slider="{% if products_count > 1 %}true{% else %}false{% endif %}">
+
+    {% comment %} Image content {% endcomment %}
     <div class="shop-the-look__image">
       {% if featured_image %}
         {% render 'next-gen-img' image: featured_image %}
@@ -27,6 +29,7 @@
         {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
       {% endif %}
 
+      {% comment %} Dots {% endcomment %}
       <div class="shop-the-look__dots">
         {% for block in section.blocks %}
           {% case block.type %}
@@ -56,6 +59,7 @@
       </div>
     </div>
 
+    {% comment %} Products slider {% endcomment %}
     <div class="shop-the-look__products">
       {% for block in section.blocks %}
         {% case block.type %}
@@ -65,6 +69,7 @@
       {% endfor %}
     </div>
 
+    {% comment %} Background slider {% endcomment %}
     <div class="shop-the-look__background-color">
       {% for block in section.blocks %}
         {% case block.type %}

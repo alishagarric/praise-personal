@@ -15,10 +15,16 @@
 <div id="Rich-text-{{ section.id }}" class="rich-text __theme-{{ section_theme }} __align-{{ alignment }}">
   {%- for block in section.blocks -%}
     {%- case block.type -%}
+
+      {% comment %} Type Heading {% endcomment %}
       {%- when 'heading' -%}
         {% render 'heading', class: "rich-text", heading: block.settings.heading, heading_size: block.settings.heading_size %}
+      
+      {% comment %} Type Text {% endcomment %}
       {%- when 'text' -%}
         <div class="p" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
+      
+      {% comment %} Type Button {% endcomment %}
       {%- when 'button' -%}
         {% render 'button', class: "rich-text", button_label: block.settings.button_label, button_link: block.settings.button_link, button_color: block.settings.button_color %}
     {%- endcase -%}
