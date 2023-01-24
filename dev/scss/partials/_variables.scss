@@ -10,8 +10,8 @@
 }
 
 .__btn-clr-primary {
-  --color-foreground: var(--color-background);
-  --color-foreground-text: var(--color-text);
+  --color-foreground: RGB(var(--color-background));
+  --color-foreground-text: RGB(var(--color-text));
 }
 
 .__theme-2 {

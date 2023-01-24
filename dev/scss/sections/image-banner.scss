@@ -33,7 +33,7 @@
 
     &:after {
       content: "";
-      background: var(--color-background);
+      background: RGB(var(--color-background));
       opacity: var(--overlayOpacity);
       z-index: 1;
       position: absolute;
@@ -69,7 +69,7 @@
         display: block;
         padding-right: var(--sectionGuttersSpacing);
         padding-left: var(--sectionGuttersSpacing);
-        color: var(--color-foreground);
+        color: RGB(var(--color-foreground));
       }
 
       &__image {

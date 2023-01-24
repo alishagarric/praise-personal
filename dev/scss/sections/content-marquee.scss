@@ -53,7 +53,7 @@
   }
 
   svg * {
-    fill: var(--color-text);
+    fill: RGB(var(--color-text));
   }
 
   @media screen and (max-width: 676px) {

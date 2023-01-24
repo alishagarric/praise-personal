@@ -8,13 +8,13 @@
 }
 
 *:focus-visible {
-  outline: 1px solid var(--color-outline); /* TODO change this to a lower opacity version of the --text-color or foreground-color variable */
+  outline: 5px solid RGBA(var(--color-foreground) / 0.5);
   outline-offset: 0;
 }
 
 /* Fallback for browsers that don't support `:focus-visible` */
 *:focus {
-  outline: 1px solid var(--color-outline); /* TODO change this to a lower opacity version of the --text-color or foreground-color variable */
+  outline: 5px solid RGBA(var(--color-foreground) / 0.5);
   outline-offset: 0;
 }
 
@@ -146,8 +146,8 @@ details.overlay[open] > summary::before {
 }
 
 .dropdown > summary + * {
-  background-color: var(--color-background);
-  border: 1px solid var(--color-border);
+  background-color: RGB(var(--color-background));
+  border: 1px solid RGB(var(--color-border));
   box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.1);
   position: absolute;
   z-index: 2;
@@ -162,7 +162,7 @@ details.overlay[open] > summary::before {
 /* Buttons / Links  */
 
 a {
-  color: var(--color-foreground);
+  color: RGB(var(--color-foreground));
 }
 
 button,
@@ -170,9 +170,9 @@ button,
 .shopify-payment-button__button--unbranded {
   display: inline-block;
   padding: 10px;
-  background-color: var(--color-background);
-  border: 1px solid var(--color-foreground);
-  color: var(--color-foreground);
+  background-color: RGB(var(--color-background));
+  border: 1px solid RGB(var(--color-foreground));
+  color: RGB(var(--color-foreground));
   font: inherit;
   text-decoration: none;
   cursor: pointer;
@@ -205,8 +205,8 @@ textarea,
 select {
   display: block;
   padding: 10px;
-  background-color: var(--color-background);
-  border: 1px solid var(--color-foreground);
+  background-color: RGB(var(--color-background));
+  border: 1px solid RGB(var(--color-foreground));
   color: inherit;
   font: inherit;
   max-width: 100%;
@@ -231,11 +231,11 @@ td {
 }
 
 .message-error {
-  color: var(--color-error);
+  color: RGB(var(--color-error));
 }
 
 .message-success {
-  color: var(--color-success);
+  color: RGB(var(--color-success));
 }
 
 .media {
@@ -270,11 +270,11 @@ td {
 .model-icon::after {
   content: attr(data-label);
   padding: 5px;
-  background-color: var(--color-background);
+  background-color: RGB(var(--color-background));
 }
 
 .footer {
-  border-top: 1px solid var(--color-border);
+  border-top: 1px solid RGB(var(--color-border));
   margin-top: 20px;
 }
 
@@ -356,7 +356,7 @@ table {
 
 table td,
 table th {
-  border: 1px solid var(--color-border);
+  border: 1px solid RGB(var(--color-border));
   padding: 20px;
   text-align: start;
 }
@@ -399,7 +399,7 @@ table th {
   stroke-dasharray: 280;
   stroke-dashoffset: 0;
   transform-origin: center;
-  stroke: var(--color-foreground);
+  stroke: RGB(var(--color-foreground));
   animation: dash 1.4s ease-in-out infinite;
 }
 

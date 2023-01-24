@@ -54,40 +54,40 @@
         --font-body-scale: {{ settings.body_scale | divided_by: 100.0 }};
         --font-heading-scale: {{ settings.heading_scale | times: 1.0 | divided_by: settings.body_scale }};
 
-        --color-error: {{ settings.error_color }};
-        --color-success: {{ settings.success_color }};
+        --color-error: {{ settings.error_color.rgb }};
+        --color-success: {{ settings.success_color.rgb }};
 
-        --color-background-default: {{ settings.background_color }};
-        --color-text-default: {{ settings.text_color }};
-        --color-foreground-default: {{ settings.button_color }};
-        --color-foreground-text-default: {{ settings.button_text_color }};
-        --color-border-default: {{ settings.border_color }};
+        --color-background-default: {{ settings.background_color.rgb }};
+        --color-text-default: {{ settings.text_color.rgb }};
+        --color-foreground-default: {{ settings.button_color.rgb }};
+        --color-foreground-text-default: {{ settings.button_text_color.rgb }};
+        --color-border-default: {{ settings.border_color.rgb }};
 
-        --color-background-2: {{ settings.background_color_2 }};
-        --color-text-2: {{ settings.text_color_2 }};
-        --color-foreground-2: {{ settings.button_color_2 }};
-        --color-foreground-text-2: {{ settings.button_text_color_2 }};
-        --color-border-2: {{ settings.border_color_2 }};
+        --color-background-2: {{ settings.background_color_2.rgb }};
+        --color-text-2: {{ settings.text_color_2.rgb }};
+        --color-foreground-2: {{ settings.button_color_2.rgb }};
+        --color-foreground-text-2: {{ settings.button_text_color_2.rgb }};
+        --color-border-2: {{ settings.border_color_2.rgb }};
 
-        --color-background-3: {{ settings.background_color_3 }};
-        --color-text-3: {{ settings.text_color_3 }};
-        --color-foreground-3: {{ settings.button_color_3 }};
-        --color-foreground-text-3: {{ settings.button_text_color_3 }};
-        --color-border-3: {{ settings.border_color_3 }};
-
-
-        --color-background-4: {{ settings.background_color_4 }};
-        --color-text-4: {{ settings.text_color_4 }};
-        --color-foreground-4: {{ settings.button_color_4 }};
-        --color-foreground-text-4: {{ settings.button_text_color_4 }};
-        --color-border-4: {{ settings.border_color_4 }};
+        --color-background-3: {{ settings.background_color_3.rgb }};
+        --color-text-3: {{ settings.text_color_3.rgb }};
+        --color-foreground-3: {{ settings.button_color_3.rgb }};
+        --color-foreground-text-3: {{ settings.button_text_color_3.rgb }};
+        --color-border-3: {{ settings.border_color_3.rgb }};
 
 
-        --color-background-5: {{ settings.background_color_5 }};
-        --color-text-5: {{ settings.text_color_5 }};
-        --color-foreground-5: {{ settings.button_color_5 }};
-        --color-foreground-text-5: {{ settings.button_text_color_5 }};
-        --color-border-5: {{ settings.border_color_5 }};
+        --color-background-4: {{ settings.background_color_4.rgb }};
+        --color-text-4: {{ settings.text_color_4.rgb }};
+        --color-foreground-4: {{ settings.button_color_4.rgb }};
+        --color-foreground-text-4: {{ settings.button_text_color_4.rgb }};
+        --color-border-4: {{ settings.border_color_4.rgb }};
+
+
+        --color-background-5: {{ settings.background_color_5.rgb }};
+        --color-text-5: {{ settings.text_color_5.rgb }};
+        --color-foreground-5: {{ settings.button_color_5.rgb }};
+        --color-foreground-text-5: {{ settings.button_text_color_5.rgb }};
+        --color-border-5: {{ settings.border_color_5.rgb }};
 
       }
     {% endstyle %}

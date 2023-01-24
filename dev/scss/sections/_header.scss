@@ -9,12 +9,12 @@
   inset: 0px 0px auto 0px;
   width: 100%;
   z-index: 999;
-  color: var(--color-foreground);
+  color: RGB(var(--color-foreground));
 
   // We have two navigation types, this one displays on scroll up
   &.__style-on-scroll {
     transform: translateY(-100%);
-    background: var(--color-background);
+    background: RGB(var(--color-background));
     opacity: 0;
     will-change: transform, opacity;
     transition: all 0.25s ease;
@@ -31,7 +31,7 @@
 
     &.__dropdown-open,
     &.__overlay-open {
-      background: var(--color-background);
+      background: RGB(var(--color-background));
     }
   }
 
@@ -107,7 +107,7 @@
 
     &:hover {
       cursor: pointer;
-      color: var(--color-foreground);
+      color: RGB(var(--color-foreground));
     }
   }
 
@@ -121,16 +121,16 @@
       margin-left: calc(var(--pxSize) / 3);
       height: calc(var(--navHeight) / 10);
       width: calc(var(--navHeight) / 10);
-      border-right: 1px solid var(--color-foreground);
-      border-top: 1px solid var(--color-foreground);
+      border-right: 1px solid RGB(var(--color-foreground));
+      border-top: 1px solid RGB(var(--color-foreground));
       transform: rotate(135deg) translate(25%, 25%);
     }
 
     &.__active {
-      color: var(--color-foreground);
+      color: RGB(var(--color-foreground));
 
       &:after {
-        border-color: var(--color-foreground);
+        border-color: RGB(var(--color-foreground));
       }
 
       + .site-header__dropdown,
@@ -152,7 +152,7 @@
 
     &__inner {
       position: relative;
-      background: var(--color-background);
+      background: RGB(var(--color-background));
       padding: var(--pxSize) calc(var(--pxSize) * 1.5);
       width: 100%;
       display: flex;
@@ -186,7 +186,7 @@
       top: 0;
       height: 100vh;
       transform: translateX(-50%);
-      background: var(--color-foreground);
+      background: RGB(var(--color-foreground));
       opacity: 0.5;
     }
 
@@ -214,7 +214,7 @@
             padding: calc(var(--pxSize) / 5) 0;
 
             &:hover {
-              color: var(--color-foreground);
+              color: RGB(var(--color-foreground));
             }
           }
 
@@ -268,7 +268,7 @@
 
             &:hover {
               * {
-                color: var(--color-foreground);
+                color: RGB(var(--color-foreground));
               }
             }
           }
@@ -321,7 +321,7 @@
       height: 2px;
       border-radius: 2px;
       width: 100%;
-      background: var(--color-foreground);
+      background: RGB(var(--color-foreground));
       transform: scaleX(1) rotate(0deg);
       will-change: transform, opacity;
       opacity: 1;
@@ -383,7 +383,7 @@
       right: 0;
       bottom: 0;
       height: calc(100vh - var(--navHeight));
-      background-color: var(--color-background);
+      background-color: RGB(var(--color-background));
       padding: var(--sectionGuttersSpacing) var(--sectionGuttersSpacing)
         calc(var(--sectionGuttersSpacing) * 2) var(--sectionGuttersSpacing);
       overflow: auto;
@@ -432,7 +432,7 @@
         position: absolute;
         z-index: 0;
         inset: 0;
-        background: var(--color-background);
+        background: RGB(var(--color-background));
         opacity: 0.4;
         pointer-events: none;
       }

@@ -4,8 +4,8 @@
   padding: 0;
 
   &__col {
-    color: var(--color-text);
-    background: var(--color-background);
+    color: RGB(var(--color-text));
+    background: RGB(var(--color-background));
 
     &:first-of-type {
       padding: var(--sectionVerticalSpacing);
@@ -58,7 +58,7 @@
         width: auto;
 
         path {
-          fill: var(--color-text);
+          fill: RGB(var(--color-text));
         }
       }
     }

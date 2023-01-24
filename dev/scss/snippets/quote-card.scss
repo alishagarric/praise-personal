@@ -2,8 +2,8 @@
   --quoteCardPadding: var(--pxSize);
   &__inner {
     height: 100%;
-    background: var(--color-background);
-    color: var(--color-text);
+    background: RGB(var(--color-background));
+    color: RGB(var(--color-text));
     padding: var(--quoteCardPadding);
     display: flex;
     flex-direction: column;

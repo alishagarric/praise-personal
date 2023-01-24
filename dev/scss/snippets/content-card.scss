@@ -8,7 +8,7 @@
       position: absolute;
       inset: 0;
       opacity: var(--overlayOpacity);
-      background: var(--color-background);
+      background: RGB(var(--color-background));
     }
 
     + * {
@@ -33,7 +33,7 @@
         .content-card {
           &__heading {
             padding: 0 calc(var(--pxSize) / 3);
-            color: var(--color-text);
+            color: RGB(var(--color-text));
             margin-bottom: 1rem;
           }
         }

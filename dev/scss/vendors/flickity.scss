@@ -49,7 +49,7 @@ https://flickity.metafizzy.co
   position: absolute;
   border: none;
   background: transparent;
-  color: var(--color-foreground);
+  color: RGB(var(--color-foreground));
   z-index: 1;
 }
 
@@ -64,7 +64,7 @@ https://flickity.metafizzy.co
     right: 0;
     bottom: 0;
     border-radius: 50%;
-    background-color: var(--color-foreground);
+    background-color: RGB(var(--color-foreground));
     opacity: 0.2;
   }
 }
@@ -149,7 +149,7 @@ https://flickity.metafizzy.co
   width: calc(var(--pxSize) / 4);
   height: calc(var(--pxSize) / 4);
   margin: 0 calc(var(--pxSize) / 8);
-  background: var(--color-text);
+  background: RGB(var(--color-text));
   border-radius: 50%;
   opacity: 0.25;
   cursor: pointer;

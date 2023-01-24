@@ -31,11 +31,11 @@
     animation: textMarquee var(--marqueeSpeed) linear infinite;
     margin-bottom: 0;
     width: var(--marqueeCharacterCount);
-    text-shadow: var(--marqueeCharacterCount) 0 var(--color-text),
-      calc(var(--marqueeCharacterCount) * 2) 0 var(--color-text),
-      calc(var(--marqueeCharacterCount) * 3) 0 var(--color-text),
-      calc(var(--marqueeCharacterCount) * 4) 0 var(--color-text),
-      calc(var(--marqueeCharacterCount) * 5) 0 var(--color-text),
-      calc(var(--marqueeCharacterCount) * 6) 0 var(--color-text);
+    text-shadow: var(--marqueeCharacterCount) 0 RGB(var(--color-text)),
+      calc(var(--marqueeCharacterCount) * 2) 0 RGB(var(--color-text)),
+      calc(var(--marqueeCharacterCount) * 3) 0 RGB(var(--color-text)),
+      calc(var(--marqueeCharacterCount) * 4) 0 RGB(var(--color-text)),
+      calc(var(--marqueeCharacterCount) * 5) 0 RGB(var(--color-text)),
+      calc(var(--marqueeCharacterCount) * 6) 0 RGB(var(--color-text));
   }
 }
