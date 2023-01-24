@@ -432,12 +432,12 @@
       "settings": {
         "heading": "From the blog",
         "heading_size": "h5",
+        "assc_product_crop_shape": "circle",
         "blog": "news",
         "alt_heading": true,
         "show_date": true,
         "show_description": true,
         "show_author": false,
-        "show_assc_product": false,
         "view_all_button_label": "View All",
         "crop_shape": "rounded-square",
         "alignment": "center",

@@ -8,7 +8,7 @@
   assign show_description = section.settings.show_description
   assign alignment = section.settings.alignment
   assign button_label = section.settings.button_label
-  assign show_assc_product = section.settings.show_assc_product
+  assign assc_product_crop_shape = section.settings.assc_product_crop_shape
   assign crop_shape = section.settings.crop_shape
   assign section_blog = section.settings.blog
   assign mobile_layout = section.settings.mobile_layout
@@ -41,7 +41,7 @@
         {%- if section_blog != blank -%}
           {%- for article in section_blog.articles -%} 
             <li class="featured-blog__articles__article-container">
-              {% render 'article-card', class: "featured-blog__card", crop: crop_shape, show_assc_product: show_assc_product, button_label: button_label, alignment: alignment, show_description: show_description, show_author: show_author, show_date: show_date, alt_heading: alt_heading, article: article %}
+              {% render 'article-card', class: "featured-blog__card", crop: crop_shape, assc_product_crop_shape: assc_product_crop_shape, button_label: button_label, alignment: alignment, show_description: show_description, show_author: show_author, show_date: show_date, alt_heading: alt_heading, article: article %}
             </li>
           {% endfor %}
 
@@ -136,9 +136,60 @@
       "label": "Show article author?"
     },
     {
-      "type": "checkbox",
-      "id": "show_assc_product",
-      "label": "Show associated article product?",
+      "type": "select",
+      "id": "assc_product_crop_shape",
+      "options": [
+        {
+          "value": "not-visible",
+          "label": "Not Visible"
+        },
+        {
+          "value": "default",
+          "label": "No Crop"
+        },
+        {
+          "value": "square",
+          "label": "Square"
+        },
+        {
+          "value": "rounded-square",
+          "label": "Rounded Square"
+        },
+        {
+          "value": "circle",
+          "label": "Circle"
+        },
+        {
+          "value": "portrait",
+          "label": "Portrait"
+        },
+        {
+          "value": "rounded-portrait",
+          "label": "Rounded Portrait"
+        },
+        {
+          "value": "semicircle-portrait",
+          "label": "Semicircle Portrait"
+        },
+        {
+          "value": "landscape",
+          "label": "Landscape"
+        },
+        {
+          "value": "rounded-landscape",
+          "label": "Rounded Landscape"
+        },
+        {
+          "value": "semicircle-landscape",
+          "label": "Semicircle Landscape"
+        },
+        {
+          "value": "arch",
+          "label": "Semicircle Arch"
+        }
+      ],
+      "default": "not-visible",
+      "label": "Associated Product Image Crop Shape",
       "info": "Relies on the addition of article metafields. TODO: Add link with info"
     },
     {

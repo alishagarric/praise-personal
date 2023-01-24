@@ -146,7 +146,7 @@
         {%- endif -%}
 
         {% comment %} Copywright {% endcomment %}
-        <span class="section-footer__copywright p-sm">&copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: routes.root_url }}</span>
+        <span class="section-footer__copywright p-sm">&copy; {{ 'now' | date: "%Y" }} {{ shop.name | link_to: routes.root_url }}</span>
       </div>
     </div>
 

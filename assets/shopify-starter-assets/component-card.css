@@ -1,3 +1,5 @@
+/* We likely won't need this at time of launch. Good to reference the :before link hack though, if we run into issues there */
+
 .card {
   border: 1px solid lightgray;
   padding: 10px;
@@ -10,7 +12,7 @@
   margin-top: 0;
 }
 
-.card > * + * { 
+.card > * + * {
   margin-top: 10px;
 }
 
@@ -29,8 +31,8 @@
 }
 
 /* Ensure focus ring surrounds entire card */
-.card a:focus-visible::before { 
-  outline: 1px solid #808080; 
+.card a:focus-visible::before {
+  outline: 1px solid #808080;
 }
 
 /* Fallback for browsers that don't support `:focus-visible` */

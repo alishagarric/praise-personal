@@ -28,13 +28,10 @@
 {% assign overlay = overlay | default: 50 %}
 {% assign overlap = overlap | default: false %}
 
-{% assign image_height = image.height | times: 1.0 %}
-{% assign image_width = image.width | times: 1.0 %}
-{% assign image_ratio = image_height| divided_by: image_width | times: 100 %}
 
 <div class="content-card {{ class }} __align-{{ alignment }}" style="--contentCardSectionTextColor: RGB(var(--color-text));">
   {%- if image != blank -%}
-    <div class="content-card__image __crop-{{ crop_shape }} {% if overlay_theme %}__theme-{{ overlay_theme }}{% endif %} --overlayOpacity: calc({{section.settings.overlay}} / 100);" style="--imageRatio: {{ image_ratio }}%;">
+    <div class="content-card__image __crop-{{ crop_shape }} {% if overlay_theme %}__theme-{{ overlay_theme }}{% endif %} --overlayOpacity: calc({{section.settings.overlay}} / 100);" style="--imageRatio: {{ image.aspect_ratio | times: 100 }}%;">
       {% render 'next-gen-img', image: image %}
       {% if overlap == true %}
         {% render 'heading', class: "content-card", heading: heading, heading_size: heading_size %}

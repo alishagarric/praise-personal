@@ -10,7 +10,7 @@
   - show_description: {Bool} optional.
   - show_date: {Bool} optional.
   - show_author: {Bool} optional.
-  - show_assc_product: {String} optional. not-visible, circle, rounded-square, square, portrait, landscape, default(adapt)
+  - assc_product_crop_shape: {String} optional. not-visible, circle, rounded-square, square, portrait, landscape, default(adapt)
   - button_label: {String} optional
 
   Usage:
@@ -30,15 +30,13 @@
 {% assign show_description = show_description | default: false %}
 {% assign show_date = show_date | default: false %}
 {% assign show_author = show_author | default: false %}
-{% assign show_assc_product = show_assc_product | default: "default" %}
+{% assign assc_product_crop_shape = assc_product_crop_shape | default: "not-visible" %}
 
-
-{% assign image_height = article.image.height | times: 1.0 %}
-{% assign image_width = article.image.width | times: 1.0 %}
-{% assign image_ratio = image_height | divided_by: image_width | times: 100 %}
+{% assign image_ratio = article.image.aspect_ratio | times: 100 %}
 
 {% assign article_url = article.url %}
 {% assign article_title = article.title %}
+
 
 {% unless article != blank %}
   {% assign article_url = "/" %}
@@ -51,18 +49,31 @@
   href="{{ article_url }}" 
 >
 
-  <div class="article-card__image __crop-{{ crop }}" style="--imageRatio: {{ image_ratio }}%">
+  <div class="article-card__top">
+
+    {% if assc_product_crop_shape != blank and assc_product_crop_shape != "not-visible" and article.metafields.custom.associated_products %}
+      {% assign featured_product = article.metafields.custom.associated_products.value | first %}
+      {% assign assc_product_count = article.metafields.custom.associated_products | split: "," | size | minus: 1 %}
+      <div class="article-card__assc-products">
+        <div class="article-card__assc-products__product __crop-{{ assc_product_crop_shape }}" style="--imageRatio: {{ featured_product.featured_image.aspect_ratio | times: 100 }}%">
+          {% render 'next-gen-img', image: featured_product.featured_image %}
+        </div>
+        {% if assc_product_count > 0 %}
+          <div class="article-card__assc-products__bubble p-sm">
+            <strong>+{{ assc_product_count }}</strong>
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+
     {% if article and article.image %}
-      {% render 'next-gen-img', image: article.image %}
+      <div class="article-card__image __crop-{{ crop }}" style="--imageRatio: {{ image_ratio }}%">
+        {% render 'next-gen-img', image: article.image %}
+      </div>
     {% elsif article == blank %}
       {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
     {% else %}
-      <h3 class="p-lg">{{ article_title }}</h3>
-    {% endif %}
-
-    {% if show_assc_product and article.metafields.custom.associated_product %}
-      {% render 'next-gen-img', image: article.metafields.custom.associated_product.featured_image %}
-      {% comment %}TODO: make this look good, does it need cropping options too? {% endcomment %}
+      <h3 class="article-card__image p-lg">{{ article_title }}</h3>
     {% endif %}
   </div>
 
