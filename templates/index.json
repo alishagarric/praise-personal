@@ -438,7 +438,7 @@
         "show_description": true,
         "show_author": false,
         "show_assc_product": false,
-        "button_label": "",
+        "view_all_button_label": "View All",
         "crop_shape": "rounded-square",
         "alignment": "center",
         "mobile_layout": "stacked-4",

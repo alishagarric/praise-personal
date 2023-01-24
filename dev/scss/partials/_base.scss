@@ -153,7 +153,8 @@ input[type="submit"] {
   background: var(--color-foreground);
   color: var(--color-foreground-text);
   padding: 0 calc(var(--btnHeight) / 2);
-  display: inline-flex;
+  display: flex;
+  width: fit-content;
   text-transform: uppercase;
   text-align: center;
   white-space: nowrap;

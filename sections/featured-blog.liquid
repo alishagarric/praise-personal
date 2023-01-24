@@ -49,11 +49,12 @@
         {% endif %}
       </ul>
 
-    {% comment %}TODO optional view all articles button {% endcomment %}
-
-
     {% render 'overflow-slider-arrows' %}
   </overflow-slider>
+
+  {% if section.settings.view_all_button_label %}
+    {% render 'button', class: "__align-center featured-blog", button_label: section.settings.view_all_button_label, button_link: section.settings.blog.url %}
+  {% endif %}
 </div>
     
   {% schema %}
@@ -138,7 +139,7 @@
       "label": "Article Button Text",
       "info": "Displays an underlined button if included, no button if not."
     },
-        {
+    {
       "type": "select",
       "id": "crop_shape",
       "options": [
@@ -233,6 +234,12 @@
         }
       ],
       "default":"slider"
+    },
+    {
+      "type": "text",
+      "id": "view_all_button_label",
+      "label": "View All Button Label",
+      "info": "If excluded, no view all button will display"
     },
     {
       "type": "header",

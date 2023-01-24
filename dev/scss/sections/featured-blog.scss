@@ -13,6 +13,10 @@
     }
   }
 
+  &__btn {
+    margin-top: var(--pxSize);
+  }
+
   @media screen and (max-width: 1024px) {
     --featuredBlogCardSize: 50%;
   }
