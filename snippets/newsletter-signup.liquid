@@ -1,5 +1,4 @@
 <div class="newsletter-signup">
-  <h2>{{ 'general.newsletter.heading' | t }}</h2>
   {%- form 'customer' -%}
     <label for="NewsletterEmail--{{ section.id }}">{{ 'general.newsletter.email' | t }}</label>
     <input
@@ -7,6 +6,7 @@
       type="email"
       name="contact[email]"
       value="{{ form.email }}"
+      placeholder="{{ 'general.newsletter.email' | t }}"
       aria-required="true"
       autocorrect="off"
       autocapitalize="off"
@@ -26,6 +26,8 @@
       <small id="NewsletterSuccess--{{ section.id }}" class="message-success" tabindex="-1" autofocus>{{ 'general.newsletter.success' | t }}</small>
     {%- endif -%}  
     <input type="hidden" name="contact[tags]" value="newsletter">
-    <button type="submit">{{ 'general.newsletter.subscribe' | t }}</button>
+    <button type="submit" aria-label="{{ 'general.newsletter.subscribe' | t }}">
+      {% render 'svg-slider-arrow' %}
+    </button>
   {%- endform -%}
 </div>

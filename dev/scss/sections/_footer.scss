@@ -30,6 +30,23 @@
     }
   }
 
+  &__social {
+    display: flex;
+    gap: calc(var(--pxSize) / 2.5);
+    margin-top: calc(var(--pxSize) / 2);
+
+    &__item {
+      svg {
+        height: calc(var(--pxSize) / 2.5);
+        width: auto;
+
+        path {
+          fill: var(--color-text);
+        }
+      }
+    }
+  }
+
   &__badges {
     padding-top: calc(var(--pxSize) / 3);
     display: flex;
