@@ -1,5 +1,6 @@
 {% style %}
     #Section-footer-{{ section.id }} {
+      --footerLogoMaxWidth: {{ section.settings.logo_width }}px;
     }
  {% endstyle %}
 
@@ -8,10 +9,12 @@
 <footer id="Section-footer-{{ section.id }}" class="section-footer">
     
     <div class="section-footer__col __theme-{{section.settings.accent_theme}}">
-      <div class="section-footer__branding">
+
+      {% comment %} Text content and logo {% endcomment %}
+      <div class="section-footer__branding {% if section.settings.stack_logo == true %}__stack {% endif %}">
         {% if section.settings.logo %}
           <div class="section-footer__branding__logo">
-            {{ shop.name }}
+            {% render 'next-gen-img', image: section.settings.logo %}
           </div>
         {% endif %}
 
@@ -78,6 +81,7 @@
       {%- endif -%}
     </div>
 
+    {% comment %} Primary links {% endcomment %}
     <div class="section-footer__col __theme-{{ section.settings.theme }}">
       {%- if section.blocks.size > 0 -%}
         <div class="section-footer__blocks">
@@ -111,6 +115,7 @@
         </div>
       {%- endif -%}
 
+      {% comment %} Badges/icons {% endcomment %}
       {% if icons == true %}
         <div class="section-footer__badges">
           {%- for block in section.blocks -%}
@@ -126,6 +131,7 @@
         </div>
       {% endif %}
 
+      {% comment %} Secondary links {% endcomment %}
       <div class="section-footer__row">
         {%- if section.settings.secondary_links %}
           <ul class="section-footer__sec-links list-unstyled">
@@ -139,6 +145,7 @@
           </ul>
         {%- endif -%}
 
+        {% comment %} Copywright {% endcomment %}
         <span class="section-footer__copywright p-sm">&copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: routes.root_url }}</span>
       </div>
     </div>
@@ -197,12 +204,32 @@
     },
     {
       "type": "header",
-      "content": "General"
+      "content": "Logo"
     },
     {
       "type": "image_picker",
       "id": "logo",
       "label": "logo"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "min": 0,
+      "max": 300,
+      "step": 10,
+      "unit": "px",
+      "label": "Logo Max Width",
+      "default": 80
+    },
+    {
+      "type": "checkbox",
+      "id": "stack_logo",
+      "default": false,
+      "label": "Stack logo above text content?"
+    },
+    {
+      "type": "header",
+      "content": "General"
     },
     {
       "type": "header",
@@ -213,13 +240,13 @@
       "type": "checkbox",
       "id": "show_social",
       "default": false,
-      "label": "t:sections.footer.settings.show_social.label"
+      "label": "Show social icons?"
     },
     {
       "type": "checkbox",
       "id": "newsletter_enable",
       "default": true,
-      "label": "t:sections.footer.settings.newsletter_enable.label"
+      "label": "Show newsletter form?"
     },
     {
       "type": "link_list",

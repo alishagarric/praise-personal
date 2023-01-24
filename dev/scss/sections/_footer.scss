@@ -8,8 +8,7 @@
     background: var(--color-background);
 
     &:first-of-type {
-      padding: var(--sectionVerticalSpacing) var(--sectionVerticalSpacing)
-        var(--sectionVerticalSpacing) var(--sectionGuttersSpacing);
+      padding: var(--sectionVerticalSpacing);
       flex: 2;
     }
 
@@ -21,12 +20,30 @@
   }
 
   &__branding {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr;
+    gap: calc(var(--pxSize) / 3);
+
     &__logo {
+      grid-row: 1 / 3;
+
       img {
         width: 100%;
         height: auto;
-        max-width: 170px;
+        max-width: var(--footerLogoMaxWidth);
       }
+    }
+
+    h2,
+    p {
+      grid-column: 2 / -1;
+      margin: 0;
+    }
+
+    &.__stack {
+      display: flex;
+      flex-direction: column;
     }
   }
 
@@ -48,20 +65,25 @@
   }
 
   &__badges {
-    padding-top: calc(var(--pxSize) / 3);
+    margin: calc(var(--pxSize) / 2) 0;
     display: flex;
     flex-flow: row wrap;
-    gap: calc(var(--pxSize) / 3);
+    gap: calc(var(--pxSize) / 2);
 
     &__badge img {
-      height: calc(var(--pxSize) / 1.75);
+      height: var(--pxSize);
       width: auto;
     }
   }
 
   &__blocks {
     display: flex;
+    flex-wrap: wrap;
     gap: var(--pxSize);
+
+    + * {
+      margin-top: var(--pxSize);
+    }
   }
 
   &__copywright {
@@ -122,54 +144,44 @@
     }
   }
 
-  @media screen and (max-width: 850px) {
-    &__branding {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: calc(var(--pxSize) / 1.75);
+  @media screen and (max-width: 1024px) {
+    display: block;
 
-      &__logo {
-        max-width: 130px;
+    &__badges,
+    &__social,
+    &__copywright,
+    &__sec-links {
+      justify-content: center;
+      text-align: center;
+    }
 
+    &__row {
+      flex-direction: column;
+    }
+  }
+
+  @media screen and (max-width: 676px) {
+    &__col:first-of-type,
+    &__col:last-of-type {
+      padding-left: var(--sectionGuttersSpacing);
+      padding-right: var(--sectionGuttersSpacing);
+    }
+
+    &__social {
+      margin-top: var(--pxSize);
+      gap: var(--pxSize);
+
+      &__item {
         svg {
-          width: 100%;
-          height: auto;
-          padding-right: var(--pxSize);
+          height: var(--pxSize);
         }
-      }
-
-      &__info {
-        padding-top: 0;
       }
     }
 
     &__blocks {
-      flex-wrap: wrap;
-
       &__block {
-        flex: 0 0 calc(50% - calc(var(--pxSize) / 2));
+        flex: 1 0 40%;
       }
-    }
-
-    &__badges {
-      gap: calc(var(--pxSize) / 2);
-      margin-top: var(--sectionVerticalSpacing);
-      justify-content: center;
-
-      img {
-        height: calc(var(--pxSize) * 1.5);
-      }
-    }
-
-    &__sec-links {
-      flex-direction: column;
-      text-align: center;
-      gap: calc(var(--pxSize) / 2);
-    }
-
-    &__copywright {
-      padding-right: 0;
-      padding-bottom: calc(var(--pxSize) / 2);
     }
   }
 }
