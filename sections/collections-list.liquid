@@ -24,7 +24,7 @@
       {% if section.blocks.size > 0 %}
         {% for block in section.blocks %}
           <li>
-          {% render 'collection-card' collection: block.settings.collection %}
+          {% render 'collection-card' collection: block.settings.collection, alignment: section.settings.collections_text_alignment, button_label: section.settings.button_label %}
           </li> 
         {% endfor %}
       {% else %}
@@ -85,6 +85,36 @@
       "type": "checkbox",
       "id": "alt_heading",
       "label": "Use body font instead of heading font for heading?"
+    },
+    {
+      "type": "header",
+      "content": "Collections Settings"
+    },
+    {
+      "type": "radio",
+      "id": "collections_text_alignment",
+      "label": "Collections Text Alignment",
+      "options": [
+          {
+            "value": "left",
+            "label":"Left"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "info": "If excluded, no button will display on each collection card"
     },
     {
       "type": "header",

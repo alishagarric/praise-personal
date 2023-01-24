@@ -4,6 +4,8 @@
     Expects:
     - collection: {Object} Collection object
     - class: {String} optional
+    - button_label: {String} optional
+    - alignment: {String} optional
 
     Usage:
    
@@ -24,7 +26,7 @@
   {% assign collection_title = "Enim ad minim veniam" %}
 {% endunless %}
 
-<a class="collection-card {{ class }}" href="{{ collection_url }}" >
+<a class="collection-card {{ class }} __align-{{ alignment }}" href="{{ collection_url }}">
   <div class="collection-card__image">
     {% if collection and collection.image %}
       {% render 'next-gen-img', image: collection.image %}
@@ -41,6 +43,8 @@
   {% if collection.description %}
     <p class="p-sm">{{ collection.description }}</p>
   {% endif %}
-  {% comment %}TODO: How to make hardcoded button label language diverse {% endcomment %}
-  {% render 'button', button_label: "Shop Collection" class: "collection-card", style: "underline" %}
+  
+  {% if button_label %}
+    {% render 'button', button_label: button_label class: "collection-card", style: "underline" %}
+  {% endif %}
 </a>

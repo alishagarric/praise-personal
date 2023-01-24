@@ -63,7 +63,7 @@
 
                 {%- when 'collections' -%}
                   {% for collection in block.settings.collections %}
-                    {% render 'collection-card', collection: collection, class: "multicolumn__item", alignment: block.settings.alignment %}
+                    {% render 'collection-card', collection: collection, class: "multicolumn__item", alignment: block.settings.alignment, button_label: block.settings.button_label %}
                   {% endfor %}
 
               {%- endcase -%}
@@ -616,6 +616,12 @@
                 }
             ],
             "default": "left"
+          },
+          {
+            "type": "text",
+            "id": "button_label",
+            "label": "Button Label",
+            "info": "If excluded, no button will display on each collection card"
           }
         ]
       }
