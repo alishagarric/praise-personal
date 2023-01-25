@@ -1,6 +1,10 @@
 .multicolumn {
   --multiColumnHalfGap: calc(var(--pxSize) / 6);
 
+  &__text {
+    max-width: 600px;
+  }
+
   &__container {
     padding: 0 var(--multiColumnHalfGap);
     margin-left: calc(var(--sectionGuttersSpacing) * -1);
@@ -43,6 +47,6 @@
   }
 
   @media screen and (max-width: 676px) {
-    --desktopColumns: var(--mobileColumns);
+    --desktopColumns: var(--mobileColumns) !important;
   }
 }

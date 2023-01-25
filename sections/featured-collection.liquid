@@ -85,7 +85,7 @@
           Controls Flickity slider that contains only themed dots and the
           arrows. Only used when theme_slider is toggled on
         {% endcomment %}
-        <div class="featured-collection__controls">
+        <div class="featured-collection__controls flickity-controls">
           {% for product in featured_collection.products %}
             <div class="featured-collection__controls__control" style="--productColor: {% if theme_slider %}{{product.metafields.custom.color }}{% else %}var(--color-text) {% endif %};">
               <span class="visually-hidden">{{ product.title }}</span>

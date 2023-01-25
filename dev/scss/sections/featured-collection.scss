@@ -22,6 +22,8 @@
   }
 
   &__container {
+    @extend .cmnc-flickity-buttons-bottom;
+
     flex: 0 0 70%;
     max-width: 70%;
     position: relative;
@@ -39,7 +41,6 @@
     &__card {
       width: var(--featuredCollectionCardWidth);
       padding: 0 calc(var(--pxSize) / 2);
-      margin-bottom: calc(var(--sectionVerticalSpacing) / 2);
 
       .product-card__phrase {
         color: var(--featuredCollectionThemedTextColor);
@@ -49,7 +50,6 @@
 
   &__controls {
     text-align: center;
-    margin: var(--featuredCollectionNavControlSize) 0;
 
     &__control {
       width: var(--featuredCollectionNavControlSize);
@@ -58,17 +58,25 @@
       opacity: 1;
       background: none;
 
+      //Auto center the dot no matter the height of its container,
+      // so that we can change the height of its container in
+      // flickity's css when we want controls to center align to
+      // something with a defined height
       &:before,
       &:after {
         content: "";
         position: absolute;
-        inset: 0;
+        left: 50%;
+        top: 50%;
+        width: var(--featuredCollectionNavControlSize);
+        height: var(--featuredCollectionNavControlSize);
+        transform: translate(-50%, -50%);
         border-radius: 50%;
         display: block;
       }
 
       &:before {
-        transform: scale(0.8);
+        transform: translate(-50%, -50%) scale(0.8);
         background-color: var(--productColor);
       }
 

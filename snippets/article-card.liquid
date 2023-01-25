@@ -59,9 +59,7 @@
           {% render 'next-gen-img', image: featured_product.featured_image %}
         </div>
         {% if assc_product_count > 0 %}
-          <div class="article-card__assc-products__bubble p-sm">
-            <strong>+{{ assc_product_count }}</strong>
-          </div>
+          <div class="article-card__assc-products__bubble p-sm" style="--articleCardProductsCount: '+{{ assc_product_count }}''"></div>
         {% endif %}
       </div>
     {% endif %}

@@ -104,7 +104,16 @@
 
     &:after,
     img {
-      border-radius: var(--vwSize);
+      border-radius: calc(var(--vwSize) * 2);
+    }
+
+    @media screen and (max-width: 676px) {
+      border-radius: calc(var(--pxSize) * 2);
+
+      &:after,
+      img {
+        border-radius: calc(var(--pxSize) * 2);
+      }
     }
   }
 

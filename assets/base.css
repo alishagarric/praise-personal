@@ -159,12 +159,6 @@ details.overlay[open] > summary::before {
   overflow-y: auto;
 }
 
-/* Buttons / Links  */
-
-a {
-  color: RGB(var(--color-foreground));
-}
-
 button,
 .button,
 .shopify-payment-button__button--unbranded {

@@ -82,6 +82,7 @@
   --navHeight: 75px;
   --inputHeight: 48px;
   --btnHeight: 48px;
+  --arrowBtnHeight: calc(var(--pxSize) * 4 / 5);
 
   --stickyElementTransition: transformY(0);
   --maxWidth: 750px;
@@ -107,7 +108,7 @@
     --pxSize: 30px;
     --vwSize: 1.2vw;
 
-    --sectionVerticalSpacing: 50px;
+    --sectionVerticalSpacing: 65px;
     --sectionGuttersSpacing: 20px;
 
     --navHeight: 60px;

@@ -24,32 +24,34 @@
 
 
 <div id="Content-marquee-{{ section.id }}" class="content-marquee __theme-{{ section.settings.theme }}">
-  <content-marquee class="content-marquee__container">
-    {% for i in (1..card_width_divisor) %}
+  <div class="content-marquee__inner">
+    <content-marquee class="content-marquee__content">
+      {% for i in (1..card_width_divisor) %}
 
-      {% comment %} Real content cards {% endcomment %}
-      {% if placeholder_content == false %}
-        {% for block in section.blocks %}
-          {% case block.type %}
+        {% comment %} Real content cards {% endcomment %}
+        {% if placeholder_content == false %}
+          {% for block in section.blocks %}
+            {% case block.type %}
 
-            {% comment %} Type quote {% endcomment %}
-            {% when 'quote'%}
-              {% render 'quote-card' quote: block.settings.quote, alignment: section.settings.alignment, background_theme: block.settings.background_theme, card_corners: block.settings.card_corners, quotations: block.settings.quotations, details: block.settings.details, logo: block.settings.logo, class: "content-marquee__item" %}
-            
-            {% comment %} Type content card {% endcomment %}
-            {%- when 'image' -%}
-              {% render 'content-card' class: 'content-marquee__item', image: block.settings.image, alignment: block.settings.alignment, crop_shape: block.settings.crop_shape, overlay_theme: block.settings.overlay_theme, overlay: section.settings.overlay, heading: block.settings.heading heading_size: block.settings.heading_size, button_link: block.settings.button_link, button_color: block.settings.button_color, text: block.settings.text %}
-          {% endcase %}
-        {% endfor %}
+              {% comment %} Type quote {% endcomment %}
+              {% when 'quote'%}
+                {% render 'quote-card' quote: block.settings.quote, alignment: section.settings.alignment, background_theme: block.settings.background_theme, card_corners: block.settings.card_corners, quotations: block.settings.quotations, details: block.settings.details, logo: block.settings.logo, class: "content-marquee__item" %}
+              
+              {% comment %} Type content card {% endcomment %}
+              {%- when 'image' -%}
+                {% render 'content-card' class: 'content-marquee__item', image: block.settings.image, alignment: block.settings.alignment, crop_shape: block.settings.crop_shape, overlay_theme: block.settings.overlay_theme, overlay: section.settings.overlay, heading: block.settings.heading heading_size: block.settings.heading_size, button_link: block.settings.button_link, button_color: block.settings.button_color, text: block.settings.text %}
+            {% endcase %}
+          {% endfor %}
 
-      {% comment %} Placeholder content {% endcomment %}
-      {% else %}
-        {% for i in (1..placeholder_card_count) %}
-          {% render 'quote-card' quote: "<p>Lorem ipsum dolor iset</p>", quotations: true, background_theme: "2", alignment: section.settings.alignment, class: "content-marquee__item" %}
-        {% endfor %}
-      {% endif %}
-    {% endfor %}
-  </content-marquee>
+        {% comment %} Placeholder content {% endcomment %}
+        {% else %}
+          {% for i in (1..placeholder_card_count) %}
+            {% render 'quote-card' quote: "<p>Lorem ipsum dolor iset</p>", quotations: true, background_theme: "2", alignment: section.settings.alignment, class: "content-marquee__item" %}
+          {% endfor %}
+        {% endif %}
+      {% endfor %}
+    </content-marquee>
+  </div>
 </div>
 
 {% schema %}

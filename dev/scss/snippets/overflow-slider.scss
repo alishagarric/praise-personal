@@ -1,14 +1,13 @@
 overflow-slider,
 .overflow-slider {
-  --overflowSliderArrowSize: calc(var(--pxSize) * 4 / 5);
   position: relative;
 
   &__container {
     overflow: auto;
     scroll-behavior: smooth;
     display: flex;
-    padding-top: var(--overflowSliderArrowSize);
-    padding-bottom: var(--overflowSliderArrowSize);
+    padding-top: var(--arrowBtnHeight);
+    padding-bottom: var(--arrowBtnHeight);
 
     &::-webkit-scrollbar {
       width: 5px;
@@ -23,22 +22,22 @@ overflow-slider,
     }
 
     &::-webkit-scrollbar-track {
-      background-color: RGB(var(--color-border));
+      background-color: RGBA(var(--color-text) / 0.2);
       border-radius: 30px;
       margin: 10px 60px 0;
     }
   }
 
   &__arrow {
-    height: var(--overflowSliderArrowSize);
-    width: var(--overflowSliderArrowSize);
+    height: var(--arrowBtnHeight);
+    width: var(--arrowBtnHeight);
     border-radius: 4px;
     background-color: RGB(var(--color-foreground));
     display: grid;
     place-content: center;
     position: absolute;
     top: 0;
-    right: calc(var(--overflowSliderArrowSize) * 1.5);
+    right: calc(var(--arrowBtnHeight) * 1.5);
 
     svg * {
       fill: RGB(var(--color-foreground-text));
@@ -94,15 +93,16 @@ overflow-slider,
         }
 
         &__container {
-          padding-top: var(--overflowSliderArrowSize);
-          padding-bottom: var(--overflowSliderArrowSize);
+          padding-top: var(--arrowBtnHeight);
+          padding-bottom: var(--arrowBtnHeight);
         }
       }
     }
   }
 
   @media screen and (max-width: 676px) {
-    &__container {
+    &__container,
+    &.__hide-desktop-arrows .overflow-slider__container {
       padding-top: 0;
     }
 

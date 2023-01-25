@@ -47,7 +47,7 @@ body > div > footer {
     calc(var(--sectionVerticalSpacing) * var(--bottomSpacingRatio))
     var(--sectionGuttersSpacing);
   position: relative;
-  color: RGB(var(--color-foreground));
+  color: RGB(var(--color-text));
 
   &:after {
     content: "";

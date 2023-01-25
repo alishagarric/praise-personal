@@ -26,11 +26,19 @@
       top: 0;
       right: 0;
       border-radius: 50%;
-      height: var(--pxSize);
-      line-height: var(--pxSize);
-      width: var(--pxSize);
+      width: 25%;
+      padding-top: 25%;
       background: RGB(var(--color-foreground));
       color: RGB(var(--color-foreground-text));
+      font-weight: 700;
+
+      &:after {
+        content: var(--articleCardProductsCount);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
     }
 
     &__product {

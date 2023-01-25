@@ -27,8 +27,8 @@
 
 {% style %}
     #Multicolumn-{{ section.id }} {
-      --topSpacingRatio: {{section.settings.top_spacing}} / 100;
-      --bottomSpacingRatio: {{section.settings.bottom_spacing}} / 100;
+      --topSpacingRatio: {{ section.settings.top_spacing }} / 100;
+      --bottomSpacingRatio: {{ section.settings.bottom_spacing }} / 100;
       --desktopColumns: {{ section.settings.columns_desktop }};
       --mobileColumns: {{ section.settings.columns_mobile }}
     }
@@ -40,8 +40,10 @@
   {% comment %} Text Content {% endcomment %}
   {% render 'heading', class: "multicolumn", heading: section.settings.heading, alt_heading: section.settings.alt_heading, heading_size: section.settings.heading_size %}
 
-  {% if section.settings.description %}
-    {{ section.settings.description }}
+  {% if section.settings.text %}
+    <div class="multicolumn__text __align-center">
+      {{ section.settings.text }}
+    </div>
   {% endif %}
 
   {% comment %} Content Container (slider or stacked depending on layout) {% endcomment %}

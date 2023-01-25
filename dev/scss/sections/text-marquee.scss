@@ -11,18 +11,8 @@
     }
   }
 
-  &__container {
+  &__inner {
     overflow: hidden;
-    position: relative;
-
-    //Hide scrollbars
-
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
-
-    &::-webkit-scrollbar {
-      display: none;
-    }
   }
 
   &__text {

@@ -1,7 +1,6 @@
 .content-marquee {
   padding-right: 0 !important;
   padding-left: 0 !important;
-  overflow: hidden;
   will-change: transform;
   transition: transform 0.25s ease;
   --contentMarqueeCardSize: calc(
@@ -17,8 +16,11 @@
     }
   }
 
-  &__container {
+  &__inner {
     overflow: hidden;
+  }
+
+  &__content {
     position: relative;
     display: flex;
     will-change: transform, left;
