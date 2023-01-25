@@ -1,5 +1,4 @@
 {% liquid
-    assign crop_shape = section.settings.crop_shape
     assign hide_arrows_on_desktop = true
     assign hide_arrows_on_tablet = true
     assign placeholder_blocks_size = 3
@@ -66,7 +65,7 @@
                 {% comment %} Type Product Cards {% endcomment %}
                 {%- when 'products' -%}
                   {% for product in block.settings.products %}
-                    {% render 'product-card' product: product, class: "multicolumn__item", quick_add: block.settings.quick_add, crop: block.settings.crop_shape, show_phrase: block.settings.show_phrase, alignment: block.settings.product_text_alignment, show_description: block.settings.show_description, price_position: block.settings.price_pos, alt_heading: block.settings.alt_title %}
+                    {% render 'product-card' product: product, class: "multicolumn__item", show_bg_color: block.settings.show_bg_color, quick_add: block.settings.quick_add, crop: block.settings.crop_shape, show_phrase: block.settings.show_phrase, alignment: block.settings.product_text_alignment, show_description: block.settings.show_description, price_position: block.settings.price, alt_heading: block.settings.alt_title %}
                   {% endfor %}
 
                 {% comment %} Type Collection Cards {% endcomment %}
@@ -590,6 +589,12 @@
             "type": "checkbox",
             "id": "quick_add",
             "label": "Enable quick add?",
+            "default": false
+          },
+          {
+            "type": "checkbox",
+            "id": "show_bg_color",
+            "label": "Show background color?",
             "default": false
           },
           {

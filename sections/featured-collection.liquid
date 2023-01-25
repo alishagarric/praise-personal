@@ -15,6 +15,7 @@
   assign alt_title  = section.settings.alt_title
   assign show_description = section.settings.show_description
   assign quick_add = section.settings.quick_add
+  assign show_bg_color = section.settings.show_bg_color
 
   assign products_count = featured_collection.products | size
   assign initiate_flickity = false
@@ -76,7 +77,7 @@
       {% endcomment %}
       <div class="featured-collection__cards" style="--featuredCollectionThemedTextColor: {{ featured_collection.products[0].metafields.custom.text_color }}">
         {% for product in featured_collection.products %}
-          {% render 'product-card' product: product, quick_add: quick_add, crop: crop_shape, show_phrase: show_phrase, alignment: product_text_alignment, show_description: show_description, price_position: price_pos, alt_heading: alt_title, class: "featured-collection__cards__card" %}
+          {% render 'product-card' product: product, show_bg_color: show_bg_color, quick_add: quick_add, crop: crop_shape, show_phrase: show_phrase, alignment: product_text_alignment, show_description: show_description, price_position: price_pos, alt_heading: alt_title, class: "featured-collection__cards__card" %}
         {% endfor %}
       </div>
 
@@ -157,6 +158,12 @@
       "type": "checkbox",
       "id": "quick_add",
       "label": "Enable quick add?",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_bg_color",
+      "label": "Show background color?",
       "default": false
     },
     {

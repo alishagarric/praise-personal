@@ -12,8 +12,8 @@
   }
 
   &__item {
-    padding: calc(var(--pxSize) / 2) var(--multiColumnHalfGap) 0
-      var(--multiColumnHalfGap);
+    padding: 0 var(--multiColumnHalfGap);
+    margin-top: calc(var(--pxSize) / 2);
   }
 
   &__arrow {

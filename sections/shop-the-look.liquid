@@ -66,7 +66,7 @@
         {% for block in section.blocks %}
           {% case block.type %}
             {% when 'product' %}
-              {% render 'product-card' product: block.settings.product, crop: section.settings.crop_shape, show_phrase: false, alignment: "left", price_position: "bottom", alt_heading: false, class: "shop-the-look__products__product", quick_add: true %}
+              {% render 'product-card' product: block.settings.product, class: "shop-the-look__products__product", show_bg_color: section.settings.show_bg_color, quick_add: section.settings.quick_add, crop: section.settings.crop_shape, show_phrase: section.settings.show_phrase, alignment: section.settings.product_text_alignment, section.settings.show_description: section.settings.show_description, price_position: section.settings.price, alt_heading: section.settings. alt_title %}
           {% endcase %}
         {% endfor %}
       </div>
@@ -117,6 +117,73 @@
     {
       "type": "header",
       "content": "Product Card Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_phrase",
+      "label": "Show product phrase?"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_description",
+      "label": "Show product description?"
+    },
+    {
+      "type": "checkbox",
+      "id": "quick_add",
+      "label": "Enable quick add?",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_bg_color",
+      "label": "Show background color?",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "alt_title",
+      "label": "Use body font instead of heading font for product title?"
+    },
+    {
+      "type": "select", 
+      "id": "product_text_alignment",
+      "options": [
+        {
+          "value": "default",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "default",
+      "label": "Product Text Alignment"
+    },
+    {
+      "type": "select",
+      "id": "price",
+      "options": [
+        {
+          "value": "default",
+          "label": "Right of Title"
+        },
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        },
+        {
+          "value": "not-visible",
+          "label": "Not Visible"
+        }
+      ],
+      "default": "default",
+      "label": "Price Position"
     },
     {
       "type": "select",

@@ -17,7 +17,7 @@
   <ul class="list-unstyled" role="list">
     {%- for product in collection.products -%}
       <li>
-        {% render 'product-card', product: product %}
+        {% render 'product-card' product: product, show_bg_color: show_bg_color, quick_add: quick_add, crop: crop_shape, show_phrase: show_phrase, alignment: product_text_alignment, show_description: show_description, price_position: price_pos, alt_heading: alt_title, class: "featured-collection__cards__card" %}
       </li>
     {%- endfor -%}
   </ul>
