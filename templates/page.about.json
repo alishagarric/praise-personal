@@ -13,7 +13,7 @@
         "599e2d68-7d31-4caf-baa2-43362684a30b": {
           "type": "text",
           "settings": {
-            "text": "<p>All our cookies use natural ingredients and are made in Williamsburg at our Brooklyn bakery.</p>"
+            "text": "<p>All our cookies use natural ingredients and are made in Williamsburg at our Brooklyn bakery.<\/p>"
           }
         }
       },
@@ -22,17 +22,17 @@
         "599e2d68-7d31-4caf-baa2-43362684a30b"
       ],
       "settings": {
-        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_549b821c-6850-42f3-ae03-51e8af8116c6.jpg",
+        "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_549b821c-6850-42f3-ae03-51e8af8116c6.jpg",
         "overlay": 50,
         "overlay_theme": "4",
         "crop_shape": "default",
         "hero": true,
         "alignment": "center",
         "theme": "primary",
-        "top_spacing": 0,
-        "bottom_spacing": 0,
         "top_internal_spacing": 250,
-        "bottom_internal_spacing": 30
+        "bottom_internal_spacing": 30,
+        "top_spacing": 0,
+        "bottom_spacing": 0
       }
     },
     "divider": {
@@ -64,7 +64,7 @@
         "eb3534e5-bccc-4b1d-8995-da0c99665bba": {
           "type": "text",
           "settings": {
-            "text": "<p>Atypical cookies and treats that push the boundaries of indulgence. An ode to the well-balanced classic cookie. This season we are celebrating all the nostalgia and what pairs best with chocolate chips.</p>"
+            "text": "<p>Atypical cookies and treats that push the boundaries of indulgence. An ode to the well-balanced classic cookie. This season we are celebrating all the nostalgia and what pairs best with chocolate chips.<\/p>"
           }
         }
       },
@@ -73,17 +73,17 @@
         "eb3534e5-bccc-4b1d-8995-da0c99665bba"
       ],
       "settings": {
-        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_549b821c-6850-42f3-ae03-51e8af8116c6.jpg",
+        "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_549b821c-6850-42f3-ae03-51e8af8116c6.jpg",
         "overlay": 70,
         "overlay_theme": "5",
         "crop_shape": "rounded-wide",
         "hero": false,
         "alignment": "left",
         "theme": "primary",
-        "top_spacing": 40,
-        "bottom_spacing": 0,
         "top_internal_spacing": 300,
-        "bottom_internal_spacing": 100
+        "bottom_internal_spacing": 100,
+        "top_spacing": 40,
+        "bottom_spacing": 0
       }
     },
     "f2989769-c365-432b-8663-172dec4d23d5": {
@@ -92,7 +92,7 @@
         "template--16406887071966__f2989769-c365-432b-8663-172dec4d23d5-167036307199fd24ce-0": {
           "type": "icon",
           "settings": {
-            "icon": "shopify://shop_images/Group_100.png",
+            "icon": "shopify:\/\/shop_images\/Group_100.png",
             "heading": "",
             "text": "Value"
           }
@@ -100,7 +100,7 @@
         "template--16406887071966__f2989769-c365-432b-8663-172dec4d23d5-167036307199fd24ce-1": {
           "type": "icon",
           "settings": {
-            "icon": "shopify://shop_images/Vector.png",
+            "icon": "shopify:\/\/shop_images\/Vector.png",
             "heading": "",
             "text": "Value"
           }
@@ -108,7 +108,7 @@
         "template--16406887071966__f2989769-c365-432b-8663-172dec4d23d5-167036307199fd24ce-2": {
           "type": "icon",
           "settings": {
-            "icon": "shopify://shop_images/Group.png",
+            "icon": "shopify:\/\/shop_images\/Group.png",
             "heading": "",
             "text": "Value"
           }
@@ -116,7 +116,7 @@
         "4b3a915a-bee5-49f9-9a78-d84f78290651": {
           "type": "icon",
           "settings": {
-            "icon": "shopify://shop_images/Group_100.png",
+            "icon": "shopify:\/\/shop_images\/Group_100.png",
             "heading": "",
             "text": "Lorem ipsum"
           }
@@ -124,7 +124,7 @@
         "50db8156-e4c0-4c21-b289-6ccb2088a577": {
           "type": "icon",
           "settings": {
-            "icon": "shopify://shop_images/Vector.png",
+            "icon": "shopify:\/\/shop_images\/Vector.png",
             "heading": "",
             "text": "Lorem ipsum"
           }
@@ -132,7 +132,7 @@
         "445bc021-ee04-4b20-a595-7cc635211260": {
           "type": "icon",
           "settings": {
-            "icon": "shopify://shop_images/Group.png",
+            "icon": "shopify:\/\/shop_images\/Group.png",
             "heading": "",
             "text": "Lorem ipsum"
           }
@@ -163,14 +163,14 @@
         "470fd417-3f1a-44c7-8382-ae14c26554b8": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_a6c4dcf8-a5c2-45ab-8711-f1aa9365378c.jpg",
+            "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_a6c4dcf8-a5c2-45ab-8711-f1aa9365378c.jpg",
             "overlay": 40,
             "overlay_theme": "5",
             "crop_shape": "semicircle-portrait",
             "heading": "Alisha Garric",
             "heading_size": "h2",
             "overlap": true,
-            "text": "<p><strong>Head Chef</strong></p><p><strong>A little About Me<br/></strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mattis pellentesque velit convallis scelerisque. Ultrices quis aliquet nulla at magna imperdiet. Eu eget tristique ipsum malesuada convallis felis.</p>",
+            "text": "<p><strong>Head Chef<\/strong><\/p><p><strong>A little About Me<br\/><\/strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mattis pellentesque velit convallis scelerisque. Ultrices quis aliquet nulla at magna imperdiet. Eu eget tristique ipsum malesuada convallis felis.<\/p>",
             "button_label": "",
             "button_link": "",
             "button_color": "default"
@@ -179,14 +179,14 @@
         "61ff9c84-50f8-4831-8a55-c57073c1bcd2": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_a6c4dcf8-a5c2-45ab-8711-f1aa9365378c.jpg",
+            "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_a6c4dcf8-a5c2-45ab-8711-f1aa9365378c.jpg",
             "overlay": 40,
             "overlay_theme": "3",
             "crop_shape": "semicircle-portrait",
             "heading": "Daniel Day Clueless",
             "heading_size": "h2",
             "overlap": true,
-            "text": "<p><strong>Head Chef</strong></p><p><strong>A little About Me<br/></strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mattis pellentesque velit convallis scelerisque. Ultrices quis aliquet nulla at magna imperdiet. Eu eget tristique ipsum malesuada convallis felis.</p>",
+            "text": "<p><strong>Head Chef<\/strong><\/p><p><strong>A little About Me<br\/><\/strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mattis pellentesque velit convallis scelerisque. Ultrices quis aliquet nulla at magna imperdiet. Eu eget tristique ipsum malesuada convallis felis.<\/p>",
             "button_label": "",
             "button_link": "",
             "button_color": "default"
@@ -195,14 +195,14 @@
         "99b8531b-074b-4667-998e-bbe00d2e275e": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_a6c4dcf8-a5c2-45ab-8711-f1aa9365378c.jpg",
+            "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_a6c4dcf8-a5c2-45ab-8711-f1aa9365378c.jpg",
             "overlay": 40,
             "overlay_theme": "4",
             "crop_shape": "semicircle-portrait",
             "heading": "Danny “Thunder” McBride",
             "heading_size": "h2",
             "overlap": true,
-            "text": "<p><strong>Head Chef</strong></p><p><strong>A little About Me<br/></strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mattis pellentesque velit convallis scelerisque. Ultrices quis aliquet nulla at magna imperdiet. Eu eget tristique ipsum malesuada convallis felis.</p>",
+            "text": "<p><strong>Head Chef<\/strong><\/p><p><strong>A little About Me<br\/><\/strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mattis pellentesque velit convallis scelerisque. Ultrices quis aliquet nulla at magna imperdiet. Eu eget tristique ipsum malesuada convallis felis.<\/p>",
             "button_label": "",
             "button_link": "",
             "button_color": "default"
@@ -211,14 +211,14 @@
         "4387cb75-4bc2-4503-95b5-dd98f7f824ae": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_a6c4dcf8-a5c2-45ab-8711-f1aa9365378c.jpg",
+            "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_a6c4dcf8-a5c2-45ab-8711-f1aa9365378c.jpg",
             "overlay": 40,
             "overlay_theme": "5",
             "crop_shape": "semicircle-portrait",
             "heading": "Alisha Garric",
             "heading_size": "h2",
             "overlap": true,
-            "text": "<p><strong>Head Chef</strong></p><p><strong>A little About Me<br/></strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mattis pellentesque velit convallis scelerisque. Ultrices quis aliquet nulla at magna imperdiet. Eu eget tristique ipsum malesuada convallis felis.</p>",
+            "text": "<p><strong>Head Chef<\/strong><\/p><p><strong>A little About Me<br\/><\/strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mattis pellentesque velit convallis scelerisque. Ultrices quis aliquet nulla at magna imperdiet. Eu eget tristique ipsum malesuada convallis felis.<\/p>",
             "button_label": "",
             "button_link": "",
             "button_color": "default"
@@ -232,10 +232,10 @@
         "4387cb75-4bc2-4503-95b5-dd98f7f824ae"
       ],
       "settings": {
-        "alignment": "left",
         "heading": "Team",
-        "text": "",
         "heading_size": "h2",
+        "text": "",
+        "alignment": "left",
         "columns_desktop": 3,
         "layout": "slider",
         "theme": "primary",
@@ -273,7 +273,7 @@
           "type": "button",
           "settings": {
             "button_label": "Learn more",
-            "button_link": "shopify://collections/back-in-stock",
+            "button_link": "shopify:\/\/collections\/back-in-stock",
             "button_color": "default"
           }
         }
@@ -283,17 +283,17 @@
         "dfa21165-42de-44ad-b3ef-d70913dbfb50"
       ],
       "settings": {
-        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_a6c4dcf8-a5c2-45ab-8711-f1aa9365378c.jpg",
+        "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_a6c4dcf8-a5c2-45ab-8711-f1aa9365378c.jpg",
         "overlay": 40,
         "overlay_theme": "3",
         "crop_shape": "circle",
         "hero": false,
         "alignment": "left",
         "theme": "primary",
-        "top_spacing": 100,
-        "bottom_spacing": 100,
         "top_internal_spacing": 100,
-        "bottom_internal_spacing": 100
+        "bottom_internal_spacing": 100,
+        "top_spacing": 100,
+        "bottom_spacing": 100
       }
     },
     "1663294968d8440c8d": {
@@ -308,10 +308,8 @@
         "crop_shape": "square",
         "heading": "Shop Our Bestsellers",
         "alt_heading": true,
-        "text": "<p>Functional handbags made of luxurious and honest materials to improve people's lives in small but mighty ways.</p>",
+        "text": "<p>Functional handbags made of luxurious and honest materials to improve people's lives in small but mighty ways.<\/p>",
         "collection_text_content": false,
-        "stack_text_content": true,
-        "alignment": "center",
         "theme": "primary",
         "top_spacing": 50,
         "bottom_spacing": 50
@@ -323,10 +321,10 @@
         "830e5ff8-b1ac-469b-91e1-0a5d71ab525c": {
           "type": "quote",
           "settings": {
-            "quote": "<p>1 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.</p>",
+            "quote": "<p>1 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.<\/p>",
             "quotations": true,
             "details": "",
-            "logo": "shopify://shop_images/image_14.png",
+            "logo": "shopify:\/\/shop_images\/image_14.png",
             "background_theme": "3",
             "card_corners": "rounded"
           }
@@ -334,10 +332,10 @@
         "5bfa76eb-f1fb-4649-8d9f-0771396e136f": {
           "type": "quote",
           "settings": {
-            "quote": "<p>2 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.</p>",
+            "quote": "<p>2 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.<\/p>",
             "quotations": true,
             "details": "",
-            "logo": "shopify://shop_images/image_14.png",
+            "logo": "shopify:\/\/shop_images\/image_14.png",
             "background_theme": "4",
             "card_corners": "rounded"
           }
@@ -345,10 +343,10 @@
         "6ba997ed-491d-48f4-bad3-c9cb67930f72": {
           "type": "quote",
           "settings": {
-            "quote": "<p>3 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.</p>",
+            "quote": "<p>3 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.<\/p>",
             "quotations": true,
             "details": "",
-            "logo": "shopify://shop_images/image_14.png",
+            "logo": "shopify:\/\/shop_images\/image_14.png",
             "background_theme": "5",
             "card_corners": "rounded"
           }
@@ -356,10 +354,10 @@
         "367cc0c5-6fad-45cb-aa18-67496c784724": {
           "type": "quote",
           "settings": {
-            "quote": "<p>4 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.</p>",
+            "quote": "<p>4 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.<\/p>",
             "quotations": true,
             "details": "",
-            "logo": "shopify://shop_images/image_14.png",
+            "logo": "shopify:\/\/shop_images\/image_14.png",
             "background_theme": "3",
             "card_corners": "rounded"
           }
@@ -367,10 +365,10 @@
         "367cc0c5-6fad-45cb-aa18-67496c784724-1": {
           "type": "quote",
           "settings": {
-            "quote": "<p>5 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.</p>",
+            "quote": "<p>5 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.<\/p>",
             "quotations": true,
             "details": "",
-            "logo": "shopify://shop_images/image_14.png",
+            "logo": "shopify:\/\/shop_images\/image_14.png",
             "background_theme": "4",
             "card_corners": "rounded"
           }
