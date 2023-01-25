@@ -66,7 +66,7 @@
                 {% comment %} Type Product Cards {% endcomment %}
                 {%- when 'products' -%}
                   {% for product in block.settings.products %}
-                    {% render 'product-card', product: product, class: "multicolumn__item", alignment: block.settings.alignment %}
+                    {% render 'product-card' product: product, class: "multicolumn__item", quick_add: block.settings.quick_add, crop: block.settings.crop_shape, show_phrase: block.settings.show_phrase, alignment: block.settings.product_text_alignment, show_description: block.settings.show_description, price_position: block.settings.price_pos, alt_heading: block.settings.alt_title %}
                   {% endfor %}
 
                 {% comment %} Type Collection Cards {% endcomment %}
@@ -577,24 +577,117 @@
             "label": "Products"
           },
           {
-            "type": "radio",
-            "id": "alignment",
-            "label": "Text Alignment",
+            "type": "checkbox",
+            "id": "show_phrase",
+            "label": "Show product phrase?"
+          },
+          {
+            "type": "checkbox",
+            "id": "show_description",
+            "label": "Show product description?"
+          },
+          {
+            "type": "checkbox",
+            "id": "quick_add",
+            "label": "Enable quick add?",
+            "default": false
+          },
+          {
+            "type": "checkbox",
+            "id": "alt_title",
+            "label": "Use body font instead of heading font for product title?"
+          },
+          {
+            "type": "select", 
+            "id": "product_text_alignment",
             "options": [
-                {
-                  "value": "left",
-                  "label":"Left"
-                },
-                {
-                  "value": "center",
-                  "label": "Center"
-                },
-                {
-                  "value": "right",
-                  "label": "Right"
-                }
+              {
+                "value": "default",
+                "label": "Left"
+              },
+              {
+                "value": "center",
+                "label": "Center"
+              },
+              {
+                "value": "right",
+                "label": "Right"
+              }
             ],
-            "default": "left"
+            "default": "default",
+            "label": "Product Text Alignment"
+          },
+          {
+            "type": "select",
+            "id": "price",
+            "options": [
+              {
+                "value": "default",
+                "label": "Right of Title"
+              },
+              {
+                "value": "bottom",
+                "label": "Bottom"
+              },
+              {
+                "value": "not-visible",
+                "label": "Not Visible"
+              }
+            ],
+            "default": "default",
+            "label": "Price Position"
+          },
+          {
+            "type": "select",
+            "id": "crop_shape",
+            "options": [
+              {
+                "value": "default",
+                "label": "No Crop"
+              },
+              {
+                "value": "square",
+                "label": "Square"
+              },
+              {
+                "value": "rounded-square",
+                "label": "Rounded Square"
+              },
+              {
+                "value": "circle",
+                "label": "Circle"
+              },
+              {
+                "value": "portrait",
+                "label": "Portrait"
+              },
+              {
+                "value": "rounded-portrait",
+                "label": "Rounded Portrait"
+              },
+              {
+                "value": "semicircle-portrait",
+                "label": "Semicircle Portrait"
+              },
+              {
+                "value": "landscape",
+                "label": "Landscape"
+              },
+              {
+                "value": "rounded-landscape",
+                "label": "Rounded Landscape"
+              },
+              {
+                "value": "semicircle-landscape",
+                "label": "Semicircle Landscape"
+              },
+              {
+                "value": "arch",
+                "label": "Semicircle Arch"
+              }
+            ],
+            "default": "default",
+            "label": "Product Image Crop Shape"
           }
         ]
       },
