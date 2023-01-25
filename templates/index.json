@@ -250,6 +250,7 @@
       "settings": {
         "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_bbf54c90-3c31-4e00-962c-f12d6b17cf77.jpg",
         "crop_shape": "rounded-square",
+        "image_crop_shape": "square",
         "mobile_image_height": 400,
         "theme": "primary",
         "top_spacing": 50,

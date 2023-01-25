@@ -11,6 +11,8 @@
     height: calc(var(--btnHeight) / 4);
     z-index: 2;
     text-align: center;
+    display: flex;
+    justify-content: center;
 
     button {
       margin: 0;

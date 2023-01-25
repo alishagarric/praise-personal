@@ -1,17 +1,27 @@
 .shop-the-look {
   padding-left: 0;
   padding-right: 0;
-  //TODO how to make the relative pos of the dots land on the same spot on the image no matter the slider content height or browser width?
 
   &__inner {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     position: relative;
+  }
+
+  &__center-vertically {
+    // Just in case the content on the right grows taller than the
+    // fixed ratio image on the left, center the image vertically
+    // within this container. Image must be fixed ratio, so that the
+    // dots always land on the same spot on the image. Also, just in
+    // case the imaage on the left is taller than the content on the
+    // right, center the content on the right vertically.
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   &__image,
   &__products {
-    flex: 0 0 50%;
-    max-width: 50%;
     position: relative;
     z-index: 1;
   }
@@ -112,10 +122,6 @@
     &__image,
     &__products {
       max-width: 100%;
-    }
-
-    &__image {
-      height: var(--mobileImageHeight);
     }
 
     &__products {

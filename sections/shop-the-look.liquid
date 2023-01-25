@@ -10,7 +10,6 @@
     #Shop-the-look-{{ section.id }} {
       --topSpacingRatio: {{ top_spacing }} / 100;
       --bottomSpacingRatio: {{ bottom_spacing }} / 100;
-      --mobileImageHeight: {{ section.settings.mobile_image_height }}px;
     }
  {% endstyle %}
 
@@ -22,51 +21,55 @@
   <shop-the-look class="shop-the-look__inner" data-slider="{% if products_count > 1 %}true{% else %}false{% endif %}">
 
     {% comment %} Image content {% endcomment %}
-    <div class="shop-the-look__image">
-      {% if featured_image %}
-        {% render 'next-gen-img' image: featured_image %}
-      {% else %}
-        {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
-      {% endif %}
+    <div class="shop-the-look__center-vertically">
+      <div class="shop-the-look__image __crop-{{ section.settings.image_crop_shape }}">
+        {% if featured_image %}
+          {% render 'next-gen-img' image: featured_image %}
+        {% else %}
+          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+        {% endif %}
 
-      {% comment %} Dots {% endcomment %}
-      <div class="shop-the-look__dots">
-        {% for block in section.blocks %}
-          {% case block.type %}
-            {% when 'product' %}
-              {% if block.settings.product == blank %}
-                {% assign horizontal_pos = 50 %}
-                {% assign vertical_pos = 50 %}
-                {% assign border_color = "0,0,0" %}
-              {% else %}
-                {% assign horizontal_pos = block.settings.horizontal_pos %}
-                {% assign vertical_pos = block.settings.vertical_pos %}
-                {% assign border_color = block.settings.product.metafields.custom.color.value.red | append: "," | append: block.settings.product.metafields.custom.color.value.green | append: "," | append: block.settings.product.metafields.custom.color.value.blue %}
-              {% endif %}
-              <div 
-                class="shop-the-look__dots__dot" 
-                style="
-                  --shopTheLookDotleft: {{ horizontal_pos }}%; 
-                  --shopTheLookDotTop: {{ vertical_pos }}%; 
-                  background-color: rgb({{ border_color }}); 
-                  border-color:rgba({{ border_color }}, .5);
-                ">
-                <span class="visually-hidden">{{ block.settings.product.title }}</span>
-              </div>
+        {% comment %} Dots {% endcomment %}
+        <div class="shop-the-look__dots">
+          {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'product' %}
+                {% if block.settings.product == blank %}
+                  {% assign horizontal_pos = 50 %}
+                  {% assign vertical_pos = 50 %}
+                  {% assign border_color = "0,0,0" %}
+                {% else %}
+                  {% assign horizontal_pos = block.settings.horizontal_pos %}
+                  {% assign vertical_pos = block.settings.vertical_pos %}
+                  {% assign border_color = block.settings.product.metafields.custom.color.value.red | append: "," | append: block.settings.product.metafields.custom.color.value.green | append: "," | append: block.settings.product.metafields.custom.color.value.blue %}
+                {% endif %}
+                <div 
+                  class="shop-the-look__dots__dot" 
+                  style="
+                    --shopTheLookDotleft: {{ horizontal_pos }}%; 
+                    --shopTheLookDotTop: {{ vertical_pos }}%; 
+                    background-color: rgb({{ border_color }}); 
+                    border-color:rgba({{ border_color }}, .5);
+                  ">
+                  <span class="visually-hidden">{{ block.settings.product.title }}</span>
+                </div>
 
-          {% endcase %}
-        {% endfor %}
+            {% endcase %}
+          {% endfor %}
+        </div>
       </div>
     </div>
 
     {% comment %} Products slider {% endcomment %}
-    <div class="shop-the-look__products">
-      {% for block in section.blocks %}
-        {% case block.type %}
-          {% when 'product' %}
-            {% render 'product-card' product: block.settings.product, crop: section.settings.crop_shape, show_phrase: false, alignment: "left", price_position: "bottom", alt_heading: false, class: "shop-the-look__products__product", quick_add: true %}
-        {% endcase %}
-      {% endfor %}
+    <div class="shop-the-look__center-vertically">
+      <div class="shop-the-look__products">
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'product' %}
+              {% render 'product-card' product: block.settings.product, crop: section.settings.crop_shape, show_phrase: false, alignment: "left", price_position: "bottom", alt_heading: false, class: "shop-the-look__products__product", quick_add: true %}
+          {% endcase %}
+        {% endfor %}
+      </div>
     </div>
 
     {% comment %} Background slider {% endcomment %}
@@ -94,6 +97,26 @@
       "type": "image_picker",
       "id": "image",
       "label": "Image"
+    },
+    {
+      "type": "select",
+      "id": "image_crop_shape",
+      "options": [
+        {
+          "value": "square",
+          "label": "Square"
+        },
+        {
+          "value": "portrait",
+          "label": "Portrait"
+        }
+      ],
+      "default": "portrait",
+      "label": "Image Crop Shape"
+    },
+    {
+      "type": "header",
+      "content": "Product Card Settings"
     },
     {
       "type": "select",
@@ -146,16 +169,6 @@
       ],
       "default": "default",
       "label": "Product Image Crop Shape"
-    },
-    {
-      "type": "range",
-      "id": "mobile_image_height",
-      "min": 200,
-      "max": 600,
-      "step": 50,
-      "unit": "px",
-      "label": "Mobile Image Height",
-      "default": 450
     },
     {
       "type": "header",

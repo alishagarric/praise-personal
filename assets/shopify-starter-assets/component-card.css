@@ -44,5 +44,3 @@
 .card a:focus:not(:focus-visible)::before {
   outline: none;
 }
-
-/* TODO: Hover states */
