@@ -496,7 +496,7 @@
       "settings": {
         "alignment": "center",
         "speed": 6,
-        "theme": "2",
+        "theme": "primary",
         "top_spacing": 50,
         "bottom_spacing": 50
       }

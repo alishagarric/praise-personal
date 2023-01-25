@@ -45,17 +45,12 @@
         "buy_buttons",
         "description"
       ],
-      "settings": {
-      }
+      "settings": {}
     },
     "product-recommendations": {
       "type": "product-recommendations",
-      "settings": {
-      }
+      "settings": {}
     }
   },
-  "order": [
-    "main",
-    "product-recommendations"
-  ]
+  "order": ["main", "product-recommendations"]
 }

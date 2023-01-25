@@ -37,6 +37,7 @@ overflow-slider,
     position: absolute;
     top: 0;
     right: calc(var(--arrowBtnHeight) * 1.5);
+    margin-top: 0;
 
     svg * {
       fill: RGB(var(--color-foreground-text));

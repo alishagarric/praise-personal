@@ -1,6 +1,7 @@
 {{ 'product.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 
+
 {%- liquid
   assign featured_media = product.selected_or_first_available_variant.featured_media
   assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src'
@@ -336,80 +337,3 @@
   ]
 }
 {% endschema %}
-
-
-{% comment %}
-
-  {% schema %}
-{
-  "name": "Featured Collection",
-  "tag": "section",
-  "class": "section",
-  "settings": [],
-  "blocks": [
-    {
-      "type": "phrase",
-      "name": "Phrase",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "select",
-          "id": "font_type",
-          "default": "default",
-          "label": "Font Type",
-          "options": [
-            {
-              "value": "alt",
-              "label": "Body Font"
-            },
-            {
-              "value": "default",
-              "label": "Heading Font"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "title",
-      "name": "Title",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "select",
-          "id": "font_type",
-          "default": "default",
-          "label": "Font Type",
-          "options": [
-            {
-              "value": "alt",
-              "label": "Body Font"
-            },
-            {
-              "value": "default",
-              "label": "Heading Font"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "description",
-      "name": "Description",
-      "limit": 1
-    },
-    {
-      "type": "price",
-      "name": "Price",
-      "limit": 1
-    }
-  ],
-  "presets": [
-    {
-      "name": "Main Product"
-    }
-  ]
-}
-{% endschema %}
-
-{% endcomment %}
