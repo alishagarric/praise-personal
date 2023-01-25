@@ -366,7 +366,7 @@
         "max": 60,
         "step": 2,
         "unit": "px",
-        "label": "Border Radius",
+        "label": "Button Height",
         "default": 48
       },
       {
