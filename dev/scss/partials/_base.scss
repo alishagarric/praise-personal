@@ -149,10 +149,10 @@ button,
 input[type="submit"] {
   height: var(--btnHeight);
   line-height: var(--btnHeight);
-  border-radius: 4px;
+  border-radius: var(--btnBorderRadius);
   background: RGB(var(--color-foreground));
   color: RGB(var(--color-foreground-text));
-  padding: 0 calc(var(--btnHeight) / 2);
+  padding: 0 calc(var(--btnHeight) * var(--btnSidesSpace));
   display: flex;
   width: fit-content;
   text-transform: uppercase;
@@ -165,14 +165,10 @@ input[type="submit"] {
   align-items: center;
   -webkit-appearance: none;
 
-  &:hover {
-    opacity: 0.8;
-  }
-
   &.__with-border {
     background: none;
-    border: 2px solid RGB(var(--color-foreground));
-    color: RGB(var(--color-foreground));
+    border: 2px solid RGB(var(--color-text));
+    color: RGB(var(--color-text));
     width: fit-content;
     border-radius: 2px;
 
@@ -186,7 +182,7 @@ input[type="submit"] {
     }
 
     svg {
-      stroke: RGB(var(--color-foreground));
+      stroke: RGB(var(--color-text));
       width: calc(var(--btnHeight) / 3);
       margin-left: calc(var(--btnHeight) / 4);
     }
@@ -212,6 +208,46 @@ input[type="submit"] {
       height: 1px;
       width: 100%;
       background-color: RGB(var(--color-text));
+    }
+  }
+}
+
+.__btn-hover {
+  &-default {
+    .btn,
+    button,
+    input[type="submit"] {
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  &-border {
+    .btn,
+    button,
+    input[type="submit"] {
+      &:not(.__with-underline) {
+        &:hover {
+          outline: 2px solid RGBA(var(--color-foreground) / 0.5);
+        }
+      }
+    }
+  }
+
+  &-shadow {
+    .btn,
+    button,
+    input[type="submit"] {
+      &:not(.__with-underline) {
+        will-change: transform;
+        transition: transform 0.25s ease;
+
+        &:hover {
+          box-shadow: 2px 2px 10px 0 RGBA(var(--color-text) / 0.2);
+          transform: translate(2px, -3px);
+        }
+      }
     }
   }
 }

@@ -4,8 +4,8 @@
     "theme_name": "Praise",
     "theme_version": "0.1.0",
     "theme_author": "Commence Studio",
-    "theme_documentation_url": "https:\/\/commence.studio",
-    "theme_support_url": "https:\/\/commence.studio"
+    "theme_documentation_url": "https://commence.studio",
+    "theme_support_url": "https://commence.studio"
   },
   {
     "name": "t:settings_schema.social_media.name",
@@ -88,7 +88,7 @@
         "type": "url",
         "id": "custom_heading_font_link",
         "label": "Custom Font Link",
-        "info": "Advanced. If using a custom Adobe font, Adobe will give you a link like 'https:\/\/use.typekit.net\/xxxxxxx.css to paste here. If using downloaded .woff or .woff2 files, upload those files as well as their corresponding .css file to your Shopify Files and paste the link for the css file here."
+        "info": "Advanced. If using a custom Adobe font, Adobe will give you a link like 'https://use.typekit.net/xxxxxxx.css to paste here. If using downloaded .woff or .woff2 files, upload those files as well as their corresponding .css file to your Shopify Files and paste the link for the css file here."
       },
       {
         "type": "text",
@@ -121,7 +121,7 @@
         "type": "url",
         "id": "custom_body_font_link",
         "label": "Custom Font Link",
-        "info": "Advanced. If using a custom Adobe font, Adobe will give you a link like 'https:\/\/use.typekit.net\/xxxxxxx.css to paste here. If using downloaded .woff or .woff2 files, upload those files as well as their corresponding .css file to your Shopify Files and paste the link for the css file here."
+        "info": "Advanced. If using a custom Adobe font, Adobe will give you a link like 'https://use.typekit.net/xxxxxxx.css to paste here. If using downloaded .woff or .woff2 files, upload those files as well as their corresponding .css file to your Shopify Files and paste the link for the css file here."
       },
       {
         "type": "text",
@@ -339,6 +339,62 @@
         "default": "#FFFFFF",
         "label": "Button Text Color",
         "info": "Must have enough contrast between the chosen button color."
+      }
+    ]
+  },
+  {
+    "name": "Buttons",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Buttons"
+      },
+      {
+        "type": "range",
+        "id": "button_border_radius",
+        "min": 0,
+        "max": 30,
+        "step": 2,
+        "unit": "px",
+        "label": "Border Radius",
+        "default": 4
+      },
+      {
+        "type": "range",
+        "id": "button_height",
+        "min": 26,
+        "max": 60,
+        "step": 2,
+        "unit": "px",
+        "label": "Border Radius",
+        "default": 48
+      },
+      {
+        "type": "range",
+        "id": "button_sides_space",
+        "min": 0.25,
+        "max": 2,
+        "step": 0.25,
+        "unit": "x",
+        "info": "Relative to button height",
+        "label": "Button Sides Space",
+        "default": 0.5
+      },
+      {
+        "type": "select",
+        "id": "button_hover",
+        "options": [
+          {
+            "value": "default",
+            "label": "Opacity Change"
+          },
+          {
+            "value": "border",
+            "label": "Border"
+          }
+        ],
+        "default": "default",
+        "label": "Mobile Layout"
       }
     ]
   }

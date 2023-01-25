@@ -31,8 +31,7 @@ overflow-slider,
   &__arrow {
     height: var(--arrowBtnHeight);
     width: var(--arrowBtnHeight);
-    border-radius: 4px;
-    background-color: RGB(var(--color-foreground));
+    padding: 0;
     display: grid;
     place-content: center;
     position: absolute;

@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js __theme-primary" lang="{{ request.locale.iso_code }}">
+<html class="no-js __theme-primary __btn-hover-{{ settings.button_hover }}" lang="{{ request.locale.iso_code }}">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -89,6 +89,9 @@
         --color-foreground-text-5: {{ settings.button_text_color_5.rgb }};
         --color-border-5: {{ settings.border_color_5.rgb }};
 
+        --btnBorderRadius: {{ settings.button_border_radius }}px;
+        --btnHeight: {{ settings.button_height }}px;
+        --btnSidesSpace: {{ settings.button_sides_space }};
       }
     {% endstyle %}
 
