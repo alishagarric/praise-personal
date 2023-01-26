@@ -526,23 +526,43 @@
         "bottom_spacing": 50
       }
     },
-    "a1542f16-c35f-4c66-bcb5-e2d6ae62984d": {
-      "type": "featured-collection",
+    "fddf0723-fe3c-4e26-8517-7c97015affd7": {
+      "type": "content-marquee",
+      "blocks": {
+        "e43d6245-e491-4e7c-a990-dee7e3fc68ce": {
+          "type": "quote",
+          "settings": {
+            "quote": "<p><a href=\"\/pages\/test\" target=\"_blank\" title=\"Test\">Internal New<\/a><\/p><p><a href=\"\/pages\/test\" title=\"Test\">Internal Same<\/a><\/p><p><a href=\"http:\/\/google.com\" target=\"_blank\" title=\"http:\/\/google.com\">External New<\/a><\/p><p><a href=\"http:\/\/google.com\" title=\"http:\/\/google.com\">External Same<\/a><\/p>",
+            "quotations": true,
+            "details": "<p><a href=\"\/pages\/test\" target=\"_blank\" title=\"Test\">Internal New<\/a><\/p><p><a href=\"\/pages\/test\" title=\"Test\">Internal Same<\/a><\/p><p><a href=\"http:\/\/google.com\" target=\"_blank\" title=\"http:\/\/google.com\">External New<\/a><\/p><p><a href=\"http:\/\/google.com\" title=\"http:\/\/google.com\">External Same<\/a><\/p>",
+            "background_theme": "primary",
+            "card_corners": "default"
+          }
+        },
+        "ce30ff63-5769-441d-ac7b-7818cf73ecca": {
+          "type": "image",
+          "settings": {
+            "overlay": 0,
+            "overlay_theme": "primary",
+            "crop_shape": "default",
+            "heading": "Lorem ipsum",
+            "heading_size": "h5",
+            "overlap": false,
+            "text": "<p><a href=\"\/pages\/test\" target=\"_blank\" title=\"Test\">Internal New Description<\/a><\/p><p><a href=\"\/pages\/test\" title=\"Test\">Internal Same Description<\/a><\/p><p><a href=\"http:\/\/google.com\" target=\"_blank\" title=\"http:\/\/google.com\">External New Desc<\/a><\/p><p><a href=\"http:\/\/google.com\" title=\"http:\/\/google.com\">External Same Desc<\/a> <\/p>",
+            "alignment": "left",
+            "button_label": "Laboris Nisi",
+            "button_link": "",
+            "button_color": "default"
+          }
+        }
+      },
+      "block_order": [
+        "e43d6245-e491-4e7c-a990-dee7e3fc68ce",
+        "ce30ff63-5769-441d-ac7b-7818cf73ecca"
+      ],
       "settings": {
-        "collection": "",
-        "theme_slider": false,
-        "show_phrase": false,
-        "show_description": false,
-        "quick_add": false,
-        "show_bg_color": false,
-        "alt_title": false,
-        "product_text_alignment": "default",
-        "price": "default",
-        "crop_shape": "default",
-        "heading": "Lorem Ipsum",
-        "alt_heading": false,
-        "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.<br\/><br\/><a href=\"\/pages\/test\" target=\"_blank\" title=\"Test\">Internal New<\/a><\/p><p><a href=\"\/pages\/test\" title=\"Test\">internal Same<\/a><\/p><p><a href=\"http:\/\/google.com\" target=\"_blank\" title=\"http:\/\/google.com\">External New<\/a><\/p><p><a href=\"http:\/\/google.com\" title=\"http:\/\/google.com\">External Same<\/a><\/p>",
-        "collection_text_content": false,
+        "alignment": "center",
+        "speed": 5,
         "theme": "primary",
         "top_spacing": 50,
         "bottom_spacing": 50
@@ -564,6 +584,6 @@
     "rich-text",
     "9b7e1c54-0b63-432c-bf6b-6416486399ff",
     "bd10db7c-6fad-4554-8a11-8fb51fd79804",
-    "a1542f16-c35f-4c66-bcb5-e2d6ae62984d"
+    "fddf0723-fe3c-4e26-8517-7c97015affd7"
   ]
 }
