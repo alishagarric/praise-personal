@@ -280,10 +280,12 @@ input[type="submit"] {
   }
 }
 
-//Modal styles
+//Old Modal styles
 ////////////////////////////////////
+///
+/// TODO: likely remove this for launch
 
-.cmnc-modal {
+.cmnc-old-modal {
   display: none;
   position: fixed;
   top: 0;
@@ -409,4 +411,16 @@ input[type="submit"] {
   path {
     fill: RGB(var(--color-background));
   }
+}
+
+/* Creates clickable overlay backdrop when details is open */
+details.overlay[open] > summary::before {
+  content: "";
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  cursor: default;
 }

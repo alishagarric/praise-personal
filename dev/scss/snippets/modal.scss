@@ -1,0 +1,154 @@
+.cmnc-modal {
+  --margin: 20px;
+  --width: 750px;
+
+  &__summary {
+    display: inline-block;
+
+    &__close {
+      display: none;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    position: fixed;
+    z-index: 2;
+    background-color: white;
+    border: 1px solid lightgrey;
+    box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.1);
+    /* Add space for close toggle */
+    padding-top: 40px;
+
+    &__header,
+    &__footer {
+      flex-grow: 0;
+      flex-shrink: 0;
+      padding: 10px;
+    }
+
+    &__header {
+      border-bottom: 1px solid lightgrey;
+    }
+
+    &__body {
+      flex-grow: 1;
+      overflow-y: auto;
+      padding: 10px;
+    }
+
+    &__footer {
+      border-top: 1px solid lightgrey;
+    }
+
+    &.__layout {
+      &-pop-up,
+      &-drawer {
+        transform: translateX(-50%);
+        max-height: calc(100% - var(--pxSize) * 2);
+      }
+
+      &-pop-up {
+        top: var(--pxSize);
+        bottom: initial;
+        left: 50%;
+        max-width: var(--width);
+        width: calc(100% - var(--pxSize) * 2);
+      }
+
+      &-drawer {
+        top: 0;
+        left: 0;
+        bottom: 0;
+        max-width: 350px;
+        width: 90%;
+      }
+    }
+  }
+
+  &[open] {
+    .cmnc-modal {
+      &__summary {
+        > * {
+          visibility: hidden;
+        }
+
+        &__close {
+          display: block;
+          visibility: visible;
+          position: fixed;
+          z-index: 3;
+          left: 50%;
+          top: 10px;
+          /* Align with top-left corner of modal */
+          transform: translate(
+            MAX(
+              calc(-1 * var(--width) / 2 + var(--pxSize) / 2),
+              calc(var(--pxSize) * 2 - 50vw)
+            ),
+            var(--pxSize)
+          );
+        }
+
+        &:before {
+          background-color: rgba(0, 0, 0, 0.25);
+        }
+
+        // Let .dialog-close handle focus styles when dialog is open
+        &:focus {
+          outline: none;
+        }
+
+        // Browsers that do support and fallback for browsers that don't support `:focus-visible`
+        &:focus-visible,
+        &:focus {
+          .cmnc-modal {
+            &__summary {
+              &__close {
+                outline: 1px solid #808080;
+              }
+            }
+          }
+        }
+
+        // Negate fallback if browser supports `:focus-visible`
+        &:focus:not(:focus-visible) {
+          .cmnc-modal {
+            &__summary {
+              &__close {
+                outline: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 676px) {
+    &[open] {
+      .cmnc-modal {
+        &__summary {
+          &__close {
+            transform: none;
+            left: 10px;
+          }
+        }
+      }
+    }
+
+    &__content {
+      &.__layout {
+        &-pop-up,
+        &-drawer {
+          top: 0;
+          right: 0;
+          bottom: 0;
+          min-height: 350px;
+        }
+      }
+    }
+  }
+}

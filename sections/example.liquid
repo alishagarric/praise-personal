@@ -1,5 +1,4 @@
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
-{{ 'component-dialog.css' | asset_url | stylesheet_tag }}
 
 <div class="container">
   <p class="message-error h4">
@@ -115,16 +114,16 @@
     <h5>Modal</h5>
     <ul class="grid list-unstyled" role="list">
       <li>
-        <details class="dialog modal overlay">
-          <summary aria-haspopup="dialog" aria-controls="Modal">
+        <details class="cmnc-modal">
+          <summary class="cmnc-modal__summary" aria-haspopup="dialog" aria-controls="Modal">
             <span class="button">Open modal with header and footer</span>
-            <span class="dialog-close button" aria-label="Close modal">Close</span>
+            <span class="cmnc-modal__summary__close button" aria-label="Close modal">Close</span>
           </summary>
-          <div id="Modal" role="dialog" aria-labelledby="ModalHeading" aria-modal="true">
-            <div class="dialog-header">
+          <div class="cmnc-modal__content __layout-pop-up" id="Modal" role="dialog" aria-labelledby="ModalHeading" aria-modal="true">
+            <div class="cmnc-modal__content__header">
               <h2 id="ModalHeading">Modal with header and footer</h2>
             </div>
-            <div class="dialog-body">
+            <div class="cmnc-modal__content__body">
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
                 dolore magna aliqua. Pellentesque id nibh tortor id aliquet lectus. Habitant morbi tristique senectus et
@@ -174,14 +173,14 @@
                 nunc. Ut pharetra sit amet aliquam.
               </p>
             </div>
-            <div class="dialog-footer">
+            <div class="cmnc-modal__content__footer">
               <p>Modal footer</p>
             </div>
           </div>
         </details>
       </li>
       <li>
-        <details class="dialog modal overlay">
+        <details class="dialog modal">
           <summary aria-haspopup="dialog" aria-controls="Modal2">
             <span class="button">Open modal</span>
             <span class="dialog-close button" aria-label="Close modal">Close</span>
@@ -206,7 +205,7 @@
     </ul>
 
     <h5>Drawer</h5>
-    <details class="dialog drawer overlay">
+    <details class="dialog drawer">
       <summary aria-haspopup="dialog" aria-controls="Drawer">
         <span class="button">Open drawer</span>
         <span class="dialog-close button" aria-label="Close drawer">Close</span>
