@@ -526,23 +526,23 @@
         "bottom_spacing": 50
       }
     },
-    "f82c5720-0ff5-4c4d-bf32-79667b145d24": {
-      "type": "split-section",
+    "f5d22a08-a91b-48db-b9c4-f5806b3afd55": {
+      "type": "rich-text",
       "blocks": {
-        "template--16398178549982__f82c5720-0ff5-4c4d-bf32-79667b145d24-16746938785fe0b78f-0": {
+        "template--16398178549982__f5d22a08-a91b-48db-b9c4-f5806b3afd55-16746943543d452e34-0": {
           "type": "heading",
           "settings": {
             "heading": "Lorem ipsum",
             "heading_size": "h5"
           }
         },
-        "template--16398178549982__f82c5720-0ff5-4c4d-bf32-79667b145d24-16746938785fe0b78f-1": {
+        "template--16398178549982__f5d22a08-a91b-48db-b9c4-f5806b3afd55-16746943543d452e34-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut <a href=\"http:\/\/google.com\" title=\"http:\/\/google.com\">external same window.<\/a>. <a href=\"http:\/\/google.com\" target=\"_blank\" title=\"http:\/\/google.com\">External new window.<\/a><br\/><br\/><\/p><p><a href=\"\/pages\/test\" title=\"Test\">Internal Same Window<\/a><br\/><br\/><a href=\"\/pages\/test\" target=\"_blank\" title=\"Test\">Internal New Window <\/a><\/p><p><\/p><p><\/p>"
+            "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.<\/p><p><a href=\"\/pages\/test\" title=\"Test\">Internal Same<\/a><\/p><p><a href=\"\/pages\/test\" target=\"_blank\" title=\"Test\">INternal New<\/a><\/p><p><a href=\"http:\/\/google.com\" title=\"http:\/\/google.com\">External Same<\/a><\/p><p><a href=\"http:\/\/google.com\" target=\"_blank\" title=\"http:\/\/google.com\">External New<\/a><\/p>"
           }
         },
-        "template--16398178549982__f82c5720-0ff5-4c4d-bf32-79667b145d24-16746938785fe0b78f-2": {
+        "template--16398178549982__f5d22a08-a91b-48db-b9c4-f5806b3afd55-16746943543d452e34-2": {
           "type": "button",
           "settings": {
             "button_label": "Laboris Nisi",
@@ -552,20 +552,13 @@
         }
       },
       "block_order": [
-        "template--16398178549982__f82c5720-0ff5-4c4d-bf32-79667b145d24-16746938785fe0b78f-0",
-        "template--16398178549982__f82c5720-0ff5-4c4d-bf32-79667b145d24-16746938785fe0b78f-1",
-        "template--16398178549982__f82c5720-0ff5-4c4d-bf32-79667b145d24-16746938785fe0b78f-2"
+        "template--16398178549982__f5d22a08-a91b-48db-b9c4-f5806b3afd55-16746943543d452e34-0",
+        "template--16398178549982__f5d22a08-a91b-48db-b9c4-f5806b3afd55-16746943543d452e34-1",
+        "template--16398178549982__f5d22a08-a91b-48db-b9c4-f5806b3afd55-16746943543d452e34-2"
       ],
       "settings": {
-        "image_style": "default",
-        "hero": false,
-        "alignment": "default",
-        "layout": "default",
-        "mobile_layout": "default",
-        "mobile_image_height": 450,
+        "alignment": "left",
         "theme": "primary",
-        "top_internal_spacing": 100,
-        "bottom_internal_spacing": 100,
         "top_spacing": 50,
         "bottom_spacing": 50
       }
@@ -586,6 +579,6 @@
     "rich-text",
     "9b7e1c54-0b63-432c-bf6b-6416486399ff",
     "bd10db7c-6fad-4554-8a11-8fb51fd79804",
-    "f82c5720-0ff5-4c4d-bf32-79667b145d24"
+    "f5d22a08-a91b-48db-b9c4-f5806b3afd55"
   ]
 }
