@@ -525,6 +525,190 @@
         "top_spacing": 50,
         "bottom_spacing": 50
       }
+    },
+    "b2a47aa0-8702-41ae-aba6-d35f9380ac0c": {
+      "type": "shop-the-look",
+      "blocks": {
+        "template--16398178549982__b2a47aa0-8702-41ae-aba6-d35f9380ac0c-1674696526e021168e-0": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "horizontal_pos": 50,
+            "vertical_pos": 50
+          }
+        },
+        "template--16398178549982__b2a47aa0-8702-41ae-aba6-d35f9380ac0c-1674696526e021168e-1": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "horizontal_pos": 50,
+            "vertical_pos": 50
+          }
+        },
+        "07fb47e3-d6ae-4f4a-b4b4-624840cbd1f3": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "horizontal_pos": 50,
+            "vertical_pos": 50
+          }
+        },
+        "2726b75e-da7d-4218-8c97-aa68c7000d5c": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "horizontal_pos": 50,
+            "vertical_pos": 50
+          }
+        },
+        "4e8ba3a5-d55d-4c29-b2b8-cfffd020c617": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "horizontal_pos": 50,
+            "vertical_pos": 50
+          }
+        },
+        "06815891-e670-491f-99b9-a6fb6406229c": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "horizontal_pos": 50,
+            "vertical_pos": 50
+          }
+        },
+        "6f6e0e26-961c-4b37-9d2f-bb49a4eb940b": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "horizontal_pos": 50,
+            "vertical_pos": 50
+          }
+        },
+        "b1678668-15cc-48da-95f7-50312af4720d": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "horizontal_pos": 50,
+            "vertical_pos": 50
+          }
+        },
+        "5e0e80a9-0056-46fa-a04d-13888821acf3": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "horizontal_pos": 50,
+            "vertical_pos": 50
+          }
+        },
+        "c9728f42-1636-498c-bae0-b5dbef6f9903": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "horizontal_pos": 50,
+            "vertical_pos": 50
+          }
+        },
+        "f55a8206-e1f1-403e-aa9c-27e0a7352893": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "horizontal_pos": 50,
+            "vertical_pos": 50
+          }
+        },
+        "742eadb0-6e0d-4566-894f-11c4f47ab84a": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "horizontal_pos": 50,
+            "vertical_pos": 50
+          }
+        },
+        "13b1ea72-8807-470c-a810-736fedb10512": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "horizontal_pos": 50,
+            "vertical_pos": 50
+          }
+        },
+        "35c750a3-0d5e-4d42-b44f-a37de83f3626": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "horizontal_pos": 50,
+            "vertical_pos": 50
+          }
+        },
+        "56b106cb-cebb-4e41-9c02-1bbb61f0293b": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "horizontal_pos": 50,
+            "vertical_pos": 50
+          }
+        },
+        "4213c4da-0a1e-4d19-ac9a-07443bced873": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "horizontal_pos": 50,
+            "vertical_pos": 50
+          }
+        },
+        "98e9989d-b607-43d5-b6b0-216b28ab2f8b": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "horizontal_pos": 50,
+            "vertical_pos": 50
+          }
+        },
+        "add03615-5b89-46ec-9074-074db991e4b3": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "horizontal_pos": 50,
+            "vertical_pos": 50
+          }
+        }
+      },
+      "block_order": [
+        "template--16398178549982__b2a47aa0-8702-41ae-aba6-d35f9380ac0c-1674696526e021168e-0",
+        "template--16398178549982__b2a47aa0-8702-41ae-aba6-d35f9380ac0c-1674696526e021168e-1",
+        "07fb47e3-d6ae-4f4a-b4b4-624840cbd1f3",
+        "2726b75e-da7d-4218-8c97-aa68c7000d5c",
+        "4e8ba3a5-d55d-4c29-b2b8-cfffd020c617",
+        "06815891-e670-491f-99b9-a6fb6406229c",
+        "6f6e0e26-961c-4b37-9d2f-bb49a4eb940b",
+        "b1678668-15cc-48da-95f7-50312af4720d",
+        "5e0e80a9-0056-46fa-a04d-13888821acf3",
+        "c9728f42-1636-498c-bae0-b5dbef6f9903",
+        "f55a8206-e1f1-403e-aa9c-27e0a7352893",
+        "742eadb0-6e0d-4566-894f-11c4f47ab84a",
+        "13b1ea72-8807-470c-a810-736fedb10512",
+        "35c750a3-0d5e-4d42-b44f-a37de83f3626",
+        "56b106cb-cebb-4e41-9c02-1bbb61f0293b",
+        "4213c4da-0a1e-4d19-ac9a-07443bced873",
+        "98e9989d-b607-43d5-b6b0-216b28ab2f8b",
+        "add03615-5b89-46ec-9074-074db991e4b3"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_bbf54c90-3c31-4e00-962c-f12d6b17cf77.jpg",
+        "image_crop_shape": "portrait",
+        "show_phrase": false,
+        "show_description": false,
+        "quick_add": false,
+        "show_bg_color": false,
+        "alt_title": false,
+        "product_text_alignment": "default",
+        "price": "default",
+        "crop_shape": "default",
+        "theme": "primary",
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
     }
   },
   "order": [
@@ -541,6 +725,7 @@
     "ff755975-bca6-4b0c-b183-f92584c32baa",
     "rich-text",
     "9b7e1c54-0b63-432c-bf6b-6416486399ff",
-    "bd10db7c-6fad-4554-8a11-8fb51fd79804"
+    "bd10db7c-6fad-4554-8a11-8fb51fd79804",
+    "b2a47aa0-8702-41ae-aba6-d35f9380ac0c"
   ]
 }
