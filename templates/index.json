@@ -539,7 +539,7 @@
         "template--16398178549982__f82c5720-0ff5-4c4d-bf32-79667b145d24-16746938785fe0b78f-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut <a href=\"http:\/\/google.com\" title=\"http:\/\/google.com\">external same window.<\/a>.<br\/><br\/><a href=\"http:\/\/google.com\" target=\"_blank\" title=\"http:\/\/google.com\">External new window<\/a><\/p><p><a href=\"\/pages\/test\" title=\"Test\">Internal Same Window<\/a><br\/><br\/><a href=\"\/pages\/test\" target=\"_blank\" title=\"Test\">Internal New Window <\/a><\/p><p><\/p><p><\/p>"
+            "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut <a href=\"http:\/\/google.com\" title=\"http:\/\/google.com\">external same window.<\/a>. <a href=\"http:\/\/google.com\" target=\"_blank\" title=\"http:\/\/google.com\">External new window.<\/a><br\/><br\/><\/p><p><a href=\"\/pages\/test\" title=\"Test\">Internal Same Window<\/a><br\/><br\/><a href=\"\/pages\/test\" target=\"_blank\" title=\"Test\">Internal New Window <\/a><\/p><p><\/p><p><\/p>"
           }
         },
         "template--16398178549982__f82c5720-0ff5-4c4d-bf32-79667b145d24-16746938785fe0b78f-2": {
