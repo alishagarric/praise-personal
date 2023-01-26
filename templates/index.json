@@ -526,25 +526,20 @@
         "bottom_spacing": 50
       }
     },
-    "f5d22a08-a91b-48db-b9c4-f5806b3afd55": {
-      "type": "rich-text",
+    "3db9b197-eb1e-4138-adb8-b7d4be09dd01": {
+      "type": "multicolumn",
       "blocks": {
-        "template--16398178549982__f5d22a08-a91b-48db-b9c4-f5806b3afd55-16746943543d452e34-0": {
-          "type": "heading",
+        "f67c24d0-218d-45a3-a45f-8598fd15ac52": {
+          "type": "image",
           "settings": {
+            "overlay": 0,
+            "overlay_theme": "primary",
+            "crop_shape": "default",
             "heading": "Lorem ipsum",
-            "heading_size": "h5"
-          }
-        },
-        "template--16398178549982__f5d22a08-a91b-48db-b9c4-f5806b3afd55-16746943543d452e34-1": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.<\/p><p><a href=\"\/pages\/test\" title=\"Test\">Internal Same<\/a><\/p><p><a href=\"\/pages\/test\" target=\"_blank\" title=\"Test\">INternal New<\/a><\/p><p><a href=\"http:\/\/google.com\" title=\"http:\/\/google.com\">External Same<\/a><\/p><p><a href=\"http:\/\/google.com\" target=\"_blank\" title=\"http:\/\/google.com\">External New<\/a><\/p>"
-          }
-        },
-        "template--16398178549982__f5d22a08-a91b-48db-b9c4-f5806b3afd55-16746943543d452e34-2": {
-          "type": "button",
-          "settings": {
+            "heading_size": "h5",
+            "overlap": false,
+            "text": "<p><a href=\"http:\/\/google.com\" title=\"http:\/\/google.com\">External Same<\/a><\/p><p><a href=\"http:\/\/google.com\" target=\"_blank\" title=\"http:\/\/google.com\">External New<\/a><\/p><p><a href=\"\/pages\/test\" title=\"Test\">Internal Same<\/a><\/p><p><a href=\"\/pages\/test\" target=\"_blank\" title=\"Test\">Internal New<\/a><\/p>",
+            "alignment": "left",
             "button_label": "Laboris Nisi",
             "button_link": "",
             "button_color": "default"
@@ -552,12 +547,17 @@
         }
       },
       "block_order": [
-        "template--16398178549982__f5d22a08-a91b-48db-b9c4-f5806b3afd55-16746943543d452e34-0",
-        "template--16398178549982__f5d22a08-a91b-48db-b9c4-f5806b3afd55-16746943543d452e34-1",
-        "template--16398178549982__f5d22a08-a91b-48db-b9c4-f5806b3afd55-16746943543d452e34-2"
+        "f67c24d0-218d-45a3-a45f-8598fd15ac52"
       ],
       "settings": {
-        "alignment": "left",
+        "heading": "Lorem ipsum dolor sit",
+        "heading_size": "h4",
+        "alt_heading": false,
+        "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.<\/p>",
+        "alignment": "center",
+        "columns_desktop": 3,
+        "columns_mobile": 2,
+        "layout": "default",
         "theme": "primary",
         "top_spacing": 50,
         "bottom_spacing": 50
@@ -579,6 +579,6 @@
     "rich-text",
     "9b7e1c54-0b63-432c-bf6b-6416486399ff",
     "bd10db7c-6fad-4554-8a11-8fb51fd79804",
-    "f5d22a08-a91b-48db-b9c4-f5806b3afd55"
+    "3db9b197-eb1e-4138-adb8-b7d4be09dd01"
   ]
 }
