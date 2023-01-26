@@ -672,6 +672,46 @@
             "horizontal_pos": 50,
             "vertical_pos": 50
           }
+        },
+        "620c9c94-dad1-4a35-a598-23e6aaffaf6e": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "horizontal_pos": 50,
+            "vertical_pos": 50
+          }
+        },
+        "7a085632-256c-4ab5-b661-ccb9c4dc36ae": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "horizontal_pos": 50,
+            "vertical_pos": 50
+          }
+        },
+        "8f23caba-b0f0-4a32-91db-f8a38893f391": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "horizontal_pos": 50,
+            "vertical_pos": 50
+          }
+        },
+        "2ad265ef-ebfb-442c-879e-ea7e0f0da383": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "horizontal_pos": 50,
+            "vertical_pos": 50
+          }
+        },
+        "a531f4f1-c27e-4c5f-8f7d-42bcba9de5b8": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "horizontal_pos": 50,
+            "vertical_pos": 50
+          }
         }
       },
       "block_order": [
@@ -692,7 +732,12 @@
         "56b106cb-cebb-4e41-9c02-1bbb61f0293b",
         "4213c4da-0a1e-4d19-ac9a-07443bced873",
         "98e9989d-b607-43d5-b6b0-216b28ab2f8b",
-        "add03615-5b89-46ec-9074-074db991e4b3"
+        "add03615-5b89-46ec-9074-074db991e4b3",
+        "620c9c94-dad1-4a35-a598-23e6aaffaf6e",
+        "7a085632-256c-4ab5-b661-ccb9c4dc36ae",
+        "8f23caba-b0f0-4a32-91db-f8a38893f391",
+        "2ad265ef-ebfb-442c-879e-ea7e0f0da383",
+        "a531f4f1-c27e-4c5f-8f7d-42bcba9de5b8"
       ],
       "settings": {
         "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_bbf54c90-3c31-4e00-962c-f12d6b17cf77.jpg",
