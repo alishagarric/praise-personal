@@ -50,15 +50,15 @@
             "settings": {
               "label": "New",
               "heading_0": "",
-              "text_0": "<p><a href=\"https:\/\/google.com\" target=\"_blank\" title=\"https:\/\/google.com\">Description Internal New<\/a><\/p><p><a href=\"http:\/\/google.com\" title=\"http:\/\/google.com\">Description Internal Same<\/a><\/p><p><a href=\"\/pages\/test\" target=\"_blank\" title=\"Test\">Description External New<\/a><\/p><p><a href=\"\/pages\/test\" title=\"Test\">Description External Same<\/a><\/p>",
+              "text_0": "",
               "button_label": "",
               "button_link": "",
               "heading_1": "Peanut Butter Collection",
-              "text_1": "<p><a href=\"\/pages\/test\" target=\"_blank\" title=\"Test\">Description Internal New<\/a><\/p><p><a href=\"\/pages\/test\" title=\"Test\">Description Internal Same<\/a><\/p><p><a href=\"http:\/\/google.com\" target=\"_blank\" title=\"http:\/\/google.com\">Description External New<\/a><\/p><p><a href=\"http:\/\/google.com\" title=\"http:\/\/google.com\">Description External Same<\/a><\/p>",
+              "text_1": "",
               "link_1": "shopify:\/\/pages\/contact",
               "image_1": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_bbf54c90-3c31-4e00-962c-f12d6b17cf77.jpg",
               "heading_2": "The King",
-              "text_2": "<p><a href=\"\/pages\/test\" target=\"_blank\" title=\"Test\">Description Internal New<\/a><\/p><p><a href=\"\/pages\/test\" title=\"Test\">Description Internal Same<\/a><\/p><p><a href=\"http:\/\/google.com\" target=\"_blank\" title=\"http:\/\/google.com\">Description External New<\/a><\/p><p><a href=\"http:\/\/google.com\" title=\"http:\/\/google.com\">Description External Same<\/a><\/p>",
+              "text_2": "",
               "link_2": "shopify:\/\/pages\/contact",
               "image_2": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_cd0b890c-b357-4857-9c0d-36126dbfab86.jpg"
             }
