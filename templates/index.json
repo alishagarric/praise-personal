@@ -529,25 +529,20 @@
     "3db9b197-eb1e-4138-adb8-b7d4be09dd01": {
       "type": "multicolumn",
       "blocks": {
-        "f67c24d0-218d-45a3-a45f-8598fd15ac52": {
-          "type": "image",
+        "8726d3cc-e2f2-4fe2-bcae-dcc2a02f7f84": {
+          "type": "quote",
           "settings": {
-            "overlay": 0,
-            "overlay_theme": "primary",
-            "crop_shape": "default",
-            "heading": "Lorem ipsum",
-            "heading_size": "h5",
-            "overlap": false,
-            "text": "<p><a href=\"http:\/\/google.com\" title=\"http:\/\/google.com\">External Same<\/a><\/p><p><a href=\"http:\/\/google.com\" target=\"_blank\" title=\"http:\/\/google.com\">External New<\/a><\/p><p><a href=\"\/pages\/test\" title=\"Test\">Internal Same<\/a><\/p><p><a href=\"\/pages\/test\" target=\"_blank\" title=\"Test\">Internal New<\/a><\/p>",
-            "alignment": "left",
-            "button_label": "Laboris Nisi",
-            "button_link": "",
-            "button_color": "default"
+            "quote": "<p><a href=\"\/pages\/test\" target=\"_blank\" title=\"Test\">Ineternal New<\/a><\/p><p><a href=\"\/pages\/test\" title=\"Test\">Internal Same<\/a><\/p><p><a href=\"http:\/\/google.com\" target=\"_blank\" title=\"http:\/\/google.com\">External New<\/a><\/p><p><a href=\"http:\/\/google.com\" title=\"http:\/\/google.com\">External Same<\/a><\/p>",
+            "quotations": true,
+            "details": "<p><a href=\"\/pages\/test\" target=\"_blank\" title=\"Test\">Internal New<\/a><\/p><p><a href=\"\/pages\/test\" title=\"Test\">Internal Same<\/a><\/p><p><a href=\"http:\/\/google.com\" target=\"_blank\" title=\"http:\/\/google.com\">External New<\/a><\/p><p><a href=\"http:\/\/google.com\" title=\"http:\/\/google.com\">External Same<\/a><\/p>",
+            "alignment": "center",
+            "background_theme": "primary",
+            "card_corners": "default"
           }
         }
       },
       "block_order": [
-        "f67c24d0-218d-45a3-a45f-8598fd15ac52"
+        "8726d3cc-e2f2-4fe2-bcae-dcc2a02f7f84"
       ],
       "settings": {
         "heading": "Lorem ipsum dolor sit",
