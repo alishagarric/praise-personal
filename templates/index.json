@@ -541,7 +541,7 @@
         "crop_shape": "default",
         "heading": "Lorem Ipsum",
         "alt_heading": false,
-        "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.<br\/><br\/><a href=\"\/pages\/test\" title=\"Test\">Internal New<\/a><\/p><p><a href=\"\/pages\/test\" title=\"Test\">internal Same<\/a><\/p><p><a href=\"http:\/\/google.com\" target=\"_blank\" title=\"http:\/\/google.com\">External New<\/a><\/p><p><a href=\"http:\/\/google.com\" title=\"http:\/\/google.com\">External Same<\/a><\/p>",
+        "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.<br\/><br\/><a href=\"\/pages\/test\" target=\"_blank\" title=\"Test\">Internal New<\/a><\/p><p><a href=\"\/pages\/test\" title=\"Test\">internal Same<\/a><\/p><p><a href=\"http:\/\/google.com\" target=\"_blank\" title=\"http:\/\/google.com\">External New<\/a><\/p><p><a href=\"http:\/\/google.com\" title=\"http:\/\/google.com\">External Same<\/a><\/p>",
         "collection_text_content": false,
         "theme": "primary",
         "top_spacing": 50,
