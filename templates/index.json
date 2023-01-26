@@ -13,14 +13,14 @@
         "1662063884b661ea2d-0": {
           "type": "text",
           "settings": {
-            "text": "<p>Atypical cookies and treats that push the boundaires of indulgence</p>"
+            "text": "<p>Atypical cookies and treats that push the boundaires of indulgence<\/p>"
           }
         },
         "1662063884b661ea2d-1": {
           "type": "button",
           "settings": {
             "button_label": "Shop treats",
-            "button_link": "shopify://collections",
+            "button_link": "shopify:\/\/collections",
             "button_color": "default"
           }
         }
@@ -31,7 +31,7 @@
         "1662063884b661ea2d-1"
       ],
       "settings": {
-        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash.jpg",
+        "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash.jpg",
         "image_style": "wide",
         "hero": true,
         "alignment": "center",
@@ -61,17 +61,18 @@
       "type": "featured-collection",
       "settings": {
         "collection": "back-in-stock",
-        "theme_slider": true,
+        "theme_slider": false,
         "show_phrase": true,
         "show_description": false,
         "quick_add": false,
+        "show_bg_color": false,
         "alt_title": true,
         "product_text_alignment": "center",
         "price": "not-visible",
         "crop_shape": "circle",
         "heading": "Shop Our Bestsellers",
         "alt_heading": true,
-        "text": "<p>Functional handbags made of luxurious and honest materials to improve people's lives in small but mighty ways.</p>",
+        "text": "<p>Functional handbags made of luxurious and honest materials to improve people's lives in small but mighty ways.<\/p>",
         "collection_text_content": false,
         "theme": "primary",
         "top_spacing": 0,
@@ -91,14 +92,14 @@
         "1662066517b59e31e0-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Atypical cookies and treats that push the boundaries of indulgence. An odea to the well-baanced classic cookie. This season we are celebrating all the nostalgia and what pairs best with chocolate chips.</p>"
+            "text": "<p>Atypical cookies and treats that push the boundaries of indulgence. An odea to the well-baanced classic cookie. This season we are celebrating all the nostalgia and what pairs best with chocolate chips.<\/p>"
           }
         },
         "1662066517b59e31e0-2": {
           "type": "button",
           "settings": {
             "button_label": "Shop treats",
-            "button_link": "shopify://collections",
+            "button_link": "shopify:\/\/collections",
             "button_color": "default"
           }
         }
@@ -109,7 +110,7 @@
         "1662066517b59e31e0-2"
       ],
       "settings": {
-        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_cd0b890c-b357-4857-9c0d-36126dbfab86.jpg",
+        "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_cd0b890c-b357-4857-9c0d-36126dbfab86.jpg",
         "image_style": "wide",
         "hero": false,
         "alignment": "center",
@@ -129,7 +130,7 @@
         "1662067471e878020c-0": {
           "type": "icon",
           "settings": {
-            "icon": "shopify://shop_images/Frame.png",
+            "icon": "shopify:\/\/shop_images\/Frame.png",
             "heading": "One-of-a-kind treats",
             "text": "We make your treats fresh and full of fresh homemade ingredients"
           }
@@ -137,7 +138,7 @@
         "1662067471e878020c-1": {
           "type": "icon",
           "settings": {
-            "icon": "shopify://shop_images/Frame.png",
+            "icon": "shopify:\/\/shop_images\/Frame.png",
             "heading": "One-of-a-kind treats",
             "text": "We make your treats fresh and full of fresh homemade ingredients"
           }
@@ -145,7 +146,7 @@
         "1662067471e878020c-2": {
           "type": "icon",
           "settings": {
-            "icon": "shopify://shop_images/Frame.png",
+            "icon": "shopify:\/\/shop_images\/Frame.png",
             "heading": "One-of-a-kind treats",
             "text": "We make your treats fresh and full of fresh homemade ingredients"
           }
@@ -248,8 +249,15 @@
         "1663290308334a8c59-2"
       ],
       "settings": {
-        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_bbf54c90-3c31-4e00-962c-f12d6b17cf77.jpg",
+        "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_bbf54c90-3c31-4e00-962c-f12d6b17cf77.jpg",
         "image_crop_shape": "square",
+        "show_phrase": false,
+        "show_description": false,
+        "quick_add": false,
+        "show_bg_color": false,
+        "alt_title": false,
+        "product_text_alignment": "default",
+        "price": "default",
         "crop_shape": "rounded-square",
         "theme": "primary",
         "top_spacing": 50,
@@ -259,7 +267,8 @@
     "example": {
       "type": "example",
       "disabled": true,
-      "settings": {}
+      "settings": {
+      }
     },
     "77926ee0-c4cd-4878-a4bf-192a1c0681ed": {
       "type": "image-banner",
@@ -275,7 +284,7 @@
           "type": "button",
           "settings": {
             "button_label": "Learn more",
-            "button_link": "shopify://collections/back-in-stock",
+            "button_link": "shopify:\/\/collections\/back-in-stock",
             "button_color": "default"
           }
         }
@@ -285,7 +294,7 @@
         "dfa21165-42de-44ad-b3ef-d70913dbfb50"
       ],
       "settings": {
-        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_a6c4dcf8-a5c2-45ab-8711-f1aa9365378c.jpg",
+        "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_a6c4dcf8-a5c2-45ab-8711-f1aa9365378c.jpg",
         "overlay": 40,
         "overlay_theme": "3",
         "crop_shape": "circle",
@@ -311,14 +320,14 @@
         "831626aa-2a7e-4c72-a237-2377291357ad": {
           "type": "text",
           "settings": {
-            "text": "<p>Atypical cookies and treats that push the boundaires of indulgence</p>"
+            "text": "<p>Atypical cookies and treats that push the boundaires of indulgence<\/p>"
           }
         },
         "66fa0e52-e179-47ed-951d-4756ccecc86c": {
           "type": "button",
           "settings": {
             "button_label": "Shop the Collection",
-            "button_link": "shopify://collections/back-in-stock",
+            "button_link": "shopify:\/\/collections\/back-in-stock",
             "button_color": "3"
           }
         }
@@ -329,7 +338,7 @@
         "66fa0e52-e179-47ed-951d-4756ccecc86c"
       ],
       "settings": {
-        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_e7c90847-70c1-47f4-a82d-2369a2b4a718.jpg",
+        "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_e7c90847-70c1-47f4-a82d-2369a2b4a718.jpg",
         "overlay": 20,
         "overlay_theme": "4",
         "crop_shape": "default",
@@ -356,6 +365,7 @@
             "show_phrase": false,
             "show_description": false,
             "quick_add": false,
+            "show_bg_color": false,
             "alt_title": false,
             "product_text_alignment": "default",
             "price": "default",
@@ -374,6 +384,7 @@
             "show_phrase": true,
             "show_description": true,
             "quick_add": true,
+            "show_bg_color": false,
             "alt_title": true,
             "product_text_alignment": "center",
             "price": "bottom",
@@ -389,7 +400,7 @@
         "heading": "Shop Our Bestsellers",
         "heading_size": "h5",
         "alt_heading": true,
-        "text": "<p>Functional handbags made of luxurious and honest materials to improve people's lives in small but mighty ways.</p>",
+        "text": "<p>Functional handbags made of luxurious and honest materials to improve people's lives in small but mighty ways.<\/p>",
         "alignment": "center",
         "columns_desktop": 4,
         "columns_mobile": 2,
@@ -410,7 +421,9 @@
           }
         }
       },
-      "block_order": ["heading"],
+      "block_order": [
+        "heading"
+      ],
       "settings": {
         "alignment": "center",
         "theme": "primary",
@@ -445,10 +458,10 @@
         "830e5ff8-b1ac-469b-91e1-0a5d71ab525c": {
           "type": "quote",
           "settings": {
-            "quote": "<p>1 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.</p>",
+            "quote": "<p>1 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.<\/p>",
             "quotations": true,
             "details": "",
-            "logo": "shopify://shop_images/image_14.png",
+            "logo": "shopify:\/\/shop_images\/image_14.png",
             "background_theme": "3",
             "card_corners": "rounded"
           }
@@ -456,10 +469,10 @@
         "5bfa76eb-f1fb-4649-8d9f-0771396e136f": {
           "type": "quote",
           "settings": {
-            "quote": "<p>2 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.</p>",
+            "quote": "<p>2 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.<\/p>",
             "quotations": true,
             "details": "",
-            "logo": "shopify://shop_images/image_14.png",
+            "logo": "shopify:\/\/shop_images\/image_14.png",
             "background_theme": "4",
             "card_corners": "rounded"
           }
@@ -467,10 +480,10 @@
         "6ba997ed-491d-48f4-bad3-c9cb67930f72": {
           "type": "quote",
           "settings": {
-            "quote": "<p>3 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.</p>",
+            "quote": "<p>3 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.<\/p>",
             "quotations": true,
             "details": "",
-            "logo": "shopify://shop_images/image_14.png",
+            "logo": "shopify:\/\/shop_images\/image_14.png",
             "background_theme": "5",
             "card_corners": "rounded"
           }
@@ -478,10 +491,10 @@
         "367cc0c5-6fad-45cb-aa18-67496c784724": {
           "type": "quote",
           "settings": {
-            "quote": "<p>4 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.</p>",
+            "quote": "<p>4 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.<\/p>",
             "quotations": true,
             "details": "",
-            "logo": "shopify://shop_images/image_14.png",
+            "logo": "shopify:\/\/shop_images\/image_14.png",
             "background_theme": "3",
             "card_corners": "rounded"
           }
@@ -489,10 +502,10 @@
         "367cc0c5-6fad-45cb-aa18-67496c784724-1": {
           "type": "quote",
           "settings": {
-            "quote": "<p>5 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.</p>",
+            "quote": "<p>5 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.<\/p>",
             "quotations": true,
             "details": "",
-            "logo": "shopify://shop_images/image_14.png",
+            "logo": "shopify:\/\/shop_images\/image_14.png",
             "background_theme": "4",
             "card_corners": "rounded"
           }
