@@ -132,6 +132,7 @@ p,
 p,
 .p {
   font-size: calc(1.125rem * var(--font-body-scale));
+  @extend .txt-link;
 }
 
 .p-sm,
@@ -182,32 +183,7 @@ li {
   margin: 0;
 }
 
-.__article-txt,
-.__article-txt-p-sm {
-  h1 {
-    font-size: calc(2.25rem * var(--font-heading-scale));
-  }
-
-  h2 {
-    font-size: calc(1.75rem * var(--font-heading-scale));
-  }
-
-  h3 {
-    font-size: calc(1.31rem * var(--font-heading-scale));
-  }
-
-  h4 {
-    font-size: calc(1.125rem * var(--font-heading-scale));
-  }
-
-  h5 {
-    font-size: calc(1rem * var(--font-heading-scale));
-  }
-
-  h6 {
-    font-size: calc(0.9rem * var(--font-heading-scale));
-  }
-
+.txt-link{
   a {
     position: relative;
     color: RGB(var(--color-foreground));
@@ -236,6 +212,35 @@ li {
       }
     }
   }
+}
+
+.__article-txt,
+.__article-txt-p-sm {
+  h1 {
+    font-size: calc(2.25rem * var(--font-heading-scale));
+  }
+
+  h2 {
+    font-size: calc(1.75rem * var(--font-heading-scale));
+  }
+
+  h3 {
+    font-size: calc(1.31rem * var(--font-heading-scale));
+  }
+
+  h4 {
+    font-size: calc(1.125rem * var(--font-heading-scale));
+  }
+
+  h5 {
+    font-size: calc(1rem * var(--font-heading-scale));
+  }
+
+  h6 {
+    font-size: calc(0.9rem * var(--font-heading-scale));
+  }
+
+  @extend .txt-link;
 
   blockquote,
   blockquote p {
