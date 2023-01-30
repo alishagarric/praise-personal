@@ -1,49 +1,58 @@
 {% comment %}
-    Renders a content card (image with text)
+  Renders a content card (image with text)
 
-    Expects:
-    - class: {string} optional
-    - image: {image object}
-    - alignment: {String} optional. default, center, right
-    - crop_shape: {String} optional. default, square, rounded-square, circle, portrait, rounded-portrait, semicircle-portrait, landscape, rounded-landscape, semicircle-landscape, arch",
-    - overlay_theme: {String} optional. primary, 2, 3, 4, 5
-    - overlay: {int} optional
-    - overlap: bool
-    - heading: {string}
-    - heading_size: {String} "h2", "h4", "h5", "h6"
-    - text: {richtext}
-    - button_label: {string} optional
-    - button_link: {url} optional
-    - button_color: {string} optional
-    - class: {string} optional
+  Expects:
+  - class: {string} optional
+  - image: {image object}
+  - alignment: {String} optional. default, center, right
+  - crop_shape: {String} optional. default, square, rounded-square, circle, portrait, rounded-portrait, semicircle-portrait, landscape, rounded-landscape, semicircle-landscape, arch",
+  - overlay_theme: {String} optional. primary, 2, 3, 4, 5
+  - overlay: {int} optional
+  - overlap: bool
+  - heading: {string}
+  - heading_size: {String} "h2", "h4", "h5", "h6"
+  - text: {richtext}
+  - button_label: {string} optional
+  - button_link: {url} optional
+  - button_color: {string} optional
+  - class: {string} optional
 
-    Usage:
-      {% render 'content-card' image: block.settings.image, alignment: block.settings.alignment, crop_shape: block.settings.crop_shape, overlay_theme: block.settings.overlay_theme, overlay: section.settings.overlay, heading: block.settings.heading heading_size: block.settings.heading_size, button_link: block.settings.button_link, button_color: block.settings.button_color, text: block.settings.text %}
-
+  Usage:
+    {% render 'content-card' image: block.settings.image, alignment: block.settings.alignment, crop_shape: block.settings.crop_shape, overlay_theme: block.settings.overlay_theme, overlay: section.settings.overlay, heading: block.settings.heading heading_size: block.settings.heading_size, button_link: block.settings.button_link, button_color: block.settings.button_color, text: block.settings.text %}
 {% endcomment %}
 
-{% assign alignment = alignment | default: "default" %}
-{% assign crop_shape = crop_shape | default: "default" %}
-{% assign overlay_theme = overlay_theme | default: "default" %}
+{% assign alignment = alignment | default: 'default' %}
+{% assign crop_shape = crop_shape | default: 'default' %}
+{% assign overlay_theme = overlay_theme | default: 'default' %}
 {% assign overlay = overlay | default: 50 %}
 {% assign overlap = overlap | default: false %}
 
-
-<div class="content-card {{ class }} __align-{{ alignment }}" style="--contentCardSectionTextColor: RGB(var(--color-text));">
+<div
+  class="content-card {{ class }} __align-{{ alignment }}"
+  style="--contentCardSectionTextColor: RGB(var(--color-text));"
+>
   {%- if image != blank -%}
-    <div class="content-card__image __crop-{{ crop_shape }} {% if overlay_theme %}__theme-{{ overlay_theme }}{% endif %} --overlayOpacity: calc({{section.settings.overlay}} / 100);" style="--imageRatio: {{ image.aspect_ratio | times: 100 }}%;">
+    <div
+      class="content-card__image __crop-{{ crop_shape }} {% if overlay_theme %}__theme-{{ overlay_theme }}{% endif %} --overlayOpacity: calc({{section.settings.overlay}} / 100);"
+      style="--imageRatio: {{ image.aspect_ratio | times: 100 }}%;"
+    >
       {% render 'next-gen-img', image: image %}
       {% if overlap == true %}
-        {% render 'heading', class: "content-card", heading: heading, heading_size: heading_size %}
+        {% render 'heading', class: 'content-card', heading: heading, heading_size: heading_size, card: true %}
       {% endif %}
     </div>
   {%- endif -%}
   {% if overlap == false or image == blank %}
-    {% render 'heading', class: "content-card", heading: heading, heading_size: heading_size %}
+    {% render 'heading', class: 'content-card', heading: heading, heading_size: heading_size, card: true %}
   {% endif %}
-  
+
   {%- if text -%}
     <div class="content-card__text __article-txt" {{ block.shopify_attributes }}>{{ text }}</div>
   {%- endif -%}
-  {% render 'button', class: "content-card", button_label: button_label, button_link: button_link, button_color: button_color %}
+  {% render 'button',
+    class: 'content-card',
+    button_label: button_label,
+    button_link: button_link,
+    button_color: button_color
+  %}
 </div>

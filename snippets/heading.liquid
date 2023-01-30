@@ -12,14 +12,26 @@
   {% render 'heading', class: "split-section__text", use_as_hero: section.settings.hero, heading: block.settings.heading, heading_size: block.settings.heading_size %}
 {% endcomment %}
 
-
 {% if heading != blank %}
   {% if use_as_hero == true %}
-    <h1 class="{% if class %}{{ class }}__heading{% endif %} {{ heading_size }} {% if alt_heading %}alt{% endif%}" {{ block.shopify_attributes }}>
+    <h1
+      class="{% if class %}{{ class }}__heading{% endif %} {{ heading_size }} {% if alt_heading %}alt{% endif%}"
+      {{ block.shopify_attributes }}
+    >
       {{ heading | escape }}
     </h1>
+  {% elsif card == true %}
+    <h3
+      class="{% if class %}{{ class }}__heading{% endif %} {{ heading_size }} {% if alt_heading %}alt{% endif%}"
+      {{ block.shopify_attributes }}
+    >
+      {{ heading | escape }}
+    </h3>
   {% else %}
-    <h2 class="{% if class %}{{ class }}__heading{% endif %} {{ heading_size }} {% if alt_heading %}alt{% endif%}" {{ block.shopify_attributes }}>
+    <h2
+      class="{% if class %}{{ class }}__heading{% endif %} {{ heading_size }} {% if alt_heading %}alt{% endif%}"
+      {{ block.shopify_attributes }}
+    >
       {{ heading | escape }}
     </h2>
   {% endif %}
