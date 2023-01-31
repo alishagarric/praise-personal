@@ -288,13 +288,18 @@
 
           {% comment %} Type featured icons {% endcomment %}
           {%- when 'icons' -%}
-            <ul class="main-product__icons">
-              {% for icon in product.metafields.custom.featured_icons.value %}
-                <li class="main-product__icons__icon custom-icon-{{ icon | handleize }}">
-                  {{ icon }}
-                </li>
-              {% endfor %}
-            </ul>
+            <div class="main-product__block {% if block.settings.include_border %} __border-top {% endif %}">
+              {% if block.settings.title %}
+                <div class="p-sm">{{ block.settings.title }}</div>
+              {% endif %}
+              <ul class="main-product__icons __layout-{{ block.settings.layout }}" style="--customIconHeight:{{ block.settings.icon_height }}px;">
+                {% for icon in product.metafields.custom.featured_icons.value %}
+                  <li class="main-product__icons__icon custom-icon-{{ icon | handleize }}">
+                    <span class="p-sm">{{ icon }}</span>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
 
           {% comment %} Type description {% endcomment %}
           {%- when 'description' -%}
@@ -488,6 +493,48 @@
           "type": "text",
           "id": "icon_3_title",
           "label": "Icon 3 Title"
+        },
+        {
+          "type":"range",
+          "id":"icon_height",
+          "min":20,
+          "max":100,
+          "step":10,
+          "unit":"px",
+          "label":"Icon Height",
+          "default":40
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Title",
+          "label": "Title"
+        },
+        {
+          "type":"radio",
+          "id":"layout",
+          "label":"Layout",
+          "options":[
+              {
+                "value":"stacked",
+                "label":"Stacked"
+              },
+              {
+                "value":"row",
+                "label":"Row"
+              },
+              {
+                "value":"icon-only",
+                "label":"Icon Only"
+              }
+          ],
+          "default":"stacked"
+        }, 
+        {
+          "type": "checkbox",
+          "id": "include_border",
+          "label": "Include border?",
+          "default": true
         }
       ]
     },

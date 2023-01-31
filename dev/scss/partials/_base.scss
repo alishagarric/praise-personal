@@ -428,7 +428,11 @@ details.overlay[open] > summary::before {
 /* Custom icon */
 
 .custom-icon {
+  content: "";
+  width: var(--customIconHeight);
   height: var(--customIconHeight);
-  width: auto;
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
   display: block;
 }

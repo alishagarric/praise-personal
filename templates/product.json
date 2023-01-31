@@ -18,18 +18,15 @@
         },
         "description": {
           "type": "description",
-          "settings": {
-          }
+          "settings": {}
         },
         "rating": {
           "type": "rating",
-          "settings": {
-          }
+          "settings": {}
         },
         "media": {
           "type": "media",
-          "settings": {
-          }
+          "settings": {}
         },
         "caption": {
           "type": "text",
@@ -39,34 +36,29 @@
         },
         "price": {
           "type": "price",
-          "settings": {
-          }
+          "settings": {}
         },
         "variant_picker": {
           "type": "variant_picker",
-          "settings": {
-          }
+          "settings": {}
         },
         "quantity_selector": {
           "type": "quantity_selector",
-          "settings": {
-          }
+          "settings": {}
         },
         "buy_buttons": {
           "type": "buy_buttons",
-          "settings": {
-          }
+          "settings": {}
         },
         "pickup-availability": {
           "type": "pickup_availability",
-          "settings": {
-          }
+          "settings": {}
         },
         "expandable": {
           "type": "expandable",
           "settings": {
             "title": "Details",
-            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gravida diam integer suspendisse magna tempus ut praesent amet venenatis. <\/p><ul><li>Full of Gluten<\/li><li>Vegan<\/li><li>500 calories per cookie<\/li><li>No artificial colors of flavors<\/li><\/ul>",
+            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gravida diam integer suspendisse magna tempus ut praesent amet venenatis. </p><ul><li>Full of Gluten</li><li>Vegan</li><li>500 calories per cookie</li><li>No artificial colors of flavors</li></ul>",
             "open": false
           }
         },
@@ -96,7 +88,12 @@
         },
         "featured-icons": {
           "type": "icons",
-          "settings": {}
+          "settings": {
+            "icon_height": 20,
+            "layout": "row",
+            "title": "Key Ingredients",
+            "include_border": true
+          }
         }
       },
       "block_order": [
@@ -128,8 +125,5 @@
       }
     }
   },
-  "order": [
-    "main",
-    "product-recommendations"
-  ]
+  "order": ["main", "product-recommendations"]
 }
