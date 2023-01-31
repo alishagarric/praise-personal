@@ -1,26 +1,33 @@
 .main-product {
+  padding: 0;
+
   &__container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 
-    &.__side {
-      &-left,
-      &-right {
-        background: var(--color-background);
-        color: var(--color-text);
-      }
-
-      &-left {
-        grid-column: 1 / 2;
-      }
-
-      &-center {
-        grid-column: 2 / 3;
-      }
-
-      &-right {
-        grid-column: 3 / -1;
-      }
+    > * {
+      padding-top: calc(var(--sectionVerticalSpacing) * var(--topSpacingRatio));
+      padding-bottom: calc(
+        var(--sectionVerticalSpacing) * var(--bottomSpacingRatio)
+      );
     }
+  }
+
+  &__blocks-before-media {
+    grid-column: 1 / 2;
+    padding-left: var(--sectionGuttersSpacing);
+  }
+
+  &__media {
+    grid-column: 2 / 3;
+    padding-left: calc(var(--sectionGuttersSpacing) / 2);
+    padding-right: calc(var(--sectionGuttersSpacing) / 2);
+  }
+
+  &__blocks-after-media {
+    grid-column: 3 / -1;
+    background: RGB(var(--color-background));
+    color: RGB(var(--color-text));
+    padding-right: var(--sectionGuttersSpacing);
   }
 }

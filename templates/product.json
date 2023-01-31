@@ -6,69 +6,47 @@
         "vendor": {
           "type": "text",
           "settings": {
-            "text": "{{ product.vendor }}",
-            "side": "left"
+            "text": "{{ product.vendor }}"
           }
         },
+        "media": {
+          "type": "media"
+        },
         "title": {
-          "type": "title",
-          "settings": {
-            "side": "left"
-          }
+          "type": "title"
         },
         "caption": {
           "type": "text",
           "settings": {
-            "text": "{{ product.metafields.descriptors.subtitle.value }}",
-            "side": "left"
+            "text": "{{ product.metafields.descriptors.subtitle.value }}"
           }
         },
         "price": {
-          "type": "price",
-          "settings": {
-            "side": "right"
-          }
+          "type": "price"
         },
         "variant_picker": {
-          "type": "variant_picker",
-          "settings": {
-            "side": "right"
-          }
+          "type": "variant_picker"
         },
         "quantity_selector": {
-          "type": "quantity_selector",
-          "settings": {
-            "side": "right"
-          }
+          "type": "quantity_selector"
         },
         "buy_buttons": {
-          "type": "buy_buttons",
-          "settings": {
-            "side": "right"
-          }
+          "type": "buy_buttons"
         },
         "description": {
-          "type": "description",
-          "settings": {
-            "side": "left"
-          }
+          "type": "description"
         },
         "860df6e1-0fbd-48af-95f0-7cb68bddfdfd": {
-          "type": "rating",
-          "settings": {
-            "side": "left"
-          }
+          "type": "rating"
         },
         "1945c7d4-0873-4a36-93d5-6c3a96ad1b7d": {
-          "type": "pickup_availability",
-          "settings": {
-            "side": "left"
-          }
+          "type": "pickup_availability"
         }
       },
       "block_order": [
         "vendor",
         "title",
+        "media",
         "caption",
         "price",
         "variant_picker",
@@ -80,7 +58,7 @@
       ],
       "settings": {
         "theme": "primary",
-        "accent_theme": "primary"
+        "accent_theme": "3"
       }
     },
     "product-recommendations": {
@@ -90,8 +68,5 @@
       }
     }
   },
-  "order": [
-    "main",
-    "product-recommendations"
-  ]
+  "order": ["main", "product-recommendations"]
 }
