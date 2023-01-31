@@ -15,6 +15,7 @@
   &__summary {
     padding-right: calc(var(--expandableContentIconWidth) * 2);
     position: relative;
+    cursor: pointer;
 
     &:before,
     &:after {

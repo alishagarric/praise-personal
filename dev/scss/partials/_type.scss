@@ -129,10 +129,15 @@ p,
   margin: 0 0 1rem 0;
 }
 
+p {
+  a {
+    @extend .txt-link;
+  }
+}
+
 p,
 .p {
   font-size: calc(1.125rem * var(--font-body-scale));
-  @extend .txt-link;
 }
 
 .p-sm,
@@ -183,33 +188,36 @@ li {
   margin: 0;
 }
 
-.txt-link{
-  a {
-    position: relative;
-    color: RGB(var(--color-foreground));
-    opacity: 1;
-    will-change: opacity;
+em,
+i {
+  font-style: italic;
+}
+
+.txt-link {
+  position: relative;
+  color: RGB(var(--color-foreground));
+  opacity: 1;
+  will-change: opacity;
+  transition: all 0.25s ease;
+
+  &:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: RGB(var(--color-foreground));
+    transform: scale(1);
+    will-change: transform;
     transition: all 0.25s ease;
+  }
+
+  &:hover {
+    opacity: 0.8;
 
     &:after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: 1px;
-      background: RGB(var(--color-foreground));
-      transform: scale(1);
-      will-change: transform;
-      transition: all 0.25s ease;
-    }
-
-    &:hover {
-      opacity: 0.8;
-
-      &:after {
-        transform: scale(1.1, 1.5);
-      }
+      transform: scale(1.1, 1.5);
     }
   }
 }
@@ -240,7 +248,9 @@ li {
     font-size: calc(0.9rem * var(--font-heading-scale));
   }
 
-  @extend .txt-link;
+  a {
+    @extend .txt-link;
+  }
 
   blockquote,
   blockquote p {
@@ -289,7 +299,9 @@ li {
 
 .__article-txt-p-lg,
 .__article-txt.p-lg {
-  p {
+  p,
+  ul li,
+  ol li {
     font-size: calc(1.375rem * var(--font-heading-scale));
 
     @media (max-width: 1024px) {
@@ -300,8 +312,10 @@ li {
 
 .__article-txt-p-sm,
 .__article-txt.p-sm {
-  p {
-    font-size: calc(0.875rem * var(--font-heading-scale));
+  p,
+  ul li,
+  ol li {
+    font-size: calc(0.8rem * var(--font-heading-scale));
   }
 }
 

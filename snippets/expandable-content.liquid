@@ -16,14 +16,13 @@
 {% assign open = open | default: false %}
 
 {% if title and id and text or page %}
-  <details class="expandable-content" {{ open }}>
+  <details class="expandable-content" {% if open %}open{% endif %}>
     <summary class="expandable-content__summary " aria-label="Dropdown component" role="button" aria-expanded="true" aria-controls="dropdown-{{ id }}">
       <span class="p-sm">{{ title }}</span>
     </summary>
-    <div id="dropdown-{{ id }}" class="expandable-content__content p-sm ">
+    <div id="dropdown-{{ id }}" class="expandable-content__content __article-txt-p-sm">
       {{ text }}
 
-      {{ page.title }}
       {{ page.content }}
     </div>
   </details>

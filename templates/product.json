@@ -59,7 +59,6 @@
           "settings": {
             "title": "Details",
             "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gravida diam integer suspendisse magna tempus ut praesent amet venenatis. </p><ul><li>Full of Gluten</li><li>Vegan</li><li>500 calories per cookie</li><li>No artificial colors of flavors</li></ul>",
-            "page": "test",
             "open": false
           }
         }
