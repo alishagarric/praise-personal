@@ -2,6 +2,15 @@
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 
 
+{% comment %} 
+  Get these variables:
+   featured_media (object)
+   variant_images (array)
+   media_count (int)
+   first_3d_modal (object)
+
+   TODO: What is section.settings.hide_variants below. Create it in schema? Remove it here?
+{% endcomment %}
 {%- liquid
   assign featured_media = product.selected_or_first_available_variant.featured_media
   assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src'
@@ -12,58 +21,85 @@
   assign first_3d_model = product.media | where: "media_type", "model" | first
 -%}
 
+
+{% comment %} Add style sheet that'll apply to 3d model instances? {% endcomment %}
 {%- if first_3d_model -%}
   <link id="ModelViewerStyle" rel="stylesheet" href="https://cdn.shopify.com/shopifycloud/model-viewer-ui/assets/v1.0/model-viewer-ui.css" media="print" onload="this.media='all'">
 {%- endif -%}
 
-<div class="product">
-  <div class="grid container">
-    {% comment %} Product media {% endcomment %}
-    <media-gallery id="Product-MediaGallery-{{ section.id }}">
-      <a class="skip-to-content-link visually-hidden" href="#ProductInfo-{{ section.id }}">
-        {{ 'accessibility.skip_to_product_info' | t }}
-      </a>
-      <ul class="product-media grid list-unstyled" role="list">
-        {%- unless featured_media == null -%}
-          <li data-media-id="{{ section.id }}-{{ featured_media.id }}">
-            {% render 'product-thumbnail', media: featured_media, loading: 'eager' %}
-          </li>
-        {%- endunless -%}
-        {%- for media in product.media -%}
-          {%- unless media.id == featured_media.id -%}
-            <li data-media-id="{{ section.id }}-{{ media.id }}">
-              {%- liquid
-                assign media_position = media_position | default: 0 | plus: 1
-                assign loading = 'eager'
-                if media_position > 1
-                  assign loading = 'lazy'
-                endif
-                render 'product-thumbnail', media: media, loading: loading
-              -%}
+<div class="main-product product __theme-{{ section.settings.theme }}">
+
+    {% comment %} Product info {% endcomment %}
+    <div id="Product-Info-{{ section.id }}" class="main-product__container">
+      {%- assign product_form_id = 'Product-Form-' | append: section.id -%}
+
+      {% comment %} Product media {% endcomment %}
+      <media-gallery id="Product-MediaGallery-{{ section.id }}" class="__side-center">
+
+        {% comment %} Skip to content anchor link {% endcomment %}
+        <a class="skip-to-content-link visually-hidden" href="#ProductInfo-{{ section.id }}">
+          {{ 'accessibility.skip_to_product_info' | t }}
+        </a>
+
+        <ul class="product-media grid list-unstyled" role="list">
+
+          {% comment %} If no media exists, output placeholder content? {% endcomment %}
+          {%- unless featured_media == null -%}
+            <li data-media-id="{{ section.id }}-{{ featured_media.id }}">
+              {% render 'product-thumbnail', media: featured_media, loading: 'eager' %}
             </li>
           {%- endunless -%}
-        {%- endfor -%}
-      </ul>
-    </media-gallery>
-    {% comment %} Product info {% endcomment %}
-    <div id="Product-Info-{{ section.id }}">
-      {%- assign product_form_id = 'Product-Form-' | append: section.id -%}
+
+          {% comment %} Loop through available media, excluding featured media item {% endcomment %}
+          {% comment %} What does the parent <media-gallery> component do, why do these li's have data-media-id attr on them? {% endcomment %}
+          {%- for media in product.media -%}
+            {%- unless media.id == featured_media.id -%}
+              <li data-media-id="{{ section.id }}-{{ media.id }}">
+                {%- liquid
+                  assign media_position = media_position | default: 0 | plus: 1
+                  assign loading = 'eager'
+                  if media_position > 1
+                    assign loading = 'lazy'
+                  endif
+                  render 'product-thumbnail', media: media, loading: loading
+                -%}
+              </li>
+            {%- endunless -%}
+          {%- endfor -%}
+        </ul>
+      </media-gallery>
+
+      {% comment %} Loop through blocks {% endcomment %}
       {%- for block in section.blocks -%}
+
+        {% assign theme = section.settings.accent_theme %}
+        {% if block.settings.side == "right" %}
+          {% assign theme  = section.settings.theme %}
+        {% endif %}
+
+        {% comment %} Type app {% endcomment %}
         {%- case block.type -%}
           {%- when '@app' -%}
+            <div class="app __side-left">
             {% render block %}
+
+          {% comment %} Type text {% endcomment %}
           {%- when 'text' -%}
-            <p {{ block.shopify_attributes }}>
+            <p class="__theme-{{ theme }} __side-{{ section.settings.side }}" {{ block.shopify_attributes }}>
               {{ block.settings.text }}
             </p>
+
+          {% comment %} Type title {% endcomment %}
           {%- when 'title' -%}
-            <h1 {{ block.shopify_attributes }}>
+            <h1 class="__theme-{{ theme }} __side-{{ section.settings.side }}" {{ block.shopify_attributes }}>
               {{ product.title | escape }}
             </h1>
+
+          {% comment %} Type price, What is this no-js-hidden class below? {% endcomment %}
           {%- when 'price' -%}
             <div
               id="Price-{{ section.id }}"
-              class="no-js-hidden"
+              class="no-js-hidden __theme-{{ theme }} __side-{{ section.settings.side }}" 
               role="status"
               {{ block.shopify_attributes }}
             >
@@ -94,8 +130,10 @@
                 {{ form | payment_terms }}
               {%- endform -%}
             </div>
+
+          {% comment %} Type Quantity Selector {% endcomment %}
           {%- when 'quantity_selector' -%}
-            <div {{ block.shopify_attributes }}>
+            <div class="__theme-{{ theme }} __side-{{ section.settings.side }}" {{ block.shopify_attributes }}>
               <label for="Quantity-{{ section.id }}">
                 {{ 'products.product.quantity.label' | t }}
               </label>
@@ -108,9 +146,11 @@
                 form="{{ product_form_id }}"
               >
             </div>
+
+          {% comment %} Type variant picker {% endcomment %}
           {%- when 'variant_picker' -%}
             {%- unless product.has_only_default_variant -%}
-              <variant-selects class="no-js-hidden" data-section="{{ section.id }}" data-url="{{ product.url }}">
+              <variant-selects class="no-js-hidden __theme-{{ theme }} __side-{{ section.settings.side }}" data-section="{{ section.id }}" data-url="{{ product.url }}">
                 {%- for option in product.options_with_values -%}
                   <div>
                     <label for="Option-{{ section.id }}-{{ forloop.index0 }}">
@@ -172,8 +212,10 @@
                 </div>
               </noscript>
             {%- endunless -%}
+
+          {% comment %} Type buy buttons {% endcomment %}
           {%- when 'buy_buttons' -%}
-            <product-form {{ block.shopify_attributes }}>
+            <product-form class="__theme-{{ theme }} __side-{{ section.settings.side }}" {{ block.shopify_attributes }}>
               <div class="message-error" role="alert" hidden></div>
 
               {%-
@@ -215,15 +257,19 @@
                 </div>
               {%- endform -%}
             </product-form>
+
+          {% comment %} Type description {% endcomment %}
           {%- when 'description' -%}
             {%- unless product.description == blank -%}
-              <div {{ block.shopify_attributes }}>
+              <div class="__theme-{{ theme }} __side-{{ section.settings.side }}" {{ block.shopify_attributes }}>
                 {{ product.description }}
               </div>
             {%- endunless -%}
+
+          {% comment %} Type rating {% endcomment %}
           {%- when 'rating' -%}
             {%- unless product.metafields.reviews.rating.value == blank -%}
-              <p class="rating">
+              <p class="rating __theme-{{ theme }} __side-{{ section.settings.side }}">
                 {{- 'products.product.star_reviews_info' | t: rating_value: product.metafields.reviews.rating.value, rating_max: product.metafields.reviews.rating.value.scale_max }}
                 <span>
                   {{- product.metafields.reviews.rating_count }}
@@ -237,7 +283,7 @@
               To mitigate CLS, the contents of `pickup-availability.liquid` could alternatively be rendered directly in this Liquid file.
             {% endcomment %}
             <script src="{{ 'pickup-availability.js' | asset_url }}" defer="defer"></script>
-            <pickup-availability data-product-variant="{{ product.selected_or_first_available_variant.id }}">
+            <pickup-availability class="__theme-{{ theme }}" data-product-variant="{{ product.selected_or_first_available_variant.id }}">
               {% comment %}
                 Error template is rendered if async request for pickup availability fails
               {% endcomment %}
@@ -282,38 +328,162 @@
           "id": "text",
           "default": "Text block",
           "label": "t:sections.main-product.blocks.text.settings.text.label"
+        },
+        {
+            "type": "radio",
+            "id": "side",
+            "label": "Side",
+            "options": [
+              {
+                  "value": "left",
+                  "label":"Left"
+              },
+              {
+                  "value": "right",
+                  "label": "Right"
+              }
+            ],
+            "default": "left"
         }
       ]
     },
     {
       "type": "title",
       "name": "t:sections.main-product.blocks.title.name",
-      "limit": 1
+      "limit": 1,
+      "settings": [
+        {
+            "type": "radio",
+            "id": "side",
+            "label": "Side",
+            "options": [
+              {
+                  "value": "left",
+                  "label":"Left"
+              },
+              {
+                  "value": "right",
+                  "label": "Right"
+              }
+            ],
+            "default": "left"
+        }
+      ]
     },
     {
       "type": "price",
       "name": "t:sections.main-product.blocks.price.name",
-      "limit": 1
+      "limit": 1,
+      "settings": [
+          {
+            "type": "radio",
+            "id": "side",
+            "label": "Side",
+            "options": [
+              {
+                  "value": "left",
+                  "label":"Left"
+              },
+              {
+                  "value": "right",
+                  "label": "Right"
+              }
+            ],
+            "default": "right"
+        }
+      ]
     },
     {
       "type": "quantity_selector",
       "name": "t:sections.main-product.blocks.quantity_selector.name",
-      "limit": 1
+      "limit": 1,
+      "settings": [
+          {
+            "type": "radio",
+            "id": "side",
+            "label": "Side",
+            "options": [
+              {
+                  "value": "left",
+                  "label":"Left"
+              },
+              {
+                  "value": "right",
+                  "label": "Right"
+              }
+            ],
+            "default": "right"
+        }
+      ]
     },
     {
       "type": "variant_picker",
       "name": "t:sections.main-product.blocks.variant_picker.name",
-      "limit": 1
+      "limit": 1,
+      "settings": [
+          {
+            "type": "radio",
+            "id": "side",
+            "label": "Side",
+            "options": [
+              {
+                  "value": "left",
+                  "label":"Left"
+              },
+              {
+                  "value": "right",
+                  "label": "Right"
+              }
+            ],
+            "default": "right"
+        }
+      ]
     },
     {
       "type": "buy_buttons",
       "name": "t:sections.main-product.blocks.buy_buttons.name",
-      "limit": 1
+      "limit": 1,
+      "settings": [
+          {
+            "type": "radio",
+            "id": "side",
+            "label": "Side",
+            "options": [
+              {
+                  "value": "left",
+                  "label":"Left"
+              },
+              {
+                  "value": "right",
+                  "label": "Right"
+              }
+            ],
+            "default": "right"
+        }
+      ]
     },
     {
       "type": "description",
       "name": "t:sections.main-product.blocks.description.name",
-      "limit": 1
+      "limit": 1,
+      "settings": [
+          {
+            "type": "radio",
+            "id": "side",
+            "label": "Side",
+            "options": [
+              {
+                  "value": "left",
+                  "label":"Left"
+              },
+              {
+                  "value": "right",
+                  "label": "Right"
+              }
+            ],
+            "default": "left"
+        }
+      ]
     },
     {
       "type": "rating",
@@ -323,17 +493,112 @@
         {
           "type": "paragraph",
           "content": "t:sections.main-product.blocks.rating.settings.paragraph.content"
+        },
+        {
+            "type": "radio",
+            "id": "side",
+            "label": "Side",
+            "options": [
+              {
+                  "value": "left",
+                  "label":"Left"
+              },
+              {
+                  "value": "right",
+                  "label": "Right"
+              }
+            ],
+            "default": "left"
         }
       ]
     },
     {
       "type": "pickup_availability",
       "name": "Pickup availability",
-      "limit": 1
+      "limit": 1,
+      "settings": [
+          {
+            "type": "radio",
+            "id": "side",
+            "label": "Side",
+            "options": [
+              {
+                  "value": "left",
+                  "label":"Left"
+              },
+              {
+                  "value": "right",
+                  "label": "Right"
+              }
+            ],
+            "default": "left"
+        }
+      ]
     }
   ],
   "settings": [
-
+    {
+      "type": "header",
+      "content": "Section"
+    },
+    {
+      "type": "select",
+      "id": "theme",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary Theme"
+        },
+        {
+          "value": "2",
+          "label": "2nd Theme"
+        },
+        {
+          "value": "3",
+          "label": "3rd Theme"
+        },
+        {
+          "value": "4",
+          "label": "4th Theme"
+        },
+        {
+          "value": "5",
+          "label": "5th Theme"
+        }
+      ],
+      "default": "primary",
+      "label": "Theme",
+      "info": "Theme used for the right side"
+    },
+    {
+      "type": "select",
+      "id": "accent_theme",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary Theme"
+        },
+        {
+          "value": "2",
+          "label": "2nd Theme"
+        },
+        {
+          "value": "3",
+          "label": "3rd Theme"
+        },
+        {
+          "value": "4",
+          "label": "4th Theme"
+        },
+        {
+          "value": "5",
+          "label": "5th Theme"
+        }
+      ],
+      "default": "primary",
+      "label": "Accent Theme",
+      "info": "Theme used for the left side"
+    }
   ]
 }
 {% endschema %}

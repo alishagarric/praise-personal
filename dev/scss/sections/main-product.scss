@@ -1,0 +1,26 @@
+.main-product {
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    &.__side {
+      &-left,
+      &-right {
+        background: var(--color-background);
+        color: var(--color-text);
+      }
+
+      &-left {
+        grid-column: 1 / 2;
+      }
+
+      &-center {
+        grid-column: 2 / 3;
+      }
+
+      &-right {
+        grid-column: 3 / -1;
+      }
+    }
+  }
+}
