@@ -93,6 +93,9 @@
         --btnHeight: {{ settings.button_height }}px;
         --btnSidesSpace: {{ settings.button_sides_space }};
       }
+
+      {% render 'custom-icons' %}
+
     {% endstyle %}
 
     {% if settings.custom_heading_font_link and settings.custom_heading_font_family_name %}

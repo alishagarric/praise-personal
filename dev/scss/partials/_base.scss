@@ -424,3 +424,11 @@ details.overlay[open] > summary::before {
   left: 0;
   cursor: default;
 }
+
+/* Custom icon */
+
+.custom-icon {
+  height: var(--customIconHeight);
+  width: auto;
+  display: block;
+}

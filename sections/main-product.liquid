@@ -286,6 +286,16 @@
           {%- when 'expandable' %}
             {% render 'expandable-content', title: block.settings.title, id: block.id, text: block.settings.text, page: block.settings.page, open: block.settings.open %}
 
+          {% comment %} Type featured icons {% endcomment %}
+          {%- when 'icons' -%}
+            <ul class="main-product__icons">
+              {% for icon in product.metafields.custom.featured_icons.value %}
+                <li class="main-product__icons__icon custom-icon-{{ icon | handleize }}">
+                  {{ icon }}
+                </li>
+              {% endfor %}
+            </ul>
+
           {% comment %} Type description {% endcomment %}
           {%- when 'description' -%}
             {%- unless product.description == blank -%}
@@ -392,6 +402,92 @@
           "type": "checkbox",
           "id": "open",
           "label": "Open"
+        }
+      ]
+    },
+    {
+      "type": "icons",
+      "limit": 1,
+      "name": "Featured Icons",
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "This are generated from the featured icons product metafield. Learn More TODO: link this to a description. You can add additional featured icons below."
+        },
+        {
+          "type": "select",
+          "id": "icon_1",
+          "options": [
+            {
+              "value": "none",
+              "label": "None"
+            },
+            {
+              "value": "recycle",
+              "label": "Recycle"
+            },
+            {
+              "value": "delivery-truck",
+              "label": "Delivery Truck"
+            }
+          ],
+          "default": "none",
+          "label": "Icon 1"
+        },
+        {
+          "type": "text",
+          "id": "icon_1_title",
+          "label": "Icon 2 Title"
+        },
+        {
+          "type": "select",
+          "id": "icon_2",
+          "options": [
+            {
+              "value": "none",
+              "label": "None"
+            },
+            {
+              "value": "recycle",
+              "label": "Recycle"
+            },
+            {
+              "value": "delivery-truck",
+              "label": "Delivery Truck"
+            }
+          ],
+          "default": "none",
+          "label": "Icon 2"
+        },
+        {
+          "type": "text",
+          "id": "icon_2_title",
+          "label": "Icon 3 Title"
+        },
+        {
+          "type": "select",
+          "id": "icon_3",
+          "options": [
+            {
+              "value": "none",
+              "label": "None"
+            },
+            {
+              "value": "recycle",
+              "label": "Recycle"
+            },
+            {
+              "value": "delivery-truck",
+              "label": "Delivery Truck"
+            }
+          ],
+          "default": "none",
+          "label": "Icon 3"
+        },
+        {
+          "type": "text",
+          "id": "icon_3_title",
+          "label": "Icon 3 Title"
         }
       ]
     },

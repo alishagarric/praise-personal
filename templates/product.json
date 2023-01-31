@@ -61,6 +61,34 @@
             "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gravida diam integer suspendisse magna tempus ut praesent amet venenatis. </p><ul><li>Full of Gluten</li><li>Vegan</li><li>500 calories per cookie</li><li>No artificial colors of flavors</li></ul>",
             "open": false
           }
+        },
+        "expandable-2": {
+          "type": "expandable",
+          "settings": {
+            "title": "Full List of Ingredients",
+            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gravida diam integer suspendisse magna tempus ut praesent amet venenatis. </p><ul><li>Full of Gluten</li><li>Vegan</li><li>500 calories per cookie</li><li>No artificial colors of flavors</li></ul>",
+            "open": false
+          }
+        },
+        "expandable-3": {
+          "type": "expandable",
+          "settings": {
+            "title": "Nutritional Label",
+            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gravida diam integer suspendisse magna tempus ut praesent amet venenatis. </p><ul><li>Full of Gluten</li><li>Vegan</li><li>500 calories per cookie</li><li>No artificial colors of flavors</li></ul>",
+            "open": false
+          }
+        },
+        "expandable-4": {
+          "type": "expandable",
+          "settings": {
+            "title": "Details",
+            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gravida diam integer suspendisse magna tempus ut praesent amet venenatis. </p><ul><li>Full of Gluten</li><li>Vegan</li><li>500 calories per cookie</li><li>No artificial colors of flavors</li></ul>",
+            "open": false
+          }
+        },
+        "featured-icons": {
+          "type": "icons",
+          "settings": {}
         }
       },
       "block_order": [
@@ -68,7 +96,11 @@
         "title",
         "description",
         "rating",
+        "featured-icons",
         "expandable",
+        "expandable-2",
+        "expandable-3",
+        "expandable-4",
         "media",
         "caption",
         "price",

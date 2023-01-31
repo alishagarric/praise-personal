@@ -402,6 +402,10 @@
     "name": "Icon Library",
     "settings": [
       {
+        "type": "paragraph",
+        "content": "TODO: include link to description of icon library"
+      },
+      {
         "type": "header",
         "content": "Custom Icon 1"
       },
