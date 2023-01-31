@@ -4,8 +4,8 @@
     "theme_name": "Praise",
     "theme_version": "0.1.0",
     "theme_author": "Commence Studio",
-    "theme_documentation_url": "https:\/\/commence.studio",
-    "theme_support_url": "https:\/\/commence.studio"
+    "theme_documentation_url": "https://commence.studio",
+    "theme_support_url": "https://commence.studio"
   },
   {
     "name": "t:settings_schema.social_media.name",
@@ -88,7 +88,7 @@
         "type": "url",
         "id": "custom_heading_font_link",
         "label": "Custom Font Link",
-        "info": "Advanced. If using a custom Adobe font, Adobe will give you a link like 'https:\/\/use.typekit.net\/xxxxxxx.css to paste here. If using downloaded .woff or .woff2 files, upload those files as well as their corresponding .css file to your Shopify Files and paste the link for the css file here."
+        "info": "Advanced. If using a custom Adobe font, Adobe will give you a link like 'https://use.typekit.net/xxxxxxx.css to paste here. If using downloaded .woff or .woff2 files, upload those files as well as their corresponding .css file to your Shopify Files and paste the link for the css file here."
       },
       {
         "type": "text",
@@ -121,7 +121,7 @@
         "type": "url",
         "id": "custom_body_font_link",
         "label": "Custom Font Link",
-        "info": "Advanced. If using a custom Adobe font, Adobe will give you a link like 'https:\/\/use.typekit.net\/xxxxxxx.css to paste here. If using downloaded .woff or .woff2 files, upload those files as well as their corresponding .css file to your Shopify Files and paste the link for the css file here."
+        "info": "Advanced. If using a custom Adobe font, Adobe will give you a link like 'https://use.typekit.net/xxxxxxx.css to paste here. If using downloaded .woff or .woff2 files, upload those files as well as their corresponding .css file to your Shopify Files and paste the link for the css file here."
       },
       {
         "type": "text",
@@ -410,14 +410,350 @@
         "content": "Custom Icon 1"
       },
       {
+        "type": "text",
+        "id": "custom_icon_title_1",
+        "label": "Custom Icon Title"
+      },
+      {
         "type": "image_picker",
         "id": "custom_icon_1",
         "label": "Custom Icon"
       },
       {
+        "type": "header",
+        "content": "Custom Icon 2"
+      },
+      {
         "type": "text",
-        "id": "custom_icon_title_1",
+        "id": "custom_icon_title_2",
         "label": "Custom Icon Title"
+      },
+      {
+        "type": "image_picker",
+        "id": "custom_icon_2",
+        "label": "Custom Icon"
+      },
+      {
+        "type": "header",
+        "content": "Custom Icon 3"
+      },
+      {
+        "type": "text",
+        "id": "custom_icon_title_3",
+        "label": "Custom Icon Title"
+      },
+      {
+        "type": "image_picker",
+        "id": "custom_icon_3",
+        "label": "Custom Icon"
+      },
+      {
+        "type": "header",
+        "content": "Custom Icon 4"
+      },
+      {
+        "type": "text",
+        "id": "custom_icon_title_4",
+        "label": "Custom Icon Title"
+      },
+      {
+        "type": "image_picker",
+        "id": "custom_icon_4",
+        "label": "Custom Icon"
+      },
+      {
+        "type": "header",
+        "content": "Custom Icon 5"
+      },
+      {
+        "type": "text",
+        "id": "custom_icon_title_5",
+        "label": "Custom Icon Title"
+      },
+      {
+        "type": "image_picker",
+        "id": "custom_icon_5",
+        "label": "Custom Icon"
+      },
+      {
+        "type": "header",
+        "content": "Custom Icon 6"
+      },
+      {
+        "type": "text",
+        "id": "custom_icon_title_6",
+        "label": "Custom Icon Title"
+      },
+      {
+        "type": "image_picker",
+        "id": "custom_icon_6",
+        "label": "Custom Icon"
+      },
+      {
+        "type": "header",
+        "content": "Custom Icon 7"
+      },
+      {
+        "type": "text",
+        "id": "custom_icon_title_7",
+        "label": "Custom Icon Title"
+      },
+      {
+        "type": "image_picker",
+        "id": "custom_icon_7",
+        "label": "Custom Icon"
+      },
+      {
+        "type": "header",
+        "content": "Custom Icon 8"
+      },
+      {
+        "type": "text",
+        "id": "custom_icon_title_8",
+        "label": "Custom Icon Title"
+      },
+      {
+        "type": "image_picker",
+        "id": "custom_icon_8",
+        "label": "Custom Icon"
+      },
+      {
+        "type": "header",
+        "content": "Custom Icon 9"
+      },
+      {
+        "type": "text",
+        "id": "custom_icon_title_9",
+        "label": "Custom Icon Title"
+      },
+      {
+        "type": "image_picker",
+        "id": "custom_icon_9",
+        "label": "Custom Icon"
+      },
+      {
+        "type": "header",
+        "content": "Custom Icon 10"
+      },
+      {
+        "type": "text",
+        "id": "custom_icon_title_10",
+        "label": "Custom Icon Title"
+      },
+      {
+        "type": "image_picker",
+        "id": "custom_icon_10",
+        "label": "Custom Icon"
+      },
+      {
+        "type": "header",
+        "content": "Custom Icon 11"
+      },
+      {
+        "type": "text",
+        "id": "custom_icon_title_11",
+        "label": "Custom Icon Title"
+      },
+      {
+        "type": "image_picker",
+        "id": "custom_icon_11",
+        "label": "Custom Icon"
+      },
+      {
+        "type": "header",
+        "content": "Custom Icon 12"
+      },
+      {
+        "type": "text",
+        "id": "custom_icon_title_12",
+        "label": "Custom Icon Title"
+      },
+      {
+        "type": "image_picker",
+        "id": "custom_icon_12",
+        "label": "Custom Icon"
+      },
+      {
+        "type": "header",
+        "content": "Custom Icon 13"
+      },
+      {
+        "type": "text",
+        "id": "custom_icon_title_13",
+        "label": "Custom Icon Title"
+      },
+      {
+        "type": "image_picker",
+        "id": "custom_icon_13",
+        "label": "Custom Icon"
+      },
+      {
+        "type": "header",
+        "content": "Custom Icon 14"
+      },
+      {
+        "type": "text",
+        "id": "custom_icon_title_14",
+        "label": "Custom Icon Title"
+      },
+      {
+        "type": "image_picker",
+        "id": "custom_icon_14",
+        "label": "Custom Icon"
+      },
+      {
+        "type": "header",
+        "content": "Custom Icon 15"
+      },
+      {
+        "type": "text",
+        "id": "custom_icon_title_15",
+        "label": "Custom Icon Title"
+      },
+      {
+        "type": "image_picker",
+        "id": "custom_icon_15",
+        "label": "Custom Icon"
+      },
+      {
+        "type": "header",
+        "content": "Custom Icon 16"
+      },
+      {
+        "type": "text",
+        "id": "custom_icon_title_16",
+        "label": "Custom Icon Title"
+      },
+      {
+        "type": "image_picker",
+        "id": "custom_icon_16",
+        "label": "Custom Icon"
+      },
+      {
+        "type": "header",
+        "content": "Custom Icon 17"
+      },
+      {
+        "type": "text",
+        "id": "custom_icon_title_17",
+        "label": "Custom Icon Title"
+      },
+      {
+        "type": "image_picker",
+        "id": "custom_icon_17",
+        "label": "Custom Icon"
+      },
+      {
+        "type": "header",
+        "content": "Custom Icon 18"
+      },
+      {
+        "type": "text",
+        "id": "custom_icon_title_18",
+        "label": "Custom Icon Title"
+      },
+      {
+        "type": "image_picker",
+        "id": "custom_icon_18",
+        "label": "Custom Icon"
+      },
+      {
+        "type": "header",
+        "content": "Custom Icon 19"
+      },
+      {
+        "type": "text",
+        "id": "custom_icon_title_19",
+        "label": "Custom Icon Title"
+      },
+      {
+        "type": "image_picker",
+        "id": "custom_icon_19",
+        "label": "Custom Icon"
+      },
+      {
+        "type": "header",
+        "content": "Custom Icon 20"
+      },
+      {
+        "type": "text",
+        "id": "custom_icon_title_20",
+        "label": "Custom Icon Title"
+      },
+      {
+        "type": "image_picker",
+        "id": "custom_icon_20",
+        "label": "Custom Icon"
+      },
+      {
+        "type": "header",
+        "content": "Custom Icon 21"
+      },
+      {
+        "type": "text",
+        "id": "custom_icon_title_21",
+        "label": "Custom Icon Title"
+      },
+      {
+        "type": "image_picker",
+        "id": "custom_icon_21",
+        "label": "Custom Icon"
+      },
+      {
+        "type": "header",
+        "content": "Custom Icon 22"
+      },
+      {
+        "type": "text",
+        "id": "custom_icon_title_22",
+        "label": "Custom Icon Title"
+      },
+      {
+        "type": "image_picker",
+        "id": "custom_icon_22",
+        "label": "Custom Icon"
+      },
+      {
+        "type": "header",
+        "content": "Custom Icon 23"
+      },
+      {
+        "type": "text",
+        "id": "custom_icon_title_23",
+        "label": "Custom Icon Title"
+      },
+      {
+        "type": "image_picker",
+        "id": "custom_icon_23",
+        "label": "Custom Icon"
+      },
+      {
+        "type": "header",
+        "content": "Custom Icon 24"
+      },
+      {
+        "type": "text",
+        "id": "custom_icon_title_24",
+        "label": "Custom Icon Title"
+      },
+      {
+        "type": "image_picker",
+        "id": "custom_icon_24",
+        "label": "Custom Icon"
+      },
+      {
+        "type": "header",
+        "content": "Custom Icon 25"
+      },
+      {
+        "type": "text",
+        "id": "custom_icon_title_25",
+        "label": "Custom Icon Title"
+      },
+      {
+        "type": "image_picker",
+        "id": "custom_icon_25",
+        "label": "Custom Icon"
       }
     ]
   },
