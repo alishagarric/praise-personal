@@ -16,11 +16,11 @@
 {% assign open = open | default: false %}
 
 {% if title and id and text or page %}
-  <details class="cmnc-expandable-content" {{ open }}>
-    <summary aria-label="Dropdown component" role="button" aria-expanded="true" aria-controls="dropdown-{{ id }}">
-      <span>{{ title }}</span>
+  <details class="expandable-content" {{ open }}>
+    <summary class="expandable-content__summary " aria-label="Dropdown component" role="button" aria-expanded="true" aria-controls="dropdown-{{ id }}">
+      <span class="p-sm">{{ title }}</span>
     </summary>
-    <div id="dropdown-{{ id }}">
+    <div id="dropdown-{{ id }}" class="expandable-content__content p-sm ">
       {{ text }}
 
       {{ page.title }}

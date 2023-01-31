@@ -32,7 +32,7 @@
   <link id="ModelViewerStyle" rel="stylesheet" href="https://cdn.shopify.com/shopifycloud/model-viewer-ui/assets/v1.0/model-viewer-ui.css" media="print" onload="this.media='all'">
 {%- endif -%}
 
-<div class="main-product product __theme-{{ section.settings.theme }}" style="--color-background: {{ product.metafields.custom.color.value.rgb }}; --color-text: {{ product.metafields.custom.text-color.value.rgb }};">
+<div class="main-product product __theme-{{ section.settings.theme }}" style="--color-background: {{ product.metafields.custom.color.value.rgb }}; --color-text: {{ product.metafields.custom.text_color.value.rgb }};">
 
     {% comment %} Product info {% endcomment %}
     <div id="Product-Info-{{ section.id }}" class="main-product__container">

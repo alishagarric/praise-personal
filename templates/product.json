@@ -18,18 +18,15 @@
         },
         "description": {
           "type": "description",
-          "settings": {
-          }
+          "settings": {}
         },
-        "860df6e1-0fbd-48af-95f0-7cb68bddfdfd": {
+        "rating": {
           "type": "rating",
-          "settings": {
-          }
+          "settings": {}
         },
         "media": {
           "type": "media",
-          "settings": {
-          }
+          "settings": {}
         },
         "caption": {
           "type": "text",
@@ -39,34 +36,29 @@
         },
         "price": {
           "type": "price",
-          "settings": {
-          }
+          "settings": {}
         },
         "variant_picker": {
           "type": "variant_picker",
-          "settings": {
-          }
+          "settings": {}
         },
         "quantity_selector": {
           "type": "quantity_selector",
-          "settings": {
-          }
+          "settings": {}
         },
         "buy_buttons": {
           "type": "buy_buttons",
-          "settings": {
-          }
+          "settings": {}
         },
-        "1945c7d4-0873-4a36-93d5-6c3a96ad1b7d": {
+        "pickup-availability": {
           "type": "pickup_availability",
-          "settings": {
-          }
+          "settings": {}
         },
-        "daa6ee57-1607-4c02-9bc4-2cc1d4fd9d23": {
+        "expandable": {
           "type": "expandable",
           "settings": {
             "title": "Details",
-            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gravida diam integer suspendisse magna tempus ut praesent amet venenatis. <\/p><ul><li>Full of Gluten<\/li><li>Vegan<\/li><li>500 calories per cookie<\/li><li>No artificial colors of flavors<\/li><\/ul>",
+            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gravida diam integer suspendisse magna tempus ut praesent amet venenatis. </p><ul><li>Full of Gluten</li><li>Vegan</li><li>500 calories per cookie</li><li>No artificial colors of flavors</li></ul>",
             "page": "test",
             "open": false
           }
@@ -76,15 +68,15 @@
         "vendor",
         "title",
         "description",
-        "860df6e1-0fbd-48af-95f0-7cb68bddfdfd",
+        "rating",
+        "expandable",
         "media",
         "caption",
         "price",
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
-        "1945c7d4-0873-4a36-93d5-6c3a96ad1b7d",
-        "daa6ee57-1607-4c02-9bc4-2cc1d4fd9d23"
+        "pickup-availability"
       ],
       "settings": {
         "theme": "primary"
@@ -97,8 +89,5 @@
       }
     }
   },
-  "order": [
-    "main",
-    "product-recommendations"
-  ]
+  "order": ["main", "product-recommendations"]
 }
