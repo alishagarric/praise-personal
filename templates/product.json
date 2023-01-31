@@ -13,7 +13,11 @@
           "type": "media"
         },
         "title": {
-          "type": "title"
+          "type": "title",
+          "settings": {
+            "heading_size": "h4",
+            "alt_heading": true
+          }
         },
         "caption": {
           "type": "text",
@@ -46,14 +50,14 @@
       "block_order": [
         "vendor",
         "title",
+        "description",
+        "860df6e1-0fbd-48af-95f0-7cb68bddfdfd",
         "media",
         "caption",
         "price",
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
-        "description",
-        "860df6e1-0fbd-48af-95f0-7cb68bddfdfd",
         "1945c7d4-0873-4a36-93d5-6c3a96ad1b7d"
       ],
       "settings": {

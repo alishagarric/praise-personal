@@ -32,22 +32,31 @@
   <link id="ModelViewerStyle" rel="stylesheet" href="https://cdn.shopify.com/shopifycloud/model-viewer-ui/assets/v1.0/model-viewer-ui.css" media="print" onload="this.media='all'">
 {%- endif -%}
 
-<div class="main-product product __theme-{{ section.settings.accent_theme }}">
+<div class="main-product product __theme-{{ section.settings.theme }}" style="--color-background: {{ product.metafields.custom.color.value.rgb }}; --color-text: {{ product.metafields.custom.text-color.value.rgb }};">
 
     {% comment %} Product info {% endcomment %}
     <div id="Product-Info-{{ section.id }}" class="main-product__container">
       {%- assign product_form_id = 'Product-Form-' | append: section.id -%}
 
-      <div class="main-product__blocks-before-media">
+      {% comment %} 
+        Seems weird but we need to open this container without a closing tag. 
+        Either the end of the loop of the media block within the loop will close 
+        this div. Goal here is to contain all blocks that are ordered before the media block.
+      {% endcomment %}
+      <div class="main-product__blocks-before-media"> 
+
       {% comment %} Loop through blocks {% endcomment %}
       {%- for block in section.blocks -%}
         {%- case block.type -%}
 
-        
-
         {% comment %} Type media {% endcomment %}
         {%- when 'media' -%}
+          {% comment %}
+            Seems weird, but this closes the "blocks-before-media" opening div tag above
+            so that all blocks ordered before media are in a container
+          {% endcomment %}
           </div>
+
           <div class="main-product__media">
             <media-gallery id="Product-MediaGallery-{{ section.id }}" class="__side-center">
 
@@ -84,6 +93,11 @@
               </ul>
             </media-gallery>
           </div>
+
+          {% comment %}
+            Seems weird but we need to open this container without a closing tag. 
+            The end of the loop will close this div so that all blocks after media are in a container
+          {% endcomment %}
           <div class="main-product__blocks-after-media __theme-{{ section.settings.theme }}">
           
 
@@ -101,9 +115,8 @@
 
           {% comment %} Type title {% endcomment %}
           {%- when 'title' -%}
-            <h1 {{ block.shopify_attributes }}>
-              {{ product.title | escape }}
-            </h1>
+            {% assign heading = product.title | escape %}
+            {% render 'heading', heading: heading, alt_heading: block.settings.alt_heading, heading_size: block.settings.heading_size, use_as_hero: true %}
 
           {% comment %} Type price, What is this no-js-hidden class below? {% endcomment %}
           {%- when 'price' -%}
@@ -246,7 +259,8 @@
                   <button
                     type="submit"
                     name="add"
-                    class="button"
+                    class="button btn"
+                    style="--color-foreground: {{ product.metafields.custom.color.value.rgb }}; --color-foreground-text: {{ product.metafields.custom.text_color.value.rgb }}"
                     {% if product.selected_or_first_available_variant.available == false %}
                       disabled
                     {% endif %}
@@ -268,10 +282,14 @@
               {%- endform -%}
             </product-form>
 
+          {% comment %} Type expandable content {% endcomment %}
+          {%- when 'expandable' %}
+            {% render 'expandable-content', title: block.settings.title, id: block.id, text: block.settings.text, page: block.settings.page, open: block.settings.open %}
+
           {% comment %} Type description {% endcomment %}
           {%- when 'description' -%}
             {%- unless product.description == blank -%}
-              <div {{ block.shopify_attributes }}>
+              <div {{ block.shopify_attributes }} class="p-sm">
                 {{ product.description }}
               </div>
             {%- endunless -%}
@@ -287,6 +305,8 @@
                 </span>
               </p>
             {%- endunless -%}
+
+          {% comment %} Type pickup availability {% endcomment %}
           {%- when 'pickup_availability' -%}
             {% comment %}
               Pickup availability block's contents are rendered async to ensure faster Liquid render times, but this may cause a noticeable increase in cumulative layout shift (CLS) if rendered near the top of the page.
@@ -303,6 +323,12 @@
             </pickup-availability>
         {%- endcase -%}
       {%- endfor -%}
+
+      {% comment %}
+        Seems weird, but this closes the "blocks-before-media" or "blocks-after-media" 
+        opening div tag above depending on if the media block exists or not. This is
+        so that all blocks ordered after media are in a container
+      {% endcomment %}
       </div>
     </div>
   </div>
@@ -343,6 +369,33 @@
       ]
     },
     {
+      "type": "expandable",
+      "name": "Expandable Content",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "page",
+          "id": "page",
+          "label": "Text from a page"
+        },
+        {
+          "type": "checkbox",
+          "id": "open",
+          "label": "Open"
+        }
+      ]
+    },
+    {
       "type": "media",
       "name": "media",
       "limit": 1
@@ -350,7 +403,38 @@
     {
       "type": "title",
       "name": "t:sections.main-product.blocks.title.name",
-      "limit": 1
+      "limit": 1, 
+      "settings": [
+        {
+            "type": "select",
+            "id": "heading_size",
+            "options": [
+              {
+                  "value": "h1",
+                  "label": "X-Large"
+              },
+              {
+                  "value": "h2",
+                  "label": "Large"
+              },
+              {
+                  "value": "h3",
+                  "label": "Medium"
+              },
+              {
+                  "value": "h4",
+                  "label": "Small"
+              }
+            ],
+            "default": "h2",
+            "label": "Heading Size"
+        },
+        {
+          "type": "checkbox",
+          "id": "alt_heading",
+          "label": "Use body font instead of heading font for heading?"
+        }
+      ]
     },
     {
       "type": "price",
@@ -426,36 +510,7 @@
       ],
       "default": "primary",
       "label": "Theme",
-      "info": "Theme used for the right side"
-    },
-    {
-      "type": "select",
-      "id": "accent_theme",
-      "options": [
-        {
-          "value": "primary",
-          "label": "Primary Theme"
-        },
-        {
-          "value": "2",
-          "label": "2nd Theme"
-        },
-        {
-          "value": "3",
-          "label": "3rd Theme"
-        },
-        {
-          "value": "4",
-          "label": "4th Theme"
-        },
-        {
-          "value": "5",
-          "label": "5th Theme"
-        }
-      ],
-      "default": "primary",
-      "label": "Accent Theme",
-      "info": "Theme used for the left side"
+      "info": "Theme"
     }
   ]
 }

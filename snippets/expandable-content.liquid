@@ -1,0 +1,30 @@
+{% comment %}
+  Renders an accordion, that shows exapandable content when clicked or set to open
+
+  Expects: 
+  - title: {String} required
+  - id: {String or Int} required, makes aria controls unique to this instance
+  - text: {Richtext} optional, required if page isn't included below
+  - page: {Object} optional, required if text isn't included above
+  - open: {Boolean} optional, whether the accordion should start open 
+
+  Usage:
+    {% render 'explandable-content', title: block.settings.title, text: block.settings.text, open: false %}
+
+{% endcomment %}   
+
+{% assign open = open | default: false %}
+
+{% if title and id and text or page %}
+  <details class="cmnc-expandable-content" {{ open }}>
+    <summary aria-label="Dropdown component" role="button" aria-expanded="true" aria-controls="dropdown-{{ id }}">
+      <span>{{ title }}</span>
+    </summary>
+    <div id="dropdown-{{ id }}">
+      {{ text }}
+
+      {{ page.title }}
+      {{ page.content }}
+    </div>
+  </details>
+{% endif %}
