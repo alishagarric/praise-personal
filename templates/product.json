@@ -7,32 +7,63 @@
           "type": "text",
           "settings": {
             "text": "{{ product.vendor }}",
-            "text_style": "uppercase"
+            "side": "left"
           }
         },
         "title": {
-          "type": "title"
+          "type": "title",
+          "settings": {
+            "side": "left"
+          }
         },
         "caption": {
           "type": "text",
           "settings": {
-            "text": "{{ product.metafields.descriptors.subtitle.value }}"
+            "text": "{{ product.metafields.descriptors.subtitle.value }}",
+            "side": "left"
           }
         },
         "price": {
-          "type": "price"
+          "type": "price",
+          "settings": {
+            "side": "right"
+          }
         },
         "variant_picker": {
-          "type": "variant_picker"
+          "type": "variant_picker",
+          "settings": {
+            "side": "right"
+          }
         },
         "quantity_selector": {
-          "type": "quantity_selector"
+          "type": "quantity_selector",
+          "settings": {
+            "side": "right"
+          }
         },
         "buy_buttons": {
-          "type": "buy_buttons"
+          "type": "buy_buttons",
+          "settings": {
+            "side": "right"
+          }
         },
         "description": {
-          "type": "description"
+          "type": "description",
+          "settings": {
+            "side": "left"
+          }
+        },
+        "860df6e1-0fbd-48af-95f0-7cb68bddfdfd": {
+          "type": "rating",
+          "settings": {
+            "side": "left"
+          }
+        },
+        "1945c7d4-0873-4a36-93d5-6c3a96ad1b7d": {
+          "type": "pickup_availability",
+          "settings": {
+            "side": "left"
+          }
         }
       },
       "block_order": [
@@ -43,14 +74,24 @@
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
-        "description"
+        "description",
+        "860df6e1-0fbd-48af-95f0-7cb68bddfdfd",
+        "1945c7d4-0873-4a36-93d5-6c3a96ad1b7d"
       ],
-      "settings": {}
+      "settings": {
+        "theme": "primary",
+        "accent_theme": "primary"
+      }
     },
     "product-recommendations": {
       "type": "product-recommendations",
-      "settings": {}
+      "settings": {
+        "heading": "You may also like"
+      }
     }
   },
-  "order": ["main", "product-recommendations"]
+  "order": [
+    "main",
+    "product-recommendations"
+  ]
 }
