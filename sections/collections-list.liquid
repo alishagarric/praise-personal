@@ -21,7 +21,7 @@
   {% render 'heading', class: "collections-list", heading: section.settings.heading, alt_heading: section.settings.alt_heading, heading_size: section.settings.heading_size %}
 
   {% comment %} Collections Slider Container {% endcomment %}
-  <overflow-slider class="overflow-slider {% if hide_arrows_on_desktop %}__hide-desktop-arrows{% endif %} {% if hide_arrows_on_tablet %}__hide-tablet-arrows{% endif %}">
+  <overflow-slider class="collections-list__slider overflow-slider {% if hide_arrows_on_desktop %}__hide-desktop-arrows{% endif %} {% if hide_arrows_on_tablet %}__hide-tablet-arrows{% endif %}">
     <ul class="collections-list__container list-unstyled overflow-slider__container">
 
       {% comment %} Real Content {% endcomment %}

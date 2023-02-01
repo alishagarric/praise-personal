@@ -2,42 +2,20 @@
   --collections-list-space: calc(var(--pxSize) / 3);
   padding-left: var(--collections-list-space);
   padding-right: var(--collections-list-space);
-  margin-left: calc(var(--collections-list-space) / -2);
-  margin-right: calc(var(--collections-list-space) / -2);
-  width: calc(100% + var(--collections-list-space));
 
   &__heading {
     text-align: center;
     max-width: 750px;
     margin: 0 auto 1rem auto;
+    padding-left: calc(
+      var(--sectionGuttersSpacing) - var(--collections-list-space)
+    );
+    padding-right: calc(
+      var(--sectionGuttersSpacing) - var(--collections-list-space)
+    );
   }
 
-  &__container {
-    > * {
-      flex: 0 0 25%;
-      padding: var(--collections-list-space)
-        calc(var(--collections-list-space) / 2) 0
-        calc(var(--collections-list-space) / 2);
-    }
-  }
-
-  .overflow-slider__arrow {
-    margin-right: calc(var(--collections-list-space) / 2);
-  }
-
-  @media screen and (max-width: 1024px) {
-    &__container {
-      > * {
-        flex: 0 0 50%;
-      }
-    }
-  }
-
-  @media screen and (max-width: 676px) {
-    &__container {
-      > * {
-        flex: 0 0 75%;
-      }
-    }
+  &__slider {
+    --overflowSliderItemGap: var(--collections-list-space) !important;
   }
 }

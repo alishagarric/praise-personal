@@ -3,12 +3,6 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "vendor": {
-          "type": "text",
-          "settings": {
-            "text": "{{ product.vendor }}"
-          }
-        },
         "title": {
           "type": "title",
           "settings": {
@@ -18,7 +12,9 @@
         },
         "description": {
           "type": "description",
-          "settings": {}
+          "settings": {
+            "text_size": "p-sm"
+          }
         },
         "rating": {
           "type": "rating",
@@ -97,7 +93,6 @@
         }
       },
       "block_order": [
-        "vendor",
         "title",
         "description",
         "rating",

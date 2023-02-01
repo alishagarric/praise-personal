@@ -1,50 +1,35 @@
 .featured-blog {
-  --featuredBlogCardSize: calc(100% / 3);
+  --featuredBlogSpace: calc(var(--pxSize) / 2);
 
   &__heading {
     text-align: center;
   }
 
-  &__articles {
-    &__article-container {
-      flex: 0 0 var(--featuredBlogCardSize);
-      padding: calc(var(--pxSize) / 2) calc(var(--pxSize) / 2) 0
-        calc(var(--pxSize) / 2);
-    }
+  &__inner {
+    --overflowSliderItemGap: var(--featuredBlogSpace) !important;
+    --overflowSliderItemSizeDesktop: calc(100% / 3) !important;
+    --overflowSliderItemSizeTablet: 50% !important;
+    --overflowSliderItemSizeMobile: 75% !important;
   }
 
   &__btn {
     margin-top: var(--pxSize);
   }
 
-  @media screen and (max-width: 1024px) {
-    --featuredBlogCardSize: 50%;
-  }
-
   @media screen and (max-width: 676px) {
-    --featuredBlogCardSize: 75%;
-
     &.__mobile {
       &-stacked,
       &-stacked-4 {
-        --featuredBlogCardSize: 100%;
-
         .featured-blog {
           &__articles {
             flex-direction: column;
             overflow: unset;
-
-            &__article-container {
-              padding: var(--pxSize) 0;
-            }
-
-            ~ .overflow-slider__arrow {
-              display: none;
-            }
-          }
-
-          &__btn {
-            margin-top: 0;
+            gap: var(--pxSize);
+            padding-left: 0;
+            padding-right: 0;
+            margin-left: 0;
+            margin-right: 0;
+            width: 100%;
           }
         }
       }

@@ -1,13 +1,27 @@
 overflow-slider,
 .overflow-slider {
+  --overflowSliderItemGap: calc(var(--pxSize) / 3);
+  --overflowSliderArrowRightOffset: 0;
+  --overflowSliderItemSizeDesktop: 25%;
+  --overflowSliderItemSizeTablet: 50%;
+  --overflowSliderItemSizeMobile: 75%;
   position: relative;
 
   &__container {
+    position: relative;
     overflow: auto;
     scroll-behavior: smooth;
     display: flex;
-    padding-top: var(--arrowBtnHeight);
+    padding-top: calc(var(--arrowBtnHeight) * 1.5);
     padding-bottom: var(--arrowBtnHeight);
+    margin-left: calc(var(--overflowSliderItemGap) / -2);
+    margin-right: calc(var(--overflowSliderItemGap) / -2);
+    width: calc(100% + var(--overflowSliderItemGap));
+
+    > * {
+      flex: 0 0 var(--overflowSliderItemSizeDesktop);
+      padding: 0 calc(var(--overflowSliderItemGap) / 2);
+    }
 
     &::-webkit-scrollbar {
       width: 5px;
@@ -24,7 +38,7 @@ overflow-slider,
     &::-webkit-scrollbar-track {
       background-color: RGBA(var(--color-text) / 0.2);
       border-radius: 30px;
-      margin: 10px 60px 0;
+      margin: 0 var(--sectionGuttersSpacing);
     }
   }
 
@@ -38,6 +52,7 @@ overflow-slider,
     top: 0;
     right: calc(var(--arrowBtnHeight) * 1.5);
     margin-top: 0;
+    margin-right: var(--overflowSliderArrowRightOffset);
 
     svg * {
       fill: RGB(var(--color-foreground-text));
@@ -73,6 +88,12 @@ overflow-slider,
   }
 
   @media screen and (max-width: 1024px) {
+    &__container {
+      > * {
+        flex: 0 0 var(--overflowSliderItemSizeTablet);
+      }
+    }
+
     &.__hide-tablet-arrows {
       .overflow-slider {
         &__container {
@@ -93,7 +114,7 @@ overflow-slider,
         }
 
         &__container {
-          padding-top: var(--arrowBtnHeight);
+          padding-top: calc(var(--arrowBtnHeight) * 1.5);
           padding-bottom: var(--arrowBtnHeight);
         }
       }
@@ -101,6 +122,12 @@ overflow-slider,
   }
 
   @media screen and (max-width: 676px) {
+    &__container {
+      > * {
+        flex: 0 0 var(--overflowSliderItemSizeMobile);
+      }
+    }
+
     &__container,
     &.__hide-desktop-arrows .overflow-slider__container {
       padding-top: 0;

@@ -3,6 +3,7 @@
   background-color: RGB(var(--color-background));
   color: RGB(var(--color-text));
 
+  //main container with 3 columns
   &__container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -16,11 +17,13 @@
     }
   }
 
+  //blocks before media column position and space
   &__blocks-before-media {
     grid-column: 1 / 2;
     padding-left: var(--sectionGuttersSpacing);
   }
 
+  //media column position and space
   &__media {
     grid-column: 2 / 3;
     padding-left: calc(var(--sectionGuttersSpacing) / 2);
@@ -28,6 +31,7 @@
     z-index: 2;
   }
 
+  //blocks after media column position, space and coloring
   &__blocks-after-media {
     grid-column: 3 / -1;
     color: RGB(var(--color-text));
@@ -48,6 +52,7 @@
     }
   }
 
+  //block wrapper that wraps some product blocks
   &__block {
     &.__border-top {
       border-top: 1px solid RGB(var(--color-border));
@@ -55,6 +60,39 @@
     }
   }
 
+  //media block
+  &__media {
+    &:not(.__layout-sticky) {
+      .main-product {
+        &__media {
+          &__container {
+            display: grid;
+          }
+
+          &__item {
+            grid-column: 1 / -1;
+            grid-row: 1 / -1;
+
+            &:not(:first-child) {
+              display: none;
+            }
+          }
+
+          &__dots {
+            display: flex;
+            justify-content: center;
+            margin-top: var(--pxSize);
+
+            li {
+              @extend .standard-flickity-dot;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  //icons block
   &__icons {
     display: flex;
     flex-wrap: wrap;

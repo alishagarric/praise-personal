@@ -1,0 +1,14 @@
+.product-recommendations {
+  --productRecommendationsGap: calc(var(--pxSize) / 3);
+  padding-right: var(--productRecommendationsGap);
+
+  &__heading {
+    padding-right: calc(
+      var(--sectionGuttersSpacing) - var(--productRecommendationsGap)
+    );
+  }
+
+  &__container {
+    --overflowSliderItemGap: var(--productRecommendationsGap);
+  }
+}

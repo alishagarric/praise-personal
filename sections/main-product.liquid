@@ -49,27 +49,27 @@
       {%- for block in section.blocks -%}
         {%- case block.type -%}
 
-        {% comment %} Type media {% endcomment %}
-        {%- when 'media' -%}
-          {% comment %}
-            Seems weird, but this closes the "blocks-before-media" opening div tag above
-            so that all blocks ordered before media are in a container
-          {% endcomment %}
-          </div>
+          {% comment %} Type media {% endcomment %}
+          {%- when 'media' -%}
+            {% comment %}
+              Seems weird, but this closes the "blocks-before-media" opening div tag above
+              so that all blocks ordered before media are in a container
+            {% endcomment %}
+            </div>
 
-          <div class="main-product__media">
-            <media-gallery id="Product-MediaGallery-{{ section.id }}" class="__side-center">
+
+            <media-gallery class="main-product__media" id="Product-MediaGallery-{{ section.id }}">
 
               {% comment %} Skip to content anchor link {% endcomment %}
               <a class="skip-to-content-link visually-hidden" href="#ProductInfo-{{ section.id }}">
                 {{ 'accessibility.skip_to_product_info' | t }}
               </a>
 
-              <ul class="product-media grid list-unstyled" role="list">
+              <ul class="main-product__media__container product-media grid list-unstyled" role="list">
 
                 {% comment %} If no media exists, output placeholder content? {% endcomment %}
                 {%- unless featured_media == null -%}
-                  <li data-media-id="{{ section.id }}-{{ featured_media.id }}">
+                  <li class="main-product__media__item" data-media-id="{{ section.id }}-{{ featured_media.id }}">
                     {% render 'product-thumbnail', media: featured_media, loading: 'eager' %}
                   </li>
                 {%- endunless -%}
@@ -78,7 +78,7 @@
                 {% comment %} What does the parent <media-gallery> component do, why do these li's have data-media-id attr on them? {% endcomment %}
                 {%- for media in product.media -%}
                   {%- unless media.id == featured_media.id -%}
-                    <li data-media-id="{{ section.id }}-{{ media.id }}">
+                    <li class="main-product__media__item" data-media-id="{{ section.id }}-{{ media.id }}">
                       {%- liquid
                         assign media_position = media_position | default: 0 | plus: 1
                         assign loading = 'eager'
@@ -91,27 +91,38 @@
                   {%- endunless -%}
                 {%- endfor -%}
               </ul>
+
+              <ul class="main-product__media__dots">
+                {%- for media in product.media -%}
+                  <li>
+                    
+                  </li>
+                {%- endfor -%}
+              </ul>
+              
             </media-gallery>
-          </div>
-
-          {% comment %}
-            Seems weird but we need to open this container without a closing tag. 
-            The end of the loop will close this div so that all blocks after media are in a container
-          {% endcomment %}
-          <div class="main-product__blocks-after-media __theme-{{ section.settings.theme }}">
-          
 
 
-        {% comment %} Type app {% endcomment %}
+            {% comment %}
+              Seems weird but we need to open this container without a closing tag. 
+              The end of the loop will close this div so that all blocks after media are in a container
+            {% endcomment %}
+            <div class="main-product__blocks-after-media __theme-{{ section.settings.theme }}">
+            
+
+
+          {% comment %} Type app {% endcomment %}
           {%- when '@app' -%}
             <div class="app __side-left">
             {% render block %}
 
           {% comment %} Type text {% endcomment %}
           {%- when 'text' -%}
-            <p {{ block.shopify_attributes }}>
-              {{ block.settings.text }}
-            </p>
+            <div class="main-product__block {% if block.settings.include_border %} __border-top {% endif %}">
+              <p class="{{ block.settings.text_size }}" {{ block.shopify_attributes }}>
+                {{ block.settings.text }}
+              </p>
+            </div>
 
           {% comment %} Type title {% endcomment %}
           {%- when 'title' -%}
@@ -304,7 +315,7 @@
           {% comment %} Type description {% endcomment %}
           {%- when 'description' -%}
             {%- unless product.description == blank -%}
-              <div {{ block.shopify_attributes }} class="p-sm">
+              <div {{ block.shopify_attributes }} class="{{ block.settings.text_size }}">
                 {{ product.description }}
               </div>
             {%- endunless -%}
@@ -378,8 +389,34 @@
         {
           "type": "text",
           "id": "text",
-          "default": "Text block",
+          "default": "Text",
           "label": "t:sections.main-product.blocks.text.settings.text.label"
+        },
+        {
+          "type": "select",
+          "id": "text_size",
+          "options": [
+              {
+                "value": "p-sm",
+                "label": "Small Text"
+              },
+              {
+                "value": "p",
+                "label": "Basic Text"
+              },
+              {
+                "value": "p-lg",
+                "label": "Large Text"
+              }
+          ],
+          "default": "p-sm",
+          "label": "Text Size"
+        },
+        {
+          "type": "checkbox",
+          "id": "include_border",
+          "label": "Include border?",
+          "default": true
         }
       ]
     },
@@ -602,7 +639,29 @@
     {
       "type": "description",
       "name": "t:sections.main-product.blocks.description.name",
-      "limit": 1
+      "limit": 1,
+      "settings": [
+        {
+          "type": "select",
+          "id": "text_size",
+          "options": [
+              {
+                "value": "p-sm",
+                "label": "Small Text"
+              },
+              {
+                "value": "p",
+                "label": "Basic Text"
+              },
+              {
+                "value": "p-lg",
+                "label": "Large Text"
+              }
+          ],
+          "default": "p-sm",
+          "label": "Text Size"
+        }
+      ]
     },
     {
       "type": "rating",
