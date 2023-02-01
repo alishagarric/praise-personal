@@ -32,7 +32,7 @@ header {
 /* Navigation */
 
 .menu .menu-item {
-  color: RGB(var(--color-foreground));
+  color: RGB(var(--color-text));
   display: block;
   padding: 15px 5px;
   cursor: pointer;

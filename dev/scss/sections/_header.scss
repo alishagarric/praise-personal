@@ -9,7 +9,7 @@
   inset: 0px 0px auto 0px;
   width: 100%;
   z-index: 999;
-  color: RGB(var(--color-foreground));
+  color: RGB(var(--color-text));
 
   // We have two navigation types, this one displays on scroll up
   &.__style-on-scroll {
@@ -107,7 +107,7 @@
 
     &:hover {
       cursor: pointer;
-      color: RGB(var(--color-foreground));
+      color: RGB(var(--color-text) / 0.5);
     }
   }
 
@@ -121,16 +121,16 @@
       margin-left: calc(var(--pxSize) / 3);
       height: calc(var(--navHeight) / 10);
       width: calc(var(--navHeight) / 10);
-      border-right: 1px solid RGB(var(--color-foreground));
-      border-top: 1px solid RGB(var(--color-foreground));
+      border-right: 1px solid RGB(var(--color-border));
+      border-top: 1px solid RGB(var(--color-border));
       transform: rotate(135deg) translate(25%, 25%);
     }
 
     &.__active {
-      color: RGB(var(--color-foreground));
+      color: RGB(var(--color-text));
 
       &:after {
-        border-color: RGB(var(--color-foreground));
+        border-color: RGB(var(--color-text));
       }
 
       + .site-header__dropdown,
@@ -214,7 +214,7 @@
             padding: calc(var(--pxSize) / 5) 0;
 
             &:hover {
-              color: RGB(var(--color-foreground));
+              color: RGB(var(--color-text) / 0.5);
             }
           }
 
@@ -268,7 +268,7 @@
 
             &:hover {
               * {
-                color: RGB(var(--color-foreground));
+                color: RGB(var(--color-text) / 0.5);
               }
             }
           }
@@ -321,7 +321,7 @@
       height: 2px;
       border-radius: 2px;
       width: 100%;
-      background: RGB(var(--color-foreground));
+      background: RGB(var(--color-text));
       transform: scaleX(1) rotate(0deg);
       will-change: transform, opacity;
       opacity: 1;

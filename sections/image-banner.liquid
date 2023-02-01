@@ -14,12 +14,12 @@
  {% endstyle %}
 
 
-<div id="Image-banner-{{ section.id }}" class="image-banner __theme-{{ section.settings.theme }} __align-{{section.settings.alignment}} {% if crop_shape == "default" %}__fullwidth-bg{% endif%}">
+<div id="Image-banner-{{ section.id }}" class="image-banner __theme-{{ section.settings.theme }} {% if crop_shape == "default" %}__fullwidth-bg{% endif%}">
    <div class="image-banner__inner {% if crop_shape == "default" %}__theme-{{ section.settings.overlay_theme }} {% endif %}">
 
       {% comment %} Text content {% endcomment %}
       {% if section.blocks.size > 0 %}
-         <div class="image-banner__text-container">
+         <div class="image-banner__text-container __align-{{section.settings.alignment}}">
             {%- for block in section.blocks -%}
                {%- case block.type -%}
 
@@ -84,6 +84,7 @@
       {
          "type": "select",
          "id": "overlay_theme",
+         "info": "Only applies when the image crop shape is not set to default.",
          "options": [
             {
                "value": "primary",
@@ -115,7 +116,7 @@
          "options": [
             {
                "value": "default",
-               "label": "No Crop)"
+               "label": "No Crop"
             },
             {
                "value": "square",

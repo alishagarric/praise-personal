@@ -2,7 +2,15 @@
   "sections": {
     "main-banner": {
       "type": "main-collection-banner",
-      "settings": {}
+      "settings": {
+        "alignment": "left",
+        "show_image": false,
+        "overlay_theme": "3",
+        "top_spacing": 0,
+        "crop_shape": "default",
+        "theme": "1",
+        "bottom_spacing": 0
+      }
     },
     "main-product-grid": {
       "type": "main-collection-grid",

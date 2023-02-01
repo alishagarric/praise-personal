@@ -21,6 +21,10 @@
     padding-bottom: calc(
       var(--sectionVerticalSpacing) * var(--bottomInternalSpacingRatio)
     );
+
+    > * {
+      max-width: 600px;
+    }
   }
 
   &__image {
@@ -69,7 +73,7 @@
         display: block;
         padding-right: var(--sectionGuttersSpacing);
         padding-left: var(--sectionGuttersSpacing);
-        color: RGB(var(--color-foreground));
+        color: RGB(var(--color-text));
       }
 
       &__image {
