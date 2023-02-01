@@ -6,14 +6,15 @@
 
 {% assign products_to_show = 4 %}
 
-<div class="product-recommendations">
+<div class="product-recommendations __align-{{ section.settings.alignment}}">
   <product-recommendations data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit={{ products_to_show }}">
     {% if recommendations.performed and recommendations.products_count > 0 %}
 
-      <h2 class="product-recommendations__heading">{{ section.settings.heading | escape }}</h2>
+      {% comment %} Text Content {% endcomment %}
+      {% render 'heading', class: "product-recommendations", heading: section.settings.heading, alt_heading: section.settings.alt_heading, heading_size: section.settings.heading_size %}
 
+      {% comment %} Product Recommendations {% endcomment %}
       <overflow-slider class="overflow-slider {% if recommendations.products_count < 5 %}__hide-desktop-arrows{% endif %} {% if recommendations.products_count < 3 %}__hide-tablet-arrows{% endif%}">
-
         <ul class="product-recommendations__container overflow-slider__container" role="list">
           {% for recommendation in recommendations.products %}
             <li>
@@ -45,7 +46,56 @@
       "id": "heading",
       "default": "You may also like",
       "label": "t:sections.product-recommendations.settings.heading.label"
-    }
+    },
+    {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+                "value": "h2",
+                "label": "X-Large"
+            },
+            {
+                "value": "h4",
+                "label": "Large"
+            },
+            {
+                "value": "h5",
+                "label": "Medium"
+            },
+            {
+                "value": "h6",
+                "label": "Small"
+            }
+          ],
+          "default": "h4",
+          "label": "Heading Size"
+      },
+      {
+        "type": "checkbox",
+        "id": "alt_heading",
+        "label": "Use body font instead of heading font for heading?"
+      },
+      {
+         "type": "radio",
+         "id": "alignment",
+         "label": "Text Alignment",
+         "options": [
+            {
+               "value": "left",
+               "label":"Left"
+            },
+            {
+               "value": "center",
+               "label": "Center"
+            },
+            {
+               "value": "right",
+               "label": "Right"
+            }
+         ],
+         "default": "center"
+      }
   ]
 }
 {% endschema %}
