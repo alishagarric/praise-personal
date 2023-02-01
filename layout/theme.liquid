@@ -95,7 +95,6 @@
       }
 
       {% render 'custom-icons' %}
-
     {% endstyle %}
 
     {% if settings.custom_heading_font_link and settings.custom_heading_font_family_name %}
@@ -127,7 +126,12 @@
     {{ 'header.css' | asset_url | stylesheet_tag }}
 
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
-    
+
+    {%- if settings.favicon != blank and settings.favicon contains '.png' -%}
+      <link rel="shortcut icon" href="{{ settings.favicon | img_url: 'master' }}" type="image/png">
+    {%- elsif settings.favicon != blank and settings.favicon contains '.ico' -%}
+      <link rel="shortcut icon" href="{{ settings.favicon | img_url: 'master' }}" type="image/x-icon">
+    {%- endif -%}
   </head>
   <body>
     <a class="skip-to-content-link visually-hidden" href="#MainContent">
@@ -152,11 +156,11 @@
         addToCart: `{{ 'products.product.add_to_cart' | t }}`,
         soldOut: `{{ 'products.product.sold_out' | t }}`,
         unavailable: `{{ 'products.product.unavailable' | t }}`,
-      }
+      };
 
       window.cartStrings = {
         error: `{{ 'sections.cart.cart_error' | t }}`,
-        quantityError: `{{ 'sections.cart.cart_quantity_error_html' | t: quantity: '[quantity]' }}`
+        quantityError: `{{ 'sections.cart.cart_quantity_error_html' | t: quantity: '[quantity]' }}`,
       };
 
       window.routes = {
