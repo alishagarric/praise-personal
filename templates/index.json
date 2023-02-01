@@ -391,11 +391,30 @@
             "price": "bottom",
             "crop_shape": "portrait"
           }
+        },
+        "21c589c7-b2d6-42bc-b69b-bec8151d80d5": {
+          "type": "products",
+          "settings": {
+            "products": [
+              "all-hail-sugar",
+              "cravings-beware",
+              "copy-of-cravings-beware"
+            ],
+            "show_phrase": false,
+            "show_description": false,
+            "quick_add": false,
+            "show_bg_color": false,
+            "alt_title": false,
+            "product_text_alignment": "default",
+            "price": "default",
+            "crop_shape": "rounded-square"
+          }
         }
       },
       "block_order": [
         "318e36c7-3055-4cbf-b625-939c1028416e",
-        "318e36c7-3055-4cbf-b625-939c1028416e2"
+        "318e36c7-3055-4cbf-b625-939c1028416e2",
+        "21c589c7-b2d6-42bc-b69b-bec8151d80d5"
       ],
       "settings": {
         "heading": "Shop Our Bestsellers",
