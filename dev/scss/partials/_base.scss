@@ -30,9 +30,7 @@ body {
   }
 
   main {
-    > *:first-child:not(.section-image__wrapper):not(
-        .content-with-bg-image__wrapper
-      ) {
+    > *:first-child {
       margin-top: var(--navHeight);
     }
   }

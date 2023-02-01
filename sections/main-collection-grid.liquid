@@ -1,20 +1,219 @@
+{% style %}
+    #Main-collection-grid-{{ section.id }} {
+      --topSpacingRatio: {{ section.settings.top_spacing }} / 100;
+      --bottomSpacingRatio: {{ section.settings.bottom_spacing }} / 100;
+    }
+ {% endstyle %}
 
-    {% render 'filter-and-sort', results: collection %}
 
-{%- paginate collection.products by 8 -%}
-  <div class="container" style="background: magenta;">
+{% render 'filter-and-sort', results: collection %}
+
+{%- paginate collection.products by 12 -%}
+  <div id="Main-collection-grid-{{ section.id }}" class="main-collection-grid __theme-{{ section_theme }}">
 
     {%- if collection.products.size == 0 -%}
       {{ 'products.facets.use_fewer_filters_html' | t: link: collection.url }}
-    {%- endif -%}
+    {%- else -%}
 
-    <ul class="grid list-unstyled" role="list">
-      {%- for product in collection.products -%}
-        <li>
-          {% render 'product-card', card_product: product %}
-        </li>
-      {%- endfor -%}
-    </ul>
+      <ul class="main-collection-grid__container alist-unstyled" role="list">
+        {%- for product in collection.products -%}
+          <li>
+            {% render 'product-card' product: product, class: "main-collection-grid__item", show_bg_color: section.settings.show_bg_color, quick_add: section.settings.quick_add, crop: section.settings.crop_shape, show_phrase: section.settings.show_phrase, alignment: section.settings.product_text_alignment, section.settings.show_description: section.settings.show_description, price_position: section.settings.price, alt_heading: section.settings. alt_title %}
+          </li>
+        {%- endfor -%}
+      </ul>
+    {% endif %}
   </div>
+
   {% render 'pagination', paginate: paginate %}
 {%- endpaginate -%}
+
+{% schema %}
+{
+   "name": "Main Collection Grid",
+   "tag": "section",
+   "settings":[
+    {
+      "type": "header",
+      "content": "Product Card Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_phrase",
+      "label": "Show product phrase?"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_description",
+      "label": "Show product description?"
+    },
+    {
+      "type": "checkbox",
+      "id": "quick_add",
+      "label": "Enable quick add?",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_bg_color",
+      "label": "Show background color?",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "alt_title",
+      "label": "Use body font instead of heading font for product title?"
+    },
+    {
+      "type": "select", 
+      "id": "product_text_alignment",
+      "options": [
+        {
+          "value": "default",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "default",
+      "label": "Product Text Alignment"
+    },
+    {
+      "type": "select",
+      "id": "price",
+      "options": [
+        {
+          "value": "default",
+          "label": "Right of Title"
+        },
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        },
+        {
+          "value": "not-visible",
+          "label": "Not Visible"
+        }
+      ],
+      "default": "default",
+      "label": "Price Position"
+    },
+    {
+      "type": "select",
+      "id": "crop_shape",
+      "options": [
+        {
+          "value": "default",
+          "label": "No Crop"
+        },
+        {
+          "value": "square",
+          "label": "Square"
+        },
+        {
+          "value": "rounded-square",
+          "label": "Rounded Square"
+        },
+        {
+          "value": "circle",
+          "label": "Circle"
+        },
+        {
+          "value": "portrait",
+          "label": "Portrait"
+        },
+        {
+          "value": "rounded-portrait",
+          "label": "Rounded Portrait"
+        },
+        {
+          "value": "semicircle-portrait",
+          "label": "Semicircle Portrait"
+        },
+        {
+          "value": "landscape",
+          "label": "Landscape"
+        },
+        {
+          "value": "rounded-landscape",
+          "label": "Rounded Landscape"
+        },
+        {
+          "value": "semicircle-landscape",
+          "label": "Semicircle Landscape"
+        },
+        {
+          "value": "arch",
+          "label": "Semicircle Arch"
+        }
+      ],
+      "default": "default",
+      "label": "Product Image Crop Shape"
+    },
+    {
+      "type": "header",
+      "content": "Section"
+    },
+    {
+      "type": "select",
+      "id": "theme",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary Theme"
+        },
+        {
+          "value": "2",
+          "label": "2nd Theme"
+        },
+        {
+          "value": "3",
+          "label": "3rd Theme"
+        },
+        {
+          "value": "4",
+          "label": "4th Theme"
+        },
+        {
+          "value": "5",
+          "label": "5th Theme"
+        }
+      ],
+      "default": "primary",
+      "label": "Theme"
+    },
+    {
+      "type": "range",
+      "id": "top_spacing",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "Top Spacing",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "bottom_spacing",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "Bottom Spacing",
+      "default": 50
+    }
+   ],
+   "presets": [
+      {
+         "name":"Main Collection Grid"
+      }
+   ]
+}
+
+{% endschema %}
