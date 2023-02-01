@@ -1,0 +1,33 @@
+.pagination {
+  text-align: center;
+  width: 100%;
+  margin-top: var(--sectionVerticalSpacing);
+
+  &__list {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    &__item {
+      display: grid;
+      place-content: center;
+
+      &:first-child {
+        margin-right: var(--pxSize);
+      }
+
+      &:last-child {
+        margin-left: var(--pxSize);
+      }
+    }
+  }
+
+  &__arrow {
+    @extend .classic-arrow;
+  }
+
+  span[aria-current="page"] {
+    font-weight: bold;
+  }
+}

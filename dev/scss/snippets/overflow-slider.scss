@@ -43,34 +43,14 @@ overflow-slider,
   }
 
   &__arrow {
-    height: var(--arrowBtnHeight);
-    width: var(--arrowBtnHeight);
-    padding: 0;
-    display: grid;
-    place-content: center;
+    @extend .classic-arrow;
     position: absolute;
     top: 0;
     right: calc(var(--arrowBtnHeight) * 1.5);
-    margin-top: 0;
     margin-right: var(--overflowSliderArrowRightOffset);
-
-    svg * {
-      fill: RGB(var(--color-foreground-text));
-      width: 40%;
-      height: auto;
-    }
 
     &.next {
       right: 0;
-
-      svg {
-        transform: scale(-1);
-      }
-    }
-
-    &.hide {
-      opacity: 0.5;
-      pointer-events: none;
     }
   }
 

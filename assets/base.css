@@ -283,33 +283,6 @@ td {
   text-align: right;
 }
 
-/* Pagination  */
-
-.pagination {
-  text-align: center;
-  width: 100%;
-  max-width: 400px;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.pagination li {
-  display: inline;
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
-}
-
-.pagination ol {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.pagination span[aria-current="page"] {
-  font-weight: bold;
-}
-
 /* Gift Card  */
 
 .gift-card {

@@ -66,7 +66,7 @@
         {% for block in section.blocks %}
           {% case block.type %}
             {% when 'product' %}
-              {% render 'product-card' product: block.settings.product, class: "shop-the-look__products__product", show_bg_color: section.settings.show_bg_color, quick_add: section.settings.quick_add, crop: section.settings.crop_shape, show_phrase: section.settings.show_phrase, alignment: section.settings.product_text_alignment, section.settings.show_description: section.settings.show_description, price_position: section.settings.price, alt_heading: section.settings. alt_title %}
+              {% render 'product-card' product: block.settings.product, class: "shop-the-look__products__product", show_bg_color: section.settings.show_bg_color, quick_add: section.settings.quick_add, crop: section.settings.crop_shape, show_phrase: section.settings.show_phrase, alignment: section.settings.product_text_alignment, section.settings.show_description: section.settings.show_description, price_position: section.settings.price, alt_heading: section.settings.alt_title %}
           {% endcase %}
         {% endfor %}
       </div>

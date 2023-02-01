@@ -571,15 +571,15 @@ class OverflowSlider extends HTMLElement {
       var hideNext = scrollPercentage >= 98;
 
       if (hidePrev) {
-        this.prevArrow.classList.add("hide");
+        this.prevArrow.classList.add("disabled");
       } else {
-        this.prevArrow.classList.remove("hide");
+        this.prevArrow.classList.remove("disabled");
       }
 
       if (hideNext) {
-        this.nextArrow.classList.add("hide");
+        this.nextArrow.classList.add("disabled");
       } else {
-        this.nextArrow.classList.remove("hide");
+        this.nextArrow.classList.remove("disabled");
       }
     });
   }

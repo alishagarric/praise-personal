@@ -10,18 +10,21 @@
   - paginate: {Object}
   - anchor: {String} (optional) This can be added so that on page reload it takes you to wherever you've placed your anchor tag.
 {% endcomment %}
+
 {%- if paginate.parts.size > 0 -%}
   <nav role="navigation" class="pagination">
-    <ol class="list-unstyled" role="list">
-      {%- if paginate.previous -%}
-        <li>
-          <a href="{{ paginate.previous.url }}{{ anchor }}">
-            {{ 'general.pagination.previous' | t }}
-          </a>
-        </li>
-      {%- endif -%}
+    <ol class="pagination__list list-unstyled" role="list">
+
+      {% comment %} Previous Arrow {% endcomment %}
+      <li class="pagination__list__item">
+        <a href="{{ paginate.previous.url }}{{ anchor }}" class="btn pagination__arrow {% unless paginate.previous %}disabled{% endunless %}" {% unless paginate.previous %}disabled{% endunless %} aria-label="{{ 'general.pagination.previous' | t }}">
+          {% render 'svg-slider-arrow' %}
+        </a>
+      </li>
+
+      {% comment %} Parts {% endcomment %}
       {%- for part in paginate.parts -%}
-        <li>
+        <li class="pagination__list__item">
           {%- if part.is_link -%}
             <a href="{{ part.url }}{{ anchor }}" aria-label="{{ 'general.pagination.page' | t: number: part.title }}">
               {{- part.title -}}
@@ -37,13 +40,13 @@
           {%- endif -%}
         </li>
       {%- endfor -%}
-      {%- if paginate.next -%}
-        <li>
-          <a href="{{ paginate.next.url }}{{ anchor }}">
-            {{ 'general.pagination.next' | t }}
-          </a>
-        </li>
-      {%- endif -%}
+      
+      {% comment %} Next Arrow {% endcomment %}
+      <li class="pagination__list__item">
+        <a href="{{ paginate.next.url }}{{ anchor }}" class="btn pagination__arrow next {% unless paginate.next %}disabled{% endunless %}" {% unless paginate.next %}disabled{% endunless %} aria-label="{{ 'general.pagination.next' | t }}">
+          {% render 'svg-slider-arrow' %}
+        </a>
+      </li>
     </ol>
   </nav>
 {%- endif -%}

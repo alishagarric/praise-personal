@@ -14961,15 +14961,15 @@ var OverflowSlider = /*#__PURE__*/function (_HTMLElement4) {
         var hideNext = scrollPercentage >= 98;
 
         if (hidePrev) {
-          _this9.prevArrow.classList.add("hide");
+          _this9.prevArrow.classList.add("disabled");
         } else {
-          _this9.prevArrow.classList.remove("hide");
+          _this9.prevArrow.classList.remove("disabled");
         }
 
         if (hideNext) {
-          _this9.nextArrow.classList.add("hide");
+          _this9.nextArrow.classList.add("disabled");
         } else {
-          _this9.nextArrow.classList.remove("hide");
+          _this9.nextArrow.classList.remove("disabled");
         }
       });
     }

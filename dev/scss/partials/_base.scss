@@ -395,7 +395,7 @@ details.overlay[open] > summary::before {
   cursor: default;
 }
 
-/* Custom icon */
+/* Custom icon, extend this class where custom icons are used */
 
 .custom-icon {
   content: "";
@@ -405,4 +405,32 @@ details.overlay[open] > summary::before {
   background-position: center center;
   background-repeat: no-repeat;
   display: block;
+}
+
+/* Classic arrow, extend this class where arrows are used (pagination and sliders) */
+
+.classic-arrow {
+  height: var(--arrowBtnHeight);
+  width: var(--arrowBtnHeight);
+  padding: 0;
+  display: grid;
+  place-content: center;
+  margin-top: 0;
+
+  svg * {
+    fill: RGB(var(--color-foreground-text));
+    width: 40%;
+    height: auto;
+  }
+
+  &.next {
+    svg {
+      transform: scale(-1);
+    }
+  }
+
+  &.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
 }

@@ -11,21 +11,35 @@
 {%- paginate collection.products by 12 -%}
   <div id="Main-collection-grid-{{ section.id }}" class="main-collection-grid __theme-{{ section_theme }}">
 
-    {%- if collection.products.size == 0 -%}
-      {{ 'products.facets.use_fewer_filters_html' | t: link: collection.url }}
-    {%- else -%}
 
-      <ul class="main-collection-grid__container alist-unstyled" role="list">
+    {% comment %} No products found in general or with current filters applied {% endcomment %}
+    {%- if collection.products.size == 0 -%}
+      <p class="__article-text __align-center">
+        {{ 'products.facets.use_fewer_filters_html' | t: link: collection.url }}
+      </p>
+
+    {% comment %} Product grid {% endcomment %}
+    {%- else -%}
+      <ul class="main-collection-grid__container list-unstyled" role="list">
         {%- for product in collection.products -%}
           <li>
-            {% render 'product-card' product: product, class: "main-collection-grid__item", show_bg_color: section.settings.show_bg_color, quick_add: section.settings.quick_add, crop: section.settings.crop_shape, show_phrase: section.settings.show_phrase, alignment: section.settings.product_text_alignment, section.settings.show_description: section.settings.show_description, price_position: section.settings.price, alt_heading: section.settings. alt_title %}
+            {% render 'product-card' product: product, class: "main-collection-grid__item", show_bg_color: section.settings.show_bg_color, quick_add: section.settings.quick_add, crop: section.settings.crop_shape, show_phrase: section.settings.show_phrase, alignment: section.settings.product_text_alignment, section.settings.show_description: section.settings.show_description, price_position: section.settings.price, alt_heading: section.settings.alt_title %}
           </li>
         {%- endfor -%}
+
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'promotion' %}
+              <li>PROMOTION</li>
+          {% endcase %}
+        {% endfor %}
       </ul>
     {% endif %}
+
+    {% comment %} Pagination {% endcomment %}
+    {% render 'pagination', paginate: paginate %}
   </div>
 
-  {% render 'pagination', paginate: paginate %}
 {%- endpaginate -%}
 
 {% schema %}
@@ -207,6 +221,157 @@
       "unit": "%",
       "label": "Bottom Spacing",
       "default": 50
+    }
+   ],
+   "blocks": [
+    {
+      "type": "promotion",
+      "name": "Featured Promotion",
+      "settings": [
+        {
+          "type": "header",
+          "content": "General"
+        },
+        {
+          "type": "range",
+          "id": "position",
+          "min": 1,
+          "max": 13,
+          "step": 1,
+          "label": "Position",
+          "default": 4
+        },
+        {
+          "type": "range",
+          "id": "height",
+          "min": 1,
+          "max": 3,
+          "step": 1,
+          "label": "How many products tall?",
+          "default": 1
+        },
+        {
+          "type": "range",
+          "id": "width",
+          "min": 1,
+          "max": 3,
+          "step": 1,
+          "label": "How many products wide?",
+          "default": 1
+        },
+        {
+          "type": "header",
+          "content": "Text Content"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Lorem ipsum dolor sit",
+          "label": "Heading"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+                "value": "h2",
+                "label": "X-Large"
+            },
+            {
+                "value": "h4",
+                "label": "Large"
+            },
+            {
+                "value": "h5",
+                "label": "Medium"
+            },
+            {
+                "value": "h6",
+                "label": "Small"
+            }
+          ],
+          "default": "h4",
+          "label": "Heading Size"
+        },
+        {
+          "type": "checkbox",
+          "id": "alt_heading",
+          "label": "Use body font instead of heading font for heading?"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Description"
+        },
+        {
+          "type": "header",
+          "content": "Image Content"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "range",
+          "id": "overlay",
+          "label": "Overlay Opacity",
+          "info": "If above 0%, an overlay will be added on top of the image to create contrast behind the text.",
+          "min": 0,
+          "max": 70,
+          "step": 10,
+          "unit": "%",
+          "default": 50
+        },
+        {
+          "type": "select",
+          "id": "overlay_theme",
+          "options": [
+            {
+              "value": "primary",
+              "label": "Primary Theme"
+            },
+            {
+              "value": "2",
+              "label": "2nd Theme"
+            },
+            {
+              "value": "3",
+              "label": "3rd Theme"
+            },
+            {
+              "value": "4",
+              "label": "4th Theme"
+            },
+            {
+              "value": "5",
+              "label": "5th Theme"
+            }
+          ],
+          "default": "primary",
+          "label": "Overlay Theme"
+        },
+        {
+          "type": "select",
+          "id": "image_corners",
+          "options": [
+            {
+                "value": "default",
+                "label": "Square Corners"
+            },
+            {
+                "value": "rounded",
+                "label": "Rounded Corners"
+            },
+            {
+                "value": "semicircle",
+                "label": "Semicircle Corners"
+            }
+          ],
+          "default": "default",
+          "label": "Image Corners"
+        }
+      ]
     }
    ],
    "presets": [
