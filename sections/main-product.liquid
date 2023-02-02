@@ -323,13 +323,24 @@
           {% comment %} Type rating {% endcomment %}
           {%- when 'rating' -%}
             {%- unless product.metafields.reviews.rating.value == blank -%}
-              <p class="rating">
-                {{- 'products.product.star_reviews_info' | t: rating_value: product.metafields.reviews.rating.value, rating_max: product.metafields.reviews.rating.value.scale_max }}
-                <span>
+              <div class="main-product__rating">
+                {% assign star_max = product.metafields.reviews.rating.value.scale_max | plus: 0.0 | round %}
+                {% assign rating_count = product.metafields.reviews.rating.value %}
+                <div class="main-product__rating__solid-stars" style="--ratingWidth:{{ rating_count }} / {{ star_max }};">
+                  {% for i in (1..star_max) %}
+                    ★
+                  {% endfor %}
+                </div>
+                <div class="main-product__rating__outlined-stars">
+                  {% for i in (1..star_max) %}
+                    ☆
+                  {% endfor %}
+                </div>
+                <p class="p-sm">
                   {{- product.metafields.reviews.rating_count }}
                   {{ 'products.product.total_reviews' | t -}}
-                </span>
-              </p>
+                </p>
+            </div>
             {%- endunless -%}
 
           {% comment %} Type pickup availability {% endcomment %}

@@ -22,7 +22,7 @@
     {%- else -%}
       <ul class="main-collection-grid__container list-unstyled" role="list">
         {%- for product in collection.products -%}
-          <li>
+          <li style="order: {{ forloop.index }}">
             {% render 'product-card' product: product, class: "main-collection-grid__item", show_bg_color: section.settings.show_bg_color, quick_add: section.settings.quick_add, crop: section.settings.crop_shape, show_phrase: section.settings.show_phrase, alignment: section.settings.product_text_alignment, section.settings.show_description: section.settings.show_description, price_position: section.settings.price, alt_heading: section.settings.alt_title %}
           </li>
         {%- endfor -%}
@@ -30,7 +30,16 @@
         {% for block in section.blocks %}
           {% case block.type %}
             {% when 'promotion' %}
-              <li>PROMOTION</li>
+              <li style="order: {{ block.settings.position | minus: 1 }}; --overlayOpacity: {{ block.settings.overlay }}%;" class="__theme-{{ block.settings.overlay_theme }}">
+                <div class="main-collection-grid__block __crop-{{ block.settings.image_corners }}">
+                  {% render 'heading', class: "main-collection-grid__block", heading: block.settings.heading, heading_size: block.settings.blocks_size, alt_heading: block.settings.alt_heading %}
+                  {{ block.settings.text }}
+
+                  {% if block.settings.image %}
+                    {% render 'next-gen-img' image: block.settings.image %}
+                  {% endif %}
+                </div>
+              </li>
           {% endcase %}
         {% endfor %}
       </ul>
