@@ -1,22 +1,50 @@
-{{ 'component-card.css' | asset_url | stylesheet_tag }}
 
-<div class="container" style="background: magenta;">
+{% style %}
+  #Main-list-collections-{{ section.id }} {
+    --topSpacingRatio: {{ section.settings.top_spacing }} / 100;
+    --bottomSpacingRatio: {{ section.settings.bottom_spacing }} / 100;
+  }
+{% endstyle %}
 
-  <h1>{{ section.settings.title | escape }}</h1>
+<div id="Main-list-collections-{{ section.id }}" class="main-list-collections __theme-{{ section.settings.theme }}">
+
   {%- paginate collections by section.settings.collections_per_page -%}
-    <ol class="list-unstyled grid" role="list">
+    <ol class="list-unstyled" role="list">
       {%- for collection in collections -%}
         <li>
-          <div class="card">
-            <div class="media" style="--width: {{ collection.featured_image.width }}; --height: {{ collection.featured_image.height }};">
-              {{ collection.featured_image | image_url: width: collection.featured_image.width | image_tag }}
+          <div class="main-list-collections__collection">
+            <div class="main-list-collections__collection__details">
+
+              {% comment %}
+                <div class="media" style="--width: {{ collection.featured_image.width }}; --height: {{ collection.featured_image.height }};">
+                  {{ collection.featured_image | image_url: width: collection.featured_image.width | image_tag }}
+                </div>
+              {% endcomment %}
+              <h2>
+                <a href="{{ collection.url }}" class="h4 alt">
+                  {{ collection.title }}
+                </a>
+              </h2>
+              <div class="main-list-collections__description">
+                {{ collection.description }}
+              </div>
+
+              <div class="main-list-collections__featured-icons">
+                {% for product in collection.products limit: 2 %}
+                  {% for icon in product.metafields.custom.featured_icons.value %}
+                    <div class="main-list-collections__featured-icons__icon custom-icon-{{ icon | handleize }}" style="--customIconHeight: 50px;">
+                      <span class="p-sm">{{ icon }}</span>
+                    </div>
+                  {% endfor %}
+                {% endfor %}
+              </div>
             </div>
-            <h2>
-              <a href="{{ collection.url }}">
-                {{ collection.title }}
-              </a>
-            </h2>
-            <p>{{- collection.description | strip_html | truncatewords: 12 -}}</p>
+
+            <div class="main-list-collections__collection__products">
+              {% for product in collection.products limit: 2 %}
+                {% render 'product-card' product: product %}
+              {% endfor %}
+            </div>
           </div>
         </li>
       {%- endfor -%}
@@ -29,14 +57,8 @@
 {% schema %}
 {
   "name": "t:sections.main-list-collections.name",
-  "class": "section",
+  "tag": "section",
   "settings": [
-    {
-      "type": "text",
-      "id": "title",
-      "label": "t:sections.main-list-collections.settings.title.label",
-      "default": "Collections"
-    },
     {
       "type": "range",
       "id": "collections_per_page",
@@ -45,6 +67,58 @@
       "max": 12,
       "step": 1,
       "label": "t:sections.main-list-collections.settings.collections_per_page.label"
+    },
+    {
+      "type": "header",
+      "content": "Section"
+    },
+    {
+      "type": "select",
+      "id": "theme",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary Theme"
+        },
+        {
+          "value": "2",
+          "label": "2nd Theme"
+        },
+        {
+          "value": "3",
+          "label": "3rd Theme"
+        },
+        {
+          "value": "4",
+          "label": "4th Theme"
+        },
+        {
+          "value": "5",
+          "label": "5th Theme"
+        }
+      ],
+      "default": "primary",
+      "label": "Theme"
+    },
+    {
+      "type": "range",
+      "id": "top_spacing",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "Top Spacing",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "bottom_spacing",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "Bottom Spacing",
+      "default": 50
     }
   ]
 }

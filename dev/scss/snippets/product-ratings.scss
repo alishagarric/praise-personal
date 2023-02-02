@@ -1,0 +1,31 @@
+.product-ratings {
+  position: relative;
+
+  > * {
+    display: inline-block;
+  }
+
+  &__outlined-stars {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+  }
+
+  &__solid-stars {
+    z-index: 1;
+    position: relative;
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: calc(
+        98% - calc(calc(var(--ratingWidth)) * 100%)
+      ); // For some reason it appears 2% off, so we need to subtrract from 98% instead of 100%
+      background: RGB(var(--color-background));
+    }
+  }
+}

@@ -1,0 +1,61 @@
+/* Custom icon, extend this class where custom icons are used */
+
+.custom-icon {
+  content: "";
+  width: var(--customIconHeight);
+  height: var(--customIconHeight);
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: block;
+}
+
+/* Custom icons container */
+
+.custom-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(var(--customIconHeight));
+  margin-bottom: calc(var(--pxSize) / 2);
+
+  &__icon {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--customIconHeight) / 3);
+    align-items: center;
+    text-align: center;
+
+    span {
+      margin: 0;
+    }
+
+    &:before {
+      @extend .custom-icon;
+    }
+  }
+
+  &.__layout {
+    &-row {
+      .main-product {
+        &__icons {
+          &__icon {
+            flex-direction: row;
+            text-align: left;
+          }
+        }
+      }
+    }
+
+    &-icon-only {
+      .main-product {
+        &__icons {
+          &__icon {
+            span {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}

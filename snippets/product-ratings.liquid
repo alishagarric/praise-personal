@@ -1,0 +1,32 @@
+{% comment %}
+  Renders a product ratings
+
+  Expects: 
+  - product: {Object} Product object
+  - class: {String} optional
+
+  Usage:
+    {% render 'product-ratings' product: product, class:"class" %}
+
+{% endcomment %}
+
+{%- unless product.metafields.reviews.rating.value == blank -%}
+  <div class="product-ratings {{ class }}">
+    {% assign star_max = product.metafields.reviews.rating.value.scale_max | plus: 0.0 | round %}
+    {% assign rating_count = product.metafields.reviews.rating.value %}
+    <div class="product-ratings__solid-stars" style="--ratingWidth:{{ rating_count }} / {{ star_max }};">
+      {% for i in (1..star_max) %}
+        ★
+      {% endfor %}
+    </div>
+    <div class="product-ratings__outlined-stars">
+      {% for i in (1..star_max) %}
+        ☆
+      {% endfor %}
+    </div>
+    <p class="p-sm">
+      {{- product.metafields.reviews.rating_count }}
+      {{ 'products.product.total_reviews' | t -}}
+    </p>
+  </div>
+{%- endunless -%}

@@ -395,18 +395,6 @@ details.overlay[open] > summary::before {
   cursor: default;
 }
 
-/* Custom icon, extend this class where custom icons are used */
-
-.custom-icon {
-  content: "";
-  width: var(--customIconHeight);
-  height: var(--customIconHeight);
-  background-size: contain;
-  background-position: center center;
-  background-repeat: no-repeat;
-  display: block;
-}
-
 /* Classic arrow, extend this class where arrows are used (pagination and sliders) */
 
 .classic-arrow {

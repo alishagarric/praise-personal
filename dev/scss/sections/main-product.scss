@@ -60,39 +60,6 @@
     }
   }
 
-  //rating block
-  &__rating {
-    position: relative;
-
-    > * {
-      display: inline-block;
-    }
-
-    &__outlined-stars {
-      position: absolute;
-      z-index: 2;
-      top: 0;
-      left: 0;
-    }
-
-    &__solid-stars {
-      z-index: 1;
-      position: relative;
-
-      &:after {
-        content: "";
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        width: calc(
-          98% - calc(calc(var(--ratingWidth)) * 100%)
-        ); // For some reason it appears 2% off, so we need to subtrract from 98% instead of 100%
-        background: RGB(var(--color-background));
-      }
-    }
-  }
-
   //media block
   &__media {
     &:not(.__layout-sticky) {
@@ -127,50 +94,6 @@
 
   //icons block
   &__icons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: calc(var(--customIconHeight));
-    margin-bottom: calc(var(--pxSize) / 2);
-
-    &__icon {
-      display: flex;
-      flex-direction: column;
-      gap: calc(var(--customIconHeight) / 3);
-      align-items: center;
-      text-align: center;
-
-      span {
-        margin: 0;
-      }
-
-      &:before {
-        @extend .custom-icon;
-      }
-    }
-
-    &.__layout {
-      &-row {
-        .main-product {
-          &__icons {
-            &__icon {
-              flex-direction: row;
-              text-align: left;
-            }
-          }
-        }
-      }
-
-      &-icon-only {
-        .main-product {
-          &__icons {
-            &__icon {
-              span {
-                display: none;
-              }
-            }
-          }
-        }
-      }
-    }
+    @extend .custom-icons;
   }
 }
