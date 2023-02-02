@@ -1,52 +1,76 @@
 {% assign card_width_divisor = 4 %}
 {% assign placeholder_card_count = 4 %}
 
-{% if section.blocks.size > 1 %}
+{% if section.blocks.size >= 1 %}
   {% assign placeholder_content = false %}
 {% else %}
   {% assign placeholder_content = true %}
 {% endif %}
 
 {% style %}
-    #Content-marquee-{{ section.id }} {
-      --topSpacingRatio: {{section.settings.top_spacing}} / 100;
-      --bottomSpacingRatio: {{section.settings.bottom_spacing}} / 100;      --contentMarqueeDivisor: {{ card_width_divisor }};
+  #Content-marquee-{{ section.id }} {
+    --topSpacingRatio: {{section.settings.top_spacing}} / 100;
+    --bottomSpacingRatio: {{section.settings.bottom_spacing}} / 100;      --contentMarqueeDivisor: {{ card_width_divisor }};
 
-      {% if placeholder_content == false %}
-        --contentMarqueeCardCount: {{ section.blocks.size }};
-        --contentMarqueeSpeed: {{ section.settings.speed | minus: 11 | times: -1 | times: section.blocks.size }}s;
-      {% else %}
-        --contentMarqueeCardCount: {{ placeholder_card_count }};
-        --contentMarqueeSpeed: {{ section.settings.speed | minus: 11 | times: -1 | times: placeholder_card_count }}s;
-      {% endif %}
-    }
- {% endstyle %}
-
+    {% if placeholder_content == false %}
+      --contentMarqueeCardCount: {{ section.blocks.size }};
+      --contentMarqueeSpeed: {{ section.settings.speed | minus: 11 | times: -1 | times: section.blocks.size }}s;
+    {% else %}
+      --contentMarqueeCardCount: {{ placeholder_card_count }};
+      --contentMarqueeSpeed: {{ section.settings.speed | minus: 11 | times: -1 | times: placeholder_card_count }}s;
+    {% endif %}
+  }
+{% endstyle %}
 
 <div id="Content-marquee-{{ section.id }}" class="content-marquee __theme-{{ section.settings.theme }}">
   <div class="content-marquee__inner">
     <content-marquee class="content-marquee__content">
       {% for i in (1..card_width_divisor) %}
-
         {% comment %} Real content cards {% endcomment %}
         {% if placeholder_content == false %}
           {% for block in section.blocks %}
             {% case block.type %}
+                {% comment %} Type quote {% endcomment %}
+              {% when 'quote' %}
+                {% render 'quote-card',
+                  quote: block.settings.quote,
+                  alignment: section.settings.alignment,
+                  background_theme: block.settings.background_theme,
+                  card_corners: block.settings.card_corners,
+                  quotations: block.settings.quotations,
+                  details: block.settings.details,
+                  logo: block.settings.logo,
+                  class: 'content-marquee__item'
+                %}
 
-              {% comment %} Type quote {% endcomment %}
-              {% when 'quote'%}
-                {% render 'quote-card' quote: block.settings.quote, alignment: section.settings.alignment, background_theme: block.settings.background_theme, card_corners: block.settings.card_corners, quotations: block.settings.quotations, details: block.settings.details, logo: block.settings.logo, class: "content-marquee__item" %}
-              
-              {% comment %} Type content card {% endcomment %}
+                {% comment %} Type content card {% endcomment %}
               {%- when 'image' -%}
-                {% render 'content-card' class: 'content-marquee__item', image: block.settings.image, alignment: block.settings.alignment, crop_shape: block.settings.crop_shape, overlay_theme: block.settings.overlay_theme, overlay: section.settings.overlay, heading: block.settings.heading heading_size: block.settings.heading_size, button_link: block.settings.button_link, button_color: block.settings.button_color, text: block.settings.text %}
+                {% render 'content-card',
+                  class: 'content-marquee__item',
+                  image: block.settings.image,
+                  alignment: block.settings.alignment,
+                  crop_shape: block.settings.crop_shape,
+                  overlay_theme: block.settings.overlay_theme,
+                  overlay: section.settings.overlay,
+                  heading: block.settings.heading,
+                  heading_size: block.settings.heading_size,
+                  button_link: block.settings.button_link,
+                  button_color: block.settings.button_color,
+                  text: block.settings.text
+                %}
             {% endcase %}
           {% endfor %}
 
-        {% comment %} Placeholder content {% endcomment %}
+          {% comment %} Placeholder content {% endcomment %}
         {% else %}
           {% for i in (1..placeholder_card_count) %}
-            {% render 'quote-card' quote: "<p>Lorem ipsum dolor iset</p>", quotations: true, background_theme: "2", alignment: section.settings.alignment, class: "content-marquee__item" %}
+            {% render 'quote-card',
+              quote: '<p>Lorem ipsum dolor iset</p>',
+              quotations: true,
+              background_theme: '2',
+              alignment: section.settings.alignment,
+              class: 'content-marquee__item'
+            %}
           {% endfor %}
         {% endif %}
       {% endfor %}
@@ -64,24 +88,24 @@
       "content": "General"
     },
     {
-        "type": "radio",
-        "id": "alignment",
-        "label": "Text Alignment",
-        "options": [
-          {
-              "value": "left",
-              "label":"Left"
-          },
-          {
-              "value": "center",
-              "label": "Center"
-          },
-          {
-              "value": "right",
-              "label": "Right"
-          }
-        ],
-        "default": "center"
+      "type": "radio",
+      "id": "alignment",
+      "label": "Text Alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
     },
     {
       "type": "range",
@@ -177,26 +201,26 @@
           "type": "select",
           "id": "background_theme",
           "options": [
-              {
-                "value": "primary",
-                "label": "Primary Theme"
-              },
-              {
-                "value": "2",
-                "label": "2nd Theme"
-              },
-              {
-                "value": "3",
-                "label": "3rd Theme"
-              },
-              {
-                "value": "4",
-                "label": "4th Theme"
-              },
-              {
-                "value": "5",
-                "label": "5th Theme"
-              }
+            {
+              "value": "primary",
+              "label": "Primary Theme"
+            },
+            {
+              "value": "2",
+              "label": "2nd Theme"
+            },
+            {
+              "value": "3",
+              "label": "3rd Theme"
+            },
+            {
+              "value": "4",
+              "label": "4th Theme"
+            },
+            {
+              "value": "5",
+              "label": "5th Theme"
+            }
           ],
           "default": "primary",
           "label": "Theme"
@@ -206,16 +230,16 @@
           "id": "card_corners",
           "options": [
             {
-                "value": "default",
-                "label": "Square Corners"
+              "value": "default",
+              "label": "Square Corners"
             },
             {
-                "value": "rounded",
-                "label": "Rounded Corners"
+              "value": "rounded",
+              "label": "Rounded Corners"
             },
             {
-                "value": "semicircle",
-                "label": "Semicircle Corners"
+              "value": "semicircle",
+              "label": "Semicircle Corners"
             }
           ],
           "default": "default",
@@ -230,7 +254,7 @@
         {
           "type": "header",
           "content": "Image Content"
-        },  
+        },
         {
           "type": "image_picker",
           "id": "image",
@@ -251,26 +275,26 @@
           "type": "select",
           "id": "overlay_theme",
           "options": [
-              {
-                "value": "primary",
-                "label": "Primary Theme"
-              },
-              {
-                "value": "2",
-                "label": "2nd Theme"
-              },
-              {
-                "value": "3",
-                "label": "3rd Theme"
-              },
-              {
-                "value": "4",
-                "label": "4th Theme"
-              },
-              {
-                "value": "5",
-                "label": "5th Theme"
-              }
+            {
+              "value": "primary",
+              "label": "Primary Theme"
+            },
+            {
+              "value": "2",
+              "label": "2nd Theme"
+            },
+            {
+              "value": "3",
+              "label": "3rd Theme"
+            },
+            {
+              "value": "4",
+              "label": "4th Theme"
+            },
+            {
+              "value": "5",
+              "label": "5th Theme"
+            }
           ],
           "default": "primary",
           "label": "Overlay Theme"
@@ -330,7 +354,7 @@
         {
           "type": "header",
           "content": "Text"
-        },  
+        },
         {
           "type": "text",
           "id": "heading",
@@ -378,18 +402,18 @@
           "id": "alignment",
           "label": "Text Alignment",
           "options": [
-              {
-                "value": "left",
-                "label":"Left"
-              },
-              {
-                "value": "center",
-                "label": "Center"
-              },
-              {
-                "value": "right",
-                "label": "Right"
-              }
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
           ],
           "default": "left"
         },
@@ -409,30 +433,30 @@
           "id": "button_color",
           "label": "Button Color",
           "default": "default",
-          "options":[
+          "options": [
             {
-                "value": "default",
-                "label": "Default"
+              "value": "default",
+              "label": "Default"
             },
             {
-                "value": "primary",
-                "label": "Primary Theme"
+              "value": "primary",
+              "label": "Primary Theme"
             },
             {
-                "value": "2",
-                "label": "2nd Theme"
+              "value": "2",
+              "label": "2nd Theme"
             },
             {
-                "value": "3",
-                "label": "3rd Theme"
+              "value": "3",
+              "label": "3rd Theme"
             },
             {
-                "value": "4",
-                "label": "4th Theme"
+              "value": "4",
+              "label": "4th Theme"
             },
             {
-                "value": "5",
-                "label": "5th Theme"
+              "value": "5",
+              "label": "5th Theme"
             }
           ]
         }
