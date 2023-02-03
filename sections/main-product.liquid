@@ -127,7 +127,7 @@
           {% comment %} Type title {% endcomment %}
           {%- when 'title' -%}
             {% assign heading = product.title | escape %}
-            {% render 'heading', heading: heading, alt_heading: block.settings.alt_heading, heading_size: block.settings.heading_size, use_as_hero: true %}
+            {% render 'heading', heading: heading, alt_heading: block.settings.alt_heading, heading_size: block.settings.heading_size, heading_tag: 'h1' %}
 
           {% comment %} Type price, What is this no-js-hidden class below? {% endcomment %}
           {%- when 'price' -%}
@@ -574,6 +574,38 @@
       "name": "t:sections.main-product.blocks.title.name",
       "limit": 1, 
       "settings": [
+        {
+          "type": "select",
+          "id": "heading_tag",
+          "options": [
+            {
+              "value": "h1",
+              "label": "h1"
+            },
+            {
+              "value": "h2",
+              "label": "h2"
+            },
+            {
+              "value": "h3",
+              "label": "h3"
+            },
+            {
+              "value": "h4",
+              "label": "h4"
+            },
+            {
+              "value": "h5",
+              "label": "h5"
+            },
+            {
+              "value": "h6",
+              "label": "h6"
+            }
+          ],
+          "default": "h2",
+          "label": "Heading Tag"
+        },
         {
             "type": "select",
             "id": "heading_size",

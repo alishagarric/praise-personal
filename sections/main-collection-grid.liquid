@@ -1,24 +1,21 @@
 {% style %}
-    #Main-collection-grid-{{ section.id }} {
-      --topSpacingRatio: {{ section.settings.top_spacing }} / 100;
-      --bottomSpacingRatio: {{ section.settings.bottom_spacing }} / 100;
-    }
- {% endstyle %}
-
+  #Main-collection-grid-{{ section.id }} {
+    --topSpacingRatio: {{ section.settings.top_spacing }} / 100;
+    --bottomSpacingRatio: {{ section.settings.bottom_spacing }} / 100;
+  }
+{% endstyle %}
 
 {% render 'filter-and-sort', results: collection %}
 
 {%- paginate collection.products by 12 -%}
   <div id="Main-collection-grid-{{ section.id }}" class="main-collection-grid __theme-{{ section_theme }}">
-
-
     {% comment %} No products found in general or with current filters applied {% endcomment %}
     {%- if collection.products.size == 0 -%}
       <p class="__article-text __align-center">
         {{ 'products.facets.use_fewer_filters_html' | t: link: collection.url }}
       </p>
 
-    {% comment %} Product grid {% endcomment %}
+      {% comment %} Product grid {% endcomment %}
     {%- else -%}
       <ul class="main-collection-grid__container list-unstyled" role="list">
         {%- for product in collection.products -%}
@@ -48,14 +45,13 @@
     {% comment %} Pagination {% endcomment %}
     {% render 'pagination', paginate: paginate %}
   </div>
-
 {%- endpaginate -%}
 
 {% schema %}
 {
-   "name": "Main Collection Grid",
-   "tag": "section",
-   "settings":[
+  "name": "Main Collection Grid",
+  "tag": "section",
+  "settings": [
     {
       "type": "header",
       "content": "Product Card Settings"
@@ -88,7 +84,7 @@
       "label": "Use body font instead of heading font for product title?"
     },
     {
-      "type": "select", 
+      "type": "select",
       "id": "product_text_alignment",
       "options": [
         {
@@ -231,8 +227,8 @@
       "label": "Bottom Spacing",
       "default": 50
     }
-   ],
-   "blocks": [
+  ],
+  "blocks": [
     {
       "type": "promotion",
       "name": "Featured Promotion",
@@ -280,23 +276,55 @@
         },
         {
           "type": "select",
+          "id": "heading_tag",
+          "options": [
+            {
+              "value": "h1",
+              "label": "h1"
+            },
+            {
+              "value": "h2",
+              "label": "h2"
+            },
+            {
+              "value": "h3",
+              "label": "h3"
+            },
+            {
+              "value": "h4",
+              "label": "h4"
+            },
+            {
+              "value": "h5",
+              "label": "h5"
+            },
+            {
+              "value": "h6",
+              "label": "h6"
+            }
+          ],
+          "default": "h2",
+          "label": "Heading Tag"
+        },
+        {
+          "type": "select",
           "id": "heading_size",
           "options": [
             {
-                "value": "h2",
-                "label": "X-Large"
+              "value": "h2",
+              "label": "X-Large"
             },
             {
-                "value": "h4",
-                "label": "Large"
+              "value": "h4",
+              "label": "Large"
             },
             {
-                "value": "h5",
-                "label": "Medium"
+              "value": "h5",
+              "label": "Medium"
             },
             {
-                "value": "h6",
-                "label": "Small"
+              "value": "h6",
+              "label": "Small"
             }
           ],
           "default": "h4",
@@ -365,16 +393,16 @@
           "id": "image_corners",
           "options": [
             {
-                "value": "default",
-                "label": "Square Corners"
+              "value": "default",
+              "label": "Square Corners"
             },
             {
-                "value": "rounded",
-                "label": "Rounded Corners"
+              "value": "rounded",
+              "label": "Rounded Corners"
             },
             {
-                "value": "semicircle",
-                "label": "Semicircle Corners"
+              "value": "semicircle",
+              "label": "Semicircle Corners"
             }
           ],
           "default": "default",
@@ -382,12 +410,11 @@
         }
       ]
     }
-   ],
-   "presets": [
-      {
-         "name":"Main Collection Grid"
-      }
-   ]
+  ],
+  "presets": [
+    {
+      "name": "Main Collection Grid"
+    }
+  ]
 }
-
 {% endschema %}

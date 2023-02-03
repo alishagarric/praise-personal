@@ -1,43 +1,50 @@
 {% liquid
   if section.blocks.size < 5
-    assign hide_arrows_on_desktop = true 
+    assign hide_arrows_on_desktop = true
   endif
   if section.blocks.size < 3
     assign hide_arrows_on_tablet = true
   endif
-
 %}
 
 {% style %}
-    #Collections-list-{{ section.id }} {
-      --topSpacingRatio: {{section.settings.top_spacing}} / 100;
-      --bottomSpacingRatio: {{section.settings.bottom_spacing}} / 100;
-    }
- {% endstyle %}
- 
- <div id="Collections-list-{{ section.id }}" class="collections-list __theme-{{ section.settings.theme }}"  
->
+  #Collections-list-{{ section.id }} {
+    --topSpacingRatio: {{section.settings.top_spacing}} / 100;
+    --bottomSpacingRatio: {{section.settings.bottom_spacing}} / 100;
+  }
+{% endstyle %}
+
+<div id="Collections-list-{{ section.id }}" class="collections-list __theme-{{ section.settings.theme }}">
   {% comment %} Text Content {% endcomment %}
-  {% render 'heading', class: "collections-list", heading: section.settings.heading, alt_heading: section.settings.alt_heading, heading_size: section.settings.heading_size %}
+  {% render 'heading',
+    class: 'collections-list',
+    heading: section.settings.heading,
+    alt_heading: section.settings.alt_heading,
+    heading_tag: "h2",
+    heading_size: section.settings.heading_size
+  %}
 
   {% comment %} Collections Slider Container {% endcomment %}
   <overflow-slider class="collections-list__slider overflow-slider {% if hide_arrows_on_desktop %}__hide-desktop-arrows{% endif %} {% if hide_arrows_on_tablet %}__hide-tablet-arrows{% endif %}">
     <ul class="collections-list__container list-unstyled overflow-slider__container">
-
       {% comment %} Real Content {% endcomment %}
       {% if section.blocks.size > 0 %}
         {% for block in section.blocks %}
           <li>
-          {% render 'collection-card' collection: block.settings.collection, alignment: section.settings.collections_text_alignment, button_label: section.settings.button_label %}
-          </li> 
+            {% render 'collection-card',
+              collection: block.settings.collection,
+              alignment: section.settings.collections_text_alignment,
+              button_label: section.settings.button_label
+            %}
+          </li>
         {% endfor %}
 
-      {% comment %} Placeholder Content {% endcomment %}
+        {% comment %} Placeholder Content {% endcomment %}
       {% else %}
         {%- for i in (1..4) -%}
           <li>
             {% render 'collection-card' %}
-          </li> 
+          </li>
         {%- endfor -%}
       {% endif %}
     </ul>
@@ -45,7 +52,6 @@
     {% comment %} Arrows (required for slider) {% endcomment %}
     {% render 'overflow-slider-arrows' %}
   </overflow-slider>
-
 </div>
 
 {% schema %}
@@ -59,34 +65,34 @@
       "content": "Text Content"
     },
     {
-        "type": "text",
-        "id": "heading",
-        "default": "Lorem ipsum dolor sit",
-        "label": "Heading"
+      "type": "text",
+      "id": "heading",
+      "default": "Lorem ipsum dolor sit",
+      "label": "Heading"
     },
     {
-        "type": "select",
-        "id": "heading_size",
-        "options": [
-          {
-              "value": "h2",
-              "label": "X-Large"
-          },
-          {
-              "value": "h4",
-              "label": "Large"
-          },
-          {
-              "value": "h5",
-              "label": "Medium"
-          },
-          {
-              "value": "h6",
-              "label": "Small"
-          }
-        ],
-        "default": "h4",
-        "label": "Heading Size"
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "X-Large"
+        },
+        {
+          "value": "h4",
+          "label": "Large"
+        },
+        {
+          "value": "h5",
+          "label": "Medium"
+        },
+        {
+          "value": "h6",
+          "label": "Small"
+        }
+      ],
+      "default": "h4",
+      "label": "Heading Size"
     },
     {
       "type": "checkbox",
@@ -102,18 +108,18 @@
       "id": "collections_text_alignment",
       "label": "Collections Text Alignment",
       "options": [
-          {
-            "value": "left",
-            "label":"Left"
-          },
-          {
-            "value": "center",
-            "label": "Center"
-          },
-          {
-            "value": "right",
-            "label": "Right"
-          }
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
       ],
       "default": "left"
     },
