@@ -1,4 +1,4 @@
- {% liquid
+{% liquid
   assign section_theme = section.settings.theme
   assign top_spacing = section.settings.top_spacing
   assign bottom_spacing = section.settings.bottom_spacing
@@ -14,7 +14,7 @@
   assign mobile_layout = section.settings.mobile_layout
 
   if section_blog.articles.size < 4
-    assign hide_arrows_on_desktop = true 
+    assign hide_arrows_on_desktop = true
   endif
   if section_blog.articles.size < 3
     assign hide_arrows_on_tablet = true
@@ -29,31 +29,45 @@
 {% endstyle %}
 
 <div id="Featured-blog-{{ section.id }}" class="featured-blog __theme-{{ section_theme }} __mobile-{{ mobile_layout }}">
-
   {% comment %} Text Content {% endcomment %}
-  {% render 'heading', class: "featured-blog", heading: section.settings.heading, heading_size: section.settings.heading_size %}
+  {% render 'heading',
+    class: 'featured-blog',
+    heading: section.settings.heading,
+    heading_tag: section.settings.heading_tag,
+    heading_size: section.settings.heading_size
+  %}
 
   {% comment %} Article slider container {% endcomment %}
   <overflow-slider class="featured-blog__inner overflow-slider {% if hide_arrows_on_desktop %}__hide-desktop-arrows{% endif %} {% if hide_arrows_on_tablet %}__hide-tablet-arrows{% endif %}">
-      <ul class="featured-blog__articles list-unstyled overflow-slider__container" role="list">
-
-        {% comment %} Real content {% endcomment %}
-        {%- if section_blog != blank -%}
-          {%- for article in section_blog.articles -%} 
-            <li class="featured-blog__articles__article-container">
-              {% render 'article-card', class: "featured-blog__card", crop: crop_shape, assc_product_crop_shape: assc_product_crop_shape, button_label: button_label, alignment: alignment, show_description: show_description, show_author: show_author, show_date: show_date, alt_heading: alt_heading, article: article %}
-            </li>
-          {% endfor %}
+    <ul class="featured-blog__articles list-unstyled overflow-slider__container" role="list">
+      {% comment %} Real content {% endcomment %}
+      {%- if section_blog != blank -%}
+        {%- for article in section_blog.articles -%}
+          <li class="featured-blog__articles__article-container">
+            {% render 'article-card',
+              class: 'featured-blog__card',
+              crop: crop_shape,
+              assc_product_crop_shape: assc_product_crop_shape,
+              button_label: button_label,
+              alignment: alignment,
+              show_description: show_description,
+              show_author: show_author,
+              show_date: show_date,
+              alt_heading: alt_heading,
+              article: article
+            %}
+          </li>
+        {% endfor %}
 
         {% comment %} Placeholder content {% endcomment %}
-        {%- else -%}
-          {%- for i in (1..4) -%} 
-            <li class="featured-blog__articles__article-container">
-              {% render 'article-card', class: "featured-blog__card", crop: crop_shape %}
-            </li>
-          {% endfor %}
-        {% endif %}
-      </ul>
+      {%- else -%}
+        {%- for i in (1..4) -%}
+          <li class="featured-blog__articles__article-container">
+            {% render 'article-card', class: 'featured-blog__card', crop: crop_shape %}
+          </li>
+        {% endfor %}
+      {% endif %}
+    </ul>
 
     {% comment %} Slider arrows (required for slider) {% endcomment %}
     {% render 'overflow-slider-arrows' %}
@@ -61,11 +75,15 @@
 
   {% comment %} Button {% endcomment %}
   {% if section.settings.view_all_button_label %}
-    {% render 'button', class: "__align-center featured-blog", button_label: section.settings.view_all_button_label, button_link: section.settings.blog.url %}
+    {% render 'button',
+      class: '__align-center featured-blog',
+      button_label: section.settings.view_all_button_label,
+      button_link: section.settings.blog.url
+    %}
   {% endif %}
 </div>
-    
-  {% schema %}
+
+{% schema %}
 {
   "name": "t:sections.featured-blog.name",
   "tag": "section",
@@ -83,23 +101,55 @@
     },
     {
       "type": "select",
+      "id": "heading_tag",
+      "options": [
+        {
+          "value": "h1",
+          "label": "h1"
+        },
+        {
+          "value": "h2",
+          "label": "h2"
+        },
+        {
+          "value": "h3",
+          "label": "h3"
+        },
+        {
+          "value": "h4",
+          "label": "h4"
+        },
+        {
+          "value": "h5",
+          "label": "h5"
+        },
+        {
+          "value": "h6",
+          "label": "h6"
+        }
+      ],
+      "default": "h2",
+      "label": "Heading Tag"
+    },
+    {
+      "type": "select",
       "id": "heading_size",
       "options": [
         {
-            "value": "h2",
-            "label": "X-Large"
+          "value": "h2",
+          "label": "X-Large"
         },
         {
-            "value": "h4",
-            "label": "Large"
+          "value": "h4",
+          "label": "Large"
         },
         {
-            "value": "h5",
-            "label": "Medium"
+          "value": "h5",
+          "label": "Medium"
         },
         {
-            "value": "h6",
-            "label": "Small"
+          "value": "h6",
+          "label": "Small"
         }
       ],
       "default": "h5",
@@ -251,24 +301,24 @@
       "label": "Product Image Crop Shape"
     },
     {
-        "type":"radio",
-        "id":"alignment",
-        "label":"Alignment",
-        "options":[
-          {
-              "value":"left",
-              "label":"Left"
-          },
-          {
-              "value":"center",
-              "label":"Center"
-          },
-          {
-              "value":"right",
-              "label":"Right"
-          }
-        ],
-        "default":"left"
+      "type": "radio",
+      "id": "alignment",
+      "label": "Alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
     },
     {
       "type": "header",
@@ -284,15 +334,15 @@
           "label": "Slider"
         },
         {
-          "value":"stacked",
-          "label":"Stack All Articles"
+          "value": "stacked",
+          "label": "Stack All Articles"
         },
         {
-          "value":"stacked-4",
-          "label":"Stack Max 4 Articles"
+          "value": "stacked-4",
+          "label": "Stack Max 4 Articles"
         }
       ],
-      "default":"slider"
+      "default": "slider"
     },
     {
       "type": "text",
@@ -363,4 +413,3 @@
   ]
 }
 {% endschema %}
-

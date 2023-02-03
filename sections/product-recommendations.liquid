@@ -1,4 +1,5 @@
-{% comment %} TODO: learn what the heck the benefits are of media and onload attributes below
+{% comment %}
+  TODO: learn what the heck the benefits are of media and onload attributes below
   <link rel="stylesheet" href="{{ 'component-card.css' | asset_url }}" media="print" onload="this.media='all'">
 {% endcomment %}
 
@@ -9,23 +10,27 @@
 <div class="product-recommendations __align-{{ section.settings.alignment}}">
   <product-recommendations data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit={{ products_to_show }}">
     {% if recommendations.performed and recommendations.products_count > 0 %}
-
       {% comment %} Text Content {% endcomment %}
-      {% render 'heading', class: "product-recommendations", heading: section.settings.heading, alt_heading: section.settings.alt_heading, heading_size: section.settings.heading_size %}
+      {% render 'heading',
+        class: 'product-recommendations',
+        heading: section.settings.heading,
+        heading_tag: section.settings.heading_tag,
+        alt_heading: section.settings.alt_heading,
+        heading_size: section.settings.heading_size
+      %}
 
       {% comment %} Product Recommendations {% endcomment %}
       <overflow-slider class="overflow-slider {% if recommendations.products_count < 5 %}__hide-desktop-arrows{% endif %} {% if recommendations.products_count < 3 %}__hide-tablet-arrows{% endif%}">
         <ul class="product-recommendations__container overflow-slider__container" role="list">
           {% for recommendation in recommendations.products %}
             <li>
-                {% render 'product-card', product: recommendation %}
+              {% render 'product-card', product: recommendation %}
             </li>
           {% endfor %}
         </ul>
 
         {% comment %} Slider arrows (required for slider) {% endcomment %}
-        {% render 'overflow-slider-arrows', class: "multicolumn__arrow" %}
-
+        {% render 'overflow-slider-arrows', class: 'multicolumn__arrow' %}
       </overflow-slider>
     {% endif %}
   </product-recommendations>
@@ -48,54 +53,86 @@
       "label": "t:sections.product-recommendations.settings.heading.label"
     },
     {
-          "type": "select",
-          "id": "heading_size",
-          "options": [
-            {
-                "value": "h2",
-                "label": "X-Large"
-            },
-            {
-                "value": "h4",
-                "label": "Large"
-            },
-            {
-                "value": "h5",
-                "label": "Medium"
-            },
-            {
-                "value": "h6",
-                "label": "Small"
-            }
-          ],
-          "default": "h4",
-          "label": "Heading Size"
-      },
-      {
-        "type": "checkbox",
-        "id": "alt_heading",
-        "label": "Use body font instead of heading font for heading?"
-      },
-      {
-         "type": "radio",
-         "id": "alignment",
-         "label": "Text Alignment",
-         "options": [
-            {
-               "value": "left",
-               "label":"Left"
-            },
-            {
-               "value": "center",
-               "label": "Center"
-            },
-            {
-               "value": "right",
-               "label": "Right"
-            }
-         ],
-         "default": "center"
-      }
+      "type": "select",
+      "id": "heading_tag",
+      "options": [
+        {
+          "value": "h1",
+          "label": "h1"
+        },
+        {
+          "value": "h2",
+          "label": "h2"
+        },
+        {
+          "value": "h3",
+          "label": "h3"
+        },
+        {
+          "value": "h4",
+          "label": "h4"
+        },
+        {
+          "value": "h5",
+          "label": "h5"
+        },
+        {
+          "value": "h6",
+          "label": "h6"
+        }
+      ],
+      "default": "h2",
+      "label": "Heading Tag"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "X-Large"
+        },
+        {
+          "value": "h4",
+          "label": "Large"
+        },
+        {
+          "value": "h5",
+          "label": "Medium"
+        },
+        {
+          "value": "h6",
+          "label": "Small"
+        }
+      ],
+      "default": "h4",
+      "label": "Heading Size"
+    },
+    {
+      "type": "checkbox",
+      "id": "alt_heading",
+      "label": "Use body font instead of heading font for heading?"
+    },
+    {
+      "type": "radio",
+      "id": "alignment",
+      "label": "Text Alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    }
   ]
 }
 {% endschema %}

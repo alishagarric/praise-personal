@@ -38,12 +38,22 @@
     >
       {% render 'next-gen-img', image: image %}
       {% if overlap == true %}
-        {% render 'heading', class: 'content-card', heading: heading, heading_size: heading_size, card: true %}
+        {% render 'heading',
+          class: 'content-card',
+          heading: heading,
+          heading_size: heading_size,
+          heading_tag: heading_tag
+        %}
       {% endif %}
     </div>
   {%- endif -%}
   {% if overlap == false or image == blank %}
-    {% render 'heading', class: 'content-card', heading: heading, heading_size: heading_size, card: true %}
+    {% render 'heading',
+      class: 'content-card',
+      heading: heading,
+      heading_size: heading_size,
+      heading_tag: heading_tag
+    %}
   {% endif %}
 
   {%- if text -%}

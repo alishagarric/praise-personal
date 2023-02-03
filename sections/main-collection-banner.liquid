@@ -4,31 +4,39 @@
 {% endcomment %}
 
 {% style %}
-    #Main-collection-banner-{{ section.id }} {
-      --topSpacingRatio: {{section.settings.top_spacing}} / 100;
-      --bottomSpacingRatio: {{section.settings.bottom_spacing}} / 100;
-      --topInternalSpacingRatio: {{section.settings.top_internal_spacing}} / 100;
-      --bottomInternalSpacingRatio: {{section.settings.bottom_internal_spacing}} / 100;
-      --overlayOpacity: calc({{section.settings.overlay}} / 100);
-    }
- {% endstyle %}
+  #Main-collection-banner-{{ section.id }} {
+    --topSpacingRatio: {{section.settings.top_spacing}} / 100;
+    --bottomSpacingRatio: {{section.settings.bottom_spacing}} / 100;
+    --topInternalSpacingRatio: {{section.settings.top_internal_spacing}} / 100;
+    --bottomInternalSpacingRatio: {{section.settings.bottom_internal_spacing}} / 100;
+    --overlayOpacity: calc({{section.settings.overlay}} / 100);
+  }
+{% endstyle %}
 
-<div id="Main-collection-banner-{{ section.id }}" class="image-banner __theme-{{ section.settings.theme }} {% if section.settings.crop_shape == "default" %}__fullwidth-bg{% endif%}">
-     <div class="image-banner__inner {% if crop_shape == "default" %}__theme-{{ section.settings.overlay_theme }} {% endif %}">
-
-  <div class="image-banner__text-container __align-{{section.settings.alignment}}">
-    {% render 'breadcrumbs' %}
-    {% render 'heading', class: "image-banner", use_as_hero: true, heading: collection.title, heading_size: section.settings.heading_size, alt_heading: section.settings.alt_heading %}
-    <div class="image-banner__description">{{ collection.description }}</div>
-  </div>
-
-  {% comment %} Image content {% endcomment %}
-  {% unless collection.image == blank or section.settings.show_image == false %}
-    <div class="image-banner__image __crop-{{ section.settings.crop_shape }} {% if section.settings.crop_shape != "default" %}__theme-{{ section.settings.overlay_theme }} {% endif %}">
-      {% render 'next-gen-img', image: collection.image %}
+<div
+  id="Main-collection-banner-{{ section.id }}"
+  class="image-banner __theme-{{ section.settings.theme }} {% if section.settings.crop_shape == "default" %}__fullwidth-bg{% endif%}"
+>
+  <div class="image-banner__inner {% if crop_shape == "default" %}__theme-{{ section.settings.overlay_theme }} {% endif %}">
+    <div class="image-banner__text-container __align-{{section.settings.alignment}}">
+      {% render 'breadcrumbs' %}
+      {% render 'heading',
+        class: 'image-banner',
+        heading: collection.title,
+        heading_tag: section.settings.heading_tag,
+        heading_size: section.settings.heading_size,
+        alt_heading: section.settings.alt_heading
+      %}
+      <div class="image-banner__description">{{ collection.description }}</div>
     </div>
-  {% endunless %}
-</div>
+
+    {% comment %} Image content {% endcomment %}
+    {% unless collection.image == blank or section.settings.show_image == false %}
+      <div class="image-banner__image __crop-{{ section.settings.crop_shape }} {% if section.settings.crop_shape != "default" %}__theme-{{ section.settings.overlay_theme }} {% endif %}">
+        {% render 'next-gen-img', image: collection.image %}
+      </div>
+    {% endunless %}
+  </div>
 </div>
 
 {% schema %}
@@ -40,28 +48,28 @@
       "content": "Text Content"
     },
     {
-        "type": "select",
-        "id": "heading_size",
-        "options": [
-          {
-              "value": "h2",
-              "label": "X-Large"
-          },
-          {
-              "value": "h4",
-              "label": "Large"
-          },
-          {
-              "value": "h5",
-              "label": "Medium"
-          },
-          {
-              "value": "h6",
-              "label": "Small"
-          }
-        ],
-        "default": "h4",
-        "label": "Heading Size"
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "X-Large"
+        },
+        {
+          "value": "h4",
+          "label": "Large"
+        },
+        {
+          "value": "h5",
+          "label": "Medium"
+        },
+        {
+          "value": "h6",
+          "label": "Small"
+        }
+      ],
+      "default": "h4",
+      "label": "Heading Size"
     },
     {
       "type": "checkbox",
@@ -69,141 +77,141 @@
       "label": "Use body font instead of heading font for heading?"
     },
     {
-        "type": "radio",
-        "id": "alignment",
-        "label": "Text Alignment",
-        "options": [
-          {
-              "value": "left",
-              "label":"Left"
-          },
-          {
-              "value": "center",
-              "label": "Center"
-          },
-          {
-              "value": "right",
-              "label": "Right"
-          }
-        ],
-        "default": "center"
+      "type": "radio",
+      "id": "alignment",
+      "label": "Text Alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
     },
     {
-        "type": "header",
-        "content": "Image Content"
-    },  
-    {
-        "type": "checkbox",
-        "id": "show_image",
-        "label": "Show collection image?"
+      "type": "header",
+      "content": "Image Content"
     },
     {
-        "type": "range",
-        "id": "overlay",
-        "label": "Overlay Opacity",
-        "info": "If above 0%, an overlay will be added on top of the image to create contrast behind the text.",
-        "min": 0,
-        "max": 70,
-        "step": 10,
-        "unit": "%",
-        "default": 50
+      "type": "checkbox",
+      "id": "show_image",
+      "label": "Show collection image?"
     },
     {
-        "type": "select",
-        "id": "overlay_theme",
-        "info": "Only applies when the image crop shape is not set to default.",
-        "options": [
-          {
-              "value": "primary",
-              "label": "Primary Theme"
-          },
-          {
-              "value": "2",
-              "label": "2nd Theme"
-          },
-          {
-              "value": "3",
-              "label": "3rd Theme"
-          },
-          {
-              "value": "4",
-              "label": "4th Theme"
-          },
-          {
-              "value": "5",
-              "label": "5th Theme"
-          }
-        ],
-        "default": "primary",
-        "label": "Overlay Theme"
+      "type": "range",
+      "id": "overlay",
+      "label": "Overlay Opacity",
+      "info": "If above 0%, an overlay will be added on top of the image to create contrast behind the text.",
+      "min": 0,
+      "max": 70,
+      "step": 10,
+      "unit": "%",
+      "default": 50
     },
     {
-        "type": "select",
-        "id": "crop_shape",
-        "options": [
-          {
-              "value": "default",
-              "label": "No Crop"
-          },
-          {
-              "value": "square",
-              "label": "Square"
-          },
-          {
-              "value": "rounded-square",
-              "label": "Rounded Square"
-          },
-          {
-              "value": "circle",
-              "label": "Circle"
-          },
-          {
-              "value": "portrait",
-              "label": "Portrait"
-          },
-          {
-              "value": "rounded-portrait",
-              "label": "Rounded Portrait"
-          },
-          {
-              "value": "semicircle-portrait",
-              "label": "Semicircle Portrait"
-          },
-          {
-              "value": "landscape",
-              "label": "Landscape"
-          },
-          {
-              "value": "rounded-landscape",
-              "label": "Rounded Landscape"
-          },
-          {
-              "value": "semicircle-landscape",
-              "label": "Semicircle Landscape"
-          },
-          {
-              "value": "wide",
-              "label": "Wide"
-          },
-          {
-              "value": "rounded-wide",
-              "label": "Rounded Wide"
-          },
-          {
-              "value": "semicircle-wide",
-              "label": "Semicircle Wide"
-          },
-          {
-              "value": "arch",
-              "label": "Semicircle Arch"
-          }
-        ],
-        "default": "default",
-        "label": "Image Crop Shape"
+      "type": "select",
+      "id": "overlay_theme",
+      "info": "Only applies when the image crop shape is not set to default.",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary Theme"
+        },
+        {
+          "value": "2",
+          "label": "2nd Theme"
+        },
+        {
+          "value": "3",
+          "label": "3rd Theme"
+        },
+        {
+          "value": "4",
+          "label": "4th Theme"
+        },
+        {
+          "value": "5",
+          "label": "5th Theme"
+        }
+      ],
+      "default": "primary",
+      "label": "Overlay Theme"
     },
     {
-        "type": "header",
-        "content": "Section"
+      "type": "select",
+      "id": "crop_shape",
+      "options": [
+        {
+          "value": "default",
+          "label": "No Crop"
+        },
+        {
+          "value": "square",
+          "label": "Square"
+        },
+        {
+          "value": "rounded-square",
+          "label": "Rounded Square"
+        },
+        {
+          "value": "circle",
+          "label": "Circle"
+        },
+        {
+          "value": "portrait",
+          "label": "Portrait"
+        },
+        {
+          "value": "rounded-portrait",
+          "label": "Rounded Portrait"
+        },
+        {
+          "value": "semicircle-portrait",
+          "label": "Semicircle Portrait"
+        },
+        {
+          "value": "landscape",
+          "label": "Landscape"
+        },
+        {
+          "value": "rounded-landscape",
+          "label": "Rounded Landscape"
+        },
+        {
+          "value": "semicircle-landscape",
+          "label": "Semicircle Landscape"
+        },
+        {
+          "value": "wide",
+          "label": "Wide"
+        },
+        {
+          "value": "rounded-wide",
+          "label": "Rounded Wide"
+        },
+        {
+          "value": "semicircle-wide",
+          "label": "Semicircle Wide"
+        },
+        {
+          "value": "arch",
+          "label": "Semicircle Arch"
+        }
+      ],
+      "default": "default",
+      "label": "Image Crop Shape"
+    },
+    {
+      "type": "header",
+      "content": "Section"
     },
     {
       "type": "select",
@@ -233,46 +241,46 @@
       "default": "primary",
       "label": "Theme"
     },
-      {
-         "type":"range",
-         "id":"top_internal_spacing",
-         "min":0,
-         "max":300,
-         "step":10,
-         "unit":"%",
-         "label":"Top Text Content Spacing",
-         "default":100
-      },
-      {
-         "type":"range",
-         "id":"bottom_internal_spacing",
-         "min":0,
-         "max":300,
-         "step":10,
-         "unit":"%",
-         "label":"Bottom Text Content Spacing",
-         "default":100
-      },
-      {
-         "type":"range",
-         "id":"top_spacing",
-         "min":0,
-         "max":100,
-         "step":10,
-         "unit":"%",
-         "label":"Top Section Spacing",
-         "default":0
-      },
-      {
-         "type":"range",
-         "id":"bottom_spacing",
-         "min":0,
-         "max":100,
-         "step":10,
-         "unit":"%",
-         "label":"Bottom Section Spacing",
-         "default":0
-      }
+    {
+      "type": "range",
+      "id": "top_internal_spacing",
+      "min": 0,
+      "max": 300,
+      "step": 10,
+      "unit": "%",
+      "label": "Top Text Content Spacing",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "bottom_internal_spacing",
+      "min": 0,
+      "max": 300,
+      "step": 10,
+      "unit": "%",
+      "label": "Bottom Text Content Spacing",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "top_spacing",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "Top Section Spacing",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "bottom_spacing",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "Bottom Section Spacing",
+      "default": 0
+    }
   ]
 }
 {% endschema %}
