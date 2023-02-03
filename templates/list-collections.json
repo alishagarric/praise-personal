@@ -3,8 +3,13 @@
     "main": {
       "type": "main-list-collections",
       "settings": {
-        "title": "Collections",
-        "collections_per_page": 4
+        "collections_per_page": 4,
+        "enable_icons_marquee": true,
+        "display_featured_icons": true,
+        "show_phrase": true,
+        "show_description": true,
+        "crop_shape": "rounded-square",
+        "products_per_collection": 4
       }
     },
     "85c58e07-278d-42c1-b9f3-f6bab28fee7f": {

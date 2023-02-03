@@ -299,18 +299,15 @@
 
           {% comment %} Type featured icons {% endcomment %}
           {%- when 'icons' -%}
-            <div class="main-product__block {% if block.settings.include_border %} __border-top {% endif %}">
-              {% if block.settings.title %}
-                <div class="p-sm">{{ block.settings.title }}</div>
-              {% endif %}
-              <ul class="main-product__icons __layout-{{ block.settings.layout }}" style="--customIconHeight:{{ block.settings.icon_height }}px;">
-                {% for icon in product.metafields.custom.featured_icons.value %}
-                  <li class="main-product__icons__icon custom-icon-{{ icon | handleize }}">
-                    <span class="p-sm">{{ icon }}</span>
-                  </li>
-                {% endfor %}
-              </ul>
-            </div>
+            {% if product.metafields.custom.featured_icons.value.size > 0 %}
+              <div class="main-product__block {% if block.settings.include_border %} __border-top {% endif %}">
+                {% if block.settings.title %}
+                  <div class="p-sm">{{ block.settings.title }}</div>
+                {% endif %}
+                
+                {% render 'featured-icons' product: product, class: "main-product__icons", layout: block.settings.layout, icon_height: block.settings.icon_height %}
+              </div>
+            {% endif %}
 
           {% comment %} Type description {% endcomment %}
           {%- when 'description' -%}
@@ -322,7 +319,7 @@
 
           {% comment %} Type rating {% endcomment %}
           {%- when 'rating' -%}
-              {% render 'product-ratings' product: product %}
+            {% render 'product-ratings' product: product %}
 
           {% comment %} Type pickup availability {% endcomment %}
           {%- when 'pickup_availability' -%}

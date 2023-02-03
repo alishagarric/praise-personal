@@ -12,7 +12,7 @@
 
 /* Custom icons container */
 
-.custom-icons {
+.featured-icons {
   display: flex;
   flex-wrap: wrap;
   gap: calc(var(--customIconHeight));
@@ -36,7 +36,7 @@
 
   &.__layout {
     &-row {
-      .main-product {
+      .featured-icons {
         &__icons {
           &__icon {
             flex-direction: row;
@@ -47,7 +47,7 @@
     }
 
     &-icon-only {
-      .main-product {
+      .featured-icons {
         &__icons {
           &__icon {
             span {

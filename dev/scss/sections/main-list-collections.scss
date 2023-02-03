@@ -1,8 +1,10 @@
 .main-list-collections {
   padding: 0;
 
+  // Collection Row
   &__collection {
     display: flex;
+    align-items: flex-start;
     gap: var(--pxSize);
     padding: calc(var(--sectionVerticalSpacing) * var(--topSpacingRatio))
       var(--sectionGuttersSpacing)
@@ -10,23 +12,94 @@
       var(--sectionGuttersSpacing);
     border-bottom: 1px solid RGB(var(--color-border));
 
+    @keyframes iconMarquee {
+      from {
+        transform: translateX(0%);
+      }
+      to {
+        transform: translateX(-100%);
+      }
+    }
+
+    // Products column of row
     &__products {
       display: flex;
+      flex-wrap: wrap;
       flex: 1;
       gap: calc(var(--pxSize) / 2);
 
       > * {
-        flex: 0 0 50%;
+        flex: 0 0 calc(50% - calc(var(--pxSize) / 4));
       }
     }
 
+    // Details column of row
     &__details {
       flex: 0 0 calc(100% / 3);
+      max-width: calc(100% / 3);
       text-align: center;
+
+      &.__sticky {
+        position: sticky;
+        position: -webkit-sticky;
+        top: calc(var(--navHeight) * 2);
+      }
     }
   }
 
+  //Description component
+  &__description {
+    margin-bottom: 1rem;
+  }
+
+  // Featured icons component
   &__featured-icons {
-    @extend .custom-icons;
+    &.__marquee {
+      overflow: hidden;
+
+      > * {
+        flex-wrap: nowrap !important;
+        will-change: transform;
+        width: 100%;
+        animation: iconMarquee 10s linear infinite;
+      }
+    }
+  }
+
+  // Featured stats component
+  &__featured-stats {
+    &__stat {
+      text-align: left;
+      position: relative;
+
+      span {
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      &:before,
+      &:after {
+        content: "";
+        height: calc(var(--pxSize) / 2);
+        border: 1px solid RGB(var(--color-text));
+        width: 100%;
+        display: block;
+      }
+
+      &:before {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: var(--statWidth);
+        background: RGB(var(--color-foreground));
+      }
+    }
+  }
+
+  .pagination {
+    margin-top: calc(var(--sectionVerticalSpacing) * var(--topSpacingRatio));
+    margin-bottom: calc(
+      var(--sectionVerticalSpacing) * var(--bottomSpacingRatio)
+    );
   }
 }
