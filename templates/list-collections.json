@@ -23,6 +23,46 @@
         "bottom_spacing": 50
       }
     },
+    "78b9e982-5826-4af1-bb33-6c800579102b": {
+      "type": "multicolumn",
+      "blocks": {
+        "9fed0646-618c-4d33-8279-11160ad8351b": {
+          "type": "products",
+          "settings": {
+            "products": [
+              "all-hail-sugar",
+              "cravings-beware",
+              "copy-of-cravings-beware",
+              "the-king"
+            ],
+            "show_phrase": true,
+            "show_description": true,
+            "quick_add": false,
+            "show_bg_color": false,
+            "alt_title": false,
+            "product_text_alignment": "default",
+            "price": "default",
+            "crop_shape": "rounded-square"
+          }
+        }
+      },
+      "block_order": [
+        "9fed0646-618c-4d33-8279-11160ad8351b"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h4",
+        "alt_heading": false,
+        "text": "",
+        "alignment": "center",
+        "columns_desktop": 3,
+        "columns_mobile": 2,
+        "layout": "default",
+        "theme": "primary",
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
+    },
     "85c58e07-278d-42c1-b9f3-f6bab28fee7f": {
       "type": "split-section",
       "blocks": {
@@ -89,52 +129,12 @@
         "top_spacing": 0,
         "bottom_spacing": 50
       }
-    },
-    "78b9e982-5826-4af1-bb33-6c800579102b": {
-      "type": "multicolumn",
-      "blocks": {
-        "9fed0646-618c-4d33-8279-11160ad8351b": {
-          "type": "products",
-          "settings": {
-            "products": [
-              "all-hail-sugar",
-              "cravings-beware",
-              "copy-of-cravings-beware",
-              "the-king"
-            ],
-            "show_phrase": true,
-            "show_description": true,
-            "quick_add": false,
-            "show_bg_color": false,
-            "alt_title": false,
-            "product_text_alignment": "default",
-            "price": "default",
-            "crop_shape": "rounded-square"
-          }
-        }
-      },
-      "block_order": [
-        "9fed0646-618c-4d33-8279-11160ad8351b"
-      ],
-      "settings": {
-        "heading": "",
-        "heading_size": "h4",
-        "alt_heading": false,
-        "text": "",
-        "alignment": "center",
-        "columns_desktop": 3,
-        "columns_mobile": 2,
-        "layout": "default",
-        "theme": "primary",
-        "top_spacing": 50,
-        "bottom_spacing": 50
-      }
     }
   },
   "order": [
     "main",
+    "78b9e982-5826-4af1-bb33-6c800579102b",
     "85c58e07-278d-42c1-b9f3-f6bab28fee7f",
-    "7691bbe1-f26e-4754-a188-f70a1bca5076",
-    "78b9e982-5826-4af1-bb33-6c800579102b"
+    "7691bbe1-f26e-4754-a188-f70a1bca5076"
   ]
 }
