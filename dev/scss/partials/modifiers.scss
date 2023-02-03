@@ -53,6 +53,9 @@
   }
 }
 
+// Crop images into specific shapes, don't forget to include
+// --imageRatio css variable inside the elements style attr
+// if one of the crop options is "default"
 .__crop {
   &-default {
     padding-top: var(--imageRatio);

@@ -44,7 +44,7 @@
       {% endif %}
 
       {% comment %} Image content {% endcomment %}
-      <div class="image-banner__image __crop-{{ crop_shape }} {% if crop_shape != "default" %}__theme-{{ section.settings.overlay_theme }} {% endif %}">
+      <div class="image-banner__image __crop-{{ crop_shape }} {% if crop_shape != "default" %}__theme-{{ section.settings.overlay_theme }} {% endif %}" style="--imageRatio: {{ section.settings.image.aspect_ratio | times: 100 }}%">
          {%- if section.settings.image != blank -%}
             {% render 'next-gen-img', image: section.settings.image %}
          {%- else -%}

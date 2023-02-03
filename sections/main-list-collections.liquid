@@ -10,25 +10,32 @@
 
   {%- paginate collections by section.settings.collections_per_page -%}
     <ol class="list-unstyled" role="list">
+
+      {% comment %} Loop through all collections {% endcomment %}
       {%- for collection in collections -%}
         <li>
+          {% comment %} Collection row {% endcomment %}
           <div class="main-list-collections__collection">
+
+            {% comment %} Details block {% endcomment %}
             <div class="main-list-collections__collection__details {% if section.settings.enable_sticky_details %} __sticky {% endif %}">
 
-              {% comment %}
-                <div class="media" style="--width: {{ collection.featured_image.width }}; --height: {{ collection.featured_image.height }};">
-                  {{ collection.featured_image | image_url: width: collection.featured_image.width | image_tag }}
+              {% comment %} Collection Image {% endcomment %}
+              {% if section.settings.display_collection_image != false and collection.image != blank %}
+                <div class="main-list-collections__image __crop-{{ section.settings.collection_image_crop_shape }}" style="--imageRatio: {{ collection.image.aspect_ratio | times: 100 }}%">
+                  {% render 'next-gen-img', image: collection.image %}
                 </div>
-              {% endcomment %}
-              <h2>
-                <a href="{{ collection.url }}" class="h4 alt">
-                  {{ collection.title }}
-                </a>
-              </h2>
+              {% endif %}
+
+              {% comment %} Title {% endcomment %}
+              {% render 'heading', class: "main-list-collections", heading: collection.title, alt_heading: section.settings.alt_heading, heading_size: section.settings.heading_size %}
+
+              {% comment %} Description {% endcomment %}
               <div class="main-list-collections__description p-sm">
                 {{ collection.description }}
               </div>
 
+              {% comment %} Featured Icons {% endcomment %}
               {% if section.settings.display_featured_icons %}
                 <div class="main-list-collections__featured-icons {% if section.settings.enable_icons_marquee %} __marquee {% endif %}">
                   {% assign icons = "" %}
@@ -39,22 +46,37 @@
                   {% endfor %}
                   {% assign icons = icons | split: "@#$" | compact | uniq %}
                   {% if section.settings.enable_icons_marquee %}
-                    {% assign icons = icons | concat: icons | concat: icons | concat: icons %}
+                    {% render 'featured-icons' icons: icons, layout: section.settings.layout, icon_height: section.settings.icon_height %}
+                    {% render 'featured-icons' icons: icons, layout: section.settings.layout, icon_height: section.settings.icon_height %}
+                    {% render 'featured-icons' icons: icons, layout: section.settings.layout, icon_height: section.settings.icon_height %}
+                    {% render 'featured-icons' icons: icons, layout: section.settings.layout, icon_height: section.settings.icon_height %}
+                  {% else %}
+                    {% render 'featured-icons' icons: icons, layout: section.settings.layout, icon_height: section.settings.icon_height %}
                   {% endif %}
-
-                  {% render 'featured-icons' icons: icons, layout: section.settings.layout, icon_height: section.settings.icon_height %}
                 </div>
               {% endif %}
 
-              <div class="main-list-collections__featured-stats">
-                <div class="main-list-collections__featured-stats__stat" style="--statWidth: 80%;">
-                  <span class="p-sm">Sweet</span>
+              {% comment %} Featured Stats {% endcomment %}
+              {% if section.settings.display_featured_stats %}
+                <div class="main-list-collections__featured-stats">
+                  {% for item in collection.metafields.custom.featured_stats.value %}
+                    {% assign position = forloop.index | modulo:2 | plus:1 | pluralize:'even','odd' %}
+                    {% if position == "odd" %}
+                      <div class="main-list-collections__featured-stats__stat __btn-clr-{{ section.settings.stats_color }}" style="--statWidth: {{ collection.metafields.custom.featured_stats.value[forloop.index] | strip | plus: 0.0 }}%;">
+                        <span class="p-sm">{{ item }}</span>
+                      </div>
+                    {% endif %}
+                  {% endfor %}
                 </div>
-              </div>
+              {% endif %}
+
+              {% comment %} View All Button {% endcomment %}
+                {% render 'button', class: "__align-center", button_label: section.settings.view_all_button_label, button_link: collection.url, style: "underline" %}
             </div>
 
+            {% comment %} Products Block {% endcomment %}
             <div class="main-list-collections__collection__products">
-                {% for product in collection.products limit: products_per_collection %}
+                {% for product in collection.products limit: section.settings.products_per_collection %}
                   {% render 'product-card' product: product, show_bg_color: section.settings.show_bg_color, quick_add: section.settings.quick_add, crop: section.settings.crop_shape, show_phrase: section.settings.show_phrase, alignment: section.settings.product_text_alignment, section.settings.show_description: section.settings.show_description, price_position: section.settings.price, alt_heading: section.settings.alt_title %}
                 {% endfor %}
             </div>
@@ -62,6 +84,8 @@
         </li>
       {%- endfor -%}
     </ol>
+
+    {% comment %} Pagination {% endcomment %}
     {%- if paginate.pages > 1 -%}
       {%- render 'pagination', paginate: paginate -%}
     {%- endif -%}
@@ -99,11 +123,118 @@
       "label": "Products per collection"
     },
     {
+        "type": "select",
+        "id": "heading_size",
+        "options": [
+          {
+              "value": "h2",
+              "label": "X-Large"
+          },
+          {
+              "value": "h4",
+              "label": "Large"
+          },
+          {
+              "value": "h5",
+              "label": "Medium"
+          },
+          {
+              "value": "h6",
+              "label": "Small"
+          }
+        ],
+        "default": "h4",
+        "label": "Collection Titles Size"
+    },
+    {
+      "type": "checkbox",
+      "id": "alt_heading",
+      "label": "Use body font instead of heading font for collection titles?"
+    },
+    {
+      "type": "text",
+      "id": "view_all_button_label",
+      "label": "View All Button Label",
+      "info": "If excluded, no view all button will display",
+      "default": "View All"
+    },
+    {
       "type": "checkbox",
       "id": "enable_sticky_details",
       "default": true,
-      "label": "Enable details block of collection to 'stick'?",
-      "info": "'Sticks' within view while user scrolls through product cards. Requires product cards to be taller than details block per collection row."
+      "label": "Enable collection details to 'stick'?",
+      "info": "'Sticks' within view while user scrolls through product cards. Requires product cards to be taller than collection details per collection row."
+    },
+    {
+      "type":"checkbox",
+      "id": "display_collection_image",
+      "label": "Display collection image?",
+      "info": "Dependent on collection having an image assign to it",
+      "default": false
+    },
+    {
+        "type": "select",
+        "id": "collection_image_crop_shape",
+        "options": [
+          {
+              "value": "default",
+              "label": "No Crop"
+          },
+          {
+              "value": "square",
+              "label": "Square"
+          },
+          {
+              "value": "rounded-square",
+              "label": "Rounded Square"
+          },
+          {
+              "value": "circle",
+              "label": "Circle"
+          },
+          {
+              "value": "portrait",
+              "label": "Portrait"
+          },
+          {
+              "value": "rounded-portrait",
+              "label": "Rounded Portrait"
+          },
+          {
+              "value": "semicircle-portrait",
+              "label": "Semicircle Portrait"
+          },
+          {
+              "value": "landscape",
+              "label": "Landscape"
+          },
+          {
+              "value": "rounded-landscape",
+              "label": "Rounded Landscape"
+          },
+          {
+              "value": "semicircle-landscape",
+              "label": "Semicircle Landscape"
+          },
+          {
+              "value": "wide",
+              "label": "Wide"
+          },
+          {
+              "value": "rounded-wide",
+              "label": "Rounded Wide"
+          },
+          {
+              "value": "semicircle-wide",
+              "label": "Semicircle Wide"
+          },
+          {
+              "value": "arch",
+              "label": "Semicircle Arch"
+          }
+        ],
+        "default": "default",
+        "label": "Collection Image Crop Shape"
     },
     {
       "type":"checkbox",
@@ -115,8 +246,47 @@
     {
       "type":"checkbox",
       "id": "enable_icons_marquee",
-      "label": "Enable icon marquee?",
+      "label": "Enable featured icons marquee?",
       "default": false
+    },
+    {
+      "type":"checkbox",
+      "id": "display_featured_stats",
+      "label": "Display featured stats?",
+      "info": "Dependent on addition of collection featured stats metafield. //TODO: add link here",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "stats_color",
+      "label": "Stats Color",
+      "default": "default",
+      "options":[
+        {
+            "value": "default",
+            "label": "Default"
+        },
+        {
+            "value": "primary",
+            "label": "Primary Theme"
+        },
+        {
+            "value": "2",
+            "label": "2nd Theme"
+        },
+        {
+            "value": "3",
+            "label": "3rd Theme"
+        },
+        {
+            "value": "4",
+            "label": "4th Theme"
+        },
+        {
+            "value": "5",
+            "label": "5th Theme"
+        }
+      ]
     },
     {
       "type":"range",

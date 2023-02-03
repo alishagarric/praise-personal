@@ -5,7 +5,7 @@
   &__collection {
     display: flex;
     align-items: flex-start;
-    gap: var(--pxSize);
+    gap: calc(var(--pxSize) * 1.5);
     padding: calc(var(--sectionVerticalSpacing) * var(--topSpacingRatio))
       var(--sectionGuttersSpacing)
       calc(var(--sectionVerticalSpacing) * var(--bottomSpacingRatio))
@@ -26,7 +26,7 @@
       display: flex;
       flex-wrap: wrap;
       flex: 1;
-      gap: calc(var(--pxSize) / 2);
+      gap: var(--pxSize) calc(var(--pxSize) / 2);
 
       > * {
         flex: 0 0 calc(50% - calc(var(--pxSize) / 4));
@@ -56,18 +56,31 @@
   &__featured-icons {
     &.__marquee {
       overflow: hidden;
+      display: flex;
 
       > * {
         flex-wrap: nowrap !important;
         will-change: transform;
-        width: 100%;
+        width: fit-content;
         animation: iconMarquee 10s linear infinite;
+
+        &:after {
+          content: ""; // to create a gap between the two marquee containers
+        }
+      }
+    }
+
+    &:not(.__marquee) {
+      > * {
+        justify-content: center;
       }
     }
   }
 
   // Featured stats component
   &__featured-stats {
+    margin-bottom: calc(var(--pxSize) / 2);
+
     &__stat {
       text-align: left;
       position: relative;
@@ -93,9 +106,20 @@
         width: var(--statWidth);
         background: RGB(var(--color-foreground));
       }
+
+      &:not(:last-child) {
+        margin-bottom: calc(var(--pxSize) / 3);
+      }
     }
   }
 
+  //Collection image
+  &__image {
+    @extend .image-container;
+    margin-bottom: calc(var(--pxSize) / 2);
+  }
+
+  //pagination
   .pagination {
     margin-top: calc(var(--sectionVerticalSpacing) * var(--topSpacingRatio));
     margin-bottom: calc(

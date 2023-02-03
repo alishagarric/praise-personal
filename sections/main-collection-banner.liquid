@@ -24,7 +24,7 @@
 
   {% comment %} Image content {% endcomment %}
   {% unless collection.image == blank or section.settings.show_image == false %}
-    <div class="image-banner__image __crop-{{ section.settings.crop_shape }} {% if section.settings.crop_shape != "default" %}__theme-{{ section.settings.overlay_theme }} {% endif %}">
+    <div class="image-banner__image __crop-{{ section.settings.crop_shape }} {% if section.settings.crop_shape != "default" %}__theme-{{ section.settings.overlay_theme }} {% endif %}" style="--imageRatio: {{ collection.image.aspect_ratio | times: 100 }}%">
       {% render 'next-gen-img', image: collection.image %}
     </div>
   {% endunless %}

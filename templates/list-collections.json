@@ -4,10 +4,13 @@
       "type": "main-list-collections",
       "settings": {
         "collections_per_page": 4,
-        "products_per_collection": 4,
-        "enable_sticky_details": true,
+        "products_per_collection": 2,
+        "enable_sticky_details": false,
+        "display_featured_stats": true,
+        "display_collection_image": false,
         "display_featured_icons": true,
-        "enable_icons_marquee": true,
+        "stats_color": "3",
+        "enable_icons_marquee": false,
         "icon_height": 40,
         "layout": "stacked",
         "show_phrase": true,
@@ -46,9 +49,7 @@
           }
         }
       },
-      "block_order": [
-        "9fed0646-618c-4d33-8279-11160ad8351b"
-      ],
+      "block_order": ["9fed0646-618c-4d33-8279-11160ad8351b"],
       "settings": {
         "heading": "",
         "heading_size": "h4",
@@ -76,14 +77,14 @@
         "template--16398178844894__85c58e07-278d-42c1-b9f3-f6bab28fee7f-16703627747c9db086-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Atypical cookies and treats that push the boundaries of indulgence. An odea to the well-baanced classic cookie. This season we are celebrating all the nostalgia and what pairs best with chocolate chips.<\/p>"
+            "text": "<p>Atypical cookies and treats that push the boundaries of indulgence. An odea to the well-baanced classic cookie. This season we are celebrating all the nostalgia and what pairs best with chocolate chips.</p>"
           }
         },
         "template--16398178844894__85c58e07-278d-42c1-b9f3-f6bab28fee7f-16703627747c9db086-2": {
           "type": "button",
           "settings": {
             "button_label": "Shop lemon cookies",
-            "button_link": "shopify:\/\/collections\/back-in-stock",
+            "button_link": "shopify://collections/back-in-stock",
             "button_color": "default"
           }
         }
@@ -94,7 +95,7 @@
         "template--16398178844894__85c58e07-278d-42c1-b9f3-f6bab28fee7f-16703627747c9db086-2"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_e7c90847-70c1-47f4-a82d-2369a2b4a718.jpg",
+        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_e7c90847-70c1-47f4-a82d-2369a2b4a718.jpg",
         "image_style": "wide",
         "hero": false,
         "alignment": "center",
