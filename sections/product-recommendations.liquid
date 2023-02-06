@@ -14,7 +14,6 @@
       {% render 'heading',
         class: 'product-recommendations',
         heading: section.settings.heading,
-        heading_tag: section.settings.heading_tag,
         alt_heading: section.settings.alt_heading,
         heading_size: section.settings.heading_size
       %}
@@ -51,38 +50,6 @@
       "id": "heading",
       "default": "You may also like",
       "label": "t:sections.product-recommendations.settings.heading.label"
-    },
-    {
-      "type": "select",
-      "id": "heading_tag",
-      "options": [
-        {
-          "value": "h1",
-          "label": "h1"
-        },
-        {
-          "value": "h2",
-          "label": "h2"
-        },
-        {
-          "value": "h3",
-          "label": "h3"
-        },
-        {
-          "value": "h4",
-          "label": "h4"
-        },
-        {
-          "value": "h5",
-          "label": "h5"
-        },
-        {
-          "value": "h6",
-          "label": "h6"
-        }
-      ],
-      "default": "h2",
-      "label": "Heading Tag"
     },
     {
       "type": "select",

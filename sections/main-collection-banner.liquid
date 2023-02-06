@@ -13,18 +13,28 @@
   }
 {% endstyle %}
 
-<div id="Main-collection-banner-{{ section.id }}" class="image-banner __theme-{{ section.settings.theme }} {% if section.settings.crop_shape == "default" %}__fullwidth-bg{% endif%}">
+<div
+  id="Main-collection-banner-{{ section.id }}"
+  class="image-banner __theme-{{ section.settings.theme }} {% if section.settings.crop_shape == "default" %}__fullwidth-bg{% endif%}"
+>
   <div class="image-banner__inner {% if crop_shape == "default" %}__theme-{{ section.settings.overlay_theme }} {% endif %}">
-
     <div class="image-banner__text-container __align-{{section.settings.alignment}}">
       {% render 'breadcrumbs' %}
-      {% render 'heading', class: "image-banner", heading_tag: section.settings.heading_tag, heading: collection.title, heading_size: section.settings.heading_size, alt_heading: section.settings.alt_heading %}
+      {% render 'heading',
+        class: 'image-banner',
+        heading: collection.title,
+        heading_size: section.settings.heading_size,
+        alt_heading: section.settings.alt_heading
+      %}
       <div class="image-banner__description">{{ collection.description }}</div>
     </div>
 
     {% comment %} Image content {% endcomment %}
     {% unless collection.image == blank or section.settings.show_image == false %}
-      <div class="image-banner__image __crop-{{ section.settings.crop_shape }} {% if section.settings.crop_shape != "default" %}__theme-{{ section.settings.overlay_theme }} {% endif %}" style="--imageRatio: {{ collection.image.aspect_ratio | times: 100 }}%">
+      <div
+        class="image-banner__image __crop-{{ section.settings.crop_shape }} {% if section.settings.crop_shape != "default" %}__theme-{{ section.settings.overlay_theme }} {% endif %}"
+        style="--imageRatio: {{ collection.image.aspect_ratio | times: 100 }}%"
+      >
         {% render 'next-gen-img', image: collection.image %}
       </div>
     {% endunless %}

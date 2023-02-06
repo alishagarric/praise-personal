@@ -30,8 +30,8 @@
             {%- when 'heading' -%}
               {% render 'heading',
                 class: 'image-banner',
+                use_as_hero: section.settings.hero,
                 heading: block.settings.heading,
-                heading_tag: block.settings.heading_tag,
                 heading_size: block.settings.heading_size
               %}
 
@@ -39,33 +39,16 @@
             {%- when 'text' -%}
               <div class="image-banner__text __article-txt">{{ block.settings.text }}</div>
 
-                  {% comment %} Type Caption {% endcomment %}
-                  {%- when 'caption' -%}
-                     <div class="image-banner__caption caption">{{ block.settings.caption }}</div>
-
-                  {% comment %} Type Heading {% endcomment %}
-                  {%- when 'heading' -%}
-                     {% render 'heading', class: "image-banner", use_as_hero: section.settings.hero, heading: block.settings.heading, heading_size: block.settings.heading_size %}
-
-                  {% comment %} Type Text {% endcomment %}
-                  {%- when 'text' -%}
-                     <div class="image-banner__text __article-txt">{{ block.settings.text }}</div>
-
-                  {% comment %} Type Button {% endcomment %}
-                  {%- when 'button' -%}
-                     {% render 'button', class: "image-banner", button_label: block.settings.button_label, button_link: block.settings.button_link, button_color: block.settings.button_color %}
-               {%- endcase -%}
-            {%- endfor -%}
-         </div>
-      {% endif %}
-
-      {% comment %} Image content {% endcomment %}
-      <div class="image-banner__image __crop-{{ crop_shape }} {% if crop_shape != "default" %}__theme-{{ section.settings.overlay_theme }} {% endif %}" style="--imageRatio: {{ section.settings.image.aspect_ratio | times: 100 }}%">
-         {%- if section.settings.image != blank -%}
-            {% render 'next-gen-img', image: section.settings.image %}
-         {%- else -%}
-            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
-         {%- endif -%}
+              {% comment %} Type Button {% endcomment %}
+            {%- when 'button' -%}
+              {% render 'button',
+                class: 'image-banner',
+                button_label: block.settings.button_label,
+                button_link: block.settings.button_link,
+                button_color: block.settings.button_color
+              %}
+          {%- endcase -%}
+        {%- endfor -%}
       </div>
     {% endif %}
 
@@ -325,38 +308,6 @@
           "id": "heading",
           "default": "Lorem ipsum dolor sit",
           "label": "Heading"
-        },
-        {
-          "type": "select",
-          "id": "heading_tag",
-          "options": [
-            {
-              "value": "h1",
-              "label": "h1"
-            },
-            {
-              "value": "h2",
-              "label": "h2"
-            },
-            {
-              "value": "h3",
-              "label": "h3"
-            },
-            {
-              "value": "h4",
-              "label": "h4"
-            },
-            {
-              "value": "h5",
-              "label": "h5"
-            },
-            {
-              "value": "h6",
-              "label": "h6"
-            }
-          ],
-          "default": "h2",
-          "label": "Heading Tag"
         },
         {
           "type": "select",

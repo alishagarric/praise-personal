@@ -27,13 +27,20 @@
         {% for block in section.blocks %}
           {% case block.type %}
             {% when 'promotion' %}
-              <li style="order: {{ block.settings.position | minus: 1 }}; --overlayOpacity: {{ block.settings.overlay }}%;" class="__theme-{{ block.settings.overlay_theme }}">
+              <li
+                style="order: {{ block.settings.position | minus: 1 }}; --overlayOpacity: {{ block.settings.overlay }}%;"
+                class="__theme-{{ block.settings.overlay_theme }}"
+              >
                 <div class="main-collection-grid__block __crop-{{ block.settings.image_corners }}">
-                  {% render 'heading', class: "main-collection-grid__block", heading: block.settings.heading, heading_size: block.settings.blocks_size, alt_heading: block.settings.alt_heading %}
+                  {% render 'heading',
+                    class: 'main-collection-grid__block',
+                    heading_size: block.settings.blocks_size,
+                    alt_heading: block.settings.alt_heading
+                  %}
                   {{ block.settings.text }}
 
                   {% if block.settings.image %}
-                    {% render 'next-gen-img' image: block.settings.image %}
+                    {% render 'next-gen-img', image: block.settings.image %}
                   {% endif %}
                 </div>
               </li>
@@ -273,38 +280,6 @@
           "id": "heading",
           "default": "Lorem ipsum dolor sit",
           "label": "Heading"
-        },
-        {
-          "type": "select",
-          "id": "heading_tag",
-          "options": [
-            {
-              "value": "h1",
-              "label": "h1"
-            },
-            {
-              "value": "h2",
-              "label": "h2"
-            },
-            {
-              "value": "h3",
-              "label": "h3"
-            },
-            {
-              "value": "h4",
-              "label": "h4"
-            },
-            {
-              "value": "h5",
-              "label": "h5"
-            },
-            {
-              "value": "h6",
-              "label": "h6"
-            }
-          ],
-          "default": "h2",
-          "label": "Heading Tag"
         },
         {
           "type": "select",
