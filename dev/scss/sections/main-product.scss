@@ -20,7 +20,7 @@
   //blocks before media column position and space
   &__blocks-before-media {
     grid-column: 1 / 2;
-    padding-left: var(--sectionGuttersSpacing);
+    padding-left: calc(var(--sectionGuttersSpacing) / 2);
   }
 
   //media column position and space
@@ -35,7 +35,7 @@
   &__blocks-after-media {
     grid-column: 3 / -1;
     color: RGB(var(--color-text));
-    padding-right: var(--sectionGuttersSpacing);
+    padding-right: calc(var(--sectionGuttersSpacing) / 2);
 
     > * {
       position: relative;
@@ -89,6 +89,12 @@
           }
         }
       }
+    }
+  }
+
+  &__comp-products {
+    &__product {
+      margin-bottom: calc(var(--pxSize) / 2);
     }
   }
 }

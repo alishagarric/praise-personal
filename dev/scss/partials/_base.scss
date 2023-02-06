@@ -143,6 +143,8 @@ form {
 ////////////////////////////////////
 
 .btn,
+.button,
+.shopify-payment-button__button--unbranded,
 button,
 input[type="submit"] {
   height: var(--btnHeight);
@@ -154,7 +156,10 @@ input[type="submit"] {
   display: flex;
   width: fit-content;
   text-transform: uppercase;
+  border: none;
   text-align: center;
+  text-decoration: none;
+  cursor: pointer;
   white-space: nowrap;
   font-size: calc(1rem * var(--font-body-scale));
   letter-spacing: calc(0.05rem * var(--font-body-scale));

@@ -1,0 +1,61 @@
+{% comment %}
+  Renders a the product form used in main producr
+
+  Expects: 
+  - product {object} required, product in question
+  - id: {string} required
+  - class: {String} optional
+  - hide_dynamic_buttons: {bool} optional
+
+  Usage:
+    {% render 'product-form' class: "class" %}
+
+{% endcomment %}
+
+{% assign hide_dynamic_buttons = hide_dynamic_buttons | default: false %}
+
+<product-form class="{{ class }}" {{ block.shopify_attributes }}>
+  <div class="message-error" role="alert" hidden></div>
+
+  {%-
+    form 'product',
+    product,
+    id: "Product-Form-{{ id }}",
+    class: 'product-form',
+    novalidate: 'novalidate',
+    data-type: 'add-to-cart-form'
+  -%}
+    <input
+      type="hidden"
+      name="id"
+      value="{{ product.selected_or_first_available_variant.id }}"
+      disabled
+    >
+    <div>
+      <button
+        type="submit"
+        name="add"
+        class="button btn"
+        style="--color-foreground: {{ product.metafields.custom.color.value.rgb }}; --color-foreground-text: {{ product.metafields.custom.text_color.value.rgb }}"
+        {% if product.selected_or_first_available_variant.available == false %}
+          disabled
+        {% endif %}
+      >
+        <span>
+          {%- if product.selected_or_first_available_variant.available -%}
+            {{ 'products.product.add_to_cart' | t }}
+          {%- else -%}
+            {{ 'products.product.sold_out' | t }}
+          {%- endif -%}
+        </span>
+
+        {% comment %} TODO: loading spinner {% endcomment %}
+      </button>
+
+      {% comment %} Dynamic checkout buttons {% endcomment %}
+      {% unless hide_dynamic_buttons %}
+        {{ form | payment_button }}
+      {% endunless %}
+    </div>
+  {%- endform -%}
+</product-form>

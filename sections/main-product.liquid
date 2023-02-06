@@ -36,7 +36,6 @@
 
     {% comment %} Product info {% endcomment %}
     <div id="Product-Info-{{ section.id }}" class="main-product__container">
-      {%- assign product_form_id = 'Product-Form-' | append: section.id -%}
 
       {% comment %} 
         Seems weird but we need to open this container without a closing tag. 
@@ -249,49 +248,7 @@
 
           {% comment %} Type buy buttons {% endcomment %}
           {%- when 'buy_buttons' -%}
-            <product-form {{ block.shopify_attributes }}>
-              <div class="message-error" role="alert" hidden></div>
-
-              {%-
-                form 'product',
-                product,
-                id: product_form_id,
-                class: 'product-form',
-                novalidate: 'novalidate',
-                data-type: 'add-to-cart-form'
-              -%}
-                <input
-                  type="hidden"
-                  name="id"
-                  value="{{ product.selected_or_first_available_variant.id }}"
-                  disabled
-                >
-                <div>
-                  <button
-                    type="submit"
-                    name="add"
-                    class="button btn"
-                    style="--color-foreground: {{ product.metafields.custom.color.value.rgb }}; --color-foreground-text: {{ product.metafields.custom.text_color.value.rgb }}"
-                    {% if product.selected_or_first_available_variant.available == false %}
-                      disabled
-                    {% endif %}
-                  >
-                    <span>
-                      {%- if product.selected_or_first_available_variant.available -%}
-                        {{ 'products.product.add_to_cart' | t }}
-                      {%- else -%}
-                        {{ 'products.product.sold_out' | t }}
-                      {%- endif -%}
-                    </span>
-
-                    {% comment %} TODO: loading spinner {% endcomment %}
-                  </button>
-
-                  {% comment %} Dynamic checkout buttons {% endcomment %}
-                  {{ form | payment_button }}
-                </div>
-              {%- endform -%}
-            </product-form>
+            {% render 'product-form' id: section.id, product: product %}
 
           {% comment %} Type expandable content {% endcomment %}
           {%- when 'expandable' %}
@@ -335,8 +292,22 @@
               <template>
                 <p class="message-error">{{ 'products.pickup_availability.error' | t }}</p>
               </template>
-            </pickup-availability>
-        {%- endcase -%}
+            </pickup-availability>  
+          
+            {% comment %} Product Recommendations {% endcomment %}
+            {%- when 'complementary_products' -%}
+              {% assign comp_product_count = product.metafields.shopify--discovery--product_recommendation.complementary_products | split: "," | size %}
+              {% if comp_product_count > 0  %}
+                <div class="main-product__block main-product__comp-products {% if block.settings.include_border %} __border-top {% endif %}">
+                  {% if block.settings.title %}
+                    <div class="p">{{ block.settings.title }}</div>
+                  {% endif %}
+                  {% for product in product.metafields.shopify--discovery--product_recommendation.complementary_products.value %}
+                    {% render 'quick-product' quick_product: product, class: "main-product__comp-products__product" %}
+                  {% endfor %}
+                </div>
+              {% endif %}
+          {%- endcase -%}
       {%- endfor -%}
 
       {% comment %}
@@ -379,7 +350,7 @@
           "type": "text",
           "id": "text",
           "default": "Text",
-          "label": "t:sections.main-product.blocks.text.settings.text.label"
+          "label": "Text"
         },
         {
           "type": "select",
@@ -433,6 +404,29 @@
           "type": "checkbox",
           "id": "open",
           "label": "Open"
+        }
+      ]
+    },
+    {
+      "type": "complementary_products",
+      "limit": 1,
+      "name": "Complementary Products",
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "This is generated from the complementary products you specify inside the Search & Discovery app. TODO: link with more info"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Title",
+          "label": "Title"
+        },
+        {
+          "type": "checkbox",
+          "id": "include_border",
+          "label": "Include border?",
+          "default": true
         }
       ]
     },
