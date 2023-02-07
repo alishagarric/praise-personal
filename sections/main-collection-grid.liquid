@@ -2,50 +2,61 @@
   #Main-collection-grid-{{ section.id }} {
     --topSpacingRatio: {{ section.settings.top_spacing }} / 100;
     --bottomSpacingRatio: {{ section.settings.bottom_spacing }} / 100;
+    --gridItemHeight: 1;
+    --gridItemWidth: 1;
   }
 {% endstyle %}
 
 {% render 'filter-and-sort', results: collection %}
 
-{%- paginate collection.products by 12 -%}
-  <div id="Main-collection-grid-{{ section.id }}" class="main-collection-grid __theme-{{ section_theme }}">
+{%- paginate collection.products by section.settings.pagination_count -%}
+  <div id="Main-collection-grid-{{ section.id }}" class="main-collection-grid __theme-{{ section.settings.theme }}">
     {% comment %} No products found in general or with current filters applied {% endcomment %}
     {%- if collection.products.size == 0 -%}
       <p class="__article-text __align-center">
         {{ 'products.facets.use_fewer_filters_html' | t: link: collection.url }}
       </p>
 
-      {% comment %} Product grid {% endcomment %}
+    {% comment %} Product grid {% endcomment %}
     {%- else -%}
       <ul class="main-collection-grid__container list-unstyled" role="list">
         {%- for product in collection.products -%}
-          <li style="order: {{ forloop.index }}">
-            {% render 'product-card' product: product, class: "main-collection-grid__item", show_bg_color: section.settings.show_bg_color, quick_add: section.settings.quick_add, crop: section.settings.crop_shape, show_phrase: section.settings.show_phrase, alignment: section.settings.product_text_alignment, section.settings.show_description: section.settings.show_description, price_position: section.settings.price, alt_heading: section.settings.alt_title %}
+          <li style="order: {{ forloop.index }};">
+            {% render 'product-card' product: product, class: "main-collection-grid__grid-item", show_bg_color: section.settings.show_bg_color, quick_add: section.settings.quick_add, crop: section.settings.crop_shape, show_phrase: section.settings.show_phrase, alignment: section.settings.product_text_alignment, section.settings.show_description: section.settings.show_description, price_position: section.settings.price, alt_heading: section.settings.alt_title %}
           </li>
         {%- endfor -%}
 
-        {% for block in section.blocks %}
-          {% case block.type %}
-            {% when 'promotion' %}
-              <li
-                style="order: {{ block.settings.position | minus: 1 }}; --overlayOpacity: {{ block.settings.overlay }}%;"
-                class="__theme-{{ block.settings.overlay_theme }}"
-              >
-                <div class="main-collection-grid__block __crop-{{ block.settings.image_corners }}">
-                  {% render 'heading',
-                    class: 'main-collection-grid__block',
-                    heading_size: block.settings.blocks_size,
-                    alt_heading: block.settings.alt_heading
-                  %}
-                  {{ block.settings.text }}
+        {% if paginate.current_page == 1 %}
+          {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'promotion' %}
+                {% if block.settings.link != blank %}
+                  {% assign promotion_tag = "a" %}
+                {% else %}
+                  {% assign promotion_tag = "div" %}
+                {% endif %}
 
-                  {% if block.settings.image %}
-                    {% render 'next-gen-img', image: block.settings.image %}
-                  {% endif %}
-                </div>
-              </li>
-          {% endcase %}
-        {% endfor %}
+                <li
+                  style="order: {{ block.settings.position }}; --overlayOpacity: {{ block.settings.overlay }}%; --gridItemWidth: {{ block.settings.width }}; --gridItemHeight: {{ block.settings.height }}; --mobileMinHeight: {{ block.settings.mobile_min_height }}px;"
+                  class="main-collection-grid__grid-item __theme-{{ block.settings.overlay_theme }}"
+                >
+                  <{{ promotion_tag}} href="{{ block.settings.link }}" class="main-collection-grid__block __crop-{{ block.settings.image_corners }}">
+                    {% render 'heading',
+                      class: 'main-collection-grid__block',
+                      heading: block.settings.heading,
+                      heading_size: block.settings.heading_size,
+                      alt_heading: block.settings.alt_heading
+                    %}
+                    {{ block.settings.text }}
+
+                    {% if block.settings.image %}
+                      {% render 'next-gen-img', image: block.settings.image %}
+                    {% endif %}
+                  </{{ promotion_tag}}>
+                </li>
+            {% endcase %}
+          {% endfor %}
+        {% endif%}
       </ul>
     {% endif %}
 
@@ -59,6 +70,19 @@
   "name": "Main Collection Grid",
   "tag": "section",
   "settings": [
+    {
+      "type": "header",
+      "content": "General"
+    },
+    {
+      "type": "range",
+      "id": "pagination_count",
+      "min": 4,
+      "max": 24,
+      "step": 1,
+      "label": "Products per page",
+      "default": 12
+    },
     {
       "type": "header",
       "content": "Product Card Settings"
@@ -247,11 +271,20 @@
         {
           "type": "range",
           "id": "position",
-          "min": 1,
+          "min": 0,
           "max": 13,
           "step": 1,
-          "label": "Position",
+          "label": "Display after how many products?",
           "default": 4
+        },
+        {
+          "type": "range",
+          "id": "width",
+          "min": 1,
+          "max": 3,
+          "step": 1,
+          "label": "How many products wide?",
+          "default": 1
         },
         {
           "type": "range",
@@ -264,12 +297,18 @@
         },
         {
           "type": "range",
-          "id": "width",
-          "min": 1,
-          "max": 3,
-          "step": 1,
-          "label": "How many products wide?",
-          "default": 1
+          "id": "mobile_min_height",
+          "min": 0,
+          "max": 600,
+          "step": 50,
+          "unit": "px",
+          "label": "Mobile Minimum Height",
+          "default": 450
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
         },
         {
           "type": "header",

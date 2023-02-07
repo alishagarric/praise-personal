@@ -23,11 +23,11 @@
         "837b278a-9884-4aa7-a382-569b6b13c55c": {
           "type": "promotion",
           "settings": {
-            "position": 4,
+            "position": 2,
             "height": 2,
-            "width": 2,
+            "width": 1,
             "heading": "",
-            "heading_size": "h4",
+            "heading_size": "h6",
             "alt_heading": false,
             "text": "",
             "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_cd0b890c-b357-4857-9c0d-36126dbfab86.jpg",
@@ -35,28 +35,9 @@
             "overlay_theme": "primary",
             "image_corners": "default"
           }
-        },
-        "446c7c13-64ca-426c-8065-1eedd67c999c": {
-          "type": "promotion",
-          "settings": {
-            "position": 2,
-            "height": 1,
-            "width": 1,
-            "heading": "{{ collection.title }}",
-            "heading_size": "h5",
-            "alt_heading": false,
-            "text": "<p>Lorem ipsum</p>",
-            "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_e7c90847-70c1-47f4-a82d-2369a2b4a718.jpg",
-            "overlay": 50,
-            "overlay_theme": "3",
-            "image_corners": "rounded"
-          }
         }
       },
-      "block_order": [
-        "837b278a-9884-4aa7-a382-569b6b13c55c",
-        "446c7c13-64ca-426c-8065-1eedd67c999c"
-      ],
+      "block_order": ["837b278a-9884-4aa7-a382-569b6b13c55c"],
       "settings": {
         "show_phrase": true,
         "show_description": true,
