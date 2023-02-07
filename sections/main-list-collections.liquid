@@ -96,9 +96,9 @@
                 </div>
               {% endif %}
 
-              {% comment %} View All Button {% endcomment %}
+              {% comment %} View All Button (Desktop) {% endcomment %}
               {% render 'button',
-                class: '__align-center',
+                class: '__align-center main-list-collections__collection__details',
                 button_label: section.settings.view_all_button_label,
                 button_link: collection.url,
                 style: 'underline'
@@ -111,6 +111,13 @@
                 {% render 'product-card' product: product, show_bg_color: section.settings.show_bg_color, quick_add: section.settings.quick_add, crop: section.settings.crop_shape, show_phrase: section.settings.show_phrase, alignment: section.settings.product_text_alignment, section.settings.show_description: section.settings.show_description, price_position: section.settings.price, alt_heading: section.settings.alt_title %}
               {% endfor %}
             </div>
+
+            {% comment %} View All Button (Mobile) {% endcomment %}
+            {% render 'button',
+              class: '__align-center main-list-collections',
+              button_label: section.settings.view_all_button_label,
+              button_link: collection.url,
+            %}
           </div>
         </li>
       {%- endfor -%}

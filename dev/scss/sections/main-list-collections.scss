@@ -119,11 +119,45 @@
     margin-bottom: calc(var(--pxSize) / 2);
   }
 
+  //Mobile button
+  &__btn {
+    display: none;
+  }
+
   //pagination
   .pagination {
     margin-top: calc(var(--sectionVerticalSpacing) * var(--topSpacingRatio));
     margin-bottom: calc(
       var(--sectionVerticalSpacing) * var(--bottomSpacingRatio)
     );
+  }
+
+  @media screen and (max-width: 1024px) {
+    &__collection {
+      display: block;
+
+      &__details {
+        max-width: none;
+        margin-bottom: calc(var(--pxSize) * 1.5);
+
+        &.__sticky {
+          position: static;
+          top: unset;
+        }
+
+        &__btn {
+          display: none !important;
+        }
+      }
+    }
+
+    //Mobile button
+    &__btn {
+      display: flex;
+      margin-top: calc(var(--pxSize));
+    }
+  }
+
+  @media screen and (max-width: 676px) {
   }
 }
