@@ -79,6 +79,7 @@
         "show_phrase": false,
         "show_description": false,
         "quick_add": false,
+        "show_bg_color": false,
         "alt_title": false,
         "product_text_alignment": "default",
         "price": "default",
@@ -141,6 +142,8 @@
         "heading": "Lorem ipsum dolor sit",
         "heading_size": "h4",
         "alt_heading": false,
+        "collections_text_alignment": "left",
+        "button_label": "",
         "theme": "primary",
         "top_spacing": 50,
         "bottom_spacing": 50
@@ -171,8 +174,15 @@
         "template--16667010040030__ea3a7d55-b687-4a6c-bdf9-f9c9a5bf8f71-1674435869e5f9bf79-1"
       ],
       "settings": {
+        "image_crop_shape": "portrait",
+        "show_phrase": false,
+        "show_description": false,
+        "quick_add": false,
+        "show_bg_color": false,
+        "alt_title": false,
+        "product_text_alignment": "default",
+        "price": "default",
         "crop_shape": "default",
-        "mobile_image_height": 450,
         "theme": "primary",
         "top_spacing": 50,
         "bottom_spacing": 50
@@ -231,11 +241,12 @@
         "show_date": false,
         "show_description": false,
         "show_author": false,
-        "show_assc_product": false,
+        "assc_product_crop_shape": "not-visible",
         "button_label": "",
         "crop_shape": "default",
         "alignment": "left",
         "mobile_layout": "slider",
+        "view_all_button_label": "",
         "theme": "primary",
         "top_spacing": 50,
         "bottom_spacing": 50
@@ -343,6 +354,39 @@
         "top_spacing": 50,
         "bottom_spacing": 50
       }
+    },
+    "7d2a9a62-29ec-4890-a840-064ac0cc6394": {
+      "type": "collection-teaser",
+      "settings": {
+        "collections": [
+          "back-in-stock",
+          "many-products"
+        ],
+        "products_per_collection": 2,
+        "heading_size": "h4",
+        "alt_heading": false,
+        "view_all_button_label": "View All",
+        "enable_sticky_details": true,
+        "display_collection_image": false,
+        "collection_image_crop_shape": "default",
+        "display_featured_icons": false,
+        "enable_icons_marquee": false,
+        "display_featured_stats": false,
+        "stats_color": "default",
+        "icon_height": 40,
+        "layout": "stacked",
+        "show_phrase": false,
+        "show_description": false,
+        "quick_add": false,
+        "show_bg_color": false,
+        "alt_title": false,
+        "product_text_alignment": "default",
+        "price": "default",
+        "crop_shape": "default",
+        "theme": "primary",
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
     }
   },
   "order": [
@@ -358,6 +402,7 @@
     "b179a3e5-e091-4a47-aa6e-57c08f3fe9a2",
     "ce02e8aa-f37c-46fe-bffb-0a5ca600f991",
     "92c30198-8f2c-4493-97a9-49556b7ebbcb",
-    "5342c31a-ae8a-4791-860a-cfa6c59360d6"
+    "5342c31a-ae8a-4791-860a-cfa6c59360d6",
+    "7d2a9a62-29ec-4890-a840-064ac0cc6394"
   ]
 }
