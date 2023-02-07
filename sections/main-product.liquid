@@ -125,8 +125,7 @@
 
           {% comment %} Type title {% endcomment %}
           {%- when 'title' -%}
-            {% assign heading = product.title | escape %}
-            {% render 'heading', heading: heading, alt_heading: block.settings.alt_heading, heading_size: block.settings.heading_size, use_as_hero: true %}
+            {% render 'heading', heading: product.title, alt_heading: block.settings.alt_heading, heading_size: block.settings.heading_size, heading_tag: "h1" %}
 
           {% comment %} Type price, What is this no-js-hidden class below? {% endcomment %}
           {%- when 'price' -%}

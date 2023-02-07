@@ -18,9 +18,13 @@
       {%- case block.type -%}
           {% comment %} Type Heading {% endcomment %}
         {%- when 'heading' -%}
+          {% if section.settings.hero == true %}
+            {% assign heading_tag = "h1" %}
+          {% endif %}
+
           {% render 'heading',
             class: 'split-section__text',
-            use_as_hero: section.settings.hero,
+            heading_tag: heading_tag,
             heading: block.settings.heading,
             heading_size: block.settings.heading_size
           %}

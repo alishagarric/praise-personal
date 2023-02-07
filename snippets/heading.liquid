@@ -5,27 +5,19 @@
   - heading_size: {String} "h2", "h4", "h5", "h6"
   - heading: {String}
   - class: {String}
-  - use_as_hero: {Boolen} Optional
+  - heading_tag: {string} Optional "h1", "h2" (default), "h3" 
 
   Usage:
-  {% render 'heading', class: "split-section__text", use_as_hero: section.settings.hero, heading: block.settings.heading, heading_size: block.settings.heading_size %}
+  {% render 'heading', class: "split-section__text", heading: block.settings.heading, heading_size: block.settings.heading_size %}
 {% endcomment %}
 
-{% if heading != blank %}
-  {% if use_as_hero == true %}
-    <h1
-      class="{% if class %}{{ class }}__heading{% endif %} {{ heading_size }} {% if alt_heading %}alt{% endif%}"
-      {{ block.shopify_attributes }}
-    >
-      {{ heading | escape }}
-    </h1>
+{% assign heading_tag = heading_tag | default: "h2" %}
 
-  {% else %}
-    <{{ heading_tag | default: 'h2' }}
+{% if heading != blank %}
+    <{{ heading_tag }}
       class="{% if class %}{{ class }}__heading{% endif %} {{ heading_size }} {% if alt_heading %}alt{% endif%}"
       {{ block.shopify_attributes }}
     >
       {{ heading | escape }}
-    </{{ heading_tag | default: 'h2' }}>
-  {% endif %}
+    </{{ heading_tag }}>
 {% endif %}
