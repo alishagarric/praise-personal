@@ -9,17 +9,6 @@
   &__grid-item {
     grid-column: span var(--gridItemWidth);
     grid-row: span var(--gridItemHeight);
-
-    &.__include-bg {
-      /*
-      .product-card__image {
-        width: calc(
-          100% + var(--sectionGutterSpacing) + var(--sectionGutterSpacing)
-        );
-        margin-left: calc(var(--sectionGutterSpacing) * -1);
-      }
-      */
-    }
   }
 
   &__block {
@@ -61,6 +50,11 @@
 
     &__container {
       gap: var(--sectionVerticalSpacing);
+    }
+
+    &.__mobile-fw {
+      padding-left: 0;
+      padding-right: 0;
     }
   }
 }

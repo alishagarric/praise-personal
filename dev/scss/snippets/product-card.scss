@@ -1,5 +1,6 @@
 .product-card {
   position: relative;
+  display: block;
 
   &__image {
     @extend .image-container;
@@ -71,6 +72,11 @@
       img {
         transform: scale(0.9);
         transform-origin: bottom;
+      }
+
+      ~ *:not(.btn) {
+        padding-left: 5%;
+        padding-right: 5%;
       }
     }
   }
