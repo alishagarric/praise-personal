@@ -1,0 +1,136 @@
+{% comment %}
+  Renders a collection teaser section, developed as snippet so it can
+  be rendered in both main-list-collections and teaser-collection sections
+
+  Expects: 
+  - collection {object} required
+  - display_collection_image {boolean} optional, section level
+  - enable_sticky_details {boolean} optional, section level
+  - collection_image_crop_shape {string} optional, circle, rounded-square, square, portrait, landscape, default (adapt)
+  - alt_heading {boolean} optional, section level
+  - heading_size {string} optional, h2, h4, h5, h6
+  - display_featured_icons {boolean} optional, section level
+  - enable_icons_marquee {boolean} optional, section level
+  - products_per_collection {int} optional, section level
+  - layout {string} optional, section level, icons layout, "stacked", "row", "icon-only"
+  - icon_height {int} optional, section level
+  - display_featured_stats {boolean} optional, section level
+  - stats_color {object} optional, section level
+  - view_all_button_label {string} optional, section level
+  - show_bg_color {boolean} optional, product level
+  - quick_add {boolean} optional, product level
+  - crop {boolean} optional, product level, circle, rounded-square, square, portrait, landscape, default (adapt)
+  - show_phrase {boolean} optional, product level
+  - alignment {string} optional "default" "center" "right"
+  - show_description {boolean} optional, product level
+  - price_position {string} optional, "default" "bottom" "not-visible"
+  - alt_title {boolean} optional, product level
+
+  Usage:
+  <ol class="list-unstyled" role="list">
+    {%- for collection in collections -%}
+      <li>
+        {% render 'collection-teaser-row' collection: collection, display_collection_image: section.settings.display_collection_image, enable_sticky_details: section.settings.enable_sticky_details, collection_image_crop_shape: section.settings.collection_image_crop_shape, alt_heading: section.settings.alt_heading, heading_size: section.settings.heading_size, display_featured_icons: section.settings.display_featured_icons, enable_icons_marquee: section.settings.enable_icons_marquee, layout: section.settings.layout, icon_height: section.settings.icon_height, display_featured_stats: section.settings.display_featured_stats, stats_color: section.settings.stats_color, view_all_button_label: section.settings.view_all_button_label, show_bg_color: section.settings.show_bg_color, quick_add: section.settings.quick_add, crop: section.settings.crop_shape, show_phrase: section.settings.show_phrase, alignment: section.settings.product_text_alignment, section.settings.show_description: section.settings.show_description, price_position: section.settings.price, alt_title: section.settings.alt_title, products_per_collection: section.settings.products_per_collection %}
+      </li>
+    {%- endfor -%}
+  </ol>
+
+{% endcomment %}
+
+{% assign products_per_collection = products_per_collection | default: 2 %}
+
+{% comment %} Collection row {% endcomment %}
+<div class="collection-teaser-row">
+  {% comment %} Details block {% endcomment %}
+  <div class="collection-teaser-row__details {% if enable_sticky_details %} __sticky {% endif %}">
+    {% comment %} Collection Image {% endcomment %}
+    {% if display_collection_image != false and collection.image != blank %}
+      <div
+        class="collection-teaser-row__image __crop-{{ collection_image_crop_shape }}"
+        style="--imageRatio: {{ collection.image.aspect_ratio | times: 100 }}%"
+      >
+        {% render 'next-gen-img', image: collection.image %}
+      </div>
+    {% endif %}
+
+    {% comment %} Title {% endcomment %}
+    {% render 'heading',
+      class: 'collection-teaser-row',
+      heading: collection.title,
+      alt_heading: alt_heading,
+      heading_size: heading_size
+    %}
+
+    {% comment %} Description {% endcomment %}
+    <div class="collection-teaser-row__description p-sm">
+      {{ collection.description }}
+    </div>
+
+    {% comment %} Featured Icons {% endcomment %}
+    {% if display_featured_icons %}
+      <div class="collection-teaser-row__featured-icons {% if enable_icons_marquee %} __marquee {% endif %}">
+        {% assign icons = '' %}
+        {% for product in collection.products %}
+          {% for icon in product.metafields.custom.featured_icons.value %}
+            {% assign icons = icons | append: icon | append: '@#$' %}
+          {% endfor %}
+        {% endfor %}
+        {% assign icons = icons | split: '@#$' | compact | uniq %}
+        {% if enable_icons_marquee %}
+          {% for i in (1..4) %}
+            {% render 'featured-icons',
+              icons: icons,
+              layout: layout,
+              icon_height: icon_height
+            %}
+          {% endfor%}
+        {% else %}
+          {% render 'featured-icons',
+            icons: icons,
+            layout: layout,
+            icon_height: icon_height
+          %}
+        {% endif %}
+      </div>
+    {% endif %}
+
+    {% comment %} Featured Stats {% endcomment %}
+    {% if display_featured_stats %}
+      <div class="collection-teaser-row__featured-stats">
+        {% for item in collection.metafields.custom.featured_stats.value %}
+          {% assign position = forloop.index | modulo: 2 | plus: 1 | pluralize: 'even', 'odd' %}
+          {% if position == 'odd' %}
+            <div
+              class="collection-teaser-row__featured-stats__stat __btn-clr-{{ stats_color }}"
+              style="--statWidth: {{ collection.metafields.custom.featured_stats.value[forloop.index] | strip | plus: 0.0 }}%;"
+            >
+              <span class="p-sm">{{ item }}</span>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% comment %} View All Button (Desktop) {% endcomment %}
+    {% render 'button',
+      class: '__align-center collection-teaser-row__details',
+      button_label: view_all_button_label,
+      button_link: collection.url,
+      style: 'underline'
+    %}
+  </div>
+
+  {% comment %} Products Block {% endcomment %}
+  <div class="collection-teaser-row__products">
+    {% for product in collection.products limit: products_per_collection %}
+      {% render 'product-card' product: product, show_bg_color: show_bg_color, quick_add: quick_add, crop: crop_shape, show_phrase: show_phrase, alignment: product_text_alignment, show_description: show_description, price_position: price, alt_heading: alt_title %}
+    {% endfor %}
+  </div>
+
+  {% comment %} View All Button (Mobile) {% endcomment %}
+  {% render 'button',
+    class: '__align-center collection-teaser-row',
+    button_label: view_all_button_label,
+    button_link: collection.url,
+  %}
+</div>

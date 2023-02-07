@@ -1,30 +1,23 @@
 {% style %}
-  #Main-list-collections-{{ section.id }} {
+  #Collection-teaser-{{ section.id }} {
     --topSpacingRatio: {{ section.settings.top_spacing }} / 100;
     --bottomSpacingRatio: {{ section.settings.bottom_spacing }} / 100;
   }
 {% endstyle %}
 
-<div id="Main-list-collections-{{ section.id }}" class="main-list-collections __theme-{{ section.settings.theme }}">
-  {%- paginate collections by section.settings.collections_per_page -%}
+<div id="Collection-teaser-{{ section.id }}" class="collection-teaser __theme-{{ section.settings.theme }}">
     <ol class="list-unstyled" role="list">
       {% comment %} Loop through all collections {% endcomment %}
-      {%- for collection in collections -%}
+      {%- for collection in section.settings.collections -%}
         <li>
           {% render 'collection-teaser-row' collection: collection, display_collection_image: section.settings.display_collection_image, enable_sticky_details: section.settings.enable_sticky_details, collection_image_crop_shape: section.settings.collection_image_crop_shape, alt_heading: section.settings.alt_heading, heading_size: section.settings.heading_size, display_featured_icons: section.settings.display_featured_icons, enable_icons_marquee: section.settings.enable_icons_marquee, layout: section.settings.layout, icon_height: section.settings.icon_height, display_featured_stats: section.settings.display_featured_stats, stats_color: section.settings.stats_color, view_all_button_label: section.settings.view_all_button_label, show_bg_color: section.settings.show_bg_color, quick_add: section.settings.quick_add, crop: section.settings.crop_shape, show_phrase: section.settings.show_phrase, alignment: section.settings.product_text_alignment, section.settings.show_description: section.settings.show_description, price_position: section.settings.price, alt_title: section.settings.alt_title, products_per_collection: section.settings.products_per_collection %}
         </li>
       {%- endfor -%}
     </ol>
-
-    {% comment %} Pagination {% endcomment %}
-    {%- if paginate.pages > 1 -%}
-      {%- render 'pagination', paginate: paginate -%}
-    {%- endif -%}
-  {%- endpaginate -%}
 </div>
 {% schema %}
 {
-  "name": "t:sections.main-list-collections.name",
+  "name": "Collection Teaser",
   "tag": "section",
   "settings": [
     {
@@ -32,13 +25,9 @@
       "content": "General"
     },
     {
-      "type": "range",
-      "id": "collections_per_page",
-      "default": 4,
-      "min": 1,
-      "max": 12,
-      "step": 1,
-      "label": "t:sections.main-list-collections.settings.collections_per_page.label"
+      "type": "collection_list",
+      "id": "collections",
+      "label": "Collections"
     },
     {
       "type": "header",
