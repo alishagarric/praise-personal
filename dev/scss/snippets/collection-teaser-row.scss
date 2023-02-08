@@ -58,7 +58,7 @@
         flex-wrap: nowrap !important;
         will-change: transform;
         width: fit-content;
-        animation: iconMarquee 10s linear infinite;
+        animation: iconMarquee var(--teaserMarqueeSpeed) linear infinite;
 
         &:after {
           content: ""; // to create a gap between the two marquee containers

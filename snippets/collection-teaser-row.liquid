@@ -11,6 +11,7 @@
   - heading_size {string} optional, h2, h4, h5, h6
   - display_featured_icons {boolean} optional, section level
   - enable_icons_marquee {boolean} optional, section level
+  - marquee_speed {int} optional, section level
   - products_per_collection {int} optional, section level
   - layout {string} optional, section level, icons layout, "stacked", "row", "icon-only"
   - icon_height {int} optional, section level
@@ -38,6 +39,7 @@
 {% endcomment %}
 
 {% assign products_per_collection = products_per_collection | default: 2 %}
+{% assign marquee_speed = marquee_speed | default: 5 %}
 
 {% comment %} Collection row {% endcomment %}
 <div class="collection-teaser-row">
@@ -68,16 +70,18 @@
 
     {% comment %} Featured Icons {% endcomment %}
     {% if display_featured_icons %}
-      <div class="collection-teaser-row__featured-icons {% if enable_icons_marquee %} __marquee {% endif %}">
-        {% assign icons = '' %}
-        {% for product in collection.products %}
-          {% for icon in product.metafields.custom.featured_icons.value %}
-            {% assign icons = icons | append: icon | append: '@#$' %}
-          {% endfor %}
+      {% assign icons = '' %}
+      {% for product in collection.products %}
+        {% for icon in product.metafields.custom.featured_icons.value %}
+          {% assign icons = icons | append: icon | append: '@#$' %}
         {% endfor %}
-        {% assign icons = icons | split: '@#$' | compact | uniq %}
+      {% endfor %}
+      {% assign icons = icons | split: '@#$' | compact | uniq %}
+      {% assign multiple = 24.0 | divided_by: icons.size | ceil %}
+
+      <div class="collection-teaser-row__featured-icons {% if enable_icons_marquee %} __marquee {% endif %}" style="--teaserMarqueeSpeed: {{ marquee_speed | minus: 11 | times: -1 | times: icons.size }}s;">
         {% if enable_icons_marquee %}
-          {% for i in (1..4) %}
+          {% for i in (1..multiple) %}
             {% render 'featured-icons',
               icons: icons,
               layout: layout,
