@@ -90,16 +90,15 @@
             "type": "mega_menu",
             "settings": {
               "label": "Resources",
-              "heading_0": "Text Block",
-              "text_0": "<p>Text block on second level nesting - how do we make this not ugly?<\/p>",
-              "button_label": "Boom Sauce",
-              "button_link": "shopify:\/\/pages\/contact",
-              "heading_1": "Promotion",
-              "text_1": "<p>Promotion on second level nesting - how do we make this not ugly?<\/p>",
-              "link_1": "shopify:\/\/pages\/contact",
-              "image_1": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_e7c90847-70c1-47f4-a82d-2369a2b4a718.jpg",
+              "heading_0": "",
+              "text_0": "",
+              "button_label": "",
+              "button_link": "",
+              "heading_1": "",
+              "text_1": "",
+              "link_1": "",
               "heading_2": "",
-              "text_2": "<p><\/p>",
+              "text_2": "",
               "link_2": ""
             }
           }
