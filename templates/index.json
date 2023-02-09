@@ -229,7 +229,7 @@
         "1663290308334a8c59-1": {
           "type": "product",
           "settings": {
-            "product": "all-hail-sugar",
+            "product": "all-hail-sugar-baby",
             "horizontal_pos": 80,
             "vertical_pos": 19
           }
@@ -237,7 +237,7 @@
         "1663290308334a8c59-2": {
           "type": "product",
           "settings": {
-            "product": "all-hail-sugar",
+            "product": "all-hail-sugar-baby",
             "horizontal_pos": 70,
             "vertical_pos": 10
           }
@@ -358,7 +358,7 @@
           "type": "products",
           "settings": {
             "products": [
-              "all-hail-sugar",
+              "all-hail-sugar-baby",
               "moose-munchers-snap",
               "the-king-otto"
             ],
@@ -377,7 +377,7 @@
           "disabled": true,
           "settings": {
             "products": [
-              "all-hail-sugar",
+              "all-hail-sugar-baby",
               "peanut-cravings-beware",
               "moose-munchers-snap",
               "the-king-otto"
@@ -396,7 +396,7 @@
           "type": "products",
           "settings": {
             "products": [
-              "all-hail-sugar",
+              "all-hail-sugar-baby",
               "peanut-cravings-beware",
               "moose-munchers-snap"
             ],
