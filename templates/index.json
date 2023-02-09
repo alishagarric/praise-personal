@@ -359,7 +359,7 @@
           "settings": {
             "products": [
               "all-hail-sugar",
-              "copy-of-cravings-beware",
+              "moose-munchers-snap",
               "the-king-otto"
             ],
             "show_phrase": false,
@@ -379,7 +379,7 @@
             "products": [
               "all-hail-sugar",
               "cravings-beware",
-              "copy-of-cravings-beware",
+              "moose-munchers-snap",
               "the-king-otto"
             ],
             "show_phrase": true,
@@ -398,7 +398,7 @@
             "products": [
               "all-hail-sugar",
               "cravings-beware",
-              "copy-of-cravings-beware"
+              "moose-munchers-snap"
             ],
             "show_phrase": false,
             "show_description": false,
