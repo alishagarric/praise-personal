@@ -221,7 +221,7 @@
         "1663290308334a8c59-0": {
           "type": "product",
           "settings": {
-            "product": "the-king",
+            "product": "the-king-otto",
             "horizontal_pos": 50,
             "vertical_pos": 50
           }
@@ -360,7 +360,7 @@
             "products": [
               "all-hail-sugar",
               "copy-of-cravings-beware",
-              "the-king"
+              "the-king-otto"
             ],
             "show_phrase": false,
             "show_description": false,
@@ -380,7 +380,7 @@
               "all-hail-sugar",
               "cravings-beware",
               "copy-of-cravings-beware",
-              "the-king"
+              "the-king-otto"
             ],
             "show_phrase": true,
             "show_description": true,
