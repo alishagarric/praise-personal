@@ -99,7 +99,7 @@
           "type": "button",
           "settings": {
             "button_label": "Shop treats",
-            "button_link": "shopify:\/\/collections",
+            "button_link": "shopify:\/\/collections\/cookie-collection",
             "button_color": "default"
           }
         }
