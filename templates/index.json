@@ -60,7 +60,7 @@
     "1663189358d1a4ecd6": {
       "type": "featured-collection",
       "settings": {
-        "collection": "back-in-stock",
+        "collection": "cookie-collection",
         "theme_slider": true,
         "show_phrase": true,
         "show_description": false,
@@ -176,7 +176,7 @@
         "6af62a59-1371-402d-9358-0952eb95e4e1": {
           "type": "collection",
           "settings": {
-            "collection": "back-in-stock"
+            "collection": "cookie-collection"
           }
         },
         "cf0173b9-e3ba-4dd2-89fc-bd96a37734db": {
