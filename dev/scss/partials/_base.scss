@@ -71,6 +71,12 @@ body > main > section {
   --stickyElementTransition: translateY(var(--navHeight));
 }
 
+.__visible-nav{
+  .__style-relative{
+    display: none;
+  }
+}
+
 //Form styles
 ////////////////////////////////////
 form {
