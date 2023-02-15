@@ -1,14 +1,70 @@
-{%- for block in section.blocks -%}
-  {% render block %}
-{%- endfor -%}
-  
+{% style %}
+  #Apps-{{ section.id }} {
+    --topSpacingRatio: {{section.settings.top_spacing}} / 100;
+    --bottomSpacingRatio: {{section.settings.bottom_spacing}} / 100;
+  }
+{% endstyle %}
+
+<div id="Apps-{{ section.id }}" class="__theme-{{ section.settings.theme }}">
+  {% for block in section.blocks %}
+    {% render block %}
+  {% endfor %}
+</div>
+
 {% schema %}
 {
   "name": "t:sections.apps.name",
   "tag": "section",
   "class": "section",
   "settings": [
-
+    {
+      "type": "range",
+      "id": "top_spacing",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "Top Spacing",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "bottom_spacing",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "Bottom Spacing",
+      "default": 50
+    },
+    {
+      "type": "select",
+      "id": "theme",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary Theme"
+        },
+        {
+          "value": "2",
+          "label": "2nd Theme"
+        },
+        {
+          "value": "3",
+          "label": "3rd Theme"
+        },
+        {
+          "value": "4",
+          "label": "4th Theme"
+        },
+        {
+          "value": "5",
+          "label": "5th Theme"
+        }
+      ],
+      "default": "primary",
+      "label": "Theme"
+    }
   ],
   "blocks": [
     {
