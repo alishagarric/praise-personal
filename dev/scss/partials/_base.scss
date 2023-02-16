@@ -101,10 +101,11 @@ form {
   textarea {
     border: 1px solid RGB(var(--color-text));
     background: transparent;
+    width: 100%;
   }
 
   textarea {
-    border-radius: 0px;
+    border-radius: 4px;
     padding: calc(var(--inputHeight) / 3);
   }
 
