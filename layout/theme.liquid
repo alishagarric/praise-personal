@@ -138,8 +138,10 @@
       {{ 'accessibility.skip_to_content' | t }}
     </a>
 
-    {% section 'announcement-bar' %}
-    {% section 'header' %}
+    <div class="header-container">
+      {% section 'announcement-bar' %}
+      {% section 'header' %}
+    </div>
 
     <main id="MainContent" role="main" tabindex="-1">
       {{ content_for_layout }}

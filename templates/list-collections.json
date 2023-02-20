@@ -13,7 +13,7 @@
         "template--16398178844894__e016bbbd-0856-455a-8d09-653c667e35b4-167581221261978a4c-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Atypical cookies and treats that push the boundaires of indulgence</p>"
+            "text": "<p>Atypical cookies and treats that push the boundaires of indulgence<\/p>"
           }
         }
       },
@@ -22,10 +22,10 @@
         "template--16398178844894__e016bbbd-0856-455a-8d09-653c667e35b4-167581221261978a4c-1"
       ],
       "settings": {
-        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_549b821c-6850-42f3-ae03-51e8af8116c6.jpg",
-        "overlay": 80,
+        "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_549b821c-6850-42f3-ae03-51e8af8116c6.jpg",
+        "overlay": 50,
         "overlay_theme": "primary",
-        "crop_shape": "default",
+        "crop_shape": "landscape",
         "hero": false,
         "alignment": "left",
         "theme": "primary",
@@ -65,20 +65,12 @@
         "bottom_spacing": 50
       }
     },
-    "divider": {
+    "fbac5ff6-332f-4a5e-9eb9-38330cc2ec29": {
       "type": "divider",
       "settings": {
         "theme": "primary",
-        "top_spacing": 0,
+        "top_spacing": 50,
         "bottom_spacing": 50
-      }
-    },
-    "divider-2": {
-      "type": "divider",
-      "settings": {
-        "theme": "primary",
-        "top_spacing": 0,
-        "bottom_spacing": 0
       }
     },
     "78b9e982-5826-4af1-bb33-6c800579102b": {
@@ -88,10 +80,10 @@
           "type": "products",
           "settings": {
             "products": [
-              "all-hail-sugar",
-              "cravings-beware",
-              "copy-of-cravings-beware",
-              "the-king"
+              "all-hail-sugar-baby",
+              "peanut-cravings-beware",
+              "moose-munchers-snap",
+              "the-king-otto"
             ],
             "show_phrase": true,
             "show_description": true,
@@ -104,7 +96,9 @@
           }
         }
       },
-      "block_order": ["9fed0646-618c-4d33-8279-11160ad8351b"],
+      "block_order": [
+        "9fed0646-618c-4d33-8279-11160ad8351b"
+      ],
       "settings": {
         "heading": "",
         "heading_size": "h4",
@@ -115,14 +109,16 @@
         "columns_mobile": 2,
         "layout": "default",
         "theme": "primary",
-        "top_spacing": 100,
+        "top_spacing": 50,
         "bottom_spacing": 50
       }
     },
     "0aedd12b-7b12-49e2-9817-c331fb847e55": {
       "type": "collection-teaser",
       "settings": {
-        "collections": ["back-in-stock"],
+        "collections": [
+          "cookie-collection"
+        ],
         "products_per_collection": 2,
         "heading_size": "h4",
         "alt_heading": true,
@@ -145,8 +141,8 @@
         "price": "default",
         "crop_shape": "rounded-square",
         "theme": "primary",
-        "top_spacing": 100,
-        "bottom_spacing": 100
+        "top_spacing": 50,
+        "bottom_spacing": 50
       }
     },
     "85c58e07-278d-42c1-b9f3-f6bab28fee7f": {
@@ -162,14 +158,14 @@
         "template--16398178844894__85c58e07-278d-42c1-b9f3-f6bab28fee7f-16703627747c9db086-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Atypical cookies and treats that push the boundaries of indulgence. An odea to the well-baanced classic cookie. This season we are celebrating all the nostalgia and what pairs best with chocolate chips.</p>"
+            "text": "<p>Atypical cookies and treats that push the boundaries of indulgence. An odea to the well-baanced classic cookie. This season we are celebrating all the nostalgia and what pairs best with chocolate chips.<\/p>"
           }
         },
         "template--16398178844894__85c58e07-278d-42c1-b9f3-f6bab28fee7f-16703627747c9db086-2": {
           "type": "button",
           "settings": {
             "button_label": "Shop lemon cookies",
-            "button_link": "shopify://collections/back-in-stock",
+            "button_link": "shopify:\/\/collections\/cookie-collection",
             "button_color": "default"
           }
         }
@@ -180,7 +176,7 @@
         "template--16398178844894__85c58e07-278d-42c1-b9f3-f6bab28fee7f-16703627747c9db086-2"
       ],
       "settings": {
-        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_e7c90847-70c1-47f4-a82d-2369a2b4a718.jpg",
+        "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_e7c90847-70c1-47f4-a82d-2369a2b4a718.jpg",
         "image_style": "wide",
         "hero": false,
         "alignment": "center",
@@ -201,10 +197,10 @@
           "type": "products",
           "settings": {
             "products": [
-              "all-hail-sugar",
-              "cravings-beware",
-              "copy-of-cravings-beware",
-              "the-king"
+              "all-hail-sugar-baby",
+              "peanut-cravings-beware",
+              "moose-munchers-snap",
+              "the-king-otto"
             ],
             "show_phrase": false,
             "show_description": false,
@@ -220,10 +216,10 @@
           "type": "products",
           "settings": {
             "products": [
-              "all-hail-sugar",
-              "cravings-beware",
-              "copy-of-cravings-beware",
-              "the-king"
+              "all-hail-sugar-baby",
+              "peanut-cravings-beware",
+              "moose-munchers-snap",
+              "the-king-otto"
             ],
             "show_phrase": false,
             "show_description": false,
@@ -257,10 +253,9 @@
   },
   "order": [
     "e016bbbd-0856-455a-8d09-653c667e35b4",
-    "divider",
     "main",
+    "fbac5ff6-332f-4a5e-9eb9-38330cc2ec29",
     "78b9e982-5826-4af1-bb33-6c800579102b",
-    "divider-2",
     "0aedd12b-7b12-49e2-9817-c331fb847e55",
     "85c58e07-278d-42c1-b9f3-f6bab28fee7f",
     "54960ca1-1142-4191-a745-689603d4ca23"

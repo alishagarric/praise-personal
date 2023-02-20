@@ -32,6 +32,16 @@
     &:before {
       @extend .custom-icon;
     }
+
+    &.user-added{
+      &:before{
+        content: none!important;
+      }
+      svg{
+        width: var(--customIconHeight);
+        height: var(--customIconHeight);
+      }
+    }
   }
 
   &.__layout {
@@ -57,5 +67,9 @@
         }
       }
     }
+  }
+
+  &.user-added{
+    display: none;
   }
 }

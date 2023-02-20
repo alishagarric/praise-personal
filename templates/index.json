@@ -60,7 +60,7 @@
     "1663189358d1a4ecd6": {
       "type": "featured-collection",
       "settings": {
-        "collection": "back-in-stock",
+        "collection": "back-in-stockk",
         "theme_slider": true,
         "show_phrase": true,
         "show_description": false,
@@ -99,7 +99,7 @@
           "type": "button",
           "settings": {
             "button_label": "Shop treats",
-            "button_link": "shopify:\/\/collections",
+            "button_link": "shopify:\/\/collections\/cookie-collection",
             "button_color": "default"
           }
         }
@@ -176,33 +176,33 @@
         "6af62a59-1371-402d-9358-0952eb95e4e1": {
           "type": "collection",
           "settings": {
-            "collection": "back-in-stock"
+            "collection": "back-in-stockk"
           }
         },
-        "f41d8b21-e8df-460a-b643-8733ef9768e7": {
+        "cf0173b9-e3ba-4dd2-89fc-bd96a37734db": {
           "type": "collection",
           "settings": {
-            "collection": "back-in-stock"
+            "collection": "chocolate-essentials"
           }
         },
-        "40c983e2-9c33-4301-8309-fda2a7644c0b": {
+        "0934e19c-227e-4326-9dcf-94cfe2558d9c": {
           "type": "collection",
           "settings": {
-            "collection": "back-in-stock"
+            "collection": "peanut-butter-collection"
           }
         },
-        "52a34cf0-68cc-4d0f-8550-c3e2b73c22f1": {
+        "fc477b12-14c3-4609-98d0-a8cbeb31fcae": {
           "type": "collection",
           "settings": {
-            "collection": "back-in-stock"
+            "collection": "the-kind-cookies"
           }
         }
       },
       "block_order": [
         "6af62a59-1371-402d-9358-0952eb95e4e1",
-        "f41d8b21-e8df-460a-b643-8733ef9768e7",
-        "40c983e2-9c33-4301-8309-fda2a7644c0b",
-        "52a34cf0-68cc-4d0f-8550-c3e2b73c22f1"
+        "cf0173b9-e3ba-4dd2-89fc-bd96a37734db",
+        "0934e19c-227e-4326-9dcf-94cfe2558d9c",
+        "fc477b12-14c3-4609-98d0-a8cbeb31fcae"
       ],
       "settings": {
         "heading": "Featured Collections",
@@ -221,7 +221,7 @@
         "1663290308334a8c59-0": {
           "type": "product",
           "settings": {
-            "product": "the-king",
+            "product": "the-king-otto",
             "horizontal_pos": 50,
             "vertical_pos": 50
           }
@@ -229,7 +229,7 @@
         "1663290308334a8c59-1": {
           "type": "product",
           "settings": {
-            "product": "all-hail-sugar",
+            "product": "all-hail-sugar-baby",
             "horizontal_pos": 80,
             "vertical_pos": 19
           }
@@ -237,16 +237,25 @@
         "1663290308334a8c59-2": {
           "type": "product",
           "settings": {
-            "product": "all-hail-sugar",
+            "product": "jelly-cravings-beware",
             "horizontal_pos": 70,
-            "vertical_pos": 10
+            "vertical_pos": 82
+          }
+        },
+        "ba22128a-7bef-4e8c-9156-243b55f0136f": {
+          "type": "product",
+          "settings": {
+            "product": "moose-munchsters-crackle",
+            "horizontal_pos": 16,
+            "vertical_pos": 28
           }
         }
       },
       "block_order": [
         "1663290308334a8c59-0",
         "1663290308334a8c59-1",
-        "1663290308334a8c59-2"
+        "1663290308334a8c59-2",
+        "ba22128a-7bef-4e8c-9156-243b55f0136f"
       ],
       "settings": {
         "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_bbf54c90-3c31-4e00-962c-f12d6b17cf77.jpg",
@@ -284,7 +293,7 @@
           "type": "button",
           "settings": {
             "button_label": "Learn more",
-            "button_link": "shopify:\/\/collections\/back-in-stock",
+            "button_link": "shopify:\/\/pages\/about",
             "button_color": "default"
           }
         }
@@ -327,7 +336,7 @@
           "type": "button",
           "settings": {
             "button_label": "Shop the Collection",
-            "button_link": "shopify:\/\/collections\/back-in-stock",
+            "button_link": "shopify:\/\/collections\/peanut-butter-collection",
             "button_color": "3"
           }
         }
@@ -358,47 +367,14 @@
           "type": "products",
           "settings": {
             "products": [
-              "all-hail-sugar",
-              "copy-of-cravings-beware",
-              "the-king"
-            ],
-            "show_phrase": false,
-            "show_description": false,
-            "quick_add": false,
-            "show_bg_color": false,
-            "alt_title": false,
-            "product_text_alignment": "default",
-            "price": "default",
-            "crop_shape": "rounded-square"
-          }
-        },
-        "318e36c7-3055-4cbf-b625-939c1028416e2": {
-          "type": "products",
-          "disabled": true,
-          "settings": {
-            "products": [
-              "all-hail-sugar",
-              "cravings-beware",
-              "copy-of-cravings-beware",
-              "the-king"
-            ],
-            "show_phrase": true,
-            "show_description": true,
-            "quick_add": true,
-            "show_bg_color": false,
-            "alt_title": true,
-            "product_text_alignment": "center",
-            "price": "bottom",
-            "crop_shape": "portrait"
-          }
-        },
-        "21c589c7-b2d6-42bc-b69b-bec8151d80d5": {
-          "type": "products",
-          "settings": {
-            "products": [
-              "all-hail-sugar",
-              "cravings-beware",
-              "copy-of-cravings-beware"
+              "all-hail-sugar-baby",
+              "moose-munchers-snap",
+              "the-king-otto",
+              "chocolate-cravings-beware",
+              "all-hail-sugar-boo",
+              "moose-munchsters-crackle",
+              "the-king-edmund",
+              "peanut-cravings-beware"
             ],
             "show_phrase": false,
             "show_description": false,
@@ -412,9 +388,7 @@
         }
       },
       "block_order": [
-        "318e36c7-3055-4cbf-b625-939c1028416e",
-        "318e36c7-3055-4cbf-b625-939c1028416e2",
-        "21c589c7-b2d6-42bc-b69b-bec8151d80d5"
+        "318e36c7-3055-4cbf-b625-939c1028416e"
       ],
       "settings": {
         "heading": "Shop Our Bestsellers",

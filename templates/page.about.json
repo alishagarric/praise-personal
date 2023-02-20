@@ -273,7 +273,7 @@
           "type": "button",
           "settings": {
             "button_label": "Learn more",
-            "button_link": "shopify:\/\/collections\/back-in-stock",
+            "button_link": "shopify:\/\/collections\/cookie-collection",
             "button_color": "default"
           }
         }
@@ -299,7 +299,7 @@
     "1663294968d8440c8d": {
       "type": "featured-collection",
       "settings": {
-        "collection": "back-in-stock",
+        "collection": "cookie-collection",
         "theme_slider": false,
         "show_phrase": false,
         "show_description": true,

@@ -262,8 +262,7 @@
                 {% if block.settings.title %}
                   <div class="p-sm">{{ block.settings.title }}</div>
                 {% endif %}
-                
-                {% render 'featured-icons' product: product, class: "main-product__icons", layout: block.settings.layout, icon_height: block.settings.icon_height %}
+                {% render 'featured-icons'  icon_1: block.settings.icon_1, icon_1_title: block.settings.icon_1_title, icon_2: block.settings.icon_2, icon_2_title: block.settings.icon_2_title, icon_3: block.settings.icon_3, icon_3_title: block.settings.icon_3_title, product: product, class: "main-product__icons", layout: block.settings.layout, icon_height: block.settings.icon_height %}
               </div>
             {% endif %}
 
@@ -357,18 +356,18 @@
           "type": "select",
           "id": "text_size",
           "options": [
-              {
-                "value": "p-sm",
-                "label": "Small Text"
-              },
-              {
-                "value": "p",
-                "label": "Basic Text"
-              },
-              {
-                "value": "p-lg",
-                "label": "Large Text"
-              }
+            {
+              "value": "p-sm",
+              "label": "Small Text"
+            },
+            {
+              "value": "p",
+              "label": "Basic Text"
+            },
+            {
+              "value": "p-lg",
+              "label": "Large Text"
+            }
           ],
           "default": "p-sm",
           "label": "Text Size"
@@ -449,12 +448,132 @@
               "label": "None"
             },
             {
-              "value": "recycle",
-              "label": "Recycle"
+              "value": "box",
+              "label": "Box"
             },
             {
-              "value": "delivery-truck",
-              "label": "Delivery Truck"
+              "value": "briefcase",
+              "label": "Briefcase"
+            },
+            {
+              "value": "calendar",
+              "label": "Calendar"
+            },
+            {
+              "value": "chat_bubble",
+              "label": "Chat bubble"
+            },
+            {
+              "value": "check_mark",
+              "label": "Check mark"
+            },
+            {
+              "value": "clock",
+              "label": "Clock"
+            },
+            {
+              "value": "credit_card",
+              "label": "Credit card"
+            },
+            {
+              "value": "dollar_sign",
+              "label": "Dollar sign"
+            },
+            {
+              "value": "dryer",
+              "label": "Dryer"
+            },
+            {
+              "value": "eye",
+              "label": "Eye"
+            },
+            {
+              "value": "feather",
+              "label": "Feather"
+            },
+            {
+              "value": "gift",
+              "label": "Gift"
+            },
+            {
+              "value": "heart",
+              "label": "Heart"
+            },
+            {
+              "value": "iron",
+              "label": "Iron"
+            },
+            {
+              "value": "leaf",
+              "label": "Leaf"
+            },
+            {
+              "value": "leather",
+              "label": "Leather"
+            },
+            {
+              "value": "lock",
+              "label": "Lock"
+            },
+            {
+              "value": "map_pin",
+              "label": "Map pin"
+            },
+            {
+              "value": "pants",
+              "label": "Pants"
+            },
+            {
+              "value": "percent",
+              "label": "Percent"
+            },
+            {
+              "value": "plane",
+              "label": "Plane"
+            },
+            {
+              "value": "price_tag",
+              "label": "Price tag"
+            },
+            {
+              "value": "question_mark",
+              "label": "Question mark"
+            },
+            {
+              "value": "return",
+              "label": "Return"
+            },
+            {
+              "value": "ruler",
+              "label": "Ruler"
+            },
+            {
+              "value": "scissors",
+              "label": "Scissors"
+            },
+            {
+              "value": "shirt",
+              "label": "Shirt"
+            },
+            {
+              "value": "shoe",
+              "label": "Shoe"
+            },
+            {
+              "value": "silhouette",
+              "label": "Silhouette"
+            },
+            {
+              "value": "star",
+              "label": "Star"
+            },
+            {
+              "value": "truck",
+              "label": "Truck"
+            },
+            {
+              "value": "washing",
+              "label": "Washing"
             }
           ],
           "default": "none",
@@ -463,7 +582,7 @@
         {
           "type": "text",
           "id": "icon_1_title",
-          "label": "Icon 2 Title"
+          "label": "Icon 1 Title"
         },
         {
           "type": "select",
@@ -474,12 +593,132 @@
               "label": "None"
             },
             {
-              "value": "recycle",
-              "label": "Recycle"
+              "value": "box",
+              "label": "Box"
             },
             {
-              "value": "delivery-truck",
-              "label": "Delivery Truck"
+              "value": "briefcase",
+              "label": "Briefcase"
+            },
+            {
+              "value": "calendar",
+              "label": "Calendar"
+            },
+            {
+              "value": "chat_bubble",
+              "label": "Chat bubble"
+            },
+            {
+              "value": "check_mark",
+              "label": "Check mark"
+            },
+            {
+              "value": "clock",
+              "label": "Clock"
+            },
+            {
+              "value": "credit_card",
+              "label": "Credit card"
+            },
+            {
+              "value": "dollar_sign",
+              "label": "Dollar sign"
+            },
+            {
+              "value": "dryer",
+              "label": "Dryer"
+            },
+            {
+              "value": "eye",
+              "label": "Eye"
+            },
+            {
+              "value": "feather",
+              "label": "Feather"
+            },
+            {
+              "value": "gift",
+              "label": "Gift"
+            },
+            {
+              "value": "heart",
+              "label": "Heart"
+            },
+            {
+              "value": "iron",
+              "label": "Iron"
+            },
+            {
+              "value": "leaf",
+              "label": "Leaf"
+            },
+            {
+              "value": "leather",
+              "label": "Leather"
+            },
+            {
+              "value": "lock",
+              "label": "Lock"
+            },
+            {
+              "value": "map_pin",
+              "label": "Map pin"
+            },
+            {
+              "value": "pants",
+              "label": "Pants"
+            },
+            {
+              "value": "percent",
+              "label": "Percent"
+            },
+            {
+              "value": "plane",
+              "label": "Plane"
+            },
+            {
+              "value": "price_tag",
+              "label": "Price tag"
+            },
+            {
+              "value": "question_mark",
+              "label": "Question mark"
+            },
+            {
+              "value": "return",
+              "label": "Return"
+            },
+            {
+              "value": "ruler",
+              "label": "Ruler"
+            },
+            {
+              "value": "scissors",
+              "label": "Scissors"
+            },
+            {
+              "value": "shirt",
+              "label": "Shirt"
+            },
+            {
+              "value": "shoe",
+              "label": "Shoe"
+            },
+            {
+              "value": "silhouette",
+              "label": "Silhouette"
+            },
+            {
+              "value": "star",
+              "label": "Star"
+            },
+            {
+              "value": "truck",
+              "label": "Truck"
+            },
+            {
+              "value": "washing",
+              "label": "Washing"
             }
           ],
           "default": "none",
@@ -499,12 +738,132 @@
               "label": "None"
             },
             {
-              "value": "recycle",
-              "label": "Recycle"
+              "value": "box",
+              "label": "Box"
             },
             {
-              "value": "delivery-truck",
-              "label": "Delivery Truck"
+              "value": "briefcase",
+              "label": "Briefcase"
+            },
+            {
+              "value": "calendar",
+              "label": "Calendar"
+            },
+            {
+              "value": "chat_bubble",
+              "label": "Chat bubble"
+            },
+            {
+              "value": "check_mark",
+              "label": "Check mark"
+            },
+            {
+              "value": "clock",
+              "label": "Clock"
+            },
+            {
+              "value": "credit_card",
+              "label": "Credit card"
+            },
+            {
+              "value": "dollar_sign",
+              "label": "Dollar sign"
+            },
+            {
+              "value": "dryer",
+              "label": "Dryer"
+            },
+            {
+              "value": "eye",
+              "label": "Eye"
+            },
+            {
+              "value": "feather",
+              "label": "Feather"
+            },
+            {
+              "value": "gift",
+              "label": "Gift"
+            },
+            {
+              "value": "heart",
+              "label": "Heart"
+            },
+            {
+              "value": "iron",
+              "label": "Iron"
+            },
+            {
+              "value": "leaf",
+              "label": "Leaf"
+            },
+            {
+              "value": "leather",
+              "label": "Leather"
+            },
+            {
+              "value": "lock",
+              "label": "Lock"
+            },
+            {
+              "value": "map_pin",
+              "label": "Map pin"
+            },
+            {
+              "value": "pants",
+              "label": "Pants"
+            },
+            {
+              "value": "percent",
+              "label": "Percent"
+            },
+            {
+              "value": "plane",
+              "label": "Plane"
+            },
+            {
+              "value": "price_tag",
+              "label": "Price tag"
+            },
+            {
+              "value": "question_mark",
+              "label": "Question mark"
+            },
+            {
+              "value": "return",
+              "label": "Return"
+            },
+            {
+              "value": "ruler",
+              "label": "Ruler"
+            },
+            {
+              "value": "scissors",
+              "label": "Scissors"
+            },
+            {
+              "value": "shirt",
+              "label": "Shirt"
+            },
+            {
+              "value": "shoe",
+              "label": "Shoe"
+            },
+            {
+              "value": "silhouette",
+              "label": "Silhouette"
+            },
+            {
+              "value": "star",
+              "label": "Star"
+            },
+            {
+              "value": "truck",
+              "label": "Truck"
+            },
+            {
+              "value": "washing",
+              "label": "Washing"
             }
           ],
           "default": "none",
@@ -516,14 +875,14 @@
           "label": "Icon 3 Title"
         },
         {
-          "type":"range",
-          "id":"icon_height",
-          "min":20,
-          "max":100,
-          "step":10,
-          "unit":"px",
-          "label":"Icon Height",
-          "default":40
+          "type": "range",
+          "id": "icon_height",
+          "min": 20,
+          "max": 100,
+          "step": 10,
+          "unit": "px",
+          "label": "Icon Height",
+          "default": 40
         },
         {
           "type": "text",
@@ -532,25 +891,25 @@
           "label": "Title"
         },
         {
-          "type":"radio",
-          "id":"layout",
-          "label":"Layout",
-          "options":[
-              {
-                "value":"stacked",
-                "label":"Stacked"
-              },
-              {
-                "value":"row",
-                "label":"Row"
-              },
-              {
-                "value":"icon-only",
-                "label":"Icon Only"
-              }
+          "type": "radio",
+          "id": "layout",
+          "label": "Layout",
+          "options": [
+            {
+              "value": "stacked",
+              "label": "Stacked"
+            },
+            {
+              "value": "row",
+              "label": "Row"
+            },
+            {
+              "value": "icon-only",
+              "label": "Icon Only"
+            }
           ],
-          "default":"stacked"
-        }, 
+          "default": "stacked"
+        },
         {
           "type": "checkbox",
           "id": "include_border",
@@ -567,31 +926,31 @@
     {
       "type": "title",
       "name": "t:sections.main-product.blocks.title.name",
-      "limit": 1, 
+      "limit": 1,
       "settings": [
         {
-            "type": "select",
-            "id": "heading_size",
-            "options": [
-              {
-                  "value": "h1",
-                  "label": "X-Large"
-              },
-              {
-                  "value": "h2",
-                  "label": "Large"
-              },
-              {
-                  "value": "h3",
-                  "label": "Medium"
-              },
-              {
-                  "value": "h4",
-                  "label": "Small"
-              }
-            ],
-            "default": "h2",
-            "label": "Heading Size"
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+              "value": "h1",
+              "label": "X-Large"
+            },
+            {
+              "value": "h2",
+              "label": "Large"
+            },
+            {
+              "value": "h3",
+              "label": "Medium"
+            },
+            {
+              "value": "h4",
+              "label": "Small"
+            }
+          ],
+          "default": "h2",
+          "label": "Heading Size"
         },
         {
           "type": "checkbox",
@@ -655,18 +1014,18 @@
           "type": "select",
           "id": "text_size",
           "options": [
-              {
-                "value": "p-sm",
-                "label": "Small Text"
-              },
-              {
-                "value": "p",
-                "label": "Basic Text"
-              },
-              {
-                "value": "p-lg",
-                "label": "Large Text"
-              }
+            {
+              "value": "p-sm",
+              "label": "Small Text"
+            },
+            {
+              "value": "p",
+              "label": "Basic Text"
+            },
+            {
+              "value": "p-lg",
+              "label": "Large Text"
+            }
           ],
           "default": "p-sm",
           "label": "Text Size"

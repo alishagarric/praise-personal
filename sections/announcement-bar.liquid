@@ -1,18 +1,7 @@
-{%- style -%}
-  .announcement-bar {
-    border-bottom: 1px solid RGB(var(--color-border));
-  }
-
-  .announcement-bar > p {
-    margin-left: auto;
-    margin-right: auto;
-  }
-{%- endstyle -%}
-
-{% unless section.settings.text == blank %}  
-  <aside class="announcement-bar">
-    <p class="align-center">{{ section.settings.text }}</p>
-  </aside>
+{% unless section.settings.text == blank %}
+  <div class="announcement-bar __theme-{{ section.settings.theme }}">
+    <p class="announcement-bar__text {{ section.settings.text_size }} align-center">{{ section.settings.text }}</p>
+  </div>
 {% endunless %}
 
 {% schema %}
@@ -25,6 +14,58 @@
       "id": "text",
       "default": "Welcome to our store",
       "label": "t:sections.announcement-bar.settings.text.label"
+    },
+    {
+      "type": "select",
+      "id": "text_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "X-Large"
+        },
+        {
+          "value": "h4",
+          "label": "Large"
+        },
+        {
+          "value": "h5",
+          "label": "Medium"
+        },
+        {
+          "value": "h6",
+          "label": "Small"
+        }
+      ],
+      "default": "h6",
+      "label": "Text Size"
+    },
+    {
+      "type": "select",
+      "id": "theme",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary Theme"
+        },
+        {
+          "value": "2",
+          "label": "2nd Theme"
+        },
+        {
+          "value": "3",
+          "label": "3rd Theme"
+        },
+        {
+          "value": "4",
+          "label": "4th Theme"
+        },
+        {
+          "value": "5",
+          "label": "5th Theme"
+        }
+      ],
+      "default": "primary",
+      "label": "Theme"
     }
   ]
 }
