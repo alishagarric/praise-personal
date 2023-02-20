@@ -79,7 +79,7 @@
       {{ product_title }}
     </h3>
     {% if price_position == "default" %}
-      {%- render 'price', class: "product-card__price" product: card_product -%}
+      {%- render 'price', class: "product-card__price", product: product -%}
     {% endif %}
   </div>
 
@@ -88,6 +88,6 @@
   {% endif %}
 
   {% if price_position == "bottom" %}
-    {%- render 'price', product: card_product -%}
+    {%- render 'price', product: product -%}
   {% endif %}
 </a>

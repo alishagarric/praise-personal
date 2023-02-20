@@ -3,7 +3,7 @@
 
   Expects: 
   - product {object} required, product in question
-  - id: {string} required
+  - product_form_id: {string} required
   - class: {String} optional
   - hide_dynamic_buttons: {bool} optional
 
@@ -20,7 +20,7 @@
   {%-
     form 'product',
     product,
-    id: "Product-Form-{{ id }}",
+    id: id,
     class: 'product-form',
     novalidate: 'novalidate',
     data-type: 'add-to-cart-form'

@@ -24,6 +24,7 @@
     assign media_count = media_count | minus: variant_images.size | plus: 1
   endif
   assign first_3d_model = product.media | where: "media_type", "model" | first
+  assign product_form_id = 'Product-Form-' | append: section.id
 -%}
 
 
@@ -36,6 +37,7 @@
 
     {% comment %} Product info {% endcomment %}
     <div id="Product-Info-{{ section.id }}" class="main-product__container">
+
 
       {% comment %} 
         Seems weird but we need to open this container without a closing tag. 
@@ -127,11 +129,11 @@
           {%- when 'title' -%}
             {% render 'heading', heading: product.title, alt_heading: block.settings.alt_heading, heading_size: block.settings.heading_size, heading_tag: "h1" %}
 
-          {% comment %} Type price, What is this no-js-hidden class below? {% endcomment %}
+          {% comment %} Type price {% endcomment %}
           {%- when 'price' -%}
             <div
               id="Price-{{ section.id }}"
-              class="no-js-hidden" 
+              class="no-js-hidden {{ block.settings.heading_size }}" 
               role="status"
               {{ block.shopify_attributes }}
             >
@@ -247,7 +249,7 @@
 
           {% comment %} Type buy buttons {% endcomment %}
           {%- when 'buy_buttons' -%}
-            {% render 'product-form' id: section.id, product: product %}
+            {% render 'product-form' id: product_form_id, product: product %}
 
           {% comment %} Type expandable content {% endcomment %}
           {%- when 'expandable' %}
@@ -601,7 +603,33 @@
     {
       "type": "price",
       "name": "t:sections.main-product.blocks.price.name",
-      "limit": 1
+      "limit": 1,
+      "settings": [
+          {
+            "type": "select",
+            "id": "heading_size",
+            "options": [
+              {
+                  "value": "h5",
+                  "label": "X-Large"
+              },
+              {
+                  "value": "h6",
+                  "label": "Large"
+              },
+              {
+                  "value": "p",
+                  "label": "Medium"
+              },
+              {
+                  "value": "p-sm",
+                  "label": "Small"
+              }
+            ],
+            "default": "h6",
+            "label": "Heading Size"
+        }
+      ]
     },
     {
       "type": "quantity_selector",
