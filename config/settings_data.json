@@ -43,8 +43,8 @@
     "custom_icon_3": "shopify://shop_images/Vector.png",
     "favicon": "shopify://shop_images/icons8-star-32.png",
     "sections": {
-      "something-else": {
-        "type": "something-else",
+      "announcement-bar": {
+        "type": "announcement-bar",
         "settings": {
           "text": "",
           "text_size": "h6",
