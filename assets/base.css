@@ -66,14 +66,6 @@ html.no-js .no-js-hidden {
   padding-right: var(--container-padding);
 }
 
-.header-container{
-  display: flex;
-  flex-direction: column;
-  position: fixed;
-  top: 0;
-  z-index: 1000;
-}
-
 /* Remember to add role="list" to element if this class is applied (for Safari + VO)  */
 .list-unstyled {
   list-style: none;

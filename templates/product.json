@@ -88,7 +88,9 @@
         },
         "variant_picker": {
           "type": "variant_picker",
-          "settings": {}
+          "settings": {
+            "layout": "dropdown"
+          }
         },
         "quantity_selector": {
           "type": "quantity_selector",

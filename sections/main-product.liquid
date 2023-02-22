@@ -33,7 +33,7 @@
   <link id="ModelViewerStyle" rel="stylesheet" href="https://cdn.shopify.com/shopifycloud/model-viewer-ui/assets/v1.0/model-viewer-ui.css" media="print" onload="this.media='all'">
 {%- endif -%}
 
-<div class="main-product product __theme-{{ section.settings.theme }}" style="--color-background: {{ product.metafields.custom.color.value.rgb }}; --color-text: {{ product.metafields.custom.text_color.value.rgb }};">
+<div class="main-product product __theme-{{ section.settings.theme }}">
 
     {% comment %} Product info {% endcomment %}
     <div id="Product-Info-{{ section.id }}" class="main-product__container">
@@ -44,7 +44,10 @@
         Either the end of the loop of the media block within the loop will close 
         this div. Goal here is to contain all blocks that are ordered before the media block.
       {% endcomment %}
-      <div class="main-product__blocks-before-media"> 
+      <div 
+        class="main-product__blocks-before-media"
+        style="{% if product.metafields.custom.color %}--color-background: {{ product.metafields.custom.color.value.rgb }}; --color-foreground-text: {{ product.metafields.custom.color.value.rgb }};{% endif %} {% if product.metafields.custom.text_color %} --color-text: {{ product.metafields.custom.text_color.value.rgb }}; --color-foreground: {{ product.metafields.custom.text_color.value.rgb }}; --color-border: {{ product.metafields.custom.text_color.value.rgb }} / .3;{% endif %}"
+      > 
 
       {% comment %} Loop through blocks {% endcomment %}
       {%- for block in section.blocks -%}
@@ -108,7 +111,10 @@
               Seems weird but we need to open this container without a closing tag. 
               The end of the loop will close this div so that all blocks after media are in a container
             {% endcomment %}
-            <div class="main-product__blocks-after-media __theme-{{ section.settings.theme }}">
+            <div 
+              class="main-product__blocks-after-media"
+              style="{% if product.metafields.custom.color %}--color-foreground: {{ product.metafields.custom.color.value.rgb }}; {% endif %} {% if product.metafields.custom.text_color %} --color-foreground-text: {{ product.metafields.custom.text_color.value.rgb }};{% endif %}"
+            >
             
 
 
@@ -165,58 +171,155 @@
               {%- endform -%}
             </div>
 
-          {% comment %} Type Quantity Selector {% endcomment %}
-          {%- when 'quantity_selector' -%}
-            <div {{ block.shopify_attributes }}>
-              <label for="Quantity-{{ section.id }}">
-                {{ 'products.product.quantity.label' | t }}
-              </label>
-              <input
-                type="number"
-                name="quantity"
-                id="Quantity-{{ section.id }}"
-                min="1"
-                value="1"
-                form="{{ product_form_id }}"
-              >
-            </div>
-
           {% comment %} Type variant picker {% endcomment %}
           {%- when 'variant_picker' -%}
             {%- unless product.has_only_default_variant -%}
-              <variant-selects class="no-js-hidden" data-section="{{ section.id }}" data-url="{{ product.url }}">
-                {%- for option in product.options_with_values -%}
-                  <div>
-                    <label for="Option-{{ section.id }}-{{ forloop.index0 }}">
-                      {{ option.name }}
-                    </label>
-                    <select
-                      id="Option-{{ section.id }}-{{ forloop.index0 }}"
-                      name="options[{{ option.name | escape }}]"
-                      form="{{ product_form_id }}"
-                    >
-                      {%- for value in option.values -%}
-                        <option
-                          value="{{ value | escape }}"
-                          {% if option.selected_value == value %}
-                            selected="selected"
-                          {% endif %}
-                        >
-                          {{ value }}
-                        </option>
-                      {%- endfor -%}
-                    </select>
-                  </div>
-                {%- endfor -%}
 
-                <script type="application/json">
-                  {{ product.variants | json }}
-                </script>
-              </variant-selects>
+              {% comment %} Layout button {% endcomment %}
+              {%- if block.settings.layout == 'buttons' -%}
+                <variant-radios class="no-js-hidden main-product__variant-radios" data-section="{{ section.id }}" data-url="{{ product.url }}" {{ block.shopify_attributes }}>
+                  {%- for option in product.options_with_values -%}
+                    {% capture option_variable_name %}option_{{ forloop.index }}_description{% endcapture %}
+                    {% comment %} TODO logic that hanfles special color swatch and size options scenarios 
+                    {%- liquid
+                      assign is_color = false
+                      if block.settings.enable_color_swatches
+                        assign swatch_file_extension = 'png'
+                        assign swatch_trigger = 'products.product.color_swatch_trigger' | t | downcase
+                        assign downcased_option = option.name | downcase
+                        if downcased_option contains swatch_trigger
+                          assign is_color = true
+                        elsif swatch_trigger == 'color' and downcased_option contains 'colour'
+                          assign is_color = true
+                        endif
+                      endif
+
+                      assign is_size = false
+                      if block.settings.size_chart != blank
+                        assign size_trigger = 'products.product.size_chart_trigger' | t | downcase
+                        assign downcased_option = option.name | downcase
+                        if downcased_option contains size_trigger
+                          assign is_size = true
+                        endif
+                      endif
+
+                      assign option_idx = forloop.index
+                    -%}
+                    {% endcomment %}
+
+                    {% assign option_idx = forloop.index %}
+                    <div class="main-product__variant-radios__radio main-product__block {% if block.settings.include_border %} __border-top {% endif %}">
+                      <fieldset class="js variant-input-wrapper main-product__fieldset"
+                        data-option-index="option{{ option_idx }}"
+                        data-option-slug="{{ option.name | handleize }}"
+                      >
+                        {%- if block.settings.show_option_labels -%}
+                          <legend class="main-product__fieldset__label p-sm">
+                            <span>{{ option.name }}</span>
+                            {{ product.metafields.custom[option_variable_name] }}
+                            {% comment %}{%- if is_color -%}
+                              <span class="form__label-info" id="color-{{ section.id }}">&ndash;&nbsp;{{ option.selected_value }}</span>
+                            {%- endif -%}{% endcomment %}
+                          </legend>
+                        {%- endif -%}
+                        {%- for value in option.values -%}
+                          <input
+                            type="radio"
+                            id="{{ section.id }}-{{ option.name }}-{{ forloop.index0 }}"
+                            name="{{ option.name }}"
+                            value="{{ value | escape }}"
+                            form="{{ product_form_id }}"
+                            {%- if option.selected_value == value %}checked="checked"{% endif -%}
+                            data-option-value="{{ value | escape }}"
+                            class="main-product__fieldset__input"
+                          />
+                          {% comment %}
+                          {%- if is_color -%}
+                            {%- liquid
+                              assign color_file_name = value | handle | append: '.' | append: swatch_file_extension
+                              assign color_image = color_file_name | file_img_url: '50x50' | prepend: 'https:' 
+                              assign color_swatch_fallback = value | split: ' ' | last | handle
+                            -%}
+                            <label
+                              for="{{ section.id }}-{{ option.name }}-{{ forloop.index0 }}"
+                              class="color__swatch color__swatch--{{ block.settings.swatch_type }}"
+                              style="--swatch-background-color: {{ color_swatch_fallback }};{% if images[color_file_name] != blank %} --swatch-background-image: url({{ color_image }});{% endif %}"
+                              title="{{ value | escape }}"
+                            >
+                              <span class="color__swatch-dot"></span>
+                            </label>
+                          {%- else -%}
+                            <label for="{{ section.id }}-{{ option.name }}-{{ forloop.index0 }}">
+                              {{ value }}
+                            </label>
+                          {%- endif -%}
+                          {% endcomment %}
+                            <label for="{{ section.id }}-{{ option.name }}-{{ forloop.index0 }}" class="p-sm main-product__fieldset__value">
+                              {{ value }}
+                            </label>
+                        {%- endfor -%}
+
+                        {% comment %}
+                        {%- if is_size -%}
+                          <div class="form__popup" id="size-{{ section.id }}">
+                            <modal-opener class="no-js-hidden" data-modal="#PopupModal-{{ block.id }}" {{ block.shopify_attributes }}>
+                              <button id="ProductPopup-{{ block.id }}" class="link link-with-icon" type="button" aria-haspopup="dialog">
+                                {% render 'icon', icon: 'ruler' %}
+                                <span class="label">{{ 'products.product.size_chart' | t | default: block.settings.size_chart.title }}</span>
+                              </button>
+                            </modal-opener>
+                            <a href="{{ block.settings.size_chart.url }}" class="link link-with-icon no-js">
+                              {% render 'icon', icon: 'ruler' %}
+                              <span class="label">{{ 'products.product.size_chart' | t | default: block.settings.size_chart.title }}</span>
+                            </a>
+                          </div>
+                        {%- endif -%}
+                      {% endcomment %}
+                      </fieldset>
+                    </div>
+                  {%- endfor -%}
+                  
+                  <script type="application/json">
+                    {{ product.variants | json }}
+                  </script>
+                </variant-radios>
+              {% comment %} Layout dropdowns {% endcomment %}
+              {%- else -%}
+                <variant-selects class="no-js-hidden main-product__variant-dropdowns main-product__block {% if block.settings.include_border %} __border-top {% endif %}" data-section="{{ section.id }}" data-url="{{ product.url }}">
+                  {%- for option in product.options_with_values -%}
+                    <div class="main-product__dropdown">
+                      <label for="Option-{{ section.id }}-{{ forloop.index0 }}" class="main-product__dropdown__label p-sm">
+                        {{ option.name }}
+                      </label>
+                      <select
+                        id="Option-{{ section.id }}-{{ forloop.index0 }}"
+                        name="options[{{ option.name | escape }}]"
+                        form="{{ product_form_id }}"
+                        class="main-product__dropdown__select"
+                      >
+                        {%- for value in option.values -%}
+                          <option
+                            value="{{ value | escape }}"
+                            {% if option.selected_value == value %}
+                              selected="selected"
+                            {% endif %}
+                          >
+                            {{ value }}
+                          </option>
+                        {%- endfor -%}
+                      </select>
+                    </div>
+                  {%- endfor -%}
+
+                  <script type="application/json">
+                    {{ product.variants | json }}
+                  </script>
+                </variant-selects>
+              {%- endif -%}
 
               <noscript>
-                <div>
-                  <label for="Variants-{{ section.id }}">
+                <div class="main-product__dropdown">
+                  <label for="Variants-{{ section.id }}" class="main-product__dropdown__label p-sm">
                     {{ 'products.product.product_variants' | t }}
                   </label>
 
@@ -224,6 +327,7 @@
                     name="id"
                     id="Variants-{{ section.id }}"
                     form="{{ product_form_id }}"
+                    class="main-product__dropdown__select"
                   >
                     {%- for variant in product.variants -%}
                       <option
@@ -249,7 +353,24 @@
 
           {% comment %} Type buy buttons {% endcomment %}
           {%- when 'buy_buttons' -%}
+          <div class="main-product__block">
+            {% if block.settings.show_quantity %}
+              <div {{ block.shopify_attributes }}>
+                <label for="Quantity-{{ section.id }}" class="visually-hidden">
+                  {{ 'products.product.quantity.label' | t }}
+                </label>
+                <input
+                  type="number"
+                  name="quantity"
+                  id="Quantity-{{ section.id }}"
+                  min="1"
+                  value="1"
+                  form="{{ product_form_id }}"
+                >
+              </div>
+            {% endif %}
             {% render 'product-form' id: product_form_id, product: product %}
+          </div>
 
           {% comment %} Type expandable content {% endcomment %}
           {%- when 'expandable' %}
@@ -991,19 +1112,53 @@
       ]
     },
     {
-      "type": "quantity_selector",
-      "name": "t:sections.main-product.blocks.quantity_selector.name",
-      "limit": 1
-    },
-    {
       "type": "variant_picker",
       "name": "t:sections.main-product.blocks.variant_picker.name",
-      "limit": 1
+      "limit": 1,
+      "settings": [
+        {
+          "type": "radio",
+          "id": "layout",
+          "label": "Layout",
+          "options": [
+            {
+              "value": "dropdown",
+              "label": "Dropdown"
+            },
+            {
+              "value": "buttons",
+              "label": "Buttons"
+            }
+          ],
+          "default": "buttons"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_option_labels",
+          "label": "Show option labels and option descriptions?",
+          "info": "Option descriptions can be added using metafields TODO: link",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "include_border",
+          "label": "Include border?",
+          "default": true
+        }
+      ]
     },
     {
       "type": "buy_buttons",
-      "name": "t:sections.main-product.blocks.buy_buttons.name",
-      "limit": 1
+      "name": "Buy buttons/quanity",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_quantity",
+          "label": "Show quantity selector?",
+          "default": true
+        }
+      ]
     },
     {
       "type": "description",

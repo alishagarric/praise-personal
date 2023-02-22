@@ -21,6 +21,21 @@
   &__blocks-before-media {
     grid-column: 1 / 2;
     padding-left: calc(var(--sectionGuttersSpacing) / 2);
+    color: RGB(var(--color-text));
+
+    > * {
+      position: relative;
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      width: 50vw;
+      right: -50%;
+      top: 0;
+      bottom: 0;
+      background: RGB(var(--color-background));
+    }
   }
 
   //media column position and space
@@ -34,29 +49,63 @@
   //blocks after media column position, space and coloring
   &__blocks-after-media {
     grid-column: 3 / -1;
-    color: RGB(var(--color-text));
     padding-right: calc(var(--sectionGuttersSpacing) / 2);
-
-    > * {
-      position: relative;
-    }
-
-    &:before {
-      content: "";
-      position: absolute;
-      width: 50vw;
-      left: -50%;
-      top: 0;
-      bottom: 0;
-      background: RGB(var(--color-background));
-    }
   }
 
   //block wrapper that wraps some product blocks
   &__block {
+    display: block;
+
     &.__border-top {
-      border-top: 1px solid RGB(var(--color-border));
+      border-top: 1px solid RGBA(var(--color-border));
       padding-top: calc(var(--pxSize) / 4);
+    }
+  }
+
+  //fieldsets inside radios for variant picker
+  &__fieldset {
+    margin: 0;
+
+    &__label {
+      margin-bottom: 0.5rem;
+
+      span {
+        display: block;
+      }
+    }
+
+    &__input {
+      display: none;
+
+      &:checked + label {
+        background: RGB(var(--color-foreground));
+        color: RGB(var(--color-foreground-text));
+      }
+    }
+
+    &__value {
+      padding: calc(var(--pxSize) / 6) calc(var(--pxSize) / 4);
+      display: inline-block;
+      border-radius: 100%;
+      cursor: pointer;
+
+      &:hover {
+        background: RGB(var(--color-foreground) / 0.2);
+      }
+    }
+  }
+
+  //dropdowns for variant picker
+  &__dropdown {
+    &__label {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    &__select {
+      width: 100%;
+      margin-bottom: 0.5rem;
+      border: 1px solid RGBA(var(--color-border));
     }
   }
 
