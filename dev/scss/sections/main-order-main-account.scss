@@ -7,7 +7,7 @@
     padding-bottom: var(--pxSize);
     border-bottom: 1px solid RGBA(var(--color-border));
 
-    > * {
+    > .breadcrumbs {
       margin: 0;
     }
   }
