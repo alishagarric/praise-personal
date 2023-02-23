@@ -32,7 +32,7 @@
     <p>
       {{- 'customer.order.date_html' | t: date: order_date -}}
     </p>
-    
+
     {%- if order.cancelled -%}
       {%- assign cancelled_at = order.cancelled_at | time_tag: format: "date_at_time" -%}
       <p>{{ 'customer.order.cancelled_html' | t: date: cancelled_at }}</p>
@@ -275,3 +275,13 @@
   </div>
 
 </section>
+
+{% schema %}
+{
+  "name": "Main Order",
+  "tag": "section",
+  "settings": [
+
+  ]
+}
+{% endschema %}
