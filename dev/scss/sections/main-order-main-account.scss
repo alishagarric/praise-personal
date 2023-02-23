@@ -62,16 +62,15 @@
       border-bottom: 1px solid RGBA(var(--color-border));
 
       th {
-        all: unset;
         @extend .p-sm;
-        margin-bottom: 0;
+        border: none;
       }
     }
 
     &__list-body {
       td {
-        @extend .p-sm;
-        border: none;
+        all: unset;
+        padding-bottom: 1rem;
       }
     }
 
