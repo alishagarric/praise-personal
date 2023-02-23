@@ -4,6 +4,19 @@
     margin: 0 auto;
   }
 
+  &__text{
+    text-align: center;
+    max-width: 418px;
+    margin: 0 auto;
+
+    &__description{
+      margin-bottom: 4rem;
+      p{
+        margin-bottom: 0;
+      }
+    }
+  }
+
   &__button{
     max-width: 334px;
   }

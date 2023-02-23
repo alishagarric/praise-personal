@@ -13,11 +13,11 @@
   }
 {% endstyle %}
 
-<div id="Contact-form-{{ section.id }}" class="contact-form form-styles __theme-{{ section_theme }}">
+<div id="Contact-form-{{ section.id }}" class="contact-form  __theme-{{ section_theme }}">
   <div class="contact-form__container">
-    <div class="form-styles__text">
+    <div class="contact-form__text">
       {% render 'heading', heading: section.settings.heading, heading_size: 'h4' %}
-      <div class="form-styles__text__description" {{ block.shopify_attributes }}>
+      <div class="contact-form__text__description" {{ block.shopify_attributes }}>
         {{ section.settings.description }}
       </div>
     </div>
@@ -26,128 +26,154 @@
         {{ section.settings.disclaimer }}
       </span>
     </div>
-    {%- form 'contact', id: 'ContactForm' -%}
-      {% comment %}
-        Check if the form submitted successfully
-        If not it could only have come from the email field which is the only required field
-      {% endcomment %}
-      {%- if form.posted_successfully? -%}
-        <p class="message-success">{{ 'templates.contact.form.post_success' | t }}</p>
-      {%- elsif form.errors -%}
-        <p class="message-error">
-          {{ 'templates.contact.form.error_heading' | t }}
-          <a href="#ContactForm-email">
-            {{ form.errors.translated_fields.email | capitalize }}
-            {{ form.errors.messages.email }}
-          </a>
-        </p>
-      {%- endif -%}
+    <div class="form-styles">
+      {%- form 'contact', id: 'ContactForm' -%}
+        {% comment %}
+          Check if the form submitted successfully
+          If not it could only have come from the email field which is the only required field
+        {% endcomment %}
+        {%- if form.posted_successfully? -%}
+          <p class="message-success">{{ 'templates.contact.form.post_success' | t }}</p>
+        {%- elsif form.errors -%}
+          <p class="message-error">
+            {{ 'templates.contact.form.error_heading' | t }}
+            <a href="#ContactForm-email">
+              {{ form.errors.translated_fields.email | capitalize }}
+              {{ form.errors.messages.email }}
+            </a>
+          </p>
+        {%- endif -%}
 
-      {% comment %}
-        Name field
-        The inputs need to have an attribute of name="contact[information_id]", where information_id briefly
-        identifies the information that you're collecting. These titles appear in contact notifications, and
-        must be unique within the form. The emails sent to the buyer related to contact us form submissions
-        uses the name string for the label in the email and thus needs to be translated.
-      {% endcomment %}
+        {% comment %}
+          Email field, which is required
+          Aria is used for accessibility
+        {% endcomment %}
+        <div class="form__row">
+          <label
+            for="ContactForm-email"
+            class="{% if section.settings.hideLabels %}hide{% endif %}"
+          >
+            {{ section.settings.emailLabel }}
+            <span aria-hidden="true">*</span></label
+          >
+          <input
+            required
+            autocomplete="email"
+            type="email"
+            id="ContactForm-email"
+            name="contact[email]"
+            spellcheck="false"
+            placeholder="Email*"
+            autocapitalize="off"
+            aria-required="true"
+            value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+            {% if form.errors contains 'email' %}
+              aria-invalid="true"
+              aria-describedby="ContactForm-email-error"
+            {% endif %}
+          >
+        </div>
 
-      <div class="form__row">
-        <label
-          for="ContactForm-name"
-          class="{% if section.settings.hide_name_label %}hide{% endif %}"
-        >
-          {{- section.settings.nameLabel -}}
-        </label>
-        <input
-          autocomplete="name"
-          type="text"
-          placeholder="Name*"
-          id="ContactForm-name"
-          name="contact[{{- section.settings.nameLabel -}}]"
-          value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
-        >
-      </div>
+        {% comment %} Print email errors {% endcomment %}
+        {%- if form.errors contains 'email' -%}
+          <small id="ContactForm-email-error">
+            <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
+            <span class="message-error">
+              {{- form.errors.translated_fields.email | capitalize }}
+              {{ form.errors.messages.email -}}
+            </span>
+          </small>
+        {%- endif -%}
 
-      {% comment %}
-        Email field, which is required
-        Aria is used for accessibility
-      {% endcomment %}
-      <div class="form__row">
-        <label
-          for="ContactForm-email"
-          class="{% if section.settings.hide_email_label %}hide{% endif %}"
-        >
-          {{ section.settings.emailLabel }}
-          <span aria-hidden="true">*</span></label
-        >
-        <input
-          autocomplete="email"
-          type="email"
-          id="ContactForm-email"
-          name="contact[email]"
-          spellcheck="false"
-          placeholder="Email*"
-          autocapitalize="off"
-          aria-required="true"
-          value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
-          {% if form.errors contains 'email' %}
-            aria-invalid="true"
-            aria-describedby="ContactForm-email-error"
-          {% endif %}
-        >
-      </div>
-      {% comment %} Print email errors {% endcomment %}
-      {%- if form.errors contains 'email' -%}
-        <small id="ContactForm-email-error">
-          <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
-          <span class="message-error">
-            {{- form.errors.translated_fields.email | capitalize }}
-            {{ form.errors.messages.email -}}
-          </span>
-        </small>
-      {%- endif -%}
+        {% comment %}
+          Name field
+          The inputs need to have an attribute of name="contact[information_id]", where information_id briefly
+          identifies the information that you're collecting. These titles appear in contact notifications, and
+          must be unique within the form. The emails sent to the buyer related to contact us form submissions
+          uses the name string for the label in the email and thus needs to be translated.
+        {% endcomment %}
 
-      {% comment %} Phone field {% endcomment %}
-      <div class="form__row {% if section.settings.hide_phone_field %}hide{% endif %}">
-        <label
-          for="ContactForm-phone"
-          class="{% if section.settings.hide_phone_label %}hide{% endif %}"
-        >
-          {{- section.settings.phoneLabel -}}
-        </label>
-        <input
-          type="text"
-          id="ContactForm-phone"
-          placeholder="Phone Number"
-          autocomplete="tel"
-          name="contact[{{- section.settings.phoneLabel -}}]"
-          pattern="[0-9\-]*"
-          value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
-        >
-      </div>
+        <div class="form__row">
+          <label
+            for="ContactForm-name"
+            class="{% if section.settings.hideLabels %}hide{% endif %}"
+          >
+            {{- section.settings.nameLabel -}}
+          </label>
+          <input
+            required
+            autocomplete="name"
+            type="text"
+            placeholder="Name*"
+            id="ContactForm-name"
+            name="contact[{{- section.settings.nameLabel -}}]"
+            value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
+          >
+        </div>
 
-      {% comment %} Comment field {% endcomment %}
-      <div class="form__row {% if section.settings.hide_message_field %}hide{% endif %}">
-        <label
-          for="ContactForm-body"
-          class="{% if section.settings.hide_message_label %}hide{% endif %}"
-        >
-          {{- section.settings.messageLabel -}}
-        </label>
-        <textarea
-          id="ContactForm-body"
-          rows="10"
-          placeholder="What can we help you with?"
-          name="contact[{{- section.settings.messageLabel -}}]"
-        >
+        {% comment %}
+          Contact Reason field
+        {% endcomment %}
+
+        <div class="form__row">
+          <label
+            for="ContactForm-contactReason"
+            class="{% if section.settings.hideLabels %}hide{% endif %}"
+          >
+            {{- section.settings.contactReasonLabel -}}
+          </label>
+          <input
+            required
+            autocomplete="contactReason"
+            type="text"
+            placeholder="Contact Reason*"
+            id="ContactForm-contactReason"
+            name="contact[{{- section.settings.contactReasonLabel -}}]"
+          >
+        </div>
+
+        {% comment %} Phone field {% endcomment %}
+        <div class="form__row {% if section.settings.hide_phone_field %}hide{% endif %}">
+          <label
+            for="ContactForm-phone"
+            class="{% if section.settings.hideLabels %}hide{% endif %}"
+          >
+            {{- section.settings.phoneLabel -}}
+          </label>
+          <input
+            type="text"
+            id="ContactForm-phone"
+            placeholder="123-454-6728"
+            autocomplete="tel"
+            name="contact[{{- section.settings.phoneLabel -}}]"
+            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+            value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+          >
+        </div>
+
+        {% comment %} Comment field {% endcomment %}
+        <div class="form__row {% if section.settings.hide_message_field %}hide{% endif %}">
+          <label
+            for="ContactForm-body"
+            class="{% if section.settings.hideLabels %}hide{% endif %}"
+          >
+            {{- section.settings.messageLabel -}}
+          </label>
+          <textarea
+            id="ContactForm-body"
+            rows="10"
+            placeholder="What can we help you with?"
+            name="contact[{{- section.settings.messageLabel -}}]"
+          >
       {{- form.body -}}
     </textarea>
-      </div>
+        </div>
 
-      <button class="contact-form__button button">
-        {{ 'templates.contact.form.send' | t }}
-      </button>
-    {%- endform -%}
+        <button class="contact-form__button button">
+          {{ 'templates.contact.form.send' | t }}
+        </button>
+      {%- endform -%}
+    </div>
   </div>
 </div>
 
@@ -225,7 +251,13 @@
     },
     {
       "type": "header",
-      "content": "Name Field"
+      "content": "Form Labels"
+    },
+    {
+      "type": "checkbox",
+      "id": "hideLabels",
+      "label": "Hide Labels?",
+      "default": true
     },
     {
       "type": "text",
@@ -234,14 +266,10 @@
       "label": "Name Label"
     },
     {
-      "type": "checkbox",
-      "id": "hide_name_label",
-      "label": "Hide Label?",
-      "default": true
-    },
-    {
-      "type": "header",
-      "content": "Email Field"
+      "type": "text",
+      "id": "contactReasonLabel",
+      "default": "Contact Reason",
+      "label": "Contact Reason Label"
     },
     {
       "type": "text",
@@ -250,42 +278,10 @@
       "label": "Email Label"
     },
     {
-      "type": "checkbox",
-      "id": "hide_email_label",
-      "label": "Hide Label?",
-      "default": true
-    },
-    {
-      "type": "header",
-      "content": "Phone Field"
-    },
-    {
-      "type": "checkbox",
-      "id": "hide_phone_field",
-      "label": "Hide Phone Field?",
-      "default": false
-    },
-    {
       "type": "text",
       "id": "phoneLabel",
       "default": "Phone",
       "label": "Phone Label"
-    },
-    {
-      "type": "checkbox",
-      "id": "hide_phone_label",
-      "label": "Hide Label?",
-      "default": true
-    },
-    {
-      "type": "header",
-      "content": "Message Field"
-    },
-    {
-      "type": "checkbox",
-      "id": "hide_message_field",
-      "label": "Hide Message Field?",
-      "default": false
     },
     {
       "type": "text",
@@ -294,10 +290,20 @@
       "label": "Message Label"
     },
     {
+      "type": "header",
+      "content": "Form Fields"
+    },
+    {
       "type": "checkbox",
-      "id": "hide_message_label",
-      "label": "Hide Label?",
-      "default": true
+      "id": "hide_phone_field",
+      "label": "Hide Phone Field?",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_message_field",
+      "label": "Hide Message Field?",
+      "default": false
     }
   ],
   "presets": [
