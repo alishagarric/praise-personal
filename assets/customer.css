@@ -1,4 +1,5 @@
-#recover, #recover + div {
+#recover,
+#recover + div {
   display: none;
 }
 
@@ -32,7 +33,7 @@
   }
 }
 
-.account-details, .order-adresses-details {
+.order-adresses-details {
   overflow-x: auto;
 }
 .customer button {
@@ -42,4 +43,3 @@
 .customer summary {
   margin-top: 1.5rem;
 }
-

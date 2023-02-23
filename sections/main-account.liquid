@@ -1,18 +1,36 @@
-{{ 'customer.css' | asset_url | stylesheet_tag }}
+<div class="main-account __theme-primary">
+  <div class="main-account__sidebar __article-txt">
+    <h1 class="alt h6">{{ 'customer.account.title' | t }}</h1>
+    <a href="{{ routes.account_logout_url }}">
+      {{- 'customer.log_out' | t -}}
+    </a>
 
-<div class="container">
-  <h1>{{ 'customer.account.title' | t }}</h1>
-  <a href="{{ routes.account_logout_url }}">
-    {{- 'customer.log_out' | t -}}
-  </a>
-  <div class="account-wrapper">
+    <h2 class="alt h6">{{ 'customer.account.name' | t }}</h2>
+    <p>{{ customer.name }}</p>
+
+
+    <h2 class="alt h6">{{ 'customer.account.email' | t }}</h2>
+    <p>{{ customer.email }}</p>
+
+    <h2 class="alt h6">{{ 'customer.account.default_address' | t }}</h2>
+    {{ customer.default_address | format_address }}
+    <a href="{{ routes.account_addresses_url }}">
+      {{- 'customer.account.view_addresses' | t: count: customer.addresses_count -}}
+    </a>
+
+    <h2 class="alt h6">{{ 'customer.account.password' | t }}</h2>
+    <a href="{{ routes.account_login_url }}#recover">
+      {{- 'customer.account.reset_password' | t -}}
+    </a>
+  </div>
+
+  <div class="main-account__orders">
+    <h2 class="h6 alt">{{ 'customer.orders.title' | t }}</h2>
+    
     {% paginate customer.orders by 20 %}
       {%- if customer.orders.size > 0 -%}
-        <div>
-          <h2>{{ 'customer.orders.title' | t }}</h2>
-          <div class="horizontal-scrolling">
-            <table role="table">
-              <thead role="rowgroup">
+            <table role="table" class="main-account__table">
+              <thead role="rowgroup" class="main-account__table__head">
                 <tr role="row">
                   <th id="ColumnOrder" scope="col" role="columnheader">{{ 'customer.orders.order_number' | t }}</th>
                   <th id="ColumnDate" scope="col" role="columnheader">{{ 'customer.orders.date' | t }}</th>
@@ -23,7 +41,7 @@
                   <th id="ColumnTotal" scope="col" role="columnheader">{{ 'customer.orders.total' | t }}</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody class="main-account__table__body">
                 {%- for order in customer.orders -%}
                   <tr role="row">
                     <td
@@ -60,7 +78,6 @@
                 {% endfor %}
               </tbody>
             </table>
-          </div>
           {%- if paginate.pages > 1 -%}
             {%- if paginate.parts.size > 0 -%}
               <nav class="pagination" role="navigation" aria-label="{{ 'general.pagination.label' | t }}">
@@ -100,22 +117,11 @@
               </nav>
             {%- endif -%}
           {%- endif -%}
-        </div>
       {% else %}
         <p>{{ 'customer.orders.none' | t }}</p>
       {% endif %}
     {% endpaginate %}
-
-    <div class="account-details">
-      <h2>{{ 'customer.account.details' | t }}</h2>
-
-      {{ customer.default_address | format_address }}
-
-      <a href="{{ routes.account_addresses_url }}">
-        {{- 'customer.account.view_addresses' | t: count: customer.addresses_count -}}
-      </a>
-    </div>
-  </div>
+   </div>
 </div>
 
 {% schema %}

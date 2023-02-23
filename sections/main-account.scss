@@ -1,0 +1,21 @@
+.main-account {
+  display: flex;
+  gap: var(--pxSize);
+
+  &__sidebar {
+    flex: 1;
+  }
+
+  &__orders {
+    flex: 3;
+  }
+
+  &__table {
+    &__head {
+      display: none;
+    }
+
+    &__body {
+    }
+  }
+}
