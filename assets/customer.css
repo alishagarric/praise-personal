@@ -23,19 +23,6 @@
 
 /* Account and Order content wrapper */
 
-@media screen and (min-width: 990px) {
-  .account-order-wrapper {
-    display: flex;
-  }
-  div.account-order-wrapper > div:first-child {
-    padding-right: 30px;
-    width: 100%;
-  }
-}
-
-.order-adresses-details {
-  overflow-x: auto;
-}
 .customer button {
   margin: 1.5rem 0 1.5rem;
 }

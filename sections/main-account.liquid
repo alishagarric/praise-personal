@@ -1,5 +1,5 @@
-<div class="main-account __theme-primary">
-  <div class="main-account__sidebar">
+<div class="main-order-main-account __theme-primary">
+  <div class="main-order-main-account__sidebar">
     
     <h1>{{ 'customer.account.title' | t }}</h1>
     <a href="{{ routes.account_logout_url }}">
@@ -25,13 +25,13 @@
     </a>
   </div>
 
-  <div class="main-account__orders">
+  <div class="main-order-main-account__orders">
     <h2 class="p-lg">{{ 'customer.orders.title' | t }}</h2>
     
     {% paginate customer.orders by 10 %}
       {%- if customer.orders.size > 0 -%}
-            <table role="table" class="main-account__table">
-              <thead role="rowgroup" class="main-account__table__head">
+            <table role="table" class="main-order-main-account__table">
+              <thead role="rowgroup" class="main-order-main-account__table__head">
                 <tr role="row">
                   <th id="ColumnOrder" scope="col" role="columnheader">{{ 'customer.orders.order_number' | t }}</th>
                   <th id="ColumnDate" scope="col" role="columnheader">{{ 'customer.orders.date' | t }}</th>
@@ -43,9 +43,9 @@
                   <th id="ColumnDetails" scope="col" role="columnheader">{{ 'customer.orders.details' | t }}</th>
                 </tr>
               </thead>
-              <tbody class="main-account__table__body">
+              <tbody class="main-order-main-account__table__body">
                 {%- for order in customer.orders -%}
-                  <tr role="row" class="main-account__orders__order p-sm">
+                  <tr role="row" class="main-order-main-account__orders__order p-sm">
                     <td
                       id="RowOrder"
                       role="cell"
