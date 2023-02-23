@@ -2,12 +2,12 @@
   display: flex;
   gap: var(--pxSize);
 
-  a {
-    @extend .txt-link;
-  }
-
   &__sidebar {
     flex: 1;
+
+    a {
+      @extend .txt-link;
+    }
 
     h1 {
       @extend .p-lg;
@@ -36,6 +36,10 @@
     &__order {
       display: flex;
       flex-direction: column;
+
+      a {
+        @extend .txt-link;
+      }
     }
   }
 
@@ -49,6 +53,12 @@
         all: unset;
         padding-bottom: 1rem;
       }
+    }
+  }
+
+  .pagination {
+    &__list {
+      justify-content: flex-start;
     }
   }
 }
