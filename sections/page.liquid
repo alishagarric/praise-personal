@@ -5,16 +5,17 @@
   }
 {% endstyle %}
 
-{% assign page_title = section.settings.page.title | default: 'sections.page.title' | t %}
+{% assign default_title = 'sections.page.title' | t %}
+{% assign page_title = section.settings.page.title | default: default_title %}
 
-<div id="Page-output-{{ section.id }}" class="page-output">
+<div id="Page-output-{{ section.id }}" class="page-output __theme-{{ section.settings.theme }}">
   {% render 'heading' heading: page_title %}
 
   <div class="__article-text">
     {%- if section.settings.page.content != blank -%}
       {{ section.settings.page.content }}
     {%- else -%}
-      <div class="grid">
+      <div class="page-output__image image-container" style="padding-top: 50%;">
         {{ 'page' | placeholder_svg_tag: 'page-placeholder' }}
       </div>
     {%- endif -%}

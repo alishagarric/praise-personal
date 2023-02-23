@@ -56,18 +56,16 @@
         "4bba4ed4-4a35-4e8a-afab-0e76fa088d32": {
           "type": "quote",
           "settings": {
-            "quote": "<ul><li>testing marquee<\/li><li>dsfsdf<\/li><\/ul><p><\/p>",
+            "quote": "<ul><li>testing marquee</li><li>dsfsdf</li></ul><p></p>",
             "quotations": true,
-            "details": "<ul><li>asdfasdf<\/li><li>Details <\/li><li>go here<\/li><\/ul>",
-            "logo": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash.jpg",
+            "details": "<ul><li>asdfasdf</li><li>Details </li><li>go here</li></ul>",
+            "logo": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash.jpg",
             "background_theme": "3",
             "card_corners": "semicircle"
           }
         }
       },
-      "block_order": [
-        "4bba4ed4-4a35-4e8a-afab-0e76fa088d32"
-      ],
+      "block_order": ["4bba4ed4-4a35-4e8a-afab-0e76fa088d32"],
       "settings": {
         "alignment": "center",
         "speed": 1,

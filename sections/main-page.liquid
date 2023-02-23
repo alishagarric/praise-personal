@@ -6,8 +6,10 @@
 {% endstyle %}
 
 <div id="Main-page-{{ section.id }}" class="main-page __theme-{{ section.settings.theme }}">
-  <h1>{{ page.title | escape }}</h1>
-  <div class="__article-txt">{{ page.content }}</div>
+  {% render 'heading' heading: page.title, heading_tag: "h1" %}
+  {% if page.content != blank %}
+    <div class="__article-txt">{{ page.content }}</div>
+  {% endif %}
 </div>
   
 {% schema %}
@@ -15,13 +17,6 @@
   "name": "t:sections.main-page.name",
   "tag": "section",
   "settings": [
-    {
-      "type": "checkbox",
-      "id": "output_section",
-      "label": "Treat as section?",
-      "default": true,
-      "info": "Fields below apply only if checked"
-    },
     {
       "type": "range",
       "id": "top_spacing",
