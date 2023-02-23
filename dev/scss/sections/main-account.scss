@@ -4,6 +4,10 @@
 
   &__sidebar {
     flex: 1;
+
+    a {
+      @extend .txt-link;
+    }
   }
 
   &__orders {
@@ -11,6 +15,14 @@
 
     &__order:not(:last-child) {
       border-bottom: 1px solid var(--color-border);
+    }
+
+    &__order {
+      display: block;
+
+      > * {
+        display: block;
+      }
     }
   }
 
@@ -20,6 +32,9 @@
     }
 
     &__body {
+      td {
+        all: unset;
+      }
     }
   }
 }
