@@ -2,25 +2,25 @@
   display: flex;
   gap: var(--pxSize);
 
+  a {
+    @extend .txt-link;
+  }
+
   &__sidebar {
     flex: 1;
 
-    h2,
     h1 {
       @extend .p-lg;
+    }
 
-      &:not(:first-child) {
-        margin-top: var(--pxSize);
-      }
+    h2 {
+      margin-top: var(--pxSize);
+      @extend .p;
     }
 
     a,
     p {
       @extend .p-sm;
-    }
-
-    a {
-      @extend .txt-link;
     }
   }
 
@@ -30,7 +30,7 @@
     &__order:not(:last-child) {
       border-bottom: 1px solid RGBA(var(--color-border));
       padding-bottom: 1rem;
-      margin-bottom: 1rem;
+      margin-bottom: 2rem;
     }
 
     &__order {
