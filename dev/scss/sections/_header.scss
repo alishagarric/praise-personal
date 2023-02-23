@@ -1,10 +1,9 @@
 .site-header {
   display: flex;
-  gap: var(--pxSize);
-  height: var(--navHeight);
+  flex-wrap: wrap;
+  gap: 0 var(--pxSize);
   justify-content: space-between;
   align-items: center;
-  padding: 0 calc(var(--pxSize) * 1.5);
   position: fixed;
   inset: 0px 0px auto 0px;
   width: 100%;
@@ -28,6 +27,7 @@
   // We have two navigation types, this one displays at the top of the page content
   &.__style-relative {
     position: absolute;
+    height: var(--navWithAnnouncementHeight);
 
     &.__dropdown-open,
     &.__overlay-open {
@@ -82,6 +82,8 @@
     gap: var(--pxSize);
     flex: 1;
     align-self: stretch;
+    padding-left: calc(var(--pxSize) * 1.5);
+    height: var(--navHeight);
 
     &.__center-links {
       justify-content: center;
@@ -91,9 +93,10 @@
   // Search, Account and Cart
   &__utility-links {
     display: flex;
-    height: 100%;
+    height: var(--navHeight);
     align-items: center;
     gap: calc(var(--pxSize) / 4);
+    padding-right: calc(var(--pxSize) * 1.5);
   }
 
   // All the links text (dropdown labels and plain links)
@@ -358,8 +361,6 @@
   }
 
   @media screen and (max-width: 1000px) {
-    padding: 0 var(--sectionGuttersSpacing);
-
     &__logo {
       flex: 1;
     }

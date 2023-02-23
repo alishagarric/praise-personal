@@ -1,5 +1,4 @@
 {% assign className = 'site-header' %}
-{% section 'announcement-bar' %}
 
 {% comment %} Output navigation twice, one to display on scroll up and one that always exists at the top of the page content {% endcomment %}
 {% for i in (1..2) %}
@@ -9,6 +8,12 @@
   {% endif %}
 
   <{% if style == "on-scroll" %}sticky-header{% else %}header{% endif %} class="{{ className }} __style-{{ style }} {% if section.settings.always_show_nav %}__always-show-nav{% endif %}">
+
+    {% comment %}Announcement Bar {% endcomment %}
+    {% if style == "relative" %}
+      {% render 'announcement-bar' %}
+    {% endif %}
+    
     {% comment %} Mobile hamburger button and divider {% endcomment %}
     <hamburger-button class="{{ className }}__hamburger"><span></span></hamburger-button>
 
@@ -330,6 +335,7 @@
       "label": "Don't hide navigation bar on scroll down?",
       "default": false
     }
+
   ],
   "blocks": [
     {

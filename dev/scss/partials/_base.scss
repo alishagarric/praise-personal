@@ -31,7 +31,7 @@ body {
 
   main {
     > *:first-child {
-      margin-top: var(--navHeight);
+      margin-top: var(--navWithAnnouncementHeight);
     }
   }
 }

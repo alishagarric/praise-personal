@@ -8,6 +8,65 @@
     "theme_support_url": "https://commence.studio"
   },
   {
+    "name": "Announcement Bar",
+    "settings": [
+      {
+        "type": "text",
+        "id": "announcement_bar_text",
+        "default": "Welcome to our store",
+        "label": "t:sections.announcement-bar.settings.text.label"
+      },
+      {
+        "type": "select",
+        "id": "announcement_bar_text_size",
+        "options": [
+          {
+            "value": "p-sm",
+            "label": "Small Text"
+          },
+          {
+            "value": "p",
+            "label": "Basic Text"
+          },
+          {
+            "value": "p-lg",
+            "label": "Large Text"
+          }
+        ],
+        "default": "p-sm",
+        "label": "Text Size"
+      },
+      {
+        "type": "select",
+        "id": "announcement_bar_theme",
+        "options": [
+          {
+            "value": "primary",
+            "label": "Primary Theme"
+          },
+          {
+            "value": "2",
+            "label": "2nd Theme"
+          },
+          {
+            "value": "3",
+            "label": "3rd Theme"
+          },
+          {
+            "value": "4",
+            "label": "4th Theme"
+          },
+          {
+            "value": "5",
+            "label": "5th Theme"
+          }
+        ],
+        "default": "primary",
+        "label": "Theme"
+      }
+    ]
+  },
+  {
     "name": "t:settings_schema.social_media.name",
     "settings": [
       {
