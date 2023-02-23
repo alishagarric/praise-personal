@@ -4,9 +4,9 @@
       "type": "main-page",
       "settings": {
         "output_section": true,
-        "top_spacing": 50,
+        "top_spacing": 80,
         "bottom_spacing": 50,
-        "theme": "primary"
+        "theme": "3"
       }
     },
     "617f3fea-1c3d-4b13-a803-e0384ab2531e": {
