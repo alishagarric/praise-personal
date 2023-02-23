@@ -36,7 +36,6 @@
         type="submit"
         name="add"
         class="button btn"
-        style="--color-foreground: {{ product.metafields.custom.color.value.rgb }}; --color-foreground-text: {{ product.metafields.custom.text_color.value.rgb }}"
         {% if product.selected_or_first_available_variant.available == false %}
           disabled
         {% endif %}

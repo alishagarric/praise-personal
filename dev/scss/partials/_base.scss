@@ -31,7 +31,7 @@ body {
 
   main {
     > *:first-child {
-      margin-top: var(--navHeight);
+      margin-top: var(--navWithAnnouncementHeight);
     }
   }
 }
@@ -69,12 +69,6 @@ body > main > section {
 //How the nav position effects sticky elements
 .__visible-nav + main {
   --stickyElementTransition: translateY(var(--navHeight));
-}
-
-.__visible-nav{
-  .__style-relative{
-    display: none;
-  }
 }
 
 //Form styles

@@ -1,18 +1,15 @@
 .announcement-bar {
-  width: 100vw;
-  z-index: 1000;
-  position: relative;
   background: RGB(var(--color-background));
   color: RGB(var(--color-text));
   display: flex;
   justify-content: center;
   align-items: center;
+  height: calc(var(--navHeight) / 2);
+  flex: 0 0 100%;
+  overflow: hidden;
 
-  &__text{
+  &__text {
     margin-bottom: 0;
-    padding: calc(8px * var(--topSpacingRatio))
-    var(--sectionGuttersSpacing)
-    calc(8px * var(--bottomSpacingRatio))
-    var(--sectionGuttersSpacing);
+    white-space: nowrap;
   }
 }

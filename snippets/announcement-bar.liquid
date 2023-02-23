@@ -1,0 +1,13 @@
+{% comment %}
+  Renders an announcement Bar
+
+  Expects:
+  - class: {string} optional
+
+{% endcomment %}
+
+{% unless settings.announcement_bar_text == blank %}
+  <div class="announcement-bar __theme-{{ settings.announcement_bar_theme }}">
+    <p class="announcement-bar__text {{ settings.announcement_bar_text_size }} alt align-center">{{ settings.announcement_bar_text }}</p>
+  </div>
+{% endunless %}
