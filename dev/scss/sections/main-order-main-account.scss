@@ -3,9 +3,13 @@
   gap: var(--pxSize);
 
   &__breadcrumbs {
-    padding-top: 0;
-    padding-bottom: 0;
+    padding-top: var(--pxSize);
+    padding-bottom: var(--pxSize);
     border-bottom: 1px solid RGBA(var(--color-border));
+
+    > * {
+      margin: 0;
+    }
   }
 
   &__sidebar {
@@ -50,11 +54,6 @@
   }
 
   &__table {
-    td {
-      all: unset;
-      padding-bottom: 1rem;
-    }
-
     &__hidden-head {
       display: none;
     }
@@ -62,13 +61,21 @@
     &__styled-head {
       border-bottom: 1px solid RGBA(var(--color-border));
 
-      td {
+      th {
+        all: unset;
         @extend .p-sm;
         margin-bottom: 0;
       }
     }
 
-    &__body {
+    &__list-body {
+      td {
+        all: unset;
+        padding-bottom: 1rem;
+      }
+    }
+
+    &__row-body {
     }
   }
 
