@@ -8,6 +8,10 @@
 
   &__orders {
     flex: 3;
+
+    &__order:not(:last-child) {
+      border-bottom: 1px solid var(--color-border);
+    }
   }
 
   &__table {

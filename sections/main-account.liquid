@@ -43,7 +43,7 @@
               </thead>
               <tbody class="main-account__table__body">
                 {%- for order in customer.orders -%}
-                  <tr role="row">
+                  <tr role="row" class="main-account__orders__order">
                     <td
                       id="RowOrder"
                       role="cell"
@@ -127,6 +127,7 @@
 {% schema %}
 {
   "name": "t:sections.main-account.name",
+  "tag": "section",
   "settings": [
 
   ]

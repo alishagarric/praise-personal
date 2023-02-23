@@ -117,6 +117,7 @@
       "email": "Email Address",
       "default_address": "Default Address",
       "password": "Password",
+      "reset_password": "Send reset email",
       "name": "Name",
       "view_addresses": "View addresses({{ count }})",
       "return": "Return to Account details"
