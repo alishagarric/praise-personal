@@ -70,12 +70,15 @@
 
     &__list-body {
       td {
-        all: unset;
-        padding-bottom: 1rem;
+        @extend .p-sm;
+        border: none;
       }
     }
 
     &__row-body {
+      td {
+        border: none;
+      }
     }
   }
 
