@@ -2,6 +2,12 @@
   display: flex;
   gap: var(--pxSize);
 
+  &__breadcrumbs {
+    padding-top: 0;
+    padding-bottom: 0;
+    border-bottom: 1px solid RGBA(var(--color-border));
+  }
+
   &__sidebar {
     flex: 1;
 
@@ -44,15 +50,25 @@
   }
 
   &__table {
-    &__head {
+    td {
+      all: unset;
+      padding-bottom: 1rem;
+    }
+
+    &__hidden-head {
       display: none;
     }
 
-    &__body {
+    &__styled-head {
+      border-bottom: 1px solid RGBA(var(--color-border));
+
       td {
-        all: unset;
-        padding-bottom: 1rem;
+        @extend .p-sm;
+        margin-bottom: 0;
       }
+    }
+
+    &__body {
     }
   }
 

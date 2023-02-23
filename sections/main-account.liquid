@@ -31,7 +31,7 @@
     {% paginate customer.orders by 10 %}
       {%- if customer.orders.size > 0 -%}
             <table role="table" class="main-order-main-account__table">
-              <thead role="rowgroup" class="main-order-main-account__table__head">
+              <thead role="rowgroup" class="main-order-main-account__table__hidden-head">
                 <tr role="row">
                   <th id="ColumnOrder" scope="col" role="columnheader">{{ 'customer.orders.order_number' | t }}</th>
                   <th id="ColumnDate" scope="col" role="columnheader">{{ 'customer.orders.date' | t }}</th>
