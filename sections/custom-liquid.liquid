@@ -8,7 +8,7 @@
 {% if section.settings.output_section %}
   <div
     id="Custom-liquid-{{ section.id }}"
-    class="Custom-liquid  __theme-{{ section.settings.theme }}"
+    class="custom-liquid  __theme-{{ section.settings.theme }}"
   >
     {{ section.settings.custom_liquid }}
   </div>
@@ -30,7 +30,7 @@
     {
       "type": "checkbox",
       "id": "output_section",
-      "label": "Output Custom Liquid within Section?",
+      "label": "Treat as section?",
       "default": true,
       "info": "Fields below apply only if checked"
     },

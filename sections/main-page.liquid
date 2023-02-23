@@ -1,6 +1,13 @@
-<div class="container">
+{% style %}
+  #Main-page-{{ section.id }} {
+    --topSpacingRatio: {{ section.settings.top_spacing }} / 100;
+    --bottomSpacingRatio: {{ section.settings.bottom_spacing }} / 100;
+  }
+{% endstyle %}
+
+<div id="Main-page-{{ section.id }}" class="main-page __theme-{{ section.settings.theme }}">
   <h1>{{ page.title | escape }}</h1>
-  <div>{{ page.content }}</div>
+  <div class="__article-txt">{{ page.content }}</div>
 </div>
   
 {% schema %}
@@ -8,7 +15,61 @@
   "name": "t:sections.main-page.name",
   "tag": "section",
   "settings": [
-
+    {
+      "type": "checkbox",
+      "id": "output_section",
+      "label": "Treat as section?",
+      "default": true,
+      "info": "Fields below apply only if checked"
+    },
+    {
+      "type": "range",
+      "id": "top_spacing",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "Top Section Spacing",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "bottom_spacing",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "Bottom Section Spacing",
+      "default": 50
+    },
+    {
+      "type": "select",
+      "id": "theme",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary Theme"
+        },
+        {
+          "value": "2",
+          "label": "2nd Theme"
+        },
+        {
+          "value": "3",
+          "label": "3rd Theme"
+        },
+        {
+          "value": "4",
+          "label": "4th Theme"
+        },
+        {
+          "value": "5",
+          "label": "5th Theme"
+        }
+      ],
+      "default": "primary",
+      "label": "Theme"
+    }
   ],
     "presets": [
     {
