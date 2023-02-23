@@ -1,31 +1,32 @@
 <div class="main-account __theme-primary">
   <div class="main-account__sidebar">
-    <h1 class="alt h6">{{ 'customer.account.title' | t }}</h1>
+    
+    <h1>{{ 'customer.account.title' | t }}</h1>
     <a href="{{ routes.account_logout_url }}">
       {{- 'customer.log_out' | t -}}
     </a>
 
-    <h2 class="alt h6">{{ 'customer.account.name' | t }}</h2>
+    <h2>{{ 'customer.account.name' | t }}</h2>
     <p>{{ customer.name }}</p>
 
 
-    <h2 class="alt h6">{{ 'customer.account.email' | t }}</h2>
+    <h2>{{ 'customer.account.email' | t }}</h2>
     <p>{{ customer.email }}</p>
 
-    <h2 class="alt h6">{{ 'customer.account.default_address' | t }}</h2>
+    <h2>{{ 'customer.account.default_address' | t }}</h2>
     {{ customer.default_address | format_address }}
     <a href="{{ routes.account_addresses_url }}">
       {{- 'customer.account.view_addresses' | t: count: customer.addresses_count -}}
     </a>
 
-    <h2 class="alt h6">{{ 'customer.account.password' | t }}</h2>
+    <h2>{{ 'customer.account.password' | t }}</h2>
     <a href="{{ routes.account_login_url }}#recover">
       {{- 'customer.account.reset_password' | t -}}
     </a>
   </div>
 
   <div class="main-account__orders">
-    <h2 class="h6 alt">{{ 'customer.orders.title' | t }}</h2>
+    <h2 class="p-lg">{{ 'customer.orders.title' | t }}</h2>
     
     {% paginate customer.orders by 20 %}
       {%- if customer.orders.size > 0 -%}
@@ -39,11 +40,12 @@
                     {{- 'customer.orders.fulfillment_status' | t -}}
                   </th>
                   <th id="ColumnTotal" scope="col" role="columnheader">{{ 'customer.orders.total' | t }}</th>
+                  <th id="ColumnDetails" scope="col" role="columnheader">{{ 'customer.orders.details' | t }}</th>
                 </tr>
               </thead>
               <tbody class="main-account__table__body">
                 {%- for order in customer.orders -%}
-                  <tr role="row" class="main-account__orders__order">
+                  <tr role="row" class="main-account__orders__order p-sm">
                     <td
                       id="RowOrder"
                       role="cell"
@@ -73,6 +75,9 @@
                     </td>
                     <td headers="RowOrder ColumnTotal" role="cell">
                       {{- order.total_price | money_with_currency -}}
+                    </td>
+                    <td headers="RowOrder ColumnDetails" role="cell">
+                      <a href="{{ order.url }}">{{ 'customer.orders.details_link' | t }}</a>
                     </td>
                   </tr>
                 {% endfor %}

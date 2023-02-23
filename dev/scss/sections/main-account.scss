@@ -5,6 +5,20 @@
   &__sidebar {
     flex: 1;
 
+    h2,
+    h1 {
+      @extend .p-lg;
+
+      &:not(:first-child) {
+        margin-top: var(--pxSize);
+      }
+    }
+
+    a,
+    p {
+      @extend .p-sm;
+    }
+
     a {
       @extend .txt-link;
     }
@@ -15,6 +29,8 @@
 
     &__order:not(:last-child) {
       border-bottom: 1px solid RGBA(var(--color-border));
+      padding-bottom: 1rem;
+      margin-bottom: 1rem;
     }
 
     &__order {

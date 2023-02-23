@@ -179,12 +179,14 @@
       "submit": "Create"
     },
     "orders": {
+      "details_link": "View Order Details",
       "order_number_link": "Order number {{ number }}",
       "payment_status": "Payment status",
       "title": "Order history",
       "order_number": "Order {{ name }}",
       "order_number_summary": "Order {{ name }} summary",
       "date": "Date",
+      "details": "Details",
       "fulfillment_status": "Fulfillment status",
       "total": "Total",
       "none": "You haven't placed any orders yet."
