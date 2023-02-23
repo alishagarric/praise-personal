@@ -14,15 +14,12 @@
     flex: 3;
 
     &__order:not(:last-child) {
-      border-bottom: 1px solid var(--color-border);
+      border-bottom: 1px solid RGBA(var(--color-border));
     }
 
     &__order {
-      display: block;
-
-      > * {
-        display: block;
-      }
+      display: flex;
+      flex-direction: column;
     }
   }
 
@@ -34,6 +31,7 @@
     &__body {
       td {
         all: unset;
+        padding-bottom: 1rem;
       }
     }
   }
