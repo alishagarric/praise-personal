@@ -63,6 +63,18 @@
         ],
         "default": "primary",
         "label": "Theme"
+      },
+      {
+        "type": "checkbox",
+        "id": "announcement_home_only",
+        "label": "Show on home page only",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "turn_on_marquee",
+        "label": "Turn on Scrolling Marquee",
+        "default": false
       }
     ]
   },

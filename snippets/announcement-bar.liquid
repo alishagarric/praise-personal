@@ -3,11 +3,26 @@
 
   Expects:
   - class: {string} optional
-
 {% endcomment %}
 
+{% style %}
+  #Announcement-bar-{{ section.id }} {
+    --marqueeCharacterCount: {{ settings.announcement_bar_text | size }}ch;
+    --marqueeSpeed: {{ settings.announcement_bar_text | minus: 11 | times: -2 }}s;
+  }
+{% endstyle %}
+
 {% unless settings.announcement_bar_text == blank %}
-  <div class="announcement-bar __theme-{{ settings.announcement_bar_theme }}">
-    <p class="announcement-bar__text {{ settings.announcement_bar_text_size }} alt align-center">{{ settings.announcement_bar_text }}</p>
-  </div>
+  {% if template == 'index' or settings.announcement_home_only == false %}
+    <div
+      id="Announcement-bar-{{ section.id }}"
+      class="announcement-bar __theme-{{ settings.announcement_bar_theme }} {% if settings.turn_on_marquee %}marquee{% endif %}"
+    >
+      <div class="announcement-bar__inner">
+        <p class="announcement-bar__text {{ settings.announcement_bar_text_size }} alt align-center">
+          {{ settings.announcement_bar_text }}
+        </p>
+      </div>
+    </div>
+  {% endif %}
 {% endunless %}
