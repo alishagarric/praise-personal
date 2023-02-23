@@ -75,6 +75,15 @@
         "top_spacing": 50,
         "bottom_spacing": 50
       }
+    },
+    "00c3f0b2-d69e-4a06-8c1d-b427abfa17a5": {
+      "type": "page",
+      "settings": {
+        "page": "",
+        "top_spacing": 70,
+        "bottom_spacing": 50,
+        "theme": "2"
+      }
     }
   },
   "order": [
@@ -82,6 +91,7 @@
     "617f3fea-1c3d-4b13-a803-e0384ab2531e",
     "87bba380-fc1e-4a89-860d-f2229b309a11",
     "c2f734ec-7eeb-4b54-840f-cdf2c0c83c10",
-    "ce384cdd-b039-430b-88cc-cfab78e48dd8"
+    "ce384cdd-b039-430b-88cc-cfab78e48dd8",
+    "00c3f0b2-d69e-4a06-8c1d-b427abfa17a5"
   ]
 }
