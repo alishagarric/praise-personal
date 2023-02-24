@@ -93,17 +93,24 @@
           uses the name string for the label in the email and thus needs to be translated.
         {% endcomment %}
 
-        <div class="form__row">
+        <div class="form__row {% if section.settings.hide_name_field %}hide{% endif %}">
           <label
             for="ContactForm-name"
             class="{% if section.settings.hideLabels %}hide{% endif %}"
           >
             {{- section.settings.nameLabel -}}
+            {% if section.settings.nameRequired %}
+              <span aria-hidden="true">*</span>
+            {%- endif -%}
           </label>
+
           <input
+            {% if section.settings.nameRequired %}
+              required
+            {% endif %}
             autocomplete="name"
             type="text"
-            placeholder="{{ section.settings.namePlaceholder }}"
+            placeholder="{{ section.settings.namePlaceholder }}{% if section.settings.nameRequired %}*{% endif %}"
             id="ContactForm-name"
             name="contact[{{- section.settings.nameLabel -}}]"
             value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
@@ -114,17 +121,23 @@
           Contact Reason field
         {% endcomment %}
 
-        <div class="form__row">
+        <div class="form__row {% if section.settings.hide_reason_field %}hide{% endif %}">
           <label
             for="ContactForm-contactReason"
             class="{% if section.settings.hideLabels %}hide{% endif %}"
           >
             {{- section.settings.contactReasonLabel -}}
+            {% if section.settings.contactReasonRequired %}
+              <span aria-hidden="true">*</span>
+            {%- endif -%}
           </label>
           <input
+            {% if section.settings.contactReasonRequired %}
+              required
+            {% endif %}
             autocomplete="contactReason"
             type="text"
-            placeholder="{{ section.settings.contactReasonPlaceholder }}"
+            placeholder="{{ section.settings.contactReasonPlaceholder }}{% if section.settings.contactReasonRequired %}*{% endif %}"
             id="ContactForm-contactReason"
             name="contact[{{- section.settings.contactReasonLabel -}}]"
           >
@@ -137,11 +150,17 @@
             class="{% if section.settings.hideLabels %}hide{% endif %}"
           >
             {{- section.settings.phoneLabel -}}
+            {% if section.settings.phoneRequired %}
+              <span aria-hidden="true">*</span>
+            {%- endif -%}
           </label>
           <input
+            {% if section.settings.phoneRequired %}
+              required
+            {% endif %}
             type="text"
             id="ContactForm-phone"
-            placeholder="{{ section.settings.phonePlaceholder }}"
+            placeholder="{{ section.settings.phonePlaceholder }}{% if section.settings.phoneRequired %}*{% endif %}"
             autocomplete="tel"
             name="contact[{{- section.settings.phoneLabel -}}]"
             pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
@@ -150,13 +169,14 @@
         </div>
 
         {% comment %} Comment field {% endcomment %}
-        <div class="form__row {% if section.settings.hide_message_field %}hide{% endif %}">
+        <div class="form__row">
           <label
             for="ContactForm-body"
             class="{% if section.settings.hideLabels %}hide{% endif %}"
           >
             {{- section.settings.messageLabel -}}
-          </label>
+            <span aria-hidden="true">*</span></label
+          >
           <contact-form-textarea>
             <textarea
               required
@@ -257,7 +277,7 @@
     },
     {
       "type": "header",
-      "content": "Form Labels"
+      "content": "Fields"
     },
     {
       "type": "checkbox",
@@ -266,16 +286,8 @@
       "default": true
     },
     {
-      "type": "text",
-      "id": "nameLabel",
-      "default": "Name",
-      "label": "Name Label"
-    },
-    {
-      "type": "text",
-      "id": "contactReasonLabel",
-      "default": "Contact Reason",
-      "label": "Contact Reason Label"
+      "type": "header",
+      "content": "Email Field"
     },
     {
       "type": "text",
@@ -285,35 +297,19 @@
     },
     {
       "type": "text",
-      "id": "phoneLabel",
-      "default": "Phone",
-      "label": "Phone Label"
+      "id": "emailPlaceholder",
+      "default": "Email",
+      "label": "Email Placeholder"
+    },
+    {
+      "type": "header",
+      "content": "Name Field"
     },
     {
       "type": "text",
-      "id": "messageLabel",
-      "default": "Leave a Message",
-      "label": "Message Label"
-    },
-    {
-      "type": "header",
-      "content": "Form Fields"
-    },
-    {
-      "type": "checkbox",
-      "id": "hide_phone_field",
-      "label": "Hide Phone Field?",
-      "default": false
-    },
-    {
-      "type": "checkbox",
-      "id": "hide_message_field",
-      "label": "Hide Message Field?",
-      "default": false
-    },
-    {
-      "type": "header",
-      "content": "Field Placeholders"
+      "id": "nameLabel",
+      "default": "Name",
+      "label": "Name Label"
     },
     {
       "type": "text",
@@ -322,10 +318,26 @@
       "label": "Name Placeholder"
     },
     {
+      "type": "checkbox",
+      "id": "nameRequired",
+      "label": "Make Field Required?",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_name_field",
+      "label": "Hide Field?",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Contact Reason Field"
+    },
+    {
       "type": "text",
-      "id": "emailPlaceholder",
-      "default": "Email",
-      "label": "Email Placeholder"
+      "id": "contactReasonLabel",
+      "default": "Contact Reason",
+      "label": "Contact Reason Label"
     },
     {
       "type": "text",
@@ -334,10 +346,54 @@
       "label": "Contact Reason Placeholder"
     },
     {
+      "type": "checkbox",
+      "id": "hide_reason_field",
+      "label": "Hide Field?",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "contactReasonRequired",
+      "label": "Make Field Required?",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Phone Field"
+    },
+    {
+      "type": "text",
+      "id": "phoneLabel",
+      "default": "Phone",
+      "label": "Phone Label"
+    },
+    {
       "type": "text",
       "id": "phonePlaceholder",
       "default": "123-456-7890",
       "label": "Phone Placeholder"
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_phone_field",
+      "label": "Hide Field?",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "phoneRequired",
+      "label": "Make Field Required?",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Message Field"
+    },
+    {
+      "type": "text",
+      "id": "messageLabel",
+      "default": "Leave a Message",
+      "label": "Message Label"
     },
     {
       "type": "text",
