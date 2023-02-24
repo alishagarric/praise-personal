@@ -11,6 +11,11 @@
   <p>
     {{- 'customer.order.date_html' | t: date: order_date -}}
   </p>
+  {%- if order.cancelled -%}
+    {%- assign cancelled_at = order.cancelled_at | time_tag: format: "date_at_time" -%}
+    <p><strong>{{ 'customer.order.cancelled_status' | t }}: </strong>{{ 'customer.order.cancelled_html' | t: date: cancelled_at }}</p>
+    <p>{{ 'customer.order.cancelled_reason' | t: reason: order.cancel_reason_label }}</p>
+  {%- endif -%}
 
 
   <h2>{{ 'customer.order.billing_address' | t }}</h2>
@@ -30,14 +35,6 @@
 </div>
 
 <div class="main-order-main-account__orders">
-  <h2 class="p-lg">{{ 'customer.orders.details' | t }}</h2>
-
-  {%- if order.cancelled -%}
-    {%- assign cancelled_at = order.cancelled_at | time_tag: format: "date_at_time" -%}
-    <p>{{ 'customer.order.cancelled_html' | t: date: cancelled_at }}</p>
-    <p>{{ 'customer.order.cancelled_reason' | t: reason: order.cancel_reason_label }}</p>
-  {%- endif -%}
-
   <table class="main-order-main-account__table">
     <caption class="visually-hidden">
       {{- 'customer.orders.order_number_summary' | t: name: order.name -}}
@@ -206,7 +203,7 @@
         </tr>
       {%- endfor -%}
     </tbody>
-    <tfoot>
+    <tfoot class="main-order-main-account__table__foot">
       <tr>
         <td scope="row" colspan="4">
           {{- 'customer.order.subtotal' | t -}}

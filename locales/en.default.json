@@ -89,6 +89,7 @@
     "order": {
       "title": "Order {{ name }}",
       "date_html": "Placed on {{ date }}",
+      "cancelled_status": "Status",
       "cancelled_html": "Order Cancelled on {{ date }}",
       "cancelled_reason": "Reason: {{ reason }}",
       "billing_address": "Billing Address",
@@ -109,8 +110,7 @@
       "tracking_company": "Carrier",
       "tracking_number": "Tracking number",
       "subtotal": "Subtotal",
-      "total_duties": "Duties",
-      "details": "Details"
+      "total_duties": "Duties"
     },
     "account": {
       "title": "Your Account",

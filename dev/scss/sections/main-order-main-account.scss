@@ -79,6 +79,16 @@
         border: none;
       }
     }
+
+    &__foot {
+      tr {
+        border-bottom: 1px solid RGBA(var(--color-border));
+
+        td {
+          border: none;
+        }
+      }
+    }
   }
 
   .pagination {
