@@ -132,7 +132,6 @@
           </div>
           <div>
             <button>{{ 'customer.addresses.add' | t }}</button>
-            <button type="reset" id="CloseAddNewAddress">{{ 'customer.addresses.cancel' | t }}</button>
           </div>
         {%- endform -%}
       </div>
@@ -154,7 +153,7 @@
               {% assign title = 'customer.addresses.delete' | t %}
               {% assign id = 'DeleteAddress-' | append: forloop.index %}
               {% capture form %}
-                <p class="h6 alt">{{ 'customer.addresses.delete_confirm' | t }}</p>
+                <p>{{ 'customer.addresses.delete_confirm' | t }}</p>
                 {{- address | format_address -}}
                 <form
                   method="post"

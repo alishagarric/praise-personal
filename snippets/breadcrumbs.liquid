@@ -62,6 +62,13 @@
         <li class="breadcrumbs__item p-sm">
           <a class="breadcrumbs__link" href="{{ request.path }}" aria-current="page">{{ page_title }}</a>
         </li>
+      {% when 'customers/addresses' %}
+        <li class="breadcrumbs__item p-sm">
+          <a class="breadcrumbs__link" href="{{ routes.account_url }}">{{- 'customer.account.title' | t -}}</a>
+        </li>
+        <li class="breadcrumbs__item p-sm">
+          <a class="breadcrumbs__link" href="{{ request.path }}" aria-current="page">{{ page_title }}</a>
+        </li>
       {%- else -%}
         <li class="breadcrumbs__item p-sm">
           <a class="breadcrumbs__link" href="{{ request.path }}" aria-current="page">{{ page_title }}</a>
