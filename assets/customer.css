@@ -20,13 +20,3 @@
 #login {
   scroll-margin-top: 20rem;
 }
-
-/* Account and Order content wrapper */
-
-.customer button {
-  margin: 1.5rem 0 1.5rem;
-}
-
-.customer summary {
-  margin-top: 1.5rem;
-}

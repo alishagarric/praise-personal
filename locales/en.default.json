@@ -120,7 +120,8 @@
       "password": "Password",
       "reset_password": "Send reset email",
       "name": "Name",
-      "view_addresses": "View addresses({{ count }})"
+      "view_addresses": "View addresses({{ count }})",
+      "return": "Return to Account details"
     },
     "log_out": "Log out",
     "addresses": {
