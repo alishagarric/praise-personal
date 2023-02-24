@@ -17,6 +17,14 @@
     }
   }
 
+  &__count{
+    text-align: end;
+    padding-top: calc(var(--pxSize) / 5);
+    color: RGBA(var(--color-text) / 0.65);
+    font-weight: 500;
+    letter-spacing: 0.03em;
+  }
+
   &__button{
     max-width: 334px;
   }

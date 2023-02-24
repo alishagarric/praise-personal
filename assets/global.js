@@ -12383,6 +12383,34 @@ class OverflowSlider extends HTMLElement {
 }
 customElements.define("overflow-slider", OverflowSlider);
 
+/* Text Area Counter */
+///////////////////////////////
+///////////////////////////////
+
+class TextAreaCount extends HTMLElement {
+  constructor()
+    {
+      super();
+      this.textArea = this.querySelector('#ContactForm-body');
+      this.current = this.querySelector('.contact-form__count__current');
+      this.count = 1;
+    }
+
+    connectedCallback(){
+      this.addEventListener('keyup', this.updateCount, true);
+    }
+
+    updateCount(e){
+      this.count = (this.textArea.value.length);
+      this.updateNumber();
+    }
+  
+    updateNumber(){
+      this.current.innerHTML = this.count;
+    }
+}
+customElements.define("contact-form-textarea", TextAreaCount);
+
 /* Logic the Shopify Starter Included */
 ////////////////////////////////////////
 ///////////////////////////////////////

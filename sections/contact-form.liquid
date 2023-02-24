@@ -63,7 +63,7 @@
             id="ContactForm-email"
             name="contact[email]"
             spellcheck="false"
-            placeholder="Email*"
+            placeholder="{{ section.settings.emailPlaceholder }}*"
             autocapitalize="off"
             aria-required="true"
             value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
@@ -101,10 +101,9 @@
             {{- section.settings.nameLabel -}}
           </label>
           <input
-            required
             autocomplete="name"
             type="text"
-            placeholder="Name*"
+            placeholder="{{ section.settings.namePlaceholder }}"
             id="ContactForm-name"
             name="contact[{{- section.settings.nameLabel -}}]"
             value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
@@ -123,10 +122,9 @@
             {{- section.settings.contactReasonLabel -}}
           </label>
           <input
-            required
             autocomplete="contactReason"
             type="text"
-            placeholder="Contact Reason*"
+            placeholder="{{ section.settings.contactReasonPlaceholder }}"
             id="ContactForm-contactReason"
             name="contact[{{- section.settings.contactReasonLabel -}}]"
           >
@@ -143,7 +141,7 @@
           <input
             type="text"
             id="ContactForm-phone"
-            placeholder="123-454-6728"
+            placeholder="{{ section.settings.phonePlaceholder }}"
             autocomplete="tel"
             name="contact[{{- section.settings.phoneLabel -}}]"
             pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
@@ -159,14 +157,22 @@
           >
             {{- section.settings.messageLabel -}}
           </label>
-          <textarea
-            id="ContactForm-body"
-            rows="10"
-            placeholder="What can we help you with?"
-            name="contact[{{- section.settings.messageLabel -}}]"
-          >
-      {{- form.body -}}
-    </textarea>
+          <contact-form-textarea>
+            <textarea
+              required
+              id="ContactForm-body"
+              rows="15"
+              maxlength="1000"
+              placeholder="{{ section.settings.messagePlaceholder }}*"
+              name="contact[{{- section.settings.messageLabel -}}]"
+            >
+              {{- form.body -}}
+            </textarea>
+            <div class="contact-form__count caption-sm">
+              <span class="contact-form__count__current">0</span>
+              <span class="contact-form__count__max">/ 1000</span>
+            </div>
+          </contact-form-textarea>
         </div>
 
         <button class="contact-form__button button">
@@ -304,6 +310,40 @@
       "id": "hide_message_field",
       "label": "Hide Message Field?",
       "default": false
+    },
+    {
+      "type": "header",
+      "content": "Field Placeholders"
+    },
+    {
+      "type": "text",
+      "id": "namePlaceholder",
+      "default": "Name",
+      "label": "Name Placeholder"
+    },
+    {
+      "type": "text",
+      "id": "emailPlaceholder",
+      "default": "Email",
+      "label": "Email Placeholder"
+    },
+    {
+      "type": "text",
+      "id": "contactReasonPlaceholder",
+      "default": "Contact Reason",
+      "label": "Contact Reason Placeholder"
+    },
+    {
+      "type": "text",
+      "id": "phonePlaceholder",
+      "default": "123-456-7890",
+      "label": "Phone Placeholder"
+    },
+    {
+      "type": "text",
+      "id": "messagePlaceholder",
+      "default": "What can we help you with?",
+      "label": "Message Placeholder"
     }
   ],
   "presets": [
