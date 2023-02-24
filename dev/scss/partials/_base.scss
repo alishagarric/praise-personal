@@ -148,23 +148,21 @@ form {
     }
   }
 
-  form {
-    input,
-    textarea {
-      border-radius: var(--btnBorderRadius);
+  input,
+  textarea {
+    border-radius: var(--btnBorderRadius);
 
-      &::placeholder {
-        color: RGBA(var(--color-text) / 0.65);
-        opacity: 1;
-      }
+    &::placeholder {
+      color: RGBA(var(--color-text) / 0.65);
+      opacity: 1;
     }
-    label {
-      display: inline-block;
-      margin-bottom: 0.5rem;
-      font-size: calc(0.75rem * var(--font-heading-scale));
-      &.hide {
-        display: none;
-      }
+  }
+  label {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    font-size: calc(0.75rem * var(--font-heading-scale));
+    &.hide {
+      display: none;
     }
   }
 

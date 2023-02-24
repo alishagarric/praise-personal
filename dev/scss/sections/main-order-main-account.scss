@@ -51,6 +51,16 @@
         @extend .txt-link;
       }
     }
+
+    &__list {
+      p {
+        @extend .p-sm;
+      }
+
+      li {
+        margin-top: var(--sectionVerticalSpacing);
+      }
+    }
   }
 
   &__table {

@@ -16,13 +16,12 @@
 
   <div class="main-order-main-account__orders">
 
-     <h2 class="p-lg">New Address</h2>
+     <h2 class="p-lg">{{ 'customer.addresses.new_address' | t }}</h2>
 
     {% assign title = 'customer.addresses.add_new' | t %}
     {% assign id = 'AddAddress' %}
     {% capture form %}
       <div id="{{ id }}">
-        <h2>{{ 'customer.addresses.add_new' | t }}</h2>
         {%- form 'customer_address', customer.new_address, aria-labelledBy: 'AddressNewHeading' -%}
           <div>
             <label for="AddressFirstNameNew">{{ 'customer.addresses.first_name' | t }}</label>
@@ -141,14 +140,14 @@
     {% render 'expandable-content', title: title, id: id, text: form, open: false %}
   
     {%- paginate customer.addresses by 5 -%}
-        <ul role="list" class="list-unstyled">
+        <ul role="list" class="list-unstyled main-order-main-account__orders__list">
           {%- for address in customer.addresses -%}
             <li>
               
               {%- if address == customer.default_address -%}
-                <h2>{{ 'customer.addresses.default' | t }}</h2>
+                <h2 class="p-lg">{{ 'customer.addresses.default' | t }}</h2>
               {% else %}
-                <h2>Address</h2>
+                <h2 class="p-lg">{{ 'customer.addresses.address' | t }}</h2>
               {%- endif -%}
               {{ address | format_address }}
 
@@ -176,7 +175,6 @@
               {% assign title = 'customer.addresses.edit' | t %}
               {% assign id = 'EditAddress-' | append: forloop.index %}
               {% capture form %}
-                <p class="h6 alt">{{ 'customer.addresses.edit_address' | t }}</p>
                 {%- form 'customer_address', address -%}
                   <div>
                     <label for="AddressFirstName_{{ form.id }}">{{ 'customer.addresses.first_name' | t }}</label>
@@ -303,7 +301,6 @@
                   </div>
                   <div>
                     <button>{{ 'customer.addresses.update' | t }}</button>
-                    <button type="reset">{{ 'customer.addresses.cancel' | t }}</button>
                   </div>
                 {%- endform -%}
               {% endcapture %}
