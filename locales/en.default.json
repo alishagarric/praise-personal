@@ -127,6 +127,8 @@
     "addresses": {
       "title": "Addresses",
       "default": "Default Address",
+      "new_address": "New address",
+      "address": "Address",
       "add_new": "Add a new address",
       "edit_address": "Edit address",
       "first_name": "First name",

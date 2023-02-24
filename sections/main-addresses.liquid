@@ -22,7 +22,7 @@
     {% assign id = 'AddAddress' %}
     {% capture form %}
       <div id="{{ id }}">
-        {%- form 'customer_address', customer.new_address, aria-labelledBy: 'AddressNewHeading' -%}
+        {%- form 'customer_address', customer.new_address, aria-labelledBy: 'AddressNewHeading', class: 'form-styles' -%}
           <div>
             <label for="AddressFirstNameNew">{{ 'customer.addresses.first_name' | t }}</label>
             <input
@@ -159,6 +159,7 @@
                 <form
                   method="post"
                   action="/account/addresses/{{ address.id }}"
+                  class="form-styles"
                 >
                   <input type="hidden" name="_method" value="delete">
                   <button
@@ -175,7 +176,7 @@
               {% assign title = 'customer.addresses.edit' | t %}
               {% assign id = 'EditAddress-' | append: forloop.index %}
               {% capture form %}
-                {%- form 'customer_address', address -%}
+                {%- form 'customer_address', address, class: "form-styles" -%}
                   <div>
                     <label for="AddressFirstName_{{ form.id }}">{{ 'customer.addresses.first_name' | t }}</label>
                     <input
