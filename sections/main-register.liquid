@@ -1,117 +1,218 @@
+{% liquid
+  assign section_theme = section.settings.theme
+  assign top_spacing = section.settings.top_spacing
+  assign bottom_spacing = section.settings.bottom_spacing
+%}
+{% style %}
+  #Main-register-{{ section.id }} {
+    --topSpacingRatio: {{ top_spacing }} / 100;
+    --bottomSpacingRatio: {{ bottom_spacing }} / 100;
+  }
+{% endstyle %}
 
-<div class="container" style="background: magenta;">
+<div id="Main-register-{{ section.id }}" class="container site-register __theme-{{ section_theme }}">
+  <div class="site-register__heading">
+    {% render 'heading', heading: section.settings.heading, heading_size: 'h4', heading_tag: 'h1' %}
+  </div>
+  <div class="form-styles">
+    {% form 'create_customer' %}
+      {%- if form.errors -%}
+        <h2 tabindex="-1" autofocus>
+          {{- 'templates.contact.form.error_heading' | t -}}
+        </h2>
 
-  <h1>
-    {{- 'customer.register.title' | t -}}
-  </h1>
+        <ul>
+          {%- for field in form.errors -%}
+            <li>
+              {%- if field == 'form' -%}
+                {{ form.errors.messages[field] }}
+              {%- else -%}
+                <a href="#RegisterForm-{{ field }}">
+                  {{- form.errors.translated_fields[field] | capitalize }}
+                  {{ form.errors.messages[field] -}}
+                </a>
+              {%- endif -%}
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
 
-  {% form 'create_customer' %}
-    {%- if form.errors -%}
-      <h2 tabindex="-1" autofocus>
-        {{- 'templates.contact.form.error_heading' | t -}}
-      </h2>
-      <ul>
-        {%- for field in form.errors -%}
-          <li>
-            {%- if field == 'form' -%}
-              {{ form.errors.messages[field] }}
-            {%- else -%}
-              <a href="#RegisterForm-{{ field }}">
-                {{- form.errors.translated_fields[field] | capitalize }}
-                {{ form.errors.messages[field] -}}
-              </a>
-            {%- endif -%}
-          </li>
-        {%- endfor -%}
-      </ul>
-    {%- endif -%}
+      <div class="form__row">
+        <label for="RegisterForm-FirstName" class="{% if section.settings.hideLabels %}hide{% endif %}">
+          {{- 'customer.register.first_name' | t -}}
+          *
+        </label>
+        <input
+          required
+          type="text"
+          name="customer[first_name]"
+          placeholder="First Name*"
+          id="RegisterForm-FirstName"
+          {% if form.first_name %}
+            value="{{ form.first_name }}"
+          {% endif %}
+          autocomplete="given-name"
+        >
+      </div>
 
-    <label for="RegisterForm-FirstName">
-      {{- 'customer.register.first_name' | t -}}
-    </label>
-    <input
-      type="text"
-      name="customer[first_name]"
-      id="RegisterForm-FirstName"
-      {% if form.first_name %}
-        value="{{ form.first_name }}"
-      {% endif %}
-      autocomplete="given-name"
-    >
+      <div class="form__row">
+        <label for="RegisterForm-LastName" class="{% if section.settings.hideLabels %}hide{% endif %}">
+          {{- 'customer.register.last_name' | t -}}
+          *
+        </label>
+        <input
+          type="text"
+          name="customer[last_name]"
+          placeholder="Last Name*"
+          required
+          id="RegisterForm-LastName"
+          {% if form.last_name %}
+            value="{{ form.last_name }}"
+          {% endif %}
+          autocomplete="family-name"
+        >
+      </div>
+      <div>
+        <div class="form__row">
+          <label for="RegisterForm-email" class="{% if section.settings.hideLabels %}hide{% endif %}">
+            {{- 'customer.register.email' | t -}}
+            *
+          </label>
 
-    <label for="RegisterForm-LastName">
-      {{- 'customer.register.last_name' | t -}}
-    </label>
-    <input
-      type="text"
-      name="customer[last_name]"
-      id="RegisterForm-LastName"
-      {% if form.last_name %}
-        value="{{ form.last_name }}"
-      {% endif %}
-      autocomplete="family-name"
-    >
-    <div>
-      <label for="RegisterForm-email">
-        {{- 'customer.register.email' | t -}}
-      </label>
+          <input
+            type="email"
+            required
+            name="customer[email]"
+            placeholder="Email*"
+            id="RegisterForm-email"
+            {% if form.email %}
+              value="{{ form.email }}"
+            {% endif %}
+            spellcheck="false"
+            autocapitalize="off"
+            autocomplete="email"
+            aria-required="true"
+            {% if form.errors contains 'email' %}
+              aria-invalid="true"
+              aria-describedby="RegisterForm-email-error"
+            {% endif %}
+          >
+        </div>
 
-      <input
-        type="email"
-        name="customer[email]"
-        id="RegisterForm-email"
-        {% if form.email %}
-          value="{{ form.email }}"
-        {% endif %}
-        spellcheck="false"
-        autocapitalize="off"
-        autocomplete="email"
-        aria-required="true"
         {% if form.errors contains 'email' %}
-          aria-invalid="true"
-          aria-describedby="RegisterForm-email-error"
+          <small id="RegisterForm-email-error" class="message-error">
+            {{- form.errors.translated_fields.email | capitalize }}
+            {{ form.errors.messages.email -}}
+          </small>
         {% endif %}
-      >
+      </div>
 
-      {% if form.errors contains 'email' %}
-        <small id="RegisterForm-email-error" class="message-error">
-          {{- form.errors.translated_fields['email'] | capitalize }}
-          {{ form.errors.messages['email'] -}}
-        </small>
-      {% endif %}
-    </div>
+      <div>
+        <div class="form__row">
+          <label for="RegisterForm-password" class="{% if section.settings.hideLabels %}hide{% endif %}">
+            {{- 'customer.register.password' | t -}}
+            *
+          </label>
 
-    <div>
-      <label for="RegisterForm-password">
-        {{- 'customer.register.password' | t -}}
-      </label>
-
-      <input
-        type="password"
-        name="customer[password]"
-        id="RegisterForm-password"
-        aria-required="true"
+          <input
+            type="password"
+            name="customer[password]"
+            id="RegisterForm-password"
+            required
+            placeholder="Password*"
+            aria-required="true"
+            {% if form.errors contains 'password' %}
+              aria-invalid="true"
+              aria-describedby="RegisterForm-password-error"
+            {% endif %}
+          >
+        </div>
         {% if form.errors contains 'password' %}
-          aria-invalid="true"
-          aria-describedby="RegisterForm-password-error"
+          <small id="RegisterForm-password-error" class="message-error">
+            {{- form.errors.translated_fields.password | capitalize }}
+            {{ form.errors.messages.password -}}
+          </small>
         {% endif %}
-      >
-      {% if form.errors contains 'password' %}
-        <small id="RegisterForm-password-error" class="message-error">
-          {{- form.errors.translated_fields['password'] | capitalize }}
-          {{ form.errors.messages['password'] -}}
-        </small>
-      {% endif %}
-    </div>
+      </div>
 
-    <button>
-      {{- 'customer.register.submit' | t -}}
-    </button>
-  {% endform %}
+      <button>
+        {{- 'customer.register.submit' | t -}}
+      </button>
+    {% endform %}
+  </div>
 </div>
 
 {% schema %}
 {
-  "name": "t:sections.main-register.name"
+  "name": "t:sections.main-register.name",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Create Account",
+      "label": "Heading"
+    },
+    {
+      "type": "checkbox",
+      "id": "hideLabels",
+      "label": "Hide Labels?",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "top_spacing",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "Top Spacing",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "bottom_spacing",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "Bottom Spacing",
+      "default": 50
+    },
+    {
+      "type": "select",
+      "id": "theme",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary Theme"
+        },
+        {
+          "value": "2",
+          "label": "2nd Theme"
+        },
+        {
+          "value": "3",
+          "label": "3rd Theme"
+        },
+        {
+          "value": "4",
+          "label": "4th Theme"
+        },
+        {
+          "value": "5",
+          "label": "5th Theme"
+        }
+      ],
+      "default": "primary",
+      "label": "Theme"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.contact-form.presets.name"
+    }
+  ]
 }
 {% endschema %}

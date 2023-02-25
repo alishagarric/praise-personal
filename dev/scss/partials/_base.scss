@@ -84,13 +84,16 @@ form {
   }
 
   input[type="text"],
-  input[type="email"] {
+  input[type="email"],
+  input[type="password"]
+  {
     height: var(--inputHeight);
     padding: 0 calc(var(--inputHeight) / 3);
   }
 
   input[type="text"],
   input[type="email"],
+  input[type="password"],
   textarea {
     border: 1px solid RGB(var(--color-text));
     background: transparent;
