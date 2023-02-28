@@ -48,33 +48,22 @@
   &.__style-dropdown {
     border: 1px solid RGB(var(--color-border));
 
-    &__summary {
-      padding-right: calc(var(--expandableContentIconWidth) * 2);
-      padding-left: var(--expandableContentIconWidth);
-      position: relative;
-      cursor: pointer;
+    .expandable-content {
+      &__summary {
+        padding-right: calc(var(--expandableContentIconWidth) * 2);
+        padding-left: var(--expandableContentIconWidth);
 
-      &:before,
-      &:after {
-        content: "";
-        width: var(--expandableContentIconWidth);
-        height: 1px;
-        background: RGB(var(--color-text));
-        position: absolute;
-        right: 0;
-        top: 50%;
-      }
+        &:before {
+          content: none;
+        }
 
-      &:after {
-        content: none;
-      }
-
-      &:before {
-        height: var(--expandableContentIconWidth);
-        background: transparent;
-        border-left: 1px solid RGB(var(--color-text));
-        border-bottom: 1px solid RGB(var(--color-text));
-        transform: rotate(45deg);
+        &:after {
+          height: var(--expandableContentIconWidth);
+          background: transparent;
+          border-left: 1px solid RGB(var(--color-text));
+          border-bottom: 1px solid RGB(var(--color-text));
+          transform: rotate(45deg);
+        }
       }
     }
 
