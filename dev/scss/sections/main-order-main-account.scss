@@ -10,6 +10,10 @@
     > .breadcrumbs {
       margin: 0;
     }
+
+    details {
+      display: none;
+    }
   }
 
   &__nav {
@@ -26,10 +30,6 @@
         text-transform: uppercase;
         font-weight: 600;
       }
-    }
-
-    details {
-      display: none;
     }
   }
 
@@ -131,16 +131,14 @@
   @media screen and (max-width: 1024px) {
     flex-wrap: wrap;
 
-    &__nav {
-      flex: 0 0 100%;
-
-      ul {
-        display: none;
-      }
-
+    &__breadcrumbs {
       details {
         display: block;
       }
+    }
+
+    &__nav {
+      display: none;
     }
   }
 
