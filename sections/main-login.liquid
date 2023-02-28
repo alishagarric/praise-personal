@@ -1,7 +1,19 @@
+{% liquid
+  assign section_theme = section.settings.theme
+  assign top_spacing = section.settings.top_spacing
+  assign bottom_spacing = section.settings.bottom_spacing
+%}
+
+{% style %}
+  #Main-login-{{ section.id }} {
+    --topSpacingRatio: {{ top_spacing }} / 100;
+    --bottomSpacingRatio: {{ bottom_spacing }} / 100;
+  }
+{% endstyle %}
+
 {{ 'customer.css' | asset_url | stylesheet_tag }}
 
-<div class="container" style="background: magenta;">
-
+<div id="Main-login-{{ section.id }}" class="container site-login __theme-{{ section_theme }}">
   <h1 id="recover" tabindex="-1">
     {{- 'customer.recover_password.title' | t -}}
   </h1>
@@ -40,7 +52,7 @@
 
         {%- if form.errors -%}
           <small id="RecoverEmail-email-error" class="message-error">
-            {{- form.errors.messages['form'] -}}
+            {{- form.errors.messages.form -}}
           </small>
         {%- endif -%}
       </div>
@@ -56,10 +68,19 @@
     {%- endform -%}
   </div>
 
-  <h1 id="login" tabindex="-1">
-    {{- 'customer.login_page.title' | t -}}
-  </h1>
-  <div>
+  <div class="form-styles">
+    <div class="form-styles__text site-login__text">
+      <div class="site-login__text__heading">
+        {% render 'heading', heading: section.settings.heading, heading_size: 'h5', heading_tag: 'h1' %}
+      </div>
+      <div class="site-login__text__description" {{ block.shopify_attributes }}>
+        {{ section.settings.description }}
+      </div>
+      <span>Don't have an account?</span>
+      <a class="site-login__create" href="{{ routes.account_register_url }}">
+        {{ section.settings.register_label }}
+      </a>
+    </div>
     {%- if recover_success == true -%}
       <h3 class="message-success" tabindex="-1" autofocus>
         {{- 'customer.recover_password.success' | t -}}
@@ -76,22 +97,24 @@
         {{ form.errors | default_errors }}
       {%- endif -%}
 
-      <label for="CustomerEmail">
-        {{- 'customer.login_page.email' | t -}}
-      </label>
-      <input
-        type="email"
-        name="customer[email]"
-        id="CustomerEmail"
-        autocomplete="email"
-        autocorrect="off"
-        autocapitalize="off"
-        {% if form.errors contains 'form' %}
-          aria-invalid="true"
-        {% endif %}
-      >
+      <div class="form__row">
+        <label for="CustomerEmail">
+          {{- 'customer.login_page.email' | t -}}
+        </label>
+        <input
+          type="email"
+          name="customer[email]"
+          id="CustomerEmail"
+          autocomplete="email"
+          autocorrect="off"
+          autocapitalize="off"
+          {% if form.errors contains 'form' %}
+            aria-invalid="true"
+          {% endif %}
+        >
+      </div>
 
-      <div>
+      <div class="form__row">
         <label for="CustomerPassword">
           {{- 'customer.login_page.password' | t -}}
         </label>
@@ -105,27 +128,96 @@
             aria-invalid="true"
           {% endif %}
         >
-
-        <a href="#recover">
-          {{- 'customer.login_page.forgot_password' | t -}}
-        </a>
       </div>
 
       <div>
         <button>
           {{- 'customer.login_page.sign_in' | t -}}
         </button>
+        <a class="site-login__recover" href="#recover">
+          {{- 'customer.login_page.forgot_password' | t -}}
+        </a>
       </div>
-
-      <a href="{{ routes.account_register_url }}">
-        {{- 'customer.login_page.create_account' | t -}}
-      </a>
     {%- endform -%}
   </div>
 </div>
 
 {% schema %}
 {
-  "name": "t:sections.main-login.name"
+  "name": "t:sections.main-login.name",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Welcome",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "default": "<p>Log in to Your Account</p>",
+      "label": "Description"
+    },
+    {
+      "type": "text",
+      "id": "register_label",
+      "default": "Register",
+      "label": "Register Link Label"
+    },
+    {
+      "type": "range",
+      "id": "top_spacing",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "Top Spacing",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "bottom_spacing",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "Bottom Spacing",
+      "default": 50
+    },
+    {
+      "type": "select",
+      "id": "theme",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary Theme"
+        },
+        {
+          "value": "2",
+          "label": "2nd Theme"
+        },
+        {
+          "value": "3",
+          "label": "3rd Theme"
+        },
+        {
+          "value": "4",
+          "label": "4th Theme"
+        },
+        {
+          "value": "5",
+          "label": "5th Theme"
+        }
+      ],
+      "default": "primary",
+      "label": "Theme"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.contact-form.presets.name"
+    }
+  ]
 }
 {% endschema %}

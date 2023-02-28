@@ -168,6 +168,11 @@ form {
     }
   }
 
+  &__text{
+    text-align: center;
+    font-size: calc(0.75rem * var(--font-heading-scale));
+  }
+
   button {
     margin: 3.375rem auto 0;
     width: 100%;
