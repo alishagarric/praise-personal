@@ -1,4 +1,4 @@
-.site-login {
+.site-password-reset {
     max-width: 560px;
     margin: 0 auto;
 
@@ -25,10 +25,6 @@
     }
 
     &__create{
-        text-decoration: underline;
-    }
-
-    .cancel{
         text-decoration: underline;
     }
 }

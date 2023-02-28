@@ -14,15 +14,15 @@
 {{ 'customer.css' | asset_url | stylesheet_tag }}
 
 <div id="Main-login-{{ section.id }}" class="container site-login __theme-{{ section_theme }}">
-  <h1 id="recover" tabindex="-1">
-    {{- 'customer.recover_password.title' | t -}}
-  </h1>
-
-  <div>
-    <p>
-      {{- 'customer.recover_password.subtext' | t -}}
-    </p>
-
+  <div id="recover" class="form-styles">
+    <div class="form-styles__text">
+      {% render 'heading', heading: section.settings.reset_heading, heading_size: 'h5', heading_tag: 'h1' %}
+      <div>
+        <p>
+          {{- 'customer.recover_password.subtext' | t -}}
+        </p>
+      </div>
+    </div>
     {%- if recover_success == true -%}
       <h3 class="message-success" tabindex="-1" autofocus>
         {{- 'customer.recover_password.success' | t -}}
@@ -62,13 +62,13 @@
         </button>
       </div>
 
-      <a href="#login">
+      <a href="#login" class="cancel">
         {{- 'customer.login_page.cancel' | t -}}
       </a>
     {%- endform -%}
   </div>
 
-  <div class="form-styles">
+  <div id="login" class="form-styles">
     <div class="form-styles__text site-login__text">
       <div class="site-login__text__heading">
         {% render 'heading', heading: section.settings.heading, heading_size: 'h5', heading_tag: 'h1' %}
@@ -148,6 +148,10 @@
   "tag": "section",
   "settings": [
     {
+      "type": "header",
+      "content": "Login Form"
+    },
+    {
       "type": "text",
       "id": "heading",
       "default": "Welcome",
@@ -164,6 +168,20 @@
       "id": "register_label",
       "default": "Register",
       "label": "Register Link Label"
+    },
+    {
+      "type": "header",
+      "content": "Reset Form"
+    },
+    {
+      "type": "text",
+      "id": "reset_heading",
+      "default": "Reset Your Password",
+      "label": "Reset Form Heading"
+    },
+    {
+      "type": "header",
+      "content": "Forms Settings"
     },
     {
       "type": "range",
