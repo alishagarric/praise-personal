@@ -1,7 +1,15 @@
 {
   "sections": {
     "main": {
-      "type": "main-register"
+      "type": "main-register",
+      "settings": {
+        "heading": "Create Account",
+        "description": "<p>Create Your Account <\/p><p>Already have an account? <a href=\"\/account\/login\" title=\"\/account\/login\">Login<\/a><\/p>",
+        "hideLabels": false,
+        "top_spacing": 50,
+        "bottom_spacing": 50,
+        "theme": "primary"
+      }
     }
   },
   "order": [
