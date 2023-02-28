@@ -15,7 +15,7 @@
   &__nav {
     flex: 1;
 
-    ul {
+    > ul {
       display: flex;
       flex-direction: column;
       gap: calc(var(--pxSize) / 2);
@@ -26,6 +26,10 @@
         text-transform: uppercase;
         font-weight: 600;
       }
+    }
+
+    details {
+      display: none;
     }
   }
 
@@ -121,6 +125,22 @@
   .pagination {
     &__list {
       justify-content: flex-start;
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    flex-wrap: wrap;
+
+    &__nav {
+      flex: 0 0 100%;
+
+      ul {
+        display: none;
+      }
+
+      details {
+        display: block;
+      }
     }
   }
 

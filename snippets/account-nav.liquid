@@ -1,4 +1,13 @@
-<nav class="main-order-main-account__nav">
+{% liquid
+  assign title = 'customer.account.menu' | t
+  if current == "account"
+    assign title = 'customer.account.title' | t
+  elsif current == "addresses"
+    assign title = 'customer.addresses.title' | t
+  endif
+%}
+
+{% capture nav_items %}
   <ul>
     <li>
       <a href="{{ routes.account_url }}" class="{% if current == "account" %}txt-link{% endif %}">
@@ -16,6 +25,11 @@
         {{- 'customer.log_out' | t -}}
       </a>
     </li>
-
   </ul>
+{% endcapture %}
+
+<nav class="main-order-main-account__nav">
+  {{ nav_items }}
+
+  {% render 'expandable-content', title: title, id: "Account", text: nav_items, style: "dropdown" %}
 </nav>

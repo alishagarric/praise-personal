@@ -44,4 +44,19 @@
       }
     }
   }
+
+  &.__style-dropdown {
+    border: 1px solid RGB(var(--color-border));
+
+    ul {
+      li {
+        @extend .p-sm;
+        display: block;
+
+        &:not(:last-child) {
+          border-bottom: 1px solid RGB(var(--color-border));
+        }
+      }
+    }
+  }
 }

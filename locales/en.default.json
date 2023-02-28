@@ -113,6 +113,7 @@
       "total_duties": "Duties"
     },
     "account": {
+      "menu": "Menu",
       "title": "Your Account",
       "details": "Account details",
       "email": "Email Address",
