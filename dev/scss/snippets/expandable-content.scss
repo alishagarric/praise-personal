@@ -62,17 +62,26 @@
           background: transparent;
           border-left: 1px solid RGB(var(--color-text));
           border-bottom: 1px solid RGB(var(--color-text));
-          transform: rotate(45deg);
+          transform: rotate(-45deg) translateY(-100%);
         }
+      }
+
+      &__content {
+        padding-top: 0;
+        padding-bottom: 0;
       }
     }
 
     ul {
+      margin: 0;
+
       li {
         display: block;
+        padding: var(--expandableContentIconWidth);
+        border-top: 1px solid RGB(var(--color-border));
 
-        &:not(:last-child) {
-          border-bottom: 1px solid RGB(var(--color-border));
+        a {
+          text-decoration: none;
         }
       }
     }
