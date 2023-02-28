@@ -11,10 +11,15 @@
 {% endstyle %}
 
 <div id="Main-register-{{ section.id }}" class="container site-register __theme-{{ section_theme }}">
-  <div class="site-register__heading">
-    {% render 'heading', heading: section.settings.heading, heading_size: 'h4', heading_tag: 'h1' %}
-  </div>
   <div class="form-styles">
+    <div class="form-styles__text site-register__text">
+      <div class="site-register__heading">
+        {% render 'heading', heading: section.settings.heading, heading_size: 'h5', heading_tag: 'h1' %}
+      </div>
+      <div class="site-login__text__description" {{ block.shopify_attributes }}>
+        {{ section.settings.description }}
+      </div>
+    </div>
     {% form 'create_customer' %}
       {%- if form.errors -%}
         <h2 tabindex="-1" autofocus>
@@ -153,6 +158,12 @@
       "id": "heading",
       "default": "Create Account",
       "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "default": "<p>Regiter for an account.</p>",
+      "label": "Description"
     },
     {
       "type": "checkbox",
