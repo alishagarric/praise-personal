@@ -1,7 +1,22 @@
 <div class="main-order-main-account__breadcrumbs __theme-primary">
   {% render 'breadcrumbs' %}
-  {% render 'expandable-content', title: title, id: "Account", text: nav_items, style: "dropdown" %}
 
+  {% capture nav_items %}
+    <ul>
+      <li >
+        <a href="{{ routes.account_addresses_url }}">
+          {{- 'customer.addresses.title' | t -}}
+        </a>
+      </li>
+      <li>
+        <a href="{{ routes.account_logout_url }}">
+          {{- 'customer.log_out' | t -}}
+        </a>
+      </li>
+    </ul>
+  {% endcapture %}
+
+  {% render 'expandable-content', title: page_title, id: "Account", text: nav_items, style: "dropdown" %}
 </div>
 
 
