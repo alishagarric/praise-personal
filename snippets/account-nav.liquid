@@ -1,13 +1,13 @@
 <nav class="main-order-main-account__nav">
   <ul>
     <li>
-      <a href="{{ routes.account_url }}" class="{% if template.name == "customers/account" %}txt-link{% endif %}">
+      <a href="{{ routes.account_url }}" class="{% if current == "account" %}txt-link{% endif %}">
         {{- 'customer.account.title' | t -}}
       </a>
     </li>
 
     <li >
-      <a href="{{ routes.account_addresses_url }}" class="{% if template.name == "customers/addresses" %}txt-link{% endif %}">
+      <a href="{{ routes.account_addresses_url }}" class="{% if current == "addresses" %}txt-link{% endif %}">
         {{- 'customer.addresses.title' | t -}}
       </a>
     </li>

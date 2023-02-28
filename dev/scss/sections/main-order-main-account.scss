@@ -21,8 +21,10 @@
       gap: calc(var(--pxSize) / 2);
 
       a {
+        @extend .h2;
+        @extend .p;
         text-transform: uppercase;
-        font-weight: 700;
+        font-weight: 600;
       }
     }
   }
