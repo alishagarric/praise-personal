@@ -7,14 +7,9 @@
 
 <div class="main-order-main-account __theme-primary">
 
-  {% render 'account-nav' current: "addresses" %}
+  <h1 class="visually-hidden">{{ 'customer.addresses.title' | t }}</h1>
 
-  <div class="main-order-main-account__sidebar">
-    <h1>{{ 'customer.addresses.title' | t }}</h1>
-    <a href="{{ routes.account_url }}">
-      {{- 'customer.account.return' | t -}}
-    </a>
-  </div>
+  {% render 'account-nav' current: "addresses" %}
 
   <div class="main-order-main-account__orders">
 
