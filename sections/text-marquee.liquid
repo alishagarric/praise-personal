@@ -1,17 +1,17 @@
 {% style %}
-    #Text-marquee-{{ section.id }} {
-      --topSpacingRatio: {{section.settings.top_spacing}} / 100;
-      --bottomSpacingRatio: {{section.settings.bottom_spacing}} / 100;
-      --marqueeCharacterCount: {{ section.settings.text | size }}ch;
-      --marqueeSpeed: {{ section.settings.speed | minus: 11 | times: -2 }}s;
-    }
- {% endstyle %}
+  #Text-marquee-{{ section.id }} {
+    --topSpacingRatio: {{section.settings.top_spacing}} / 100;
+    --bottomSpacingRatio: {{section.settings.bottom_spacing}} / 100;
+    --marqueeCharacterCount: {{ section.settings.text | size }}ch;
+    --marqueeSpeed: {{ section.settings.speed | minus: 11 | times: -2 }}s;
+  }
+{% endstyle %}
 
 {% comment %} Text marquee {% endcomment %}
 {% if section.settings.text %}
-  <div id="Text-marquee-{{ section.id }}" class="text-marquee __theme-{{ section.settings.theme }}">
-    <div class="text-marquee__inner">
-      <p class="text-marquee__text {{ section.settings.text_size }} {% if section.settings.alt_heading %}alt{% endif %}">
+  <div id="Text-marquee-{{ section.id }}" class="marquee-styles __theme-{{ section.settings.theme }}">
+    <div class="marquee-styles__inner">
+      <p class="marquee-styles__text {{ section.settings.text_size }} {% if section.settings.alt_heading %}alt{% endif %}">
         {{ section.settings.text }}
       </p>
     </div>
@@ -38,20 +38,20 @@
       "id": "text_size",
       "options": [
         {
-            "value": "h2",
-            "label": "X-Large"
+          "value": "h2",
+          "label": "X-Large"
         },
         {
-            "value": "h4",
-            "label": "Large"
+          "value": "h4",
+          "label": "Large"
         },
         {
-            "value": "h5",
-            "label": "Medium"
+          "value": "h5",
+          "label": "Medium"
         },
         {
-            "value": "h6",
-            "label": "Small"
+          "value": "h6",
+          "label": "Small"
         }
       ],
       "default": "h6",

@@ -17,6 +17,16 @@
         "label": "t:sections.announcement-bar.settings.text.label"
       },
       {
+      "type": "range",
+      "id": "speed",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "unit": "x",
+      "label": "Speed",
+      "default": 5
+    },
+      {
         "type": "select",
         "id": "announcement_bar_text_size",
         "options": [
