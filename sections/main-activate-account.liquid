@@ -6,7 +6,7 @@
 
 <div id="Main-activate-account" class="customer-forms">
   <div class="customer-forms__container">
-  <div class="site-activate-account__text __align-center">
+  <div class="customer-forms__text __align-center">
     {% render 'heading', heading: heading, heading_size: 'h5', heading_tag: 'h1' %}
     <p class="p-sm">
       {{- 'customer.activate_account.subtext' | t -}}
@@ -83,14 +83,13 @@
       {%- endif -%}
     </div>
 
-    <div class="form-styles__buttons">
-      <button>
-        {{- 'customer.activate_account.submit' | t -}}
-      </button>
-      <button name="decline" class="btn __with-underline">
-        {{- 'customer.activate_account.cancel' | t -}}
-      </button>
-    </div>
+    <button>
+      {{- 'customer.activate_account.submit' | t -}}
+    </button>
+    <button name="decline" class="btn __with-underline">
+      {{- 'customer.activate_account.cancel' | t -}}
+    </button>
+
   {%- endform -%}
   </div>
 </div>
