@@ -167,13 +167,13 @@ form {
   }
 
   button:not(.__with-underline) {
-    margin: 3.375rem auto 0 auto;
+    margin: 2rem auto 0 auto;
     width: 100%;
     justify-content: center;
     max-width: 350px;
 
     + button {
-      margin-top: 2rem;
+      margin-top: 1rem;
     }
   }
 
