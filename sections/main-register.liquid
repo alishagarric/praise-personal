@@ -10,12 +10,12 @@
   }
 {% endstyle %}
 
-<div id="Main-register-{{ section.id }}" class="container site-register __theme-{{ section_theme }}">
-  <div class="form-styles__text site-register__text">
+<div id="Main-register-{{ section.id }}" class="site-register __theme-{{ section_theme }}">
+  <div class="site-register__text">
     <div class="site-register__heading">
       {% render 'heading', heading: section.settings.heading, heading_size: 'h5', heading_tag: 'h1' %}
     </div>
-    <div class="site-login__text__description" {{ block.shopify_attributes }}>
+    <div class="site-login__description p-sm" {{ block.shopify_attributes }}>
       {{ section.settings.description }}
     </div>
   </div>
