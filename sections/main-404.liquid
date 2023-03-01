@@ -6,19 +6,18 @@
   }
 {% endstyle %}
 
-<div id="main-404-{{ section.id }}" class="site-404">
-  <div class="site-404__image">
-    {%- if section.settings.image != blank -%}
+<div id="main-404-{{ section.id }}" class="site-404 __align-center">
+  {%- if section.settings.image != blank -%}
+    <div class="site-404__image">
       {% render 'next-gen-img', image: section.settings.image %}
-    {%- else -%}
-      {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
-    {%- endif -%}
-  </div>
-  {% render 'heading', heading: section.settings.heading, heading_size: 'h4', heading_tag: 'h1' %}
-
-  {% if section.settings.button_label and section.settings.button_link %}
-    {% render 'button', section.settings.button_label: section.settings.button_label, class: "site-404", button_color: section.settings.button_color %}
+    </div>
   {%- endif -%}
+
+  {% render 'heading', heading: section.settings.heading, heading_size: section.settings.heading_size, heading_tag: 'h1', alt_heading: section.settings.alt_heading %}
+
+  {% if section.settings.button_link != blank %}
+    {% render 'button', button_label: section.settings.button_label, button_link: section.settings.button_link, class: "site-404", button_color: section.settings.button_color %}
+  {% endif %}
 </div>
 
 {% schema %}
@@ -42,22 +41,47 @@
       "max": 500,
       "step": 10,
       "unit": "px",
-      "label": "Logo Max Width",
+      "label": "Image Max Width",
       "default": 80
     },
     {
       "type": "header",
-      "content": "Heading"
+      "content": "Text Content"
     },
     {
       "type": "text",
       "id": "heading",
-      "default": "Oops... like some eggs when baking, this link is broken.",
+      "default": "404",
       "label": "Heading"
     },
     {
-      "type": "header",
-      "content": "Button"
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "X-Large"
+        },
+        {
+          "value": "h4",
+          "label": "Large"
+        },
+        {
+          "value": "h5",
+          "label": "Medium"
+        },
+        {
+          "value": "h6",
+          "label": "Small"
+        }
+      ],
+      "default": "h4",
+      "label": "Heading Size"
+    },
+    {
+      "type": "checkbox",
+      "id": "alt_heading",
+      "label": "Use body font instead of heading font for heading?"
     },
     {
       "type": "text",
@@ -68,7 +92,8 @@
     {
       "type": "url",
       "id": "button_link",
-      "label": "Button Link"
+      "label": "Button Link",
+      "default": "/collections/all"
     },
     {
       "type": "select",

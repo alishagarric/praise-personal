@@ -1,10 +1,16 @@
 {
   "sections": {
     "main": {
-      "type": "main-404"
+      "type": "main-404",
+      "settings": {
+        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_bbf54c90-3c31-4e00-962c-f12d6b17cf77.jpg",
+        "image_width": 250,
+        "heading": "Oops... like some eggs when baking, this link is broken.",
+        "top_spacing": 100,
+        "bottom_spacing": 100,
+        "button_label": "Return Home"
+      }
     }
   },
-  "order": [
-    "main"
-  ]
+  "order": ["main"]
 }
