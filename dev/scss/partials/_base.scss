@@ -106,7 +106,16 @@ form {
     width: calc(var(--inputHeight) / 2);
 
     &:checked {
-      background-color: RGBA(var(--color-text) / 0.65);
+      &::after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        inset: 0;
+        position: absolute;
+        transform: scale(0.9);
+        background-color: RGBA(var(--color-text) / 0.65);
+      }
     }
 
     + label {
