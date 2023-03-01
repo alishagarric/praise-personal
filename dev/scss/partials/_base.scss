@@ -82,23 +82,24 @@ form {
     margin: 0;
   }
 
-  input[type="text"],
-  input[type="email"],
-  input[type="password"] {
+  input:not([type="radio"]):not([type="checkbox"]) {
     height: var(--inputHeight);
     padding: 0 calc(var(--inputHeight) / 3);
   }
 
-  input[type="text"],
-  input[type="email"],
-  input[type="password"],
-  textarea {
+  input:not([type="radio"]):not([type="checkbox"]),
+  textarea,
+  select {
     @extend .p-sm;
     margin-bottom: 0;
     border: 1px solid RGB(var(--color-text));
     background: transparent;
     width: 100%;
     border-radius: var(--btnBorderRadius);
+  }
+
+  input[type="checkbox"] {
+    border: 1px solid RGB(var(--color-text));
   }
 
   textarea {
