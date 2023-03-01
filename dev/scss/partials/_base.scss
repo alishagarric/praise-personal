@@ -164,11 +164,18 @@ form {
     margin-bottom: 0.5rem !important;
   }
 
-  button {
+  button:not(.__with-underline) {
     margin: 3.375rem auto 0 auto;
     width: 100%;
     justify-content: center;
     max-width: 350px;
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--pxSize);
   }
 
   &.__hide-labels-true {

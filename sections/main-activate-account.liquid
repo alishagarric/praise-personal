@@ -3,6 +3,7 @@
   assign form_class = 'customer-forms__form form-styles'
 %}
 
+
 <div id="Main-activate-account" class="customer-forms">
   <div class="customer-forms__container">
   <div class="site-activate-account__text">
@@ -82,12 +83,20 @@
       {%- endif -%}
     </div>
 
-    <button>
-      {{- 'customer.activate_account.submit' | t -}}
-    </button>
-    <button name="decline" class="btn __with-underline">
-      {{- 'customer.activate_account.cancel' | t -}}
-    </button>
+    <div class="customer-forms__buttons">
+      <button>
+        {{- 'customer.activate_account.submit' | t -}}
+      </button>
+      <button name="decline" class="btn __with-underline">
+        {{- 'customer.activate_account.cancel' | t -}}
+      </button>
+    </div>
   {%- endform -%}
   </div>
 </div>
+
+{% schema %}
+{
+  "tag": "section"
+}
+{% endschema %}
