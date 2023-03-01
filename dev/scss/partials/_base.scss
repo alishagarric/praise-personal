@@ -104,6 +104,7 @@ form {
     border: 1px solid RGB(var(--color-text));
     height: calc(var(--inputHeight) / 2);
     width: calc(var(--inputHeight) / 2);
+    position: relative;
 
     &:checked {
       &::after {
