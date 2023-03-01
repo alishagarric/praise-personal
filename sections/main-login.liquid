@@ -13,15 +13,13 @@
 
 {{ 'customer.css' | asset_url | stylesheet_tag }}
 
-<div id="Main-login-{{ section.id }}" class="container site-login __theme-{{ section_theme }}">
-  <div id="recover" class="form-styles">
-    <div class="form-styles__text">
+<div id="Main-login-{{ section.id }}" class="site-login __theme-{{ section_theme }}">
+  <div id="recover">
+    <div class="site-login__text">
       {% render 'heading', heading: section.settings.reset_heading, heading_size: 'h5', heading_tag: 'h1' %}
-      <div>
-        <p>
-          {{- 'customer.recover_password.subtext' | t -}}
-        </p>
-      </div>
+      <p class="p-sm">
+        {{- 'customer.recover_password.subtext' | t -}}
+      </p>
     </div>
     {%- if recover_success == true -%}
       <h3 class="message-success" tabindex="-1" autofocus>
@@ -29,7 +27,7 @@
       </h3>
     {%- endif -%}
 
-    {%- form 'recover_customer_password' -%}
+    {%- form 'recover_customer_password', class: 'form-styles' -%}
       {% assign recover_success = form.posted_successfully? %}
       <div>
         <label for="RecoverEmail">
@@ -62,24 +60,28 @@
         </button>
       </div>
 
-      <a href="#login" class="cancel">
-        {{- 'customer.login_page.cancel' | t -}}
-      </a>
+      <div class="site-login__link">
+        <a href="#login" class="btn __with-underline">
+          {{- 'customer.login_page.cancel' | t -}}
+        </a>
+      </div>
     {%- endform -%}
   </div>
 
-  <div id="login" class="form-styles">
-    <div class="form-styles__text site-login__text">
+  <div id="login">
+    <div class="site-login__text">
       <div class="site-login__text__heading">
         {% render 'heading', heading: section.settings.heading, heading_size: 'h5', heading_tag: 'h1' %}
       </div>
-      <div class="site-login__text__description" {{ block.shopify_attributes }}>
+      <div class="site-login__text__description p-sm" {{ block.shopify_attributes }}>
         {{ section.settings.description }}
       </div>
-      <span>Don't have an account?</span>
-      <a class="site-login__create" href="{{ routes.account_register_url }}">
-        {{ section.settings.register_label }}
-      </a>
+      <p>
+        <span class="p-sm">Don't have an account?</span>
+        <a class="site-login__create p-sm" href="{{ routes.account_register_url }}">
+          {{ section.settings.register_label }}
+        </a>
+      </p>
     </div>
     {%- if recover_success == true -%}
       <h3 class="message-success" tabindex="-1" autofocus>
@@ -87,7 +89,7 @@
       </h3>
     {%- endif -%}
 
-    {%- form 'customer_login' -%}
+    {%- form 'customer_login', class: 'form-styles' -%}
       {%- if form.errors -%}
         <h2 tabindex="-1" autofocus>
           <small class="visually-hidden">{{- 'accessibility.error' | t -}}</small>
@@ -134,9 +136,11 @@
         <button>
           {{- 'customer.login_page.sign_in' | t -}}
         </button>
-        <a class="site-login__recover" href="#recover">
-          {{- 'customer.login_page.forgot_password' | t -}}
-        </a>
+        <div class="site-login__link">
+          <a class="btn __with-underline" href="#recover">
+            {{- 'customer.login_page.forgot_password' | t -}}
+          </a>
+        </div>
       </div>
     {%- endform -%}
   </div>

@@ -16,10 +16,10 @@
   {% if template == 'index' or settings.announcement_home_only == false %}
     <div
       id="Announcement-bar-{{ section.id }}"
-      class="announcement-bar __theme-{{ settings.announcement_bar_theme }} {% if settings.turn_on_marquee %}marquee-styles{% endif %}"
+      class="announcement-bar __theme-{{ settings.announcement_bar_theme }} {% if settings.turn_on_marquee %}marquee-styles{% endif %} __marquee-styles--announcement"
     >
       <div class="{% if settings.turn_on_marquee %}marquee-styles__inner{% endif %}">
-        <p class="{% if settings.turn_on_marquee %}marquee-styles__text marquee-styles__text--announcement{% endif %} {{ settings.announcement_bar_text_size }} alt align-center">
+        <p class="{% if settings.turn_on_marquee %}marquee-styles__text{% endif %} {{ settings.announcement_bar_text_size }} alt align-center">
           {{ settings.announcement_bar_text }}
         </p>
       </div>

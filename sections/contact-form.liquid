@@ -26,180 +26,178 @@
         {{ section.settings.disclaimer }}
       </span>
     </div>
-    <div class="form-styles">
-      {%- form 'contact', id: 'ContactForm' -%}
-        {% comment %}
-          Check if the form submitted successfully
-          If not it could only have come from the email field which is the only required field
-        {% endcomment %}
-        {%- if form.posted_successfully? -%}
-          <p class="message-success">{{ 'templates.contact.form.post_success' | t }}</p>
-        {%- elsif form.errors -%}
-          <p class="message-error">
-            {{ 'templates.contact.form.error_heading' | t }}
-            <a href="#ContactForm-email">
-              {{ form.errors.translated_fields.email | capitalize }}
-              {{ form.errors.messages.email }}
-            </a>
-          </p>
-        {%- endif -%}
+    {%- form 'contact', id: 'ContactForm', class: 'form-styles' -%}
+      {% comment %}
+        Check if the form submitted successfully
+        If not it could only have come from the email field which is the only required field
+      {% endcomment %}
+      {%- if form.posted_successfully? -%}
+        <p class="message-success">{{ 'templates.contact.form.post_success' | t }}</p>
+      {%- elsif form.errors -%}
+        <p class="message-error">
+          {{ 'templates.contact.form.error_heading' | t }}
+          <a href="#ContactForm-email">
+            {{ form.errors.translated_fields.email | capitalize }}
+            {{ form.errors.messages.email }}
+          </a>
+        </p>
+      {%- endif -%}
 
-        {% comment %}
-          Email field, which is required
-          Aria is used for accessibility
-        {% endcomment %}
-        <div class="form__row">
-          <label
-            for="ContactForm-email"
-            class="{% if section.settings.hideLabels %}hide{% endif %}"
-          >
-            {{ section.settings.emailLabel }}
-            <span aria-hidden="true">*</span></label
-          >
-          <input
+      {% comment %}
+        Email field, which is required
+        Aria is used for accessibility
+      {% endcomment %}
+      <div class="form__row">
+        <label
+          for="ContactForm-email"
+          class="{% if section.settings.hideLabels %}hide{% endif %}"
+        >
+          {{ section.settings.emailLabel }}
+          <span aria-hidden="true">*</span></label
+        >
+        <input
+          required
+          autocomplete="email"
+          type="email"
+          id="ContactForm-email"
+          name="contact[email]"
+          spellcheck="false"
+          placeholder="{{ section.settings.emailPlaceholder }}*"
+          autocapitalize="off"
+          aria-required="true"
+          value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+          {% if form.errors contains 'email' %}
+            aria-invalid="true"
+            aria-describedby="ContactForm-email-error"
+          {% endif %}
+        >
+      </div>
+
+      {% comment %} Print email errors {% endcomment %}
+      {%- if form.errors contains 'email' -%}
+        <small id="ContactForm-email-error">
+          <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
+          <span class="message-error">
+            {{- form.errors.translated_fields.email | capitalize }}
+            {{ form.errors.messages.email -}}
+          </span>
+        </small>
+      {%- endif -%}
+
+      {% comment %}
+        Name field
+        The inputs need to have an attribute of name="contact[information_id]", where information_id briefly
+        identifies the information that you're collecting. These titles appear in contact notifications, and
+        must be unique within the form. The emails sent to the buyer related to contact us form submissions
+        uses the name string for the label in the email and thus needs to be translated.
+      {% endcomment %}
+
+      <div class="form__row {% if section.settings.hide_name_field %}hide{% endif %}">
+        <label
+          for="ContactForm-name"
+          class="{% if section.settings.hideLabels %}hide{% endif %}"
+        >
+          {{- section.settings.nameLabel -}}
+          {% if section.settings.nameRequired %}
+            <span aria-hidden="true">*</span>
+          {%- endif -%}
+        </label>
+
+        <input
+          {% if section.settings.nameRequired %}
             required
-            autocomplete="email"
-            type="email"
-            id="ContactForm-email"
-            name="contact[email]"
-            spellcheck="false"
-            placeholder="{{ section.settings.emailPlaceholder }}*"
-            autocapitalize="off"
-            aria-required="true"
-            value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
-            {% if form.errors contains 'email' %}
-              aria-invalid="true"
-              aria-describedby="ContactForm-email-error"
-            {% endif %}
-          >
-        </div>
+          {% endif %}
+          autocomplete="name"
+          type="text"
+          placeholder="{{ section.settings.namePlaceholder }}{% if section.settings.nameRequired %}*{% endif %}"
+          id="ContactForm-name"
+          name="contact[{{- section.settings.nameLabel -}}]"
+          value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
+        >
+      </div>
 
-        {% comment %} Print email errors {% endcomment %}
-        {%- if form.errors contains 'email' -%}
-          <small id="ContactForm-email-error">
-            <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
-            <span class="message-error">
-              {{- form.errors.translated_fields.email | capitalize }}
-              {{ form.errors.messages.email -}}
-            </span>
-          </small>
-        {%- endif -%}
+      {% comment %}
+        Contact Reason field
+      {% endcomment %}
 
-        {% comment %}
-          Name field
-          The inputs need to have an attribute of name="contact[information_id]", where information_id briefly
-          identifies the information that you're collecting. These titles appear in contact notifications, and
-          must be unique within the form. The emails sent to the buyer related to contact us form submissions
-          uses the name string for the label in the email and thus needs to be translated.
-        {% endcomment %}
+      <div class="form__row {% if section.settings.hide_reason_field %}hide{% endif %}">
+        <label
+          for="ContactForm-contactReason"
+          class="{% if section.settings.hideLabels %}hide{% endif %}"
+        >
+          {{- section.settings.contactReasonLabel -}}
+          {% if section.settings.contactReasonRequired %}
+            <span aria-hidden="true">*</span>
+          {%- endif -%}
+        </label>
+        <input
+          {% if section.settings.contactReasonRequired %}
+            required
+          {% endif %}
+          autocomplete="contactReason"
+          type="text"
+          placeholder="{{ section.settings.contactReasonPlaceholder }}{% if section.settings.contactReasonRequired %}*{% endif %}"
+          id="ContactForm-contactReason"
+          name="contact[{{- section.settings.contactReasonLabel -}}]"
+        >
+      </div>
 
-        <div class="form__row {% if section.settings.hide_name_field %}hide{% endif %}">
-          <label
-            for="ContactForm-name"
-            class="{% if section.settings.hideLabels %}hide{% endif %}"
-          >
-            {{- section.settings.nameLabel -}}
-            {% if section.settings.nameRequired %}
-              <span aria-hidden="true">*</span>
-            {%- endif -%}
-          </label>
+      {% comment %} Phone field {% endcomment %}
+      <div class="form__row {% if section.settings.hide_phone_field %}hide{% endif %}">
+        <label
+          for="ContactForm-phone"
+          class="{% if section.settings.hideLabels %}hide{% endif %}"
+        >
+          {{- section.settings.phoneLabel -}}
+          {% if section.settings.phoneRequired %}
+            <span aria-hidden="true">*</span>
+          {%- endif -%}
+        </label>
+        <input
+          {% if section.settings.phoneRequired %}
+            required
+          {% endif %}
+          type="text"
+          id="ContactForm-phone"
+          placeholder="{{ section.settings.phonePlaceholder }}{% if section.settings.phoneRequired %}*{% endif %}"
+          autocomplete="tel"
+          name="contact[{{- section.settings.phoneLabel -}}]"
+          pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+          value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+        >
+      </div>
 
-          <input
-            {% if section.settings.nameRequired %}
-              required
-            {% endif %}
-            autocomplete="name"
-            type="text"
-            placeholder="{{ section.settings.namePlaceholder }}{% if section.settings.nameRequired %}*{% endif %}"
-            id="ContactForm-name"
-            name="contact[{{- section.settings.nameLabel -}}]"
-            value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
+      {% comment %} Comment field {% endcomment %}
+      <div class="form__row">
+        <label
+          for="ContactForm-body"
+          class="{% if section.settings.hideLabels %}hide{% endif %}"
+        >
+          {{- section.settings.messageLabel -}}
+          <span aria-hidden="true">*</span></label
+        >
+        <contact-form-textarea>
+          <textarea
+            required
+            id="ContactForm-body"
+            rows="15"
+            maxlength="1000"
+            placeholder="{{ section.settings.messagePlaceholder }}*"
+            name="contact[{{- section.settings.messageLabel -}}]"
           >
-        </div>
-
-        {% comment %}
-          Contact Reason field
-        {% endcomment %}
-
-        <div class="form__row {% if section.settings.hide_reason_field %}hide{% endif %}">
-          <label
-            for="ContactForm-contactReason"
-            class="{% if section.settings.hideLabels %}hide{% endif %}"
-          >
-            {{- section.settings.contactReasonLabel -}}
-            {% if section.settings.contactReasonRequired %}
-              <span aria-hidden="true">*</span>
-            {%- endif -%}
-          </label>
-          <input
-            {% if section.settings.contactReasonRequired %}
-              required
-            {% endif %}
-            autocomplete="contactReason"
-            type="text"
-            placeholder="{{ section.settings.contactReasonPlaceholder }}{% if section.settings.contactReasonRequired %}*{% endif %}"
-            id="ContactForm-contactReason"
-            name="contact[{{- section.settings.contactReasonLabel -}}]"
-          >
-        </div>
-
-        {% comment %} Phone field {% endcomment %}
-        <div class="form__row {% if section.settings.hide_phone_field %}hide{% endif %}">
-          <label
-            for="ContactForm-phone"
-            class="{% if section.settings.hideLabels %}hide{% endif %}"
-          >
-            {{- section.settings.phoneLabel -}}
-            {% if section.settings.phoneRequired %}
-              <span aria-hidden="true">*</span>
-            {%- endif -%}
-          </label>
-          <input
-            {% if section.settings.phoneRequired %}
-              required
-            {% endif %}
-            type="text"
-            id="ContactForm-phone"
-            placeholder="{{ section.settings.phonePlaceholder }}{% if section.settings.phoneRequired %}*{% endif %}"
-            autocomplete="tel"
-            name="contact[{{- section.settings.phoneLabel -}}]"
-            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-            value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
-          >
-        </div>
-
-        {% comment %} Comment field {% endcomment %}
-        <div class="form__row">
-          <label
-            for="ContactForm-body"
-            class="{% if section.settings.hideLabels %}hide{% endif %}"
-          >
-            {{- section.settings.messageLabel -}}
-            <span aria-hidden="true">*</span></label
-          >
-          <contact-form-textarea>
-            <textarea
-              required
-              id="ContactForm-body"
-              rows="15"
-              maxlength="1000"
-              placeholder="{{ section.settings.messagePlaceholder }}*"
-              name="contact[{{- section.settings.messageLabel -}}]"
-            >
               {{- form.body -}}
             </textarea>
-            <div class="contact-form__count caption-sm">
-              <span class="contact-form__count__current">0</span>
-              <span class="contact-form__count__max">/ 1000</span>
-            </div>
-          </contact-form-textarea>
-        </div>
+          <div class="contact-form__count caption-sm">
+            <span class="contact-form__count__current">0</span>
+            <span class="contact-form__count__max">/ 1000</span>
+          </div>
+        </contact-form-textarea>
+      </div>
 
-        <button class="contact-form__button button">
-          {{ 'templates.contact.form.send' | t }}
-        </button>
-      {%- endform -%}
-    </div>
+      <button class="contact-form__button button">
+        {{ 'templates.contact.form.send' | t }}
+      </button>
+    {%- endform -%}
   </div>
 </div>
 

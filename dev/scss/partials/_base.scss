@@ -159,6 +159,7 @@ form {
       opacity: 1;
     }
   }
+  
   label {
     display: inline-block;
     margin-bottom: 0.5rem;
@@ -166,12 +167,6 @@ form {
     &.hide {
       display: none;
     }
-  }
-
-  &__text{
-    text-align: center;
-    font-size: calc(0.75rem * var(--font-heading-scale));
-    margin-bottom: 3.5rem;
   }
 
   button {
@@ -508,12 +503,11 @@ details.overlay[open] > summary::before {
       calc(var(--marqueeCharacterCount) * 4) 0 RGB(var(--color-text)),
       calc(var(--marqueeCharacterCount) * 5) 0 RGB(var(--color-text)),
       calc(var(--marqueeCharacterCount) * 6) 0 RGB(var(--color-text));
+  }
 
-    &--announcement{
-      // // width: 100%;
-      // text-shadow: var(--marqueeCharacterCount) 0 RGB(var(--color-text)),
-      // calc(var(--marqueeCharacterCount) * 2) 0 RGB(var(--color-text)),
-      // calc(var(--marqueeCharacterCount) * 3) 0 RGB(var(--color-text));
-    }
+  &--announcement{
+    // // width: 100%;
+    text-shadow: var(--marqueeCharacterCount) 0 RGB(var(--color-text)),
+    calc(var(--marqueeCharacterCount) * 2) 0 RGB(var(--color-text));
   }
 }
