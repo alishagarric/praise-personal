@@ -510,6 +510,12 @@ details.overlay[open] > summary::before {
       &__text{
         width: 100%;
         text-shadow: 100vw 0 RGB(var(--color-text));
+
+         @media screen and (max-width: 676px) {
+          white-space: nowrap;
+          width: var(--marqueeCharacterCount);
+          text-shadow: var(--marqueeCharacterCount) 0 RGB(var(--color-text));
+        }
       }
     }
   }
