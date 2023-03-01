@@ -47,7 +47,7 @@
         Email field, which is required
         Aria is used for accessibility
       {% endcomment %}
-      <div class="form__row">
+      <div>
         <label
           for="ContactForm-email"
           class=""
@@ -92,7 +92,7 @@
         uses the name string for the label in the email and thus needs to be translated.
       {% endcomment %}
       {% unless section.settings.hide_name_field %}
-        <div class="form__row">
+        <div>
           <label
             for="ContactForm-name"
           >
@@ -120,7 +120,7 @@
         Contact Reason field
       {% endcomment %}
       {% unless section.settings.hide_reason_field %}
-        <div class="form__row">
+        <div>
           <label
             for="ContactForm-contactReason"
           >
@@ -146,7 +146,7 @@
         Phone field 
       {% endcomment %}
       {% unless section.settings.hide_phone_field %}
-        <div class="form__row">
+        <div>
           <label
             for="ContactForm-phone"
           >
@@ -173,7 +173,7 @@
       {% comment %} 
         Comment field 
       {% endcomment %}
-      <div class="form__row">
+      <div>
         <label
           for="ContactForm-body"
         >

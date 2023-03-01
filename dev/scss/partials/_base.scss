@@ -135,6 +135,10 @@ form {
   max-width: 660px;
   margin: 0 auto;
 
+  &__row {
+    display: flex;
+  }
+
   label {
     @extend .p-sm;
     display: inline-block;

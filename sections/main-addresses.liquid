@@ -141,7 +141,7 @@
               autocomplete="tel"
             >
           </div>
-          <div>
+          <div class="form-styles__row">
             {{- form.set_as_default_checkbox -}}
             <label for="address_default_address_new">{{ 'customer.addresses.set_default' | t }}</label>
           </div>
@@ -308,7 +308,7 @@
                       autocomplete="tel"
                     >
                   </div>
-                  <div>
+                  <div class="form-styles__row">
                     {{ form.set_as_default_checkbox }}
                     <label for="address_default_address_{{ form.id }}">
                       {{- 'customer.addresses.set_default' | t -}}
