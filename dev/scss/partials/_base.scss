@@ -143,6 +143,8 @@ form {
 
 .form-styles {
   width: 100%;
+  display: flex;
+  flex-direction: column;
 
   .form__row {
     margin-bottom: 2rem;
@@ -173,6 +175,10 @@ form {
     + button {
       margin-top: 2rem;
     }
+  }
+
+  button.__with-underline {
+    align-self: center;
   }
 
   &.__hide-labels-true {
