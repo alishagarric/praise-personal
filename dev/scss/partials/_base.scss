@@ -495,7 +495,7 @@ details.overlay[open] > summary::before {
     will-change: transform;
     width: 100%;
     animation: textMarquee var(--marqueeSpeed) linear infinite;
-    margin-bottom: 0;
+    margin-bottom: 0!important;
     width: var(--marqueeCharacterCount);
     text-shadow: var(--marqueeCharacterCount) 0 RGB(var(--color-text)),
       calc(var(--marqueeCharacterCount) * 2) 0 RGB(var(--color-text)),
@@ -505,9 +505,12 @@ details.overlay[open] > summary::before {
       calc(var(--marqueeCharacterCount) * 6) 0 RGB(var(--color-text));
   }
 
-  &--announcement{
-    // // width: 100%;
-    text-shadow: var(--marqueeCharacterCount) 0 RGB(var(--color-text)),
-    calc(var(--marqueeCharacterCount) * 2) 0 RGB(var(--color-text));
+  &.__announcement{
+    .marquee-styles{
+      &__text{
+        width: 100%;
+        text-shadow: 100vw 0 RGB(var(--color-text));
+      }
+    }
   }
 }
