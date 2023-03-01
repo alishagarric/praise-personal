@@ -153,15 +153,6 @@ button[aria-disabled="true"],
   cursor: not-allowed;
 }
 
-form > *,
-province-selector > * {
-  margin-bottom: 10px;
-}
-
-form > *:last-child {
-  margin-bottom: 0;
-}
-
 fieldset {
   padding: 0;
   border: 0;
