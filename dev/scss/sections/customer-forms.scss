@@ -1,0 +1,29 @@
+.customer-forms {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 350px;
+    margin: 0 auto;
+
+    &#recover {
+      display: none;
+
+      &:target {
+        display: flex;
+
+        & ~ #login {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &__text {
+    margin-bottom: calc(var(--sectionVerticalSpacing) / 4);
+  }
+
+  &__form {
+    margin-bottom: 1rem;
+  }
+}

@@ -2,6 +2,7 @@
   assign section_theme = section.settings.theme
   assign top_spacing = section.settings.top_spacing
   assign bottom_spacing = section.settings.bottom_spacing
+  assign form_class = 'customer-forms__form form-styles' | append: " __hide-labels-" | append: section.settings.hide_labels
 %}
 
 {% style %}
@@ -11,23 +12,21 @@
   }
 {% endstyle %}
 
-{{ 'customer.css' | asset_url | stylesheet_tag }}
-
-<div id="Main-login-{{ section.id }}" class="site-login __theme-{{ section_theme }}">
-  <div id="recover">
-    <div class="site-login__text">
+<div id="Main-login-{{ section.id }}" class="customer-forms __theme-{{ section_theme }}">
+  <div class="customer-forms__container" id="recover">
+    <div class="customer-forms__text __align-center">
       {% render 'heading', heading: section.settings.reset_heading, heading_size: 'h5', heading_tag: 'h1' %}
       <p class="p-sm">
         {{- 'customer.recover_password.subtext' | t -}}
       </p>
     </div>
     {%- if recover_success == true -%}
-      <h3 class="message-success" tabindex="-1" autofocus>
+      <h3 class="message-success p" tabindex="-1" autofocus>
         {{- 'customer.recover_password.success' | t -}}
       </h3>
     {%- endif -%}
 
-    {%- form 'recover_customer_password', class: 'form-styles' -%}
+    {%- form 'recover_customer_password', class: form_class -%}
       {% assign recover_success = form.posted_successfully? %}
       <div>
         <label for="RecoverEmail">
@@ -37,6 +36,7 @@
           type="email"
           value=""
           name="email"
+          placeholder="{{- 'customer.login_page.email' | t -}}"
           id="RecoverEmail"
           autocorrect="off"
           autocapitalize="off"
@@ -59,37 +59,27 @@
           {{- 'customer.login_page.submit' | t -}}
         </button>
       </div>
-
-      <div class="site-login__link">
-        <a href="#login" class="btn __with-underline">
-          {{- 'customer.login_page.cancel' | t -}}
-        </a>
-      </div>
     {%- endform -%}
+
+    {% assign button_label = 'customer.login_page.cancel' | t %}
+    {% render 'button', class: "customer-forms", button_label: button_label, button_link: "#login", style: "underline" %}
+
   </div>
 
-  <div id="login">
-    <div class="site-login__text">
-      <div class="site-login__text__heading">
-        {% render 'heading', heading: section.settings.heading, heading_size: 'h5', heading_tag: 'h1' %}
-      </div>
-      <div class="site-login__text__description p-sm" {{ block.shopify_attributes }}>
+  <div class="customer-forms__container" id="login">
+    <div class="customer-forms__text __align-center">
+        {% render 'heading', heading: section.settings.heading, heading_size: 'h5', heading_tag: 'h1', class: "customer-forms__text" %}
+      <div class="customer-forms__text__description p-sm" {{ block.shopify_attributes }}>
         {{ section.settings.description }}
       </div>
-      <p>
-        <span class="p-sm">Don't have an account?</span>
-        <a class="site-login__create p-sm" href="{{ routes.account_register_url }}">
-          {{ section.settings.register_label }}
-        </a>
-      </p>
     </div>
     {%- if recover_success == true -%}
-      <h3 class="message-success" tabindex="-1" autofocus>
+      <h3 class="message-success p" tabindex="-1" autofocus>
         {{- 'customer.recover_password.success' | t -}}
       </h3>
     {%- endif -%}
 
-    {%- form 'customer_login', class: 'form-styles' -%}
+    {%- form 'customer_login', class: form_class -%}
       {%- if form.errors -%}
         <h2 tabindex="-1" autofocus>
           <small class="visually-hidden">{{- 'accessibility.error' | t -}}</small>
@@ -106,6 +96,7 @@
         <input
           type="email"
           name="customer[email]"
+          placeholder="{{- 'customer.login_page.email' | t -}}"
           id="CustomerEmail"
           autocomplete="email"
           autocorrect="off"
@@ -122,6 +113,7 @@
         </label>
         <input
           type="password"
+          placeholder="{{- 'customer.login_page.password' | t -}}"
           value=""
           name="customer[password]"
           id="CustomerPassword"
@@ -136,13 +128,11 @@
         <button>
           {{- 'customer.login_page.sign_in' | t -}}
         </button>
-        <div class="site-login__link">
-          <a class="btn __with-underline" href="#recover">
-            {{- 'customer.login_page.forgot_password' | t -}}
-          </a>
-        </div>
       </div>
     {%- endform -%}
+
+    {% assign button_label = 'customer.login_page.forgot_password' | t %}
+    {% render 'button', class: "customer-forms", button_label: button_label, button_link: "#recover", style: "underline" %}
   </div>
 </div>
 
@@ -151,6 +141,16 @@
   "name": "t:sections.main-login.name",
   "tag": "section",
   "settings": [
+    {
+      "type": "header",
+      "content": "General"
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_labels",
+      "label": "Hide Labels?",
+      "default": false
+    },
     {
       "type": "header",
       "content": "Login Form"
@@ -164,14 +164,8 @@
     {
       "type": "richtext",
       "id": "description",
-      "default": "<p>Log in to Your Account</p>",
+      "default":"<p>Log in to Your Account<\/p><p>Don't have an account? <a href=\"\/account\/register\" title=\"\/account\/register\">Register<\/a><\/p>",
       "label": "Description"
-    },
-    {
-      "type": "text",
-      "id": "register_label",
-      "default": "Register",
-      "label": "Register Link Label"
     },
     {
       "type": "header",
@@ -185,7 +179,7 @@
     },
     {
       "type": "header",
-      "content": "Forms Settings"
+      "content": "Section"
     },
     {
       "type": "range",

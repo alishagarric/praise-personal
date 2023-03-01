@@ -85,8 +85,7 @@ form {
 
   input[type="text"],
   input[type="email"],
-  input[type="password"]
-  {
+  input[type="password"] {
     height: var(--inputHeight);
     padding: 0 calc(var(--inputHeight) / 3);
   }
@@ -143,11 +142,10 @@ form {
 }
 
 .form-styles {
+  width: 100%;
+
   .form__row {
-    margin: 1.5rem 0;
-    &.hide {
-      display: none;
-    }
+    margin-bottom: 2rem;
   }
 
   input,
@@ -159,25 +157,23 @@ form {
       opacity: 1;
     }
   }
-  
+
   label {
+    @extend .p-sm;
     display: inline-block;
-    margin-bottom: 0.5rem;
-    font-size: calc(0.75rem * var(--font-heading-scale));
-    &.hide {
-      display: none;
-    }
+    margin-bottom: 0.5rem !important;
   }
 
   button {
-    margin: 3.375rem auto 0;
+    margin: 3.375rem auto 0 auto;
     width: 100%;
     justify-content: center;
+    max-width: 350px;
   }
 
-  @media screen and (max-width: 676px) {
-    button {
-      max-width: initial;
+  &.__hide-labels-true {
+    label {
+      display: none;
     }
   }
 }
@@ -474,7 +470,7 @@ details.overlay[open] > summary::before {
 
 //Marquee Styles
 ////////////////////////////////////
-.marquee-styles{
+.marquee-styles {
   padding-right: 0 !important;
   padding-left: 0 !important;
 
@@ -495,7 +491,7 @@ details.overlay[open] > summary::before {
     will-change: transform;
     width: 100%;
     animation: textMarquee var(--marqueeSpeed) linear infinite;
-    margin-bottom: 0!important;
+    margin-bottom: 0 !important;
     width: var(--marqueeCharacterCount);
     text-shadow: var(--marqueeCharacterCount) 0 RGB(var(--color-text)),
       calc(var(--marqueeCharacterCount) * 2) 0 RGB(var(--color-text)),
@@ -505,13 +501,13 @@ details.overlay[open] > summary::before {
       calc(var(--marqueeCharacterCount) * 6) 0 RGB(var(--color-text));
   }
 
-  &.__announcement{
-    .marquee-styles{
-      &__text{
+  &.__announcement {
+    .marquee-styles {
+      &__text {
         width: 100%;
         text-shadow: 100vw 0 RGB(var(--color-text));
 
-         @media screen and (max-width: 676px) {
+        @media screen and (max-width: 676px) {
           white-space: nowrap;
           width: var(--marqueeCharacterCount);
           text-shadow: var(--marqueeCharacterCount) 0 RGB(var(--color-text));
