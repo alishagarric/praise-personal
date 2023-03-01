@@ -13,7 +13,7 @@
         "1662063884b661ea2d-0": {
           "type": "text",
           "settings": {
-            "text": "<p>Our customer service hours are Monday through Friday 9am to 6pm PST.<\/p><p>We can help answer any questions about our products, shippings, or anything else on your mind!<\/p><p><strong>Call Us<\/strong><br\/>818-777-5577<\/p><p><strong>Visit Us<\/strong><br\/>1557 S McCarran Blvd<br\/>New York, NY 21212<\/p>"
+            "text": "<p>Our customer service hours are Monday through Friday 9am to 6pm PST.</p><p>We can help answer any questions about our products, shippings, or anything else on your mind!</p><p><strong>Call Us</strong><br/>818-777-5577</p><p><strong>Visit Us</strong><br/>1557 S McCarran Blvd<br/>New York, NY 21212</p>"
           }
         }
       },
@@ -22,7 +22,7 @@
         "1662063884b661ea2d-0"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_549b821c-6850-42f3-ae03-51e8af8116c6.jpg",
+        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_549b821c-6850-42f3-ae03-51e8af8116c6.jpg",
         "hero": true,
         "alignment": "default",
         "theme": "2",
@@ -37,12 +37,15 @@
     "form": {
       "type": "contact-form",
       "settings": {
-        "heading": "Contact Us"
+        "heading": "Email Us",
+        "disclaimer": "*indicates a required field",
+        "hide_labels": true,
+        "name_required": true,
+        "heading_size": "h4",
+        "alt_heading": true,
+        "description": "Please contact us using the form below and allow 1-2 business days for your response."
       }
     }
   },
-  "order": [
-    "1662063884d9fa6284",
-    "form"
-  ]
+  "order": ["1662063884d9fa6284", "form"]
 }

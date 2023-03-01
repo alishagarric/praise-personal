@@ -595,6 +595,35 @@ class OverflowSlider extends HTMLElement {
 }
 customElements.define("overflow-slider", OverflowSlider);
 
+/* Text Area Counter */
+///////////////////////////////
+///////////////////////////////
+
+class TextareaCounter extends HTMLElement {
+  constructor() {
+    super();
+    this.textarea = this.querySelector("textarea");
+    this.current = this.querySelector(".textarea-counter__count__current");
+    this.count = 1;
+
+    if (!this.textarea || !this.current) return;
+  }
+
+  connectedCallback() {
+    this.addEventListener("keyup", this.updateCount, true);
+  }
+
+  updateCount(e) {
+    this.count = this.textarea.value.length;
+    this.updateNumber();
+  }
+
+  updateNumber() {
+    this.current.innerHTML = this.count;
+  }
+}
+customElements.define("textarea-counter", TextareaCounter);
+
 /* Logic the Shopify Starter Included */
 ////////////////////////////////////////
 ///////////////////////////////////////

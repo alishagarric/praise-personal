@@ -2,32 +2,31 @@
   assign section_theme = section.settings.theme
   assign top_spacing = section.settings.top_spacing
   assign bottom_spacing = section.settings.bottom_spacing
-  assign form_class = 'form-styles' | append: " __hide-labels-" | append: section.settings.hide_labels
+  assign form_class = 'contact-form__form form-styles' | append: " __hide-labels-" | append: section.settings.hide_labels
 %}
 {% style %}
   #Contact-form-{{ section.id }} {
     --topSpacingRatio: {{ top_spacing }} / 100;
     --bottomSpacingRatio: {{ bottom_spacing }} / 100;
   }
-  :root {
-    --color-text: #FFFFFF;
-  }
 {% endstyle %}
 
 <div id="Contact-form-{{ section.id }}" class="contact-form  __theme-{{ section_theme }}">
-  <div class="contact-form__container">
-    <div class="contact-form__text">
-      {% render 'heading', heading: section.settings.heading, heading_size: 'h4' %}
+  
+    <div class="contact-form__text __align-center">
+      {% render 'heading', heading: section.settings.heading, heading_size: section.settings.heading_size, alt_heading: section.settings.alt_heading %}
       <div class="contact-form__text__description p-sm" {{ block.shopify_attributes }}>
         {{ section.settings.description }}
       </div>
     </div>
-    <div class="contact-form__text__disclaimer" {{ block.shopify_attributes }}>
-      <span>
-        {{ section.settings.disclaimer }}
-      </span>
-    </div>
+
     {%- form 'contact', id: 'ContactForm', class: form_class -%}
+      {% if section.settings.disclaimer != blank %}
+        <span class="p-sm">
+          {{ section.settings.disclaimer }}
+        </span>
+      {% endif %}
+
       {% comment %}
         Check if the form submitted successfully
         If not it could only have come from the email field which is the only required field
@@ -181,7 +180,7 @@
           {{- section.settings.message_label -}}
           <span aria-hidden="true">*</span></label
         >
-        <contact-form-textarea>
+        <textarea-counter class="textarea-counter">
           <textarea
             required
             id="ContactForm-body"
@@ -192,18 +191,18 @@
           >
               {{- form.body -}}
             </textarea>
-          <div class="contact-form__count caption-sm">
-            <span class="contact-form__count__current">0</span>
-            <span class="contact-form__count__max">/ 1000</span>
+          <div class="textarea-counter__count p-sm">
+            <span class="textarea-counter__count__current">0</span>
+            <span class="textarea-counter__count__max">/ 1000</span>
           </div>
-        </contact-form-textarea>
+        </textarea-counter>
       </div>
 
       <button class="contact-form__button button">
         {{ 'templates.contact.form.send' | t }}
       </button>
     {%- endform -%}
-  </div>
+
 </div>
 
 {% schema %}
@@ -219,8 +218,37 @@
     {
       "type": "text",
       "id": "heading",
-      "default": "Contact Form",
+      "default": "Lorem ipsum dolor sit",
       "label": "Heading"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "X-Large"
+        },
+        {
+          "value": "h4",
+          "label": "Large"
+        },
+        {
+          "value": "h5",
+          "label": "Medium"
+        },
+        {
+          "value": "h6",
+          "label": "Small"
+        }
+      ],
+      "default": "h4",
+      "label": "Heading Size"
+    },
+    {
+      "type": "checkbox",
+      "id": "alt_heading",
+      "label": "Use body font instead of heading font for heading?"
     },
     {
       "type": "richtext",

@@ -78,7 +78,6 @@ form {
   input,
   textarea {
     font-family: var(--font-body-family);
-    letter-spacing: 0.04rem;
     -webkit-appearance: none;
     margin: 0;
   }
@@ -94,50 +93,21 @@ form {
   input[type="email"],
   input[type="password"],
   textarea {
+    @extend .p-sm;
+    margin-bottom: 0;
     border: 1px solid RGB(var(--color-text));
     background: transparent;
     width: 100%;
+    border-radius: var(--btnBorderRadius);
   }
 
   textarea {
-    border-radius: 4px;
     padding: calc(var(--inputHeight) / 3);
   }
 
   ::placeholder {
-    color: RGB(var(--color-text));
-    opacity: 50%;
-  }
-
-  &.__form-styles {
-    display: flex;
-    flex-direction: column;
-    gap: calc(var(--inputHeight) / 3);
-
-    > div {
-      display: flex;
-      gap: calc(var(--inputHeight) / 3);
-
-      > input {
-        flex: 1;
-      }
-    }
-  }
-
-  @media screen and (max-width: 676px) {
-    &.__form-styles {
-      & > div {
-        display: block;
-      }
-
-      input {
-        width: 100%;
-
-        &:first-of-type {
-          margin-bottom: calc(var(--inputHeight) / 3);
-        }
-      }
-    }
+    color: RGBA(var(--color-text) / 0.65);
+    opacity: 1;
   }
 }
 
@@ -145,20 +115,8 @@ form {
   width: 100%;
   display: flex;
   flex-direction: column;
-
-  .form__row {
-    margin-bottom: 2rem;
-  }
-
-  input,
-  textarea {
-    border-radius: var(--btnBorderRadius);
-
-    &::placeholder {
-      color: RGBA(var(--color-text) / 0.65);
-      opacity: 1;
-    }
-  }
+  max-width: 660px;
+  margin: 0 auto;
 
   label {
     @extend .p-sm;

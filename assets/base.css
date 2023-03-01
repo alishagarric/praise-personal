@@ -167,20 +167,6 @@ fieldset {
   border: 0;
 }
 
-/* Inputs */
-
-input:not([type="radio"]):not([type="checkbox"]),
-textarea,
-select {
-  display: block;
-  padding: 14px 16px;
-  background-color: RGB(var(--color-background));
-  border: 1px solid RGB(var(--color-text));
-  color: RGB(var(--color-text));
-  font: inherit;
-  max-width: 100%;
-}
-
 /* Tables */
 
 th {
