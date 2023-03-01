@@ -1,12 +1,19 @@
-<div class="container">
-  <h1>
-    {{- 'customer.activate_account.title' | t -}}
-  </h1>
-  <p>
-    {{- 'customer.activate_account.subtext' | t -}}
-  </p>
+{% liquid
+  assign section_theme = section.settings.theme
+  assign top_spacing = section.settings.top_spacing
+  assign bottom_spacing = section.settings.bottom_spacing
+%}
 
-  {%- form 'activate_customer_password' -%}
+<div class="site-activate-account">
+  <div class="site-activate-account__text">
+    <h1 class="h5">
+      {{- 'customer.activate_account.title' | t -}}
+    </h1>
+    <p class="p-sm">
+      {{- 'customer.activate_account.subtext' | t -}}
+    </p>
+  </div>
+  {%- form 'activate_customer_password', class: 'form-styles' %}
     {%- if form.errors -%}
       <h2 tabindex="-1" autofocus>
         {{- 'templates.contact.form.error_heading' | t -}}
@@ -27,7 +34,7 @@
       </ul>
     {%- endif -%}
 
-    <div>
+    <div class="form__row">
       <label for="password">
         {{- 'customer.activate_account.password' | t -}}
       </label>
@@ -35,6 +42,7 @@
         type="password"
         name="customer[password]"
         id="password"
+        required
         autocomplete="new-password"
         {% if form.errors contains 'password' %}
           aria-invalid="true"
@@ -44,18 +52,19 @@
 
       {%- if form.errors contains 'password' -%}
         <small id="password-error" class="message-error">
-          {{- form.errors.translated_fields['password'] | capitalize }}
-          {{ form.errors.messages['password'] -}}
+          {{- form.errors.translated_fields.password | capitalize }}
+          {{ form.errors.messages.password -}}
         </small>
       {%- endif -%}
     </div>
 
-    <div>
+    <div class="form__row">
       <label for="password_confirmation">
         {{- 'customer.activate_account.password_confirm' | t -}}
       </label>
       <input
         type="password"
+        required
         name="customer[password_confirmation]"
         id="password_confirmation"
         autocomplete="new-password"
@@ -67,17 +76,19 @@
 
       {%- if form.errors contains 'password_confirmation' -%}
         <small id="password_confirmation-error" class="message-error">
-          {{- form.errors.translated_fields['password_confirmation'] | capitalize }}
-          {{ form.errors.messages['password_confirmation'] -}}
+          {{- form.errors.translated_fields.password_confirmation | capitalize }}
+          {{ form.errors.messages.password_confirmation -}}
         </small>
       {%- endif -%}
     </div>
 
-    <button>
-      {{- 'customer.activate_account.submit' | t -}}
-    </button>
-    <button name="decline">
-      {{- 'customer.activate_account.cancel' | t -}}
-    </button>
+    <div class="site-activate-account__btns">
+      <button>
+        {{- 'customer.activate_account.submit' | t -}}
+      </button>
+      <button name="decline">
+        {{- 'customer.activate_account.cancel' | t -}}
+      </button>
+    </div>
   {%- endform -%}
 </div>
