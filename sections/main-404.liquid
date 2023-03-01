@@ -6,7 +6,7 @@
   }
 {% endstyle %}
 
-<div id="main-404-{{ section.id }}" class="site-404 __align-center">
+<div id="main-404-{{ section.id }}" class="site-404 __align-center __theme-{{ section.settings.theme }}">
   {%- if section.settings.image != blank -%}
     <div class="site-404__image">
       {% render 'next-gen-img', image: section.settings.image %}
@@ -130,6 +130,34 @@
     {
       "type": "header",
       "content": "Section"
+    },
+        {
+      "type": "select",
+      "id": "theme",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary Theme"
+        },
+        {
+          "value": "2",
+          "label": "2nd Theme"
+        },
+        {
+          "value": "3",
+          "label": "3rd Theme"
+        },
+        {
+          "value": "4",
+          "label": "4th Theme"
+        },
+        {
+          "value": "5",
+          "label": "5th Theme"
+        }
+      ],
+      "default": "primary",
+      "label": "Theme"
     },
     {
       "type": "range",
