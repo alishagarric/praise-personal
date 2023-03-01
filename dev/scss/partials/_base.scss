@@ -82,7 +82,8 @@ form {
     margin: 0;
   }
 
-  input:not([type="radio"]):not([type="checkbox"]) {
+  input:not([type="radio"]):not([type="checkbox"]),
+  select {
     height: var(--inputHeight);
     padding: 0 calc(var(--inputHeight) / 3);
   }
@@ -98,8 +99,23 @@ form {
     border-radius: var(--btnBorderRadius);
   }
 
-  input[type="checkbox"] {
+  input[type="checkbox"],
+  input[type="radio"] {
     border: 1px solid RGB(var(--color-text));
+    height: calc(var(--inputHeight) / 2);
+    width: calc(var(--inputHeight) / 2);
+
+    + label {
+      margin: 0 !important;
+      height: calc(var(--inputHeight) / 2);
+      line-height: calc(var(--inputHeight) / 2);
+      padding-left: calc(var(--inputHeight) / 4);
+      white-space: nowwrap;
+    }
+  }
+
+  input[type="radio"] {
+    border-radius: 50%;
   }
 
   textarea {
