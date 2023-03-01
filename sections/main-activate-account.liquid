@@ -1,21 +1,19 @@
-{% liquid
-  assign section_theme = section.settings.theme
-  assign top_spacing = section.settings.top_spacing
-  assign bottom_spacing = section.settings.bottom_spacing
+{% liquid 
+  assign heading = 'customer.activate_account.title' | t
+  assign form_class = 'customer-forms__form form-styles'
 %}
 
-<div class="site-activate-account">
+<div id="Main-activate-account" class="customer-forms">
+  <div class="customer-forms__container">
   <div class="site-activate-account__text">
-    <h1 class="h5">
-      {{- 'customer.activate_account.title' | t -}}
-    </h1>
+    {% render 'heading', heading: heading, heading_size: 'h5', heading_tag: 'h1' %}
     <p class="p-sm">
       {{- 'customer.activate_account.subtext' | t -}}
     </p>
   </div>
-  {%- form 'activate_customer_password', class: 'form-styles' %}
+  {%- form 'activate_customer_password', class: form_class %}
     {%- if form.errors -%}
-      <h2 tabindex="-1" autofocus>
+      <h2 tabindex="-1" autofocus class="p">
         {{- 'templates.contact.form.error_heading' | t -}}
       </h2>
       <ul>
@@ -40,6 +38,7 @@
       </label>
       <input
         type="password"
+        placeholder="{{- 'customer.activate_account.password' | t -}}"
         name="customer[password]"
         id="password"
         required
@@ -66,6 +65,7 @@
         type="password"
         required
         name="customer[password_confirmation]"
+        placeholder="{{- 'customer.activate_account.password_confirm' | t -}}"
         id="password_confirmation"
         autocomplete="new-password"
         {% if form.errors contains 'password' %}
@@ -82,13 +82,12 @@
       {%- endif -%}
     </div>
 
-    <div class="site-activate-account__btns">
-      <button>
-        {{- 'customer.activate_account.submit' | t -}}
-      </button>
-      <button name="decline">
-        {{- 'customer.activate_account.cancel' | t -}}
-      </button>
-    </div>
+    <button>
+      {{- 'customer.activate_account.submit' | t -}}
+    </button>
+    <button name="decline" class="btn __with-underline">
+      {{- 'customer.activate_account.cancel' | t -}}
+    </button>
   {%- endform -%}
+  </div>
 </div>
