@@ -2,7 +2,9 @@
   assign section_theme = section.settings.theme
   assign top_spacing = section.settings.top_spacing
   assign bottom_spacing = section.settings.bottom_spacing
+  assign form_class = 'customer-forms__form form-styles' | append: " __hide-labels-" | append: section.settings.hide_labels
 %}
+
 {% style %}
   #Main-register-{{ section.id }} {
     --topSpacingRatio: {{ top_spacing }} / 100;
@@ -10,18 +12,17 @@
   }
 {% endstyle %}
 
-<div id="Main-register-{{ section.id }}" class="site-register __theme-{{ section_theme }}">
-  <div class="site-register__text">
-    <div class="site-register__heading">
-      {% render 'heading', heading: section.settings.heading, heading_size: 'h5', heading_tag: 'h1' %}
-    </div>
-    <div class="site-login__description p-sm" {{ block.shopify_attributes }}>
+<div id="Main-register-{{ section.id }}" class="customer-forms __theme-{{ section_theme }}">
+  <div class="customer-forms__container">
+  <div class="customer-forms__text __align-center">
+    {% render 'heading', heading: section.settings.heading, heading_size: 'h5', heading_tag: 'h1' %}
+    <div class="p-sm" {{ block.shopify_attributes }}>
       {{ section.settings.description }}
     </div>
   </div>
-  {% form 'create_customer', class: 'form-styles' %}
+  {% form 'create_customer', class: form_class %}
     {%- if form.errors -%}
-      <h2 tabindex="-1" autofocus>
+      <h2 tabindex="-1" autofocus class="p">
         {{- 'templates.contact.form.error_heading' | t -}}
       </h2>
 
@@ -42,7 +43,7 @@
     {%- endif -%}
 
     <div class="form__row">
-      <label for="RegisterForm-FirstName" class="{% if section.settings.hideLabels %}hide{% endif %}">
+      <label for="RegisterForm-FirstName">
         {{- 'customer.register.first_name' | t -}}
         *
       </label>
@@ -60,7 +61,7 @@
     </div>
 
     <div class="form__row">
-      <label for="RegisterForm-LastName" class="{% if section.settings.hideLabels %}hide{% endif %}">
+      <label for="RegisterForm-LastName">
         {{- 'customer.register.last_name' | t -}}
         *
       </label>
@@ -78,7 +79,7 @@
     </div>
     <div>
       <div class="form__row">
-        <label for="RegisterForm-email" class="{% if section.settings.hideLabels %}hide{% endif %}">
+        <label for="RegisterForm-email">
           {{- 'customer.register.email' | t -}}
           *
         </label>
@@ -113,7 +114,7 @@
 
     <div>
       <div class="form__row">
-        <label for="RegisterForm-password" class="{% if section.settings.hideLabels %}hide{% endif %}">
+        <label for="RegisterForm-password">
           {{- 'customer.register.password' | t -}}
           *
         </label>
@@ -143,6 +144,7 @@
       {{- 'customer.register.submit' | t -}}
     </button>
   {% endform %}
+  </div>
 </div>
 
 {% schema %}
@@ -152,6 +154,10 @@
   "class": "section",
   "settings": [
     {
+      "type": "header",
+      "content": "Text Content"
+    },
+    {
       "type": "text",
       "id": "heading",
       "default": "Create Account",
@@ -160,14 +166,22 @@
     {
       "type": "richtext",
       "id": "description",
-      "default": "<p>Regiter for an account.</p>",
+      "default": "<p>Register for an account.</p>",
       "label": "Description"
     },
     {
+      "type": "header",
+      "content": "General"
+    },
+    {
       "type": "checkbox",
-      "id": "hideLabels",
+      "id": "hide_labels",
       "label": "Hide Labels?",
-      "default": true
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Section"
     },
     {
       "type": "range",
