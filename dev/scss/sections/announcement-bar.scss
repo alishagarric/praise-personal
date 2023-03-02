@@ -8,11 +8,8 @@
   flex: 0 0 100%;
   overflow: hidden;
 
-  p{
+  &__text {
     margin-bottom: 0;
-  }
-
-  .marquee-styles__inner {
-    flex-basis: 100%;
+    white-space: nowrap;
   }
 }

@@ -17,15 +17,15 @@
         "label": "t:sections.announcement-bar.settings.text.label"
       },
       {
-      "type": "range",
-      "id": "speed",
-      "min": 1,
-      "max": 10,
-      "step": 1,
-      "unit": "x",
-      "label": "Speed",
-      "default": 5
-    },
+        "type": "range",
+        "id": "announcement_bar_speed",
+        "min": 1,
+        "max": 10,
+        "step": 1,
+        "unit": "x",
+        "label": "Speed",
+        "default": 5
+      },
       {
         "type": "select",
         "id": "announcement_bar_text_size",
@@ -76,13 +76,13 @@
       },
       {
         "type": "checkbox",
-        "id": "announcement_home_only",
+        "id": "announcement_bar_home_only",
         "label": "Show on home page only",
         "default": false
       },
       {
         "type": "checkbox",
-        "id": "turn_on_marquee",
+        "id": "announcement_bar_marquee",
         "label": "Turn on Scrolling Marquee",
         "default": false
       }

@@ -486,6 +486,15 @@ details.overlay[open] > summary::before {
     }
   }
 
+  @keyframes oneFrameTextMarquee {
+    from {
+      transform: translateX(100vw);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
   &__inner {
     overflow: hidden;
   }
@@ -504,17 +513,17 @@ details.overlay[open] > summary::before {
       calc(var(--marqueeCharacterCount) * 6) 0 RGB(var(--color-text));
   }
 
-  &.__announcement {
+  &.__style-fullwidth {
     .marquee-styles {
-      &__text {
+      &__inner {
         width: 100%;
-        text-shadow: 100vw 0 RGB(var(--color-text));
+      }
 
-        @media screen and (max-width: 676px) {
-          white-space: nowrap;
-          width: var(--marqueeCharacterCount);
-          text-shadow: var(--marqueeCharacterCount) 0 RGB(var(--color-text));
-        }
+      &__text {
+        width: fit-content;
+        text-shadow: none;
+        white-space: nowrap;
+        animation: oneFrameTextMarquee var(--marqueeSpeed) linear infinite;
       }
     }
   }
