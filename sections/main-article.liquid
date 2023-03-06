@@ -40,7 +40,7 @@
           {% assign button_label =  'blogs.article.back_to_blog' | t: title: blog.title %}
           {% render 'button' button_link: blog.url, button_label: button_label, class: "main-article" %}
 
-        {%- when 'sidebar' -%}
+        {%- when 'side_bar' -%}
           <div class="main-article__sidebar">
             {% if block.settings.label %}
               <h6 class="p-sm">{{ block.settings.label }}</h6>
@@ -310,23 +310,18 @@
       ]
     },
     {
-      "type": "icon",
-      "name": "Icon",
+      "type": "side_bar",
+      "name": "Side Bar",
       "settings": [
         {
-          "type": "image_picker",
-          "id": "icon",
-          "label": "Icon"
-        },
-        {
           "type": "text",
-          "id": "heading",
+          "id": "label",
           "label": "Label"
         },
         {
           "type": "richtext",
           "id": "text",
-          "label": "Description"
+          "label": "Content"
         },
         {
           "type": "radio",
