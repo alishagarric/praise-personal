@@ -1,0 +1,307 @@
+{% liquid
+  assign section_theme = section.settings.theme
+  assign top_spacing = section.settings.top_spacing
+  assign bottom_spacing = section.settings.bottom_spacing
+  assign alt_heading = section.settings.alt_heading
+  assign show_date = section.settings.show_date
+  assign show_author = section.settings.show_author
+  assign show_description = section.settings.show_description
+  assign alignment = section.settings.alignment
+  assign button_label = section.settings.button_label
+  assign assc_product_crop_shape = section.settings.assc_product_crop_shape
+  assign crop_shape = section.settings.crop_shape
+%}
+
+{% style %}
+  #Related-articles-{{ section.id }} {
+    --topSpacingRatio: {{ top_spacing }} / 100;
+    --bottomSpacingRatio: {{ bottom_spacing }} / 100;
+  }
+{% endstyle %}
+
+<div
+  id="Related-articles-{{ section.id }}"
+  class="related-articles __theme-{{ section_theme }}"
+>
+    {% render 'heading',
+      class: 'related-articles',
+      heading: section.settings.heading,
+      heading_size: section.settings.heading_size
+    %}
+
+    {% for article in blog.articles limit: 3 %}
+        {% render 'article-card',
+          class: 'related-articles__card',
+          crop: crop_shape,
+          assc_product_crop_shape: assc_product_crop_shape,
+          button_label: button_label,
+          alignment: alignment,
+          show_description: show_description,
+          show_author: show_author,
+          show_date: show_date,
+          alt_heading: alt_heading,
+          article: article
+        %}
+
+    {% endfor %}
+</div>
+
+{% schema %}
+{
+  "name": "Related Articles",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Text Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Lorem ipsum",
+      "label": "Heading"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "X-Large"
+        },
+        {
+          "value": "h4",
+          "label": "Large"
+        },
+        {
+          "value": "h5",
+          "label": "Medium"
+        },
+        {
+          "value": "h6",
+          "label": "Small"
+        }
+      ],
+      "default": "h5",
+      "label": "Heading Size"
+    },
+    {
+      "type": "header",
+      "content": "Article Cards"
+    },
+    {
+      "type": "checkbox",
+      "id": "alt_heading",
+      "label": "Use body font instead of heading font for article title?"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_date",
+      "label": "Show article date?"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_description",
+      "label": "Show article excerpt?",
+      "info": "Shows excerpt if it exists, content if it doesn't."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_author",
+      "label": "Show article author?"
+    },
+    {
+      "type": "select",
+      "id": "assc_product_crop_shape",
+      "options": [
+        {
+          "value": "not-visible",
+          "label": "Not Visible"
+        },
+        {
+          "value": "default",
+          "label": "No Crop"
+        },
+        {
+          "value": "square",
+          "label": "Square"
+        },
+        {
+          "value": "rounded-square",
+          "label": "Rounded Square"
+        },
+        {
+          "value": "circle",
+          "label": "Circle"
+        },
+        {
+          "value": "portrait",
+          "label": "Portrait"
+        },
+        {
+          "value": "rounded-portrait",
+          "label": "Rounded Portrait"
+        },
+        {
+          "value": "semicircle-portrait",
+          "label": "Semicircle Portrait"
+        },
+        {
+          "value": "landscape",
+          "label": "Landscape"
+        },
+        {
+          "value": "rounded-landscape",
+          "label": "Rounded Landscape"
+        },
+        {
+          "value": "semicircle-landscape",
+          "label": "Semicircle Landscape"
+        },
+        {
+          "value": "arch",
+          "label": "Semicircle Arch"
+        }
+      ],
+      "default": "not-visible",
+      "label": "Associated Product Image Crop Shape",
+      "info": "Relies on the addition of article metafields. TODO: Add link with info, this is how starter did it: Add a <a href=https://praise-store-theme.myshopify.com/admin/metafields/product/create>article subtitle metafield to display.</a>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Article Button Text",
+      "info": "Displays an underlined button if included, no button if not."
+    },
+    {
+      "type": "select",
+      "id": "crop_shape",
+      "options": [
+        {
+          "value": "default",
+          "label": "No Crop"
+        },
+        {
+          "value": "square",
+          "label": "Square"
+        },
+        {
+          "value": "rounded-square",
+          "label": "Rounded Square"
+        },
+        {
+          "value": "circle",
+          "label": "Circle"
+        },
+        {
+          "value": "portrait",
+          "label": "Portrait"
+        },
+        {
+          "value": "rounded-portrait",
+          "label": "Rounded Portrait"
+        },
+        {
+          "value": "semicircle-portrait",
+          "label": "Semicircle Portrait"
+        },
+        {
+          "value": "landscape",
+          "label": "Landscape"
+        },
+        {
+          "value": "rounded-landscape",
+          "label": "Rounded Landscape"
+        },
+        {
+          "value": "semicircle-landscape",
+          "label": "Semicircle Landscape"
+        },
+        {
+          "value": "arch",
+          "label": "Semicircle Arch"
+        }
+      ],
+      "default": "default",
+      "label": "Product Image Crop Shape"
+    },
+    {
+      "type": "radio",
+      "id": "alignment",
+      "label": "Alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Section"
+    },
+    {
+      "type": "select",
+      "id": "theme",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary Theme"
+        },
+        {
+          "value": "2",
+          "label": "2nd Theme"
+        },
+        {
+          "value": "3",
+          "label": "3rd Theme"
+        },
+        {
+          "value": "4",
+          "label": "4th Theme"
+        },
+        {
+          "value": "5",
+          "label": "5th Theme"
+        }
+      ],
+      "default": "primary",
+      "label": "Theme"
+    },
+    {
+      "type": "range",
+      "id": "top_spacing",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "Top Spacing",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "bottom_spacing",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "Bottom Spacing",
+      "default": 50
+    }
+  ],
+  "presets": [
+    {
+      "name": "Related Articles"
+    }
+  ]
+}
+{% endschema %}
