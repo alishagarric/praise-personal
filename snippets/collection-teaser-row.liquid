@@ -49,7 +49,7 @@
     {% if display_collection_image != false and collection.image != blank %}
       <div
         class="collection-teaser-row__image __crop-{{ collection_image_crop_shape }}"
-        style="--imageRatio: {{ collection.image.aspect_ratio | times: 100 }}%"
+        style="--imageRatio: {{ collection.image.height | divided_by: 1.00 | divided_by: collection.image.width | times: 100 }}%"
       >
         {% render 'next-gen-img', image: collection.image %}
       </div>

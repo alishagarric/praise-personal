@@ -1,0 +1,25 @@
+.social-icons {
+  display: flex;
+  gap: calc(var(--pxSize) / 2.5);
+
+  &__item {
+    svg {
+      height: calc(var(--pxSize) / 2.5);
+      width: auto;
+
+      path {
+        fill: RGB(var(--color-text));
+      }
+    }
+  }
+
+  @media screen and (max-width: 676px) {
+    gap: var(--pxSize);
+
+    &__item {
+      svg {
+        height: var(--pxSize);
+      }
+    }
+  }
+}

@@ -39,6 +39,7 @@ body {
 //Sections' space and color defaults
 ////////////////////////////////////
 body > main > section > div,
+body > main > article > div,
 body > div > footer {
   padding: calc(var(--sectionVerticalSpacing) * var(--topSpacingRatio))
     var(--sectionGuttersSpacing)

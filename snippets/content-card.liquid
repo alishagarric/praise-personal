@@ -34,7 +34,7 @@
   {%- if image != blank -%}
     <div
       class="content-card__image __crop-{{ crop_shape }} {% if overlay_theme %}__theme-{{ overlay_theme }}{% endif %} --overlayOpacity: calc({{section.settings.overlay}} / 100);"
-      style="--imageRatio: {{ image.aspect_ratio | times: 100 }}%;"
+      style="--imageRatio: {{ image.height | divided_by: 1.00 | divided_by: image.width | times: 100 }}%;"
     >
       {% render 'next-gen-img', image: image %}
       {% if overlap == true %}

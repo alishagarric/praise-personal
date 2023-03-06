@@ -48,20 +48,7 @@
   }
 
   &__social {
-    display: flex;
-    gap: calc(var(--pxSize) / 2.5);
     margin-top: calc(var(--pxSize) / 2);
-
-    &__item {
-      svg {
-        height: calc(var(--pxSize) / 2.5);
-        width: auto;
-
-        path {
-          fill: RGB(var(--color-text));
-        }
-      }
-    }
   }
 
   &__badges {
@@ -169,13 +156,6 @@
 
     &__social {
       margin-top: var(--pxSize);
-      gap: var(--pxSize);
-
-      &__item {
-        svg {
-          height: var(--pxSize);
-        }
-      }
     }
 
     &__blocks {

@@ -32,7 +32,7 @@
 {% assign show_author = show_author | default: false %}
 {% assign assc_product_crop_shape = assc_product_crop_shape | default: "not-visible" %}
 
-{% assign image_ratio = article.image.aspect_ratio | times: 100 %}
+{% assign image_ratio = article.image.height | divided_by: 1.00 | divided_by: article.image.width | times: 100 %}
 
 {% assign article_url = article.url %}
 {% assign article_title = article.title %}
@@ -55,7 +55,7 @@
       {% assign featured_product = article.metafields.custom.associated_products.value | first %}
       {% assign assc_product_count = article.metafields.custom.associated_products | split: "," | size | minus: 1 %}
       <div class="article-card__assc-products">
-        <div class="article-card__assc-products__product __crop-{{ assc_product_crop_shape }}" style="--imageRatio: {{ featured_product.featured_image.aspect_ratio | times: 100 }}%">
+        <div class="article-card__assc-products__product __crop-{{ assc_product_crop_shape }}" style="--imageRatio: {{ featured_product.featured_image.height | divided_by: 1.00 | divided_by: featured_product.featured_image.width | times: 100 }}%">
           {% render 'next-gen-img', image: featured_product.featured_image %}
         </div>
         {% if assc_product_count > 0 %}

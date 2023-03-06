@@ -38,9 +38,7 @@
 
       {% comment %} Social Icons {% endcomment %}
       {%- if section.settings.show_social -%}
-        <ul class="section-footer__social">
-          {% render 'social-icons' class: "section-footer__social__item"%}
-        </ul>
+        {% render 'social-icons' class: "section-footer__social"%}
       {%- endif -%}
       
       {% comment %} Country selector {% endcomment %}

@@ -35,7 +35,7 @@
 
 {% assign product_url = product.url %}
 {% assign product_title = product.title %}
-{% assign image_ratio = product.featured_image.aspect_ratio | times: 100 %}
+{% assign image_ratio = product.featured_image.height | divided_by: 1.00 | divided_by: product.featured_image.width | times: 100 %}
 
 {% unless product != blank %}
   {% assign product_url = "/" %}

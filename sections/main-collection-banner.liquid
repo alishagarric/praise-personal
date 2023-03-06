@@ -5,11 +5,11 @@
 
 {% style %}
   #Main-collection-banner-{{ section.id }} {
-    --topSpacingRatio: {{section.settings.top_spacing}} / 100;
-    --bottomSpacingRatio: {{section.settings.bottom_spacing}} / 100;
-    --topInternalSpacingRatio: {{section.settings.top_internal_spacing}} / 100;
-    --bottomInternalSpacingRatio: {{section.settings.bottom_internal_spacing}} / 100;
-    --overlayOpacity: calc({{section.settings.overlay}} / 100);
+    --topSpacingRatio: {{ section.settings.top_spacing }} / 100;
+    --bottomSpacingRatio: {{ section.settings.bottom_spacing }} / 100;
+    --topInternalSpacingRatio: {{ section.settings.top_internal_spacing }} / 100;
+    --bottomInternalSpacingRatio: {{ section.settings.bottom_internal_spacing }} / 100;
+    --overlayOpacity: calc({{ section.settings.overlay }} / 100);
   }
 {% endstyle %}
 
@@ -17,7 +17,7 @@
   id="Main-collection-banner-{{ section.id }}"
   class="image-banner __theme-{{ section.settings.theme }} {% if section.settings.crop_shape == "default" %}__fullwidth-bg{% endif%}"
 >
-  <div class="image-banner__inner {% if crop_shape == "default" %}__theme-{{ section.settings.overlay_theme }} {% endif %}">
+  <div class="image-banner__inner {% if section.settings.crop_shape == "default" %}__theme-{{ section.settings.overlay_theme }} {% endif %}">
     <div class="image-banner__text-container __align-{{section.settings.alignment}}">
       {% render 'breadcrumbs' %}
       {% render 'heading',
@@ -33,7 +33,7 @@
     {% unless collection.image == blank or section.settings.show_image == false %}
       <div
         class="image-banner__image __crop-{{ section.settings.crop_shape }} {% if section.settings.crop_shape != "default" %}__theme-{{ section.settings.overlay_theme }} {% endif %}"
-        style="--imageRatio: {{ collection.image.aspect_ratio | times: 100 }}%"
+        style="--imageRatio: {{ collection.image.height | divided_by: 1.00 | divided_by: collection.image.width | times: 100 }}%"
       >
         {% render 'next-gen-img', image: collection.image %}
       </div>

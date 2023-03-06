@@ -28,8 +28,10 @@
         "tumblr": "Tumblr",
         "snapchat": "Snapchat",
         "youtube": "YouTube",
-        "vimeo": "Vimeo"
-      }
+        "vimeo": "Vimeo",
+        "linkedin": "LinkedIn"
+      },
+      "share": "Share on"
     },
     "pagination": {
       "label": "Pagination",

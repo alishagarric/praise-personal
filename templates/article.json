@@ -4,10 +4,18 @@
       "type": "main-article",
       "blocks": {
         "featured_image": {
-          "type": "featured_image"
+          "type": "featured_image",
+          "settings": {
+            "crop_shape": "rounded-wide",
+            "overlay": 10
+          }
         },
         "title": {
-          "type": "title"
+          "type": "title",
+          "settings": {
+            "heading_size": "h1",
+            "overlap": true
+          }
         },
         "details": {
           "type": "details",
@@ -17,18 +25,26 @@
           }
         },
         "content": {
-          "type": "content"
+          "type": "content",
+          "settings": {
+            "image_corners": "rounded"
+          }
+        },
+        "sidebar": {
+          "type": "sidebar",
+          "settings": {
+            "label": "Ingredients"
+          }
         }
       },
       "block_order": [
         "featured_image",
         "title",
         "details",
-        "content"
+        "content",
+        "sidebar"
       ]
     }
   },
-  "order": [
-    "main"
-  ]
+  "order": ["main"]
 }

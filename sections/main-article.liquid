@@ -1,33 +1,60 @@
-<article style="background: magenta;">
+{% style %}
+  #Main-article-{{ section.id }} {
+    --topSpacingRatio: {{ section.settings.top_spacing }} / 100;
+    --bottomSpacingRatio: {{ section.settings.bottom_spacing }} / 100;
+  }
+{% endstyle %}
 
-  <div class="container">
+  <div id="Main-article-{{ section.id }}" class="main-article __theme-{{ section.settings.theme }}">
     {%- for block in section.blocks -%}
       {%- case block.type -%}
         {%- when '@app' -%}  
           {% render block %}
         {%- when 'featured_image'-%}
           {%- if article.image -%}
-            <div class="media" style="--width: {{ article.image.width }}; --height: {{ article.image.height }};">
-              {{ article.image | image_url: width: article.image.width | image_tag }}
+            <div
+              class="main-article__image __crop-{{ block.settings.crop_shape }} __theme-{{ block.settings.overlay_theme }}"
+              style="--imageRatio: {{ article.image.height | divided_by: 1.00 | divided_by: article.image.width | times: 100 }}%; --overlayOpacity: calc( {{ block.settings.overlay }} / 100);"
+            >
+              {% assign image = article.image | image_url: width: article.image.width %}
+              {% render 'next-gen-img', image: image %}
             </div>
           {%- endif -%}  
         {%- when 'title'-%}
-          <h1>{{ article.title | escape }}</h1>
+          {% assign heading_class = "__overlap-" | append: block.settings.overlap | append: ' main-article' %}
+          {% render 'heading' heading: article.title, class: heading_class, heading_tag: "h1", heading_size: block.settings.heading_size, alt_heading: block.settings.alt_heading %}
+
         {%- when 'details' -%}  
-          <p>{{ article.published_at | time_tag: format: 'date' }}</p>
-          <p>{{ article.author }}</p>           
+          <div class="main-article__details">
+            <p class="p-sm">{{ article.published_at | time_tag: format: 'date' }}</p>
+            <p class="p-sm">{{ article.author }}</p> 
+          </div>          
         {%- when 'content'-%}
-          {{ article.content }}
+          <div class="main-article__content __article-txt">
+            {% assign article_content = article.content | split: '<img' %}
+            {% assign join_string = '<img class="__crop-' | append: block.settings.image_corners | append: '"' %}
+            {% assign article_content = article_content | join: join_string %}
+            {{ article_content }}
+          </div>
+
+          {% assign button_label =  'blogs.article.back_to_blog' | t: title: blog.title %}
+          {% render 'button' button_link: blog.url, button_label: button_label, class: "main-article" %}
+
+        {%- when 'sidebar' -%}
+          <div class="main-article__sidebar">
+            {% if block.settings.label %}
+              <h6 class="p-sm">{{ block.settings.label }}</h6>
+            {% endif %}
+
+            {{ block.settings.content }}
+
+            <div class="p-sm">{{ 'general.social.share' | t }}</div>
+            {% render 'sharing-icons' %}
+          </div>
       {%- endcase -%}
     {%- endfor -%}
-
-    <p>
-      <a href="{{ blog.url }}">
-        {{ 'blogs.article.back_to_blog' | t: title: blog.title }}
-      </a>
-    </p>  
   </div>
-</article>
+
 
 <script type="application/ld+json">
   {
@@ -71,6 +98,61 @@
 {% schema %}
 {
   "name": "t:sections.main-article.name",
+  "tag": "article",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section"
+    },
+    {
+      "type": "select",
+      "id": "theme",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary Theme"
+        },
+        {
+          "value": "2",
+          "label": "2nd Theme"
+        },
+        {
+          "value": "3",
+          "label": "3rd Theme"
+        },
+        {
+          "value": "4",
+          "label": "4th Theme"
+        },
+        {
+          "value": "5",
+          "label": "5th Theme"
+        }
+      ],
+      "default": "primary",
+      "label": "Theme"
+    },
+    {
+      "type": "range",
+      "id": "top_spacing",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "Top Spacing",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "bottom_spacing",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "Bottom Spacing",
+      "default": 50
+    }
+  ],
   "blocks": [
     {
       "type": "@app"
@@ -78,22 +160,195 @@
     {
       "type": "featured_image",
       "name": "t:sections.main-article.blocks.featured_image.name",
-      "limit": 1
+      "limit": 1,
+      "settings": [
+        {
+          "type": "range",
+          "id": "overlay",
+          "label": "Overlay Opacity",
+          "info": "If above 0%, an overlay will be added on top of the image to create contrast behind the text.",
+          "min": 0,
+          "max": 70,
+          "step": 10,
+          "unit": "%",
+          "default": 0
+        },
+        {
+          "type": "select",
+          "id": "overlay_theme",
+          "options": [
+            {
+              "value": "primary",
+              "label": "Primary Theme"
+            },
+            {
+              "value": "2",
+              "label": "2nd Theme"
+            },
+            {
+              "value": "3",
+              "label": "3rd Theme"
+            },
+            {
+              "value": "4",
+              "label": "4th Theme"
+            },
+            {
+              "value": "5",
+              "label": "5th Theme"
+            }
+          ],
+          "default": "primary",
+          "label": "Overlay Theme"
+        },
+        {
+          "type": "select",
+          "id": "crop_shape",
+          "options": [
+            {
+              "value": "default",
+              "label": "No Crop"
+            },
+            {
+              "value": "landscape",
+              "label": "Landscape"
+            },
+            {
+              "value": "rounded-landscape",
+              "label": "Rounded Landscape"
+            },
+            {
+              "value": "semicircle-landscape",
+              "label": "Semicircle Landscape"
+            },
+            {
+              "value": "wide",
+              "label": "Wide"
+            },
+            {
+              "value": "rounded-wide",
+              "label": "Rounded Wide"
+            },
+            {
+              "value": "semicircle-wide",
+              "label": "Semicircle Wide"
+            }
+          ],
+          "default": "wide",
+          "label": "Image Crop Shape"
+        }
+      ]
     },
     {
       "type": "title",
       "name": "t:sections.main-article.blocks.title.name",
-      "limit": 1
+      "limit": 1,
+      "settings": [
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+              "value": "h1",
+              "label": "X-Large"
+            },
+            {
+              "value": "h2",
+              "label": "Large"
+            },
+            {
+              "value": "h3",
+              "label": "Medium"
+            },
+            {
+              "value": "h4",
+              "label": "Small"
+            }
+          ],
+          "default": "h4",
+          "label": "Heading Size"
+        },
+        {
+          "type": "checkbox",
+          "id": "alt_heading",
+          "label": "Use body font instead of heading font for heading?"
+        },
+        {
+          "type": "checkbox",
+          "id": "overlap",
+          "label": "Enable overlap?",
+          "info": "Requires a featured image",
+          "default": false
+        }
+      ]
     },
     {
       "type": "content",
       "name": "t:sections.main-article.blocks.content.name",
-      "limit": 1
+      "limit": 1,
+      "settings": [
+         {
+          "type": "select",
+          "id": "image_corners",
+          "options": [
+            {
+              "value": "default",
+              "label": "Square Corners"
+            },
+            {
+              "value": "rounded",
+              "label": "Rounded Corners"
+            },
+            {
+              "value": "semicircle",
+              "label": "Semicircle Corners"
+            }
+          ],
+          "default": "default",
+          "label": "Image Corners"
+        }
+      ]
+    },
+    {
+      "type": "sidebar",
+      "name": "sidebar",
+      "limit": 1,
+      "settings": [
+         {
+          "type": "text",
+          "id": "label",
+          "label": "Label"
+         },
+         {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content"
+        }
+      ]
     },
     {
       "type": "details",
       "name": "t:sections.main-article.blocks.details.name",
       "limit": 1
+    }
+  ],
+  "presets": [
+    {
+      "name": "Main Article",
+      "blocks": [
+        {
+          "type": "featured_image"
+        },
+        {
+          "type": "title"
+        },
+        {
+          "type": "content"
+        },
+        {
+          "type": "sidebar"
+        }
+      ]
     }
   ]
 }

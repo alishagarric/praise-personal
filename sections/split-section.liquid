@@ -10,9 +10,9 @@
 
 <div
   id="Split-section-{{ section.id }}"
-  class="split-section __layout-{{section.settings.layout}} __layout-mobile-{{ section.settings.mobile_layout }} __image-style-{{section.settings.image_style}} __theme-{{section.settings.theme}}"
+  class="split-section __layout-{{ section.settings.layout }} __layout-mobile-{{ section.settings.mobile_layout }} __image-style-{{ section.settings.image_style }} __theme-{{ section.settings.theme }}"
 >
-  <div class="split-section__text __align-{{section.settings.alignment}}">
+  <div class="split-section__text __align-{{ section.settings.alignment }}">
     {% comment %} Text content column {% endcomment %}
     {%- for block in section.blocks -%}
       {%- case block.type -%}
