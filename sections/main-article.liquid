@@ -310,19 +310,39 @@
       ]
     },
     {
-      "type": "sidebar",
-      "name": "sidebar",
-      "limit": 1,
+      "type": "icon",
+      "name": "Icon",
       "settings": [
-         {
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
           "type": "text",
-          "id": "label",
+          "id": "heading",
           "label": "Label"
-         },
-         {
+        },
+        {
           "type": "richtext",
-          "id": "content",
-          "label": "Content"
+          "id": "text",
+          "label": "Description"
+        },
+        {
+          "type": "radio",
+          "id": "layout",
+          "label": "Layout",
+          "options": [
+            {
+              "value": "row",
+              "label": "Icon Left Of Text"
+            },
+            {
+              "value": "column",
+              "label": "Icon On Top Of Text"
+            }
+          ],
+          "default": "row"
         }
       ]
     },
