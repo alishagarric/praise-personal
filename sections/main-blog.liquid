@@ -1,20 +1,22 @@
-{{ 'component-card.css' | asset_url | stylesheet_tag }}
-{%- style -%}
-  ul.blog-posts {
-    --grid-columns: 1;
-  }
+{% liquid
+  assign section_theme = section.settings.theme
+  assign top_spacing = section.settings.top_spacing
+  assign bottom_spacing = section.settings.bottom_spacing
+%}
 
-@media screen and (min-width: 750px) {
-  ul.blog-posts {
-    --grid-columns: 2;
+{% style %}
+  #Main-blog-{{ section.id }} {
+    --topSpacingRatio: {{ top_spacing }} / 100;
+    --bottomSpacingRatio: {{ bottom_spacing }} / 100;
   }
-}
-{%- endstyle -%}
+{% endstyle %}
+
+
+{{ section.settings }}
 
 {%- paginate blog.articles by section.settings.posts_per_page -%}
-<div class="container" style="background: magenta;">
-  <h1>{{ blog.title | escape }}</h1>
-    <ul class="list-unstyled grid blog-posts" role="list">
+<div id="Main-blog-{{ section.id }}" class="main-blog __theme-{{ section_theme }}">
+    <ul class="main-blog__articles list-unstyled grid" role="list">
       {%- for article in blog.articles -%}
         <li>
           <div class="card">

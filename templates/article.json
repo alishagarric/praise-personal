@@ -21,8 +21,7 @@
         },
         "details": {
           "type": "details",
-          "settings": {
-          }
+          "settings": {}
         },
         "content": {
           "type": "content",
@@ -33,7 +32,8 @@
         "1bdd81eb-fea5-4259-8a4c-ae4b17255381-1": {
           "type": "side_bar",
           "settings": {
-            "label": "Ingredients"
+            "label": "Related Products",
+            "associated_products": true
           }
         }
       },
@@ -53,24 +53,21 @@
     "13d9d1e5-05b1-4eb6-9f74-3bc4fc92e26d": {
       "type": "related-articles",
       "settings": {
-        "heading": "Lorem ipsum",
+        "heading": "Related Articles",
         "heading_size": "h5",
-        "alt_heading": false,
+        "alt_heading": true,
         "show_date": false,
         "show_description": false,
         "show_author": false,
         "assc_product_crop_shape": "not-visible",
         "button_label": "",
-        "crop_shape": "default",
-        "alignment": "left",
+        "crop_shape": "rounded-square",
+        "alignment": "center",
         "theme": "primary",
         "top_spacing": 50,
         "bottom_spacing": 50
       }
     }
   },
-  "order": [
-    "main",
-    "13d9d1e5-05b1-4eb6-9f74-3bc4fc92e26d"
-  ]
+  "order": ["main", "13d9d1e5-05b1-4eb6-9f74-3bc4fc92e26d"]
 }

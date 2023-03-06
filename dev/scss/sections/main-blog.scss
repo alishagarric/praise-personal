@@ -1,0 +1,9 @@
+.main-blog {
+  --mainBlogGridColumns: 3;
+
+  &__articles {
+    display: grid;
+    grid-template-columns: repeat(var(--mainBlogGridColumns), 1fr);
+    gap: calc(var(--pxSize) / 2);
+  }
+}
