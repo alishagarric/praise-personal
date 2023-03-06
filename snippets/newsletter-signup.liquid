@@ -1,4 +1,19 @@
-<div class="newsletter-signup">
+{% comment %}
+  Renders a email sign up form
+
+  Expects:
+    - style {bool} optional, default, bold
+    - class: {string} optional
+
+  Usage:
+    {% render 'newsletter-signup' class: "my-class", style: "bold" %}
+
+{% endcomment %}
+  
+  
+{% assign style = style | default: "default" %}
+
+<div class="newsletter-signup {{ class }} __style-{{ style}}">
   {%- form 'customer' -%}
     <label for="NewsletterEmail--{{ section.id }}">{{ 'general.newsletter.email' | t }}</label>
     <input

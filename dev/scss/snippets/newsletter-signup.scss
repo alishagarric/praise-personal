@@ -1,19 +1,33 @@
 .newsletter-signup {
-  margin-top: calc(var(--pxSize) / 2);
-
   form {
     display: flex;
     width: 100%;
+    max-width: var(--maxWidth);
+    margin: 0 auto;
+  }
 
-    label {
-      display: none;
+  label {
+    display: none;
+  }
+
+  button {
+    margin-left: calc(var(--pxSize) / 6);
+    svg {
+      transform: scaleX(-1);
+
+      * {
+        fill: RGB(var(--color-foreground-text));
+      }
     }
+  }
 
+  &.__style-bold {
     input[type="email"] {
       background-color: RGB(var(--color-foreground));
       color: RGB(var(--color-foreground-text));
-      border-bottom-left-radius: 4px;
-      border-top-left-radius: 4px;
+      border-bottom-right-radius: 0px;
+      border-top-right-radius: 0px;
+      border: none;
       flex: 1;
 
       &::placeholder {
@@ -24,12 +38,10 @@
     button {
       border-bottom-left-radius: 0px;
       border-top-left-radius: 0px;
+      margin-left: 0;
 
       svg {
         transform: scaleX(-1);
-        * {
-          fill: RGB(var(--color-foreground-text));
-        }
       }
     }
   }
