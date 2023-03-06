@@ -31,9 +31,16 @@
       "type": "main-blog",
       "settings": {
         "posts_per_page": 3,
-        "theme": "primary",
+        "theme": "2",
         "top_spacing": 50,
-        "bottom_spacing": 50
+        "bottom_spacing": 50,
+        "alignment": "center",
+        "alt_heading": true,
+        "show_description": true,
+        "crop_shape": "rounded-square",
+        "show_date": true,
+        "blog_show_tags": true,
+        "tag_color": "primary"
       }
     }
   },

@@ -2,6 +2,14 @@
   assign section_theme = section.settings.theme
   assign top_spacing = section.settings.top_spacing
   assign bottom_spacing = section.settings.bottom_spacing
+  assign alt_heading = section.settings.alt_heading
+  assign show_date = section.settings.show_date
+  assign show_author = section.settings.show_author
+  assign show_description = section.settings.show_description
+  assign alignment = section.settings.alignment
+  assign button_label = section.settings.button_label
+  assign assc_product_crop_shape = section.settings.assc_product_crop_shape
+  assign crop_shape = section.settings.crop_shape
 %}
 
 {% style %}
@@ -12,30 +20,43 @@
 {% endstyle %}
 
 
-{{ section.settings }}
-
 {%- paginate blog.articles by section.settings.posts_per_page -%}
-<div id="Main-blog-{{ section.id }}" class="main-blog __theme-{{ section_theme }}">
+
+    <div id="Main-blog-{{ section.id }}" class="main-blog __theme-{{ section_theme }}">
+
+    {%- if section.settings.blog_show_tags -%}
+      <aside>
+          <ul class="main-blog__tags">
+            {% if section.settings.tags_label %}
+              <li class="p-sm">{{ section.settings.tags_label }}</li>
+            {% endif %}
+
+            {%- for tag in blog.all_tags -%}
+              <li>
+                {% capture button_link %} {{ blog.url }}/tagged/{{ tag | handle }} {% endcapture %}
+                {% render 'button' button_link: button_link, button_label: tag, button_color: section.settings.tag_color, class: "main-blog__tags" %}
+              </li>
+            {%- endfor -%}
+          </ul>
+      </aside>
+    {%- endif -%}
+
     <ul class="main-blog__articles list-unstyled grid" role="list">
       {%- for article in blog.articles -%}
-        <li>
-          <div class="card">
-            {%- if article.image -%}
-              <div class="media" style="--width: {{ article.image.width }}; --height: {{ article.image.height }};">
-                {{ article.image | image_url: width: article.image.width | image_tag }}
-              </div>
-            {%- endif -%}
-            <h2>
-              <a href="{{ article.url }}">{{ article.title | truncate: 50 | escape }}</a>
-            </h2>
-            <div>
-              {{ article.published_at | time_tag: format: 'date' }}
-              &nbsp;|&nbsp;
-              {{ article.author }}
-            </div>
-            <p>{{ article.excerpt_or_content | strip_html | truncatewords: 20 }} </p>
-          </div>
-        </li>
+          <li class="main-blog__articles__article-container">
+            {% render 'article-card',
+              class: 'main-blog__card',
+              crop: crop_shape,
+              assc_product_crop_shape: assc_product_crop_shape,
+              button_label: button_label,
+              alignment: alignment,
+              show_description: show_description,
+              show_author: show_author,
+              show_date: show_date,
+              alt_heading: alt_heading,
+              article: article
+            %}
+          </li>
       {%- endfor -%}
     </ul>
     {%- if paginate.pages > 1 -%}
@@ -52,7 +73,7 @@
   "settings": [
     {
       "type": "header",
-      "content": "t:sections.main-blog.settings.header.content"
+      "content": "General"
     },
     {
       "type": "range",
@@ -62,6 +83,266 @@
       "max": 12,
       "step": 1,
       "label": "t:sections.main-blog.settings.posts_per_page.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "blog_show_tags",
+      "label": "Show blog tags?"
+    },
+    {
+      "type": "text",
+      "id": "tags_label",
+      "label": "Tags Label",
+      "default": "Browse Tags"
+    },
+    {
+      "type": "select",
+      "id": "tag_color",
+      "label": "Tag Color",
+      "default": "default",
+      "options": [
+        {
+          "value": "default",
+          "label": "Default"
+        },
+        {
+          "value": "primary",
+          "label": "Primary Theme"
+        },
+        {
+          "value": "2",
+          "label": "2nd Theme"
+        },
+        {
+          "value": "3",
+          "label": "3rd Theme"
+        },
+        {
+          "value": "4",
+          "label": "4th Theme"
+        },
+        {
+          "value": "5",
+          "label": "5th Theme"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Blog and Article Cards"
+    },
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "t:sections.main-blog.settings.blog.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "alt_heading",
+      "label": "Use body font instead of heading font for article title?"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_date",
+      "label": "Show article date?"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_description",
+      "label": "Show article excerpt?",
+      "info": "Shows excerpt if it exists, content if it doesn't."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_author",
+      "label": "Show article author?"
+    },
+    {
+      "type": "select",
+      "id": "assc_product_crop_shape",
+      "options": [
+        {
+          "value": "not-visible",
+          "label": "Not Visible"
+        },
+        {
+          "value": "default",
+          "label": "No Crop"
+        },
+        {
+          "value": "square",
+          "label": "Square"
+        },
+        {
+          "value": "rounded-square",
+          "label": "Rounded Square"
+        },
+        {
+          "value": "circle",
+          "label": "Circle"
+        },
+        {
+          "value": "portrait",
+          "label": "Portrait"
+        },
+        {
+          "value": "rounded-portrait",
+          "label": "Rounded Portrait"
+        },
+        {
+          "value": "semicircle-portrait",
+          "label": "Semicircle Portrait"
+        },
+        {
+          "value": "landscape",
+          "label": "Landscape"
+        },
+        {
+          "value": "rounded-landscape",
+          "label": "Rounded Landscape"
+        },
+        {
+          "value": "semicircle-landscape",
+          "label": "Semicircle Landscape"
+        },
+        {
+          "value": "arch",
+          "label": "Semicircle Arch"
+        }
+      ],
+      "default": "not-visible",
+      "label": "Associated Product Image Crop Shape",
+      "info": "Relies on the addition of article metafields. TODO: Add link with info, this is how starter did it: Add a <a href=https://praise-store-theme.myshopify.com/admin/metafields/product/create>article subtitle metafield to display.</a>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Article Button Text",
+      "info": "Displays an underlined button if included, no button if not."
+    },
+    {
+      "type": "select",
+      "id": "crop_shape",
+      "options": [
+        {
+          "value": "default",
+          "label": "No Crop"
+        },
+        {
+          "value": "square",
+          "label": "Square"
+        },
+        {
+          "value": "rounded-square",
+          "label": "Rounded Square"
+        },
+        {
+          "value": "circle",
+          "label": "Circle"
+        },
+        {
+          "value": "portrait",
+          "label": "Portrait"
+        },
+        {
+          "value": "rounded-portrait",
+          "label": "Rounded Portrait"
+        },
+        {
+          "value": "semicircle-portrait",
+          "label": "Semicircle Portrait"
+        },
+        {
+          "value": "landscape",
+          "label": "Landscape"
+        },
+        {
+          "value": "rounded-landscape",
+          "label": "Rounded Landscape"
+        },
+        {
+          "value": "semicircle-landscape",
+          "label": "Semicircle Landscape"
+        },
+        {
+          "value": "arch",
+          "label": "Semicircle Arch"
+        }
+      ],
+      "default": "default",
+      "label": "Product Image Crop Shape"
+    },
+    {
+      "type": "radio",
+      "id": "alignment",
+      "label": "Alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Section"
+    },
+    {
+      "type": "select",
+      "id": "theme",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary Theme"
+        },
+        {
+          "value": "2",
+          "label": "2nd Theme"
+        },
+        {
+          "value": "3",
+          "label": "3rd Theme"
+        },
+        {
+          "value": "4",
+          "label": "4th Theme"
+        },
+        {
+          "value": "5",
+          "label": "5th Theme"
+        }
+      ],
+      "default": "primary",
+      "label": "Theme"
+    },
+    {
+      "type": "range",
+      "id": "top_spacing",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "Top Spacing",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "bottom_spacing",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "Bottom Spacing",
+      "default": 50
     }
   ]
 }

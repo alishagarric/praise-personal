@@ -21,17 +21,20 @@
 
 <div
   id="Related-articles-{{ section.id }}"
-  class="related-articles __theme-{{ section_theme }}"
+  class="main-blog __theme-{{ section_theme }}"
 >
-    {% render 'heading',
-      class: 'related-articles',
-      heading: section.settings.heading,
-      heading_size: section.settings.heading_size
-    %}
+    <div class="__align-center">
+      {% render 'heading',
+        class: 'main-blog',
+        heading: section.settings.heading,
+        heading_size: section.settings.heading_size
+      %}
+    </div>
 
-    {% for article in blog.articles limit: 3 %}
+    <ul class="main-blog__articles list-unstyled grid" role="list">
+      {% for article in blog.articles limit: 3 %}
         {% render 'article-card',
-          class: 'related-articles__card',
+          class: 'main-blog__card',
           crop: crop_shape,
           assc_product_crop_shape: assc_product_crop_shape,
           button_label: button_label,
@@ -42,8 +45,8 @@
           alt_heading: alt_heading,
           article: article
         %}
-
     {% endfor %}
+  </ul>
 </div>
 
 {% schema %}

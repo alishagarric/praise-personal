@@ -63,7 +63,7 @@
         "button_label": "",
         "crop_shape": "rounded-square",
         "alignment": "center",
-        "theme": "primary",
+        "theme": "2",
         "top_spacing": 50,
         "bottom_spacing": 50
       }
