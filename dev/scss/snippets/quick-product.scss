@@ -31,4 +31,9 @@
       margin: 0;
     }
   }
+
+  &.__style-stacked {
+    display: flex;
+    flex-direction: column;
+  }
 }

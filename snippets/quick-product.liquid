@@ -6,6 +6,7 @@
   - class: {String} optional
   - crop: {String} optional. circle, rounded-square, square, portrait, landscape, default (adapt)
   - alt_heading: {Bool} optional bool
+  - style {string} optional. default, stacked
 
   Usage:
     {% render 'quick-product' quick_product: product, show_bg_color: show_bg_color, quick_add: quick_add, crop: crop_shape, show_phrase: show_phrase, alignment: product_text_alignment, show_description: show_description, price_position: price_pos, alt_heading: alt_title, class: "featured-collection__cards__card" %}
@@ -14,10 +15,11 @@
 
 
 {% assign crop = crop | default: "default" %}
+{% assign style = style | default: "default" %}
 {% assign alt_heading = alt_heading | default: false %}
 
 {% if quick_product %}
-  <a class="quick-product {{ class }}"  href="{{ quick_product.url }}">
+  <a class="quick-product {{ class }} __style-{{ style }}"  href="{{ quick_product.url }}">
 
     {% if quick_product.featured_image %}
       <div class="quick-product__image">
@@ -35,7 +37,7 @@
       <p class="quick-product__variants p-sm">{{ quick_product.selected_or_first_available_variant.options | join: " - "}}</p>
     {% endif %}
 
-    {% render 'product-form' class: "quick-product__btn", id: product.id, hide_dynamic_buttons: true %}
+    {% render 'product-form' class: "quick-product__btn", product: quick_product, product_form_id: quick_product.id, hide_dynamic_buttons: true %}
   </a>
 
 {% endif %}
