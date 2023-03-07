@@ -18,8 +18,8 @@
 {% render 'image-banner' 
   top_spacing: section.settings.top_spacing,
   bottom_spacing: section.settings.bottom_spacing,
-  top_internal_spacing: section.settings.top_internal_spacing,
-  bottom_internal_spacing: section.settings.bottom_internal_spacing,
+  top_internal_spacing: 0,
+  bottom_internal_spacing: 0,
   section_id: section_id,
   theme: section.settings.theme,
   alignment: section.settings.alignment,
@@ -85,17 +85,6 @@
       "default": "center"
     },
     {
-      "type": "range",
-      "id": "overlay",
-      "label": "Overlay Opacity",
-      "info": "If above 0%, an overlay will be added on top of the image to create contrast behind the text.",
-      "min": 0,
-      "max": 70,
-      "step": 10,
-      "unit": "%",
-      "default": 50
-    },
-    {
       "type": "header",
       "content": "Section"
     },
@@ -129,33 +118,13 @@
     },
     {
       "type": "range",
-      "id": "top_internal_spacing",
-      "min": 0,
-      "max": 300,
-      "step": 10,
-      "unit": "%",
-      "label": "Top Text Content Spacing",
-      "default": 100
-    },
-    {
-      "type": "range",
-      "id": "bottom_internal_spacing",
-      "min": 0,
-      "max": 300,
-      "step": 10,
-      "unit": "%",
-      "label": "Bottom Text Content Spacing",
-      "default": 100
-    },
-    {
-      "type": "range",
       "id": "top_spacing",
       "min": 0,
       "max": 100,
       "step": 10,
       "unit": "%",
       "label": "Top Section Spacing",
-      "default": 0
+      "default": 50
     },
     {
       "type": "range",
@@ -165,7 +134,7 @@
       "step": 10,
       "unit": "%",
       "label": "Bottom Section Spacing",
-      "default": 0
+      "default": 50
     }
   ],
   "presets": [
