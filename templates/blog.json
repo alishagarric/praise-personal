@@ -1,24 +1,5 @@
 {
   "sections": {
-    "rich-text": {
-      "type": "rich-text",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "The Ritual Journal",
-            "heading_size": "h2"
-          }
-        }
-      },
-      "block_order": ["heading"],
-      "settings": {
-        "alignment": "center",
-        "theme": "primary",
-        "top_spacing": 50,
-        "bottom_spacing": 50
-      }
-    },
     "split-slider": {
       "type": "split-slider",
       "settings": {
@@ -31,28 +12,25 @@
       "type": "main-blog",
       "settings": {
         "posts_per_page": 3,
-        "theme": "2",
-        "top_spacing": 50,
-        "bottom_spacing": 50,
-        "alignment": "center",
-        "alt_heading": true,
-        "show_description": true,
-        "crop_shape": "rounded-square",
-        "show_date": true,
         "blog_show_tags": true,
-        "tag_color": "primary"
-      }
-    },
-    "email-signup": {
-      "type": "email-signup",
-      "settings": {
+        "tags_label": "Browse Tags",
+        "tag_color": "primary",
+        "alt_heading": true,
+        "show_date": true,
+        "show_description": true,
+        "show_author": false,
+        "assc_product_crop_shape": "not-visible",
+        "button_label": "",
+        "crop_shape": "rounded-square",
+        "alignment": "center",
         "theme": "2",
         "top_spacing": 50,
-        "bottom_spacing": 50,
-        "heading": "Subscribe to our emails",
-        "style": "bold"
+        "bottom_spacing": 50
       }
     }
   },
-  "order": ["rich-text", "split-slider", "main", "email-signup"]
+  "order": [
+    "split-slider",
+    "main"
+  ]
 }
