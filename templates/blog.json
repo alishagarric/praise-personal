@@ -1,5 +1,19 @@
 {
   "sections": {
+    "a7e733bc-a5df-4b47-ab87-5e385ee4aed6": {
+      "type": "main-blog-banner",
+      "settings": {
+        "heading_size": "h2",
+        "alt_heading": true,
+        "alignment": "center",
+        "overlay": 50,
+        "theme": "primary",
+        "top_internal_spacing": 100,
+        "bottom_internal_spacing": 100,
+        "top_spacing": 0,
+        "bottom_spacing": 0
+      }
+    },
     "split-slider": {
       "type": "split-slider",
       "settings": {
@@ -30,6 +44,7 @@
     }
   },
   "order": [
+    "a7e733bc-a5df-4b47-ab87-5e385ee4aed6",
     "split-slider",
     "main"
   ]
