@@ -1,24 +1,18 @@
 {% comment %}
-  This is a version of image banner that contains content specific to a collection page
+  This is a version of image banner that contains content specific to a blog page
 {% endcomment %}
 
-{% capture section_id %}Main-collection-banner-{{ section.id }}{% endcapture %}
+{% capture section_id %}Main-blog-banner-{{ section.id }}{% endcapture %}
 
 {% capture text_content %}
-  {% render 'breadcrumbs' %}
   {% render 'heading',
     class: 'image-banner',
-    heading: collection.title,
+    heading: blog.title,
     heading_tag: "h1",
     heading_size: section.settings.heading_size,
     alt_heading: section.settings.alt_heading
   %}
-  <div class="image-banner__description">{{ collection.description }}</div>
 {% endcapture %}
-
-{% unless collection.image == blank or section.settings.show_image == false %}
-  {% assign section_image =  collection.image %}
-{% endunless %}
 
 
 {% render 'image-banner' 
@@ -26,14 +20,10 @@
   bottom_spacing: section.settings.bottom_spacing,
   top_internal_spacing: section.settings.top_internal_spacing,
   bottom_internal_spacing: section.settings.bottom_internal_spacing,
-  overlay: section.settings.overlay,
   section_id: section_id,
   theme: section.settings.theme,
-  crop_shape: section.settings.crop_shape,
-  overlay_theme: section.settings.overlay_theme,
   alignment: section.settings.alignment,
   text_content: text_content,
-  image: section_image 
 %}
 
 
@@ -95,15 +85,6 @@
       "default": "center"
     },
     {
-      "type": "header",
-      "content": "Image Content"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_image",
-      "label": "Show collection image?"
-    },
-    {
       "type": "range",
       "id": "overlay",
       "label": "Overlay Opacity",
@@ -113,99 +94,6 @@
       "step": 10,
       "unit": "%",
       "default": 50
-    },
-    {
-      "type": "select",
-      "id": "overlay_theme",
-      "info": "Only applies when the image crop shape is not set to default.",
-      "options": [
-        {
-          "value": "primary",
-          "label": "Primary Theme"
-        },
-        {
-          "value": "2",
-          "label": "2nd Theme"
-        },
-        {
-          "value": "3",
-          "label": "3rd Theme"
-        },
-        {
-          "value": "4",
-          "label": "4th Theme"
-        },
-        {
-          "value": "5",
-          "label": "5th Theme"
-        }
-      ],
-      "default": "primary",
-      "label": "Overlay Theme"
-    },
-    {
-      "type": "select",
-      "id": "crop_shape",
-      "options": [
-        {
-          "value": "default",
-          "label": "No Crop"
-        },
-        {
-          "value": "square",
-          "label": "Square"
-        },
-        {
-          "value": "rounded-square",
-          "label": "Rounded Square"
-        },
-        {
-          "value": "circle",
-          "label": "Circle"
-        },
-        {
-          "value": "portrait",
-          "label": "Portrait"
-        },
-        {
-          "value": "rounded-portrait",
-          "label": "Rounded Portrait"
-        },
-        {
-          "value": "semicircle-portrait",
-          "label": "Semicircle Portrait"
-        },
-        {
-          "value": "landscape",
-          "label": "Landscape"
-        },
-        {
-          "value": "rounded-landscape",
-          "label": "Rounded Landscape"
-        },
-        {
-          "value": "semicircle-landscape",
-          "label": "Semicircle Landscape"
-        },
-        {
-          "value": "wide",
-          "label": "Wide"
-        },
-        {
-          "value": "rounded-wide",
-          "label": "Rounded Wide"
-        },
-        {
-          "value": "semicircle-wide",
-          "label": "Semicircle Wide"
-        },
-        {
-          "value": "arch",
-          "label": "Semicircle Arch"
-        }
-      ],
-      "default": "default",
-      "label": "Image Crop Shape"
     },
     {
       "type": "header",

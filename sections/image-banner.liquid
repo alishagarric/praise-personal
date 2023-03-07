@@ -1,71 +1,66 @@
-{% liquid
-  assign crop_shape = section.settings.crop_shape
+{% comment %}
+  Pass all settings to the image-banner snippet so other section's can use its styles too
+{% endcomment %}
+
+{% capture section_id %}Image-banner-{{ section.id }}{% endcapture %}
+
+{% capture text_content %}
+  {% if section.blocks.size > 0 %}
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+          {% comment %} Type Caption {% endcomment %}
+        {%- when 'caption' -%}
+          <div class="image-banner__caption caption">{{ block.settings.caption }}</div>
+
+          {% comment %} Type Heading {% endcomment %}
+        {%- when 'heading' -%}
+          {% if section.settings.hero == true %}
+            {% assign heading_tag = "h1" %}
+          {% endif %}
+
+          {% render 'heading',
+            class: 'image-banner',
+            heading_tag: heading_tag,
+            heading: block.settings.heading,
+            heading_size: block.settings.heading_size
+          %}
+
+          {% comment %} Type Text {% endcomment %}
+        {%- when 'text' -%}
+          <div class="image-banner__text __article-txt">{{ block.settings.text }}</div>
+
+          {% comment %} Type Button {% endcomment %}
+        {%- when 'button' -%}
+          {% render 'button',
+            class: 'image-banner',
+            button_label: block.settings.button_label,
+            button_link: block.settings.button_link,
+            button_color: block.settings.button_color
+          %}
+      {%- endcase -%}
+    {%- endfor -%}
+  {% endif %}
+{% endcapture %}
+
+{%- if section.settings.image != blank -%}
+  {% assign section_image =  section.settings.image %}
+{%- endif -%}
+
+
+{% render 'image-banner' 
+  top_spacing: section.settings.top_spacing,
+  bottom_spacing: section.settings.bottom_spacing,
+  top_internal_spacing: section.settings.top_internal_spacing,
+  bottom_internal_spacing: section.settings.bottom_internal_spacing,
+  overlay: section.settings.overlay,
+  section_id: section_id,
+  theme: section.settings.theme,
+  crop_shape: section.settings.crop_shape,
+  overlay_theme: section.settings.overlay_theme,
+  alignment: section.settings.alignment,
+  text_content: text_content,
+  image: section_image 
 %}
-
-{% style %}
-  #Image-banner-{{ section.id }} {
-    --topSpacingRatio: {{section.settings.top_spacing}} / 100;
-    --bottomSpacingRatio: {{section.settings.bottom_spacing}} / 100;
-    --topInternalSpacingRatio: {{section.settings.top_internal_spacing}} / 100;
-    --bottomInternalSpacingRatio: {{section.settings.bottom_internal_spacing}} / 100;
-    --overlayOpacity: calc({{section.settings.overlay}} / 100);
-  }
-{% endstyle %}
-
-<div
-  id="Image-banner-{{ section.id }}"
-  class="image-banner __theme-{{ section.settings.theme }} {% if crop_shape == "default" %}__fullwidth-bg{% endif%}"
->
-  <div class="image-banner__inner {% if crop_shape == "default" %}__theme-{{ section.settings.overlay_theme }} {% endif %}">
-    {% comment %} Text content {% endcomment %}
-    {% if section.blocks.size > 0 %}
-      <div class="image-banner__text-container __align-{{section.settings.alignment}}">
-        {%- for block in section.blocks -%}
-          {%- case block.type -%}
-              {% comment %} Type Caption {% endcomment %}
-            {%- when 'caption' -%}
-              <div class="image-banner__caption caption">{{ block.settings.caption }}</div>
-
-              {% comment %} Type Heading {% endcomment %}
-            {%- when 'heading' -%}
-              {% if section.settings.hero == true %}
-                {% assign heading_tag = "h1" %}
-              {% endif %}
-
-              {% render 'heading',
-                class: 'image-banner',
-                heading_tag: heading_tag,
-                heading: block.settings.heading,
-                heading_size: block.settings.heading_size
-              %}
-
-              {% comment %} Type Text {% endcomment %}
-            {%- when 'text' -%}
-              <div class="image-banner__text __article-txt">{{ block.settings.text }}</div>
-
-              {% comment %} Type Button {% endcomment %}
-            {%- when 'button' -%}
-              {% render 'button',
-                class: 'image-banner',
-                button_label: block.settings.button_label,
-                button_link: block.settings.button_link,
-                button_color: block.settings.button_color
-              %}
-          {%- endcase -%}
-        {%- endfor -%}
-      </div>
-    {% endif %}
-
-    {% comment %} Image content {% endcomment %}
-    <div class="image-banner__image __crop-{{ crop_shape }} {% if crop_shape != "default" %}__theme-{{ section.settings.overlay_theme }} {% endif %}">
-      {%- if section.settings.image != blank -%}
-        {% render 'next-gen-img', image: section.settings.image %}
-      {%- else -%}
-        {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
-      {%- endif -%}
-    </div>
-  </div>
-</div>
 
 {% schema %}
 {

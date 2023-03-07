@@ -8,7 +8,14 @@
   assign show_description = section.settings.show_description
 %}
 
-<div id="Main-search-{{ section.id }}" class="main-search">
+{% style %}
+  #Main-search-{{ section.id }} {
+    --topSpacingRatio: {{ section.settings.top_spacing }} / 100;
+    --bottomSpacingRatio: {{ section.settings.bottom_spacing }} / 100;
+  }
+{% endstyle %}
+
+<div id="Main-search-{{ section.id }}" class="main-search __theme-{{ section.settings.theme }}">
 
   {% comment %} Heading {% endcomment %}
   {% render 'heading', class: "main-search", heading: title, heading_tag: "h1", heading_size: "h2" %}
@@ -65,9 +72,9 @@
           <li>
             {% case item.object_type %}
               {% when 'product' %}
-                {% render 'product-card', product: item, price_position: price, crop_shape: crop_shape, alignment: alignment, alt_heading: alt_title, show_description: show_description, quick_add: quick_add  %}
+                {% render 'product-card', product: item, price_position: price, crop: crop_shape, alignment: alignment, alt_heading: alt_title, show_description: show_description, quick_add: quick_add  %}
               {% when 'article' %}
-                {% render 'article-card', article: item, crop_shape: crop_shape, alignment: alignment, alt_heading: alt_title, show_description: show_description %}
+                {% render 'article-card', article: item, crop: crop_shape, alignment: alignment, alt_heading: alt_title, show_description: show_description %}
               {% when 'page' %}
                 {% assign text = item.content | strip_html | truncatewords: 20 %}
                 {% render 'quote-card', quote: item.title, details: text, link: page.url, alignment: alignment, card_corners: crop_shape %}

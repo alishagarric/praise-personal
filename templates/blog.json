@@ -42,7 +42,17 @@
         "blog_show_tags": true,
         "tag_color": "primary"
       }
+    },
+    "email-signup": {
+      "type": "email-signup",
+      "settings": {
+        "theme": "2",
+        "top_spacing": 50,
+        "bottom_spacing": 50,
+        "heading": "Subscribe to our emails",
+        "style": "bold"
+      }
     }
   },
-  "order": ["rich-text", "split-slider", "main"]
+  "order": ["rich-text", "split-slider", "main", "email-signup"]
 }
