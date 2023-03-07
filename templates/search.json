@@ -3,6 +3,15 @@
     "main-search": {
       "type": "main-search",
       "settings": {
+        "show_description": true,
+        "quick_add": true,
+        "alt_title": true,
+        "alignment": "center",
+        "price": "bottom",
+        "crop_shape": "rounded-square",
+        "theme": "2",
+        "top_spacing": 50,
+        "bottom_spacing": 50
       }
     }
   },
