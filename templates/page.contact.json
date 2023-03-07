@@ -2,6 +2,7 @@
   "sections": {
     "1662063884d9fa6284": {
       "type": "split-section",
+      "disabled": true,
       "blocks": {
         "20cf5bbf-ba1c-4586-bb93-3f7a3fe1b475": {
           "type": "heading",
@@ -36,6 +37,7 @@
     },
     "form": {
       "type": "contact-form",
+      "disabled": true,
       "settings": {
         "heading": "Email Us",
         "disclaimer": "*indicates a required field",
@@ -43,9 +45,17 @@
         "name_required": true,
         "heading_size": "h4",
         "alt_heading": true,
-        "description": "Please contact us using the form below and allow 1-2 business days for your response."
+        "description": "<p>Please contact us using the form below and allow 1-2 business days for your response.</p>"
       }
+    },
+    "password-header": {
+      "type": "password-header",
+      "settings": {}
+    },
+    "password-footer": {
+      "type": "password-footer",
+      "settings": {}
     }
   },
-  "order": ["1662063884d9fa6284", "form"]
+  "order": ["password-header", "1662063884d9fa6284", "form", "password-footer"]
 }
