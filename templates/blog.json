@@ -8,10 +8,10 @@
         "alignment": "center",
         "overlay": 50,
         "theme": "primary",
-        "top_internal_spacing": 100,
-        "bottom_internal_spacing": 100,
-        "top_spacing": 0,
-        "bottom_spacing": 0
+        "top_internal_spacing": 0,
+        "bottom_internal_spacing": 0,
+        "top_spacing": 50,
+        "bottom_spacing": 50
       }
     },
     "split-slider": {
@@ -20,6 +20,26 @@
         "theme": "primary",
         "top_spacing": 50,
         "bottom_spacing": 50
+      }
+    },
+    "d7103852-b62b-4134-b110-fe5c5a985ce3": {
+      "type": "rich-text",
+      "blocks": {
+        "template--16398178582750__d7103852-b62b-4134-b110-fe5c5a985ce3-1678205203fb778cd2-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>At Ritual we celebrate the value of simple joys in the human experience<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "template--16398178582750__d7103852-b62b-4134-b110-fe5c5a985ce3-1678205203fb778cd2-1"
+      ],
+      "settings": {
+        "alignment": "center",
+        "theme": "3",
+        "top_spacing": 70,
+        "bottom_spacing": 70
       }
     },
     "main": {
@@ -46,6 +66,7 @@
   "order": [
     "a7e733bc-a5df-4b47-ab87-5e385ee4aed6",
     "split-slider",
+    "d7103852-b62b-4134-b110-fe5c5a985ce3",
     "main"
   ]
 }
