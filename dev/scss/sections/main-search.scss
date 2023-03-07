@@ -1,4 +1,6 @@
 .main-search {
+  --mainSearchColumns: 3;
+
   &__heading {
     text-align: center;
   }
@@ -29,14 +31,37 @@
     }
   }
 
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    p {
+      align-items: center;
+      margin-bottom: var(--pxSize);
+    }
+  }
+
+  &__size {
+    margin: calc(var(--pxSize) / 2) 0 var(--pxSize) 0;
+  }
+
   &__results {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(var(--mainSearchColumns), 1fr);
     gap: var(--pxSize) calc(var(--pxSize) / 3);
 
     li > .quote-card {
       --color-background: var(--color-foreground);
       --color-text: var(--color-foreground-text);
     }
+  }
+
+  @media screen and (max-width: 1024px) {
+    --mainSearchColumns: 2;
+  }
+
+  @media screen and (max-width: 676px) {
+    --mainSearchColumns: 1;
   }
 }

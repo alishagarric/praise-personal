@@ -1,4 +1,4 @@
-.cmnc-modal {
+.dialog {
   --margin: 20px;
   --width: 750px;
 
@@ -43,6 +43,19 @@
       border-top: 1px solid lightgrey;
     }
 
+    &.__with-overlay {
+      &[open] > summary::before {
+        content: "";
+        position: fixed;
+        z-index: 2;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        cursor: default;
+      }
+    }
+
     &.__layout {
       &-pop-up,
       &-drawer {
@@ -69,7 +82,7 @@
   }
 
   &[open] {
-    .cmnc-modal {
+    .dialog {
       &__summary {
         > * {
           visibility: hidden;
@@ -104,7 +117,7 @@
         // Browsers that do support and fallback for browsers that don't support `:focus-visible`
         &:focus-visible,
         &:focus {
-          .cmnc-modal {
+          .dialog {
             &__summary {
               &__close {
                 outline: 1px solid #808080;
@@ -115,7 +128,7 @@
 
         // Negate fallback if browser supports `:focus-visible`
         &:focus:not(:focus-visible) {
-          .cmnc-modal {
+          .dialog {
             &__summary {
               &__close {
                 outline: none;
@@ -129,7 +142,7 @@
 
   @media screen and (max-width: 676px) {
     &[open] {
-      .cmnc-modal {
+      .dialog {
         &__summary {
           &__close {
             transform: none;

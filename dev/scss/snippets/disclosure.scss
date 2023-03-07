@@ -1,0 +1,184 @@
+.disclosure {
+  --expandableContentIconWidth: 0.75rem;
+
+  //Styles used on all types of disclosures
+  &__summary {
+    padding-right: calc(var(--expandableContentIconWidth) * 2);
+    position: relative;
+    cursor: pointer;
+
+    &:before,
+    &:after {
+      content: "";
+      width: var(--expandableContentIconWidth);
+      height: 1px;
+      background: RGB(var(--color-text));
+      position: absolute;
+      right: 0;
+      top: 50%;
+    }
+
+    &:after {
+      will-change: transform;
+      transition: transform 0.25s ease;
+      transform: rotate(90deg);
+    }
+  }
+
+  &[open] {
+    .disclosure {
+      &__summary {
+        &:after {
+          transform: none;
+        }
+      }
+    }
+  }
+
+  // Include this modifier when we want a clickable overlay to display when its open
+  &.__with-overlay {
+    &[open] > summary > span::before {
+      content: "";
+      position: fixed;
+      z-index: 2;
+      top: 0;
+      right: 0;
+      height: 100vh;
+      width: 100vw;
+      cursor: default;
+    }
+  }
+
+  // The style where the height grows when open
+  &:not(.__style-dropdown-traditional):not(.__style-dropdown-button) {
+    border-top: 1px solid RGB(var(--color-border));
+    border-bottom: 1px solid RGB(var(--color-border));
+
+    + .disclosure {
+      border-top: none;
+    }
+
+    .disclosure {
+      &__summary,
+      &__content {
+        padding: calc(var(--pxSize) / 4) 0;
+      }
+    }
+  }
+
+  // The style where the height doesn't change and the content is absolute
+  &.__style-dropdown {
+    &-traditional,
+    &-button {
+      position: relative; // from sarter styles
+
+      .disclosure {
+        &__content {
+          //from starter
+          background-color: RGBA(var(--color-background));
+          border: 1px solid RGBA(var(--color-border));
+          box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.1);
+          position: absolute;
+          z-index: 500;
+          max-height: 350px;
+          overflow-y: auto;
+
+          ul {
+            margin: 0;
+
+            li {
+              display: block;
+
+              &:not(:first-child) {
+                border-top: 1px solid RGB(var(--color-border));
+              }
+
+              a {
+                display: block;
+                padding: var(--expandableContentIconWidth);
+                width: 100%;
+
+                &:after {
+                  content: none;
+                }
+
+                &.current {
+                  opacity: 0.8;
+
+                  &:before {
+                    content: "- ";
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &-traditional {
+      border: 1px solid RGB(var(--color-border));
+
+      .disclosure {
+        &__summary {
+          padding: 0 var(--expandableContentIconWidth);
+          height: var(--inputHeight);
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          span {
+            margin: 0;
+          }
+
+          &:before {
+            content: none;
+          }
+
+          &:after {
+            all: unset;
+            content: "\25BE";
+          }
+        }
+
+        &__content {
+          width: 100%;
+        }
+      }
+
+      &[open] {
+        .disclosure {
+          &__summary {
+            &:after {
+              transform: rotate(180deg);
+            }
+          }
+        }
+      }
+    }
+
+    &-button {
+      .disclosure {
+        &__summary {
+          @extend .btn;
+          margin-top: 0;
+          padding-right: calc(var(--expandableContentIconWidth) * 3);
+
+          span {
+            margin: 0;
+          }
+
+          &:before,
+          &:after {
+            background: RGB(var(--color-foreground-text));
+            right: var(--expandableContentIconWidth);
+          }
+        }
+
+        &__content {
+          min-width: 200px;
+        }
+      }
+    }
+  }
+}

@@ -15,6 +15,8 @@
   }
 {% endstyle %}
 
+
+
 <div id="Main-search-{{ section.id }}" class="main-search __theme-{{ section.settings.theme }}">
 
   {% comment %} Heading {% endcomment %}
@@ -33,38 +35,38 @@
     <button aria-label="{{ 'general.search.search' | t }}">{% render 'svg-slider-arrow' %}</button>
   </form>
 
-  {% comment %} Results Quantity {% endcomment %}
-  {% if search.performed %}
-    <h2 class="p">{{ 'general.search.results' | t: terms: search.terms, count: search.results_count }}</h2>
-  {% endif %}
-
   {% comment %} No results and no filters {% endcomment %}
   {% if search.results == empty and search.filters == empty %}
-  <div class="container">
+  <div class="main-search__container">
     {% if search.performed %}
-      <p>{{ 'general.search.no_results' | t }}</p>
+      <p class="p-lg">{{ 'general.search.no_results' | t }}</p>
     {% else %}
-      <p>{{ 'general.search.no_terms' | t }}</p>
+      <p class="p-lg">{{ 'general.search.no_terms' | t }}</p>
     {% endif %}
   </div>
 
 {% comment %} No results, but filters applied {% endcomment %}
 {% elsif search.results.size == 0 and search.filters != empty %}
-  {% render 'filter-and-sort', results: search %}
 
-  <div class="container">
+  <div class="main-search__container">
     {%- liquid
       assign sort_by = search.sort_by | default: search.default_sort_by
       assign terms = search.terms | escape
       assign search_url = '?q=' | append: terms | append: '&options%5Bprefix%5D=last&sort_by=' | append: sort_by
     -%}
 
-    <p>{{ 'products.facets.use_fewer_filters_html' | t: link: search_url }}</p>
+    <p class="p-lg">{{ 'products.facets.use_fewer_filters_html' | t: link: search_url }}</p>
+
+    {% render 'filter-and-sort', results: search %}
   </div>
 
 {% comment %} The results {% endcomment %}
 {% else %}
   {% render 'filter-and-sort', results: search %}
+
+  {% if search.performed %}
+    <h2 class="main-search__size p">{{ 'general.search.results' | t: terms: search.terms, count: search.results_count }}</h2>
+  {% endif %}
 
   {%- paginate search.results by 8 -%}
       <ul class="main-search__results list-unstyled" role="list">

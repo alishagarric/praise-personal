@@ -33,12 +33,11 @@
   <link id="ModelViewerStyle" rel="stylesheet" href="https://cdn.shopify.com/shopifycloud/model-viewer-ui/assets/v1.0/model-viewer-ui.css" media="print" onload="this.media='all'">
 {%- endif -%}
 
-<div class="main-product product __theme-{{ section.settings.theme }}">
 
+<div class="main-product product __theme-{{ section.settings.theme }}">
+  
     {% comment %} Product info {% endcomment %}
     <div id="Product-Info-{{ section.id }}" class="main-product__container">
-
-
       {% comment %} 
         Seems weird but we need to open this container without a closing tag. 
         Either the end of the loop of the media block within the loop will close 
@@ -52,6 +51,7 @@
       {% comment %} Loop through blocks {% endcomment %}
       {%- for block in section.blocks -%}
         {%- case block.type -%}
+          
 
           {% comment %} Type media {% endcomment %}
           {%- when 'media' -%}
@@ -374,7 +374,7 @@
 
           {% comment %} Type expandable content {% endcomment %}
           {%- when 'expandable' %}
-            {% render 'expandable-content', title: block.settings.title, id: block.id, text: block.settings.text, page: block.settings.page, open: block.settings.open %}
+            {% render 'disclosure', title: block.settings.title, id: block.id, text: block.settings.text, page: block.settings.page, open: block.settings.open %}
 
           {% comment %} Type featured icons {% endcomment %}
           {%- when 'icons' -%}

@@ -1,10 +1,30 @@
 .filter-and-sort {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  display: flex;
+  gap: calc(var(--pxSize) / 3);
 
   &__filters {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+    &__details {
+      .disclosure {
+        &__content {
+          display: grid;
+          grid-template-columns: repeat(3, 50%);
+          gap: calc(var(--pxSize) / 3);
+          //TODO: finish styles
+        }
+      }
+    }
+  }
+
+  &__sort {
+    --color-foreground: var(--color-background);
+    --color-foreground-text: var(--color-text);
+
+    &__details {
+      .disclosure {
+        &__summary {
+          border: 1px solid RGB(var(--color-foreground-text)) !important;
+        }
+      }
+    }
   }
 }

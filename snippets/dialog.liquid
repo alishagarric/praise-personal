@@ -1,5 +1,5 @@
 {% comment %}
-  Renders a modal button that opens a modal when clicked
+  Renders a dialog button that opens a dialog when clicked
 
   Expects: 
   - type: {String} default (basic), quick_buy
@@ -8,20 +8,20 @@
   - content?
 
   Usage:
-    {% render 'modal', type: "default" %}
+    {% render 'dialog', type: "default" %}
 
 {% endcomment %}       
        
-       <details class="cmnc-modal">
-          <summary class="cmnc-modal__summary" aria-haspopup="dialog" aria-controls="Modal">
+       <details class="dialog">
+          <summary class="dialog__summary" aria-haspopup="dialog" aria-controls="Modal">
             <span class="button">Open modal with header and footer</span>
-            <span class="cmnc-modal__summary__close button" aria-label="Close modal">Close</span>
+            <span class="dialog__summary__close button" aria-label="Close modal">Close</span>
           </summary>
-          <div class="cmnc-modal__content __layout-pop-up" id="Modal" role="dialog" aria-labelledby="ModalHeading" aria-modal="true">
-            <div class="cmnc-modal__content__header">
+          <div class="dialog__content __layout-pop-up" id="Modal" role="dialog" aria-labelledby="ModalHeading" aria-modal="true">
+            <div class="dialog__content__header">
               <h2 id="ModalHeading">Modal with header and footer</h2>
             </div>
-            <div class="cmnc-modal__content__body">
+            <div class="dialog__content__body">
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
                 dolore magna aliqua. Pellentesque id nibh tortor id aliquet lectus. Habitant morbi tristique senectus et
@@ -71,7 +71,7 @@
                 nunc. Ut pharetra sit amet aliquam.
               </p>
             </div>
-            <div class="cmnc-modal__content__footer">
+            <div class="dialog__content__footer">
               <p>Modal footer</p>
             </div>
           </div>

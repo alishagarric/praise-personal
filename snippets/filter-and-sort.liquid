@@ -25,135 +25,115 @@
       <input type="hidden" name="q" value="{{ results.current_vendor }}{{ results.current_type }}">
     {% endif %}
 
-    {%- for filter in results.filters -%}
-      {% case filter.type %}
-        {% when 'boolean' or 'list' %}
-          <details class="disclosure dropdown">
-            <summary class="button">
-              {{ filter.label | escape }}
-              {% unless filter.active_values == empty %}
-                ({{ filter.active_values | size -}}
-                <span class="visually-hidden">{{ 'accessibility.filter_active_values' | t }}</span>)
-              {% endunless %}
-            </summary>
-            <div>
-              <fieldset>
-                <legend class="visually-hidden">{{ filter.label | escape }}</legend>
-                <ul class="list-unstyled" role="list">
-                  {%- for value in filter.values -%}
-                    <li>
-                      <input
-                        type="checkbox"
-                        name="{{ value.param_name }}"
-                        value="{{ value.value }}"
-                        id="Filter-{{ filter.label | escape }}-{{ forloop.index }}"
-                        {% if value.active %}
-                          checked
-                        {% endif %}
-                        {% if value.count == 0 and value.active == false %}
-                          disabled
-                        {% endif %}
-                      >
-                      <label for="Filter-{{ filter.label | escape }}-{{ forloop.index }}">
-                        {{ value.label | escape }} ({{ value.count }})
-                      </label>
-                    </li>
-                  {%- endfor -%}
-                </ul>
-              </fieldset>
+    {% capture filter_title %}{{ 'products.facets.filter_by_label' | t }}{% endcapture %}
 
-              <a href="{{ filter.url_to_remove }}">
-                {{ 'products.facets.reset' | t }}
-              </a>
-            </div>
-          </details>
-        {% when 'price_range' %}
-          <details class="disclosure dropdown">
-            <summary class="button">
-              {{ filter.label | escape }}
-            </summary>
+    {% capture filter_content %}
+      {%- for filter in results.filters -%}
+        {% case filter.type %}
+          {% when 'boolean' or 'list' %}
             <div>
               <div>
-                <div>
-                  {%- assign max_price_amount = filter.range_max | money | strip_html | escape -%}
-                  <span>{{ 'products.facets.max_price' | t: price: max_price_amount }}</span>
-                </div>
+                {{ filter.label | escape }}
+                {% unless filter.active_values == empty %}
+                  ({{ filter.active_values | size -}}
+                  <span class="visually-hidden">{{ 'accessibility.filter_active_values' | t }}</span>)
+                {% endunless %}
+              </div>
+              <div>
                 <fieldset>
-                  <div>
-                    <label for="Filter-{{ filter.label | escape }}-GTE">{{ 'products.facets.from' | t }}</label>
-                    <input
-                      name="{{ filter.min_value.param_name }}"
-                      id="Filter-{{ filter.label | escape }}-GTE"
-                      type="text"
-                      placeholder="0"
-                      value="{{ filter.min_value.value | money_without_currency }}"
-                    >
-                  </div>
-                  <div>
-                    <label for="Filter-{{ filter.label | escape }}-LTE">{{ 'products.facets.to' | t }}</label>
-                    <input
-                      name="{{ filter.max_value.param_name }}"
-                      id="Filter-{{ filter.label | escape }}-LTE"
-                      type="text"
-                      value="{{ filter.max_value.value | money_without_currency }}"
-                    >
-                  </div>
+                  <legend class="visually-hidden">{{ filter.label | escape }}</legend>
+                  <ul class="list-unstyled" role="list">
+                    {%- for value in filter.values -%}
+                      <li>
+                        <input
+                          type="checkbox"
+                          name="{{ value.param_name }}"
+                          value="{{ value.value }}"
+                          id="Filter-{{ filter.label | escape }}-{{ forloop.index }}"
+                          {% if value.active %}
+                            checked
+                          {% endif %}
+                          {% if value.count == 0 and value.active == false %}
+                            disabled
+                          {% endif %}
+                        >
+                        <label for="Filter-{{ filter.label | escape }}-{{ forloop.index }}">
+                          {{ value.label | escape }} ({{ value.count }})
+                        </label>
+                      </li>
+                    {%- endfor -%}
+                  </ul>
                 </fieldset>
+
                 <a href="{{ filter.url_to_remove }}">
                   {{ 'products.facets.reset' | t }}
                 </a>
               </div>
             </div>
-          </details>
-      {% endcase %}
-    {%- endfor -%}
+          {% when 'price_range' %}
+            <div>
+              <div class="button">
+                {{ filter.label | escape }}
+              </div>
+              <div>
+                <div>
+                  <div>
+                    {%- assign max_price_amount = filter.range_max | money | strip_html | escape -%}
+                    <span>{{ 'products.facets.max_price' | t: price: max_price_amount }}</span>
+                  </div>
+                  <fieldset>
+                    <div>
+                      <label for="Filter-{{ filter.label | escape }}-GTE">{{ 'products.facets.from' | t }}</label>
+                      <input
+                        name="{{ filter.min_value.param_name }}"
+                        id="Filter-{{ filter.label | escape }}-GTE"
+                        type="text"
+                        placeholder="0"
+                        value="{{ filter.min_value.value | money_without_currency }}"
+                      >
+                    </div>
+                    <div>
+                      <label for="Filter-{{ filter.label | escape }}-LTE">{{ 'products.facets.to' | t }}</label>
+                      <input
+                        name="{{ filter.max_value.param_name }}"
+                        id="Filter-{{ filter.label | escape }}-LTE"
+                        type="text"
+                        value="{{ filter.max_value.value | money_without_currency }}"
+                      >
+                    </div>
+                  </fieldset>
+                  <a href="{{ filter.url_to_remove }}">
+                    {{ 'products.facets.reset' | t }}
+                  </a>
+                </div>
+              </div>
+            </div>
+        {% endcase %}
+      {%- endfor -%}
+
+      <button class="button">{{ 'products.facets.filter_and_sort_button' | t }}</button>
+    {% endcapture %}
+
+    {% render 'disclosure', title: filter_title, id: filter_title, text: filter_content, style: "dropdown-button __with-overlay", class: "filter-and-sort__filters__details" %}
+
   </div>
 
   <div class="filter-and-sort__sort">
-    <label for="SortBy">{{ 'products.facets.sort_by_label' | t }}</label>
-    <div>
+    {% capture sort_title %}{{ 'products.facets.sort_by_label' | t }}{% endcapture %}
+
+    {% capture sort_content %}
       {%- assign sort_by = results.sort_by | default: results.default_sort_by -%}
-      <select name="sort_by" id="SortBy" aria-describedby="A11y-RefreshPageMessage">
+      <ul class="list-unstyled" role="list">
         {%- for option in results.sort_options -%}
-          <option
-            value="{{ option.value | escape }}"
-            {% if option.value == sort_by %}
-              selected="selected"
-            {% endif %}
-          >
-            {{ option.name | escape }}
-          </option>
+          <li class="list-menu__item facets__item">
+            <a href="{{ canonical_url | sort_by: option.value }}" class="{% if results.sort_by == option.value%}current{% endif %}">
+              {{ option.name | escape }}
+            </a>
+          </li>
         {%- endfor -%}
       </select>
-    </div>
+    {% endcapture %}
+
+    {% render 'disclosure', title: sort_title, id: sort_title, text: sort_content, style: "dropdown-button __with-overlay", class: "filter-and-sort__sort__details"%}
   </div>
-
-  <button class="button">{{ 'products.facets.filter_and_sort_button' | t }}</button>
 </form>
-
-
-<details class="disclosure-has-popup facets__disclosure facet-filters__sort" open="">
-                    <summary class="facets__summary">
-                      <span class="button button--secondary button--small">Sort by<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" role="presentation" class="icon icon-caret" fill="none" viewBox="0 0 24 15">
-      <path fill-rule="evenodd" clip-rule="evenodd" d="M12 15c-.3 0-.6-.1-.8-.4l-11-13C-.2 1.2-.1.5.3.2c.4-.4 1.1-.3 1.4.1L12 12.5 22.2.4c.4-.4 1-.5 1.4-.1.4.4.5 1 .1 1.4l-11 13c-.1.2-.4.3-.7.3z" fill="currentColor"></path>
-    </svg></span>
-                    </summary>
-                    <div class="facets__display">
-                      <ul class="facets__list list-unstyled" role="list"><li class="list-menu__item facets__item">
-                            <label for="Filter-relevance-1" class="facet-checkbox">
-                              <input type="radio" name="sort_by" value="relevance" id="Filter-relevance-1" checked="checked" class="visually-hidden">
-                              <span class="label">Relevance</span>
-                            </label>
-                          </li><li class="list-menu__item facets__item">
-                            <label for="Filter-price-ascending-2" class="facet-checkbox">
-                              <input type="radio" name="sort_by" value="price-ascending" id="Filter-price-ascending-2" class="visually-hidden">
-                              <span class="label">Price, low to high</span>
-                            </label>
-                          </li><li class="list-menu__item facets__item">
-                            <label for="Filter-price-descending-3" class="facet-checkbox">
-                              <input type="radio" name="sort_by" value="price-descending" id="Filter-price-descending-3" class="visually-hidden">
-                              <span class="label">Price, high to low</span>
-                            </label>
-                          </li></ul>
-                    </div>
-                  </details>

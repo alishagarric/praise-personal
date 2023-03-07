@@ -19,7 +19,7 @@
     </ul>
   {% endcapture %}
 
-  {% render 'expandable-content', title: page_title, id: "Account", text: nav_items, style: "dropdown" %}
+  {% render 'disclosure', title: page_title, id: "Account", text: nav_items, style: "dropdown" %}
 
 </div>
 
@@ -151,7 +151,7 @@
         {%- endform -%}
       </div>
     {% endcapture %}
-    {% render 'expandable-content', title: title, id: id, text: form, open: false %}
+    {% render 'disclosure', title: title, id: id, text: form, open: false %}
   
     {%- paginate customer.addresses by 5 -%}
         <ul role="list" class="list-unstyled main-order-main-account__orders__list">
@@ -184,7 +184,7 @@
                   </button>
                 </form>
               {% endcapture %}
-              {% render 'expandable-content', title: title, id: id, text: form, open: false %}
+              {% render 'disclosure', title: title, id: id, text: form, open: false %}
 
               {% assign title = 'customer.addresses.edit' | t %}
               {% assign id = 'EditAddress-' | append: forloop.index %}
@@ -318,7 +318,7 @@
                   </div>
                 {%- endform -%}
               {% endcapture %}
-              {% render 'expandable-content', title: title, id: id, text: form, open: false %}
+              {% render 'disclosure', title: title, id: id, text: form, open: false %}
 
             </li>
           {%- endfor -%}

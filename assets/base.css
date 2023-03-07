@@ -105,48 +105,6 @@ details > summary::-webkit-details-marker {
   display: none;
 }
 
-/* Disclosure / Dropdown */
-
-.disclosure > summary {
-  cursor: pointer;
-}
-
-.disclosure > summary::after {
-  display: inline-block;
-  content: "\25BE";
-}
-
-.delete > summary::after {
-  display: none;
-}
-
-.disclosure[open] > summary::after {
-  transform: rotate(180deg);
-  transform-origin: center;
-}
-
-.dropdown {
-  position: relative;
-}
-
-.dropdown > summary {
-  width: fit-content;
-}
-
-.dropdown > summary + * {
-  background-color: RGB(var(--color-background));
-  border: 1px solid RGB(var(--color-border));
-  box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.1);
-  position: absolute;
-  z-index: 2;
-  padding: 10px;
-  margin-top: 5px;
-  min-width: 200px;
-  max-width: 350px;
-  max-height: 350px;
-  overflow-y: auto;
-}
-
 button[aria-disabled="true"],
 .button[aria-disabled="true"] {
   opacity: 0.6;
