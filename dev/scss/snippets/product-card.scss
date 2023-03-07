@@ -42,7 +42,7 @@
       display: inline-block;
     }
 
-    > *:last-child:before {
+    > *:last-child:before:not(:first-child) {
       content: "\00a0";
     }
   }

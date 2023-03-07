@@ -1,0 +1,42 @@
+.main-search {
+  &__heading {
+    text-align: center;
+  }
+
+  &__form {
+    max-width: var(--maxWidth);
+    margin: 0 auto;
+    display: flex;
+    margin-bottom: var(--sectionVerticalSpacing);
+
+    > input[type="search"]:first-of-type {
+      border-bottom-right-radius: 0px;
+      border-top-right-radius: 0px;
+      flex: 1;
+    }
+
+    button {
+      border-bottom-left-radius: 0px;
+      border-top-left-radius: 0px;
+
+      svg {
+        transform: scaleX(-1);
+      }
+    }
+
+    label {
+      display: none;
+    }
+  }
+
+  &__results {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: calc(var(--pxSize) / 3);
+
+    li > .quote-card {
+      --color-background: var(--color-foreground);
+      --color-text: var(--color-foreground-text);
+    }
+  }
+}

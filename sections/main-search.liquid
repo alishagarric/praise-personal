@@ -1,9 +1,20 @@
+{% liquid
+  assign title = 'general.search.search' | t 
+  assign alt_title = section.settings.alt_title
+  assign alignment = section.settings.alignment
+  assign price = section.settings.price
+  assign crop_shape = section.settings.crop_shape
+  assign quick_add = section.settings.quick_add
+  assign show_description = section.settings.show_description
+%}
 
-<div class="container" style="background: magenta;">
+<div id="Main-search-{{ section.id }}" class="main-search">
 
-  <h1>{{ 'general.search.search' | t }}</h1>
+  {% comment %} Heading {% endcomment %}
+  {% render 'heading', class: "main-search", heading: title, heading_tag: "h1", heading_size: "h2" %}
 
-  <form action="{{ routes.search_url }}" method="get" role="search">
+  {% comment %} Search Form {% endcomment %}
+  <form action="{{ routes.search_url }}" method="get" role="search" class="main-search__form">
     <label for="Search">{{ 'general.search.search' | t }}</label>
     <input
       id="Search"
@@ -12,17 +23,16 @@
       value="{{ search.terms }}"
     >
     <input name="options[prefix]" type="hidden" value="last">
-    <button>{{ 'general.search.search' | t }}</button>
+    <button aria-label="{{ 'general.search.search' | t }}">{% render 'svg-slider-arrow' %}</button>
   </form>
-</div>
 
-{% if search.performed %}
-  <div class="container">
-    <h2>{{ 'general.search.results' | t: terms: search.terms, count: search.results_count }}</h2>
-  </div>
-{% endif %}
+  {% comment %} Results Quantity {% endcomment %}
+  {% if search.performed %}
+    <h2 class="p">{{ 'general.search.results' | t: terms: search.terms, count: search.results_count }}</h2>
+  {% endif %}
 
-{% if search.results == empty and search.filters == empty %}
+  {% comment %} No results and no filters {% endcomment %}
+  {% if search.results == empty and search.filters == empty %}
   <div class="container">
     {% if search.performed %}
       <p>{{ 'general.search.no_results' | t }}</p>
@@ -30,6 +40,8 @@
       <p>{{ 'general.search.no_terms' | t }}</p>
     {% endif %}
   </div>
+
+{% comment %} No results, but filters applied {% endcomment %}
 {% elsif search.results.size == 0 and search.filters != empty %}
   {% render 'filter-and-sort', results: search %}
 
@@ -42,19 +54,207 @@
 
     <p>{{ 'products.facets.use_fewer_filters_html' | t: link: search_url }}</p>
   </div>
+
+{% comment %} The results {% endcomment %}
 {% else %}
   {% render 'filter-and-sort', results: search %}
 
   {%- paginate search.results by 8 -%}
-    <div class="container">
-      <ul class="grid list-unstyled" role="list">
-        {%- for product in search.results -%}
+      <ul class="main-search__results list-unstyled" role="list">
+        {%- for item in search.results -%}
           <li>
-            {% render 'product-card', card_product: product %}
+            {% case item.object_type %}
+              {% when 'product' %}
+                {% render 'product-card', product: item, price_position: price, crop_shape: crop_shape, alignment: alignment, alt_heading: alt_title, show_description: show_description, quick_add: quick_add  %}
+              {% when 'article' %}
+                {% render 'article-card', article: item, crop_shape: crop_shape, alignment: alignment, alt_heading: alt_title, show_description: show_description %}
+              {% when 'page' %}
+                {% assign text = item.content | strip_html | truncatewords: 20 %}
+                {% render 'quote-card', quote: item.title, details: text, link: page.url, alignment: alignment, card_corners: crop_shape %}
+            {% endcase %}
           </li>
         {%- endfor -%}
       </ul>
-    </div>
+
     {% render 'pagination', paginate: paginate %}
   {%- endpaginate -%}
 {% endif %}
+
+</div>
+
+{% schema %}
+{
+  "name": "Main Search",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Result Cards"
+    },
+    {
+      "type": "paragraph",
+      "content": "Results can be of type 'page', 'product' or 'article'. Each setting below can only applies to each as applicable"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_description",
+      "label": "Show description?"
+    },
+    {
+      "type": "checkbox",
+      "id": "quick_add",
+      "label": "Enable quick add?",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "alt_title",
+      "label": "Use body font instead of heading font for card title?"
+    },
+    {
+      "type": "select",
+      "id": "alignment",
+      "options": [
+        {
+          "value": "default",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "default",
+      "label": "Card Text Alignment"
+    },
+    {
+      "type": "select",
+      "id": "price",
+      "options": [
+        {
+          "value": "default",
+          "label": "Right of Title"
+        },
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        },
+        {
+          "value": "not-visible",
+          "label": "Not Visible"
+        }
+      ],
+      "default": "default",
+      "label": "Price Position"
+    },
+    {
+      "type": "select",
+      "id": "crop_shape",
+      "options": [
+        {
+          "value": "default",
+          "label": "No Crop"
+        },
+        {
+          "value": "square",
+          "label": "Square"
+        },
+        {
+          "value": "rounded-square",
+          "label": "Rounded Square"
+        },
+        {
+          "value": "circle",
+          "label": "Circle"
+        },
+        {
+          "value": "portrait",
+          "label": "Portrait"
+        },
+        {
+          "value": "rounded-portrait",
+          "label": "Rounded Portrait"
+        },
+        {
+          "value": "semicircle-portrait",
+          "label": "Semicircle Portrait"
+        },
+        {
+          "value": "landscape",
+          "label": "Landscape"
+        },
+        {
+          "value": "rounded-landscape",
+          "label": "Rounded Landscape"
+        },
+        {
+          "value": "semicircle-landscape",
+          "label": "Semicircle Landscape"
+        },
+        {
+          "value": "arch",
+          "label": "Semicircle Arch"
+        }
+      ],
+      "default": "default",
+      "label": "Product Image Crop Shape"
+    },
+    {
+      "type": "header",
+      "content": "Section"
+    },
+    {
+      "type": "select",
+      "id": "theme",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary Theme"
+        },
+        {
+          "value": "2",
+          "label": "2nd Theme"
+        },
+        {
+          "value": "3",
+          "label": "3rd Theme"
+        },
+        {
+          "value": "4",
+          "label": "4th Theme"
+        },
+        {
+          "value": "5",
+          "label": "5th Theme"
+        }
+      ],
+      "default": "primary",
+      "label": "Theme"
+    },
+    {
+      "type": "range",
+      "id": "top_spacing",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "Top Spacing",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "bottom_spacing",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "Bottom Spacing",
+      "default": 50
+    }
+  ]
+}
+{% endschema %}
