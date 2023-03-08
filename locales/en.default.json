@@ -47,6 +47,7 @@
     },
     "password_page": {
       "login_form_heading": "Enter store using password",
+      "login_form_return": "Return",
       "login_form_password_label": "Password",
       "login_form_error": "Wrong password!",
       "login_form_submit": "Enter",

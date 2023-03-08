@@ -35,6 +35,12 @@
     }
   }
 
+  //Only used on password page
+  &.__style-fixed {
+    text-emphasis: none;
+    background-color: RGB(var(--color-background));
+  }
+
   // Logo
   &__logo {
     display: flex;
