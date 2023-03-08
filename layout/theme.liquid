@@ -75,13 +75,11 @@
         --color-foreground-text-3: {{ settings.button_text_color_3.rgb }};
         --color-border-3: {{ settings.border_color_3.rgb }};
 
-
         --color-background-4: {{ settings.background_color_4.rgb }};
         --color-text-4: {{ settings.text_color_4.rgb }};
         --color-foreground-4: {{ settings.button_color_4.rgb }};
         --color-foreground-text-4: {{ settings.button_text_color_4.rgb }};
         --color-border-4: {{ settings.border_color_4.rgb }};
-
 
         --color-background-5: {{ settings.background_color_5.rgb }};
         --color-text-5: {{ settings.text_color_5.rgb }};
@@ -131,8 +129,6 @@
     {{ 'base.css' | asset_url | stylesheet_tag }}
     {{ 'theme.css' | asset_url | stylesheet_tag }}
     {{ 'header.css' | asset_url | stylesheet_tag }}
-
-    <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
 
     {%- if settings.favicon != blank and settings.favicon contains '.png' -%}
       <link rel="shortcut icon" href="{{ settings.favicon | img_url: 'master' }}" type="image/png">

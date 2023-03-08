@@ -46,12 +46,12 @@
       "results": "{{ count }} results for {{ terms }}"
     },
     "password_page": {
-      "login_form_heading": "Enter store using password:",
-      "login_form_password_label": "Your password",
+      "login_form_heading": "Enter store using password",
+      "login_form_password_label": "Password",
       "login_form_error": "Wrong password!",
       "login_form_submit": "Enter",
-      "admin_link_html": "Are you the store owner? <a href=\"/admin\" class=\"link underlined-link\">Log in here</a>",
-      "powered_by_shopify_html": "This shop will be powered by {{ shopify }}"
+      "admin_link_html": "Store Owner <a href=\"/admin\">Log in</a>",
+      "powered_by_shopify_html": "<span>Powered by</span> {{ shopify }}"
     },
     "dialog": {
       "close": "Close",

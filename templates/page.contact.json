@@ -54,7 +54,15 @@
     },
     "password-footer": {
       "type": "password-footer",
-      "settings": {}
+      "settings": {
+        "full_height": true,
+        "show_social": true,
+        "newsletter_enable": true,
+        "heading": "Opening Soon",
+        "description": "<p>Sign up for our newsletter</p>",
+        "theme": "3",
+        "accent_theme": "4"
+      }
     }
   },
   "order": ["password-header", "1662063884d9fa6284", "form", "password-footer"]
