@@ -30,7 +30,7 @@
         {% if placeholder_content == false %}
           {% for block in section.blocks %}
             {% case block.type %}
-                {% comment %} Type quote {% endcomment %}
+              {% comment %} Type quote {% endcomment %}
               {% when 'quote' %}
                 {% render 'quote-card',
                   quote: block.settings.quote,

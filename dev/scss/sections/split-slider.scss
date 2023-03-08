@@ -1,0 +1,9 @@
+.split-slider {
+  display: flex;
+  gap: var(--pxSize);
+  overflow: auto;
+
+  > * {
+    flex: 0 0 300px;
+  }
+}

@@ -1,19 +1,333 @@
+{% liquid
+  if section.blocks.size > 0
+    assign array = section.blocks
+  elsif template.name == "blog"
+    assign array = blog.articles
+  else
+    assign array = blogs[0]
+  endif
+
+%}
+
 {% style %}
     #Split-slider-{{ section.id }} {
       --topSpacingRatio: {{section.settings.top_spacing}} / 100;
       --bottomSpacingRatio: {{section.settings.bottom_spacing}} / 100;
     }
- {% endstyle %}
+{% endstyle %}
+
  
-<div id="Split-slider-{{ section.id }}" class="split-slider __theme-{{section.settings.theme}}" style="background: magenta;">
-  <h1>Split Slider</h1>
+<div id="Split-slider-{{ section.id }}" class="split-slider __theme-{{ section.settings.theme }}">
+  {% for item in array limit: 10 %}
+    {% comment %} TODO: make Read More below a settings field {% endcomment %}
+    {% liquid
+      if item.object_type == "article"
+        assign heading = item.title
+        assign text = item.excerpt_or_content | strip_html | truncatewords: 20
+        assign button_label = section.settings.button_label
+        assign button_link = article.url
+        assign card_image = item.settings.image | default: item.image
+        assign overlay_theme = 'default'
+        assign overlay = 0.0
+      else
+        assign heading = item.settings.heading
+        assign text = item.settings.text
+        assign button_label = item.settings.button_label
+        assign button_link = item.settings.button_link
+        assign card_image = item.settings.image
+        assign overlay_theme = item.settings.overlay_theme
+        assign overlay = item.settings.overlay
+      endif
+    %}
+    <div>
+      {% render 'content-card' 
+        class: "split-slider__card",
+        style: "row",
+        heading: heading,
+        text: text, 
+        button_label: button_label, 
+        button_link: button_link,
+        image: card_image,
+        overlay_theme: overlay_theme,
+        overlay: overlay,
+        crop_shape: section.settings.crop_shape,
+        heading_size: section.settings.heading_size
+        button_color: section.settings.button_color
+      %}
+    </div>
+  {% endfor %}
 </div>
 
- {% schema %}
+{% schema %}
 {
   "name": "Split Slider",
   "tag": "section",
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image with Text",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Image Content"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "range",
+          "id": "overlay",
+          "label": "Overlay Opacity",
+          "info": "If above 0%, an overlay will be added on top of the image",
+          "min": 0,
+          "max": 70,
+          "step": 10,
+          "unit": "%",
+          "default": 0
+        },
+        {
+          "type": "select",
+          "id": "overlay_theme",
+          "options": [
+            {
+              "value": "primary",
+              "label": "Primary Theme"
+            },
+            {
+              "value": "2",
+              "label": "2nd Theme"
+            },
+            {
+              "value": "3",
+              "label": "3rd Theme"
+            },
+            {
+              "value": "4",
+              "label": "4th Theme"
+            },
+            {
+              "value": "5",
+              "label": "5th Theme"
+            }
+          ],
+          "default": "primary",
+          "label": "Overlay Theme"
+        },
+        {
+          "type": "header",
+          "content": "Text Content"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Lorem ipsum",
+          "label": "Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Description"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "default": "Laboris Nisi",
+          "label": "Button Label"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "name": "Article",
+      "settings": [
+        {
+          "type": "article",
+          "id": "article",
+          "label": "Article"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "By default, if an article image exists it will be used as the image, unless overwritten here"
+        },
+        {
+          "type": "range",
+          "id": "overlay",
+          "label": "Overlay Opacity",
+          "info": "If above 0%, an overlay will be added on top of the image",
+          "min": 0,
+          "max": 70,
+          "step": 10,
+          "unit": "%",
+          "default": 0
+        },
+        {
+          "type": "select",
+          "id": "overlay_theme",
+          "options": [
+            {
+              "value": "primary",
+              "label": "Primary Theme"
+            },
+            {
+              "value": "2",
+              "label": "2nd Theme"
+            },
+            {
+              "value": "3",
+              "label": "3rd Theme"
+            },
+            {
+              "value": "4",
+              "label": "4th Theme"
+            },
+            {
+              "value": "5",
+              "label": "5th Theme"
+            }
+          ],
+          "default": "primary",
+          "label": "Overlay Theme"
+        }
+      ]
+    }
+  ],
   "settings": [
+    {
+      "type": "header",
+      "content": "General"
+    },
+    {
+      "type": "paragraph",
+      "content": "If used on a blog template, articles from that blog will populate. If used anywhere else, articles from all blogs will populate. Additionally, you can populate your own content by adding blocks to this section."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "default": "Read More",
+      "label": "Button Label",
+      "info": "Used for article buttons"
+    },
+    {
+      "type": "select",
+      "id": "button_color",
+      "label": "Button Color",
+      "default": "default",
+      "options": [
+        {
+          "value": "default",
+          "label": "Default"
+        },
+        {
+          "value": "primary",
+          "label": "Primary Theme"
+        },
+        {
+          "value": "2",
+          "label": "2nd Theme"
+        },
+        {
+          "value": "3",
+          "label": "3rd Theme"
+        },
+        {
+          "value": "4",
+          "label": "4th Theme"
+        },
+        {
+          "value": "5",
+          "label": "5th Theme"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "X-Large"
+        },
+        {
+          "value": "h4",
+          "label": "Large"
+        },
+        {
+          "value": "h5",
+          "label": "Medium"
+        },
+        {
+          "value": "h6",
+          "label": "Small"
+        }
+      ],
+      "default": "h5",
+      "label": "Heading Size"
+    },
+    {
+      "type": "select",
+      "id": "crop_shape",
+      "options": [
+        {
+          "value": "default",
+          "label": "No Crop"
+        },
+        {
+          "value": "square",
+          "label": "Square"
+        },
+        {
+          "value": "rounded-square",
+          "label": "Rounded Square"
+        },
+        {
+          "value": "circle",
+          "label": "Circle"
+        },
+        {
+          "value": "portrait",
+          "label": "Portrait"
+        },
+        {
+          "value": "rounded-portrait",
+          "label": "Rounded Portrait"
+        },
+        {
+          "value": "semicircle-portrait",
+          "label": "Semicircle Portrait"
+        },
+        {
+          "value": "landscape",
+          "label": "Landscape"
+        },
+        {
+          "value": "rounded-landscape",
+          "label": "Rounded Landscape"
+        },
+        {
+          "value": "semicircle-landscape",
+          "label": "Semicircle Landscape"
+        },
+        {
+          "value": "arch",
+          "label": "Semicircle Arch"
+        }
+      ],
+      "default": "default",
+      "label": "Image Crop Shape"
+    },
+    {
+      "type": "header",
+      "content": "Section"
+    },
     {
       "type": "select",
       "id": "theme",
@@ -43,10 +357,6 @@
       "label": "Theme"
     },
     {
-      "type": "header",
-      "content": "Spacing"
-    },
-    {
       "type": "range",
       "id": "top_spacing",
       "min": 0,
@@ -66,8 +376,6 @@
       "label": "Bottom Spacing",
       "default": 50
     }
-  ],
-  "blocks": [
   ],
   "presets": [
     {

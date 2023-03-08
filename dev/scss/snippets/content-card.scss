@@ -2,6 +2,7 @@
   &__image {
     @extend .image-container;
     overflow: visible;
+    width: 100%;
 
     &:after {
       content: "";
@@ -36,6 +37,27 @@
             color: RGB(var(--color-text));
             margin-bottom: 1rem;
           }
+        }
+      }
+    }
+  }
+
+  &.__style-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0 var(--pxSize);
+
+    > * {
+      grid-column: 2 / 3;
+    }
+
+    .content-card {
+      &__image {
+        grid-column: 1 / 2;
+        grid-row: 1 / -1;
+
+        + * {
+          margin-top: 0;
         }
       }
     }
