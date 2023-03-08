@@ -1,3 +1,4 @@
+
 {% style %}
     #Timeline-section-{{ section.id }} {
       --topSpacingRatio: {{section.settings.top_spacing}} / 100;
@@ -5,20 +6,32 @@
     }
 {% endstyle %}
  
+
 {% if section.blocks.size > 0 %}
   <div id="Timeline-section-{{ section.id }}" class="timeline-section __theme-{{ section.settings.theme }}">
-    {% for block in section.blocks.size %}
+    {% if section.settings.heading or section.settings.text %}
+      <div class="timeline-section__heading">
+        {% render 'heading' heading: section.settings.heading, heading_size: section.settings.heading_size, alt_heading: section.settings.alt_heading %}
+        {{ section.settings.text }}
+      </div>
+    {% endif %}
+
+    {% for block in section.blocks %}
       {% case block.type %}
-        {% when 'part'%}
+        {% when 'part' %}
           <div class="timeline-section__part">
-            <div class="image-banner__image __crop-{{ block.settings.crop_shape }}">
+            {% assign image_ratio = block.settings.image.height | divided_by: 1.00 | divided_by: block.settings.image.width | times: 100 %}
+
+            <div class="timeline-section__part__image __crop-{{ section.settings.crop_shape }}" style="--imageRatio: {{ image_ratio }}%">
               {% render 'next-gen-img' image: block.settings.image %}
             </div>
 
-            <div class="timeline-section__part__text">
-              {% render 'heading' heading: block.settings.heading, heading_size: block.settings.heading_size, alt_heading: block.settings.alt_heading %}
-              {{ block.settings.text }}
-              {% render 'button' button_label: block.settings.button_label, button_link: block.settings.button_link, style: "underline" %}
+            <div class="timeline-section__part__text __btn-clr-{{ section.settings.dot_color }}">
+              <div class="timeline-section__part__text__inner">
+                {% render 'heading' heading: block.settings.heading, heading_size: block.settings.heading_size, alt_heading: block.settings.alt_heading %}
+                {{ block.settings.text }}
+                {% render 'button' button_label: block.settings.button_label, button_link: block.settings.button_link, style: "underline" %}
+              </div>
             </div>
           </div>
 
@@ -32,6 +45,155 @@
   "name": "Timeline",
   "tag": "section",
   "settings": [
+    {
+      "type": "header",
+      "content": "Text Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Lorem ipsum",
+      "label": "Heading"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "X-Large"
+        },
+        {
+          "value": "h4",
+          "label": "Large"
+        },
+        {
+          "value": "h5",
+          "label": "Medium"
+        },
+        {
+          "value": "h6",
+          "label": "Small"
+        }
+      ],
+      "default": "h4",
+      "label": "Heading Size"
+    },
+    {
+      "type": "checkbox",
+      "id": "alt_heading",
+      "label": "Use body font instead of heading font for heading?"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "default": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "General"
+    },
+    {
+      "type": "select",
+      "id": "dot_color",
+      "label": "Dot Color",
+      "default": "default",
+      "options": [
+        {
+          "value": "default",
+          "label": "Default"
+        },
+        {
+          "value": "primary",
+          "label": "Primary Theme"
+        },
+        {
+          "value": "2",
+          "label": "2nd Theme"
+        },
+        {
+          "value": "3",
+          "label": "3rd Theme"
+        },
+        {
+          "value": "4",
+          "label": "4th Theme"
+        },
+        {
+          "value": "5",
+          "label": "5th Theme"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "crop_shape",
+      "options": [
+        {
+          "value": "default",
+          "label": "No Crop"
+        },
+        {
+          "value": "square",
+          "label": "Square"
+        },
+        {
+          "value": "rounded-square",
+          "label": "Rounded Square"
+        },
+        {
+          "value": "circle",
+          "label": "Circle"
+        },
+        {
+          "value": "portrait",
+          "label": "Portrait"
+        },
+        {
+          "value": "rounded-portrait",
+          "label": "Rounded Portrait"
+        },
+        {
+          "value": "semicircle-portrait",
+          "label": "Semicircle Portrait"
+        },
+        {
+          "value": "landscape",
+          "label": "Landscape"
+        },
+        {
+          "value": "rounded-landscape",
+          "label": "Rounded Landscape"
+        },
+        {
+          "value": "semicircle-landscape",
+          "label": "Semicircle Landscape"
+        },
+        {
+          "value": "wide",
+          "label": "Wide"
+        },
+        {
+          "value": "rounded-wide",
+          "label": "Rounded Wide"
+        },
+        {
+          "value": "semicircle-wide",
+          "label": "Semicircle Wide"
+        },
+        {
+          "value": "arch",
+          "label": "Semicircle Arch"
+        }
+      ],
+      "default": "default",
+      "label": "Image Crop Shape"
+    },
+    {
+      "type": "header",
+      "content": "Section"
+    },
     {
       "type": "select",
       "id": "theme",
@@ -97,72 +259,7 @@
         {
           "type": "image_picker",
           "id": "image",
-          "label": "Image",
-          "info": "Auto-cropped to fill available space."
-        },
-        {
-          "type": "select",
-          "id": "crop_shape",
-          "options": [
-            {
-              "value": "default",
-              "label": "No Crop"
-            },
-            {
-              "value": "square",
-              "label": "Square"
-            },
-            {
-              "value": "rounded-square",
-              "label": "Rounded Square"
-            },
-            {
-              "value": "circle",
-              "label": "Circle"
-            },
-            {
-              "value": "portrait",
-              "label": "Portrait"
-            },
-            {
-              "value": "rounded-portrait",
-              "label": "Rounded Portrait"
-            },
-            {
-              "value": "semicircle-portrait",
-              "label": "Semicircle Portrait"
-            },
-            {
-              "value": "landscape",
-              "label": "Landscape"
-            },
-            {
-              "value": "rounded-landscape",
-              "label": "Rounded Landscape"
-            },
-            {
-              "value": "semicircle-landscape",
-              "label": "Semicircle Landscape"
-            },
-            {
-              "value": "wide",
-              "label": "Wide"
-            },
-            {
-              "value": "rounded-wide",
-              "label": "Rounded Wide"
-            },
-            {
-              "value": "semicircle-wide",
-              "label": "Semicircle Wide"
-            },
-            {
-              "value": "arch",
-              "label": "Semicircle Arch"
-            }
-          ],
-          "default": "default",
-          "label": "Image Crop Shape"
+          "label": "Image"
         },
         {
           "type": "header",
