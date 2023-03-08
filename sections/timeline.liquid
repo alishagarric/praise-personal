@@ -3,11 +3,29 @@
       --topSpacingRatio: {{section.settings.top_spacing}} / 100;
       --bottomSpacingRatio: {{section.settings.bottom_spacing}} / 100;
     }
- {% endstyle %}
+{% endstyle %}
  
-<div id="Timeline-section-{{ section.id }}" class="timeline-section __theme-{{section.settings.theme}}" style="background: magenta;">
-  <h1>Timeline</h1>
-</div>
+{% if section.blocks.size > 0 %}
+  <div id="Timeline-section-{{ section.id }}" class="timeline-section __theme-{{ section.settings.theme }}">
+    {% for block in section.blocks.size %}
+      {% case block.type %}
+        {% when 'part'%}
+          <div class="timeline-section__part">
+            <div class="image-banner__image __crop-{{ block.settings.crop_shape }}">
+              {% render 'next-gen-img' image: block.settings.image %}
+            </div>
+
+            <div class="timeline-section__part__text">
+              {% render 'heading' heading: block.settings.heading, heading_size: block.settings.heading_size, alt_heading: block.settings.alt_heading %}
+              {{ block.settings.text }}
+              {% render 'button' button_label: block.settings.button_label, button_link: block.settings.button_link, style: "underline" %}
+            </div>
+          </div>
+
+      {% endcase %}
+    {% endfor %}
+  </div>
+{% endif %}
 
  {% schema %}
 {
@@ -68,6 +86,146 @@
     }
   ],
   "blocks": [
+    {
+      "type": "part",
+      "name": "Part",
+      "settings" : [
+        {
+          "type": "header",
+          "content": "Image Content"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "Auto-cropped to fill available space."
+        },
+        {
+          "type": "select",
+          "id": "crop_shape",
+          "options": [
+            {
+              "value": "default",
+              "label": "No Crop"
+            },
+            {
+              "value": "square",
+              "label": "Square"
+            },
+            {
+              "value": "rounded-square",
+              "label": "Rounded Square"
+            },
+            {
+              "value": "circle",
+              "label": "Circle"
+            },
+            {
+              "value": "portrait",
+              "label": "Portrait"
+            },
+            {
+              "value": "rounded-portrait",
+              "label": "Rounded Portrait"
+            },
+            {
+              "value": "semicircle-portrait",
+              "label": "Semicircle Portrait"
+            },
+            {
+              "value": "landscape",
+              "label": "Landscape"
+            },
+            {
+              "value": "rounded-landscape",
+              "label": "Rounded Landscape"
+            },
+            {
+              "value": "semicircle-landscape",
+              "label": "Semicircle Landscape"
+            },
+            {
+              "value": "wide",
+              "label": "Wide"
+            },
+            {
+              "value": "rounded-wide",
+              "label": "Rounded Wide"
+            },
+            {
+              "value": "semicircle-wide",
+              "label": "Semicircle Wide"
+            },
+            {
+              "value": "arch",
+              "label": "Semicircle Arch"
+            }
+          ],
+          "default": "default",
+          "label": "Image Crop Shape"
+        },
+        {
+          "type": "header",
+          "content": "Text Content"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Lorem ipsum",
+          "label": "Heading"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+              "value": "h2",
+              "label": "X-Large"
+            },
+            {
+              "value": "h4",
+              "label": "Large"
+            },
+            {
+              "value": "h5",
+              "label": "Medium"
+            },
+            {
+              "value": "h6",
+              "label": "Small"
+            }
+          ],
+          "default": "h4",
+          "label": "Heading Size"
+        },
+        {
+          "type": "checkbox",
+          "id": "alt_heading",
+          "label": "Use body font instead of heading font for heading?"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>",
+          "label": "Description"
+        },
+        {
+          "type": "header",
+          "content": "Button"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "default": "Laboris Nisi",
+          "label": "Button Label"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        }
+      ]
+    }
   ],
   "presets": [
     {
