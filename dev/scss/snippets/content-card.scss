@@ -1,4 +1,8 @@
 .content-card {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--pxSize) / 2);
+
   &__image {
     @extend .image-container;
     overflow: visible;
@@ -10,10 +14,6 @@
       inset: 0;
       opacity: var(--overlayOpacity);
       background: RGB(var(--color-background));
-    }
-
-    + * {
-      margin-top: calc(var(--pxSize) / 2);
     }
 
     &__heading {
@@ -45,21 +45,27 @@
   &.__style-row {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 0 var(--pxSize);
-
-    > * {
-      grid-column: 2 / 3;
-    }
 
     .content-card {
+      &__text {
+        height: 100%;
+        grid-column: 2 / 3;
+        margin-top: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
       &__image {
         grid-column: 1 / 2;
-        grid-row: 1 / -1;
-
-        + * {
-          margin-top: 0;
-        }
       }
+    }
+  }
+
+  @media screen and (max-width: 676px) {
+    &.__style-row {
+      display: flex;
+      flex-direction: column;
     }
   }
 }

@@ -14,9 +14,18 @@
         "bottom_spacing": 50
       }
     },
+    "divider": {
+      "type": "divider",
+      "settings": {
+        "theme": "primary",
+        "top_spacing": 0,
+        "bottom_spacing": 0
+      }
+    },
     "split-slider": {
       "type": "split-slider",
       "settings": {
+        "crop_shape": "rounded-portrait",
         "theme": "primary",
         "top_spacing": 50,
         "bottom_spacing": 50
@@ -28,7 +37,7 @@
         "template--16398178582750__d7103852-b62b-4134-b110-fe5c5a985ce3-1678205203fb778cd2-1": {
           "type": "text",
           "settings": {
-            "text": "<p>At Ritual we celebrate the value of simple joys in the human experience<\/p>"
+            "text": "<p>At Ritual we celebrate the value of simple joys in the human experience</p>"
           }
         }
       },
@@ -65,6 +74,7 @@
   },
   "order": [
     "a7e733bc-a5df-4b47-ab87-5e385ee4aed6",
+    "divider",
     "split-slider",
     "d7103852-b62b-4134-b110-fe5c5a985ce3",
     "main"

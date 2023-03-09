@@ -1,9 +1,23 @@
 .split-slider {
-  display: flex;
-  gap: var(--pxSize);
-  overflow: auto;
+  padding-right: 0;
 
-  > * {
-    flex: 0 0 300px;
+  &__inner {
+    --overflowSliderArrowRightOffset: calc(
+      100% - calc(var(--arrowBtnHeight) * 2.5)
+    ) !important;
+    --overflowSliderItemGap: var(--pxSize) !important;
+    --overflowSliderItemSizeDesktop: 80% !important;
+    --overflowSliderItemSizeTablet: 80% !important;
+    --overflowSliderItemSizeMobile: 90% !important;
+  }
+
+  //add an invisible pseudo element so that the last slide isn't touching the right edge
+  &__slides {
+    &:after {
+      content: "";
+      width: var(--pxSize);
+      min-width: var(--pxSize);
+      display: block;
+    }
   }
 }

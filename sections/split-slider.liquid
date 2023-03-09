@@ -7,6 +7,13 @@
     assign array = blogs[0]
   endif
 
+  assign hide_arrows_on_desktop = false
+  assign hide_arrows_on_tablet = false
+  if array.articles.size == 1
+    assign hide_arrows_on_desktop = true
+    assign hide_arrows_on_tablet = true
+  endif
+
 %}
 
 {% style %}
@@ -18,44 +25,52 @@
 
  
 <div id="Split-slider-{{ section.id }}" class="split-slider __theme-{{ section.settings.theme }}">
-  {% for item in array limit: 10 %}
-    {% comment %} TODO: make Read More below a settings field {% endcomment %}
-    {% liquid
-      if item.object_type == "article"
-        assign heading = item.title
-        assign text = item.excerpt_or_content | strip_html | truncatewords: 20
-        assign button_label = section.settings.button_label
-        assign button_link = article.url
-        assign card_image = item.settings.image | default: item.image
-        assign overlay_theme = 'default'
-        assign overlay = 0.0
-      else
-        assign heading = item.settings.heading
-        assign text = item.settings.text
-        assign button_label = item.settings.button_label
-        assign button_link = item.settings.button_link
-        assign card_image = item.settings.image
-        assign overlay_theme = item.settings.overlay_theme
-        assign overlay = item.settings.overlay
-      endif
-    %}
-    <div>
-      {% render 'content-card' 
-        class: "split-slider__card",
-        style: "row",
-        heading: heading,
-        text: text, 
-        button_label: button_label, 
-        button_link: button_link,
-        image: card_image,
-        overlay_theme: overlay_theme,
-        overlay: overlay,
-        crop_shape: section.settings.crop_shape,
-        heading_size: section.settings.heading_size
-        button_color: section.settings.button_color
-      %}
-    </div>
-  {% endfor %}
+  <overflow-slider class="split-slider__inner overflow-slider {% if hide_arrows_on_desktop %}__hide-desktop-arrows{% endif %} {% if hide_arrows_on_tablet %}__hide-tablet-arrows{% endif %}">
+    <ul class="split-slider__slides list-unstyled overflow-slider__container" role="list">
+
+      {% for item in array limit: 10 %}
+        {% comment %} TODO: make Read More below a settings field {% endcomment %}
+        {% liquid
+          if item.object_type == "article"
+            assign heading = item.title
+            assign text = item.excerpt_or_content | strip_html | truncatewords: 20
+            assign button_label = section.settings.button_label
+            assign button_link = article.url
+            assign card_image = item.settings.image | default: item.image
+            assign overlay_theme = 'default'
+            assign overlay = 0.0
+          else
+            assign heading = item.settings.heading
+            assign text = item.settings.text
+            assign button_label = item.settings.button_label
+            assign button_link = item.settings.button_link
+            assign card_image = item.settings.image
+            assign overlay_theme = item.settings.overlay_theme
+            assign overlay = item.settings.overlay
+          endif
+        %}
+        <li>
+          {% render 'content-card' 
+            class: "split-slider__card",
+            style: "row",
+            heading: heading,
+            text: text, 
+            button_label: button_label, 
+            button_link: button_link,
+            image: card_image,
+            overlay_theme: overlay_theme,
+            overlay: overlay,
+            crop_shape: section.settings.crop_shape,
+            heading_size: section.settings.heading_size
+            button_color: section.settings.button_color
+          %}
+        </li>
+      {% endfor %}
+    </ul>
+
+    {% comment %} Slider arrows (required for slider) {% endcomment %}
+    {% render 'overflow-slider-arrows' %}
+  </overflow-slider>
 </div>
 
 {% schema %}

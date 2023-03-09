@@ -33,7 +33,6 @@
   
 %}
 
-
 <div
   class="content-card {{ class }} __align-{{ alignment }} __style-{{ style }}"
   style="--contentCardSectionTextColor: RGB(var(--color-text));"
@@ -44,6 +43,7 @@
       style="--imageRatio: {{ image.height | divided_by: 1.00 | divided_by: image.width | times: 100 }}%; --overlayOpacity: calc({{ overlay }} / 100);"
     >
       {% render 'next-gen-img', image: image %}
+
       {% if overlap == true %}
         {%
           render 'heading',
@@ -54,17 +54,19 @@
       {% endif %}
     </div>
   {%- endif -%}
-  {% if overlap == false or image == blank %}
-    {% render 'heading', class: 'content-card', heading: heading, heading_size: heading_size, heading_tag: 'h3' %}
-  {% endif %}
+  <div class="content-card__text">
+    {% if overlap == false or image == blank %}
+      {% render 'heading', class: 'content-card', heading: heading, heading_size: heading_size, heading_tag: 'h3' %}
+    {% endif %}
 
-  {%- if text -%}
-    <div class="content-card__text __article-txt" {{ block.shopify_attributes }}>{{ text }}</div>
-  {%- endif -%}
-  {% render 'button',
-    class: 'content-card',
-    button_label: button_label,
-    button_link: button_link,
-    button_color: button_color
-  %}
+    {%- if text -%}
+      <div class="content-card__text__desc __article-txt" {{ block.shopify_attributes }}>{{ text }}</div>
+    {%- endif -%}
+    {% render 'button',
+      class: 'content-card',
+      button_label: button_label,
+      button_link: button_link,
+      button_color: button_color
+    %}
+  </div>
 </div>
