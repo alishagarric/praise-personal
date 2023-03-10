@@ -85,35 +85,18 @@
               "text_2": "",
               "link_2": ""
             }
-          },
-          "4bcead02-00f4-4d86-8020-30bd7dd0b9a4": {
-            "type": "mega_menu",
-            "settings": {
-              "label": "Resources",
-              "heading_0": "",
-              "text_0": "",
-              "button_label": "",
-              "button_link": "",
-              "heading_1": "",
-              "text_1": "",
-              "link_1": "",
-              "heading_2": "",
-              "text_2": "",
-              "link_2": ""
-            }
           }
         },
         "block_order": [
           "2ca0852f-aca4-4494-87a4-39323892bac2",
-          "aa838210-3e0c-4205-91cf-6bd3b96a73a1",
-          "4bcead02-00f4-4d86-8020-30bd7dd0b9a4"
+          "aa838210-3e0c-4205-91cf-6bd3b96a73a1"
         ],
         "settings": {
           "logo": "shopify:\/\/shop_images\/logo_black.png",
           "logo_placement": "center",
-          "menu": "mega-menu",
+          "menu": "mega-menu-ritual",
           "button_label": "Button label",
-          "button_link": "",
+          "button_link": "#",
           "button_color": "default",
           "always_show_nav": false
         }
