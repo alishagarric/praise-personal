@@ -3,36 +3,8 @@
 
   //Styles used on all types of disclosures
   &__summary {
-    padding-right: calc(var(--expandableContentIconWidth) * 2);
     position: relative;
     cursor: pointer;
-
-    &:before,
-    &:after {
-      content: "";
-      width: var(--expandableContentIconWidth);
-      height: 1px;
-      background: RGB(var(--color-text));
-      position: absolute;
-      right: 0;
-      top: 50%;
-    }
-
-    &:after {
-      will-change: transform;
-      transition: transform 0.25s ease;
-      transform: rotate(90deg);
-    }
-  }
-
-  &[open] {
-    .disclosure {
-      &__summary {
-        &:after {
-          transform: none;
-        }
-      }
-    }
   }
 
   // Include this modifier when we want a clickable overlay to display when its open
@@ -49,27 +21,10 @@
     }
   }
 
-  // The style where the height grows when open
-  &:not(.__style-dropdown-traditional):not(.__style-dropdown-button) {
-    border-top: 1px solid RGB(var(--color-border));
-    border-bottom: 1px solid RGB(var(--color-border));
-
-    + .disclosure {
-      border-top: none;
-    }
-
-    .disclosure {
-      &__summary,
-      &__content {
-        padding: calc(var(--pxSize) / 4) 0;
-      }
-    }
-  }
-
-  // The style where the height doesn't change and the content is absolute
-  &.__style-dropdown {
-    &-traditional,
-    &-button {
+  &.__style {
+    // The style where the height doesn't change and the content is absolute
+    &-dropdown-traditional,
+    &-dropdown-button {
       position: relative; // from sarter styles
 
       .disclosure {
@@ -80,6 +35,15 @@
           box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.1);
           position: absolute;
           z-index: 500;
+        }
+      }
+    }
+
+    &-dropdown-traditional,
+    &-dropdown-button {
+      .disclosure {
+        &__content {
+          min-width: 200px;
           max-height: 350px;
           overflow-y: auto;
 
@@ -116,7 +80,42 @@
       }
     }
 
-    &-traditional {
+    &-dropdown-button,
+    &-default {
+      //the plus sign made out of pseudo elements
+      .disclosure {
+        &__summary {
+          &:before,
+          &:after {
+            content: "";
+            width: var(--expandableContentIconWidth);
+            height: 1px;
+            background: RGB(var(--color-text));
+            position: absolute;
+            right: 0;
+            top: 50%;
+          }
+
+          &:after {
+            will-change: transform;
+            transition: transform 0.25s ease;
+            transform: rotate(90deg);
+          }
+        }
+      }
+
+      &[open] {
+        .disclosure {
+          &__summary {
+            &:after {
+              transform: none;
+            }
+          }
+        }
+      }
+    }
+
+    &-dropdown-traditional {
       border: 1px solid RGB(var(--color-border));
 
       .disclosure {
@@ -131,12 +130,7 @@
             margin: 0;
           }
 
-          &:before {
-            content: none;
-          }
-
           &:after {
-            all: unset;
             content: "\25BE";
           }
         }
@@ -157,7 +151,29 @@
       }
     }
 
-    &-button {
+    // The style where the height grows when open
+    &-default {
+      border-top: 1px solid RGB(var(--color-border));
+      border-bottom: 1px solid RGB(var(--color-border));
+
+      //only show top border on first one, so they don't double up
+      + .disclosure {
+        border-top: none;
+      }
+
+      .disclosure {
+        &__summary,
+        &__content {
+          padding: calc(var(--pxSize) / 4) 0;
+        }
+
+        &__summary {
+          padding-right: calc(var(--expandableContentIconWidth) * 2);
+        }
+      }
+    }
+
+    &-dropdown-button {
       .disclosure {
         &__summary {
           @extend .btn;
@@ -173,10 +189,6 @@
             background: RGB(var(--color-foreground-text));
             right: var(--expandableContentIconWidth);
           }
-        }
-
-        &__content {
-          min-width: 200px;
         }
       }
     }

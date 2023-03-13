@@ -1,0 +1,26 @@
+.overlay-nav {
+  &__plain-link,
+  &__disclosure .disclosure__summary {
+    display: block;
+
+    padding-top: calc(var(--pxSize) / 2);
+    padding-bottom: calc(var(--pxSize) / 2);
+
+    span {
+      @extend .p-lg;
+      margin: 0;
+    }
+  }
+
+  &__plain-link,
+  &__disclosure {
+    border-top: 1px solid RGB(var(--color-border));
+    border-bottom: 1px solid RGB(var(--color-border));
+
+    //only show top border on first one, so they don't double up
+    + .disclosure,
+    + .overlay-nav__plain-link {
+      border-top: none;
+    }
+  }
+}

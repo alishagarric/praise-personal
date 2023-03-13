@@ -235,6 +235,12 @@
   <div id="dropdown">
     <h4>Dropdown</h4>
 
+    {% render 'disclosure' id: "q", title: "title", text: "<p>Text</p>" %}
+    {% render 'disclosure' id: "w", title: "title", text: "<ul></li>Text</li></ul>" style: "dropdown-traditional" %}
+    {% render 'disclosure' id: "e", title: "title", text: "<p>Text</p>" style: "dropdown-button" %}
+    {% render 'disclosure' id: "r", title: "title", text: "<p>Text</p>" style: "blank" %}
+
+
     <details>
       <summary aria-label="Dropdown component" role="button" aria-expanded="true" aria-controls="dropdown-1">
         <span>Default disclosure</span>

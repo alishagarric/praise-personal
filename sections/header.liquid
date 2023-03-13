@@ -14,8 +14,11 @@
       {% render 'announcement-bar' %}
     {% endif %}
     
-    {% comment %} Mobile hamburger button and divider {% endcomment %}
-    <hamburger-button class="{{ className }}__hamburger"><span></span></hamburger-button>
+    {% comment %} Mobile hamburger button {% endcomment %}
+    {% capture dialog_class %}__with-overlay {{ className }}__hamburger{% endcapture %}
+    {% capture dialog_id %}hamburger-{{ forloop.index }}{% endcapture %}
+    {% capture dialog_content %}{% render 'overlay-nav' %}{% endcapture %}
+    {% render 'dialog' style: "drawer", title: "<span></span>", content: dialog_content, class: dialog_class, id: dialog_id %}
 
     {% comment %} All the links {% endcomment %}
     <nav class="{{ className }}__main {% if section.settings.logo_placement == "center" %}__center-links{% endif%}">
@@ -55,10 +58,10 @@
             {{ primary_link.title | escape }}
           </a>
 
-          {% comment %} Link with nested links (dropdown) {% endcomment %}
+        {% comment %} Link with nested links (dropdown) {% endcomment %}
         {% else %}
           {% capture dropdown %}
-            <div class="{{ className }}__dropdown {% if primary_link.levels == 1 %}__skinny{% endif %}" style="--linkOrder: {{ forloop.index0 }}">
+            <div class="{{ className }}__dropdown" style="--linkOrder: {{ forloop.index0 }}">
               <div class="{{ className }}__dropdown__inner">
                 {% assign blockClassName = className | append: "__dropdown__block" %}
 
@@ -72,7 +75,6 @@
 
    
                 {% for block in section.blocks %}
-                  {% comment %}TODO are we going to give the option for nav-dropdown-article.liquid {% endcomment %}
                   {% case block.type %}
                     {% when 'mega_menu' %}
                       {% if block.settings.label == primary_link.title %}
@@ -97,15 +99,10 @@
             </div>
           {% endcapture %}
 
-          <dropdown-button class="{{ className }}__label p-sm" style="--linkOrder: {{ forloop.index0 }}">
-            {{ primary_link.title }}
-            {% if primary_link.levels == 1 %}
-              {{ dropdown }}
-            {% endif %}
-          </dropdown-button>
-          {% if primary_link.levels > 1 %}
-            {{ dropdown }}
-          {% endif %}
+          {% capture disclosure_class %}{{ className }}__label p-sm {% if primary_link.levels == 1 %}__skinny{% endif %}{% endcapture %}
+          {% capture css_vars %}--linkOrder: {{ forloop.index0 }};{% endcapture %}
+
+          {% render 'disclosure' class: disclosure_class, title: primary_link.title, id: forloop.index, text: dropdown, style: "blank", css_vars: css_vars %}
         {% endif %}
       {% endfor %}
     </nav>
@@ -127,18 +124,6 @@
         </span>
       </a>
     </div>
-
-    {% comment %} CTA {% endcomment %}
-    {% if section.settings.button_label and section.settings.button_link %}
-      {% assign ctaClassName = className | append: '__cta' %}
-      <div class="{{ ctaClassName }}">
-        {% render 'button',
-          class: ctaClassName,
-          button_label: section.settings.button_label,
-          button_link: section.settings.button_link
-        %}
-      </div>
-    {% endif %}
   </{% if style == "on-scroll" %}sticky-header{% else %}header{% endif %}>
 {% endfor %}
 
@@ -281,53 +266,6 @@
       "type": "link_list",
       "id": "menu",
       "label": "Menu"
-    },
-    {
-      "type": "header",
-      "content": "CTA"
-    },
-    {
-      "type": "text",
-      "id": "button_label",
-      "default": "Laboris Nisi",
-      "label": "Button Label"
-    },
-    {
-      "type": "url",
-      "id": "button_link",
-      "label": "Button Link"
-    },
-    {
-      "type": "select",
-      "id": "button_color",
-      "label": "Button Color",
-      "default": "default",
-      "options": [
-        {
-          "value": "default",
-          "label": "Default"
-        },
-        {
-          "value": "primary",
-          "label": "Primary Theme"
-        },
-        {
-          "value": "2",
-          "label": "2nd Theme"
-        },
-        {
-          "value": "3",
-          "label": "3rd Theme"
-        },
-        {
-          "value": "4",
-          "label": "4th Theme"
-        },
-        {
-          "value": "5",
-          "label": "5th Theme"
-        }
-      ]
     },
     {
       "id": "always_show_nav",

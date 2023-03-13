@@ -3,8 +3,6 @@
   --width: 750px;
 
   &__summary {
-    display: inline-block;
-
     &__close {
       display: none;
     }
@@ -16,8 +14,8 @@
     overflow: auto;
     position: fixed;
     z-index: 2;
-    background-color: white;
-    border: 1px solid lightgrey;
+    background-color: RGB(var(--color-background));
+    border: 1px solid RGB(var(--color-border));
     box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.1);
     /* Add space for close toggle */
     padding-top: 40px;
@@ -30,7 +28,7 @@
     }
 
     &__header {
-      border-bottom: 1px solid lightgrey;
+      border-bottom: 1px solid RGB(var(--color-border));
     }
 
     &__body {
@@ -53,30 +51,6 @@
         bottom: 0;
         left: 0;
         cursor: default;
-      }
-    }
-
-    &.__layout {
-      &-pop-up,
-      &-drawer {
-        transform: translateX(-50%);
-        max-height: calc(100% - var(--pxSize) * 2);
-      }
-
-      &-pop-up {
-        top: var(--pxSize);
-        bottom: initial;
-        left: 50%;
-        max-width: var(--width);
-        width: calc(100% - var(--pxSize) * 2);
-      }
-
-      &-drawer {
-        top: 0;
-        left: 0;
-        bottom: 0;
-        max-width: 350px;
-        width: 90%;
       }
     }
   }
@@ -140,6 +114,45 @@
     }
   }
 
+  &.__style {
+    &-pop-up {
+      .dialog {
+        &__content {
+          top: var(--pxSize);
+          bottom: initial;
+          left: 50%;
+          max-width: var(--width);
+          width: calc(100% - var(--pxSize) * 2);
+          transform: translateX(-50%);
+          max-height: calc(100% - var(--pxSize) * 2);
+        }
+      }
+    }
+
+    &-drawer {
+      .dialog {
+        &__content {
+          top: 0;
+          left: 0;
+          bottom: 0;
+          max-width: 350px;
+          width: 350px;
+          transform: translateX(-100%);
+          will-change: transform;
+          transition: transform 0.25s ease;
+        }
+      }
+
+      &[open] {
+        .dialog {
+          &__content {
+            transform: translateX(0);
+          }
+        }
+      }
+    }
+  }
+
   @media screen and (max-width: 676px) {
     &[open] {
       .dialog {
@@ -153,7 +166,7 @@
     }
 
     &__content {
-      &.__layout {
+      &.__style {
         &-pop-up,
         &-drawer {
           top: 0;

@@ -2,77 +2,34 @@
   Renders a dialog button that opens a dialog when clicked
 
   Expects: 
-  - type: {String} default (basic), quick_buy
-  - product: {Object} optional, only applies if type = quick_buy
-  - button_label: {String} optional, only applies if type = default
-  - content?
+    - title: {String} required
+    - id: {String or Int} required, makes aria controls unique to this instance
+    - content: {html} required if page isn't included below
+    - style: {string} optional, "pop-up", "drawer"
+    - class: {string} optional
+    - close: {html} optional
 
   Usage:
     {% render 'dialog', type: "default" %}
 
 {% endcomment %}       
-       
-       <details class="dialog">
-          <summary class="dialog__summary" aria-haspopup="dialog" aria-controls="Modal">
-            <span class="button">Open modal with header and footer</span>
-            <span class="dialog__summary__close button" aria-label="Close modal">Close</span>
-          </summary>
-          <div class="dialog__content __layout-pop-up" id="Modal" role="dialog" aria-labelledby="ModalHeading" aria-modal="true">
-            <div class="dialog__content__header">
-              <h2 id="ModalHeading">Modal with header and footer</h2>
-            </div>
-            <div class="dialog__content__body">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Pellentesque id nibh tortor id aliquet lectus. Habitant morbi tristique senectus et
-                netus. At erat pellentesque adipiscing commodo elit at imperdiet dui. Mauris ultrices eros in cursus.
-                Sit amet consectetur adipiscing elit pellentesque habitant morbi. Morbi quis commodo odio aenean sed.
-                Augue interdum velit euismod in pellentesque massa. Donec pretium vulputate sapien nec sagittis aliquam.
-                Morbi non arcu risus quis varius quam. Dictumst vestibulum rhoncus est pellentesque elit ullamcorper
-                dignissim. Sapien nec sagittis aliquam malesuada bibendum arcu vitae. Leo urna molestie at elementum eu
-                facilisis sed.
-              </p>
-              <p>
-                Nunc eget lorem dolor sed viverra ipsum. Id velit ut tortor pretium viverra suspendisse. Massa ultricies
-                mi quis hendrerit dolor magna. In aliquam sem fringilla ut morbi tincidunt augue interdum velit. Sit
-                amet mauris commodo quis imperdiet massa. Diam volutpat commodo sed egestas egestas fringilla. Eget
-                aliquet nibh praesent tristique magna sit amet purus. Tempus quam pellentesque nec nam aliquam sem et.
-                Ante metus dictum at tempor. Eu tincidunt tortor aliquam nulla. Donec et odio pellentesque diam volutpat
-                commodo sed. Id interdum velit laoreet id donec ultrices tincidunt arcu. Elementum curabitur vitae nunc
-                sed velit dignissim sodales.
-              </p>
-              <p>
-                Neque ornare aenean euismod elementum nisi quis eleifend quam adipiscing. Donec massa sapien faucibus et
-                molestie ac feugiat sed lectus. Iaculis urna id volutpat lacus laoreet. Et malesuada fames ac turpis
-                egestas integer eget aliquet nibh. Tincidunt tortor aliquam nulla facilisi cras fermentum odio eu
-                feugiat. Ipsum dolor sit amet consectetur adipiscing elit pellentesque habitant. Egestas tellus rutrum
-                tellus pellentesque eu tincidunt tortor aliquam. Scelerisque fermentum dui faucibus in. Ultrices mi
-                tempus imperdiet nulla malesuada pellentesque. Pretium vulputate sapien nec sagittis aliquam. Amet
-                consectetur adipiscing elit ut aliquam purus. Quis viverra nibh cras pulvinar mattis nunc. Magnis dis
-                parturient montes nascetur ridiculus mus mauris vitae. Vitae tortor condimentum lacinia quis vel. Justo
-                donec enim diam vulputate ut pharetra sit amet. Gravida cum sociis natoque penatibus et magnis dis
-                parturient. Dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt. Elit
-                duis tristique sollicitudin nibh sit amet commodo nulla.
-              </p>
-              <p>
-                Elementum nibh tellus molestie nunc non blandit massa enim nec. Vestibulum sed arcu non odio euismod.
-                Sit amet consectetur adipiscing elit. Feugiat nisl pretium fusce id velit ut tortor pretium viverra.
-                Nunc consequat interdum varius sit amet mattis. Sodales ut etiam sit amet nisl purus. Nibh praesent
-                tristique magna sit. Erat pellentesque adipiscing commodo elit at imperdiet. Vestibulum lectus mauris
-                ultrices eros in. Malesuada fames ac turpis egestas. Mi sit amet mauris commodo quis imperdiet massa
-                tincidunt nunc. Vel turpis nunc eget lorem dolor. Convallis tellus id interdum velit laoreet id donec
-                ultrices tincidunt.
-              </p>
-              <p>
-                Quam elementum pulvinar etiam non quam lacus suspendisse. Volutpat maecenas volutpat blandit aliquam
-                etiam erat velit. Bibendum at varius vel pharetra. In arcu cursus euismod quis. Elementum facilisis leo
-                vel fringilla. Odio eu feugiat pretium nibh. Tortor id aliquet lectus proin nibh nisl condimentum. Nunc
-                vel risus commodo viverra maecenas accumsan lacus vel facilisis. Eget lorem dolor sed viverra ipsum
-                nunc. Ut pharetra sit amet aliquam.
-              </p>
-            </div>
-            <div class="dialog__content__footer">
-              <p>Modal footer</p>
-            </div>
-          </div>
-        </details>
+
+{% assign style = style | default: "pop-up" %}
+    
+{% if title and id and content %}
+  <details class="dialog {{ class }} __style-{{ style }}">
+    <summary class="dialog__summary" aria-label="{{ title }}" aria-haspopup="dialog" aria-controls="dialog-{{ id }}">
+      {{ title }}
+      {% if close %}<span class="dialog__summary__close btn" aria-label="Close modal">{{ close }}</span>{% endif %}
+    </summary>
+    <div class="dialog__content" id="dialog-{{ id }}" role="dialog" aria-modal="true">
+      <div class="dialog__content__body">
+        {{ content }}
+      </div>
+        
+      {% comment %}<div class="dialog__content__footer">
+        <p>Modal footer</p>
+      </div>{% endcomment %}
+    </div>
+  </details>
+{% endif %}

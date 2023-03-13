@@ -7,8 +7,10 @@
   - text: {Richtext} optional, required if page isn't included below
   - page: {Object} optional, required if text isn't included above
   - open: {Boolean} optional, whether the accordion should start open 
-  - style: {string} optional, "default", "dropdown"
+  - style: {string} optional, "default", "dropdown-traditional", "dropdown-button", "blank"
+  - article_text: {Boolen}, whether to apply article styles to content
   - class: {string} optional
+  - css_vars: {string} optional
 
   Usage:
     {% render 'explandable-content', title: block.settings.title, text: block.settings.text, open: false %}
@@ -16,13 +18,15 @@
 {% endcomment %}   
 
 {% assign open = open | default: false %}
+{% assign article_text = article_text | default: false %}
+{% assign style = style | default: 'default' %}
 
 {% if title and id and text or page %}
-  <details class="disclosure {{ class }} {% if style %}__style-{{ style }}{% endif %}" {% if open %}open{% endif %}>
+  <details class="disclosure {{ class }} __style-{{ style }}" {% if open %}open{% endif %} style="{{ css_vars }}">
     <summary class="disclosure__summary " aria-label="{{ title }}" role="button" aria-expanded="true" aria-controls="dropdown-{{ id }}">
       <span class="p-sm">{{ title }}</span>
     </summary>
-    <div id="dropdown-{{ id }}" class="disclosure__content __article-txt-p-sm">
+    <div id="dropdown-{{ id }}" class="disclosure__content {% if article_text %}__article-txt-p-sm{% endif %}">
       {{ text }}
 
       {{ page.content }}

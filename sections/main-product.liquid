@@ -374,7 +374,7 @@
 
           {% comment %} Type expandable content {% endcomment %}
           {%- when 'expandable' %}
-            {% render 'disclosure', title: block.settings.title, id: block.id, text: block.settings.text, page: block.settings.page, open: block.settings.open %}
+            {% render 'disclosure', title: block.settings.title, id: block.id, text: block.settings.text, page: block.settings.page, open: block.settings.open, article_text: true %}
 
           {% comment %} Type featured icons {% endcomment %}
           {%- when 'icons' -%}

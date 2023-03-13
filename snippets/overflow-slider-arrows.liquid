@@ -1,5 +1,5 @@
 {% comment %}
-  Renders an overflow slider arrows
+  Renders overflow slider arrows
 
   Expects: 
     class: {String} optional
@@ -11,6 +11,18 @@
     </ul>
     {% render 'overflow-slider-arrows' %}
   </overflow-slider>
+
+  {% style %}
+
+    //Your options override the default overflow slider styles
+    .overflow-slider__container {
+      --overflowSliderArrowRightOffset: var(--sectionGuttersSpacing) !important;
+      --overflowSliderItemGap: var(--pxSize) !important;
+      --overflowSliderItemSizeDesktop: 80% !important;
+      --overflowSliderItemSizeTablet: 80% !important;
+      --overflowSliderItemSizeMobile: 90% !important;
+    }
+  {% endstyle %}
 
 {% endcomment %}
 
