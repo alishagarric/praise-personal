@@ -13,7 +13,7 @@
     {% render 'nav-dropdown-text-block' heading: heading %}
 {% endcomment %}
 
-{% if heading or text or button_label %}
+{% if heading != blank or text != blank or button_label != blank %}
   <div class="{{ className }} __text-block">
     {% if heading %} <div class="h6">{{ heading | escape }}</div>{% endif %}
     {% if text %}<div class="p-sm">{{ text }}</div>{% endif %}

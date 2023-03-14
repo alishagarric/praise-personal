@@ -12,7 +12,7 @@
     {% render 'nav-dropdown-page' page: page %}
 {% endcomment %}
 
-{% if heading or image or text %}
+{% if heading != blank or image != blank or text != blank %}
   {% capture promo %}
       {% if image %}
         <div class="{{ className }}__image">

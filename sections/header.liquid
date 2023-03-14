@@ -1,3 +1,5 @@
+
+
 {% assign className = 'site-header' %}
 
 {% comment %} Output navigation twice, one to display on scroll up and one that always exists at the top of the page content {% endcomment %}
@@ -7,7 +9,7 @@
     {% assign style = 'relative' %}
   {% endif %}
 
-  <{% if style == "on-scroll" %}sticky-header{% else %}header{% endif %} class="{{ className }} __style-{{ style }} {% if section.settings.always_show_nav %}__always-show-nav{% endif %}">
+  <{% if style == "on-scroll" %}sticky-header{% else %}relative-header{% endif %} class="{{ className }} __style-{{ style }} {% if section.settings.always_show_nav %}__always-show-nav{% endif %}">
 
     {% comment %}Announcement Bar {% endcomment %}
     {% if style == "relative" %}
@@ -15,7 +17,7 @@
     {% endif %}
     
     {% comment %} Mobile hamburger button {% endcomment %}
-    {% capture dialog_class %}__with-overlay {{ className }}__hamburger{% endcapture %}
+    {% capture dialog_class %}<script>__with-overlay</script> {{ className }}__hamburger{% endcapture %}
     {% capture dialog_id %}hamburger-{{ forloop.index }}{% endcapture %}
     {% capture dialog_content %}{% render 'overlay-nav' %}{% endcapture %}
     {% render 'dialog' style: "drawer", title: "<span></span>", content: dialog_content, class: dialog_class, id: dialog_id %}
@@ -99,7 +101,7 @@
             </div>
           {% endcapture %}
 
-          {% capture disclosure_class %}{{ className }}__label p-sm {% if primary_link.levels == 1 %}__skinny{% endif %}{% endcapture %}
+          {% capture disclosure_class %}__with-overlay {{ className }}__label p-sm {% if primary_link.levels == 1 %}__skinny{% endif %}{% endcapture %}
           {% capture css_vars %}--linkOrder: {{ forloop.index0 }};{% endcapture %}
 
           {% render 'disclosure' class: disclosure_class, title: primary_link.title, id: forloop.index, text: dropdown, style: "blank", css_vars: css_vars %}
@@ -128,76 +130,54 @@
 {% endfor %}
 
 {% javascript %}
-  class HamburgerButton extends HTMLElement {
+
+  class RelativeHeader extends HTMLElement {
     constructor() {
       super();
 
+      this.header = this;
+      this.hamburgerButton = this.querySelector(".site-header__hamburger");
+      this.dropdowns = this.querySelectorAll("details.site-header__label");
       this.setupListener();
-    }
 
-    //Add a on click listener to every hamburger button
-    setupListener() {
-      this.addEventListener('click', this.updateOverlayNav.bind(this));
-    }
-
-    //toggle overlay nav
-    updateOverlayNav() {
-      //parent element for this section
-      var thisSection = this.parentNode;
-
-      this.classList.toggle('__active');
-      document.body.classList.toggle('__mobile-overflow-none');
-
-      if (this.classList.contains('__active')) {
-        thisSection.classList.add('__overlay-open');
-      } else {
-        thisSection.classList.remove('__overlay-open');
-      }
-    }
-  }
-
-  customElements.define('hamburger-button', HamburgerButton);
-
-  class DropdownButton extends HTMLElement {
-    constructor() {
-      super();
-
-      this.setupListener();
+      //TODO on window resize, close all dropdowns, remove classes from heading and body
     }
 
     //Add a on click listener to every dropdown button
     setupListener() {
-      this.addEventListener('click', this.updateActiveDropdown.bind(this));
+      this.dropdowns.forEach((dropdown) => {
+        dropdown.querySelector("summary").addEventListener('click', this.updateActiveDialog.bind(this));
+      });
+      this.hamburgerButton.addEventListener('click', this.updateActiveDialog.bind(this));
     }
 
-    //on dropdown button click, updates what is active
-    updateActiveDropdown() {
-      //parent element for this section
-      var thisSection = this.parentNode.parentNode;
-      //all dropdowns in this section
-      var dropdowns = thisSection.querySelectorAll('.site-header__label');
-
-      //remove active class on nav buttons
-      for (var i = 0; i < dropdowns.length; i++) {
-        if (dropdowns[i] != this) {
-          dropdowns[i].classList.remove('__active');
+    updateActiveDialog(e) {
+      let thisDropdown = e.target.parentNode;
+      
+      //close all other dropdowns
+      this.dropdowns.forEach((dropdown) => {
+        if ( dropdown != thisDropdown ){
+          dropdown.removeAttribute("open");
         }
-      }
+      })
 
-      //add active class on clicked item
-      this.classList.toggle('__active');
+      //let the header know a dropdown is open
+      //if statement is kind of confusing but its whether the element had the open attr at the time of click
+      if ( thisDropdown.hasAttribute("open") ) {
+        document.body.classList.remove('__mobile-overflow-none');
+        this.header.classList.remove('__dropdown-open');
 
-      if (this.classList.contains('__active')) {
-        thisSection.classList.add('__dropdown-open');
       } else {
-        thisSection.classList.remove('__dropdown-open');
+        document.body.classList.add('__mobile-overflow-none');
+        this.header.classList.add('__dropdown-open');
+
       }
     }
   }
 
-  customElements.define('dropdown-button', DropdownButton);
+  customElements.define('relative-header', RelativeHeader);
 
-  class StickyHeader extends HTMLElement {
+  class StickyHeader extends RelativeHeader {
     constructor() {
       super();
 
@@ -206,12 +186,6 @@
     }
 
     updateClass(e) {
-      //all dropdowns in header
-      var dropdowns = document.querySelectorAll('.site-header__label');
-
-      for (var i = 0; i < dropdowns.length; i++) {
-        dropdowns[i].classList.remove('__active');
-      }
 
       let scrollPosition = window.pageYOffset;
       let lastScollPosition = e.currentTarget.lastScollPosition;
@@ -221,7 +195,7 @@
         scrollingDown = true;
       }
 
-      if ((!scrollingDown && scrollPosition > 200) || (scrollingDown && scrollPosition > 75)) {
+      if ((!scrollingDown && scrollPosition > 200) || (scrollingDown && scrollPosition > 75 && alwaysShowNav)) {
         this.classList.add('__visible');
         this.parentNode.classList.add('__visible-nav');
       } else {
@@ -273,7 +247,6 @@
       "label": "Don't hide navigation bar on scroll down?",
       "default": false
     }
-
   ],
   "blocks": [
     {

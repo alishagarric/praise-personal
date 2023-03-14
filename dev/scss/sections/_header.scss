@@ -1,7 +1,7 @@
 .site-header {
   --siteHeaderGuttersSpace: calc(var(--pxSize) * 1.5);
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: auto auto;
   gap: 0 var(--pxSize);
   justify-content: space-between;
   align-items: center;
@@ -22,6 +22,18 @@
     &.__visible {
       transform: translateY(0);
       opacity: 1;
+    }
+
+    .site-header {
+      &__label.disclosure {
+        .disclosure {
+          &__summary {
+            &:before {
+              top: var(--navHeight) !important;
+            }
+          }
+        }
+      }
     }
   }
 
@@ -100,6 +112,7 @@
     display: flex;
     align-items: center;
     order: var(--linkOrder);
+    z-index: var(--linkOrder); // for when multiple are open on no-js sites
 
     &a,
     .disclosure__summary {
@@ -122,9 +135,7 @@
         //clickable overlay to display when its open
         &:before {
           background: RGBA(var(--color-text) / 0.2);
-          position: fixed;
-          inset: 0;
-          top: var(--navWithAnnouncementHeight);
+          top: var(--navWithAnnouncementHeight) !important;
         }
 
         > * {
@@ -149,10 +160,6 @@
       .disclosure {
         &__summary {
           color: RGB(var(--color-text) / 0.6);
-
-          &::before {
-            content: "";
-          }
 
           &:after {
             transform: rotate(315deg) translate(-50%, 0%);
@@ -332,29 +339,28 @@
     }
 
     &[open] {
-      /*
-      span {
-        transform: scaleX(0);
-        opacity: 0;
-      }
+      .dialog {
+        &__summary {
+          &:before {
+            background-color: RGB(var(--color-text));
+            transform: rotate(45deg)
+              translate(0, calc(var(--navHeight) * -0.08));
+          }
 
-      &:before {
-        transform: rotate(45deg) translate(0, calc(var(--navHeight) * -0.08));
-      }
+          &:after {
+            transform: rotate(-45deg)
+              translate(0, calc(var(--navHeight) * 0.08));
+          }
 
-      &:after {
-        transform: rotate(-45deg) translate(0, calc(var(--navHeight) * 0.08));
+          span {
+            transform: scale(0);
+          }
+        }
       }
-
-      //main links
-      ~ .site-header__main {
-        display: block;
-      }
-      */
     }
   }
 
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 1200px) {
     &__logo {
       flex: 1;
     }
@@ -445,5 +451,25 @@
 
   @media screen and (max-width: 676px) {
     --siteHeaderGuttersSpace: var(--sectionGuttersSpacing);
+  }
+}
+
+// For sites without javascript don't show the overlay when a dropdown is active because multiple can be active at once
+.no-js {
+  .site-header {
+    &.__style-relative {
+      position: fixed;
+      background: RGB(var(--color-background));
+    }
+
+    &__label.disclosure {
+      .disclosure {
+        &__summary {
+          &:before {
+            content: none !important;
+          }
+        }
+      }
+    }
   }
 }

@@ -5,14 +5,17 @@
   &__summary {
     position: relative;
     cursor: pointer;
+
+    span {
+      pointer-events: none;
+    }
   }
 
   // Include this modifier when we want a clickable overlay to display when its open
   &.__with-overlay {
-    &[open] > summary > span::before {
+    &[open] > summary:before {
       content: "";
       position: fixed;
-      z-index: 2;
       top: 0;
       right: 0;
       height: 100vh;

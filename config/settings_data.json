@@ -98,7 +98,7 @@
           "button_label": "Button label",
           "button_link": "#",
           "button_color": "default",
-          "always_show_nav": true
+          "always_show_nav": false
         }
       },
       "footer": {

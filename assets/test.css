@@ -1,0 +1,140 @@
+.overflow-slider__arrow,
+.pagination__arrow,
+overflow-slider__arrow {
+  height: var(--arrowBtnHeight);
+  width: var(--arrowBtnHeight);
+  padding: 0;
+  display: grid;
+  place-content: center;
+  margin-top: 0;
+}
+.classic-arrow svg *,
+.overflow-slider__arrow svg *,
+.pagination__arrow svg *,
+overflow-slider__arrow svg * {
+  fill: RGB(var(--color-foreground-text));
+  width: 40%;
+  height: auto;
+}
+.classic-arrow.next svg,
+.next.overflow-slider__arrow svg,
+.next.pagination__arrow svg,
+overflow-slider__arrow.next svg {
+  transform: scale(-1);
+}
+.classic-arrow.disabled,
+.disabled.overflow-slider__arrow,
+.disabled.pagination__arrow,
+overflow-slider__arrow.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+.overflow-slider,
+overflow-slider {
+  --overflowSliderItemGap: calc(var(--pxSize) / 3);
+  --overflowSliderArrowRightOffset: 0;
+  --overflowSliderItemSizeDesktop: 25%;
+  --overflowSliderItemSizeTablet: 50%;
+  --overflowSliderItemSizeMobile: 75%;
+  position: relative;
+}
+.overflow-slider__container,
+overflow-slider__container {
+  position: relative;
+  overflow: auto;
+  scroll-behavior: smooth;
+  display: flex;
+  padding-top: calc(var(--arrowBtnHeight) * 1.5);
+  padding-bottom: var(--arrowBtnHeight);
+  margin-left: calc(var(--overflowSliderItemGap) / -2);
+  margin-right: calc(var(--overflowSliderItemGap) / -2);
+  width: calc(100% + var(--overflowSliderItemGap));
+}
+.overflow-slider__container > *,
+overflow-slider__container > * {
+  flex: 0 0 var(--overflowSliderItemSizeDesktop);
+  padding: 0 calc(var(--overflowSliderItemGap) / 2);
+}
+.overflow-slider__container::-webkit-scrollbar,
+overflow-slider__container::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+.overflow-slider__container::-webkit-scrollbar-thumb,
+overflow-slider__container::-webkit-scrollbar-thumb {
+  background-color: RGB(var(--color-text));
+  outline: 0;
+  border-radius: 30px;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+.overflow-slider__container::-webkit-scrollbar-track,
+overflow-slider__container::-webkit-scrollbar-track {
+  background-color: RGBA(var(--color-text) / 0.2);
+  border-radius: 30px;
+  margin: 0 var(--sectionGuttersSpacing);
+}
+.overflow-slider__arrow,
+overflow-slider__arrow {
+  position: absolute;
+  top: 0;
+  right: calc(var(--arrowBtnHeight) * 1.5);
+  margin-right: var(--overflowSliderArrowRightOffset);
+}
+.overflow-slider__arrow.next,
+overflow-slider__arrow.next {
+  right: 0;
+}
+.overflow-slider.__hide-desktop-arrows .overflow-slider__arrow,
+overflow-slider.__hide-desktop-arrows .overflow-slider__arrow {
+  display: none;
+}
+.overflow-slider.__hide-desktop-arrows .overflow-slider__container,
+overflow-slider.__hide-desktop-arrows .overflow-slider__container {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+@media screen and (max-width: 1024px) {
+  .overflow-slider__container > *,
+  overflow-slider__container > * {
+    flex: 0 0 var(--overflowSliderItemSizeTablet);
+  }
+  .overflow-slider.__hide-tablet-arrows .overflow-slider__container,
+  overflow-slider.__hide-tablet-arrows .overflow-slider__container {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .overflow-slider.__hide-tablet-arrows .overflow-slider__arrow,
+  overflow-slider.__hide-tablet-arrows .overflow-slider__arrow {
+    display: none;
+  }
+  .overflow-slider.__hide-desktop-arrows .overflow-slider__arrow,
+  overflow-slider.__hide-desktop-arrows .overflow-slider__arrow {
+    display: grid;
+  }
+  .overflow-slider.__hide-desktop-arrows .overflow-slider__container,
+  overflow-slider.__hide-desktop-arrows .overflow-slider__container {
+    padding-top: calc(var(--arrowBtnHeight) * 1.5);
+    padding-bottom: var(--arrowBtnHeight);
+  }
+}
+@media screen and (max-width: 676px) {
+  .overflow-slider__container > *,
+  overflow-slider__container > * {
+    flex: 0 0 var(--overflowSliderItemSizeMobile);
+  }
+  .overflow-slider.__hide-desktop-arrows .overflow-slider__container,
+  .overflow-slider__container,
+  overflow-slider.__hide-desktop-arrows .overflow-slider__container,
+  overflow-slider__container {
+    padding-top: 0;
+  }
+  .overflow-slider__arrow,
+  overflow-slider__arrow {
+    display: none;
+  }
+  .overflow-slider.__hide-desktop-arrows .overflow-slider__arrow,
+  overflow-slider.__hide-desktop-arrows .overflow-slider__arrow {
+    display: none;
+  }
+}

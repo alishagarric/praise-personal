@@ -1,5 +1,5 @@
 
-<ul>
+<ul class="overlay-nav">
 {% assign className = "overlay-nav" %}
 {% for primary_link in section.settings.menu.links %}
   <li>
@@ -14,7 +14,7 @@
         <span>{{ primary_link.title | escape }}</span>
       </a>
     {% else %}
-       {% assign blockClassName = className | append: "__dropdown__block" %}
+       {% assign blockClassName = className | append: "__disclosure__block" %}
       {% capture disclosure_content %}
         {% if primary_link.levels == 1 %}
           {% render 'nav-dropdown-submenu' menu: primary_link.links, className: blockClassName %}
