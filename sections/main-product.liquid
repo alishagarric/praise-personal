@@ -401,19 +401,24 @@
 
           {% comment %} Type pickup availability {% endcomment %}
           {%- when 'pickup_availability' -%}
-            {% comment %}
-              Pickup availability block's contents are rendered async to ensure faster Liquid render times, but this may cause a noticeable increase in cumulative layout shift (CLS) if rendered near the top of the page.
-              To mitigate CLS, the contents of `pickup-availability.liquid` could alternatively be rendered directly in this Liquid file.
-            {% endcomment %}
-            <script src="{{ 'pickup-availability.js' | asset_url }}" defer="defer"></script>
-            <pickup-availability data-product-variant="{{ product.selected_or_first_available_variant.id }}">
+
+            {% capture pickup_availability_content %}
               {% comment %}
-                Error template is rendered if async request for pickup availability fails
+                Pickup availability block's contents are rendered async to ensure faster Liquid render times, but this may cause a noticeable increase in cumulative layout shift (CLS) if rendered near the top of the page.
+                To mitigate CLS, the contents of `pickup-availability.liquid` could alternatively be rendered directly in this Liquid file.
               {% endcomment %}
-              <template>
-                <p class="message-error">{{ 'products.pickup_availability.error' | t }}</p>
-              </template>
-            </pickup-availability>  
+              <script src="{{ 'pickup-availability.js' | asset_url }}" defer="defer"></script>
+              <pickup-availability data-product-variant="{{ product.selected_or_first_available_variant.id }}">
+                {% comment %}
+                  Error template is rendered if async request for pickup availability fails
+                {% endcomment %}
+                <template>
+                  <p class="message-error">{{ 'products.pickup_availability.error' | t }}</p>
+                </template>
+              </pickup-availability>  
+            {% endcapture %}
+            {% capture pickup_availability_id %}pickup-{{ section.id }}-{{ block.id }}{% endcapture%}
+            {% render 'disclosure' title: block.settings.title, text: pickup_availability_content, id: pickup_availability_id, class: "main-product__block main-product__pickup-disclosure" %}
           
             {% comment %} Product Recommendations {% endcomment %}
             {%- when 'complementary_products' -%}
@@ -1201,7 +1206,15 @@
     {
       "type": "pickup_availability",
       "name": "Pickup availability",
-      "limit": 1
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Pickup Availability",
+          "label": "Title"
+        }
+      ]
     }
   ],
   "settings": [

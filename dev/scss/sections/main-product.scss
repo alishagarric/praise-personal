@@ -109,6 +109,15 @@
     }
   }
 
+  &__pickup-disclosure.disclosure {
+    .disclosure {
+      &__content {
+        h3 {
+        }
+      }
+    }
+  }
+
   //media block
   &__media {
     &:not(.__layout-sticky) {

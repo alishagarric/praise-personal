@@ -92,10 +92,6 @@
             "layout": "dropdown"
           }
         },
-        "quantity_selector": {
-          "type": "quantity_selector",
-          "settings": {}
-        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {}
@@ -114,12 +110,11 @@
         "expandable-2",
         "expandable-3",
         "expandable-4",
+        "pickup-availability",
         "media",
         "price",
         "variant_picker",
-        "quantity_selector",
         "buy_buttons",
-        "pickup-availability",
         "comp-products"
       ],
       "settings": {

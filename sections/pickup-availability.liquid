@@ -1,65 +1,34 @@
 {% comment %}
+  Technically a section, but used more like a component. Must be a section because we use the section rendering API to render it after page load
+{% endcomment %}
+
+{% comment %}
   Filter store availabilities array to include only stores with pickup availability enabled
 {% endcomment %}
 {%- assign store_availabilities = product_variant.store_availabilities | where: 'pick_up_enabled', true -%}
 
 {%- if store_availabilities.size > 0 -%}
-  {% comment %}
-    Availability summary - Render availability at the closest location (first in array)
-  {% endcomment %}
-  {%- assign closest_availability = store_availabilities.first -%}
-  <h3>{{ closest_availability.location.name }}</h3>
-  {%- if closest_availability.available -%}
-    <p>{{ 'products.pickup_availability.available' | t }}</p>
-    <p>
-      <small>{{ closest_availability.pick_up_time }}</small>
-    </p>
-  {%- else -%}
-    <p>{{ 'products.pickup_availability.unavailable' | t }}</p>
-  {%- endif -%}
 
   {% comment %}
-    Availability modal - Render availability at all locations and location details
+     Render availability at all locations and location details
   {% endcomment %}
-  <details class="dialog modal overlay">
-    <summary aria-haspopup="dialog" aria-controls="Pickup-Availability-Modal-{{ section.id }}">
-      <span class="button">{{ 'products.pickup_availability.view_info' | t: count: store_availabilities.size }}</span>
-      <span class="dialog-close button" aria-label="{{ 'general.dialog.close_modal' | t }}">
-        {{- 'general.dialog.close' | t -}}
-      </span>
-    </summary>
-    <div
-      id="Pickup-Availability-Modal-{{ section.id }}"
-      role="dialog"
-      aria-labelledby="Pickup-Availability-Modal-Heading-{{ section.id }}"
-      aria-modal="true"
-    >
-      <div class="dialog-header">
-        <h2 id="Pickup-Availability-Modal-Heading-{{ section.id }}">{{ product_variant.product.title | escape }}</h2>
-        <p>{{ product_variant.title }}</p>
-      </div>
-      <div class="dialog-body">
-        <ul>
-          {%- for availability in store_availabilities -%}
-            <li>
-              <h3>{{ availability.location.name }}</h3>
-              {%- if availability.available -%}
-                <p>{{ 'products.pickup_availability.available' | t }}</p>
-                <p>
-                  <small>{{ availability.pick_up_time }}</small>
-                </p>
-              {%- else -%}
-                <p>{{ 'products.pickup_availability.unavailable' | t }}</p>
-              {%- endif -%}
-              {%- assign address = availability.location.address -%}
-              <address>{{ address | format_address }}</address>
-              {%- if address.phone.size > 0 -%}
-                <p>{{ address.phone }}</p>
-              {%- endif -%}
-            </li>
-          {%- endfor -%}
-        </ul>
-      </div>
-    </div>
-  </details>
+  <ul class="pickup-availability">
+    {%- for availability in store_availabilities -%}
+      <li class="pickup-availability__location p-sm">
+        <h3 class="p-sm pickup-availability__location__title">{{ availability.location.name }}</h3>
+          {%- if availability.available -%}
+            <p class="pickup-availability__location__status __available">{% render 'svg-checkmark' %} {{ 'products.pickup_availability.available' | t }} - {{ availability.pick_up_time }}</p>
+          {%- else -%}
+            <p class="pickup-availability__location__status">{% render 'svg-exit' %} {{ 'products.pickup_availability.unavailable' | t }}</p>
+          {%- endif -%}
+        {%- assign address = availability.location.address -%}
+        <address class="pickup-availability__location__address">{{ address | format_address }}</address>
+        {%- if address.phone.size > 0 -%}
+          <p class="pickup-availability__location__phone">{{ address.phone }}</p>
+        {%- endif -%}
+      </li>
+    {%- endfor -%}
+  </ul>
+{%- else -%}
+ <p class="p-sm">No stores have pickup enabled</p>
 {%- endif -%}

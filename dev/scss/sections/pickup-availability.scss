@@ -1,0 +1,61 @@
+.pickup-availability {
+  &__location {
+    &__title {
+      font-weight: 600;
+    }
+
+    &__status {
+      display: flex;
+      align-items: center;
+      gap: calc(var(--pxSize) / 6);
+
+      svg {
+        height: calc(var(--pxSize) / 2);
+        width: calc(var(--pxSize) / 2);
+        border-radius: 100%;
+
+        path {
+          transform: scale(0.6);
+          transform-origin: center center;
+        }
+      }
+
+      &.__available {
+        svg {
+          border: 1px solid RGB(var(--color-foreground));
+          background: RGB(var(--color-foreground));
+
+          * {
+            fill: RGB(var(--color-foreground-text));
+          }
+        }
+      }
+
+      &:not(.__available) {
+        svg {
+          border: 1px solid RGB(var(--color-text));
+        }
+
+        * {
+          fill: RGB(var(--color-text));
+        }
+      }
+    }
+
+    &__address {
+      @extend .p-sm;
+    }
+
+    &:not(:first-child) {
+      margin-top: 2rem;
+    }
+
+    &:last-child {
+      margin-bottom: 0; //p-sm class added a margin to the bottom
+
+      *:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
