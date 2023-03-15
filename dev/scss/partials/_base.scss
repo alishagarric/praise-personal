@@ -74,7 +74,8 @@ body > main > section {
 
 //Form styles
 ////////////////////////////////////
-form:not(.__no-form-styles) {
+form:not(.__no-form-styles),
+.form-styles {
   button,
   input,
   textarea {

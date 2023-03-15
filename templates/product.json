@@ -39,7 +39,8 @@
           "type": "complementary_products",
           "settings": {
             "title": "Complete your cart",
-            "include_border": true
+            "include_border": true,
+            "crop_shape": "circle"
           }
         },
         "expandable": {
@@ -80,7 +81,9 @@
         },
         "media": {
           "type": "media",
-          "settings": {}
+          "settings": {
+            "layout": "slider"
+          }
         },
         "price": {
           "type": "price",

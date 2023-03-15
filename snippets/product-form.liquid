@@ -45,12 +45,13 @@
       disabled
     {% endif %}
   >
+    <span>
       {%- if product.selected_or_first_available_variant.available -%}
         {{ 'products.product.add_to_cart' | t }}
       {%- else -%}
         {{ 'products.product.sold_out' | t }}
       {%- endif -%}
-
+    </span>
     {% comment %} TODO: loading spinner {% endcomment %}
   </button>
 {% endcapture%}
@@ -87,7 +88,6 @@
           {% comment %} Dynamic checkout buttons {% endcomment %}
           {{ form | payment_button }}
         </div>
-    </div>
       {% endif %}
   {%- endform -%}
 </product-form>

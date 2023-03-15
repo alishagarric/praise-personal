@@ -62,7 +62,7 @@
             </div>
 
 
-            <media-gallery class="main-product__media" id="Product-MediaGallery-{{ section.id }}">
+            <media-gallery class="main-product__media" id="Product-MediaGallery-{{ section.id }}" data-section="{{ section.id }}">
 
               {% comment %} Skip to content anchor link {% endcomment %}
               <a class="skip-to-content-link visually-hidden" href="#ProductInfo-{{ section.id }}">
@@ -96,12 +96,22 @@
                 {%- endfor -%}
               </ul>
 
-              <ul class="main-product__media__dots">
+              <ul class="main-product__media__dots" style="--dotsColumns: {% if product.media.size > 4 %}4{% else %}{{ product.media.size }}{% endif %}; --dotsRows: {{ product.media.size | divided_by: 4.0 | ceil }}">
                 {%- for media in product.media -%}
-                  <li>
-                    
+                  <li class="main-product__media__dots__dot {% if media == product.selected_or_first_available_variant.featured_media %}__active{% endif %}" data-media-dot-id="{{ section.id }}-{{ media.id }}">
+                    <span class="visually-hidden">{{ forloop.index }}</span>
                   </li>
                 {%- endfor -%}
+                {% if product.media.size > 1 %}
+                  <li class="main-product__media__dots__prev prev">
+                    <span class="visually-hidden">Previous Slide</span>
+                    {% render 'svg-slider-arrow' %}
+                  </li>
+                  <li class="main-product__media__dots__next next">
+                    <span class="visually-hidden">Next Slide</span>
+                    {% render 'svg-slider-arrow' %}
+                  </li>
+                {% endif %}
               </ul>
               
             </media-gallery>
@@ -285,7 +295,7 @@
                 </variant-radios>
               {% comment %} Layout dropdowns {% endcomment %}
               {%- else -%}
-                <variant-selects class="no-js-hidden main-product__variant-dropdowns main-product__block {% if block.settings.include_border %} __border-top {% endif %}" data-section="{{ section.id }}" data-url="{{ product.url }}">
+                <variant-selects class="no-js-hidden main-product__variant-dropdowns main-product__block form-styles {% if block.settings.include_border %} __border-top {% endif %}" data-section="{{ section.id }}" data-url="{{ product.url }}">
                   {%- for option in product.options_with_values -%}
                     <div class="main-product__dropdown">
                       <label for="Option-{{ section.id }}-{{ forloop.index0 }}" class="main-product__dropdown__label p-sm">
@@ -402,23 +412,23 @@
                 </template>
               </pickup-availability>  
             {% endcapture %}
-            {% capture pickup_availability_id %}pickup-{{ section.id }}-{{ block.id }}{% endcapture%}
+            {% capture pickup_availability_id %}pickup-{{ section.id }}-{{ block.id }}{% endcapture %}
             {% render 'disclosure' title: block.settings.title, text: pickup_availability_content, id: pickup_availability_id, class: "main-product__block main-product__pickup-disclosure" %}
           
-            {% comment %} Product Recommendations {% endcomment %}
-            {%- when 'complementary_products' -%}
-              {% assign comp_product_count = product.metafields.shopify--discovery--product_recommendation.complementary_products | split: "," | size %}
-              {% if comp_product_count > 0  %}
-                <div class="main-product__block main-product__comp-products {% if block.settings.include_border %} __border-top {% endif %}">
+          {% comment %} Product Recommendations {% endcomment %}
+          {%- when 'complementary_products' -%}
+            {% assign comp_product_count = product.metafields.shopify--discovery--product_recommendation.complementary_products | split: "," | size %}
+            {% if comp_product_count > 0 %}
+              <div class="main-product__block main-product__comp-products {% if block.settings.include_border %} __border-top {% endif %}">
                   {% if block.settings.title %}
-                    <div class="p">{{ block.settings.title }}</div>
+                    <div class="main-product__comp-products__label p">{{ block.settings.title }}</div>
                   {% endif %}
                   {% for product in product.metafields.shopify--discovery--product_recommendation.complementary_products.value %}
-                    {% render 'quick-product' quick_product: product, class: "main-product__comp-products__product" %}
+                    {% render 'quick-product' quick_product: product, class: "main-product__comp-products__product", crop: block.settings.crop_shape %}
                   {% endfor %}
-                </div>
-              {% endif %}
-          {%- endcase -%}
+              </div>
+            {% endif %}
+        {%- endcase -%}
       {%- endfor -%}
 
       {% comment %}
@@ -538,6 +548,58 @@
           "id": "include_border",
           "label": "Include border?",
           "default": true
+        },
+        {
+          "type": "select",
+          "id": "crop_shape",
+          "options": [
+            {
+              "value": "default",
+              "label": "No Crop"
+            },
+            {
+              "value": "square",
+              "label": "Square"
+            },
+            {
+              "value": "rounded-square",
+              "label": "Rounded Square"
+            },
+            {
+              "value": "circle",
+              "label": "Circle"
+            },
+            {
+              "value": "portrait",
+              "label": "Portrait"
+            },
+            {
+              "value": "rounded-portrait",
+              "label": "Rounded Portrait"
+            },
+            {
+              "value": "semicircle-portrait",
+              "label": "Semicircle Portrait"
+            },
+            {
+              "value": "landscape",
+              "label": "Landscape"
+            },
+            {
+              "value": "rounded-landscape",
+              "label": "Rounded Landscape"
+            },
+            {
+              "value": "semicircle-landscape",
+              "label": "Semicircle Landscape"
+            },
+            {
+              "value": "arch",
+              "label": "Semicircle Arch"
+            }
+          ],
+          "default": "square",
+          "label": "Product Image Crop Shape"
         }
       ]
     },
@@ -1032,7 +1094,25 @@
     {
       "type": "media",
       "name": "media",
-      "limit": 1
+      "limit": 1,
+      "settings": [
+        {
+          "type": "radio",
+          "id": "layout",
+          "label": "Layout",
+          "options": [
+            {
+              "value": "stacked",
+              "label": "Stacked"
+            },
+            {
+              "value": "slider",
+              "label": "Slider"
+            }
+          ],
+          "default": "stacked"
+        }
+      ]
     },
     {
       "type": "title",

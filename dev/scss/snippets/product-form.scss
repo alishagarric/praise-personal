@@ -67,7 +67,7 @@ form.product-form {
         color: RGB(var(--color-text));
         border: 1px solid RGB(var(--color-text));
 
-        &:hover {
+        &:hover:not([disabled]) {
           background-color: RGB(var(--color-text));
           color: RGB(var(--color-background));
         }
