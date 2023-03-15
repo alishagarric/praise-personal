@@ -125,6 +125,18 @@
         "theme": "primary"
       }
     },
+    "787ead21-d010-4107-9b59-4a0cf7ea91f3": {
+      "type": "text-marquee",
+      "settings": {
+        "text": "Spend $30+ Get a free 🥜 peanut butter cookie",
+        "text_size": "h6",
+        "alt_heading": true,
+        "speed": 5,
+        "theme": "4",
+        "top_spacing": 30,
+        "bottom_spacing": 30
+      }
+    },
     "product-recommendations": {
       "type": "product-recommendations",
       "settings": {
@@ -155,6 +167,7 @@
   },
   "order": [
     "main",
+    "787ead21-d010-4107-9b59-4a0cf7ea91f3",
     "product-recommendations",
     "167529836888bf5a4a"
   ]
