@@ -105,12 +105,6 @@ details > summary::-webkit-details-marker {
   display: none;
 }
 
-button[aria-disabled="true"],
-.button[aria-disabled="true"] {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
 fieldset {
   padding: 0;
   border: 0;

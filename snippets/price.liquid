@@ -45,7 +45,7 @@
         <span class="visually-hidden">
           {{ 'products.product.price.regular_price' | t }}
         </span>
-        <s class="regular-price">
+        <s class="price__regular __strikethrough">
           {% if settings.currency_code_enabled %}
             {{ compare_at_price | money_with_currency }}
           {% else %}
@@ -65,7 +65,7 @@
       <span class="visually-hidden">
         {{ 'products.product.price.regular_price' | t }}
       </span>
-      <span class="regular-price">
+      <span class="price__regular">
         {{ money_price }}
       </span>
     {%- endif -%}
@@ -77,7 +77,7 @@
       <span class="visually-hidden">
         {{ 'products.product.price.unit_price' | t }}
       </span>
-      <span class="unit-price">
+      <span class="price__unit-price">
         {% comment %} Price {% endcomment %}
         <span>{{- product.selected_or_first_available_variant.unit_price | money -}}</span>
         {% comment %} Separator {% endcomment %}
@@ -95,11 +95,11 @@
   {%- endunless -%}
 
   {%- if available == false and show_badges -%}
-    <span class="badge">
+    <span class="price__badge p-sm">
       {{ 'products.product.sold_out' | t }}
     </span>
   {%- elsif onsale and show_badges -%}
-    <span class="badge">
+    <span class="price__badge p-sm">
       {{ 'products.product.on_sale' | t }}
     </span>
   {%- endif -%}

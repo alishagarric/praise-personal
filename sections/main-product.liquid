@@ -62,7 +62,7 @@
             </div>
 
 
-            <media-gallery class="main-product__media" id="Product-MediaGallery-{{ section.id }}" data-section="{{ section.id }}">
+            <media-gallery class="main-product__media __layout-{{ block.settings.layout }}" id="Product-MediaGallery-{{ section.id }}" data-section="{{ section.id }}">
 
               {% comment %} Skip to content anchor link {% endcomment %}
               <a class="skip-to-content-link visually-hidden" href="#ProductInfo-{{ section.id }}">
@@ -96,23 +96,25 @@
                 {%- endfor -%}
               </ul>
 
-              <ul class="main-product__media__dots" style="--dotsColumns: {% if product.media.size > 4 %}4{% else %}{{ product.media.size }}{% endif %}; --dotsRows: {{ product.media.size | divided_by: 4.0 | ceil }}">
-                {%- for media in product.media -%}
-                  <li class="main-product__media__dots__dot {% if media == product.selected_or_first_available_variant.featured_media %}__active{% endif %}" data-media-dot-id="{{ section.id }}-{{ media.id }}">
-                    <span class="visually-hidden">{{ forloop.index }}</span>
-                  </li>
-                {%- endfor -%}
-                {% if product.media.size > 1 %}
-                  <li class="main-product__media__dots__prev prev">
-                    <span class="visually-hidden">Previous Slide</span>
-                    {% render 'svg-slider-arrow' %}
-                  </li>
-                  <li class="main-product__media__dots__next next">
-                    <span class="visually-hidden">Next Slide</span>
-                    {% render 'svg-slider-arrow' %}
-                  </li>
-                {% endif %}
-              </ul>
+              {% if block.settings.layout != "stacked" %}
+                <ul class="main-product__media__dots" style="--dotsColumns: {% if product.media.size > 5 %}5{% else %}{{ product.media.size }}{% endif %}; --dotsRows: {{ product.media.size | divided_by: 5.0 | ceil }}">
+                  {%- for media in product.media -%}
+                    <li class="main-product__media__dots__dot {% if media == product.selected_or_first_available_variant.featured_media %}__active{% endif %}" data-media-dot-id="{{ section.id }}-{{ media.id }}">
+                      <span class="visually-hidden">{{ forloop.index }}</span>
+                    </li>
+                  {%- endfor -%}
+                  {% if product.media.size > 1 %}
+                    <li class="main-product__media__dots__prev prev">
+                      <span class="visually-hidden">Previous Slide</span>
+                      {% render 'svg-slider-arrow' %}
+                    </li>
+                    <li class="main-product__media__dots__next next">
+                      <span class="visually-hidden">Next Slide</span>
+                      {% render 'svg-slider-arrow' %}
+                    </li>
+                  {% endif %}
+                </ul>
+              {% endif %}
               
             </media-gallery>
 

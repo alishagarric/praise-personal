@@ -1,0 +1,33 @@
+.price {
+  display: flex;
+  gap: calc(var(--pxSize) / 6);
+  flex-wrap: wrap;
+  align-items: center;
+
+  > *:not(.price__badge) {
+    flex: 1;
+  }
+
+  &__regular {
+    &.__strikethrough {
+      margin-right: calc(var(--pxSize) / 6);
+      opacity: 0.6;
+    }
+  }
+
+  &__unit-price {
+    display: block;
+  }
+
+  &__badge {
+    text-transform: uppercase;
+    height: calc(var(--btnHeight) * 0.75);
+    padding: 0 calc(var(--btnHeight) / 3);
+    line-height: calc(var(--btnHeight) * 0.75);
+    white-space: nowrap;
+    background: RGB(var(--color-text));
+    color: RGB(var(--color-background));
+    margin: 0;
+    border-radius: var(--btnBorderRadius);
+  }
+}
