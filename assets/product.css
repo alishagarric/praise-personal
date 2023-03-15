@@ -1,14 +1,3 @@
-.product .grid {
-  --grid-columns: 1;
-  position: relative;
-}
-
-@media screen and (min-width: 750px) {
-  .product .grid {
-    --grid-columns: 2;
-  }
-}
-
 .product-media a {
   display: block;
 }
@@ -46,19 +35,12 @@
 
 /* Dynamic checkout button resets */
 
-.shopify-payment-button__button--unbranded {
-  border-radius: 0;
-  width: fit-content;
-}
-
-.product-form button[type="submit"]:is([disabled], [aria-disabled="true"]) + .shopify-payment-button .shopify-payment-button__button[disabled] {
+.product-form
+  button[type="submit"]:is([disabled], [aria-disabled="true"])
+  + .shopify-payment-button
+  .shopify-payment-button__button[disabled] {
   cursor: not-allowed;
   opacity: 0.6;
-}
-
-.shopify-payment-button__button + .shopify-payment-button__button--hidden {
-  /* Physically hide visually hidden dynamic buttons */
-  display: none;
 }
 
 /* Product model UI */

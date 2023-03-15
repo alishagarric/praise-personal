@@ -94,7 +94,11 @@
         },
         "buy_buttons": {
           "type": "buy_buttons",
-          "settings": {}
+          "settings": {
+            "show_quantity": true,
+            "hide_dynamic_buttons": false,
+            "include_border": true
+          }
         },
         "pickup-availability": {
           "type": "pickup_availability",

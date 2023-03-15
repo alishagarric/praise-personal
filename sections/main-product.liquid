@@ -353,23 +353,8 @@
 
           {% comment %} Type buy buttons {% endcomment %}
           {%- when 'buy_buttons' -%}
-          <div class="main-product__block">
-            {% if block.settings.show_quantity %}
-              <div {{ block.shopify_attributes }}>
-                <label for="Quantity-{{ section.id }}" class="visually-hidden">
-                  {{ 'products.product.quantity.label' | t }}
-                </label>
-                <input
-                  type="number"
-                  name="quantity"
-                  id="Quantity-{{ section.id }}"
-                  min="1"
-                  value="1"
-                  form="{{ product_form_id }}"
-                >
-              </div>
-            {% endif %}
-            {% render 'product-form' id: product_form_id, product: product %}
+          <div class="main-product__block {% if block.settings.include_border %} __border-top {% endif %}">
+            {% render 'product-form' id: product_form_id, product: product, show_quantity: block.settings.show_quantity, include_border: block.settings.include_border, hide_dynamic_buttons: block.settings.hide_dynamic_buttons %}
           </div>
 
           {% comment %} Type expandable content {% endcomment %}
@@ -1161,6 +1146,18 @@
           "type": "checkbox",
           "id": "show_quantity",
           "label": "Show quantity selector?",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_dynamic_buttons",
+          "label": "Hide dynamic checkout buttons?",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "include_border",
+          "label": "Include border?",
           "default": true
         }
       ]

@@ -1,11 +1,13 @@
 {% comment %}
-  Renders a the product form used in main producr
+  Renders a the product form used in main product
 
   Expects: 
   - product {object} required, product in question
   - product_form_id: {string} required
   - class: {String} optional
   - hide_dynamic_buttons: {bool} optional
+  - show_quantity { bool } optional
+  - include_border { bool } optional
 
   Usage:
     {% render 'product-form' class: "class" %}
@@ -14,6 +16,45 @@
 
 {% assign hide_dynamic_buttons = hide_dynamic_buttons | default: false %}
 
+{% capture quantity %}
+  {% if show_quantity == true %}
+    <number-input {{ block.shopify_attributes }} class="product-form__quantity">
+      <label for="Quantity-{{ section.id }}" class="visually-hidden">
+        {{ 'products.product.quantity.label' | t }}
+      </label>
+      <button class="decrement">-</button>
+      <input
+        type="number"
+        name="quantity"
+        id="Quantity-{{ section.id }}"
+        min="1"
+        value="1"
+        form="{{ product_form_id }}"
+      >
+      <button class="increment">+</button>
+    </number-input>
+  {% endif %}
+{% endcapture %}
+
+{% capture add_to_cart %}
+  <button
+    type="submit"
+    name="add"
+    class="button btn product-form__add-to-cart"
+    {% if product.selected_or_first_available_variant.available == false %}
+      disabled
+    {% endif %}
+  >
+      {%- if product.selected_or_first_available_variant.available -%}
+        {{ 'products.product.add_to_cart' | t }}
+      {%- else -%}
+        {{ 'products.product.sold_out' | t }}
+      {%- endif -%}
+
+    {% comment %} TODO: loading spinner {% endcomment %}
+  </button>
+{% endcapture%}
+
 <product-form class="{{ class }}" {{ block.shopify_attributes }}>
   <div class="message-error" role="alert" hidden></div>
 
@@ -21,7 +62,7 @@
     form 'product',
     product,
     id: id,
-    class: 'product-form',
+    class: 'product-form __no-form-styles',
     novalidate: 'novalidate',
     data-type: 'add-to-cart-form'
   -%}
@@ -31,30 +72,22 @@
       value="{{ product.selected_or_first_available_variant.id }}"
       disabled
     >
-    <div>
-      <button
-        type="submit"
-        name="add"
-        class="button btn"
-        {% if product.selected_or_first_available_variant.available == false %}
-          disabled
+    
+      {% if hide_dynamic_buttons == true %}
+        <div class="product-form__row">
+          {{ quantity }}
+          {{ add_to_cart }}
+        </div>
+      {% else %}
+        {% if show_quantity == true %}
+          <div class="product-form__row {% if include_border %}__include-border{% endif %}">{{ quantity }}</div>
         {% endif %}
-      >
-        <span>
-          {%- if product.selected_or_first_available_variant.available -%}
-            {{ 'products.product.add_to_cart' | t }}
-          {%- else -%}
-            {{ 'products.product.sold_out' | t }}
-          {%- endif -%}
-        </span>
-
-        {% comment %} TODO: loading spinner {% endcomment %}
-      </button>
-
-      {% comment %} Dynamic checkout buttons {% endcomment %}
-      {% unless hide_dynamic_buttons %}
-        {{ form | payment_button }}
-      {% endunless %}
+        <div class="product-form__column">
+          {{ add_to_cart }}
+          {% comment %} Dynamic checkout buttons {% endcomment %}
+          {{ form | payment_button }}
+        </div>
     </div>
+      {% endif %}
   {%- endform -%}
 </product-form>

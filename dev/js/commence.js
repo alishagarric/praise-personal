@@ -624,6 +624,38 @@ class TextareaCounter extends HTMLElement {
 }
 customElements.define("textarea-counter", TextareaCounter);
 
+/* Number Input */
+///////////////////////////////
+///////////////////////////////
+
+class NumberInput extends HTMLElement {
+  constructor() {
+    super();
+    this.increment = this.querySelector(".increment");
+    this.decrement = this.querySelector(".decrement");
+    this.input = this.querySelector("input[type='number']");
+    console.log(this.input);
+
+    if (!this.increment || !this.decrement || !this.input) return;
+    this.increment.addEventListener(
+      "click",
+      this.increaseInputValue.bind(this)
+    );
+    this.decrement.addEventListener(
+      "click",
+      this.decreaseInputValue.bind(this)
+    );
+  }
+
+  increaseInputValue() {
+    this.input.value = parseInt(this.input.value) + 1;
+  }
+  decreaseInputValue() {
+    this.input.value = parseInt(this.input.value) - 1;
+  }
+}
+customElements.define("number-input", NumberInput);
+
 /* Logic the Shopify Starter Included */
 ////////////////////////////////////////
 ///////////////////////////////////////

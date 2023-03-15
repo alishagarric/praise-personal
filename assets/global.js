@@ -15031,6 +15031,50 @@ var TextareaCounter = /*#__PURE__*/function (_HTMLElement5) {
 }( /*#__PURE__*/_wrapNativeSuper(HTMLElement));
 
 customElements.define("textarea-counter", TextareaCounter);
+/* Number Input */
+///////////////////////////////
+///////////////////////////////
+
+var NumberInput = /*#__PURE__*/function (_HTMLElement6) {
+  _inherits(NumberInput, _HTMLElement6);
+
+  var _super6 = _createSuper(NumberInput);
+
+  function NumberInput() {
+    var _this11;
+
+    _classCallCheck(this, NumberInput);
+
+    _this11 = _super6.call(this);
+    _this11.increment = _this11.querySelector(".increment");
+    _this11.decrement = _this11.querySelector(".decrement");
+    _this11.input = _this11.querySelector("input[type='number']");
+    console.log(_this11.input);
+    if (!_this11.increment || !_this11.decrement || !_this11.input) return _possibleConstructorReturn(_this11);
+
+    _this11.increment.addEventListener("click", _this11.increaseInputValue.bind(_assertThisInitialized(_this11)));
+
+    _this11.decrement.addEventListener("click", _this11.decreaseInputValue.bind(_assertThisInitialized(_this11)));
+
+    return _this11;
+  }
+
+  _createClass(NumberInput, [{
+    key: "increaseInputValue",
+    value: function increaseInputValue() {
+      this.input.value = parseInt(this.input.value) + 1;
+    }
+  }, {
+    key: "decreaseInputValue",
+    value: function decreaseInputValue() {
+      this.input.value = parseInt(this.input.value) - 1;
+    }
+  }]);
+
+  return NumberInput;
+}( /*#__PURE__*/_wrapNativeSuper(HTMLElement));
+
+customElements.define("number-input", NumberInput);
 /* Logic the Shopify Starter Included */
 ////////////////////////////////////////
 ///////////////////////////////////////
@@ -15049,7 +15093,7 @@ document.querySelectorAll(".disclosure").forEach(function (details) {
 });
 
 function debounce(fn, wait) {
-  var _this11 = this;
+  var _this12 = this;
 
   var t;
   return function () {
@@ -15059,7 +15103,7 @@ function debounce(fn, wait) {
 
     clearTimeout(t);
     t = setTimeout(function () {
-      return fn.apply(_this11, args);
+      return fn.apply(_this12, args);
     }, wait);
   };
 }

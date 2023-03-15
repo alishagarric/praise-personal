@@ -1,0 +1,100 @@
+form.product-form {
+  > *:last-child {
+    margin-bottom: calc(var(--pxSize) / 4);
+  }
+
+  //get super specific so overwriting form feidl styles isn't miserable
+  .product-form {
+    &__row,
+    &__column {
+      display: flex;
+      gap: calc(var(--pxSize) / 5);
+    }
+
+    &__column {
+      flex-direction: column;
+    }
+
+    &__row {
+      margin-bottom: calc(var(--pxSize) / 4);
+
+      &.__include-border {
+        padding-bottom: calc(var(--pxSize) / 4);
+        margin-bottom: calc(var(--pxSize) / 4);
+        border-bottom: 1px solid RGBA(var(--color-border));
+      }
+    }
+
+    &__quantity {
+      display: flex;
+
+      input[type="number"] {
+        border: none;
+        -moz-appearance: textfield;
+        text-align: center;
+        width: var(--pxSize);
+        height: var(--btnHeight);
+        line-height: var(--btnHeight);
+        padding: 0;
+
+        &::-webkit-inner-spin-button,
+        &::-webkit-outer-spin-button {
+          -webkit-appearance: none;
+          appearance: none;
+          margin: 0;
+        }
+      }
+
+      button {
+        margin: 0;
+        background: RGBA(var(--color-text) / 0.1);
+        color: RGB(var(--color-text));
+        padding: 0 calc(var(--btnHeight) * 0.35);
+      }
+    }
+
+    &__add-to-cart {
+      flex: 1;
+    }
+  }
+
+  .shopify-payment-button {
+    &__button {
+      border-radius: var(--btnBorderRadius);
+
+      &--unbranded {
+        background-color: transparent;
+        color: RGB(var(--color-text));
+        border: 1px solid RGB(var(--color-text));
+
+        &:hover {
+          background-color: RGB(var(--color-text));
+          color: RGB(var(--color-background));
+        }
+      }
+
+      + .shopify-payment-button__button--hidden {
+        /* Physically hide visually hidden dynamic buttons */
+        display: none;
+      }
+    }
+
+    &__more-options {
+      all: unset;
+      @extend .txt-link;
+      cursor: pointer;
+      position: relative;
+      margin: 1rem auto 0 auto;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  button {
+    margin: 0;
+    justify-content: center;
+    width: 100%;
+  }
+}
