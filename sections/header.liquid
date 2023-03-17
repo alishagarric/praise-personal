@@ -121,7 +121,7 @@
       {%- endif -%}
       <a href="{{ routes.cart_url }}" class="{{ className }}__utility-links__cart">
         {% render 'svg-cart' %}
-        <span id="CartBubble">
+        <span id="CartBubble-{{ forloop.index0 }}">
           {%- unless cart == empty %}{{ cart.item_count }}{% endunless -%}
         </span>
       </a>
