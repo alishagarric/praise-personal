@@ -102,6 +102,28 @@
     align-items: center;
     gap: calc(var(--pxSize) / 4);
     padding-right: var(--siteHeaderGuttersSpace);
+
+    &__cart {
+      --cartBubbleSize: 17px;
+      position: relative;
+      padding: 0 calc(var(--cartBubbleSize) / 2) calc(var(--cartBubbleSize) / 5)
+        0;
+      text-align: center;
+
+      span {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        height: var(--cartBubbleSize);
+        width: var(--cartBubbleSize);
+        background-color: RGB(var(--color-foreground));
+        color: RGB(var(--color-foreground-text));
+        border-radius: 50%;
+        line-height: var(--cartBubbleSize);
+        font-size: 10px;
+        font-weight: 600;
+      }
+    }
   }
 
   // All the links text (dropdown labels and plain links)

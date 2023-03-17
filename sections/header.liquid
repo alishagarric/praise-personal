@@ -119,10 +119,10 @@
           {{- 'sections.header.login' | t -}}
         </a>
       {%- endif -%}
-      <a href="{{ routes.cart_url }}">
+      <a href="{{ routes.cart_url }}" class="{{ className }}__utility-links__cart">
         {% render 'svg-cart' %}
         <span id="CartBubble">
-          {%- unless cart == empty %}({{ cart.item_count }}){% endunless -%}
+          {%- unless cart == empty %}{{ cart.item_count }}{% endunless -%}
         </span>
       </a>
     </div>
