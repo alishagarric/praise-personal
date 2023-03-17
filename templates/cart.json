@@ -1,10 +1,12 @@
 {
   "sections": {
     "main-cart": {
-      "type": "main-cart"
+      "type": "main-cart",
+      "settings": {
+        "alt_heading": true,
+        "crop_shape": "circle"
+      }
     }
   },
-  "order": [
-    "main-cart"
-  ]
+  "order": ["main-cart"]
 }

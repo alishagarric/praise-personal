@@ -143,15 +143,15 @@ p,
 
 .p-sm,
 .p-sm > p {
-  font-size: calc(0.8rem * var(--font-heading-scale));
+  font-size: calc(1rem * var(--font-body-scale));
 }
 
 .p-lg,
 .p-lg > p {
-  font-size: calc(1.375rem * var(--font-heading-scale));
+  font-size: calc(1.375rem * var(--font-body-scale));
 
   @media (max-width: 1024px) {
-    font-size: calc(1.2rem * var(--font-heading-scale));
+    font-size: calc(1.2rem * var(--font-body-scale));
   }
 }
 
@@ -257,7 +257,7 @@ i {
   blockquote p {
     padding-left: 0;
     font-style: italic;
-    font-size: calc(1rem * var(--font-heading-scale));
+    font-size: calc(1rem * var(--font-body-scale));
     font-weight: 600;
     padding-left: 1.5rem;
     position: relative;
@@ -279,7 +279,7 @@ i {
     margin-bottom: 1rem;
 
     li {
-      font-size: calc(0.9rem * var(--font-heading-scale));
+      font-size: calc(0.9rem * var(--font-body-scale));
     }
   }
 
@@ -303,10 +303,10 @@ i {
   p,
   ul li,
   ol li {
-    font-size: calc(1.375rem * var(--font-heading-scale));
+    font-size: calc(1.375rem * var(--font-body-scale));
 
     @media (max-width: 1024px) {
-      font-size: calc(1.2rem * var(--font-heading-scale));
+      font-size: calc(1.2rem * var(--font-body-scale));
     }
   }
 }
@@ -316,7 +316,7 @@ i {
   p,
   ul li,
   ol li {
-    font-size: calc(0.8rem * var(--font-heading-scale));
+    font-size: calc(1rem * var(--font-body-scale));
   }
 }
 

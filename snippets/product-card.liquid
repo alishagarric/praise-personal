@@ -58,7 +58,7 @@
   {% endif %}
 
 
-  <div class="product-card__image __crop-{{ crop }}" style="--imageRatio: {{ image_ratio }}%">
+  <div class="product-card__image image-container __crop-{{ crop }}" style="--imageRatio: {{ image_ratio }}%">
     {% if product and product.featured_image %}
       {% render 'next-gen-img', image: product.featured_image %}
     {% elsif product == blank %}

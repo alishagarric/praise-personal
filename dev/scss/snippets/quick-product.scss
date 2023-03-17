@@ -17,7 +17,6 @@
     justify-content: center;
 
     &__container {
-      @extend .image-container;
       width: 100%;
     }
   }

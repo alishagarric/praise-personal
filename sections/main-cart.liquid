@@ -1,242 +1,245 @@
-{{ 'section-cart.css' | asset_url | stylesheet_tag }}
-
 <script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
 
 <div class="main-cart">
   <cart-form>
-    <form action="{{ routes.cart_url }}" method="post" class="main-cart__form" id="Cart" data-id="{{ section.id }}">
+    <form action="{{ routes.cart_url }}" method="post" class="main-cart__form __no-form-styles" id="Cart" data-id="{{ section.id }}">
       <div class="js-contents">
-        <h1>{{ 'sections.cart.title' | t }}</h1>
-        <div>
-          {%- if cart != empty -%}
-            <table class="main-cart__cart-items">
-              <thead class="main-cart__cart-items__head">
-                <tr>
-                  <th colspan="2" scope="col">
-                    {{ 'sections.cart.headings.product' | t }}
-                  </th>
-                  <th colspan="1" scope="col">
-                    {{ 'sections.cart.headings.quantity' | t }}
-                  </th>
 
-                </tr>
-              </thead>
+        {% capture heading %}{{'sections.cart.title' | t }} ({{ cart.item_count }}) {% endcapture %}
+        {% render 'heading' heading: heading, heading_size: section.settings.heading_size, alt_heading: section.settings.alt_heading, class: "main-cart", heading_tag: "h1" %}
 
-              <tbody>
-                {%- for item in cart.items -%}
-                  <tr id="CartItem-{{ item.index | plus: 1 }}">
-                    <td>
+        <div class="main-cart__link">
+          {% capture button_label %}{{ 'general.continue_shopping' | t }}{% endcapture %}
+          {% render 'button' button_label: button_label, button_link: routes.root_url, style: "underline" %}
+        </div>
+
+        {%- if cart != empty -%}
+          <table class="main-cart__table">
+            <thead class="main-cart__table__head">
+              <tr class="main-cart__table__row">
+                <th colspan="1" scope="col" class="main-cart__table__item p-sm">
+                  {{ 'sections.cart.headings.product' | t }}
+                </th>
+                <th colspan="1" scope="col" class="main-cart__table__item p-sm">
+                  {{ 'sections.cart.headings.quantity' | t }}
+                </th>
+                <th colspan="1" scope="col" class="main-cart__table__item p-sm">
+                  {{ 'sections.cart.headings.price' | t }}
+                </th>
+              </tr>
+            </thead>
+
+            <tbody class="main-cart__table__body">
+              {%- for item in cart.items -%}
+                <tr id="CartItem-{{ item.index | plus: 1 }}" class="main-cart__table__row">
+
+                  <td class="main-cart__table__item">
+                    <div class="main-cart__product-details">
+
+                      {%- comment -%} Image {%- endcomment -%}
                       {% if item.image %}
-                        <a href="{{ item.url }}" aria-hidden="true" tabindex="-1" class="cart-media">
-                          <div
-                            class="media"
-                            style="--width: {{ item.image.width | default: 100 }}; --height: {{ item.image.height | default: 100 }};"
-                          >
-                            {{
-                              item.image |
-                              image_url: width: product.featured_media.width |
-                              image_tag: widths: '100, 200', sizes: '100px'
-                            }}
-                          </div>
+                        <a href="{{ item.url }}" aria-hidden="true" tabindex="-1" class="main-cart__product-details__image image-container __crop-{{ section.settings.crop_shape }}" style="--imageRatio: {{ item.image.height | divided_by: 1.00 | divided_by: item.image.width | times: 100 }}%">
+                          {% render 'next-gen-img' image: item.image %}
                         </a>
                       {% endif %}
-                    </td>
 
-                    <td>
-                      {% if show_vendor %}
-                        <p>
-                          <small>{{ item.product.vendor }}</small>
-                        </p>
-                      {% endif %}
+                      <div class="main-cart__product-details__text">
 
-                      <a href="{{ item.url }}">{{ item.product.title | escape }}</a>
+                        {%- comment -%} Vendor {%- endcomment -%}
+                        {% if section.settings.show_vendor %}
+                          <p class="p-sm">{{ item.product.vendor }}</p>
+                        {% endif %}
 
-                      {%- comment -%}
-                        A line item is different from a product, so we can't use the price snippet
-                      {%- endcomment -%}
-                      {%- if item.original_price != item.final_price -%}
-                        <div>
-                          <span>
-                            {{ 'products.price.regular_price' | t }}
-                          </span>
-                          <s>
-                            {{- item.original_price | money -}}
-                          </s>
-                          <span>
-                            {{ 'products.price.sale_price' | t }}
-                          </span>
-                          <strong>
-                            {{ item.final_price | money }}
-                          </strong>
-                        </div>
-                      {%- else -%}
-                        <div>
-                          {{ item.original_price | money }}
-                        </div>
-                      {%- endif -%}
-                      {%- comment -%}
-                        We need to check whether there are variants, custom information, or selling plans
-                      {%- endcomment -%}
-                      {%- if item.product.has_only_default_variant == false or item.properties.size != 0 or item.selling_plan_allocation != nil -%}
-                        <dl>
-                          {%- comment -%}
-                            We output each of the variant options that have been selected
-                          {%- endcomment -%}
-                          {%- if item.product.has_only_default_variant == false -%}
-                            {%- for option in item.options_with_values -%}
-                              <dt>{{ option.name }}:</dt>
-                              <dd>{{ option.value }}</dd>
-                            {%- endfor -%}
-                          {%- endif -%}
+                        {%- comment -%} Title {%- endcomment -%}
+                        <a href="{{ item.url }}" class="p-lg">{{ item.product.title | escape }}</a>
 
-                          {%- comment -%}
-                            We output each of the pieces of custom information on a product.  Examples of this are engraving and
-                            files.  For each of these, we need to check whether or not /uploads/ is present, because that
-                            indicates a file that we can link to for the buyer to validate.
-                          {%- endcomment -%}
-                          {%- for property in item.properties -%}
-                            {%- assign property_first_char = property.first | slice: 0 -%}
-                            {%- if property.last != blank and property_first_char != '_' -%}
-                              <dt>{{ property.first }}:</dt>
-                              <dd>
-                                {%- if property.last contains '/uploads/' -%}
-                                  <a href="{{ property.last }}" target="_blank">
-                                    {{ property.last | split: '/' | last }}
-                                  </a>
-                                {%- else -%}
-                                  {{ property.last }}
-                                {%- endif -%}
-                              </dd>
-                            {%- endif -%}
-                          {%- endfor -%}
-                        </dl>
-                        {%- comment -%}
-                          Finally, we output the selling plan allocation for the product, if there is one.
-                        {%- endcomment -%}
-                        {%- unless item.selling_plan_allocation.selling_plan.name == empty -%}
-                          <p>{{ item.selling_plan_allocation.selling_plan.name }}</p>
-                        {%- endunless -%}
-                      {%- endif -%}
-
-                      {%- comment -%}
-                        Item level discounts can be applied by merchants, and must be shown to the buyer
-                      {%- endcomment -%}
-                      <ul class="list-unstyled" role="list" aria-label="{{ 'customer.order.discount' | t }}">
-                        {%- for discount in item.discounts -%}
-                          <li>
-                            {{ discount.title }}
-                          </li>
-                        {%- endfor -%}
-                      </ul>
-                    </td>
-
-                    <td>
-                      <div>
-                        <label for="Quantity-{{ item.index | plus: 1 }}">
-                          {{ 'products.quantity.label' | t }}
-                        </label>
-                        <input
-                          type="number"
-                          name="updates[]"
-                          value="{{ item.quantity }}"
-                          min="0"
-                          aria-label="{{ 'products.quantity.input_label' | t: product: item.product.title | escape }}"
-                          id="Cart-Quantity-{{ item.index | plus: 1 }}"
-                          data-index="{{ item.index | plus: 1 }}"
-                        >
-                      </div>
-
-                      <div class="line-item-error" id="Cart-LineItemError-{{ item.index | plus: 1 }}" role="alert">
-                        <small class="message-error"></small>
-                      </div>
-                    </td>
-
-                    <td>
-                      <div class="loading-overlay hidden">
-                        <div>
-                          <svg
-                            aria-hidden="true"
-                            focusable="false"
-                            role="presentation"
-                            viewBox="0 0 66 66"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <circle fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
-                          </svg>
-                        </div>
-                      </div>
-
-                      <div>
-                        {%- comment -%}
-                          This is the price of the entire line, as opposed to the units.
-                        {%- endcomment -%}
-                        {%- if item.original_line_price != item.final_line_price -%}
-                          <dl>
-                            <dt>
+                        {%- comment -%} Price.  A line item is different from a product, so we can't use the price snippet {%- endcomment -%}
+                        {%- if item.original_price != item.final_price -%}
+                          <div class="p">
+                            <span>
                               {{ 'products.price.regular_price' | t }}
-                            </dt>
-                            <dd>
-                              <s>
-                                {{ item.original_line_price | money }}
-                              </s>
-                            </dd>
-                            <dt>
+                            </span>
+                            <s>
+                              {{- item.original_price | money -}}
+                            </s>
+                            <span>
                               {{ 'products.price.sale_price' | t }}
-                            </dt>
-                            <dd>
-                              {{ item.final_line_price | money }}
-                            </dd>
-                          </dl>
+                            </span>
+                            <strong>
+                              {{ item.final_price | money }}
+                            </strong>
+                          </div>
                         {%- else -%}
-                          <span>
-                            {{ item.original_line_price | money }}
-                          </span>
-                        {%- endif -%}
-
-                        {%- if item.variant.available and item.unit_price_measurement -%}
-                          <div>
-                            <span>{{ 'products.price.unit_price' | t }}</span>
-                            {{ item.variant.unit_price | money }}
-                            <span aria-hidden="true">/</span>
-                            <span>&nbsp;{{ 'accessibility.unit_price_separator' | t }}&nbsp;</span>
-                            {%- if item.variant.unit_price_measurement.reference_value != 1 -%}
-                              {{- item.variant.unit_price_measurement.reference_value -}}
-                            {%- endif -%}
-                            {{ item.variant.unit_price_measurement.reference_unit }}
+                          <div class="p">
+                            {{ item.original_price | money }}
                           </div>
                         {%- endif -%}
+
+                        {%- comment -%} variants, custom information, or selling plans {%- endcomment -%}
+                        {%- if item.product.has_only_default_variant == false or item.properties.size != 0 -%}
+                          <dl class="main-cart__product-details__text__list">
+
+                            {%- comment -%} We output each of the variant options that have been selected {%- endcomment -%}
+                            {%- if item.product.has_only_default_variant == false -%}
+                              {%- for option in item.options_with_values -%}
+                                <dt class="p-sm">{{ option.name }}:</dt>
+                                <dd class="p-sm">{{ option.value }}</dd>
+                              {%- endfor -%}
+                            {%- endif -%}
+
+                            {%- comment -%}
+                              We output each of the pieces of custom information on a product.  Examples of this are engraving and
+                              files.  For each of these, we need to check whether or not /uploads/ is present, because that
+                              indicates a file that we can link to for the buyer to validate.
+                            {%- endcomment -%}
+                            {%- for property in item.properties -%}
+                              {%- assign property_first_char = property.first | slice: 0 -%}
+                              {%- if property.last != blank and property_first_char != '_' -%}
+                                <dt class="p-sm">{{ property.first }}:</dt>
+                                <dd class="p-sm">
+                                  {%- if property.last contains '/uploads/' -%}
+                                    <a href="{{ property.last }}" target="_blank">
+                                      {{ property.last | split: '/' | last }}
+                                    </a>
+                                  {%- else -%}
+                                    {{ property.last }}
+                                  {%- endif -%}
+                                </dd>
+                              {%- endif -%}
+                            {%- endfor -%}
+                          </dl>
+                        {%- endif -%}
+
+                        {%- comment -%}  Finally, we output the selling plan allocation for the product, if there is one. {%- endcomment -%}
+                        {% if item.selling_plan_allocation != nil and item.selling_plan_allocation.selling_plan.name != empty %}
+                          <p class="p-sm">{{ item.selling_plan_allocation.selling_plan.name }}</p>
+                        {%- endif -%}
+
+                        {%- comment -%} Item level discounts can be applied by merchants, and must be shown to the buyer {%- endcomment -%}
+                        {% if item.discounts.size > 0 %}
+                          <div class="__article-txt-p-sm">
+                            <ul aria-label="{{ 'customer.order.discount' | t }}">
+                              {%- for discount in item.discounts -%}
+                                <li>
+                                  <p>{{ discount.title }}</p>
+                                </li>
+                              {%- endfor -%}
+                            </ul>
+                          </div>
+                        {% endif %}
                       </div>
-                    </td>
-                  </tr>
-                {%- endfor -%}
-              </tbody>
-            </table>
-          {%- else -%}
-            <p>{{ 'sections.cart.empty' | t }}</p>
-            <p>
-              <a href="{{ routes.root_url }}">{{ 'general.continue_shopping' | t }}</a>
-            </p>
-          {%- endif -%}
-        </div>
-        {%- if cart != empty -%}
-          <div class="grid cart-footer">
+                    </div>
+                  </td>
+
+                  <td class="main-cart__table__item">
+                    <number-input class="number-input">
+                      <label for="Quantity-{{ item.index | plus: 1 }}" class="visually-hidden">
+                        {{ 'products.quantity.label' | t }}
+                      </label>
+                      <button class="decrement">-</button>
+                      <input
+                        type="number"
+                        name="updates[]"
+                        value="{{ item.quantity }}"
+                        min="0"
+                        aria-label="{{ 'products.quantity.input_label' | t: product: item.product.title | escape }}"
+                        id="Cart-Quantity-{{ item.index | plus: 1 }}"
+                        data-index="{{ item.index | plus: 1 }}"
+                      >
+                      <button class="increment">+</button>
+                    </number-input>
+
+                    <div class="line-item-error" id="Cart-LineItemError-{{ item.index | plus: 1 }}" role="alert">
+                      <small class="message-error"></small>
+                    </div>
+                  </td>
+
+                  <td class="main-cart__table__item">
+                    <div class="loading-overlay hidden">
+                      <div>
+                        <svg
+                          aria-hidden="true"
+                          focusable="false"
+                          role="presentation"
+                          viewBox="0 0 66 66"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <circle fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+                        </svg>
+                      </div>
+                    </div>
+
+                    <div class="p">
+                      {%- comment -%}
+                        This is the price of the entire line, as opposed to the units.
+                      {%- endcomment -%}
+                      {%- if item.original_line_price != item.final_line_price -%}
+                        <dl>
+                          <dt>
+                            {{ 'products.price.regular_price' | t }}
+                          </dt>
+                          <dd>
+                            <s>
+                              {{ item.original_line_price | money }}
+                            </s>
+                          </dd>
+                          <dt>
+                            {{ 'products.price.sale_price' | t }}
+                          </dt>
+                          <dd>
+                            {{ item.final_line_price | money }}
+                          </dd>
+                        </dl>
+                      {%- else -%}
+                        <span>
+                          {{ item.original_line_price | money }}
+                        </span>
+                      {%- endif -%}
+
+                      {%- if item.variant.available and item.unit_price_measurement -%}
+                        <div>
+                          <span>{{ 'products.price.unit_price' | t }}</span>
+                          {{ item.variant.unit_price | money }}
+                          <span aria-hidden="true">/</span>
+                          <span>&nbsp;{{ 'accessibility.unit_price_separator' | t }}&nbsp;</span>
+                          {%- if item.variant.unit_price_measurement.reference_value != 1 -%}
+                            {{- item.variant.unit_price_measurement.reference_value -}}
+                          {%- endif -%}
+                          {{ item.variant.unit_price_measurement.reference_unit }}
+                        </div>
+                      {%- endif -%}
+                    </div>
+                  </td>
+                </tr>
+              {%- endfor -%}
+            </tbody>
+          </table>
+
+          <div>
             <div>
-              <div>
-                <label for="Cart-Note">{{ 'sections.cart.note' | t }}</label>
-                <textarea
-                  name="note"
-                  id="Cart-Note"
-                >{{ cart.note }}</textarea>
-              </div>
+              <label for="Cart-Note">{{ 'sections.cart.note' | t }}</label>
+              <textarea
+                name="note"
+                id="Cart-Note"
+              >{{ cart.note }}</textarea>
             </div>
+          </div>
+        {%- else -%}
+          <p class="h2">{{ 'sections.cart.empty' | t }}</p>
+          {% capture button_label %}{{ 'general.continue_shopping' | t }}{% endcapture %}
+          {% render 'button' button_label: button_label, button_link: routes.root_url, style: "underline" %}
+        {%- endif -%}
+
+        {%- if cart != empty -%}
+          <div class="main-cart__footer">
 
             <div class="cart-actions">
-              <div>
-                <h2 class="h3">{{ 'sections.cart.total' | t }}</h2>
-                <p>{{ cart.total_price | money_with_currency }}</p>
+              <div class="main-cart__footer__total">
+                <h2 class="p-lg">{{ 'sections.cart.total' | t }}</h2>
+                <p class="p-lg">{{ cart.total_price | money_with_currency }}</p>
               </div>
 
-              <div>
+              <div class="main-cart__footer__discounts">
                 {%- comment -%}
                   Cart level discounts can be applied by merchants, and must be shown to the buyer
                 {%- endcomment -%}
@@ -255,7 +258,7 @@
               {%- comment -%}
                 Some regions require a merchant to disclose shipping and tax policies directly on their storefront.
               {%- endcomment -%}
-              <small>
+              <small class="main-cart__footer__fine-print p-sm">
                 {%- if cart.taxes_included and shop.shipping_policy.body != blank -%}
                   {{ 'sections.cart.taxes_included_and_shipping_policy_html' | t: link: shop.shipping_policy.url }}
                 {%- elsif cart.taxes_included -%}
@@ -288,7 +291,7 @@
               </div>
 
               {%- if additional_checkout_buttons -%}
-                <div>
+                <div class="additional-checkout-buttons additional-checkout-buttons--vertical">
                   {{ content_for_additional_checkout_buttons }}
                 </div>
               {%- endif -%}
@@ -308,9 +311,102 @@
 
 {% schema %}
 {
-  "name": "Split section",
+  "name": "Main Cart",
   "tag": "section",
   "settings": [
+    {
+      "type": "select",
+      "id": "crop_shape",
+      "options": [
+        {
+          "value": "default",
+          "label": "No Crop"
+        },
+        {
+          "value": "square",
+          "label": "Square"
+        },
+        {
+          "value": "rounded-square",
+          "label": "Rounded Square"
+        },
+        {
+          "value": "circle",
+          "label": "Circle"
+        },
+        {
+          "value": "portrait",
+          "label": "Portrait"
+        },
+        {
+          "value": "rounded-portrait",
+          "label": "Rounded Portrait"
+        },
+        {
+          "value": "semicircle-portrait",
+          "label": "Semicircle Portrait"
+        },
+        {
+          "value": "landscape",
+          "label": "Landscape"
+        },
+        {
+          "value": "rounded-landscape",
+          "label": "Rounded Landscape"
+        },
+        {
+          "value": "semicircle-landscape",
+          "label": "Semicircle Landscape"
+        },
+        {
+          "value": "wide",
+          "label": "Wide"
+        },
+        {
+          "value": "rounded-wide",
+          "label": "Rounded Wide"
+        },
+        {
+          "value": "semicircle-wide",
+          "label": "Semicircle Wide"
+        },
+        {
+          "value": "arch",
+          "label": "Semicircle Arch"
+        }
+      ],
+      "default": "default",
+      "label": "Image Crop Shape"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "X-Large"
+        },
+        {
+          "value": "h4",
+          "label": "Large"
+        },
+        {
+          "value": "h5",
+          "label": "Medium"
+        },
+        {
+          "value": "h6",
+          "label": "Small"
+        }
+      ],
+      "default": "h4",
+      "label": "Heading Size"
+    },
+    {
+      "type": "checkbox",
+      "id": "alt_heading",
+      "label": "Use body font instead of heading font for heading?"
+    },
     {
       "type": "checkbox",
       "id": "show_vendor",

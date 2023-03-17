@@ -31,7 +31,6 @@
   }
 
   &__image {
-    @extend .image-container;
     padding-top: 20%;
 
     + * {

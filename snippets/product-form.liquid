@@ -18,7 +18,7 @@
 
 {% capture quantity %}
   {% if show_quantity == true %}
-    <number-input {{ block.shopify_attributes }} class="product-form__quantity">
+    <number-input {{ block.shopify_attributes }} class="product-form__quantity number-input">
       <label for="Quantity-{{ section.id }}" class="visually-hidden">
         {{ 'products.product.quantity.label' | t }}
       </label>

@@ -15,12 +15,12 @@
 {% if heading != blank or image != blank or text != blank %}
   {% capture promo %}
       {% if image %}
-        <div class="{{ className }}__image">
+        <div class="{{ className }}__image image-container">
           {% render 'next-gen-img' image: image, alt: heading %}
         </div>
       {% endif %}
       {% if heading %}
-        <div class="{{ className }}__label h6">{{ heading | escape}}</div>
+        <div class="{{ className }}__label h6 p-lg">{{ heading | escape}}</div>
       {% endif %}
       {% if text %}
         <div class="p-sm">
