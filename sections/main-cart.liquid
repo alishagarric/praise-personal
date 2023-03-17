@@ -55,7 +55,7 @@
 
                         {%- comment -%} Price.  A line item is different from a product, so we can't use the price snippet {%- endcomment -%}
                         {%- if item.original_price != item.final_price -%}
-                          <div class="p">
+                          <div class="main-cart__product-details__text__price p">
                             <span>
                               {{ 'products.price.regular_price' | t }}
                             </span>
@@ -70,7 +70,7 @@
                             </strong>
                           </div>
                         {%- else -%}
-                          <div class="p">
+                          <div class="main-cart__product-details__text__price p">
                             {{ item.original_price | money }}
                           </div>
                         {%- endif -%}
@@ -131,7 +131,7 @@
                     </div>
                   </td>
 
-                  <td class="main-cart__table__item">
+                  <td class="main-cart__table__item main-cart__quantity">
                     <number-input class="number-input">
                       <label for="Quantity-{{ item.index | plus: 1 }}" class="visually-hidden">
                         {{ 'products.quantity.label' | t }}
@@ -154,7 +154,7 @@
                     </div>
                   </td>
 
-                  <td class="main-cart__table__item">
+                  <td class="main-cart__table__item main-cart__price">
                     <div class="loading-overlay hidden">
                       <div>
                         <svg
@@ -215,15 +215,16 @@
             </tbody>
           </table>
 
-          <div>
-            <div>
-              <label for="Cart-Note">{{ 'sections.cart.note' | t }}</label>
-              <textarea
-                name="note"
-                id="Cart-Note"
-              >{{ cart.note }}</textarea>
+          {% if section.settings.show_textarea == true %}
+            <div class="main-cart__textarea form-styles">
+                <label class="visually-hidden" for="Cart-Note">{{ 'sections.cart.note' | t }}</label>
+                <textarea
+                  name="note"
+                  placeholder="{{ 'sections.cart.note' | t }}"
+                  id="Cart-Note"
+                >{{ cart.note }}</textarea>
             </div>
-          </div>
+          {% endif %}
         {%- else -%}
           <p class="h2">{{ 'sections.cart.empty' | t }}</p>
           {% capture button_label %}{{ 'general.continue_shopping' | t }}{% endcapture %}
@@ -246,9 +247,9 @@
                 {%- if cart.cart_level_discount_applications.size > 0 -%}
                   <ul class="list-unstyled" role="list" aria-label="{{ 'customer.order.discount' | t }}">
                     {%- for discount in cart.cart_level_discount_applications -%}
-                      <li>
-                        {{ discount.title }}
-                        (-{{ discount.total_allocated_amount | money }})
+                      <li class="p-sm">
+                        <span>{{ discount.title }}</span>
+                        <span>(-{{ discount.total_allocated_amount | money }})<span>
                       </li>
                     {%- endfor -%}
                   </ul>
@@ -298,6 +299,23 @@
 
               <div id="Cart-Errors"></div>
             </div>
+
+            <div class="main-cart__footer__messages">
+              {% for block in section.blocks %}
+                {% case block.type %}
+                  {% when 'message'%}
+                    <div>
+                      {% render 'heading' heading: block.settings.heading, heading_tag: 'h3', heading_size: block.settings.heading_size, alt_heading: block.settings.alt_heading %}
+
+                      {% if block.settings.text != blank %}
+                        <div class="{{ block.settings.text_size }}">
+                          {{ block.settings.text }}
+                        </div>
+                      {% endif %}
+                    </div>
+                {% endcase %}
+              {% endfor %}
+            </div>
           </div>
         {%- endif -%}
       </div>
@@ -314,6 +332,43 @@
   "name": "Main Cart",
   "tag": "section",
   "settings": [
+    {
+      "type": "header",
+      "content": "Text Content"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "X-Large"
+        },
+        {
+          "value": "h4",
+          "label": "Large"
+        },
+        {
+          "value": "h5",
+          "label": "Medium"
+        },
+        {
+          "value": "h6",
+          "label": "Small"
+        }
+      ],
+      "default": "h4",
+      "label": "Heading Size"
+    },
+    {
+      "type": "checkbox",
+      "id": "alt_heading",
+      "label": "Use body font instead of heading font for heading?"
+    },
+    {
+      "type": "header",
+      "content": "Cart Item Settings"
+    },
     {
       "type": "select",
       "id": "crop_shape",
@@ -376,45 +431,141 @@
         }
       ],
       "default": "default",
-      "label": "Image Crop Shape"
-    },
-    {
-      "type": "select",
-      "id": "heading_size",
-      "options": [
-        {
-          "value": "h2",
-          "label": "X-Large"
-        },
-        {
-          "value": "h4",
-          "label": "Large"
-        },
-        {
-          "value": "h5",
-          "label": "Medium"
-        },
-        {
-          "value": "h6",
-          "label": "Small"
-        }
-      ],
-      "default": "h4",
-      "label": "Heading Size"
-    },
-    {
-      "type": "checkbox",
-      "id": "alt_heading",
-      "label": "Use body font instead of heading font for heading?"
+      "label": "Item Image Crop Shape"
     },
     {
       "type": "checkbox",
       "id": "show_vendor",
       "label": "Show vendor?",
       "default": false
+    },
+    {
+      "type": "header",
+      "content": "General"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_textarea",
+      "label": "Show special instructions?",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Section"
+    },
+    {
+      "type": "select",
+      "id": "theme",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary Theme"
+        },
+        {
+          "value": "2",
+          "label": "2nd Theme"
+        },
+        {
+          "value": "3",
+          "label": "3rd Theme"
+        },
+        {
+          "value": "4",
+          "label": "4th Theme"
+        },
+        {
+          "value": "5",
+          "label": "5th Theme"
+        }
+      ],
+      "default": "primary",
+      "label": "Theme"
+    },
+    {
+      "type": "range",
+      "id": "top_spacing",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "Top Spacing",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "bottom_spacing",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "Bottom Spacing",
+      "default": 50
     }
   ],
-    "presets": [
+  "blocks": [
+    {
+      "type": "message",
+      "name": "Message",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Label"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+              "value": "h4",
+              "label": "Large"
+            },
+            {
+              "value": "h5",
+              "label": "Medium"
+            },
+            {
+              "value": "h6",
+              "label": "Small"
+            }
+          ],
+          "default": "h6",
+          "label": "Heading Size"
+        },
+        {
+          "type": "checkbox",
+          "id": "alt_heading",
+          "label": "Use body font instead of heading font for heading?"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Description"
+        },
+        {
+          "type": "select",
+          "id": "text_size",
+          "options": [
+            {
+              "value": "p-sm",
+              "label": "Small Text"
+            },
+            {
+              "value": "p",
+              "label": "Basic Text"
+            },
+            {
+              "value": "p-lg",
+              "label": "Large Text"
+            }
+          ],
+          "default": "p-sm",
+          "label": "Text Size"
+        }
+      ]
+    }
+  ],
+  "presets": [
     {
       "name": "Main Cart"
     }

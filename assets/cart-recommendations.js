@@ -1,19 +1,21 @@
-class ProductRecommendations extends HTMLElement {
+class CartRecommendations extends HTMLElement {
   constructor() {
     super();
 
     const handleIntersection = (entries, observer) => {
       if (!entries[0].isIntersecting) return;
       observer.unobserve(this);
+      console.log("BOOM");
 
       fetch(this.dataset.url)
         .then((response) => response.text())
         .then((text) => {
           const recommendations = new DOMParser()
             .parseFromString(text, "text/html")
-            .querySelector("product-recommendations");
-          console.log(this.dataset.url);
+            .querySelector("cart-recommendations");
+          console.log("ZOOM", recommendations, this.dataset.url);
           if (recommendations && recommendations.innerHTML.trim().length) {
+            console.log("TOOM");
             this.innerHTML = recommendations.innerHTML;
           }
         })
@@ -29,4 +31,4 @@ class ProductRecommendations extends HTMLElement {
   }
 }
 
-customElements.define("product-recommendations", ProductRecommendations);
+customElements.define("cart-recommendations", CartRecommendations);

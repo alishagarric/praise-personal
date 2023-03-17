@@ -1,0 +1,137 @@
+
+
+<script src="{{ 'cart-recommendations.js' | asset_url }}" defer="defer"></script>
+
+{% style %}
+  #Cart-recommendations-{{ section.id }} {
+    --topSpacingRatio: {{ section.settings.top_spacing }} / 100;
+    --bottomSpacingRatio: {{ section.settings.bottom_spacing }} / 100;
+  }
+{% endstyle %}
+
+
+<div id="Cart-recommendations-{{ section.id }}" class="cart-recommendations __theme-{{ section.settings.theme }}">
+  <cart-recommendations data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ cart.items.first.product.id }}&limit=3">
+    {% if recommendations.performed and recommendations.products_count > 0 %}
+
+        {% comment %} Text Content {% endcomment %}
+        {% render 'heading',
+          class: 'cart-recommendations',
+          heading: section.settings.heading,
+          alt_heading: true,
+          heading_size: "p-sm"
+        %}
+
+        <ul class="cart-recommendations__container list-unstyled" role="list">
+          {% for recommendation in recommendations.products %}
+            <li>
+              {% render 'quick-product' quick_product: recommendation %}
+            </li>
+          {% endfor %}
+        </ul>
+    {% endif %}
+  </cart-recommendations>
+</div>
+
+
+{% schema %}
+{
+  "name": "Cart Recommendations",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Text Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "You may also like",
+      "label": "t:sections.product-recommendations.settings.heading.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "hero",
+      "label": "Use as hero?",
+      "info": "Should be selected if this section is the first or second on a page and contains the page title. There should only be one page title/hero used per page."
+    },
+    {
+      "type": "header",
+      "content": "Section"
+    },
+    {
+      "type": "select",
+      "id": "theme",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary Theme"
+        },
+        {
+          "value": "2",
+          "label": "2nd Theme"
+        },
+        {
+          "value": "3",
+          "label": "3rd Theme"
+        },
+        {
+          "value": "4",
+          "label": "4th Theme"
+        },
+        {
+          "value": "5",
+          "label": "5th Theme"
+        }
+      ],
+      "default": "primary",
+      "label": "Theme"
+    },
+    {
+      "type": "range",
+      "id": "top_internal_spacing",
+      "min": 0,
+      "max": 300,
+      "step": 10,
+      "unit": "%",
+      "label": "Top Text Content Spacing",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "bottom_internal_spacing",
+      "min": 0,
+      "max": 300,
+      "step": 10,
+      "unit": "%",
+      "label": "Bottom Text Content Spacing",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "top_spacing",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "Top Section Spacing",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "bottom_spacing",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "Bottom Section Spacing",
+      "default": 50
+    }
+  ],
+  "presets": [
+    {
+      "name": "Cart Recommendations"
+    }
+  ]
+}
+{% endschema %}

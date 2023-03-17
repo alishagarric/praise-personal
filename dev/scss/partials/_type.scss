@@ -143,7 +143,7 @@ p,
 
 .p-sm,
 .p-sm > p {
-  font-size: calc(1rem * var(--font-body-scale));
+  font-size: calc(0.9rem * var(--font-body-scale));
 }
 
 .p-lg,
@@ -316,7 +316,7 @@ i {
   p,
   ul li,
   ol li {
-    font-size: calc(1rem * var(--font-body-scale));
+    font-size: calc(0.09rem * var(--font-body-scale));
   }
 }
 
