@@ -125,6 +125,85 @@
         "theme": "primary"
       }
     },
+    "787ead21-d010-4107-9b59-4a0cf7ea91f3": {
+      "type": "text-marquee",
+      "settings": {
+        "text": "Spend $30+ Get a free 🥜 peanut butter cookie",
+        "text_size": "h6",
+        "alt_heading": true,
+        "speed": 5,
+        "theme": "4",
+        "top_spacing": 30,
+        "bottom_spacing": 30
+      }
+    },
+    "358e3a37-ea37-4371-af0a-4b81d29478cb": {
+      "type": "icons-section",
+      "blocks": {
+        "template--16398178779358__358e3a37-ea37-4371-af0a-4b81d29478cb-1678920937a9e025f0-0": {
+          "type": "icon",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Group.png",
+            "heading": "Sugar",
+            "text": "At Ritual we use fresh lemons sourced within 50 miled of our bakign facility"
+          }
+        },
+        "template--16398178779358__358e3a37-ea37-4371-af0a-4b81d29478cb-1678920937a9e025f0-1": {
+          "type": "icon",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Group_100.png",
+            "heading": "Lemon",
+            "text": "At Ritual we use fresh lemons sourced within 50 miled of our bakign facility"
+          }
+        },
+        "template--16398178779358__358e3a37-ea37-4371-af0a-4b81d29478cb-1678920937a9e025f0-2": {
+          "type": "icon",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Group.png",
+            "heading": "Sugar",
+            "text": "At Ritual we use fresh lemons sourced within 50 miled of our bakign facility"
+          }
+        }
+      },
+      "block_order": [
+        "template--16398178779358__358e3a37-ea37-4371-af0a-4b81d29478cb-1678920937a9e025f0-0",
+        "template--16398178779358__358e3a37-ea37-4371-af0a-4b81d29478cb-1678920937a9e025f0-1",
+        "template--16398178779358__358e3a37-ea37-4371-af0a-4b81d29478cb-1678920937a9e025f0-2"
+      ],
+      "settings": {
+        "heading": "Cookie Benefits",
+        "heading_size": "h4",
+        "alt_heading": false,
+        "layout": "3",
+        "mobile_layout": "3",
+        "icon_height": 80,
+        "alignment": "center",
+        "theme": "primary",
+        "top_spacing": 100,
+        "bottom_spacing": 50
+      }
+    },
+    "4b830209-3799-4cb8-a769-e9d60515b093": {
+      "type": "featured-blog",
+      "settings": {
+        "heading": "Try Ritual Recipes",
+        "heading_size": "h5",
+        "blog": "news",
+        "alt_heading": true,
+        "show_date": false,
+        "show_description": true,
+        "show_author": false,
+        "assc_product_crop_shape": "circle",
+        "button_label": "View Full Recipe",
+        "crop_shape": "rounded-square",
+        "alignment": "left",
+        "mobile_layout": "slider",
+        "view_all_button_label": "",
+        "theme": "2",
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
+    },
     "product-recommendations": {
       "type": "product-recommendations",
       "settings": {
@@ -155,6 +234,9 @@
   },
   "order": [
     "main",
+    "787ead21-d010-4107-9b59-4a0cf7ea91f3",
+    "358e3a37-ea37-4371-af0a-4b81d29478cb",
+    "4b830209-3799-4cb8-a769-e9d60515b093",
     "product-recommendations",
     "167529836888bf5a4a"
   ]
