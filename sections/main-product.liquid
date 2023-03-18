@@ -132,8 +132,9 @@
 
           {% comment %} Type app {% endcomment %}
           {%- when '@app' -%}
-            <div class="app __side-left">
-            {% render block %}
+            <div class="app">
+              {% render block %}
+            </div>
 
           {% comment %} Type text {% endcomment %}
           {%- when 'text' -%}

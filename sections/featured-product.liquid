@@ -1,0 +1,547 @@
+{% liquid
+  assign section_theme = section.settings.theme
+  assign top_spacing = section.settings.top_spacing
+  assign bottom_spacing = section.settings.bottom_spacing
+  assign alignment = section.settings.alignment
+  assign product_form_id = 'Product-Form-' | append: section.id
+  
+%}
+
+{% style %}
+  #Featured-product-{{ section.id }} {
+    --topSpacingRatio: {{ top_spacing }} / 100;
+    --bottomSpacingRatio: {{ bottom_spacing }} / 100;
+    --featuredProductThemeBool: {% if section.settings.theme_section == true %}""{% else %}none{% endif %};
+  }
+{% endstyle %}
+
+
+<div id="Featured-product-{{ section.id }}" class="featured-product __layout-{{ section.settings.layout }} __layout-mobile-{{ section.settings.mobile_layout }} __theme-{{ section_theme }}">
+
+  {% comment %} Text content column {% endcomment %}
+  <div class="featured-product__text">
+    {% if section.settings.product != blank %}
+      <div 
+        class="featured-product__text__first-half"
+        style="{% if section.settings.product.metafields.custom.color %}--color-background: {{ section.settings.product.metafields.custom.color.value.rgb }}; --color-foreground-text: {{ section.settings.product.metafields.custom.color.value.rgb }};{% endif %} {% if section.settings.product.metafields.custom.text_color %} --color-text: {{ section.settings.product.metafields.custom.text_color.value.rgb }}; --color-foreground: {{ section.settings.product.metafields.custom.text_color.value.rgb }}; --color-border: {{ section.settings.product.metafields.custom.text_color.value.rgb }} / .3;{% endif %}"
+      >
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {% comment %} Type app {% endcomment %}
+            {%- when '@app' -%}
+              <div class="app">
+                {% render block %}
+              </div>
+
+            {% comment %} Type title {% endcomment %}
+            {%- when 'title' -%}
+              {% capture heading_class %}__align-{{ alignment }} featured-product{% endcapture %}
+              {% render 'heading', heading: section.settings.product.title, alt_heading: block.settings.alt_heading, heading_size: block.settings.heading_size, heading_tag: "h2", class: heading_class %}
+
+            {% comment %} Type buy buttons {% endcomment %}
+            {%- when 'buy_buttons' -%}
+              <div class="main-product__block {% if block.settings.include_border %} __border-top {% endif %}">
+                {% render 'product-form' id: product_form_id, product: section.settings.product, show_quantity: block.settings.show_quantity, include_border: block.settings.include_border, hide_dynamic_buttons: block.settings.hide_dynamic_buttons %}
+              </div>
+
+            {% comment %} Type expandable content {% endcomment %}
+            {%- when 'expandable' %}
+              {% render 'disclosure', title: block.settings.title, id: block.id, text: block.settings.text, page: block.settings.page, open: block.settings.open, article_text: true %}
+
+            {% comment %} Type description {% endcomment %}
+            {%- when 'description' -%}
+            {% comment %} TODO not sure if working {% endcomment %}
+              {%- unless product.description == blank -%}
+                <div {{ block.shopify_attributes }} class="{{ block.settings.text_size }} __align-{{ alignment }}">
+                  {{ product.description }}
+                </div>
+              {%- endunless -%}
+
+            {% comment %} Type rating {% endcomment %}
+            {%- when 'rating' -%}
+            {% comment %} TODO not sure if working {% endcomment %}
+              {% render 'product-ratings' product: product %}
+
+          {%- endcase -%}
+
+          {% assign half_blocks_count = section.blocks.size | divided_by: 2 %}
+          {% if forloop.index == half_blocks_count %}
+            </div>
+            <div class="featured-product__text__last-half">
+          {% endif %}
+        {%- endfor -%}
+      </div>
+    {% else %}
+      <div class="h2">Lorem ipsum dolor iset</div>
+    {% endif %}
+  </div>
+
+  {% comment %} Image content column {% endcomment %}
+  <div class="featured-product__image">
+    <div class="image-container __crop-{{ section.settings.crop_shape }}" style="--imageRatio: {{ section.settings.product.featured_image.height | divided_by: 1.00 | divided_by: section.settings.product.featured_image.width | times: 100 }}%">
+      {%- if section.settings.product.featured_image != blank -%}
+        {% render 'next-gen-img', image: section.settings.product.featured_image %}
+      {%- else -%}
+        {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Featured Product",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "General"
+    },
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product"
+    },
+    {
+      "type": "radio",
+      "id": "alignment",
+      "label": "Alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "checkbox",
+      "id": "theme_section",
+      "label": "Theme section with product colors?",
+      "info": "Only applies when there's enough products in the collection to initiate a slider. Relies on the addition of product metafields. TODO: Add link with info"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "options": [
+        {
+          "value": "default",
+          "label": "Align Image Right"
+        },
+        {
+          "value": "reversed",
+          "label": "Align Image Left"
+        }
+      ],
+      "default": "default",
+      "label": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "crop_shape",
+      "options": [
+        {
+          "value": "default",
+          "label": "No Crop"
+        },
+        {
+          "value": "square",
+          "label": "Square"
+        },
+        {
+          "value": "rounded-square",
+          "label": "Rounded Square"
+        },
+        {
+          "value": "circle",
+          "label": "Circle"
+        },
+        {
+          "value": "portrait",
+          "label": "Portrait"
+        },
+        {
+          "value": "rounded-portrait",
+          "label": "Rounded Portrait"
+        },
+        {
+          "value": "semicircle-portrait",
+          "label": "Semicircle Portrait"
+        },
+        {
+          "value": "landscape",
+          "label": "Landscape"
+        },
+        {
+          "value": "rounded-landscape",
+          "label": "Rounded Landscape"
+        },
+        {
+          "value": "semicircle-landscape",
+          "label": "Semicircle Landscape"
+        },
+        {
+          "value": "wide",
+          "label": "Wide"
+        },
+        {
+          "value": "rounded-wide",
+          "label": "Rounded Wide"
+        },
+        {
+          "value": "semicircle-wide",
+          "label": "Semicircle Wide"
+        },
+        {
+          "value": "arch",
+          "label": "Semicircle Arch"
+        }
+      ],
+      "default": "default",
+      "label": "Image Crop Shape"
+    },
+    {
+      "type": "select",
+      "id": "mobile_layout",
+      "options": [
+        {
+          "value": "default",
+          "label": "Image On Top"
+        },
+        {
+          "value": "reversed",
+          "label": "Text On Top"
+        }
+      ],
+      "default": "default",
+      "label": "Mobile Layout"
+    },
+    {
+      "type": "header",
+      "content": "Section"
+    },
+    {
+      "type": "select",
+      "id": "theme",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary Theme"
+        },
+        {
+          "value": "2",
+          "label": "2nd Theme"
+        },
+        {
+          "value": "3",
+          "label": "3rd Theme"
+        },
+        {
+          "value": "4",
+          "label": "4th Theme"
+        },
+        {
+          "value": "5",
+          "label": "5th Theme"
+        }
+      ],
+      "default": "primary",
+      "label": "Theme"
+    },
+    {
+      "type": "range",
+      "id": "top_spacing",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "Top Spacing",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "bottom_spacing",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "Bottom Spacing",
+      "default": 50
+    }
+  ],
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "text",
+      "name": "t:sections.main-product.blocks.text.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "default": "Text",
+          "label": "Text"
+        },
+        {
+          "type": "select",
+          "id": "text_size",
+          "options": [
+            {
+              "value": "p-sm",
+              "label": "Small Text"
+            },
+            {
+              "value": "p",
+              "label": "Basic Text"
+            },
+            {
+              "value": "p-lg",
+              "label": "Large Text"
+            }
+          ],
+          "default": "p-sm",
+          "label": "Text Size"
+        },
+        {
+          "type": "checkbox",
+          "id": "include_border",
+          "label": "Include border?",
+          "default": true
+        }
+      ]
+    },
+    {
+      "type": "expandable",
+      "name": "Expandable Content",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "page",
+          "id": "page",
+          "label": "Text from a page"
+        },
+        {
+          "type": "checkbox",
+          "id": "open",
+          "label": "Open"
+        }
+      ]
+    },
+    {
+      "type": "title",
+      "name": "t:sections.main-product.blocks.title.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+              "value": "h1",
+              "label": "X-Large"
+            },
+            {
+              "value": "h2",
+              "label": "Large"
+            },
+            {
+              "value": "h3",
+              "label": "Medium"
+            },
+            {
+              "value": "h4",
+              "label": "Small"
+            }
+          ],
+          "default": "h2",
+          "label": "Heading Size"
+        },
+        {
+          "type": "checkbox",
+          "id": "alt_heading",
+          "label": "Use body font instead of heading font for heading?"
+        }
+      ]
+    },
+    {
+      "type": "price",
+      "name": "t:sections.main-product.blocks.price.name",
+      "limit": 1,
+      "settings": [
+          {
+            "type": "select",
+            "id": "heading_size",
+            "options": [
+              {
+                  "value": "h5",
+                  "label": "X-Large"
+              },
+              {
+                  "value": "h6",
+                  "label": "Large"
+              },
+              {
+                  "value": "p",
+                  "label": "Medium"
+              },
+              {
+                  "value": "p-sm",
+                  "label": "Small"
+              }
+            ],
+            "default": "h6",
+            "label": "Heading Size"
+        }
+      ]
+    },
+    {
+      "type": "variant_picker",
+      "name": "t:sections.main-product.blocks.variant_picker.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "radio",
+          "id": "layout",
+          "label": "Layout",
+          "options": [
+            {
+              "value": "dropdown",
+              "label": "Dropdown"
+            },
+            {
+              "value": "buttons",
+              "label": "Buttons"
+            }
+          ],
+          "default": "buttons"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_option_labels",
+          "label": "Show option labels and option descriptions?",
+          "info": "Option descriptions can be added using metafields TODO: link",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "include_border",
+          "label": "Include border?",
+          "default": true
+        }
+      ]
+    },
+    {
+      "type": "buy_buttons",
+      "name": "Buy buttons/quanity",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_quantity",
+          "label": "Show quantity selector?",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_dynamic_buttons",
+          "label": "Hide dynamic checkout buttons?",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "include_border",
+          "label": "Include border?",
+          "default": true
+        }
+      ]
+    },
+    {
+      "type": "description",
+      "name": "t:sections.main-product.blocks.description.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "select",
+          "id": "text_size",
+          "options": [
+            {
+              "value": "p-sm",
+              "label": "Small Text"
+            },
+            {
+              "value": "p",
+              "label": "Basic Text"
+            },
+            {
+              "value": "p-lg",
+              "label": "Large Text"
+            }
+          ],
+          "default": "p-sm",
+          "label": "Text Size"
+        }
+      ]
+    },
+    {
+      "type": "rating",
+      "name": "t:sections.main-product.blocks.rating.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "t:sections.main-product.blocks.rating.settings.paragraph.content"
+        }
+      ]
+    },
+    {
+      "type": "pickup_availability",
+      "name": "Pickup availability",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Pickup Availability",
+          "label": "Title"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Product",
+      "blocks": [
+        {
+          "type": "title"
+        },
+        {
+          "type": "description"
+        },
+        {
+          "type": "buy_buttons"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
