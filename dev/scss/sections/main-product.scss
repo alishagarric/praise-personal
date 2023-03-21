@@ -67,53 +67,6 @@
     }
   }
 
-  //fieldsets inside radios for variant picker
-  &__fieldset {
-    margin: 0;
-
-    &__label {
-      margin-bottom: 0.5rem;
-
-      span {
-        display: block;
-      }
-    }
-
-    &__input {
-      display: none;
-
-      &:checked + label {
-        background: RGB(var(--color-foreground));
-        color: RGB(var(--color-foreground-text));
-      }
-    }
-
-    &__value {
-      padding: calc(var(--pxSize) / 6) calc(var(--pxSize) / 4);
-      display: inline-block;
-      border-radius: 100%;
-      cursor: pointer;
-
-      &:hover {
-        background: RGB(var(--color-foreground) / 0.2);
-      }
-    }
-  }
-
-  //dropdowns for variant picker
-  &__dropdown {
-    &__label {
-      display: block;
-      margin-bottom: 0.5rem;
-    }
-
-    &__select {
-      width: 100%;
-      margin-bottom: 0.5rem;
-      border: 1px solid RGBA(var(--color-border));
-    }
-  }
-
   &__pickup-disclosure.disclosure {
     .disclosure {
       &__content {

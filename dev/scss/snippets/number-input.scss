@@ -9,6 +9,7 @@
     height: var(--btnHeight);
     line-height: var(--btnHeight);
     padding: 0;
+    background: transparent;
 
     &::-webkit-inner-spin-button,
     &::-webkit-outer-spin-button {

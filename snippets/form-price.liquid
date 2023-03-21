@@ -1,0 +1,48 @@
+{% comment %}
+  Renders price for product form
+
+  Expects: 
+  - product: {Object} Product object
+  - class: {String} optional
+  - form_id: {string} required
+  - price_size: {string }
+
+  Usage:
+
+{% endcomment %}
+
+<div
+  id="Price-{{ form_id }}"
+  class="form-price no-js-hidden {{ price_size }} {{ class }}" 
+  role="status"
+  {{ block.shopify_attributes }}
+>
+  {%- render 'price', product: product, use_variant: true, show_badges: true -%}
+</div>
+
+{%- if shop.taxes_included or shop.shipping_policy.body != blank -%}
+  <div>
+    {%- if shop.taxes_included -%}
+      {{ 'products.product.include_taxes' | t }}
+    {%- endif -%}
+    {%- if shop.shipping_policy.body != blank -%}
+      {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
+    {%- endif -%}
+  </div>
+{%- endif -%}
+
+<div {{ block.shopify_attributes }} class="form-price__installments">
+  {%- assign installment_id = 'Installment-' | append: section.id -%}
+  {%-
+    form 'product',
+    product,
+    id: installment_id
+  -%}
+    <input
+      type="hidden"
+      name="id"
+      value="{{ product.selected_or_first_available_variant.id }}"
+    >
+    {{ form | payment_terms }}
+  {%- endform -%}
+</div>

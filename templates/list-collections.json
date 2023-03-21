@@ -269,15 +269,53 @@
             "hide_dynamic_buttons": true,
             "include_border": true
           }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "layout": "buttons",
+            "show_option_labels": true,
+            "include_border": true
+          }
+        },
+        "shop_button": {
+          "type": "shop_button",
+          "settings": {
+            "button_label": "Shop Now"
+          }
+        },
+        "divider": {
+          "type": "divider",
+          "settings": {
+            "hide_divider": true,
+            "top": 60,
+            "bottom": 0
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "heading_size": "h6"
+          }
         }
       },
-      "block_order": ["title", "buy_buttons", "expandable"],
+      "block_order": [
+        "title",
+        "price",
+        "variant_picker",
+        "buy_buttons",
+        "expandable",
+        "divider-4",
+        "divider",
+        "shop_button"
+      ],
       "settings": {
         "product": "all-hail-sugar-baby",
         "crop_shape": "rounded-square",
         "theme_section": true,
         "alignment": "left",
         "theme": "primary",
+        "show_phrase": true,
         "layout": "reversed",
         "top_spacing": 100,
         "bottom_spacing": 100

@@ -33,6 +33,14 @@
                 {% render block %}
               </div>
 
+            {% comment %} Type text {% endcomment %}
+            {%- when 'text' -%}
+              <div class="featured-product__block {% if block.settings.include_border %} __border-top {% endif %}">
+                <p class="{{ block.settings.text_size }}" {{ block.shopify_attributes }}>
+                  {{ block.settings.text }}
+                </p>
+              </div>
+
             {% comment %} Type title {% endcomment %}
             {%- when 'title' -%}
               {% capture heading_class %}__align-{{ alignment }} featured-product{% endcapture %}
@@ -62,9 +70,25 @@
             {% comment %} TODO not sure if working {% endcomment %}
               {% render 'product-ratings' product: product %}
 
+            {% comment %} Type shop button {% endcomment %}
+            {%- when 'shop_button' -%}
+              {% render 'button' button_label: block.settings.button_label, button_link: section.settings.product.url, style: "underline", class: "featured-product__text" %}
+
+            {% comment %} Divider / Space {% endcomment %}
+            {%- when 'divider' -%}
+              <div class="featured-product__text__divider divider-section {% if block.settings.hide_divider %}__hide-divider{% endif %}" style="--dividerSnippetUseTopSpace: {{ block.settings.bottom }}px; --dividerSnippetUseBottomSpace: {{ block.settings.top }}px;"></div>
+
+            {% comment %} Type variant picker {% endcomment %}
+            {%- when 'variant_picker' -%}
+              {% render 'variant_picker' product: section.settings.product, layout: block.settings.layout, include_border: block.settings.include_border, show_option_labels: block.settings.show_option_labels, class: "featured-product__block" %}
+
+            {% comment %} Type price {% endcomment %}
+            {%- when 'price' -%}
+              {% render 'form-price' product: section.settings.product, price_size: block.settings.heading_size, form_id: section.id %}
+
           {%- endcase -%}
 
-          {% assign half_blocks_count = section.blocks.size | divided_by: 2 %}
+          {% assign half_blocks_count = section.blocks.size | minus: 1 %}
           {% if forloop.index == half_blocks_count %}
             </div>
             <div class="featured-product__text__last-half">
@@ -84,6 +108,10 @@
       {%- else -%}
         {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
       {%- endif -%}
+
+      {% if section.settings.show_phrase == true and section.settings.product.metafields.custom.phrase %}
+        <p class="featured-product__image__phrase h6">{{ section.settings.product.metafields.custom.phrase }}</p>
+      {% endif %}
     </div>
   </div>
 </div>
@@ -208,6 +236,11 @@
       ],
       "default": "default",
       "label": "Image Crop Shape"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_phrase",
+      "label": "Show product phrase?"
     },
     {
       "type": "select",
@@ -525,6 +558,51 @@
           "label": "Title"
         }
       ]
+    },
+    {
+      "type": "shop_button",
+      "name": "Shop Button",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Shop Now",
+          "info": "Links to the product's page"
+        }
+      ]
+    },
+    {
+      "type": "divider",
+      "name": "Divider/Space",
+      "settings": [
+        {
+          "type": "range",
+          "id": "top",
+          "min": 0,
+          "max": 100,
+          "step": 10,
+          "unit": "px",
+          "label": "Top Spacing",
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "bottom",
+          "min": 0,
+          "max": 100,
+          "step": 10,
+          "unit": "px",
+          "label": "Bottom Spacing",
+          "default": 50
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_divider",
+          "label": "Hide divider?",
+          "default": false
+        }
+      ]
     }
   ],
   "presets": [
@@ -539,6 +617,9 @@
         },
         {
           "type": "buy_buttons"
+        },
+        {
+          "type": "shop_button"
         }
       ]
     }

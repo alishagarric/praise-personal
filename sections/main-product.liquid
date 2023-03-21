@@ -150,219 +150,12 @@
 
           {% comment %} Type price {% endcomment %}
           {%- when 'price' -%}
-            <div
-              id="Price-{{ section.id }}"
-              class="no-js-hidden {{ block.settings.heading_size }}" 
-              role="status"
-              {{ block.shopify_attributes }}
-            >
-              {%- render 'price', product: product, use_variant: true, show_badges: true -%}
-            </div>
-            {%- if shop.taxes_included or shop.shipping_policy.body != blank -%}
-              <div>
-                {%- if shop.taxes_included -%}
-                  {{ 'products.product.include_taxes' | t }}
-                {%- endif -%}
-                {%- if shop.shipping_policy.body != blank -%}
-                  {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
-                {%- endif -%}
-              </div>
-            {%- endif -%}
-            <div {{ block.shopify_attributes }}>
-              {%- assign installment_id = 'Installment-' | append: section.id -%}
-              {%-
-                form 'product',
-                product,
-                id: installment_id
-              -%}
-                <input
-                  type="hidden"
-                  name="id"
-                  value="{{ product.selected_or_first_available_variant.id }}"
-                >
-                {{ form | payment_terms }}
-              {%- endform -%}
-            </div>
+            {% render 'form-price' product: product, price_size: block.settings.heading_size, form_id: section.id %}
 
+          
           {% comment %} Type variant picker {% endcomment %}
           {%- when 'variant_picker' -%}
-            {%- unless product.has_only_default_variant -%}
-
-              {% comment %} Layout button {% endcomment %}
-              {%- if block.settings.layout == 'buttons' -%}
-                <variant-radios class="no-js-hidden main-product__variant-radios" data-section="{{ section.id }}" data-url="{{ product.url }}" {{ block.shopify_attributes }}>
-                  {%- for option in product.options_with_values -%}
-                    {% capture option_variable_name %}option_{{ forloop.index }}_description{% endcapture %}
-                    {% comment %} TODO logic that hanfles special color swatch and size options scenarios 
-                    {%- liquid
-                      assign is_color = false
-                      if block.settings.enable_color_swatches
-                        assign swatch_file_extension = 'png'
-                        assign swatch_trigger = 'products.product.color_swatch_trigger' | t | downcase
-                        assign downcased_option = option.name | downcase
-                        if downcased_option contains swatch_trigger
-                          assign is_color = true
-                        elsif swatch_trigger == 'color' and downcased_option contains 'colour'
-                          assign is_color = true
-                        endif
-                      endif
-
-                      assign is_size = false
-                      if block.settings.size_chart != blank
-                        assign size_trigger = 'products.product.size_chart_trigger' | t | downcase
-                        assign downcased_option = option.name | downcase
-                        if downcased_option contains size_trigger
-                          assign is_size = true
-                        endif
-                      endif
-
-                      assign option_idx = forloop.index
-                    -%}
-                    {% endcomment %}
-
-                    {% assign option_idx = forloop.index %}
-                    <div class="main-product__variant-radios__radio main-product__block {% if block.settings.include_border %} __border-top {% endif %}">
-                      <fieldset class="js variant-input-wrapper main-product__fieldset"
-                        data-option-index="option{{ option_idx }}"
-                        data-option-slug="{{ option.name | handleize }}"
-                      >
-                        {%- if block.settings.show_option_labels -%}
-                          <legend class="main-product__fieldset__label p-sm">
-                            <span>{{ option.name }}</span>
-                            {{ product.metafields.custom[option_variable_name] }}
-                            {% comment %}{%- if is_color -%}
-                              <span class="form__label-info" id="color-{{ section.id }}">&ndash;&nbsp;{{ option.selected_value }}</span>
-                            {%- endif -%}{% endcomment %}
-                          </legend>
-                        {%- endif -%}
-                        {%- for value in option.values -%}
-                          <input
-                            type="radio"
-                            id="{{ section.id }}-{{ option.name }}-{{ forloop.index0 }}"
-                            name="{{ option.name }}"
-                            value="{{ value | escape }}"
-                            form="{{ product_form_id }}"
-                            {%- if option.selected_value == value %}checked="checked"{% endif -%}
-                            data-option-value="{{ value | escape }}"
-                            class="main-product__fieldset__input"
-                          />
-                          {% comment %}
-                          {%- if is_color -%}
-                            {%- liquid
-                              assign color_file_name = value | handle | append: '.' | append: swatch_file_extension
-                              assign color_image = color_file_name | file_img_url: '50x50' | prepend: 'https:' 
-                              assign color_swatch_fallback = value | split: ' ' | last | handle
-                            -%}
-                            <label
-                              for="{{ section.id }}-{{ option.name }}-{{ forloop.index0 }}"
-                              class="color__swatch color__swatch--{{ block.settings.swatch_type }}"
-                              style="--swatch-background-color: {{ color_swatch_fallback }};{% if images[color_file_name] != blank %} --swatch-background-image: url({{ color_image }});{% endif %}"
-                              title="{{ value | escape }}"
-                            >
-                              <span class="color__swatch-dot"></span>
-                            </label>
-                          {%- else -%}
-                            <label for="{{ section.id }}-{{ option.name }}-{{ forloop.index0 }}">
-                              {{ value }}
-                            </label>
-                          {%- endif -%}
-                          {% endcomment %}
-                            <label for="{{ section.id }}-{{ option.name }}-{{ forloop.index0 }}" class="p-sm main-product__fieldset__value">
-                              {{ value }}
-                            </label>
-                        {%- endfor -%}
-
-                        {% comment %}
-                        {%- if is_size -%}
-                          <div class="form__popup" id="size-{{ section.id }}">
-                            <modal-opener class="no-js-hidden" data-modal="#PopupModal-{{ block.id }}" {{ block.shopify_attributes }}>
-                              <button id="ProductPopup-{{ block.id }}" class="link link-with-icon" type="button" aria-haspopup="dialog">
-                                {% render 'icon', icon: 'ruler' %}
-                                <span class="label">{{ 'products.product.size_chart' | t | default: block.settings.size_chart.title }}</span>
-                              </button>
-                            </modal-opener>
-                            <a href="{{ block.settings.size_chart.url }}" class="link link-with-icon no-js">
-                              {% render 'icon', icon: 'ruler' %}
-                              <span class="label">{{ 'products.product.size_chart' | t | default: block.settings.size_chart.title }}</span>
-                            </a>
-                          </div>
-                        {%- endif -%}
-                      {% endcomment %}
-                      </fieldset>
-                    </div>
-                  {%- endfor -%}
-                  
-                  <script type="application/json">
-                    {{ product.variants | json }}
-                  </script>
-                </variant-radios>
-              {% comment %} Layout dropdowns {% endcomment %}
-              {%- else -%}
-                <variant-selects class="no-js-hidden main-product__variant-dropdowns main-product__block form-styles {% if block.settings.include_border %} __border-top {% endif %}" data-section="{{ section.id }}" data-url="{{ product.url }}">
-                  {%- for option in product.options_with_values -%}
-                    <div class="main-product__dropdown">
-                      <label for="Option-{{ section.id }}-{{ forloop.index0 }}" class="main-product__dropdown__label p-sm">
-                        {{ option.name }}
-                      </label>
-                      <select
-                        id="Option-{{ section.id }}-{{ forloop.index0 }}"
-                        name="options[{{ option.name | escape }}]"
-                        form="{{ product_form_id }}"
-                        class="main-product__dropdown__select"
-                      >
-                        {%- for value in option.values -%}
-                          <option
-                            value="{{ value | escape }}"
-                            {% if option.selected_value == value %}
-                              selected="selected"
-                            {% endif %}
-                          >
-                            {{ value }}
-                          </option>
-                        {%- endfor -%}
-                      </select>
-                    </div>
-                  {%- endfor -%}
-
-                  <script type="application/json">
-                    {{ product.variants | json }}
-                  </script>
-                </variant-selects>
-              {%- endif -%}
-
-              <noscript>
-                <div class="main-product__dropdown">
-                  <label for="Variants-{{ section.id }}" class="main-product__dropdown__label p-sm">
-                    {{ 'products.product.product_variants' | t }}
-                  </label>
-
-                  <select
-                    name="id"
-                    id="Variants-{{ section.id }}"
-                    form="{{ product_form_id }}"
-                    class="main-product__dropdown__select"
-                  >
-                    {%- for variant in product.variants -%}
-                      <option
-                        {% if variant == product.selected_or_first_available_variant %}
-                          selected="selected"
-                        {% endif %}
-                        {% if variant.available == false %}
-                          disabled
-                        {% endif %}
-                        value="{{ variant.id }}"
-                      >
-                        {{ variant.title }}
-                        {%- if variant.available == false %}
-                          - {{ 'products.product.sold_out' | t -}}
-                        {%- endif %}
-                        - {{ variant.price | money | strip_html }}
-                      </option>
-                    {%- endfor -%}
-                  </select>
-                </div>
-              </noscript>
-            {%- endunless -%}
+            {% render 'variant_picker' product: product, layout: block.settings.layout, include_border: block.settings.include_border, show_option_labels: block.settings.show_option_labels, class: "main-product__block" %}
 
           {% comment %} Type buy buttons {% endcomment %}
           {%- when 'buy_buttons' -%}
@@ -392,6 +185,11 @@
                 {{ product.description }}
               </div>
             {%- endunless -%}
+
+          {% comment %} Divider / Space {% endcomment %}
+          {%- when 'divider' -%}
+            <div class="main-product__divider divider-section {% if block.settings.hide_divider %}__hide-divider{% endif %}" style="--dividerSnippetUseTopSpace: {{ block.settings.bottom }}px; --dividerSnippetUseBottomSpace: {{ block.settings.top }}px;"></div>
+
 
           {% comment %} Type rating {% endcomment %}
           {%- when 'rating' -%}
@@ -1242,6 +1040,38 @@
           "id": "include_border",
           "label": "Include border?",
           "default": true
+        }
+      ]
+    },
+    {
+      "type": "divider",
+      "name": "Divider/Space",
+      "settings": [
+        {
+          "type": "range",
+          "id": "top",
+          "min": 0,
+          "max": 100,
+          "step": 10,
+          "unit": "px",
+          "label": "Top Spacing",
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "bottom",
+          "min": 0,
+          "max": 100,
+          "step": 10,
+          "unit": "px",
+          "label": "Bottom Spacing",
+          "default": 50
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_divider",
+          "label": "Hide divider?",
+          "default": false
         }
       ]
     },

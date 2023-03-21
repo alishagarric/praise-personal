@@ -9,7 +9,7 @@
       color: RGB(var(--color-text));
       position: relative;
 
-      * {
+      > * {
         position: relative;
       }
 
@@ -25,10 +25,23 @@
         background: RGB(var(--color-background));
       }
     }
+
+    &__btn.__with-underline {
+      margin-top: var(--pxSize);
+    }
   }
 
   &__image {
     padding-left: var(--featuredProductSpace);
+
+    &__phrase {
+      position: absolute;
+      width: 50%;
+      text-align: center;
+      right: 5%;
+      top: 5%;
+      transform: rotate(5deg);
+    }
   }
 
   &.__layout-reversed {

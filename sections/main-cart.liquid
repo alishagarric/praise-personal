@@ -5,15 +5,15 @@
     <form action="{{ routes.cart_url }}" method="post" class="main-cart__form __no-form-styles" id="Cart" data-id="{{ section.id }}">
       <div class="js-contents">
 
-        {% capture heading %}{{'sections.cart.title' | t }} ({{ cart.item_count }}) {% endcapture %}
-        {% render 'heading' heading: heading, heading_size: section.settings.heading_size, alt_heading: section.settings.alt_heading, class: "main-cart", heading_tag: "h1" %}
+         {%- if cart != empty -%}
+          {% capture heading %}{{'sections.cart.title' | t }} ({{ cart.item_count }}) {% endcapture %}
+          {% render 'heading' heading: heading, heading_size: section.settings.heading_size, alt_heading: section.settings.alt_heading, class: "main-cart", heading_tag: "h1" %}
 
-        <div class="main-cart__link">
-          {% capture button_label %}{{ 'general.continue_shopping' | t }}{% endcapture %}
-          {% render 'button' button_label: button_label, button_link: routes.root_url, style: "underline" %}
-        </div>
+          <div class="main-cart__link">
+            {% capture button_label %}{{ 'general.continue_shopping' | t }}{% endcapture %}
+            {% render 'button' button_label: button_label, button_link: routes.root_url, style: "underline" %}
+          </div>
 
-        {%- if cart != empty -%}
           <table class="main-cart__table">
             <thead class="main-cart__table__head">
               <tr class="main-cart__table__row">
@@ -226,9 +226,11 @@
             </div>
           {% endif %}
         {%- else -%}
-          <p class="h2">{{ 'sections.cart.empty' | t }}</p>
-          {% capture button_label %}{{ 'general.continue_shopping' | t }}{% endcapture %}
-          {% render 'button' button_label: button_label, button_link: routes.root_url, style: "underline" %}
+          <div>
+            <h1 class="h2">{{ 'sections.cart.empty' | t }}</h1>
+            {% capture button_label %}{{ 'general.continue_shopping' | t }}{% endcapture %}
+            {% render 'button' button_label: button_label, button_link: routes.root_url, style: "underline" %}
+          </div>
         {%- endif -%}
 
         {%- if cart != empty -%}
