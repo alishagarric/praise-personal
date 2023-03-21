@@ -3,11 +3,23 @@
     "main": {
       "type": "main-product",
       "blocks": {
+        "media": {
+          "type": "media",
+          "settings": {
+            "layout": "slider"
+          }
+        },
         "title": {
           "type": "title",
           "settings": {
             "heading_size": "h4",
             "alt_heading": true
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "heading_size": "h6"
           }
         },
         "description": {
@@ -18,7 +30,32 @@
         },
         "rating": {
           "type": "rating",
-          "settings": {}
+          "settings": {
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "layout": "buttons",
+            "show_option_labels": true,
+            "include_border": true
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_quantity": true,
+            "hide_dynamic_buttons": true,
+            "include_border": true
+          }
+        },
+        "1bf87b9b-e245-4e22-99bd-fecbeec2ccc1": {
+          "type": "divider",
+          "settings": {
+            "top": 0,
+            "bottom": 60,
+            "hide_divider": true
+          }
         },
         "featured-icons": {
           "type": "icons",
@@ -39,7 +76,7 @@
           "type": "expandable",
           "settings": {
             "title": "Details",
-            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gravida diam integer suspendisse magna tempus ut praesent amet venenatis. </p><ul><li>Full of Gluten</li><li>Vegan</li><li>500 calories per cookie</li><li>No artificial colors of flavors</li></ul>",
+            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gravida diam integer suspendisse magna tempus ut praesent amet venenatis. <\/p><ul><li>Full of Gluten<\/li><li>Vegan<\/li><li>500 calories per cookie<\/li><li>No artificial colors of flavors<\/li><\/ul>",
             "page": "",
             "open": false
           }
@@ -48,7 +85,7 @@
           "type": "expandable",
           "settings": {
             "title": "Full List of Ingredients",
-            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gravida diam integer suspendisse magna tempus ut praesent amet venenatis. </p><ul><li>Full of Gluten</li><li>Vegan</li><li>500 calories per cookie</li><li>No artificial colors of flavors</li></ul>",
+            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gravida diam integer suspendisse magna tempus ut praesent amet venenatis. <\/p><ul><li>Full of Gluten<\/li><li>Vegan<\/li><li>500 calories per cookie<\/li><li>No artificial colors of flavors<\/li><\/ul>",
             "page": "",
             "open": false
           }
@@ -57,7 +94,7 @@
           "type": "expandable",
           "settings": {
             "title": "Nutritional Label",
-            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gravida diam integer suspendisse magna tempus ut praesent amet venenatis. </p><ul><li>Full of Gluten</li><li>Vegan</li><li>500 calories per cookie</li><li>No artificial colors of flavors</li></ul>",
+            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gravida diam integer suspendisse magna tempus ut praesent amet venenatis. <\/p><ul><li>Full of Gluten<\/li><li>Vegan<\/li><li>500 calories per cookie<\/li><li>No artificial colors of flavors<\/li><\/ul>",
             "page": "",
             "open": false
           }
@@ -67,63 +104,29 @@
           "settings": {
             "title": "Pickup Availability"
           }
-        },
-        "media": {
-          "type": "media",
-          "settings": {
-            "layout": "slider"
-          }
-        },
-        "price": {
-          "type": "price",
-          "settings": {
-            "heading_size": "h6"
-          }
-        },
-        "variant_picker": {
-          "type": "variant_picker",
-          "settings": {
-            "layout": "buttons",
-            "show_option_labels": true,
-            "include_border": true
-          }
-        },
-        "buy_buttons": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_quantity": true,
-            "hide_dynamic_buttons": true,
-            "include_border": true
-          }
-        },
-        "comp-products": {
-          "type": "complementary_products",
-          "settings": {
-            "title": "Complete your cart",
-            "include_border": true,
-            "crop_shape": "circle"
-          }
         }
       },
       "block_order": [
+        "media",
         "title",
+        "price",
         "description",
         "rating",
+        "variant_picker",
+        "buy_buttons",
+        "1bf87b9b-e245-4e22-99bd-fecbeec2ccc1",
         "featured-icons",
         "expandable",
         "expandable-2",
         "expandable-3",
-        "pickup-availability",
-        "media",
-        "price",
-        "variant_picker",
-        "buy_buttons",
-        "comp-products"
+        "pickup-availability"
       ],
       "settings": {
         "theme": "primary"
       }
     }
   },
-  "order": ["main"]
+  "order": [
+    "main"
+  ]
 }
