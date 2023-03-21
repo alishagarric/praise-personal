@@ -1,9 +1,9 @@
 .main-modal {
+  --mainModalButtonSize: calc(var(--sectionGuttersSpacing) / 4);
   position: fixed;
-  background: RGBA(var(--color-text) / 0.5);
   inset: 0;
-
   z-index: 999;
+  background: transparent;
 
   > *:first-child {
     width: calc(100% - calc(var(--sectionGuttersSpacing) * 2));
@@ -18,27 +18,40 @@
     background: RGB(var(--color-background));
     color: RGB(var(--color-text));
     overflow: auto;
+    pointer-events: all;
+    z-index: 2;
   }
 
   &__close {
     position: absolute;
-    right: calc(var(--sectionGuttersSpacing) / 8);
-    top: calc(var(--sectionGuttersSpacing) / 8);
-    width: calc(var(--sectionGuttersSpacing) / 4);
-    height: calc(var(--sectionGuttersSpacing) / 4);
-    padding: 0;
-    border-radius: 50%;
-    background: RGB(var(--color-background));
-    margin: 0;
+    inset: 0;
+    background: RGBA(var(--color-text) / 0.5);
+    z-index: 1;
 
-    svg {
-      width: 100%;
-      height: 100%;
-      transform: scale(0.5);
+    &__btn {
+      position: absolute;
+      right: calc(var(--mainModalButtonSize) / 2);
+      top: calc(var(--mainModalButtonSize) / 2);
+      width: var(--mainModalButtonSize);
+      height: var(--mainModalButtonSize);
+      padding: 0;
+      border-radius: 50%;
+      background: RGB(var(--color-background));
+      margin: 0;
 
-      * {
-        fill: RGB(var(--color-text));
+      svg {
+        width: 100%;
+        height: 100%;
+        transform: scale(0.5);
+
+        * {
+          fill: RGB(var(--color-text));
+        }
       }
     }
+  }
+
+  @media screen and (max-width: 676px) {
+    --mainModalButtonSize: calc(var(--sectionVerticalSpacing) / 2);
   }
 }

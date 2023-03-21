@@ -3,9 +3,6 @@ class QuickAddModal extends HTMLElement {
     super();
 
     this.addEventListener("click", this.openModal.bind(this));
-    //TODO: add ability to add button to main-product
-    //TODO: Figure out how to make main-product javascript work
-    //TODO: Prevent quick add button for no javascript users
 
     //  new IntersectionObserver(this.handleIntersection.bind(this)).observe(this);
   }
@@ -28,17 +25,8 @@ class QuickAddModal extends HTMLElement {
           );
           const selector = ".main-product__wrapper";
           const productElement = responseHTML.querySelector(selector);
-          document.body.appendChild(productElement);
-          document.body.classList.add("__mobile-overflow-none");
-          const closes = productElement.querySelectorAll(
-            ".main-modal__close, .main-modal"
-          );
-          closes.forEach((close) => {
-            close.addEventListener("click", () => {
-              document.body.removeChild(productElement);
-              document.body.classList.remove("__mobile-overflow-none");
-            });
-          });
+
+          this.appendChild(productElement);
 
           if (window.Shopify && Shopify.PaymentButton) {
             //TODO: what is this?
@@ -95,11 +83,19 @@ class QuickAddModal extends HTMLElement {
       });
   }
 
-  setInnerHTML(element, html) {
-    element.innerHTML = html;
+  appendChild(child) {
+    document.body.appendChild(child);
+    document.body.classList.add("__mobile-overflow-none");
+
+    const close = child.querySelector(".main-modal__close");
+
+    close.addEventListener("click", () => {
+      document.body.removeChild(child);
+      document.body.classList.remove("__mobile-overflow-none");
+    });
 
     // Reinjects the script tags to allow execution. By default, scripts are disabled when using element.innerHTML.
-    element.querySelectorAll("script").forEach((oldScriptTag) => {
+    child.querySelectorAll("script").forEach((oldScriptTag) => {
       const newScriptTag = document.createElement("script");
       Array.from(oldScriptTag.attributes).forEach((attribute) => {
         newScriptTag.setAttribute(attribute.name, attribute.value);

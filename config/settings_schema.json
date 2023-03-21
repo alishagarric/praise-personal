@@ -89,6 +89,18 @@
     ]
   },
   {
+    "name": "Quick Add Modal",
+    "settings": [
+      {
+        "type": "text",
+        "id": "quick_add_modal_button_text",
+        "default": "View All Details",
+        "label": "View Product Button Label",
+        "info": "By default a 'View Product' button displays within the quick add modal. Leave blank to hide this button."
+      }
+    ]
+  },
+  {
     "name": "t:settings_schema.social_media.name",
     "settings": [
       {

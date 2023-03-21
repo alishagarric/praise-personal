@@ -103,13 +103,6 @@
           "settings": {
             "title": "Pickup Availability"
           }
-        },
-        "button": {
-          "type": "button",
-          "settings": {
-            "button_label": "View All Details",
-            "button_link": "#"
-          }
         }
       },
       "block_order": [
@@ -125,8 +118,7 @@
         "expandable",
         "expandable-2",
         "expandable-3",
-        "pickup-availability",
-        "button"
+        "pickup-availability"
       ],
       "settings": {
         "theme": "primary"

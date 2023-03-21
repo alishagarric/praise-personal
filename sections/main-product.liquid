@@ -116,7 +116,6 @@
               
             </media-gallery>
 
-
             {% comment %}
               Seems weird but we need to open this container without a closing tag. 
               The end of the loop will close this div so that all blocks after media are in a container
@@ -126,8 +125,6 @@
               style="{% if product.metafields.custom.color %}--color-foreground: {{ product.metafields.custom.color.value.rgb }}; {% endif %} {% if product.metafields.custom.text_color %} --color-foreground-text: {{ product.metafields.custom.text_color.value.rgb }};{% endif %}"
             >
             
-
-
           {% comment %} Type app {% endcomment %}
           {%- when '@app' -%}
             <div class="app">
@@ -188,14 +185,10 @@
           {%- when 'divider' -%}
             <div class="main-product__divider divider-section {% if block.settings.hide_divider %}__hide-divider{% endif %}" style="--dividerSnippetUseTopSpace: {{ block.settings.bottom }}px; --dividerSnippetUseBottomSpace: {{ block.settings.top }}px;"></div>
 
+
           {% comment %} Type rating {% endcomment %}
           {%- when 'rating' -%}
             {% render 'product-ratings' product: product %}
-
-          {% comment %} Button {% endcomment %}
-          {%- when 'button' -%}
-            {% render 'button' button_label: block.settings.button_label, button_link: block.settings.button_link, style: "underline", class: "main-product" %}
-
 
           {% comment %} Type pickup availability {% endcomment %}
           {%- when 'pickup_availability' -%}
@@ -234,6 +227,10 @@
         {%- endcase -%}
       {%- endfor -%}
 
+      {% if template == "product.modal" and settings.quick_add_modal_button_text != blank %}
+        {% render 'button' button_label: settings.quick_add_modal_button_text, button_link: product.url, style: "underline", class: "main-product" %}
+      {% endif %}
+
       {% comment %}
         Seems weird, but this closes the "blocks-before-media" or "blocks-after-media" 
         opening div tag above depending on if the media block exists or not. This is
@@ -243,7 +240,9 @@
     </div>
 
     {% if template == "product.modal" %}
-      <button class="main-modal__close" type="button" aria-label="Close">{% render 'svg-exit' %}</button>
+      <div class="main-modal__close">
+        <button class="main-modal__close__btn" type="button" aria-label="Close">{% render 'svg-exit' %}</button>
+      </div>
     {% endif %}
   </div>
 
@@ -1129,24 +1128,6 @@
           "id": "title",
           "default": "Pickup Availability",
           "label": "Title"
-        }
-      ]
-    },
-    {
-      "type": "button",
-      "name": "Button",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "text",
-          "id": "button_label",
-          "default": "Laboris Nisi",
-          "label": "Button Label"
-        },
-        {
-          "type": "url",
-          "id": "button_link",
-          "label": "Button Link"
         }
       ]
     }

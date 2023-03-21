@@ -194,4 +194,20 @@
   &__btn.__with-underline {
     margin-top: var(--pxSize);
   }
+
+  @media screen and (max-width: 676px) {
+    &__container {
+      display: block;
+    }
+
+    &__media {
+      position: relative;
+    }
+
+    &__blocks-after-media,
+    &__blocks-before-media {
+      padding-left: var(--sectionGuttersSpacing);
+      padding-right: var(--sectionGuttersSpacing);
+    }
+  }
 }
