@@ -7,7 +7,7 @@
     display: block;
     border-bottom: 1px solid RGB(var(--color-border));
     padding-top: var(--dividerSnippetUseTopSpace);
-    padding-bottom: var(--dividerSnippetUseBottomSpace);
+    margin-bottom: var(--dividerSnippetUseBottomSpace);
   }
 
   &.__hide-divider {

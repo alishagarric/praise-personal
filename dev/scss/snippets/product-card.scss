@@ -2,19 +2,27 @@
   position: relative;
   display: block;
 
+  a {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+  }
+
   &__image {
     width: 100%;
     margin-bottom: calc(var(--btnHeight) / 2);
+    z-index: 1;
   }
 
   &__quick-add-btn {
+    position: relative;
     height: calc(var(--btnHeight) / 4);
-    z-index: 2;
+    z-index: 3;
     text-align: center;
     display: flex;
     justify-content: center;
 
-    button {
+    &__btn {
       margin: 0;
       transform: translateY(-100%);
     }
@@ -36,6 +44,7 @@
 
   &__row {
     display: block;
+    z-index: 1;
 
     * {
       display: inline-block;

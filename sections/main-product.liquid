@@ -27,17 +27,15 @@
   assign product_form_id = 'Product-Form-' | append: section.id
 -%}
 
-
 {% comment %} Add style sheet that'll apply to 3d model instances? {% endcomment %}
 {%- if first_3d_model -%}
   <link id="ModelViewerStyle" rel="stylesheet" href="https://cdn.shopify.com/shopifycloud/model-viewer-ui/assets/v1.0/model-viewer-ui.css" media="print" onload="this.media='all'">
 {%- endif -%}
 
-
-<div class="main-product product __theme-{{ section.settings.theme }}">
+<div class="main-product product {% if template == "product.modal" %}main-modal{% endif %} __theme-{{ section.settings.theme }}">
   
     {% comment %} Product info {% endcomment %}
-    <div id="Product-Info-{{ section.id }}" class="main-product__container">
+    <div id="Product-Info-{{ section.id }}" class="main-product__container __offset-{% if section.blocks.first.type == "media" %}left{% elsif section.blocks.last.type == "media" %}right{% else %}none{% endif %}">
       {% comment %} 
         Seems weird but we need to open this container without a closing tag. 
         Either the end of the loop of the media block within the loop will close 
@@ -69,7 +67,7 @@
                 {{ 'accessibility.skip_to_product_info' | t }}
               </a>
 
-              <ul class="main-product__media__container product-media grid list-unstyled" role="list">
+              <ul class="main-product__media__container product-media list-unstyled" role="list">
 
                 {% comment %} If no media exists, output placeholder content? {% endcomment %}
                 {%- unless featured_media == null -%}
@@ -190,10 +188,14 @@
           {%- when 'divider' -%}
             <div class="main-product__divider divider-section {% if block.settings.hide_divider %}__hide-divider{% endif %}" style="--dividerSnippetUseTopSpace: {{ block.settings.bottom }}px; --dividerSnippetUseBottomSpace: {{ block.settings.top }}px;"></div>
 
-
           {% comment %} Type rating {% endcomment %}
           {%- when 'rating' -%}
             {% render 'product-ratings' product: product %}
+
+          {% comment %} Button {% endcomment %}
+          {%- when 'button' -%}
+            {% render 'button' button_label: block.settings.button_label, button_link: block.settings.button_link, style: "underline", class: "main-product" %}
+
 
           {% comment %} Type pickup availability {% endcomment %}
           {%- when 'pickup_availability' -%}
@@ -239,6 +241,10 @@
       {% endcomment %}
       </div>
     </div>
+
+    {% if template == "product.modal" %}
+      <button class="main-modal__close" type="button" aria-label="Close">{% render 'svg-exit' %}</button>
+    {% endif %}
   </div>
 
   {% comment %} TODO: IE purchase flow fix {% endcomment %}
@@ -259,7 +265,7 @@
 {
   "name": "t:sections.main-product.name",
   "tag": "section",
-  "class": "section",
+  "class": "main-product__wrapper",
   "blocks": [
     {
       "type": "@app"
@@ -1123,6 +1129,24 @@
           "id": "title",
           "default": "Pickup Availability",
           "label": "Title"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "Button",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_label",
+          "default": "Laboris Nisi",
+          "label": "Button Label"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
         }
       ]
     }

@@ -13,6 +13,10 @@
     }
  {% endstyle %}
 
+{% if section.settings.quick_add %}
+  <script src="{{ 'quick-add-modal.js' | asset_url }}" defer="defer"></script>
+{% endif %}
+
 
 <div
   id="Shop-the-look-{{ section.id }}" 

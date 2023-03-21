@@ -9,6 +9,42 @@
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto auto;
 
+    &.__offset {
+      &-left {
+        grid-template-columns: 0px repeat(2, 1fr);
+
+        .main-product {
+          &__blocks-before-media {
+            padding: 0;
+
+            &:before {
+              width: 25vw;
+              right: unset;
+              left: 0;
+            }
+          }
+        }
+      }
+
+      &-right {
+        grid-template-columns: repeat(2, 1fr) 0px;
+
+        .main-product {
+          &__blocks-after-media {
+            padding: 0;
+          }
+
+          &__blocks-before-media {
+            &:before {
+              width: 75vw;
+              right: unset;
+              left: 0;
+            }
+          }
+        }
+      }
+    }
+
     > * {
       padding-top: calc(var(--sectionVerticalSpacing) * var(--topSpacingRatio));
       padding-bottom: calc(
@@ -153,5 +189,9 @@
     &__product:not(:last-child) {
       margin-bottom: calc(var(--pxSize) / 4);
     }
+  }
+
+  &__btn.__with-underline {
+    margin-top: var(--pxSize);
   }
 }

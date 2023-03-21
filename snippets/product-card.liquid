@@ -45,13 +45,13 @@
 
 
 
-<a 
+<div
   class="product-card {{ class }} __align-{{ alignment }} {% if show_bg_color and product.metafields.custom.color %}__include-bg{% endif %}" 
-  href="{{ product_url }}" 
   style="{% if product.metafields.custom.color %}--productColor: {{ product.metafields.custom.color }}{% endif %}"
   data-bg-color="{% if product.metafields.custom.color %} {{ product.metafields.custom.color }} {% else %}var(--color-background){% endif %}"
   data-text-color="{% if product.metafields.custom.text_color %} {{ product.metafields.custom.text_color }} {% else %}var(--color-text){% endif %}"
 >
+  <a href="{{ product_url }}" aria-label="View Product"></a>
 
   {% if show_phrase and product.metafields.custom.phrase %}
     <p class="product-card__phrase h6">{{ product.metafields.custom.phrase }}</p>
@@ -70,7 +70,7 @@
 
   {% if quick_add %}
     <div class="product-card__quick-add-btn">
-      <button class="btn" aria-label="Quick Buy">+</button>
+      <quick-add-modal class="product-card__quick-add-btn__btn btn" aria-label="Quick Buy" data-product-url="{{ product_url }}">+</quick-add-modal>
     </div>
   {% endif %}
 
@@ -90,4 +90,4 @@
   {% if price_position == "bottom" %}
     {%- render 'price', product: product -%}
   {% endif %}
-</a>
+</div>

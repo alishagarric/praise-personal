@@ -13,6 +13,8 @@
   {% render 'button', class: "featured-product", button_label: section.settings.button_label, button_link: section.settings.button_link %}
 {% endcomment %}
 
+{% button_color = button_color | default: "default" %}
+
 {% if button_label != blank %}
   {% if button_link != blank %}
     <a 
