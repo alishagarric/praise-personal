@@ -44,6 +44,16 @@
     }
   }
 
+  //block wrapper that wraps some product blocks
+  &__block {
+    display: block;
+
+    &.__border-top {
+      border-top: 1px solid RGBA(var(--color-border));
+      padding-top: calc(var(--pxSize) / 4);
+    }
+  }
+
   &.__layout-reversed {
     .featured-product {
       &__text,
@@ -71,11 +81,55 @@
 
   @media screen and (max-width: 676px) {
     display: flex;
-    flex-direction: column-reverse;
-    gap: 0;
+    gap: calc(var(--sectionVerticalSpacing) / 2);
+
+    &.__layout-mobile-reversed,
+    &.__layout-mobile-default {
+      .featured-product {
+        &__text {
+          &__first-half {
+            &:before {
+              left: calc(-1 * var(--sectionGuttersSpacing));
+            }
+          }
+        }
+      }
+    }
 
     &.__layout-mobile-reversed {
       flex-direction: column;
+
+      .featured-product {
+        &__image {
+          margin-top: calc(var(--sectionVerticalSpacing) / 2);
+          padding: 0;
+        }
+      }
+    }
+
+    &:not(.__layout-mobile-reversed) {
+      flex-direction: column-reverse;
+
+      .featured-product {
+        &__image {
+          position: relative;
+          padding: 0;
+
+          &:before {
+            content: var(--featuredProductThemeBool);
+            position: absolute;
+            left: calc(var(--sectionGuttersSpacing) * -1);
+            width: 100vw;
+            bottom: 0;
+            top: 50%;
+            background: RGB(var(--color-background));
+          }
+
+          > * {
+            position: relative;
+          }
+        }
+      }
     }
   }
 

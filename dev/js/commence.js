@@ -634,7 +634,6 @@ class NumberInput extends HTMLElement {
     this.increment = this.querySelector(".increment");
     this.decrement = this.querySelector(".decrement");
     this.input = this.querySelector("input[type='number']");
-    console.log(this.input);
 
     if (!this.increment || !this.decrement || !this.input) return;
     this.increment.addEventListener(

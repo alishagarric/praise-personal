@@ -5,7 +5,6 @@ class CartRecommendations extends HTMLElement {
     const handleIntersection = (entries, observer) => {
       if (!entries[0].isIntersecting) return;
       observer.unobserve(this);
-      console.log("BOOM");
 
       fetch(this.dataset.url)
         .then((response) => response.text())
@@ -13,9 +12,7 @@ class CartRecommendations extends HTMLElement {
           const recommendations = new DOMParser()
             .parseFromString(text, "text/html")
             .querySelector("cart-recommendations");
-          console.log("ZOOM", recommendations, this.dataset.url);
           if (recommendations && recommendations.innerHTML.trim().length) {
-            console.log("TOOM");
             this.innerHTML = recommendations.innerHTML;
           }
         })

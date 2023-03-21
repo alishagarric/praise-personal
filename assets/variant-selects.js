@@ -30,7 +30,6 @@ class VariantSelects extends HTMLElement {
       this.querySelectorAll("select"),
       (select) => select.value
     );
-    console.log("updateOptions", this.options);
   }
 
   // Using currently selected options, get currently selected variant
@@ -42,8 +41,6 @@ class VariantSelects extends HTMLElement {
         })
         .includes(false);
     });
-
-    console.log("updateVariantID", this.currentVariant);
   }
 
   //if currently selected variant has featured media, put it first
@@ -54,6 +51,8 @@ class VariantSelects extends HTMLElement {
     const mediaGallery = document.getElementById(
       `Product-MediaGallery-${this.dataset.section}`
     );
+    if (!mediaGallery) return;
+
     mediaGallery.setActiveMedia(
       `${this.dataset.section}-${this.currentVariant.featured_media.id}`
     );
@@ -149,7 +148,6 @@ class VariantSelects extends HTMLElement {
 
   // Change button text to unavailable and hide price
   setUnavailable() {
-    console.log("setUnavailable");
     const button = document.getElementById(
       `Product-Form-${this.dataset.section}`
     );
@@ -170,7 +168,6 @@ class VariantSelects extends HTMLElement {
     return this.variantData;
   }
 
-  //TODO: Not sure if this is working? It finds pickup-availability just fine, but render() doesn't seem to do anything
   updatePickupAvailability() {
     const pickUpAvailability = document.querySelector("pickup-availability");
     if (!pickUpAvailability) return;
@@ -180,13 +177,6 @@ class VariantSelects extends HTMLElement {
     } else {
       pickUpAvailability.innerHTML = "";
     }
-
-    console.log(
-      "updatePickupAvailability",
-      pickUpAvailability,
-      this.currentVariant,
-      this.currentVariant.available
-    );
   }
 }
 customElements.define("variant-selects", VariantSelects);

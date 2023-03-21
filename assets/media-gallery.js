@@ -17,7 +17,6 @@ if (!customElements.get("media-gallery")) {
       setupListener() {
         this.dots.forEach((dot) => {
           dot.addEventListener("click", () => {
-            console.log(dot.dataset);
             this.setActiveMedia(`${dot.dataset.mediaDotId}`);
           });
         });

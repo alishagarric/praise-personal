@@ -11,9 +11,13 @@
   #Featured-product-{{ section.id }} {
     --topSpacingRatio: {{ top_spacing }} / 100;
     --bottomSpacingRatio: {{ bottom_spacing }} / 100;
-    --featuredProductThemeBool: {% if section.settings.theme_section == true %}""{% else %}none{% endif %};
+    --featuredProductThemeBool: {% if section.settings.theme_section != "default" %}""{% else %}none{% endif %};
   }
 {% endstyle %}
+
+<script src="{{ 'variant-selects.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+
 
 
 <div id="Featured-product-{{ section.id }}" class="featured-product __layout-{{ section.settings.layout }} __layout-mobile-{{ section.settings.mobile_layout }} __theme-{{ section_theme }}">
@@ -23,7 +27,7 @@
     {% if section.settings.product != blank %}
       <div 
         class="featured-product__text__first-half"
-        style="{% if section.settings.product.metafields.custom.color %}--color-background: {{ section.settings.product.metafields.custom.color.value.rgb }}; --color-foreground-text: {{ section.settings.product.metafields.custom.color.value.rgb }};{% endif %} {% if section.settings.product.metafields.custom.text_color %} --color-text: {{ section.settings.product.metafields.custom.text_color.value.rgb }}; --color-foreground: {{ section.settings.product.metafields.custom.text_color.value.rgb }}; --color-border: {{ section.settings.product.metafields.custom.text_color.value.rgb }} / .3;{% endif %}"
+        style="{% if section.settings.theme_section != "default" %}{% if section.settings.product.metafields.custom.color %}--color-background: {{ section.settings.product.metafields.custom.color.value.rgb }}; --color-foreground-text: {{ section.settings.product.metafields.custom.color.value.rgb }};{% endif %} {% if section.settings.product.metafields.custom.text_color %} --color-text: {{ section.settings.product.metafields.custom.text_color.value.rgb }}; --color-foreground: {{ section.settings.product.metafields.custom.text_color.value.rgb }}; --color-border: {{ section.settings.product.metafields.custom.text_color.value.rgb }} / .3;{% endif %}{% endif %}"
       >
         {%- for block in section.blocks -%}
           {%- case block.type -%}
@@ -58,17 +62,15 @@
 
             {% comment %} Type description {% endcomment %}
             {%- when 'description' -%}
-            {% comment %} TODO not sure if working {% endcomment %}
-              {%- unless product.description == blank -%}
+              {%- unless section.settings.product.description == blank -%}
                 <div {{ block.shopify_attributes }} class="{{ block.settings.text_size }} __align-{{ alignment }}">
-                  {{ product.description }}
+                  {{ section.settings.product.description }}
                 </div>
               {%- endunless -%}
 
             {% comment %} Type rating {% endcomment %}
             {%- when 'rating' -%}
-            {% comment %} TODO not sure if working {% endcomment %}
-              {% render 'product-ratings' product: product %}
+              {% render 'product-ratings' product: section.settings.product %}
 
             {% comment %} Type shop button {% endcomment %}
             {%- when 'shop_button' -%}
@@ -88,7 +90,14 @@
 
           {%- endcase -%}
 
-          {% assign half_blocks_count = section.blocks.size | minus: 1 %}
+          {% if section.settings.theme_section == "half" %}
+            {% assign half_blocks_count = section.blocks.size | divided_by: 2.0 | ceil  %}
+          {% elsif section.settings.theme_section == "most" %}
+            {% assign half_blocks_count = section.blocks.size | minus: 1 %}
+          {% else %}
+            {% assign half_blocks_count = 0 %}
+          {% endif %}
+
           {% if forloop.index == half_blocks_count %}
             </div>
             <div class="featured-product__text__last-half">
@@ -101,7 +110,9 @@
   </div>
 
   {% comment %} Image content column {% endcomment %}
-  <div class="featured-product__image">
+  <div class="featured-product__image"
+   style="{% if section.settings.product.metafields.custom.color %}--color-background: {{ section.settings.product.metafields.custom.color.value.rgb }}; --color-foreground-text: {{ section.settings.product.metafields.custom.color.value.rgb }};{% endif %} {% if section.settings.product.metafields.custom.text_color %} --color-text: {{ section.settings.product.metafields.custom.text_color.value.rgb }}; --color-foreground: {{ section.settings.product.metafields.custom.text_color.value.rgb }}; --color-border: {{ section.settings.product.metafields.custom.text_color.value.rgb }} / .3;{% endif %}"
+  >
     <div class="image-container __crop-{{ section.settings.crop_shape }}" style="--imageRatio: {{ section.settings.product.featured_image.height | divided_by: 1.00 | divided_by: section.settings.product.featured_image.width | times: 100 }}%">
       {%- if section.settings.product.featured_image != blank -%}
         {% render 'next-gen-img', image: section.settings.product.featured_image %}
@@ -152,9 +163,24 @@
       "default": "left"
     },
     {
-      "type": "checkbox",
+      "type": "select",
       "id": "theme_section",
       "label": "Theme section with product colors?",
+      "options": [
+        {
+          "value": "default",
+          "label": "Don't Theme"
+        },
+        {
+          "value": "half",
+          "label": "Theme First Half of Blocks"
+        },
+        {
+          "value": "most",
+          "label": "Theme All but Last Block"
+        }
+      ],
+      "default": "default",
       "info": "Only applies when there's enough products in the collection to initiate a slider. Relies on the addition of product metafields. TODO: Add link with info"
     },
     {
@@ -543,19 +569,6 @@
         {
           "type": "paragraph",
           "content": "t:sections.main-product.blocks.rating.settings.paragraph.content"
-        }
-      ]
-    },
-    {
-      "type": "pickup_availability",
-      "name": "Pickup availability",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "text",
-          "id": "title",
-          "default": "Pickup Availability",
-          "label": "Title"
         }
       ]
     },

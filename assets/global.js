@@ -15049,7 +15049,6 @@ var NumberInput = /*#__PURE__*/function (_HTMLElement6) {
     _this11.increment = _this11.querySelector(".increment");
     _this11.decrement = _this11.querySelector(".decrement");
     _this11.input = _this11.querySelector("input[type='number']");
-    console.log(_this11.input);
     if (!_this11.increment || !_this11.decrement || !_this11.input) return _possibleConstructorReturn(_this11);
 
     _this11.increment.addEventListener("click", _this11.increaseInputValue.bind(_assertThisInitialized(_this11)));
