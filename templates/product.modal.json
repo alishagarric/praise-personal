@@ -1,0 +1,129 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h4",
+            "alt_heading": true
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "text_size": "p-sm"
+          }
+        },
+        "rating": {
+          "type": "rating",
+          "settings": {}
+        },
+        "featured-icons": {
+          "type": "icons",
+          "settings": {
+            "icon_1": "none",
+            "icon_1_title": "",
+            "icon_2": "none",
+            "icon_2_title": "",
+            "icon_3": "none",
+            "icon_3_title": "",
+            "icon_height": 20,
+            "title": "Key Ingredients",
+            "layout": "row",
+            "include_border": true
+          }
+        },
+        "expandable": {
+          "type": "expandable",
+          "settings": {
+            "title": "Details",
+            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gravida diam integer suspendisse magna tempus ut praesent amet venenatis. </p><ul><li>Full of Gluten</li><li>Vegan</li><li>500 calories per cookie</li><li>No artificial colors of flavors</li></ul>",
+            "page": "",
+            "open": false
+          }
+        },
+        "expandable-2": {
+          "type": "expandable",
+          "settings": {
+            "title": "Full List of Ingredients",
+            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gravida diam integer suspendisse magna tempus ut praesent amet venenatis. </p><ul><li>Full of Gluten</li><li>Vegan</li><li>500 calories per cookie</li><li>No artificial colors of flavors</li></ul>",
+            "page": "",
+            "open": false
+          }
+        },
+        "expandable-3": {
+          "type": "expandable",
+          "settings": {
+            "title": "Nutritional Label",
+            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gravida diam integer suspendisse magna tempus ut praesent amet venenatis. </p><ul><li>Full of Gluten</li><li>Vegan</li><li>500 calories per cookie</li><li>No artificial colors of flavors</li></ul>",
+            "page": "",
+            "open": false
+          }
+        },
+        "pickup-availability": {
+          "type": "pickup_availability",
+          "settings": {
+            "title": "Pickup Availability"
+          }
+        },
+        "media": {
+          "type": "media",
+          "settings": {
+            "layout": "slider"
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "heading_size": "h6"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "layout": "buttons",
+            "show_option_labels": true,
+            "include_border": true
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_quantity": true,
+            "hide_dynamic_buttons": true,
+            "include_border": true
+          }
+        },
+        "comp-products": {
+          "type": "complementary_products",
+          "settings": {
+            "title": "Complete your cart",
+            "include_border": true,
+            "crop_shape": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "description",
+        "rating",
+        "featured-icons",
+        "expandable",
+        "expandable-2",
+        "expandable-3",
+        "pickup-availability",
+        "media",
+        "price",
+        "variant_picker",
+        "buy_buttons",
+        "comp-products"
+      ],
+      "settings": {
+        "theme": "primary"
+      }
+    }
+  },
+  "order": ["main"]
+}
