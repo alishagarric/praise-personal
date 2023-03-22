@@ -29,7 +29,8 @@
   &__image {
     position: relative;
 
-    img, svg {
+    img,
+    svg {
       position: absolute;
       inset: 0;
       width: 100%;
@@ -60,13 +61,15 @@
       background-clip: padding-box;
       will-change: padding, border-width;
       transition: all 0.25s ease;
+      cursor: pointer;
 
       //Don't allow flickity to overide our css
       transform: translate(-50%, -50%) !important;
       left: var(--shopTheLookDotleft) !important;
       top: var(--shopTheLookDotTop) !important;
 
-      &.is-selected {
+      &.is-selected,
+      &:hover {
         border-width: calc(var(--pxSize) / 8);
         padding: calc(var(--pxSize) / 2.66);
       }
