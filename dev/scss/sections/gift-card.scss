@@ -1,6 +1,7 @@
 .gift-card {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr auto 1fr;
   min-height: calc(100vh - var(--navWithAnnouncementHeight));
 
   &__text,
@@ -11,14 +12,11 @@
     flex-direction: column;
     justify-content: center;
     width: 100%;
+    grid-row: 2 / 3;
   }
 
   &__text {
     border-right: 1px solid RGB(var(--color-border));
-
-    h1 {
-      margin-bottom: 0;
-    }
 
     &__expired {
       border: 1px solid RGB(var(--color-border));
@@ -59,6 +57,7 @@
     max-width: 450px;
 
     &__container {
+      position: relative;
       border: 1px solid RGB(var(--color-border));
       width: 100%;
       padding-top: 100%;
