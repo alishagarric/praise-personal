@@ -15074,6 +15074,47 @@ var NumberInput = /*#__PURE__*/function (_HTMLElement6) {
 }( /*#__PURE__*/_wrapNativeSuper(HTMLElement));
 
 customElements.define("number-input", NumberInput);
+/* Copy Input Text */
+///////////////////////////////
+///////////////////////////////
+
+var CopyInputText = /*#__PURE__*/function (_HTMLElement7) {
+  _inherits(CopyInputText, _HTMLElement7);
+
+  var _super7 = _createSuper(CopyInputText);
+
+  function CopyInputText() {
+    var _this12;
+
+    _classCallCheck(this, CopyInputText);
+
+    _this12 = _super7.call(this);
+    _this12.button = _this12.querySelector("button");
+    _this12.input = _this12.querySelector("input");
+    if (!_this12.button || !_this12.input) return _possibleConstructorReturn(_this12);
+
+    _this12.button.addEventListener("click", _this12.copy.bind(_assertThisInitialized(_this12)));
+
+    return _this12;
+  }
+
+  _createClass(CopyInputText, [{
+    key: "copy",
+    value: function copy() {
+      this.input.select();
+      this.input.setSelectionRange(0, 99999); // For mobile devices
+      // Copy the text inside the text field
+
+      navigator.clipboard.writeText(this.input.value); // Alert the copied text
+
+      alert("Copied the text: " + this.input.value);
+    }
+  }]);
+
+  return CopyInputText;
+}( /*#__PURE__*/_wrapNativeSuper(HTMLElement));
+
+customElements.define("copy-input-text", CopyInputText);
 /* Logic the Shopify Starter Included */
 ////////////////////////////////////////
 ///////////////////////////////////////
@@ -15092,7 +15133,7 @@ document.querySelectorAll(".disclosure").forEach(function (details) {
 });
 
 function debounce(fn, wait) {
-  var _this12 = this;
+  var _this13 = this;
 
   var t;
   return function () {
@@ -15102,7 +15143,7 @@ function debounce(fn, wait) {
 
     clearTimeout(t);
     t = setTimeout(function () {
-      return fn.apply(_this12, args);
+      return fn.apply(_this13, args);
     }, wait);
   };
 }

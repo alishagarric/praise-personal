@@ -199,25 +199,6 @@ td {
   text-align: right;
 }
 
-/* Gift Card  */
-
-.gift-card {
-  width: 100%;
-  max-width: 300px;
-  margin: auto;
-}
-
-.gift-card input {
-  text-align: center;
-  margin: auto;
-  margin-bottom: 1rem;
-}
-
-.gift-card-qr-code {
-  display: flex;
-  justify-content: center;
-}
-
 /* Tables */
 
 table {

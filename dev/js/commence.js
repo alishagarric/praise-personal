@@ -655,6 +655,33 @@ class NumberInput extends HTMLElement {
 }
 customElements.define("number-input", NumberInput);
 
+/* Copy Input Text */
+///////////////////////////////
+///////////////////////////////
+
+class CopyInputText extends HTMLElement {
+  constructor() {
+    super();
+    this.button = this.querySelector("button");
+    this.input = this.querySelector("input");
+
+    if (!this.button || !this.input) return;
+    this.button.addEventListener("click", this.copy.bind(this));
+  }
+
+  copy() {
+    this.input.select();
+    this.input.setSelectionRange(0, 99999); // For mobile devices
+
+    // Copy the text inside the text field
+    navigator.clipboard.writeText(this.input.value);
+
+    // Alert the copied text
+    alert("Copied the text: " + this.input.value);
+  }
+}
+customElements.define("copy-input-text", CopyInputText);
+
 /* Logic the Shopify Starter Included */
 ////////////////////////////////////////
 ///////////////////////////////////////

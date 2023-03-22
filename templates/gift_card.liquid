@@ -102,48 +102,13 @@
 
   </head>
   <body>
-    <div class="gift-card align-center">
-      <p>{{ shop.name }}</p>
-      <h1>{{ 'gift_cards.issued.subtext' | t }}</h1>
+    {% section 'header' %}
 
-      <p>
-        {{ gift_card.initial_value | money_with_currency }}
-      </p>
+    <main id="MainContent" role="main" tabindex="-1">
+      {% render 'gift-card' %}
+    </main>
 
-      {%- if gift_card.enabled == false or gift_card.expired -%}
-        <p>{{ 'gift_cards.issued.expired' | t }}</p>
-      {%- endif -%}
-
-      {%- if gift_card.balance != gift_card.initial_value -%}
-        {%- assign gift_card_balance = gift_card.balance | money_with_currency -%}
-        <p>{{ 'gift_cards.issued.remaining_html' | t: balance: gift_card_balance }}</p>
-      {%- endif -%}
-
-      <input
-        type="text"
-        value="{{ gift_card.code | format_code }}"
-        aria-label="{{ 'gift_cards.issued.gift_card_code' | t }}"
-        readonly
-      >
-
-      {%- if gift_card.pass_url -%}
-        <a href="{{ gift_card.pass_url }}">
-          Add to Wallet
-        </a>
-      {%- endif -%}
-
-      <div class="gift-card-qr-code" data-identifier="{{ gift_card.qr_identifier }}"></div>
-    </div>
+    {% section 'footer' %}
+    
   </body>
 </html>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    new QRCode(document.querySelector('.gift-card-qr-code'), {
-      text: document.querySelector('.gift-card-qr-code').dataset.identifier,
-      width: 120,
-      height: 120,
-      imageAltText: {{ 'gift_cards.issued.qr_image_alt' | t | json }}
-    });
-  });
-</script>
