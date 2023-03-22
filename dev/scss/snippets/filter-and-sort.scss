@@ -3,15 +3,50 @@
   gap: calc(var(--pxSize) / 3);
 
   &__filters {
-    &__details {
+    &__details.disclosure {
       .disclosure {
         &__content {
-          display: grid;
-          grid-template-columns: repeat(3, 50%);
-          gap: calc(var(--pxSize) / 3);
-          //TODO: finish styles
+          width: 0px;
+          overflow: visible;
         }
       }
+    }
+
+    &__container {
+      padding: calc(var(--sectionVerticalSpacing) / 2) 0;
+      margin-top: calc(var(--sectionVerticalSpacing) / 4);
+      border-top: 1px solid RGB(var(--color-border));
+      width: calc(
+        100vw - var(--sectionGuttersSpacing) - var(--sectionGuttersSpacing)
+      );
+      max-width: calc(
+        var(--siteMaxWidth) - var(--sectionGuttersSpacing) -
+          var(--sectionGuttersSpacing)
+      );
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: calc(var(--pxSize) / 3);
+    }
+
+    &__checkboxes {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    &__label {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+
+      * {
+        margin-bottom: 0;
+      }
+    }
+
+    &__row {
+      display: flex;
     }
   }
 

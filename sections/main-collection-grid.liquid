@@ -7,10 +7,12 @@
   }
 {% endstyle %}
 
-{% render 'filter-and-sort', results: collection %}
-
 {%- paginate collection.products by section.settings.pagination_count -%}
   <div id="Main-collection-grid-{{ section.id }}" class="main-collection-grid __theme-{{ section.settings.theme }} {% if section.settings.show_bg_color == true %}__mobile-fw{% endif %}">
+    
+    {% comment %} Filter and sort {% endcomment %}
+    {% render 'filter-and-sort', results: collection %}
+
     {% comment %} No products found in general or with current filters applied {% endcomment %}
     {%- if collection.products.size == 0 -%}
       <p class="__article-text __align-center">

@@ -36,10 +36,14 @@
     }
 
     &__code {
+      width: 100%;
+
       input {
         display: block;
         border: none;
         margin-top: var(--pxSize);
+        width: 100%;
+        text-align: center;
       }
     }
 

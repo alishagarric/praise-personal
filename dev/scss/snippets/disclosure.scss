@@ -84,7 +84,8 @@
     }
 
     &-dropdown-button,
-    &-default {
+    &-default,
+    &-blank-button {
       //the plus sign made out of pseudo elements
       .disclosure {
         &__summary {
@@ -176,7 +177,8 @@
       }
     }
 
-    &-dropdown-button {
+    &-dropdown-button,
+    &-blank-button {
       .disclosure {
         &__summary {
           @extend .btn;

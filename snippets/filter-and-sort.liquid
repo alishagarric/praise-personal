@@ -28,93 +28,99 @@
     {% capture filter_title %}{{ 'products.facets.filter_by_label' | t }}{% endcapture %}
 
     {% capture filter_content %}
-      {%- for filter in results.filters -%}
-        {% case filter.type %}
-          {% when 'boolean' or 'list' %}
-            <div>
+      <div class="filter-and-sort__filters__container">
+        {%- for filter in results.filters -%}
+          {% case filter.type %}
+            {% when 'boolean' or 'list' %}
               <div>
-                {{ filter.label | escape }}
-                {% unless filter.active_values == empty %}
-                  ({{ filter.active_values | size -}}
-                  <span class="visually-hidden">{{ 'accessibility.filter_active_values' | t }}</span>)
-                {% endunless %}
-              </div>
-              <div>
-                <fieldset>
-                  <legend class="visually-hidden">{{ filter.label | escape }}</legend>
-                  <ul class="list-unstyled" role="list">
-                    {%- for value in filter.values -%}
-                      <li>
-                        <input
-                          type="checkbox"
-                          name="{{ value.param_name }}"
-                          value="{{ value.value }}"
-                          id="Filter-{{ filter.label | escape }}-{{ forloop.index }}"
-                          {% if value.active %}
-                            checked
-                          {% endif %}
-                          {% if value.count == 0 and value.active == false %}
-                            disabled
-                          {% endif %}
-                        >
-                        <label for="Filter-{{ filter.label | escape }}-{{ forloop.index }}">
-                          {{ value.label | escape }} ({{ value.count }})
-                        </label>
-                      </li>
-                    {%- endfor -%}
-                  </ul>
-                </fieldset>
-
-                <a href="{{ filter.url_to_remove }}">
-                  {{ 'products.facets.reset' | t }}
-                </a>
-              </div>
-            </div>
-          {% when 'price_range' %}
-            <div>
-              <div class="button">
-                {{ filter.label | escape }}
-              </div>
-              <div>
-                <div>
-                  <div>
-                    {%- assign max_price_amount = filter.range_max | money | strip_html | escape -%}
-                    <span>{{ 'products.facets.max_price' | t: price: max_price_amount }}</span>
+                <div class="filter-and-sort__filters__label">
+                  <div class="h6">
+                    {{ filter.label | escape }}
+                    {% unless filter.active_values == empty %}
+                      ({{ filter.active_values | size -}}
+                      <span class="visually-hidden">{{ 'accessibility.filter_active_values' | t }}</span>)
+                    {% endunless %}
                   </div>
-                  <fieldset>
-                    <div>
-                      <label for="Filter-{{ filter.label | escape }}-GTE">{{ 'products.facets.from' | t }}</label>
-                      <input
-                        name="{{ filter.min_value.param_name }}"
-                        id="Filter-{{ filter.label | escape }}-GTE"
-                        type="text"
-                        placeholder="0"
-                        value="{{ filter.min_value.value | money_without_currency }}"
-                      >
-                    </div>
-                    <div>
-                      <label for="Filter-{{ filter.label | escape }}-LTE">{{ 'products.facets.to' | t }}</label>
-                      <input
-                        name="{{ filter.max_value.param_name }}"
-                        id="Filter-{{ filter.label | escape }}-LTE"
-                        type="text"
-                        value="{{ filter.max_value.value | money_without_currency }}"
-                      >
-                    </div>
-                  </fieldset>
-                  <a href="{{ filter.url_to_remove }}">
+                  <a href="{{ filter.url_to_remove }}" class="p-sm btn __with-underline">
                     {{ 'products.facets.reset' | t }}
                   </a>
                 </div>
+                <div>
+                  <fieldset>
+                    <legend class="visually-hidden">{{ filter.label | escape }}</legend>
+                    <ul class="filter-and-sort__filters__checkboxes list-unstyled" role="list">
+                      {%- for value in filter.values -%}
+                        <li class="filter-and-sort__filters__row">
+                          <input
+                            type="checkbox"
+                            name="{{ value.param_name }} "
+                            value="{{ value.value }}"
+                            id="Filter-{{ filter.label | escape }}-{{ forloop.index }}"
+                            {% if value.active %}
+                              checked
+                            {% endif %}
+                            {% if value.count == 0 and value.active == false %}
+                              disabled
+                            {% endif %}
+                          >
+                          <label for="Filter-{{ filter.label | escape }}-{{ forloop.index }}">
+                            {{ value.label | escape }} ({{ value.count }})
+                          </label>
+                        </li>
+                      {%- endfor -%}
+                    </ul>
+                  </fieldset>
+                </div>
               </div>
-            </div>
-        {% endcase %}
-      {%- endfor -%}
+            {% when 'price_range' %}
+              <div>
+                <div class="filter-and-sort__filters__label">
+                  <div class="h6">
+                    {{ filter.label | escape }}
+                  </div>
+
+                  <a class="p-sm btn __with-underline" href="{{ filter.url_to_remove }}">
+                    {{ 'products.facets.reset' | t }}
+                  </a>
+                </div>
+                <div>
+                  <div>
+                    <div>
+                      {%- assign max_price_amount = filter.range_max | money | strip_html | escape -%}
+                      <span class="p-sm">{{ 'products.facets.max_price' | t: price: max_price_amount }}</span>
+                    </div>
+                    <fieldset>
+                      <div>
+                        <label for="Filter-{{ filter.label | escape }}-GTE">{{ 'products.facets.from' | t }}</label>
+                        <input
+                          name="{{ filter.min_value.param_name }}"
+                          id="Filter-{{ filter.label | escape }}-GTE"
+                          type="text"
+                          placeholder="0"
+                          value="{{ filter.min_value.value | money_without_currency }}"
+                        >
+                      </div>
+                      <div>
+                        <label for="Filter-{{ filter.label | escape }}-LTE">{{ 'products.facets.to' | t }}</label>
+                        <input
+                          name="{{ filter.max_value.param_name }}"
+                          id="Filter-{{ filter.label | escape }}-LTE"
+                          type="text"
+                          value="{{ filter.max_value.value | money_without_currency }}"
+                        >
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+              </div>
+          {% endcase %}
+        {%- endfor -%}
+      </div>
 
       <button class="button">{{ 'products.facets.filter_and_sort_button' | t }}</button>
     {% endcapture %}
 
-    {% render 'disclosure', title: filter_title, id: filter_title, text: filter_content, style: "dropdown-button __with-overlay", class: "filter-and-sort__filters__details" %}
+    {% render 'disclosure', title: filter_title, id: filter_title, text: filter_content, style: "blank-button", class: "filter-and-sort__filters__details", open: true %}
 
   </div>
 
@@ -134,6 +140,6 @@
       </select>
     {% endcapture %}
 
-    {% render 'disclosure', title: sort_title, id: sort_title, text: sort_content, style: "dropdown-button __with-overlay", class: "filter-and-sort__sort__details"%}
+    {% render 'disclosure', title: sort_title, id: sort_title, text: sort_content, style: "dropdown-button __with-overlay", class: "filter-and-sort__sort__details" %}
   </div>
 </form>

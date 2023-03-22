@@ -122,11 +122,13 @@ form:not(.__no-form-styles),
     }
 
     + label {
+      @extend .p-sm;
       margin: 0 !important;
       height: calc(var(--inputHeight) / 2);
       line-height: calc(var(--inputHeight) / 2);
       padding-left: calc(var(--inputHeight) / 4);
-      white-space: nowwrap;
+      white-space: nowrap;
+      display: inline-block;
     }
   }
 

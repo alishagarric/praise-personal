@@ -1,7 +1,7 @@
 .site-header {
   --siteHeaderGuttersSpace: calc(var(--pxSize) * 1.5);
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: 1fr auto;
   gap: 0 var(--pxSize);
   justify-content: space-between;
   align-items: center;
