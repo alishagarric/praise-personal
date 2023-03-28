@@ -16,6 +16,8 @@
       <meta name="description" content="{{ page_description | escape }}">
     {% endif %}
 
+    {% render 'social-media-tags' %}
+
     <script src="{{ 'global.js' | asset_url }}" defer></script>
     <script src="{{ 'deferred-media.js' | asset_url }}" defer></script>
 
