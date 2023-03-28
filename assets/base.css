@@ -121,21 +121,6 @@ td {
   padding: 10px;
 }
 
-/* Message */
-
-.message-error,
-.message-success {
-  display: block;
-}
-
-.message-error {
-  color: RGB(var(--color-error));
-}
-
-.message-success {
-  color: RGB(var(--color-success));
-}
-
 .media {
   position: relative;
   /* Aspect ratio calculated using variables (can be defined via inline style) */

@@ -27,11 +27,12 @@
         </span>
       {% endif %}
 
+
       {% comment %}
         Check if the form submitted successfully
         If not it could only have come from the email field which is the only required field
       {% endcomment %}
-      {%- if form.posted_successfully? -%}
+      {%- if form.posted_successfully? -%} 
         <p class="message-success">{{ 'templates.contact.form.post_success' | t }}</p>
       {%- elsif form.errors -%}
         <p class="message-error">

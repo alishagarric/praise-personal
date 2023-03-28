@@ -415,3 +415,40 @@ details.overlay[open] > summary::before {
     }
   }
 }
+
+/* Message */
+
+.message-error,
+.message-success {
+  display: block;
+  color: var(--color-text);
+
+  &:after {
+    display: inline-block;
+    height: calc(var(--pxSize) / 2);
+    width: calc(var(--pxSize) / 2);
+    border-radius: 100%;
+    border: 1px solid RGB(255, 255, 255);
+    color: RGB(255, 255, 255);
+    text-align: center;
+    font-size: calc(var(--pxSize) / 4);
+    margin-left: calc(var(--pxSize) / 4);
+  }
+}
+
+.message-error {
+  &:after {
+    content: "✕";
+    background-color: RGB(var(--color-error));
+    line-height: calc(var(--pxSize) / 2.25);
+  }
+}
+
+.message-success {
+  &:after {
+    content: "⏗";
+    background-color: RGB(var(--color-success));
+    transform: scaleX(-1) rotate(45deg);
+    line-height: calc(var(--pxSize) / 2.5);
+  }
+}

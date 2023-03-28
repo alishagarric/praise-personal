@@ -2,10 +2,10 @@
   {
     "name": "theme_info",
     "theme_name": "Praise",
-    "theme_version": "0.1.0",
+    "theme_version": "1.0.0",
     "theme_author": "Commence Studio",
-    "theme_documentation_url": "https:\/\/commence.studio",
-    "theme_support_url": "https:\/\/commence.studio"
+    "theme_support_email": "hello@commence.studio",
+    "theme_documentation_url": "https://commence.studio"
   },
   {
     "name": "Announcement Bar",
@@ -181,7 +181,7 @@
         "type": "url",
         "id": "custom_heading_font_link",
         "label": "Custom Font Link",
-        "info": "Advanced. If using a custom Adobe font, Adobe will give you a link like 'https:\/\/use.typekit.net\/xxxxxxx.css to paste here. If using downloaded .woff or .woff2 files, upload those files as well as their corresponding .css file to your Shopify Files and paste the link for the css file here."
+        "info": "Advanced. If using a custom Adobe font, Adobe will give you a link like 'https://use.typekit.net/xxxxxxx.css to paste here. If using downloaded .woff or .woff2 files, upload those files as well as their corresponding .css file to your Shopify Files and paste the link for the css file here."
       },
       {
         "type": "text",
@@ -214,7 +214,7 @@
         "type": "url",
         "id": "custom_body_font_link",
         "label": "Custom Font Link",
-        "info": "Advanced. If using a custom Adobe font, Adobe will give you a link like 'https:\/\/use.typekit.net\/xxxxxxx.css to paste here. If using downloaded .woff or .woff2 files, upload those files as well as their corresponding .css file to your Shopify Files and paste the link for the css file here."
+        "info": "Advanced. If using a custom Adobe font, Adobe will give you a link like 'https://use.typekit.net/xxxxxxx.css to paste here. If using downloaded .woff or .woff2 files, upload those files as well as their corresponding .css file to your Shopify Files and paste the link for the css file here."
       },
       {
         "type": "text",
@@ -245,13 +245,15 @@
         "type": "color",
         "id": "error_color",
         "default": "#DC143C",
-        "label": "Error Color"
+        "label": "Error Color",
+        "info": "Must have enough contrast between the color white"
       },
       {
         "type": "color",
         "id": "success_color",
         "default": "#008000",
-        "label": "Success Color"
+        "label": "Success Color",
+        "info": "Must have enough contrast between the color white"
       },
       {
         "type": "header",
