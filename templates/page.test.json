@@ -2,11 +2,10 @@
   "sections": {
     "main": {
       "type": "main-page",
-      "settings": {
-      }
+      "settings": {}
     },
     "0978cd8e-e514-47cf-ac5e-00b5a4841ee4": {
-      "type": "split-section",
+      "type": "image-with-text",
       "blocks": {
         "template--16667010040030__0978cd8e-e514-47cf-ac5e-00b5a4841ee4-16744357773c9b5e8e-0": {
           "type": "heading",
@@ -18,7 +17,7 @@
         "template--16667010040030__0978cd8e-e514-47cf-ac5e-00b5a4841ee4-16744357773c9b5e8e-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.<\/p>"
+            "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>"
           }
         },
         "template--16667010040030__0978cd8e-e514-47cf-ac5e-00b5a4841ee4-16744357773c9b5e8e-2": {
@@ -86,7 +85,7 @@
         "crop_shape": "default",
         "heading": "Lorem Ipsum",
         "alt_heading": false,
-        "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.<\/p>",
+        "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>",
         "collection_text_content": false,
         "theme": "primary",
         "top_spacing": 50,
@@ -201,7 +200,7 @@
         "template--16667010040030__56b949e4-d083-4bc7-95ab-a990c1575f1d-1674435855d662b82a-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.<\/p>"
+            "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>"
           }
         },
         "template--16667010040030__56b949e4-d083-4bc7-95ab-a990c1575f1d-1674435855d662b82a-2": {
@@ -258,7 +257,7 @@
         "heading": "Lorem ipsum dolor sit",
         "heading_size": "h4",
         "alt_heading": false,
-        "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.<\/p>",
+        "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>",
         "alignment": "center",
         "columns_desktop": 3,
         "columns_mobile": 2,
@@ -281,7 +280,7 @@
         "template--16667010040030__92c30198-8f2c-4493-97a9-49556b7ebbcb-167443595750c84ff0-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.<\/p>"
+            "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>"
           }
         },
         "template--16667010040030__92c30198-8f2c-4493-97a9-49556b7ebbcb-167443595750c84ff0-2": {
@@ -311,7 +310,7 @@
         "3c77e5e9-a264-4c7b-b3d9-1aa0b59ad4a9": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_a6c4dcf8-a5c2-45ab-8711-f1aa9365378c.jpg",
+            "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_a6c4dcf8-a5c2-45ab-8711-f1aa9365378c.jpg",
             "overlay": 0,
             "overlay_theme": "primary",
             "crop_shape": "default",
@@ -328,7 +327,7 @@
         "4142bce0-38fc-4f0f-a864-8cbc12da7967": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash.jpg",
+            "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash.jpg",
             "overlay": 0,
             "overlay_theme": "primary",
             "crop_shape": "default",
@@ -338,7 +337,7 @@
             "text": "",
             "alignment": "left",
             "button_label": "Laboris Nisi",
-            "button_link": "shopify:\/\/collections\/cookie-collection",
+            "button_link": "shopify://collections/cookie-collection",
             "button_color": "default"
           }
         }
@@ -358,10 +357,7 @@
     "7d2a9a62-29ec-4890-a840-064ac0cc6394": {
       "type": "collection-teaser",
       "settings": {
-        "collections": [
-          "cookie-collection",
-          "many-products"
-        ],
+        "collections": ["cookie-collection", "many-products"],
         "products_per_collection": 2,
         "heading_size": "h4",
         "alt_heading": false,

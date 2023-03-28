@@ -1,106 +1,394 @@
-{{ 'section-image-with-text.css' | asset_url | stylesheet_tag }}
+{% style %}
+  #Image-with-text-{{ section.id }} {
+    --topSpacingRatio: {{ section.settings.top_spacing }} / 100;
+    --bottomSpacingRatio: {{ section.settings.bottom_spacing }} / 100;
+    --topInternalSpacingRatio: {{ section.settings.top_internal_spacing }} / 100;
+    --bottomInternalSpacingRatio: {{ section.settings.bottom_internal_spacing }} / 100;
+    --mobileImageHeight: {{ section.settings.mobile_image_height }}px;
+  }
+{% endstyle %}
 
-<div class="container grid">
-  <div>
-    {% unless section.settings.image == blank %}
-      <div class="media" style="--width: {{ section.settings.image.width }}; --height: {{ section.settings.image.height }};">
-        {{ section.settings.image | image_url: width: 2000 | image_tag: widths: "360, 584, 750, 960, 1168, 1340, 1500", sizes: "(min-width: 1200px) 584px, (min-width: 750px) and (max-width: 1199px) calc(50vw), 100vw", loading: "lazy" }}
-      </div>
-    {% else %}
-      {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
-    {% endunless %}
-  </div>
-
-  <div>
+<div
+  id="Image-with-text-{{ section.id }}"
+  class="image-with-text __layout-{{ section.settings.layout }} __layout-mobile-{{ section.settings.mobile_layout }} __image-style-{{ section.settings.image_style }} __theme-{{ section.settings.theme }}"
+>
+  <div class="image-with-text__text __align-{{ section.settings.alignment }}">
+    {% comment %} Text content column {% endcomment %}
     {%- for block in section.blocks -%}
-      {% case block.type %}
+      {%- case block.type -%}
+          {% comment %} Type Heading {% endcomment %}
         {%- when 'heading' -%}
-          <h2 {{ block.shopify_attributes }}>
-            {{ block.settings.heading | escape }}
-          </h2>
+          {% if section.settings.hero == true %}
+            {% assign heading_tag = "h1" %}
+          {% endif %}
+
+          {% render 'heading',
+            class: 'image-with-text__text',
+            heading_tag: heading_tag,
+            heading: block.settings.heading,
+            heading_size: block.settings.heading_size
+          %}
+
+          {% comment %} Type Text {% endcomment %}
         {%- when 'text' -%}
-          <div {{ block.shopify_attributes }}>
+          <div class="image-with-text__text__rich-text __article-txt" {{ block.shopify_attributes }}>
             {{ block.settings.text }}
           </div>
         {%- when 'button' -%}
-          {%- unless block.settings.button_label == blank -%}
-            <a class="button"
-              {% if block.settings.button_link == blank %}
-                role="link" aria-disabled="true"
-              {% else %}
-                href="{{ block.settings.button_link }}"
+          {% render 'button',
+            class: 'content-with-bg-image',
+            button_label: block.settings.button_label,
+            button_link: block.settings.button_link,
+            button_color: block.settings.button_color
+          %}
+
+          {% comment %} Type Icon {% endcomment %}
+        {%- when 'icon' -%}
+          {%- if block.settings.icon != blank or block.settings.heading != blank or block.settings.text != blank -%}
+            <div class="image-with-text__text__icon __layout-{{ block.settings.layout }}">
+              {% render 'next-gen-img', image: block.settings.icon %}
+              {% if block.settings.heading != blank %}
+                <h3 class="h6">{{ block.settings.heading | escape }}</h3>
               {% endif %}
-              {{ block.shopify_attributes }}
-            >
-              {{ block.settings.button_label | escape }}
-            </a>
-          {%- endunless -%}
+              {% if block.settings.text != blank %}
+                <div class="p-sm">{{ block.settings.text }}</div>
+              {% endif %}
+            </div>
+          {%- endif -%}
       {%- endcase -%}
     {%- endfor -%}
+  </div>
+
+  {% comment %} Image content column {% endcomment %}
+  <div class="image-with-text__image">
+    {%- if section.settings.image != blank -%}
+      {% render 'next-gen-img', image: section.settings.image %}
+    {%- else -%}
+      {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+    {%- endif -%}
   </div>
 </div>
 
 {% schema %}
 {
-  "name": "t:sections.image-with-text.name",
-  "class": "section-image-with-text",
+  "name": "Image with Text",
+  "tag": "section",
   "settings": [
+    {
+      "type": "header",
+      "content": "Image Content"
+    },
     {
       "type": "image_picker",
       "id": "image",
-      "label": "t:sections.image-with-text.settings.image.label"
+      "label": "Image",
+      "info": "Auto-cropped to fill available space."
+    },
+    {
+      "type": "select",
+      "id": "image_style",
+      "options": [
+        {
+          "value": "default",
+          "label": "Standard, Without Space"
+        },
+        {
+          "value": "wide",
+          "label": "Wide, Without Space"
+        },
+        {
+          "value": "square",
+          "label": "Square, With Space"
+        }
+      ],
+      "default": "default",
+      "label": "Image Style"
+    },
+    {
+      "type": "header",
+      "content": "General"
+    },
+    {
+      "type": "checkbox",
+      "id": "hero",
+      "label": "Use as hero?",
+      "info": "Should be selected if this section is the first or second on a page and contains the page title. There should only be one page title/hero used per page."
+    },
+    {
+      "type": "select",
+      "id": "alignment",
+      "options": [
+        {
+          "value": "default",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "default",
+      "label": "Text Alignment"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "options": [
+        {
+          "value": "default",
+          "label": "Align Image Right"
+        },
+        {
+          "value": "reversed",
+          "label": "Align Image Left"
+        }
+      ],
+      "default": "default",
+      "label": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "mobile_layout",
+      "options": [
+        {
+          "value": "default",
+          "label": "Image On Top"
+        },
+        {
+          "value": "reversed",
+          "label": "Text On Top"
+        }
+      ],
+      "default": "default",
+      "label": "Mobile Layout"
+    },
+    {
+      "type": "range",
+      "id": "mobile_image_height",
+      "min": 200,
+      "max": 600,
+      "step": 50,
+      "unit": "px",
+      "label": "Mobile Image Height",
+      "default": 450
+    },
+    {
+      "type": "header",
+      "content": "Section"
+    },
+    {
+      "type": "select",
+      "id": "theme",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary Theme"
+        },
+        {
+          "value": "2",
+          "label": "2nd Theme"
+        },
+        {
+          "value": "3",
+          "label": "3rd Theme"
+        },
+        {
+          "value": "4",
+          "label": "4th Theme"
+        },
+        {
+          "value": "5",
+          "label": "5th Theme"
+        }
+      ],
+      "default": "primary",
+      "label": "Theme"
+    },
+    {
+      "type": "range",
+      "id": "top_internal_spacing",
+      "min": 0,
+      "max": 300,
+      "step": 10,
+      "unit": "%",
+      "label": "Top Text Content Spacing",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "bottom_internal_spacing",
+      "min": 0,
+      "max": 300,
+      "step": 10,
+      "unit": "%",
+      "label": "Bottom Text Content Spacing",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "top_spacing",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "Top Section Spacing",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "bottom_spacing",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "Bottom Section Spacing",
+      "default": 50
     }
   ],
   "blocks": [
     {
       "type": "heading",
-      "name": "t:sections.image-with-text.blocks.heading.name",
-      "limit": 1,
+      "name": "Heading",
       "settings": [
         {
           "type": "text",
           "id": "heading",
-          "default": "Image with text",
-          "label": "t:sections.image-with-text.blocks.heading.settings.heading.label"
+          "default": "Lorem ipsum",
+          "label": "Heading"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+              "value": "h2",
+              "label": "X-Large"
+            },
+            {
+              "value": "h4",
+              "label": "Large"
+            },
+            {
+              "value": "h5",
+              "label": "Medium"
+            },
+            {
+              "value": "h6",
+              "label": "Small"
+            }
+          ],
+          "default": "h5",
+          "label": "Heading Size"
         }
       ]
     },
     {
       "type": "text",
-      "name": "t:sections.image-with-text.blocks.text.name",
-      "limit": 1,
+      "name": "Text",
       "settings": [
         {
           "type": "richtext",
           "id": "text",
-          "default": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>",
-          "label": "t:sections.image-with-text.blocks.text.settings.text.label"
+          "default": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>",
+          "label": "Content"
         }
       ]
     },
     {
       "type": "button",
-      "name": "t:sections.image-with-text.blocks.button.name",
+      "name": "Button",
       "limit": 1,
       "settings": [
         {
           "type": "text",
           "id": "button_label",
           "default": "Laboris Nisi",
-          "label": "t:sections.image-with-text.blocks.button.settings.button_label.label",
-          "info": "t:sections.image-with-text.blocks.button.settings.button_label.info"
+          "label": "Button Label"
         },
         {
           "type": "url",
           "id": "button_link",
-          "label": "t:sections.image-with-text.blocks.button.settings.button_link.label"
+          "label": "Button Link"
+        },
+        {
+          "type": "select",
+          "id": "button_color",
+          "label": "Button Color",
+          "default": "default",
+          "options": [
+            {
+              "value": "default",
+              "label": "Default"
+            },
+            {
+              "value": "primary",
+              "label": "Primary Theme"
+            },
+            {
+              "value": "2",
+              "label": "2nd Theme"
+            },
+            {
+              "value": "3",
+              "label": "3rd Theme"
+            },
+            {
+              "value": "4",
+              "label": "4th Theme"
+            },
+            {
+              "value": "5",
+              "label": "5th Theme"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "icon",
+      "name": "Icon",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Label"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Description"
+        },
+        {
+          "type": "radio",
+          "id": "layout",
+          "label": "Layout",
+          "options": [
+            {
+              "value": "row",
+              "label": "Icon Left Of Text"
+            },
+            {
+              "value": "column",
+              "label": "Icon On Top Of Text"
+            }
+          ],
+          "default": "row"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "t:sections.image-with-text.presets.name",
+      "name": "Image with Text",
       "blocks": [
         {
           "type": "heading"
