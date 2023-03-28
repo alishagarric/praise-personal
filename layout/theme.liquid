@@ -8,10 +8,6 @@
     <link rel="canonical" href="{{ canonical_url }}">
     <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
 
-    {%- unless settings.type_header_font.system? and settings.type_body_font.system? -%}
-      <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
-    {%- endunless -%}
-
     <title>
       {{ page_title }}
     </title>
@@ -25,110 +21,18 @@
 
     {{ content_for_header }}
 
-    {%- liquid
-      assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
-      assign body_font_italic = settings.type_body_font | font_modify: 'style', 'italic'
-      assign body_font_bold_italic = body_font_bold | font_modify: 'style', 'italic'
-    %}
-
     <script>
       document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
     </script>
 
-    {% style %}
-      {{ settings.type_body_font | font_face: font_display: 'swap' }}
-      {{ body_font_bold | font_face: font_display: 'swap' }}
-      {{ body_font_italic | font_face: font_display: 'swap' }}
-      {{ body_font_bold_italic | font_face: font_display: 'swap' }}
-      {{ settings.type_header_font | font_face: font_display: 'swap' }}
-
-      :root {
-        --font-body-family: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
-        --font-body-style: {{ settings.type_body_font.style }};
-        --font-body-weight: {{ settings.type_body_font.weight }};
-
-        --font-heading-family: {{ settings.type_header_font.family }}, {{ settings.type_header_font.fallback_families }};
-        --font-heading-style: {{ settings.type_header_font.style }};
-        --font-heading-weight: {{ settings.type_header_font.weight }};
-
-        --font-body-scale: {{ settings.body_scale | divided_by: 100.0 }};
-        --font-heading-scale: {{ settings.heading_scale | times: 1.0 | divided_by: settings.body_scale }};
-
-        --color-error: {{ settings.error_color.rgb }};
-        --color-success: {{ settings.success_color.rgb }};
-
-        --color-background-default: {{ settings.background_color.rgb }};
-        --color-text-default: {{ settings.text_color.rgb }};
-        --color-foreground-default: {{ settings.button_color.rgb }};
-        --color-foreground-text-default: {{ settings.button_text_color.rgb }};
-        --color-border-default: {{ settings.border_color.rgb }};
-
-        --color-background-2: {{ settings.background_color_2.rgb }};
-        --color-text-2: {{ settings.text_color_2.rgb }};
-        --color-foreground-2: {{ settings.button_color_2.rgb }};
-        --color-foreground-text-2: {{ settings.button_text_color_2.rgb }};
-        --color-border-2: {{ settings.border_color_2.rgb }};
-
-        --color-background-3: {{ settings.background_color_3.rgb }};
-        --color-text-3: {{ settings.text_color_3.rgb }};
-        --color-foreground-3: {{ settings.button_color_3.rgb }};
-        --color-foreground-text-3: {{ settings.button_text_color_3.rgb }};
-        --color-border-3: {{ settings.border_color_3.rgb }};
-
-        --color-background-4: {{ settings.background_color_4.rgb }};
-        --color-text-4: {{ settings.text_color_4.rgb }};
-        --color-foreground-4: {{ settings.button_color_4.rgb }};
-        --color-foreground-text-4: {{ settings.button_text_color_4.rgb }};
-        --color-border-4: {{ settings.border_color_4.rgb }};
-
-        --color-background-5: {{ settings.background_color_5.rgb }};
-        --color-text-5: {{ settings.text_color_5.rgb }};
-        --color-foreground-5: {{ settings.button_color_5.rgb }};
-        --color-foreground-text-5: {{ settings.button_text_color_5.rgb }};
-        --color-border-5: {{ settings.border_color_5.rgb }};
-
-        --btnBorderRadius: {{ settings.button_border_radius }}px;
-        --btnHeight: {{ settings.button_height }}px;
-        --btnSidesSpace: {{ settings.button_sides_space }};
-        --navHeight: 75px;
-
-        {% if settings.announcement_bar_text != blank and template == 'index' or settings.announcement_bar_home_only == false %}
-          --navWithAnnouncementHeight: calc(var(--navHeight) * 1.5);
-        {% else %}
-          --navWithAnnouncementHeight: var(--navHeight);
-        {% endif %}
-      }
-
-      {% render 'custom-icons' %}
-    {% endstyle %}
-
-    {% if settings.custom_heading_font_link and settings.custom_heading_font_family_name %}
-      <link rel="stylesheet" href="{{ settings.custom_heading_font_link }}">
-
-      {% style %}
-        :root {
-          --font-heading-family: {{ settings.custom_heading_font_family_name }};
-          --font-heading-style: normal;
-          --font-heading-weight: 400;
-        }
-      {% endstyle %}
-    {% endif %}
-
-    {% if settings.custom_body_font_link and settings.custom_body_font_family_name %}
-      <link rel="stylesheet" href="{{ settings.custom_body_font_link }}">
-
-      {% style %}
-        :root {
-          --font-body-family: {{ settings.custom_body_font_family_name }};
-          --font-body-style: normal;
-          --font-body-weight: 400;
-        }
-      {% endstyle %}
-    {% endif %}
-
     {{ 'base.css' | asset_url | stylesheet_tag }}
     {{ 'theme.css' | asset_url | stylesheet_tag }}
     {{ 'header.css' | asset_url | stylesheet_tag }}
+
+    {% render 'font-variables' %}
+    {% render 'color-variables' %}
+    {% render 'custom-icons-variables' %}
+    {% render 'other-variables' %}
 
     {%- if settings.favicon != blank and settings.favicon contains '.png' -%}
       <link rel="shortcut icon" href="{{ settings.favicon | img_url: 'master' }}" type="image/png">

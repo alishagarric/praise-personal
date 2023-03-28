@@ -1,0 +1,102 @@
+{% style %}
+
+  :root {
+    --color-error: {{ settings.error_color.rgb }};
+    --color-success: {{ settings.success_color.rgb }};
+
+    --color-background-default: {{ settings.background_color.rgb }};
+    --color-text-default: {{ settings.text_color.rgb }};
+    --color-foreground-default: {{ settings.button_color.rgb }};
+    --color-foreground-text-default: {{ settings.button_text_color.rgb }};
+    --color-border-default: {{ settings.border_color.rgb }};
+
+    --color-background-2: {{ settings.background_color_2.rgb }};
+    --color-text-2: {{ settings.text_color_2.rgb }};
+    --color-foreground-2: {{ settings.button_color_2.rgb }};
+    --color-foreground-text-2: {{ settings.button_text_color_2.rgb }};
+    --color-border-2: {{ settings.border_color_2.rgb }};
+
+    --color-background-3: {{ settings.background_color_3.rgb }};
+    --color-text-3: {{ settings.text_color_3.rgb }};
+    --color-foreground-3: {{ settings.button_color_3.rgb }};
+    --color-foreground-text-3: {{ settings.button_text_color_3.rgb }};
+    --color-border-3: {{ settings.border_color_3.rgb }};
+
+    --color-background-4: {{ settings.background_color_4.rgb }};
+    --color-text-4: {{ settings.text_color_4.rgb }};
+    --color-foreground-4: {{ settings.button_color_4.rgb }};
+    --color-foreground-text-4: {{ settings.button_text_color_4.rgb }};
+    --color-border-4: {{ settings.border_color_4.rgb }};
+
+    --color-background-5: {{ settings.background_color_5.rgb }};
+    --color-text-5: {{ settings.text_color_5.rgb }};
+    --color-foreground-5: {{ settings.button_color_5.rgb }};
+    --color-foreground-text-5: {{ settings.button_text_color_5.rgb }};
+    --color-border-5: {{ settings.border_color_5.rgb }};
+  }
+
+  .__theme-primary {
+    --color-background: var(--color-background-default);
+    --color-text: var(--color-text-default);
+    --color-foreground: var(--color-foreground-default);
+    --color-foreground-text: var(--color-foreground-text-default);
+    --color-border: var(--color-border-default);
+  }
+
+  .__btn-clr-primary {
+    --color-foreground: var(--color-background-default);
+    --color-foreground-text: var(--color-text-default);
+  }
+
+  .__theme-2 {
+    --color-background: var(--color-background-2);
+    --color-text: var(--color-text-2);
+    --color-foreground: var(--color-foreground-2);
+    --color-foreground-text: var(--color-foreground-text-2);
+    --color-border: var(--color-border-2);
+  }
+
+  .__btn-clr-2 {
+    --color-foreground: var(--color-background-2);
+    --color-foreground-text: var(--color-text-2);
+  }
+
+  .__theme-3 {
+    --color-background: var(--color-background-3);
+    --color-text: var(--color-text-3);
+    --color-foreground: var(--color-foreground-3);
+    --color-foreground-text: var(--color-foreground-text-3);
+    --color-border: var(--color-border-3);
+  }
+
+  .__btn-clr-3 {
+    --color-foreground: var(--color-background-3);
+    --color-foreground-text: var(--color-text-3);
+  }
+
+  .__theme-4 {
+    --color-background: var(--color-background-4);
+    --color-text: var(--color-text-4);
+    --color-foreground: var(--color-foreground-4);
+    --color-foreground-text: var(--color-foreground-text-4);
+    --color-border: var(--color-border-4);
+  }
+
+  .__btn-clr-4 {
+    --color-foreground: var(--color-background-4);
+    --color-foreground-text: var(--color-text-4);
+  }
+
+  .__theme-5 {
+    --color-background: var(--color-background-5);
+    --color-text: var(--color-text-5);
+    --color-foreground: var(--color-foreground-5);
+    --color-foreground-text: var(--color-foreground-text-5);
+    --color-border: var(--color-border-5);
+  }
+
+  .__btn-clr-5 {
+    --color-foreground: var(--color-background-5);
+    --color-foreground-text: var(--color-text-5);
+  }
+{% endstyle %}
