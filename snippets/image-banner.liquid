@@ -15,6 +15,7 @@
     - alignment: {String} optional. default, center, right
     - image {object} optional, section works best with image
     - text_content {html} optional, section works best with text_content
+    - hero: { boolean } optional, used to tell the image to preload first or not
 
     Usage:
       {% capture section_id %}Section-{{ section.id }}{% endcapture %}
@@ -44,6 +45,7 @@
         alignment: section.settings.alignment,
         text_content: text_content,
         image: section_image 
+        hero: section.settings.hero
       %}
 
 {% endcomment %}
@@ -100,7 +102,7 @@
           {% assign widths = '1600, 800'%}
           {% assign sizes = "(max-width: 676px) 60vw, (max-width: 1024px) 55vw, 50vw" %}
         {% endif %}
-        {% render 'next-gen-img', image: image, width: width, widths: widths, sizes: sizes %}
+        {% render 'next-gen-img', image: image, width: width, widths: widths, sizes: sizes, preload: preload %}
       </div>
     {%- endif -%}
 

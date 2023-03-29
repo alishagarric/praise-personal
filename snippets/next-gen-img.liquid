@@ -7,21 +7,30 @@
     - width: {int} The width of the image at its max width x2 for high resolution screens
     - widths: {string} Different 1x or 2x widths of the image that can be decided on a loaded by the browser, include mobile, tablet and desktop options
     - sizes { string } Specify which 1x size the image will display at, on different devices
+    - preload {bool}
 
     Usage:
     {% render 'next-gen-img' image: image, alt: alt %}
 {% endcomment %}
 
-{% assign altText = image.alt %} 
+{% liquid 
+  assign altText = image.alt 
 
+  if altText == blank 
+    if alt != blank 
+      assign altText = alt 
+    else 
+      assign altText = shop.name 
+    endif 
+  endif 
 
-{% if altText == blank %} 
-  {% if alt != blank %}
-    {% assign altText = alt %} 
-  {% else %}
-    {% assign altText = shop.name %} 
-  {% endif %}
-{% endif %} 
+  if preload == true 
+    assign loading = 'eager' 
+  else 
+    assign loading = 'lazy' 
+  endif 
+%}
+
 
 {{ image | 
   image_url: 
@@ -30,6 +39,7 @@
     image_tag:
       widths: widths,
       sizes: sizes,
-      loading: "lazy",
-      alt: altText
+      loading: loading,
+      alt: altText,
+      preload: preload
 }}
