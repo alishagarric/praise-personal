@@ -18,8 +18,7 @@
         },
         "rating": {
           "type": "rating",
-          "settings": {
-          }
+          "settings": {}
         },
         "featured-icons": {
           "type": "icons",
@@ -40,7 +39,7 @@
           "type": "expandable",
           "settings": {
             "title": "Details",
-            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gravida diam integer suspendisse magna tempus ut praesent amet venenatis. <\/p><ul><li>Full of Gluten<\/li><li>Vegan<\/li><li>500 calories per cookie<\/li><li>No artificial colors of flavors<\/li><\/ul>",
+            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gravida diam integer suspendisse magna tempus ut praesent amet venenatis. </p><ul><li>Full of Gluten</li><li>Vegan</li><li>500 calories per cookie</li><li>No artificial colors of flavors</li></ul>",
             "page": "",
             "open": false
           }
@@ -49,7 +48,7 @@
           "type": "expandable",
           "settings": {
             "title": "Full List of Ingredients",
-            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gravida diam integer suspendisse magna tempus ut praesent amet venenatis. <\/p><ul><li>Full of Gluten<\/li><li>Vegan<\/li><li>500 calories per cookie<\/li><li>No artificial colors of flavors<\/li><\/ul>",
+            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gravida diam integer suspendisse magna tempus ut praesent amet venenatis. </p><ul><li>Full of Gluten</li><li>Vegan</li><li>500 calories per cookie</li><li>No artificial colors of flavors</li></ul>",
             "page": "",
             "open": false
           }
@@ -58,7 +57,7 @@
           "type": "expandable",
           "settings": {
             "title": "Nutritional Label",
-            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gravida diam integer suspendisse magna tempus ut praesent amet venenatis. <\/p><ul><li>Full of Gluten<\/li><li>Vegan<\/li><li>500 calories per cookie<\/li><li>No artificial colors of flavors<\/li><\/ul>",
+            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gravida diam integer suspendisse magna tempus ut praesent amet venenatis. </p><ul><li>Full of Gluten</li><li>Vegan</li><li>500 calories per cookie</li><li>No artificial colors of flavors</li></ul>",
             "page": "",
             "open": false
           }
@@ -93,7 +92,7 @@
           "type": "buy_buttons",
           "settings": {
             "show_quantity": true,
-            "hide_dynamic_buttons": true,
+            "hide_dynamic_buttons": false,
             "include_border": true
           }
         },
@@ -143,7 +142,7 @@
         "template--16398178779358__358e3a37-ea37-4371-af0a-4b81d29478cb-1678920937a9e025f0-0": {
           "type": "icon",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/Group.png",
+            "icon": "shopify://shop_images/Group.png",
             "heading": "Sugar",
             "text": "At Ritual we use fresh lemons sourced within 50 miled of our bakign facility"
           }
@@ -151,7 +150,7 @@
         "template--16398178779358__358e3a37-ea37-4371-af0a-4b81d29478cb-1678920937a9e025f0-1": {
           "type": "icon",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/Group_100.png",
+            "icon": "shopify://shop_images/Group_100.png",
             "heading": "Lemon",
             "text": "At Ritual we use fresh lemons sourced within 50 miled of our bakign facility"
           }
@@ -159,7 +158,7 @@
         "template--16398178779358__358e3a37-ea37-4371-af0a-4b81d29478cb-1678920937a9e025f0-2": {
           "type": "icon",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/Group.png",
+            "icon": "shopify://shop_images/Group.png",
             "heading": "Sugar",
             "text": "At Ritual we use fresh lemons sourced within 50 miled of our bakign facility"
           }
@@ -217,14 +216,11 @@
       "type": "apps",
       "blocks": {
         "478a31ad-f5cb-431a-b030-744dba03a8c7": {
-          "type": "shopify:\/\/apps\/product-reviews\/blocks\/reviews\/bae150af-8da8-48b2-9867-398188115e5f",
-          "settings": {
-          }
+          "type": "shopify://apps/product-reviews/blocks/reviews/bae150af-8da8-48b2-9867-398188115e5f",
+          "settings": {}
         }
       },
-      "block_order": [
-        "478a31ad-f5cb-431a-b030-744dba03a8c7"
-      ],
+      "block_order": ["478a31ad-f5cb-431a-b030-744dba03a8c7"],
       "settings": {
         "top_spacing": 50,
         "bottom_spacing": 50,

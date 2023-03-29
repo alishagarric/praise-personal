@@ -114,6 +114,12 @@
 
   //media block
   &__media {
+    &__container {
+      a {
+        display: block;
+      }
+    }
+
     &:not(.__layout-stacked) {
       .main-product {
         &__media {
@@ -202,6 +208,32 @@
 
     &__media {
       position: relative;
+
+      // All from shopify starter
+      &__container {
+        display: flex;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        scroll-padding-left: var(--container-padding);
+        scroll-padding-right: var(--container-padding);
+        padding-top: var(--container-padding);
+        padding-bottom: var(--container-padding);
+        margin-left: calc(var(--container-padding) * -1);
+        margin-right: calc(var(--container-padding) * -1);
+
+        li {
+          scroll-snap-align: center;
+          max-width: calc(100% - 60px);
+          min-width: calc(100% - 60px);
+
+          &:first-child {
+            scroll-snap-align: start;
+            margin-left: var(--container-padding);
+          }
+        }
+      }
     }
 
     &__blocks-after-media,
@@ -209,5 +241,53 @@
       padding-left: var(--sectionGuttersSpacing);
       padding-right: var(--sectionGuttersSpacing);
     }
+  }
+}
+
+/* Product model UI */
+/* TODO What is all of this */
+product-model {
+  display: block;
+  position: relative;
+
+  button {
+    position: relative;
+    width: 100%;
+    padding-bottom: calc(var(--height) / var(--width) * 100%);
+    border: 0;
+
+    img {
+      object-fit: cover;
+    }
+  }
+
+  button img,
+  .shopify-model-viewer-ui,
+  .shopify-model-viewer-ui model-viewer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+  }
+}
+
+.xr-button[data-shopify-xr-hidden] {
+  visibility: hidden;
+
+  @media screen and (min-width: 750px) {
+    display: none;
+  }
+}
+
+.shopify-design-mode .xr-button[data-shopify-xr-hidden],
+.shopify-model-viewer-ui__button[hidden] {
+  display: none;
+}
+
+@media screen and (max-width: 749px) {
+  .active .xr-button:not([data-shopify-xr-hidden]) {
+    display: block;
   }
 }
