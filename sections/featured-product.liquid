@@ -48,7 +48,10 @@
             {% comment %} Type title {% endcomment %}
             {%- when 'title' -%}
               {% capture heading_class %}__align-{{ alignment }} featured-product{% endcapture %}
-              {% render 'heading', heading: section.settings.product.title, alt_heading: block.settings.alt_heading, heading_size: block.settings.heading_size, heading_tag: "h2", class: heading_class %}
+              {% if section.settings.hero == true %}
+                {% assign heading_tag = "h1" %}
+              {% endif %}
+              {% render 'heading', heading: section.settings.product.title, alt_heading: block.settings.alt_heading, heading_size: block.settings.heading_size, heading_tag: heading_tag, class: heading_class %}
 
             {% comment %} Type buy buttons {% endcomment %}
             {%- when 'buy_buttons' -%}
@@ -115,7 +118,7 @@
   >
     <div class="image-container __crop-{{ section.settings.crop_shape }}" style="--imageRatio: {{ section.settings.product.featured_image.height | divided_by: 1.00 | divided_by: section.settings.product.featured_image.width | times: 100 }}%">
       {%- if section.settings.product.featured_image != blank -%}
-        {% render 'next-gen-img', image: section.settings.product.featured_image %}
+        {% render 'next-gen-img', image: section.settings.product.featured_image, width: 1400, widths: "1400, 940, 700, 500" sizes: '(max-width: 676px) 100vw, (max-width: 1024px) 40vw, 30vw', preload: section.settings.hero %}
       {%- else -%}
         {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
       {%- endif -%}
@@ -141,6 +144,12 @@
       "type": "product",
       "id": "product",
       "label": "Product"
+    },
+    {
+      "type": "checkbox",
+      "id": "hero",
+      "label": "Use as hero?",
+      "info": "Should be selected if this section is the first or second on a page and contains the page title. There should only be one page title/hero used per page."
     },
     {
       "type": "radio",
