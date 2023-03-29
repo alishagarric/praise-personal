@@ -22,6 +22,41 @@
   if section.settings.layout == 'slider' and blocks_size > section.settings.columns_mobile
     assign hide_arrows_on_tablet = false
   endif
+
+  if columns_desktop == 5 
+    assign width = 700 
+    assign widths = '700, 400'
+    assign sizes = "20vw" 
+  elsif columns_desktop == 4
+    assign width = 800
+    assign widths = '800, 400'
+    assign sizes = "25vw"   
+  elsif columns_desktop == 3
+    assign width = 1100 
+    assign widths = '1100, 600'
+    assign sizes = "33vw"   
+  else 
+    assign width = 1700 
+    assign widths = '1700, 815'
+    assign sizes = "50vw"   
+  endif 
+
+  if columns_mobile == 3
+    assign widths = widths | append: ' ,600, 400, 250'
+    assign sizes = sizes | prepend: "(max-width: 1024px) 33vw, "
+  elsif columns_mobile == 2
+    assign widths = widths | append: ' ,1000, 700, 500, 350'
+    assign sizes = sizes | prepend: "(max-width: 1024px) 50vw, "
+    if 1000 > width 
+      assign width = 1000
+    endif    
+  else 
+    assign widths = widths | append: ' ,2100, 1400, 1100, 700'
+    assign sizes = sizes | prepend: "(max-width: 1024px) 100vw, "   
+    if 2100 > width 
+      assign width = 2100
+    endif   
+  endif 
 %}
 
 {% style %}
@@ -72,6 +107,7 @@
               %}
 
               {% comment %} Type Content Card {% endcomment %}
+              {% comment %} TODO add img sizes like the product card below {% endcomment %}
             {%- when 'image' -%}
               {% render 'content-card',
                 class: 'multicolumn__item',
@@ -102,10 +138,15 @@
                   show_description: block.settings.show_description,
                   price_position: block.settings.price,
                   alt_heading: block.settings.alt_title
+                  img_width: width,
+                  img_widths: widths,
+                  img_sizes: sizes
                 %}
               {% endfor %}
 
               {% comment %} Type Collection Cards {% endcomment %}
+                            {% comment %} TODO add img sizes like the product card above {% endcomment %}
+
             {%- when 'collections' -%}
               {% for collection in block.settings.collections %}
                 {% render 'collection-card',

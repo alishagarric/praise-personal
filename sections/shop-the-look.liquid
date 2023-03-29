@@ -28,7 +28,7 @@
     <div class="shop-the-look__center-vertically">
       <div class="shop-the-look__image __crop-{{ section.settings.image_crop_shape }}">
         {% if featured_image %}
-          {% render 'next-gen-img' image: featured_image %}
+          {% render 'next-gen-img' image: featured_image, width: 1680, widths: '1680, 1400, 1100, 900, 700', sizes: '(max-width: 676px) 100vw, 50vw' %}
         {% else %}
           {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
         {% endif %}
@@ -70,7 +70,7 @@
         {% for block in section.blocks %}
           {% case block.type %}
             {% when 'product' %}
-              {% render 'product-card' product: block.settings.product, class: "shop-the-look__products__product", show_bg_color: section.settings.show_bg_color, quick_add: section.settings.quick_add, crop: section.settings.crop_shape, show_phrase: section.settings.show_phrase, alignment: section.settings.product_text_alignment, section.settings.show_description: section.settings.show_description, price_position: section.settings.price, alt_heading: section.settings.alt_title %}
+              {% render 'product-card' product: block.settings.product, class: "shop-the-look__products__product", show_bg_color: section.settings.show_bg_color, quick_add: section.settings.quick_add, crop: section.settings.crop_shape, show_phrase: section.settings.show_phrase, alignment: section.settings.product_text_alignment, section.settings.show_description: section.settings.show_description, price_position: section.settings.price, alt_heading: section.settings.alt_title, img_width: 1100, img_widths: "1100, 600, 300", img_sizes: "(max-width: 676px) 85vw, (max-width: 1024px) 30vw" %}
           {% endcase %}
         {% endfor %}
       </div>

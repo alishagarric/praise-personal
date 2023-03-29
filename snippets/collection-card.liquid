@@ -6,6 +6,10 @@
     - class: {String} optional
     - button_label: {String} optional
     - alignment: {String} optional
+    - img_width: {int} The width of the image at its max width x2 for high resolution screens
+    - img_widths: {string} Different 1x or 2x widths of the image that can be decided on a loaded by the browser, include mobile, tablet and desktop options
+    - img_sizes { string } Specify which 1x size the image will display at, on different devices
+
 
     Usage:
    
@@ -29,7 +33,7 @@
 <a class="collection-card {{ class }} __align-{{ alignment }}" href="{{ collection_url }}">
   <div class="collection-card__image">
     {% if collection and collection.image %}
-      {% render 'next-gen-img', image: collection.image %}
+      {% render 'next-gen-img', image: collection.image, width: img_width: widths: img_widths, sizes: img_sizes %}
     {% elsif collection == blank %}
       {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
     {% else %}

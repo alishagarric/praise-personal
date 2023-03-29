@@ -12,6 +12,10 @@
   - show_description: {Bool} optional.
   - price_position: {String} optional. default, bottom, not-visible
   - quick_add: {Bool} optional
+  - img_width: {int} The width of the image at its max width x2 for high resolution screens
+  - img_widths: {string} Different 1x or 2x widths of the image that can be decided on a loaded by the browser, include mobile, tablet and desktop options
+  - img_sizes { string } Specify which 1x size the image will display at, on different devices
+
 
   Usage:
   <ul class="list-unstyled" role="list">
@@ -60,7 +64,7 @@
 
   <div class="product-card__image image-container __crop-{{ crop }}" style="--imageRatio: {{ image_ratio }}%">
     {% if product and product.featured_image %}
-      {% render 'next-gen-img', image: product.featured_image %}
+      {% render 'next-gen-img', image: product.featured_image, width: img_width: widths: img_widths, sizes: img_sizes %}
     {% elsif product == blank %}
       {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
     {% else %}

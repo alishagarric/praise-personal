@@ -77,7 +77,7 @@
       {% endcomment %}
       <div class="featured-collection__cards" style="--featuredCollectionThemedTextColor: {{ featured_collection.products[0].metafields.custom.text_color }}">
         {% for product in featured_collection.products %}
-          {% render 'product-card' product: product, show_bg_color: show_bg_color, quick_add: quick_add, crop: crop_shape, show_phrase: show_phrase, alignment: product_text_alignment, show_description: show_description, price_position: price_pos, alt_heading: alt_title, class: "featured-collection__cards__card" %}
+          {% render 'product-card' product: product, show_bg_color: show_bg_color, quick_add: quick_add, crop: crop_shape, show_phrase: show_phrase, alignment: product_text_alignment, show_description: show_description, price_position: price_pos, alt_heading: alt_title, img_width: 930, img_widths: "930, 650, 400", img_sizes: "(max-width: 676px) 75vw, (max-width: 1024px) 33vw, 25vw", class: "featured-collection__cards__card" %}
         {% endfor %}
       </div>
 
