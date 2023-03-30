@@ -117,10 +117,10 @@
         {%- endfor -%}
       </div>
 
-      <button class="button">{{ 'products.facets.filter_and_sort_button' | t }}</button>
+      {% comment %}<button class="button">{{ 'products.facets.filter_and_sort_button' | t }}</button>{% endcomment %}
     {% endcapture %}
 
-    {% render 'disclosure', title: filter_title, id: filter_title, text: filter_content, style: "blank-button", class: "filter-and-sort__filters__details", open: true %}
+    {% render 'disclosure', title: filter_title, id: filter_title, text: filter_content, style: "blank-button", class: "filter-and-sort__filters__details", open: false %}
 
   </div>
 

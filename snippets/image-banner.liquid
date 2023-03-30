@@ -102,7 +102,7 @@
           {% assign widths = '1600, 800'%}
           {% assign sizes = "(max-width: 676px) 60vw, (max-width: 1024px) 55vw, 50vw" %}
         {% endif %}
-        {% render 'next-gen-img', image: image, width: width, widths: widths, sizes: sizes, preload: preload %}
+        {% render 'next-gen-img', image: image, width: width, widths: widths, sizes: sizes, preload: hero %}
       </div>
     {%- endif -%}
 
