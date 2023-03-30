@@ -33,11 +33,11 @@
       @extend .custom-icon;
     }
 
-    &.user-added{
-      &:before{
-        content: none!important;
+    &.user-added {
+      &:before {
+        content: none !important;
       }
-      svg{
+      svg {
         width: var(--customIconHeight);
         height: var(--customIconHeight);
       }
@@ -47,29 +47,25 @@
   &.__layout {
     &-row {
       .featured-icons {
-        &__icons {
-          &__icon {
-            flex-direction: row;
-            text-align: left;
-          }
+        &__icon {
+          flex-direction: row;
+          text-align: left;
         }
       }
     }
 
     &-icon-only {
       .featured-icons {
-        &__icons {
-          &__icon {
-            span {
-              display: none;
-            }
+        &__icon {
+          span {
+            display: none;
           }
         }
       }
     }
   }
 
-  &.user-added{
+  &.user-added {
     display: none;
   }
 }
