@@ -1,30 +1,35 @@
 {
   "current": {
-    "announcement_bar_text": "Testing the announcement bar",
+    "announcement_bar_text": "",
     "announcement_bar_speed": 5,
     "announcement_bar_text_size": "p-sm",
     "announcement_bar_theme": "2",
     "announcement_bar_home_only": true,
     "announcement_bar_marquee": false,
-    "social_twitter_link": "https://twitter.com/shopify",
-    "social_facebook_link": "https://facebook.com/shopify",
+    "social_twitter_link": "https:\/\/twitter.com\/shopify",
+    "social_facebook_link": "https:\/\/facebook.com\/shopify",
     "social_pinterest_link": "",
-    "social_instagram_link": "http://instagram.com/shopify",
-    "social_tiktok_link": "https://tiktok.com/@shopify",
-    "social_youtube_link": "https://www.youtube.com/shopify",
+    "social_instagram_link": "http:\/\/instagram.com\/shopify",
+    "social_tiktok_link": "https:\/\/tiktok.com\/@shopify",
+    "social_youtube_link": "https:\/\/www.youtube.com\/shopify",
     "type_heading_font": "abril_fatface_n4",
-    "custom_heading_font_link": "https://cdn.shopify.com/s/files/1/0662/3235/2990/files/MyFontsWebfontsKit.css?v=1661972191",
-    "custom_heading_font_family_name": "CoopBlackletter",
+    "custom_heading_font_link": "https:\/\/use.typekit.net\/lxx8fgf.css",
+    "custom_heading_font_family_name": "filson-pro",
     "heading_scale": 115,
     "type_body_font": "lato_n4",
+    "custom_body_font_link": "https:\/\/use.typekit.net\/lxx8fgf.css",
+    "custom_body_font_family_name": "filson-pro",
     "body_scale": 100,
-    "background_color": "#FFFFFF",
-    "text_color": "#000000",
-    "border_color": "#d0d0d0",
-    "button_color": "#000000",
-    "button_text_color": "#FFFFFF",
-    "background_color_2": "#f4f3ee",
-    "border_color_2": "#7d7d7d",
+    "background_color": "#fff8ee",
+    "text_color": "#3d290d",
+    "border_color": "#3d290d",
+    "button_color": "#366a2f",
+    "button_text_color": "#fff8ee",
+    "background_color_2": "#3d290d",
+    "text_color_2": "#fff8ee",
+    "border_color_2": "#fff8ee",
+    "button_color_2": "#fff8ee",
+    "button_text_color_2": "#3d290d",
     "background_color_3": "#ffff00",
     "border_color_3": "#7d7d7d",
     "button_color_3": "#FFFFFF",
@@ -42,12 +47,12 @@
     "button_sides_space": 0.6,
     "button_hover": "default",
     "custom_icon_title_1": "Lemon",
-    "custom_icon_1": "shopify://shop_images/Group.png",
+    "custom_icon_1": "shopify:\/\/shop_images\/Group.png",
     "custom_icon_title_2": "Ginger",
-    "custom_icon_2": "shopify://shop_images/Group_100.png",
+    "custom_icon_2": "shopify:\/\/shop_images\/Group_100.png",
     "custom_icon_title_3": "Sugar",
-    "custom_icon_3": "shopify://shop_images/Vector.png",
-    "favicon": "shopify://shop_images/icons8-star-32.png",
+    "custom_icon_3": "shopify:\/\/shop_images\/Vector.png",
+    "favicon": "shopify:\/\/shop_images\/icons8-star-32.png",
     "sections": {
       "header": {
         "type": "header",
@@ -61,13 +66,11 @@
               "button_label": "",
               "button_link": "",
               "heading_1": "Peanut Butter Collection",
-              "text_1": "<p>Nutty rick, peanut butter cups and more</p>",
-              "link_1": "shopify://collections/peanut-butter-collection",
-              "image_1": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_bbf54c90-3c31-4e00-962c-f12d6b17cf77.jpg",
+              "text_1": "<p>Nutty rick, peanut butter cups and more<\/p>",
+              "link_1": "shopify:\/\/collections\/peanut-butter-collection",
               "heading_2": "Chocolate Essentials",
-              "text_2": "<p>Banana caramel filled peanut butter cookie with chocolate covered candied bacon</p>",
-              "link_2": "shopify://collections/chocolate-essentials",
-              "image_2": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_cd0b890c-b357-4857-9c0d-36126dbfab86.jpg"
+              "text_2": "<p>Banana caramel filled peanut butter cookie with chocolate covered candied bacon<\/p>",
+              "link_2": "shopify:\/\/collections\/chocolate-essentials"
             }
           },
           "aa838210-3e0c-4205-91cf-6bd3b96a73a1": {
@@ -75,9 +78,9 @@
             "settings": {
               "label": "Collections",
               "heading_0": "Our Collections",
-              "text_0": "<p>Atypical cookies and treats that push the boundaries of indulgence</p>",
+              "text_0": "<p>Atypical cookies and treats that push the boundaries of indulgence<\/p>",
               "button_label": "Shop Treats",
-              "button_link": "shopify://collections",
+              "button_link": "shopify:\/\/collections",
               "heading_1": "",
               "text_1": "",
               "link_1": "",
@@ -92,12 +95,9 @@
           "aa838210-3e0c-4205-91cf-6bd3b96a73a1"
         ],
         "settings": {
-          "logo": "shopify://shop_images/logo_black.png",
-          "logo_placement": "center",
-          "menu": "mega-menu-ritual",
-          "button_label": "Button label",
-          "button_link": "#",
-          "button_color": "default",
+          "logo": "shopify:\/\/shop_images\/Commence_x_Pure_Ground_Ingredients-_Wordmark_Horizontal_Left_-_Brown_1.png",
+          "logo_placement": "left",
+          "menu": "main-menu",
           "always_show_nav": false
         }
       },
@@ -115,25 +115,22 @@
             "type": "link_list",
             "settings": {
               "heading": "Shop",
-              "menu": "shop"
+              "menu": ""
             }
           },
           "5ca5bb4b-199c-4f4d-b86a-c18ed9b02856": {
             "type": "icon",
             "settings": {
-              "icon": "shopify://shop_images/Group.png"
             }
           },
           "7cc3256d-ce8b-4784-ab7f-fb4875a12546": {
             "type": "icon",
             "settings": {
-              "icon": "shopify://shop_images/Vector.png"
             }
           },
           "abaaef85-4b2f-460e-8d2c-9d1098f5ab1f": {
             "type": "icon",
             "settings": {
-              "icon": "shopify://shop_images/Group_100.png"
             }
           }
         },
@@ -145,26 +142,28 @@
           "abaaef85-4b2f-460e-8d2c-9d1098f5ab1f"
         ],
         "settings": {
-          "heading": "Stay in the know",
-          "description": "Be the first to receive new releases, special offers and more",
-          "logo": "shopify://shop_images/Praise_Logo.png",
-          "logo_width": 80,
-          "stack_logo": false,
+          "heading": "Get the latest in hot deals",
+          "description": "Join our What’s In Stock mailing list and be a part of the Pure Ground family",
+          "logo": "shopify:\/\/shop_images\/Commence_x_Pure_Ground_Ingredients-_Combined_Stacked_Left_-_Off-White.svg",
+          "logo_width": 240,
+          "stack_logo": true,
           "show_social": true,
           "newsletter_enable": true,
           "secondary_links": "footer",
-          "theme": "4",
-          "accent_theme": "3"
+          "theme": "2",
+          "accent_theme": "2"
         }
       },
       "password-header": {
         "type": "password-header",
         "settings": {
-          "logo": "shopify://shop_images/logo_black.png",
+          "logo": "shopify:\/\/shop_images\/logo_black.png",
           "logo_placement": "left"
         }
       }
     },
-    "content_for_index": []
+    "content_for_index": [
+
+    ]
   }
 }
