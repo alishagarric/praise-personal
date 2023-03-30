@@ -24,15 +24,15 @@
             "alt_heading": false
           }
         },
+        "rating": {
+          "type": "rating",
+          "settings": {
+          }
+        },
         "price": {
           "type": "price",
           "settings": {
             "heading_size": "h6"
-          }
-        },
-        "rating": {
-          "type": "rating",
-          "settings": {
           }
         },
         "description": {
@@ -53,7 +53,7 @@
           "type": "buy_buttons",
           "settings": {
             "show_quantity": true,
-            "hide_dynamic_buttons": false,
+            "hide_dynamic_buttons": true,
             "include_border": true
           }
         },
@@ -152,8 +152,8 @@
         "media",
         "a98216f0-9ab0-4c2d-9864-71419c82125c",
         "title",
-        "price",
         "rating",
+        "price",
         "description",
         "variant_picker",
         "buy_buttons",
