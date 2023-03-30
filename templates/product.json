@@ -3,42 +3,81 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "media": {
-          "type": "media",
-          "settings": {
-            "layout": "slider"
-          }
-        },
-        "a98216f0-9ab0-4c2d-9864-71419c82125c": {
-          "type": "text",
-          "settings": {
-            "text": "{{ product.metafields.custom.item_code.value }}",
-            "text_size": "p-sm",
-            "include_border": false
-          }
-        },
         "title": {
           "type": "title",
           "settings": {
-            "heading_size": "h3",
-            "alt_heading": false
-          }
-        },
-        "rating": {
-          "type": "rating",
-          "settings": {
-          }
-        },
-        "price": {
-          "type": "price",
-          "settings": {
-            "heading_size": "h6"
+            "heading_size": "h4",
+            "alt_heading": true
           }
         },
         "description": {
           "type": "description",
           "settings": {
             "text_size": "p-sm"
+          }
+        },
+        "rating": {
+          "type": "rating",
+          "settings": {}
+        },
+        "featured-icons": {
+          "type": "icons",
+          "settings": {
+            "icon_1": "none",
+            "icon_1_title": "",
+            "icon_2": "none",
+            "icon_2_title": "",
+            "icon_3": "none",
+            "icon_3_title": "",
+            "icon_height": 20,
+            "title": "Key Ingredients",
+            "layout": "row",
+            "include_border": true
+          }
+        },
+        "expandable": {
+          "type": "expandable",
+          "settings": {
+            "title": "Details",
+            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gravida diam integer suspendisse magna tempus ut praesent amet venenatis. </p><ul><li>Full of Gluten</li><li>Vegan</li><li>500 calories per cookie</li><li>No artificial colors of flavors</li></ul>",
+            "page": "",
+            "open": false
+          }
+        },
+        "expandable-2": {
+          "type": "expandable",
+          "settings": {
+            "title": "Full List of Ingredients",
+            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gravida diam integer suspendisse magna tempus ut praesent amet venenatis. </p><ul><li>Full of Gluten</li><li>Vegan</li><li>500 calories per cookie</li><li>No artificial colors of flavors</li></ul>",
+            "page": "",
+            "open": false
+          }
+        },
+        "expandable-3": {
+          "type": "expandable",
+          "settings": {
+            "title": "Nutritional Label",
+            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gravida diam integer suspendisse magna tempus ut praesent amet venenatis. </p><ul><li>Full of Gluten</li><li>Vegan</li><li>500 calories per cookie</li><li>No artificial colors of flavors</li></ul>",
+            "page": "",
+            "open": false
+          }
+        },
+        "pickup-availability": {
+          "type": "pickup_availability",
+          "settings": {
+            "title": "Pickup Availability"
+          }
+        },
+        "media": {
+          "type": "media",
+          "settings": {
+            "layout": "slider"
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "heading_size": "h6"
           }
         },
         "variant_picker": {
@@ -53,146 +92,100 @@
           "type": "buy_buttons",
           "settings": {
             "show_quantity": true,
-            "hide_dynamic_buttons": true,
+            "hide_dynamic_buttons": false,
             "include_border": true
           }
         },
-        "expandable": {
-          "type": "expandable",
+        "comp-products": {
+          "type": "complementary_products",
           "settings": {
-            "title": "Request Sample",
-            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gravida diam integer suspendisse magna tempus ut praesent amet venenatis. <\/p><p><a href=\"#\" title=\"#\">Request Sample<\/a><\/p>",
-            "page": "",
-            "open": false
-          }
-        },
-        "expandable-2": {
-          "type": "expandable",
-          "settings": {
-            "title": "Request C of A Results",
-            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gravida diam integer suspendisse magna tempus ut praesent amet venenatis. <\/p><p><a href=\"#\" title=\"#\">Request C of A Results<\/a><\/p>",
-            "page": "",
-            "open": false
-          }
-        },
-        "expandable-3": {
-          "type": "expandable",
-          "settings": {
-            "title": "Spec Sheet",
-            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gravida diam integer suspendisse magna tempus ut praesent amet venenatis. <\/p><p><a href=\"#\" title=\"#\">View Spec Sheet<\/a><\/p>",
-            "page": "",
-            "open": false
-          }
-        },
-        "6d27df31-6dfe-4412-a4ad-8618485ff456": {
-          "type": "divider",
-          "settings": {
-            "top": 40,
-            "bottom": 0,
-            "hide_divider": true
-          }
-        },
-        "00f76f67-488d-477f-913a-999d07eb8e76": {
-          "type": "text",
-          "settings": {
-            "text": "ITEM CODE - {{ product.metafields.custom.item_code.value }}",
-            "text_size": "p-sm",
-            "include_border": false
-          }
-        },
-        "d9692b9f-c134-4da9-b534-4018cffefccf": {
-          "type": "text",
-          "settings": {
-            "text": "PRODUCT NAME - {{ product.title }}",
-            "text_size": "p-sm",
-            "include_border": false
-          }
-        },
-        "788e9112-ec2c-40fc-ad4b-4bb381550414": {
-          "type": "text",
-          "settings": {
-            "text": "BOTANICAL NAME - {{ product.metafields.custom.botanical_name.value }}",
-            "text_size": "p-sm",
-            "include_border": false
-          }
-        },
-        "452f2c44-446a-4ecc-b4a4-280a529d9a18": {
-          "type": "text",
-          "settings": {
-            "text": "PLANT PART - {{ product.metafields.custom.plant_part.value }}",
-            "text_size": "p-sm",
-            "include_border": false
-          }
-        },
-        "e785e08b-b3f6-495e-955c-3581cd7dbe95": {
-          "type": "text",
-          "settings": {
-            "text": "COUNTRY OF ORIGIN - {{ product.metafields.custom.country_of_origin.value }}",
-            "text_size": "p-sm",
-            "include_border": false
-          }
-        },
-        "f141f4a6-3266-452a-8e5b-757d03c13e65": {
-          "type": "icons",
-          "settings": {
-            "icon_1": "none",
-            "icon_1_title": "",
-            "icon_2": "none",
-            "icon_2_title": "",
-            "icon_3": "none",
-            "icon_3_title": "",
-            "icon_height": 40,
-            "title": "Title",
-            "layout": "stacked",
-            "include_border": true
+            "title": "Complete your cart",
+            "include_border": true,
+            "crop_shape": "circle"
           }
         }
       },
       "block_order": [
-        "media",
-        "a98216f0-9ab0-4c2d-9864-71419c82125c",
         "title",
-        "rating",
-        "price",
         "description",
-        "variant_picker",
-        "buy_buttons",
+        "rating",
+        "featured-icons",
         "expandable",
         "expandable-2",
         "expandable-3",
-        "6d27df31-6dfe-4412-a4ad-8618485ff456",
-        "00f76f67-488d-477f-913a-999d07eb8e76",
-        "d9692b9f-c134-4da9-b534-4018cffefccf",
-        "788e9112-ec2c-40fc-ad4b-4bb381550414",
-        "452f2c44-446a-4ecc-b4a4-280a529d9a18",
-        "e785e08b-b3f6-495e-955c-3581cd7dbe95",
-        "f141f4a6-3266-452a-8e5b-757d03c13e65"
+        "pickup-availability",
+        "media",
+        "price",
+        "variant_picker",
+        "buy_buttons",
+        "comp-products"
       ],
       "settings": {
         "theme": "primary"
       }
     },
-    "f0fc3be8-8b23-40d1-87b0-fa7c2ea2a9e1": {
-      "type": "divider",
+    "787ead21-d010-4107-9b59-4a0cf7ea91f3": {
+      "type": "text-marquee",
       "settings": {
-        "theme": "primary",
-        "top_spacing": 0,
-        "bottom_spacing": 0
+        "text": "Spend $30+ Get a free 🥜 peanut butter cookie",
+        "text_size": "h6",
+        "alt_heading": true,
+        "speed": 5,
+        "theme": "4",
+        "top_spacing": 30,
+        "bottom_spacing": 30
       }
     },
-    "product-recommendations": {
-      "type": "product-recommendations",
+    "358e3a37-ea37-4371-af0a-4b81d29478cb": {
+      "type": "icons-section",
+      "blocks": {
+        "template--16398178779358__358e3a37-ea37-4371-af0a-4b81d29478cb-1678920937a9e025f0-0": {
+          "type": "icon",
+          "settings": {
+            "icon": "shopify://shop_images/Group.png",
+            "heading": "Sugar",
+            "text": "At Ritual we use fresh lemons sourced within 50 miled of our bakign facility"
+          }
+        },
+        "template--16398178779358__358e3a37-ea37-4371-af0a-4b81d29478cb-1678920937a9e025f0-1": {
+          "type": "icon",
+          "settings": {
+            "icon": "shopify://shop_images/Group_100.png",
+            "heading": "Lemon",
+            "text": "At Ritual we use fresh lemons sourced within 50 miled of our bakign facility"
+          }
+        },
+        "template--16398178779358__358e3a37-ea37-4371-af0a-4b81d29478cb-1678920937a9e025f0-2": {
+          "type": "icon",
+          "settings": {
+            "icon": "shopify://shop_images/Group.png",
+            "heading": "Sugar",
+            "text": "At Ritual we use fresh lemons sourced within 50 miled of our bakign facility"
+          }
+        }
+      },
+      "block_order": [
+        "template--16398178779358__358e3a37-ea37-4371-af0a-4b81d29478cb-1678920937a9e025f0-0",
+        "template--16398178779358__358e3a37-ea37-4371-af0a-4b81d29478cb-1678920937a9e025f0-1",
+        "template--16398178779358__358e3a37-ea37-4371-af0a-4b81d29478cb-1678920937a9e025f0-2"
+      ],
       "settings": {
-        "heading": "You may also like",
+        "heading": "Cookie Benefits",
         "heading_size": "h4",
-        "alt_heading": true,
-        "alignment": "center"
+        "alt_heading": false,
+        "layout": "3",
+        "mobile_layout": "3",
+        "icon_height": 80,
+        "alignment": "center",
+        "theme": "primary",
+        "top_spacing": 100,
+        "bottom_spacing": 50
       }
     },
     "4b830209-3799-4cb8-a769-e9d60515b093": {
       "type": "featured-blog",
       "settings": {
-        "heading": "Read Up",
+        "heading": "Try Ritual Recipes",
         "heading_size": "h5",
         "blog": "news",
         "alt_heading": true,
@@ -206,22 +199,28 @@
         "mobile_layout": "slider",
         "view_all_button_label": "",
         "theme": "2",
-        "top_spacing": 100,
-        "bottom_spacing": 100
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h4",
+        "alt_heading": true,
+        "alignment": "center"
       }
     },
     "167529836888bf5a4a": {
       "type": "apps",
       "blocks": {
         "478a31ad-f5cb-431a-b030-744dba03a8c7": {
-          "type": "shopify:\/\/apps\/product-reviews\/blocks\/reviews\/bae150af-8da8-48b2-9867-398188115e5f",
-          "settings": {
-          }
+          "type": "shopify://apps/product-reviews/blocks/reviews/bae150af-8da8-48b2-9867-398188115e5f",
+          "settings": {}
         }
       },
-      "block_order": [
-        "478a31ad-f5cb-431a-b030-744dba03a8c7"
-      ],
+      "block_order": ["478a31ad-f5cb-431a-b030-744dba03a8c7"],
       "settings": {
         "top_spacing": 50,
         "bottom_spacing": 50,
@@ -231,9 +230,10 @@
   },
   "order": [
     "main",
-    "f0fc3be8-8b23-40d1-87b0-fa7c2ea2a9e1",
-    "product-recommendations",
+    "787ead21-d010-4107-9b59-4a0cf7ea91f3",
+    "358e3a37-ea37-4371-af0a-4b81d29478cb",
     "4b830209-3799-4cb8-a769-e9d60515b093",
+    "product-recommendations",
     "167529836888bf5a4a"
   ]
 }
