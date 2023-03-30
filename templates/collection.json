@@ -31,7 +31,7 @@
         "crop_shape": "square",
         "theme": "primary",
         "top_spacing": 50,
-        "bottom_spacing": 50
+        "bottom_spacing": 100
       }
     }
   },
