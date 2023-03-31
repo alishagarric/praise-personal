@@ -23,8 +23,13 @@
     {%- else -%}
       <ul class="main-collection-grid__container list-unstyled" role="list">
         {%- for product in collection.products -%}
+          {% assign preload = false %}
+          {% if forloop.index0 < 3 %}
+            {% assign preload = true %}
+          {% endif %}
+
           <li style="order: {{ forloop.index }};">
-            {% render 'product-card' product: product, class: "main-collection-grid__grid-item", show_bg_color: section.settings.show_bg_color, quick_add: section.settings.quick_add, crop: section.settings.crop_shape, show_phrase: section.settings.show_phrase, alignment: section.settings.product_text_alignment, section.settings.show_description: section.settings.show_description, price_position: section.settings.price, alt_heading: section.settings.alt_title %}
+            {% render 'product-card' product: product, class: "main-collection-grid__grid-item", show_bg_color: section.settings.show_bg_color, quick_add: section.settings.quick_add, crop: section.settings.crop_shape, show_phrase: section.settings.show_phrase, alignment: section.settings.product_text_alignment, section.settings.show_description: section.settings.show_description, price_position: section.settings.price, alt_heading: section.settings.alt_title, img_width: 1280, img_widths: '1280, 900, 700, 500', img_sizes: '(max-width: 676px) 100vw, (max-width: 1024px) 45vw, 25vw', img_preload: preload %}
           </li>
         {%- endfor -%}
 
@@ -32,11 +37,29 @@
           {% for block in section.blocks %}
             {% case block.type %}
               {% when 'promotion' %}
-                {% if block.settings.link != blank %}
-                  {% assign promotion_tag = "a" %}
-                {% else %}
-                  {% assign promotion_tag = "div" %}
-                {% endif %}
+                {% liquid 
+                  if block.settings.link != blank 
+                    assign promotion_tag = "a" 
+                  else 
+                    assign promotion_tag = "div" 
+                  endif 
+                  if block.settings.width == 1
+                    assign img_width = 1360
+                    assign img_widths = '1360, 900, 700, 500'
+                    assign img_sizes = '(max-width: 676px) 100vw, (max-width: 1024px) 45vw, 25vw'
+                  elsif block.settings.width == 2
+                    assign img_width = 1850
+                    assign img_widths = '1850, 1400, 1000, 700'
+                    assign img_sizes = '(max-width: 676px) 100vw, (max-width: 1024px) 95vw, 55vw'
+                  else 
+                    assign img_width = 2620
+                    assign img_widths = '2620, 2000, 1400, 1000, 700'
+                    assign img_sizes = '(max-width: 676px) 100vw, (max-width: 1024px) 95vw, 80vw'
+                  endif
+                  if block.settings.position < 3
+                    assign img_preload = true
+                  endif
+                %}
 
                 <li
                   style="order: {{ block.settings.position }}; --overlayOpacity: {{ block.settings.overlay }}%; --gridItemWidth: {{ block.settings.width }}; --gridItemHeight: {{ block.settings.height }}; --mobileMinHeight: {{ block.settings.mobile_min_height }}px;"
@@ -52,7 +75,7 @@
                     {{ block.settings.text }}
 
                     {% if block.settings.image %}
-                      {% render 'next-gen-img', image: block.settings.image %}
+                      {% render 'next-gen-img', image: block.settings.image, width: img_width, widths: img_widths, sizes: img_sizes, preload: img_preload %}
                     {% endif %}
                   </{{ promotion_tag}}>
                 </li>

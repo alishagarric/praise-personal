@@ -25,7 +25,7 @@
         <ul class="cart-recommendations__container list-unstyled" role="list">
           {% for recommendation in recommendations.products %}
             <li>
-              {% render 'quick-product' quick_product: recommendation %}
+              {% render 'quick-product' quick_product: recommendation, img_width: 260, img_widths: '260, 150', img_sizes: '(max-width: 1024px) 150px, 10vw' %}
             </li>
           {% endfor %}
         </ul>

@@ -26,6 +26,7 @@
   - show_description {boolean} optional, product level
   - price_position {string} optional, "default" "bottom" "not-visible"
   - alt_title {boolean} optional, product level
+  - img_preload { bool } Whether the image should use lazy loading / not above the fold
 
   Usage:
   <ol class="list-unstyled" role="list">
@@ -51,7 +52,7 @@
         class="collection-teaser-row__image __crop-{{ collection_image_crop_shape }}"
         style="--imageRatio: {{ collection.image.height | divided_by: 1.00 | divided_by: collection.image.width | times: 100 }}%"
       >
-        {% render 'next-gen-img', image: collection.image %}
+        {% render 'next-gen-img', image: collection.image, width: 1850, widths: '1850, 1000, 500', sizes: '(max-width: 676px) 95vw, (max-width: 1024px) 90vw, 30vw', preload: preload %}
       </div>
     {% endif %}
 
@@ -127,7 +128,7 @@
   {% comment %} Products Block {% endcomment %}
   <div class="collection-teaser-row__products">
     {% for product in collection.products limit: products_per_collection %}
-      {% render 'product-card' product: product, show_bg_color: show_bg_color, quick_add: quick_add, crop: crop_shape, show_phrase: show_phrase, alignment: product_text_alignment, show_description: show_description, price_position: price, alt_heading: alt_title %}
+      {% render 'product-card' product: product, show_bg_color: show_bg_color, quick_add: quick_add, crop: crop_shape, show_phrase: show_phrase, alignment: product_text_alignment, show_description: show_description, price_position: price, alt_heading: alt_title, img_width: 900, img_widths: '900, 700, 400', img_sizes: '(max-width: 676px) 50vw, (max-width: 1024px) 45vw, 25vw', img_preload: img_preload %}
     {% endfor %}
   </div>
 

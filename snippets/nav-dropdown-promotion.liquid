@@ -16,11 +16,11 @@
   {% capture promo %}
       {% if image %}
         <div class="{{ className }}__image image-container">
-          {% render 'next-gen-img' image: image, alt: heading %}
+          {% render 'next-gen-img' image: image, alt: heading, width: 500, widths: '500, 250, 100', sizes: '(max-width: 676px) 250px, (max-width: 1024px) 100px, 250px' %}
         </div>
       {% endif %}
       {% if heading %}
-        <div class="{{ className }}__label h6 p-lg">{{ heading | escape}}</div>
+        <div class="{{ className }}__label h6 p-lg">{{ heading | escape }}</div>
       {% endif %}
       {% if text %}
         <div class="p-sm">

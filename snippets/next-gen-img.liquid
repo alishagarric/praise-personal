@@ -31,10 +31,10 @@
   endif 
 %}
 
+{% if height != blank and width == blank %}
 
 {{ image | 
   image_url: 
-    width: width | 
     height: height |
     image_tag:
       widths: widths,
@@ -43,3 +43,15 @@
       alt: altText,
       preload: preload
 }}
+
+{% else %}
+  {{ image | image_url: 
+      width: width | 
+      image_tag:
+        widths: widths,
+        sizes: sizes,
+        loading: loading,
+        alt: altText,
+        preload: preload
+  }}
+{% endif %}

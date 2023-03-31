@@ -1,11 +1,13 @@
-{% assign card_width_divisor = 4 %}
-{% assign placeholder_card_count = 4 %}
+{% liquid 
+  assign card_width_divisor = 4
+  assign placeholder_card_count = 4
 
-{% if section.blocks.size >= 1 %}
-  {% assign placeholder_content = false %}
-{% else %}
-  {% assign placeholder_content = true %}
-{% endif %}
+  if section.blocks.size >= 1
+    assign placeholder_content = false
+  else
+    assign placeholder_content = true
+  endif 
+%}
 
 {% style %}
   #Content-marquee-{{ section.id }} {
@@ -40,7 +42,11 @@
                   quotations: block.settings.quotations,
                   details: block.settings.details,
                   logo: block.settings.logo,
-                  class: 'content-marquee__item'
+                  class: 'content-marquee__item',
+                  img_width: 800,
+                  img_widths: '800, 500, 300',
+                  img_sizes: '(max-width: 1024px) 40vw, 25vw'
+
                 %}
 
                 {% comment %} Type content card {% endcomment %}
@@ -56,7 +62,10 @@
                   heading_size: block.settings.heading_size,
                   button_link: block.settings.button_link,
                   button_color: block.settings.button_color,
-                  text: block.settings.text
+                  text: block.settings.text,
+                  img_width: 800,
+                  img_widths: '800, 500, 300',
+                  img_sizes: '(max-width: 1024px) 40vw, 25vw'
                 %}
             {% endcase %}
           {% endfor %}

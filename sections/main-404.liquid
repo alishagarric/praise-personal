@@ -6,10 +6,16 @@
   }
 {% endstyle %}
 
+{% liquid
+  assign img_width = section.settings.image_width | times: 2
+  assign img_widths = img_width | append: ', ' | append: section.settings.image_width
+  assign img_sizes = '(max-width: 676px) 100vw, ' | append: section.settings.image_width | append: 'px'
+%}
+
 <div id="main-404-{{ section.id }}" class="site-404 __align-center __theme-{{ section.settings.theme }}">
   {%- if section.settings.image != blank -%}
     <div class="site-404__image">
-      {% render 'next-gen-img', image: section.settings.image %}
+      {% render 'next-gen-img', image: section.settings.image, width: img_width, widths: img_widths, sizes: img_sizes, preload: true %}
     </div>
   {%- endif -%}
 

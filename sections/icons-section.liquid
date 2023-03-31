@@ -14,6 +14,8 @@
   }
 {% endstyle %}
 
+{% assign img_height = section.settings.icon_height | times: 2 %}
+
 <div
   id="Icons-section-{{ section.id }}"
   class="icons-section __theme-{{ section.settings.theme }} __align-{{section.settings.alignment}}"
@@ -36,7 +38,7 @@
         {%- when 'icon' -%}
           <div class="icons-section__icons__icon">
             {%- if block.settings.icon != blank -%}
-              {% render 'next-gen-img', image: block.settings.icon %}
+              {% render 'next-gen-img', image: block.settings.icon, height: img_height %}
             {%- else -%}
               {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
             {%- endif -%}

@@ -39,7 +39,7 @@
                       {%- comment -%} Image {%- endcomment -%}
                       {% if item.image %}
                         <a href="{{ item.url }}" aria-hidden="true" tabindex="-1" class="main-cart__product-details__image image-container __crop-{{ section.settings.crop_shape }}" style="--imageRatio: {{ item.image.height | divided_by: 1.00 | divided_by: item.image.width | times: 100 }}%">
-                          {% render 'next-gen-img' image: item.image %}
+                          {% render 'next-gen-img' image: item.image, width: 600, widths: '400, 300', sizes: '(max-width: 676px) 40vw, (max-width: 1024px) 30vw, 15vw', preload: true %}
                         </a>
                       {% endif %}
 

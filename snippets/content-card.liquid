@@ -17,6 +17,11 @@
   - button_link: {url} optional
   - button_color: {string} optional
   - class: {string} optional
+  - img_width: {int} The width of the image at its max width x2 for high resolution screens
+  - img_widths: {string} Different 1x or 2x widths of the image that can be decided on a loaded by the browser, include mobile, tablet and desktop options
+  - img_sizes { string } Specify which 1x size the image will display at, on different devices
+  - img_preload { bool } Whether the image should use lazy loading / not above the fold
+
 
   Usage:
     {% render 'content-card' image: block.settings.image, alignment: block.settings.alignment, crop_shape: block.settings.crop_shape, overlay_theme: block.settings.overlay_theme, overlay: section.settings.overlay, heading: block.settings.heading heading_size: block.settings.heading_size, button_link: block.settings.button_link, button_color: block.settings.button_color, text: block.settings.text %}
@@ -42,7 +47,7 @@
       class="content-card__image __crop-{{ crop_shape }} {% if overlay_theme %}__theme-{{ overlay_theme }}{% endif %}"
       style="--imageRatio: {{ image.height | divided_by: 1.00 | divided_by: image.width | times: 100 }}%; --overlayOpacity: calc({{ overlay }} / 100);"
     >
-      {% render 'next-gen-img', image: image %}
+      {% render 'next-gen-img', image: image, width: img_width: widths: img_widths, sizes: img_sizes, preload: img_preload %}
 
       {% if overlap == true %}
         {%

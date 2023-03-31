@@ -11,6 +11,11 @@
     - card_corners: {string} default, rounded, semicircle
     - class: {string} optional
     - alignment: {string} left, center right
+    - img_width: {int} The width of the image at its max width x2 for high resolution screens
+    - img_widths: {string} Different 1x or 2x widths of the image that can be decided on a loaded by the browser, include mobile, tablet and desktop options
+    - img_sizes { string } Specify which 1x size the image will display at, on different devices
+    - img_preload { bool } Whether the image should use lazy loading / not above the fold
+
 
     Usage:
     {% render 'quote-card' quote: block.settings.quote %}
@@ -33,7 +38,7 @@
 
     {%- if logo != blank -%}
       <div class="quote-card__image image-container">
-          {% render 'next-gen-img', image: logo %}
+          {% render 'next-gen-img', image: logo, img_width: widths: img_widths, sizes: img_sizes, preload: img_preload %}
       </div>
     {%- endif -%}
   </div>

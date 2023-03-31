@@ -46,7 +46,7 @@
         {%- when 'icon' -%}
           {%- if block.settings.icon != blank or block.settings.heading != blank or block.settings.text != blank -%}
             <div class="image-with-text__text__icon __layout-{{ block.settings.layout }}">
-              {% render 'next-gen-img', image: block.settings.icon, height: 50 %}
+              {% render 'next-gen-img', image: block.settings.icon, height: 100 %}
               {% if block.settings.heading != blank %}
                 <h3 class="h6">{{ block.settings.heading | escape }}</h3>
               {% endif %}

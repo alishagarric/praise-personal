@@ -4,7 +4,12 @@
     }
  {% endstyle %}
 
-{% assign icons = false %}
+{% liquid
+  assign icons = false 
+  assign img_width = section.settings.logo_width | times: 2
+  assign img_widths = img_width | append: ', ' | append: section.settings.logo_width
+  assign img_sizes = section.settings.logo_width | append: 'px'
+%}
 
 <footer id="Section-footer-{{ section.id }}" class="section-footer">
     
@@ -14,7 +19,7 @@
       <div class="section-footer__branding {% if section.settings.stack_logo == true %}__stack {% endif %}">
         {% if section.settings.logo %}
           <div class="section-footer__branding__logo">
-            {% render 'next-gen-img', image: section.settings.logo %}
+            {% render 'next-gen-img', image: section.settings.logo, width: img_width, widths: img_widths, sizes: img_sizes %}
           </div>
         {% endif %}
 
@@ -121,7 +126,7 @@
               {%- when 'icon' -%}
                 <div class="section-footer__badges__badge">
                   {%- if block.settings.icon != blank -%}
-                    {% render 'next-gen-img', image: block.settings.icon %}
+                    {% render 'next-gen-img', image: block.settings.icon, height: 100 %}
                   {%- endif -%}
                 </div>      
               {%- endcase -%}

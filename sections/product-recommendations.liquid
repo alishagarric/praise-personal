@@ -23,7 +23,7 @@
         <ul class="product-recommendations__container overflow-slider__container" role="list">
           {% for recommendation in recommendations.products %}
             <li>
-              {% render 'product-card', product: recommendation %}
+              {% render 'product-card', product: recommendation, img_width: 1000, img_widths: '1000, 750, 500', img_sizes: '(max-width: 676px) 75vw, (max-width: 1024px) 50vw, 25vw' %}
             </li>
           {% endfor %}
         </ul>

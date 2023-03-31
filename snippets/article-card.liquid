@@ -12,6 +12,11 @@
   - show_author: {Bool} optional.
   - assc_product_crop_shape: {String} optional. not-visible, circle, rounded-square, square, portrait, landscape, default(adapt)
   - button_label: {String} optional
+  - img_width: {int} The width of the image at its max width x2 for high resolution screens
+  - img_widths: {string} Different 1x or 2x widths of the image that can be decided on a loaded by the browser, include mobile, tablet and desktop options
+  - img_sizes { string } Specify which 1x size the image will display at, on different devices
+  - img_preload { bool } Whether the image should use lazy loading / not above the fold
+
 
   Usage:
   <ul class="list-unstyled" role="list">
@@ -56,7 +61,7 @@
       {% assign assc_product_count = article.metafields.custom.associated_products | split: "," | size | minus: 1 %}
       <div class="article-card__assc-products">
         <div class="article-card__assc-products__product __crop-{{ assc_product_crop_shape }}" style="--imageRatio: {{ featured_product.featured_image.height | divided_by: 1.00 | divided_by: featured_product.featured_image.width | times: 100 }}%">
-          {% render 'next-gen-img', image: featured_product.featured_image %}
+          {% render 'next-gen-img', image: featured_product.featured_image, width: img_width: widths: img_widths, sizes: img_sizes, preload: img_preload %}
         </div>
         {% if assc_product_count > 0 %}
           <div class="article-card__assc-products__bubble p-sm" style="--articleCardProductsCount: '+{{ assc_product_count }}''"></div>
@@ -66,7 +71,7 @@
 
     {% if article and article.image %}
       <div class="article-card__image __crop-{{ crop }}" style="--imageRatio: {{ image_ratio }}%">
-        {% render 'next-gen-img', image: article.image %}
+        {% render 'next-gen-img', image: article.image, width: img_width: widths: img_widths, sizes: img_sizes, preload: img_preload %}
       </div>
     {% elsif article == blank %}
       {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}

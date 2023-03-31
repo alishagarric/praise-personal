@@ -89,19 +89,21 @@
     {% comment %} Image content {% endcomment %}
     {%- if image != blank -%}
       <div class="image-banner__image __crop-{{ crop_shape }} {% if crop_shape != "default" %}__theme-{{ overlay_theme }} {% endif %}">
-        {% if crop_shape == "default" %}
-          {% assign width = 3360 %}
-          {% assign widths = '3360, 2100, 1700, 1400, 1100, 700'%}
-          {% assign sizes = "100vw" %}
-        {% elsif crop_shape == "wide" or crop_shape == "rounded-wide" or crop_shape == "semicircle-wide" %}
-          {% assign width = 2620 %}
-          {% assign widths = '2620, 2000, 1400, 1000, 700'%}
-          {% assign sizes = "(max-width: 676px) 95vw, (max-width: 1024px) 90vw, 80vw" %}
-        {% else %}
-          {% assign width = 1600 %}
-          {% assign widths = '1600, 800'%}
-          {% assign sizes = "(max-width: 676px) 60vw, (max-width: 1024px) 55vw, 50vw" %}
-        {% endif %}
+        {% liquid
+          if crop_shape == "default"
+            assign width = 3360
+            assign widths = '3360, 2100, 1700, 1400, 1100, 700'
+            assign sizes = "100vw"
+          elsif crop_shape == "wide" or crop_shape == "rounded-wide" or crop_shape == "semicircle-wide"
+            assign width = 2620
+            assign widths = '2620, 2000, 1400, 1000, 700'
+            assign sizes = "(max-width: 676px) 95vw, (max-width: 1024px) 90vw, 80vw"
+          else
+            assign width = 1600
+            assign widths = '1600, 800'
+            assign sizes = "(max-width: 676px) 60vw, (max-width: 1024px) 55vw, 50vw"
+          endif 
+        %}
         {% render 'next-gen-img', image: image, width: width, widths: widths, sizes: sizes, preload: hero %}
       </div>
     {%- endif -%}

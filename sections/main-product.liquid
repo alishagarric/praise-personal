@@ -220,7 +220,7 @@
                     <div class="main-product__comp-products__label p">{{ block.settings.title }}</div>
                   {% endif %}
                   {% for product in product.metafields.shopify--discovery--product_recommendation.complementary_products.value %}
-                    {% render 'quick-product' quick_product: product, class: "main-product__comp-products__product", crop: block.settings.crop_shape %}
+                    {% render 'quick-product' quick_product: product, class: "main-product__comp-products__product", crop: block.settings.crop_shape, img_width: 450, img_widths: '450, 300, 150', img_sizes: '(max-width: 676px) 30vw, 10vw', img_preload: true %}
                   {% endfor %}
               </div>
             {% endif %}

@@ -7,6 +7,10 @@
   - crop: {String} optional. circle, rounded-square, square, portrait, landscape, default (adapt)
   - alt_heading: {Bool} optional bool
   - style {string} optional. default, stacked
+  - img_width: {int} The width of the image at its max width x2 for high resolution screens
+  - img_widths: {string} Different 1x or 2x widths of the image that can be decided on a loaded by the browser, include mobile, tablet and desktop options
+  - img_sizes { string } Specify which 1x size the image will display at, on different devices
+  - img_preload { bool } Whether the image should use lazy loading / not above the fold
 
   Usage:
     {% render 'quick-product' quick_product: product, show_bg_color: show_bg_color, quick_add: quick_add, crop: crop_shape, show_phrase: show_phrase, alignment: product_text_alignment, show_description: show_description, price_position: price_pos, alt_heading: alt_title, class: "featured-collection__cards__card" %}
@@ -24,7 +28,7 @@
     {% if quick_product.featured_image %}
       <div class="quick-product__image">
         <div class="quick-product__image__container image-container __crop-{{ crop }}" style="--imageRatio: {{ quick_product.featured_image.height | divided_by: 1.00 | divided_by: quick_product.featured_image.width | times: 100 }}%">
-          {% render 'next-gen-img', image: quick_product.featured_image %}
+          {% render 'next-gen-img', image: quick_product.featured_image, img_width: widths: img_widths, sizes: img_sizes, preload: img_preload %}
         </div>
       </div>
     {% endif %}

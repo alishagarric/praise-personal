@@ -17,7 +17,7 @@
               style="--imageRatio: {{ article.image.height | divided_by: 1.00 | divided_by: article.image.width | times: 100 }}%; --overlayOpacity: calc( {{ block.settings.overlay }} / 100);"
             >
               {% assign image = article.image | image_url: width: article.image.width %}
-              {% render 'next-gen-img', image: image %}
+              {% render 'next-gen-img', image: image, width: 2620, widths: '2620, 1900, 1400, 1000, 700', sizes: '95vw', preload: true %}
             </div>
           {%- endif -%}  
         {%- when 'title'-%}
@@ -64,7 +64,15 @@
               {% if block.settings.associated_products == true and article.metafields.custom.associated_products %}
                 <div class="main-article__sidebar__products">
                   {% for product in article.metafields.custom.associated_products.value %}
-                    {% render 'quick-product' quick_product: product, class: "main-article__sidebar__products__product", style: "stacked" %}
+                    {% render 'quick-product' 
+                      quick_product: product, 
+                      class: "main-article__sidebar__products__product", 
+                      style: "stacked"
+                      img_width: 600,
+                      img_widths: '600, 300'
+                      img_sizes: '(max-width: 676px) 50vw, (max-width: 1024px) 30vw, 20vw',
+                      preload: true
+                    %}
                   {% endfor %}
                 </div>
               {% endif %}

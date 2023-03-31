@@ -25,6 +25,20 @@
 
  
 <div id="Split-slider-{{ section.id }}" class="split-slider __theme-{{ section.settings.theme }}">
+
+  {% comment %} Text Content {% endcomment %}
+  {% if section.settings.hero == true %}
+    {% assign heading_tag = "h1" %}
+  {% endif %}
+
+  {% render 'heading',
+    class: '__align-center split_slider',
+    heading_tag: heading_tag,
+    heading: section.settings.heading,
+    heading_size: section.settings.heading_size
+    alt_heading: section.settings.alt_heading
+  %}
+
   <overflow-slider class="split-slider__inner overflow-slider {% if hide_arrows_on_desktop %}__hide-desktop-arrows{% endif %} {% if hide_arrows_on_tablet %}__hide-tablet-arrows{% endif %}">
     <ul class="split-slider__slides list-unstyled overflow-slider__container" role="list">
 
@@ -61,8 +75,12 @@
             overlay_theme: overlay_theme,
             overlay: overlay,
             crop_shape: section.settings.crop_shape,
-            heading_size: section.settings.heading_size
-            button_color: section.settings.button_color
+            heading_size: section.settings.article_heading_size,
+            button_color: section.settings.button_color,
+            img_width: 1200
+            img_widths: '1200, 800, 600, 400'
+            img_sizes: '(max-width: 676px) 100vw, (max-width: 1024px) 40vw, 35vw',
+            img_preload: section.settings.hero
           %}
         </li>
       {% endfor %}
@@ -218,11 +236,60 @@
   "settings": [
     {
       "type": "header",
+      "content": "Text Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Lorem ipsum dolor sit",
+      "label": "Heading"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "X-Large"
+        },
+        {
+          "value": "h4",
+          "label": "Large"
+        },
+        {
+          "value": "h5",
+          "label": "Medium"
+        },
+        {
+          "value": "h6",
+          "label": "Small"
+        }
+      ],
+      "default": "h4",
+      "label": "Heading Size"
+    },
+    {
+      "type": "checkbox",
+      "id": "alt_heading",
+      "label": "Use body font instead of heading font for heading?"
+    },
+    {
+      "type": "header",
       "content": "General"
     },
     {
       "type": "paragraph",
       "content": "If used on a blog template, articles from that blog will populate. If used anywhere else, articles from all blogs will populate. Additionally, you can populate your own content by adding blocks to this section."
+    },
+    {
+      "type": "checkbox",
+      "id": "hero",
+      "label": "Use as hero?",
+      "info": "Should be selected if this section is the first or second on a page and contains the page title. There should only be one page title/hero used per page."
+    },
+    {
+      "type": "header",
+      "content": "Article Cards"
     },
     {
       "type": "text",
@@ -265,7 +332,7 @@
     },
     {
       "type": "select",
-      "id": "heading_size",
+      "id": "article_heading_size",
       "options": [
         {
           "value": "h2",
