@@ -73,9 +73,9 @@
 {% endif %}
 
 {% comment %} Load Shopify fonts if we're using one {% endcomment %}
-{%- if system_heading_font == true and system_body_font == true -%}
+{%- unless system_heading_font == true and system_body_font == true -%}
   <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
-{%- endif -%}
+{%- endunless -%}
 
 {% comment %} Set up heading and body font scale variables {% endcomment %}
 {% style %}
