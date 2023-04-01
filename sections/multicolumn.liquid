@@ -17,11 +17,11 @@
     endfor
   endif
 
-  if section.settings.layout == 'slider' and blocks_size > columns_desktop
+  if section.settings.layout == 'slideshow' and blocks_size > columns_desktop
     assign hide_arrows_on_desktop = false
   endif
 
-  if section.settings.layout == 'slider' and blocks_size > columns_mobile
+  if section.settings.layout == 'slideshow' and blocks_size > columns_mobile
     assign hide_arrows_on_tablet = false
   endif
 
@@ -233,8 +233,8 @@
           "label": "Stacking Columns"
         },
         {
-          "value": "slider",
-          "label": "Slider"
+          "value": "slideshow",
+          "label": "Slideshow"
         }
       ],
       "default": "default",

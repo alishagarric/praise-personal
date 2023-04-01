@@ -261,7 +261,7 @@
       "type": "featured-collection",
       "settings": {
         "collection": "cookie-collection",
-        "theme_slider": false,
+        "theme_slideshow": false,
         "show_phrase": false,
         "show_description": true,
         "quick_add": false,
@@ -365,7 +365,7 @@
         "alignment": "left",
         "columns_desktop": 3,
         "columns_mobile": 2,
-        "layout": "slider",
+        "layout": "slideshow",
         "theme": "primary",
         "top_spacing": 50,
         "bottom_spacing": 50

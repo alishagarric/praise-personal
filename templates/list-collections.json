@@ -327,7 +327,7 @@
         "alignment": "center",
         "columns_desktop": 4,
         "columns_mobile": 1,
-        "layout": "slider",
+        "layout": "slideshow",
         "theme": "2",
         "top_spacing": 50,
         "bottom_spacing": 100

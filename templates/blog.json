@@ -1,7 +1,7 @@
 {
   "sections": {
-    "split-slider": {
-      "type": "split-slider",
+    "split-slideshow": {
+      "type": "split-slideshow",
       "settings": {
         "heading": "{{ blog.title }}",
         "alt_heading": true,
@@ -54,5 +54,5 @@
       }
     }
   },
-  "order": ["split-slider", "d7103852-b62b-4134-b110-fe5c5a985ce3", "main"]
+  "order": ["split-slideshow", "d7103852-b62b-4134-b110-fe5c5a985ce3", "main"]
 }

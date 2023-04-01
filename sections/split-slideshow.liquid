@@ -17,14 +17,14 @@
 %}
 
 {% style %}
-    #Split-slider-{{ section.id }} {
+    #Split-slideshow-{{ section.id }} {
       --topSpacingRatio: {{ section.settings.top_spacing}} / 100;
       --bottomSpacingRatio: {{ section.settings.bottom_spacing}} / 100;
     }
 {% endstyle %}
 
  
-<div id="Split-slider-{{ section.id }}" class="split-slider __theme-{{ section.settings.theme }}">
+<div id="Split-slideshow-{{ section.id }}" class="split-slideshow __theme-{{ section.settings.theme }}">
 
   {% comment %} Text Content {% endcomment %}
   {% if section.settings.hero == true %}
@@ -32,15 +32,15 @@
   {% endif %}
 
   {% render 'heading',
-    class: '__align-center split_slider',
+    class: '__align-center split_slideshow',
     heading_tag: heading_tag,
     heading: section.settings.heading,
     heading_size: section.settings.heading_size
     alt_heading: section.settings.alt_heading
   %}
 
-  <overflow-slider class="split-slider__inner overflow-slider {% if hide_arrows_on_desktop %}__hide-desktop-arrows{% endif %} {% if hide_arrows_on_tablet %}__hide-tablet-arrows{% endif %}">
-    <ul class="split-slider__slides list-unstyled overflow-slider__container" role="list">
+  <overflow-slider class="split-slideshow__inner overflow-slider {% if hide_arrows_on_desktop %}__hide-desktop-arrows{% endif %} {% if hide_arrows_on_tablet %}__hide-tablet-arrows{% endif %}">
+    <ul class="split-slideshow__slides list-unstyled overflow-slider__container" role="list">
 
       {% for item in array limit: 10 %}
         {% comment %} TODO: make Read More below a settings field {% endcomment %}
@@ -65,7 +65,7 @@
         %}
         <li>
           {% render 'content-card' 
-            class: "split-slider__card",
+            class: "split-slideshow__card",
             style: "row",
             heading: heading,
             text: text, 
@@ -93,7 +93,7 @@
 
 {% schema %}
 {
-  "name": "Split Slider",
+  "name": "Split Slideshow",
   "tag": "section",
   "blocks": [
     {
@@ -461,7 +461,7 @@
   ],
   "presets": [
     {
-      "name": "Split Slider"
+      "name": "Split Slideshow"
     }
   ]
 }

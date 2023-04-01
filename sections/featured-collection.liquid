@@ -8,7 +8,7 @@
   assign top_spacing = section.settings.top_spacing
   assign bottom_spacing = section.settings.bottom_spacing
   assign show_phrase = section.settings.show_phrase
-  assign theme_slider = section.settings.theme_slider
+  assign theme_slideshow = section.settings.theme_slideshow
   assign price_pos = section.settings.price
   assign product_text_alignment = section.settings.product_text_alignment
   assign alt_heading  = section.settings.alt_heading
@@ -46,7 +46,7 @@
 
 <div 
   id="Featured-collection-{{ section.id }}" 
-  class="featured-collection __theme-{{section_theme}} {% if theme_slider %}__theme-slider {% endif %} {% if initiate_flickity == false %}__no-slider {% endif %}"  
+  class="featured-collection __theme-{{section_theme}} {% if theme_slideshow %}__theme-slider {% endif %} {% if initiate_flickity == false %}__no-slider {% endif %}"  
 >
   {% comment %} Text Content {% endcomment %}
   {% if section_heading != blank or section_text != blank %}
@@ -65,13 +65,13 @@
   <featured-collection 
     class="featured-collection__container"
     data-slider="{% if initiate_flickity %}true{% else %}false{% endif %}" 
-    data-custom-controls="{{ theme_slider }}"
+    data-custom-controls="{{ theme_slideshow }}"
   >
 
     {% unless featured_collection == blank %}
       {% comment %}
         Main Flickity slider that is only initiated when there are enough
-        products in the collection. If theme_slider is toggled on, controls
+        products in the collection. If theme_slideshow is toggled on, controls
         (arrows and dots) are not added to this slider, but if it is, then 
         a whole new controls Flickity slider is created below
       {% endcomment %}
@@ -81,14 +81,14 @@
         {% endfor %}
       </div>
 
-      {% if initiate_flickity and theme_slider %}
+      {% if initiate_flickity and theme_slideshow %}
         {% comment %}
           Controls Flickity slider that contains only themed dots and the
-          arrows. Only used when theme_slider is toggled on
+          arrows. Only used when theme_slideshow is toggled on
         {% endcomment %}
         <div class="featured-collection__controls flickity-controls">
           {% for product in featured_collection.products %}
-            <div class="featured-collection__controls__control" style="--productColor: {% if theme_slider %}{{product.metafields.custom.color }}{% else %}var(--color-text) {% endif %};">
+            <div class="featured-collection__controls__control" style="--productColor: {% if theme_slideshow %}{{product.metafields.custom.color }}{% else %}var(--color-text) {% endif %};">
               <span class="visually-hidden">{{ product.title }}</span>
             </div>
           {% endfor %}
@@ -96,7 +96,7 @@
 
       {% comment %}
         Background Flickity slider that contains only background colors. 
-        Only used when theme_slider is toggled on
+        Only used when theme_slideshow is toggled on
       {% endcomment %}
         <div class="featured-collection__background-color">
           {% for product in featured_collection.products %}
@@ -136,9 +136,9 @@
     },
     {
       "type": "checkbox",
-      "id": "theme_slider",
-      "label": "Theme collection slider with product colors",
-      "info": "Only applies when there's enough products in the collection to initiate a slider. Relies on the addition of product metafields. TODO: Add link with info"
+      "id": "theme_slideshow",
+      "label": "Theme collection slideshow with product colors",
+      "info": "Only applies when there's enough products in the collection to initiate a slideshow. Relies on the addition of product metafields. TODO: Add link with info"
     },
     {
       "type": "header",

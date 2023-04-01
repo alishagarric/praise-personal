@@ -61,7 +61,7 @@
       "type": "featured-collection",
       "settings": {
         "collection": "back-in-stock",
-        "theme_slider": true,
+        "theme_slideshow": true,
         "show_phrase": true,
         "show_description": false,
         "quick_add": false,
@@ -395,7 +395,7 @@
         "alignment": "center",
         "columns_desktop": 4,
         "columns_mobile": 2,
-        "layout": "slider",
+        "layout": "slideshow",
         "theme": "primary",
         "top_spacing": 50,
         "bottom_spacing": 50

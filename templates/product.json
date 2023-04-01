@@ -71,7 +71,7 @@
         "media": {
           "type": "media",
           "settings": {
-            "layout": "slider"
+            "layout": "slideshow"
           }
         },
         "price": {
@@ -196,7 +196,7 @@
         "button_label": "View Full Recipe",
         "crop_shape": "rounded-square",
         "alignment": "left",
-        "mobile_layout": "slider",
+        "mobile_layout": "slideshow",
         "view_all_button_label": "",
         "theme": "2",
         "top_spacing": 50,

@@ -74,7 +74,7 @@
       "type": "featured-collection",
       "settings": {
         "collection": "",
-        "theme_slider": false,
+        "theme_slideshow": false,
         "show_phrase": false,
         "show_description": false,
         "quick_add": false,
@@ -244,7 +244,7 @@
         "button_label": "",
         "crop_shape": "default",
         "alignment": "left",
-        "mobile_layout": "slider",
+        "mobile_layout": "slideshow",
         "view_all_button_label": "",
         "theme": "primary",
         "top_spacing": 50,
