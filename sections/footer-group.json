@@ -1,0 +1,63 @@
+{
+  "type": "footer",
+  "name": "Footer Group",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "ddd190a3-651d-4ac4-b3a9-2f81ff7af874": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Learn",
+            "menu": "learn"
+          }
+        },
+        "37906664-9d83-4b35-9c9a-46dda71f0699": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Shop",
+            "menu": "shop"
+          }
+        },
+        "5ca5bb4b-199c-4f4d-b86a-c18ed9b02856": {
+          "type": "icon",
+          "settings": {
+            "icon": "shopify://shop_images/Group.png"
+          }
+        },
+        "7cc3256d-ce8b-4784-ab7f-fb4875a12546": {
+          "type": "icon",
+          "settings": {
+            "icon": "shopify://shop_images/Vector.png"
+          }
+        },
+        "abaaef85-4b2f-460e-8d2c-9d1098f5ab1f": {
+          "type": "icon",
+          "settings": {
+            "icon": "shopify://shop_images/Group_100.png"
+          }
+        }
+      },
+      "block_order": [
+        "ddd190a3-651d-4ac4-b3a9-2f81ff7af874",
+        "37906664-9d83-4b35-9c9a-46dda71f0699",
+        "5ca5bb4b-199c-4f4d-b86a-c18ed9b02856",
+        "7cc3256d-ce8b-4784-ab7f-fb4875a12546",
+        "abaaef85-4b2f-460e-8d2c-9d1098f5ab1f"
+      ],
+      "settings": {
+        "heading": "Stay in the know",
+        "description": "Be the first to receive new releases, special offers and more",
+        "logo": "shopify://shop_images/Praise_Logo.png",
+        "logo_width": 80,
+        "stack_logo": false,
+        "show_social": true,
+        "newsletter_enable": true,
+        "secondary_links": "footer",
+        "theme": "4",
+        "accent_theme": "3"
+      }
+    }
+  },
+  "order": ["footer"]
+}

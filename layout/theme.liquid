@@ -47,13 +47,13 @@
       {{ 'accessibility.skip_to_content' | t }}
     </a>
 
-    {% section 'header' %}
+    {% sections 'header-group' %}
 
     <main id="MainContent" role="main" tabindex="-1">
       {{ content_for_layout }}
     </main>
 
-    {% section 'footer' %}
+    {% sections 'footer-group' %}
 
     <ul hidden>
       <li id="A11y-RefreshPageMessage">{{ 'accessibility.refresh_page' | t }}</li>
