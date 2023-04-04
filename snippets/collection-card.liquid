@@ -50,7 +50,7 @@
     {{ collection_title }}
   </h3>
   {% if collection.description %}
-    <p class="p-sm">{{ collection.description }}</p>
+    <p class="__article-txt-p-sm p-sm">{{ collection.description | strip_html | truncatewords: 20 }}</p>
   {% endif %}
   
   {% if button_label %}

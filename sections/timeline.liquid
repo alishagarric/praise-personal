@@ -13,7 +13,11 @@
     {% if section.settings.heading or section.settings.text %}
       <div class="timeline-section__heading">
         {% render 'heading' heading: section.settings.heading, heading_size: section.settings.heading_size, alt_heading: section.settings.alt_heading %}
-        {{ section.settings.text }}
+        {% if section.settings.text %}
+          <div class="__article-txt">
+            {{ section.settings.text }}
+          </div>
+        {% endif %}
       </div>
     {% endif %}
 
@@ -30,7 +34,7 @@
             <div class="timeline-section__part__text __btn-clr-{{ section.settings.dot_color }}">
               <div class="timeline-section__part__text__inner">
                 {% render 'heading' heading: block.settings.heading, heading_size: block.settings.heading_size, alt_heading: block.settings.alt_heading %}
-                {{ block.settings.text }}
+                <div class="__article-txt">{{ block.settings.text }}</div>
                 {% render 'button' button_label: block.settings.button_label, button_link: block.settings.button_link, style: "underline" %}
               </div>
             </div>

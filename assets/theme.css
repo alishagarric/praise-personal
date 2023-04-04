@@ -295,32 +295,48 @@ i {
       transform: scale(1.1, 1.5); }
 
 .__article-txt h1,
-.__article-txt-p-sm h1 {
+.__article-txt-p h1,
+.__article-txt-p-sm h1,
+.__article-txt-p-lg h1 {
   font-size: calc(2.25rem * var(--font-heading-scale)); }
 .__article-txt h2,
-.__article-txt-p-sm h2 {
+.__article-txt-p h2,
+.__article-txt-p-sm h2,
+.__article-txt-p-lg h2 {
   font-size: calc(1.75rem * var(--font-heading-scale)); }
 .__article-txt h3,
-.__article-txt-p-sm h3 {
+.__article-txt-p h3,
+.__article-txt-p-sm h3,
+.__article-txt-p-lg h3 {
   font-size: calc(1.31rem * var(--font-heading-scale)); }
 .__article-txt h4,
-.__article-txt-p-sm h4 {
+.__article-txt-p h4,
+.__article-txt-p-sm h4,
+.__article-txt-p-lg h4 {
   font-size: calc(1.125rem * var(--font-heading-scale)); }
 .__article-txt h5,
-.__article-txt-p-sm h5 {
+.__article-txt-p h5,
+.__article-txt-p-sm h5,
+.__article-txt-p-lg h5 {
   font-size: calc(1rem * var(--font-heading-scale)); }
 .__article-txt h6,
-.__article-txt-p-sm h6 {
+.__article-txt-p h6,
+.__article-txt-p-sm h6,
+.__article-txt-p-lg h6 {
   font-size: calc(0.9rem * var(--font-heading-scale)); }
 .__article-txt a,
-.__article-txt-p-sm a {
+.__article-txt-p a,
+.__article-txt-p-sm a,
+.__article-txt-p-lg a {
   position: relative;
   color: RGB(var(--color-text));
   opacity: 1;
   will-change: opacity;
   transition: all 0.25s ease; }
   .__article-txt a:after,
-  .__article-txt-p-sm a:after {
+  .__article-txt-p a:after,
+  .__article-txt-p-sm a:after,
+  .__article-txt-p-lg a:after {
     content: "";
     position: absolute;
     left: 0;
@@ -332,15 +348,23 @@ i {
     will-change: transform;
     transition: all 0.25s ease; }
   .__article-txt a:hover,
-  .__article-txt-p-sm a:hover {
+  .__article-txt-p a:hover,
+  .__article-txt-p-sm a:hover,
+  .__article-txt-p-lg a:hover {
     opacity: 0.8; }
     .__article-txt a:hover:after,
-    .__article-txt-p-sm a:hover:after {
+    .__article-txt-p a:hover:after,
+    .__article-txt-p-sm a:hover:after,
+    .__article-txt-p-lg a:hover:after {
       transform: scale(1.1, 1.5); }
 .__article-txt blockquote,
 .__article-txt blockquote p,
+.__article-txt-p blockquote,
+.__article-txt-p blockquote p,
 .__article-txt-p-sm blockquote,
-.__article-txt-p-sm blockquote p {
+.__article-txt-p-sm blockquote p,
+.__article-txt-p-lg blockquote,
+.__article-txt-p-lg blockquote p {
   padding-left: 0;
   font-style: italic;
   font-size: calc(1rem * var(--font-body-scale));
@@ -350,34 +374,56 @@ i {
   width: fit-content; }
   .__article-txt blockquote::before,
   .__article-txt blockquote p::before,
+  .__article-txt-p blockquote::before,
+  .__article-txt-p blockquote p::before,
   .__article-txt-p-sm blockquote::before,
-  .__article-txt-p-sm blockquote p::before {
+  .__article-txt-p-sm blockquote p::before,
+  .__article-txt-p-lg blockquote::before,
+  .__article-txt-p-lg blockquote p::before {
     content: '"'; }
   .__article-txt blockquote::after,
   .__article-txt blockquote p::after,
+  .__article-txt-p blockquote::after,
+  .__article-txt-p blockquote p::after,
   .__article-txt-p-sm blockquote::after,
-  .__article-txt-p-sm blockquote p::after {
+  .__article-txt-p-sm blockquote p::after,
+  .__article-txt-p-lg blockquote::after,
+  .__article-txt-p-lg blockquote p::after {
     content: '"'; }
 .__article-txt ul,
 .__article-txt ol,
+.__article-txt-p ul,
+.__article-txt-p ol,
 .__article-txt-p-sm ul,
-.__article-txt-p-sm ol {
+.__article-txt-p-sm ol,
+.__article-txt-p-lg ul,
+.__article-txt-p-lg ol {
   line-height: 28px;
   margin-left: calc(var(--pxSize) / 4);
   margin-bottom: 1rem; }
   .__article-txt ul li,
   .__article-txt ol li,
+  .__article-txt-p ul li,
+  .__article-txt-p ol li,
   .__article-txt-p-sm ul li,
-  .__article-txt-p-sm ol li {
+  .__article-txt-p-sm ol li,
+  .__article-txt-p-lg ul li,
+  .__article-txt-p-lg ol li {
     font-size: calc(0.9rem * var(--font-body-scale)); }
 .__article-txt ul li,
-.__article-txt-p-sm ul li {
+.__article-txt-p ul li,
+.__article-txt-p-sm ul li,
+.__article-txt-p-lg ul li {
   list-style: inside; }
 .__article-txt ol,
-.__article-txt-p-sm ol {
+.__article-txt-p ol,
+.__article-txt-p-sm ol,
+.__article-txt-p-lg ol {
   padding-inline-start: 15px; }
   .__article-txt ol li,
-  .__article-txt-p-sm ol li {
+  .__article-txt-p ol li,
+  .__article-txt-p-sm ol li,
+  .__article-txt-p-lg ol li {
     list-style: revert; }
 
 .__article-txt-p-lg p,

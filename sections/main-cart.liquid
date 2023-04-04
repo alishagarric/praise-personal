@@ -314,7 +314,7 @@
                       {% render 'heading' heading: block.settings.heading, heading_tag: 'h3', heading_size: block.settings.heading_size, alt_heading: block.settings.alt_heading %}
 
                       {% if block.settings.text != blank %}
-                        <div class="{{ block.settings.text_size }}">
+                        <div class="__article-txt-{{ block.settings.text_size }}">
                           {{ block.settings.text }}
                         </div>
                       {% endif %}

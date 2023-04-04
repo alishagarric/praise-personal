@@ -13,7 +13,7 @@
     heading_size: section.settings.heading_size,
     alt_heading: section.settings.alt_heading
   %}
-  <div class="image-banner__description">{{ collection.description }}</div>
+  <div class="image-banner__description __article-txt p">{{ collection.description }}</div>
 {% endcapture %}
 
 {% unless collection.image == blank or section.settings.show_image == false %}

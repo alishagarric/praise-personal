@@ -84,7 +84,9 @@ i {
 }
 
 .__article-txt,
-.__article-txt-p-sm {
+.__article-txt-p,
+.__article-txt-p-sm,
+.__article-txt-p-lg {
   h1 {
     font-size: calc(2.25rem * var(--font-heading-scale));
   }

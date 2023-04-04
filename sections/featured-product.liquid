@@ -42,7 +42,7 @@
             {% comment %} Type text {% endcomment %}
             {%- when 'text' -%}
               <div class="featured-product__block {% if block.settings.include_border %} __border-top {% endif %}">
-                <p class="{{ block.settings.text_size }}" {{ block.shopify_attributes }}>
+                <p class="{{ block.settings.text_size }} __article-txt" {{ block.shopify_attributes }}>
                   {{ block.settings.text }}
                 </p>
               </div>
@@ -68,7 +68,7 @@
             {% comment %} Type description {% endcomment %}
             {%- when 'description' -%}
               {%- unless section.settings.product.description == blank -%}
-                <div {{ block.shopify_attributes }} class="{{ block.settings.text_size }} __align-{{ alignment }}">
+                <div {{ block.shopify_attributes }} class="__article-txt-{{ block.settings.text_size }} {{ block.settings.text_size }} __align-{{ alignment }}">
                   {{ section.settings.product.description }}
                 </div>
               {%- endunless -%}

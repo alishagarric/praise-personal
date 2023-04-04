@@ -74,7 +74,9 @@
                       heading_size: block.settings.heading_size,
                       alt_heading: block.settings.alt_heading
                     %}
-                    {{ block.settings.text }}
+                    <div class="__article-txt">
+                      {{ block.settings.text }}
+                    </div>
 
                     {% if block.settings.image %}
                       {% render 'next-gen-img', image: block.settings.image, width: img_width, widths: img_widths, sizes: img_sizes, preload: img_preload %}

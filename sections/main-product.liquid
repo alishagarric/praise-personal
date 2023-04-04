@@ -1,5 +1,5 @@
 {{ 'product.css' | asset_url | stylesheet_tag }}
-{{ 'cmnc-flickity.css' }}
+{{ 'cmnc-flickity.css' | asset_url | stylesheet_tag }}
 {{ 'main-product.css' | asset_url | stylesheet_tag }}
 
 
@@ -182,7 +182,7 @@
           {% comment %} Type description {% endcomment %}
           {%- when 'description' -%}
             {%- unless product.description == blank -%}
-              <div {{ block.shopify_attributes }} class="{{ block.settings.text_size }}">
+              <div {{ block.shopify_attributes }} class="__article-txt-{{ block.settings.text_size }} {{ block.settings.text_size }}">
                 {{ product.description }}
               </div>
             {%- endunless -%}

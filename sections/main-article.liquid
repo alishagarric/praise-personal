@@ -32,7 +32,7 @@
             <p class="p-sm">{{ article.author }}</p> 
           </div>          
         {%- when 'content'-%}
-          <div class="main-article__content __article-txt">
+          <div class="main-article__content __article-txt p">
             {% assign article_content = article.content | split: '<img' %}
             {% assign join_string = '<img class="__crop-' | append: block.settings.image_corners | append: '"' %}
             {% assign article_content = article_content | join: join_string %}
@@ -52,13 +52,13 @@
               {% endif %}
 
               {% if article.metafields.custom.sidebar_content != blank %}
-                <div class="p">
+                <div class="__article-txt-sm">
                   {{ article.metafields.custom.sidebar_content }}
                 </div>
               {% endif %}
               
               {% if block.settings.content != blank %}
-                <div class="p">
+                <div class="">
                   {{ block.settings.content }}
                 </div>
               {% endif %}

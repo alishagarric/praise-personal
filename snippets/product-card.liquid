@@ -90,7 +90,7 @@
   </div>
 
   {% if show_description and product.description %}
-    <p class="p-sm">{{ product.description }}</p>
+    <p class="p-sm">{{ product.description | strip_html | truncatewords: 20 }}</p>
   {% endif %}
 
   {% if price_position == "bottom" %}
