@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,kBAAmB;EACjB,OAAO,EAAE,CAAC",
+"sources": ["../dev/scss/sections/collection-teaser.scss"],
+"names": [],
+"file": "collection-teaser.css"
+}

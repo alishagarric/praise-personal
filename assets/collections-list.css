@@ -1,0 +1,14 @@
+.collections-list {
+  --collections-list-space: calc(var(--pxSize) / 3);
+  padding-left: var(--collections-list-space);
+  padding-right: var(--collections-list-space); }
+  .collections-list__heading {
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 1rem auto;
+    padding-left: calc( var(--sectionGuttersSpacing) - var(--collections-list-space) );
+    padding-right: calc( var(--sectionGuttersSpacing) - var(--collections-list-space) ); }
+  .collections-list__slider {
+    --overflowSliderItemGap: var(--collections-list-space) !important; }
+
+/*# sourceMappingURL=collections-list.css.map */

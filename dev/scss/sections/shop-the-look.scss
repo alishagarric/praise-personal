@@ -77,7 +77,6 @@
   }
 
   &__products {
-    @extend .cmnc-flickity-buttons-bottom;
     margin: var(--pxSize) 0;
 
     &__product {

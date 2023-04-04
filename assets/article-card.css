@@ -1,0 +1,40 @@
+.article-card {
+  position: relative;
+  display: flex;
+  flex-direction: column; }
+  .article-card__top {
+    width: 100%;
+    margin-bottom: calc(var(--btnHeight) / 2);
+    position: relative; }
+  .article-card__assc-products {
+    display: grid;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 50%;
+    z-index: 2; }
+    .article-card__assc-products__bubble {
+      position: absolute;
+      top: 0;
+      right: 0;
+      border-radius: 50%;
+      width: 25%;
+      padding-top: 25%;
+      background: RGB(var(--color-foreground));
+      color: RGB(var(--color-foreground-text));
+      font-weight: 700; }
+      .article-card__assc-products__bubble:after {
+        content: var(--articleCardProductsCount);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); }
+    .article-card__assc-products + * {
+      transform: scale(0.95);
+      transform-origin: top left; }
+  .article-card *:last-child {
+    margin-bottom: 0; }
+    .article-card *:last-child * {
+      margin-bottom: 0; }
+
+/*# sourceMappingURL=article-card.css.map */

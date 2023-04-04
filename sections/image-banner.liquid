@@ -8,10 +8,6 @@
   {% if section.blocks.size > 0 %}
     {%- for block in section.blocks -%}
       {%- case block.type -%}
-          {% comment %} Type Caption {% endcomment %}
-        {%- when 'caption' -%}
-          <div class="image-banner__caption caption">{{ block.settings.caption }}</div>
-
           {% comment %} Type Heading {% endcomment %}
         {%- when 'heading' -%}
           {% if section.settings.hero == true %}
@@ -285,19 +281,6 @@
     }
   ],
   "blocks": [
-    {
-      "type": "caption",
-      "name": "Caption",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "text",
-          "id": "caption",
-          "default": "Lorem ipsum",
-          "label": "Caption"
-        }
-      ]
-    },
     {
       "type": "heading",
       "name": "Heading",

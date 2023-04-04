@@ -1,3 +1,4 @@
+{{ 'timeline-section.css' | asset_url | stylesheet_tag }}
 
 {% style %}
     #Timeline-section-{{ section.id }} {
@@ -22,7 +23,7 @@
           <div class="timeline-section__part">
             {% assign image_ratio = block.settings.image.height | divided_by: 1.00 | divided_by: block.settings.image.width | times: 100 %}
 
-            <div class="timeline-section__part__image __crop-{{ section.settings.crop_shape }}" style="--imageRatio: {{ image_ratio }}%">
+            <div class="timeline-section__part__image image-container __crop-{{ section.settings.crop_shape }}" style="--imageRatio: {{ image_ratio }}%">
               {% render 'next-gen-img' image: block.settings.image, width: 1680, widths: "1680, 1400, 1100, 900, 600", sizes: "(max-width: 676px) 100vw, 50vw" %}
             </div>
 

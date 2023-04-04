@@ -1,0 +1,13 @@
+.divider-section {
+  padding-left: 0;
+  padding-right: 0; }
+  .divider-section:before {
+    content: "";
+    display: block;
+    border-bottom: 1px solid RGB(var(--color-border));
+    padding-top: var(--dividerSnippetUseTopSpace);
+    margin-bottom: var(--dividerSnippetUseBottomSpace); }
+  .divider-section.__hide-divider:before {
+    border: none; }
+
+/*# sourceMappingURL=divider.css.map */

@@ -1,3 +1,5 @@
+{{ 'filter-and-sort.css' | asset_url | stylesheet_tag }}
+
 {% comment %}
   Renders the filtering and sorting for a collection or set of search results.
 
@@ -140,6 +142,6 @@
       </select>
     {% endcapture %}
 
-    {% render 'disclosure', title: sort_title, id: sort_title, text: sort_content, style: "dropdown-button __with-overlay", class: "filter-and-sort__sort__details" %}
+    {% render 'disclosure', title: sort_title, id: sort_title, text: sort_content, style: "dropdown-button", class: "filter-and-sort__sort__details __with-overlay" %}
   </div>
 </form>

@@ -12,7 +12,9 @@
   Usage:
     {% render 'dialog', type: "default" %}
 
-{% endcomment %}       
+{% endcomment %}    
+
+{{ 'dialog.css' | asset_url | stylesheet_tag }}
 
 {% assign style = style | default: "pop-up" %}
     

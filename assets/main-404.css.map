@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AACE,WAAE;EACA,SAAS,EAAE,eAAe;AAG5B,gBAAS;EACP,SAAS,EAAE,oBAAoB;EAC/B,aAAa,EAAE,uCAAuC;EAEtD,oBAAI;IACF,KAAK,EAAE,IAAI;IACX,MAAM,EAAE,IAAI",
+"sources": ["../dev/scss/sections/main-404.scss"],
+"names": [],
+"file": "main-404.css"
+}

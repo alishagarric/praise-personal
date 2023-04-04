@@ -22,8 +22,6 @@
   }
 
   &__container {
-    @extend .cmnc-flickity-buttons-bottom;
-
     flex: 0 0 70%;
     max-width: 70%;
     position: relative;
@@ -91,7 +89,7 @@
   &__background-color {
     z-index: 0;
     pointer-events: none;
-    position: absolute;
+    position: absolute !important;
     height: 100%;
     inset: 0;
 

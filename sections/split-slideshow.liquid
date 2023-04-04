@@ -1,3 +1,6 @@
+{{ 'overflow-slider.css' | asset_url | stylesheet_tag }}
+{{ 'split-slideshow.css' | asset_url | stylesheet_tag }}
+
 {% liquid
   if section.blocks.size > 0
     assign array = section.blocks

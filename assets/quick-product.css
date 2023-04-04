@@ -1,0 +1,26 @@
+.quick-product {
+  --color-foreground: var(--color-text);
+  --color-foreground-text: var(--color-text);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: calc(var(--pxSize) / 6) calc(var(--pxSize) / 3); }
+  .quick-product > * {
+    margin: 0; }
+  .quick-product__image {
+    grid-column: 1 / 2;
+    grid-row: 1 / 4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; }
+    .quick-product__image__container {
+      width: 100%; }
+  .quick-product__title, .quick-product__btn, .quick-product__variants {
+    grid-column: 2 / 4; }
+  .quick-product__btn .btn {
+    margin: 0;
+    background: RGBA(var(--color-foreground)/0.05); }
+  .quick-product.__style-stacked {
+    display: flex;
+    flex-direction: column; }
+
+/*# sourceMappingURL=quick-product.css.map */

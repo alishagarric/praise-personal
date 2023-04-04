@@ -1,5 +1,11 @@
 {{ 'product.css' | asset_url | stylesheet_tag }}
-{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'cmnc-flickity.css' }}
+{{ 'main-product.css' | asset_url | stylesheet_tag }}
+
+
+{% if template == "product.modal" %}
+  {{ 'main-modal.css' | asset_url | stylesheet_tag }}
+{% endif %}
 
 {% style %}
   --topSpacingRatio: {{ section.settings.top_spacing }} / 100;
@@ -97,16 +103,16 @@
               {% if block.settings.layout != "stacked" %}
                 <ul class="main-product__media__dots" style="--dotsColumns: {% if product.media.size > 5 %}5{% else %}{{ product.media.size }}{% endif %}; --dotsRows: {{ product.media.size | divided_by: 5.0 | ceil }}">
                   {%- for media in product.media -%}
-                    <li class="main-product__media__dots__dot {% if media == product.selected_or_first_available_variant.featured_media %}__active{% endif %}" data-media-dot-id="{{ section.id }}-{{ media.id }}">
+                    <li class="main-product__media__dots__dot standard-flickity-dot {% if media == product.selected_or_first_available_variant.featured_media %}__active{% endif %}" data-media-dot-id="{{ section.id }}-{{ media.id }}">
                       <span class="visually-hidden">{{ forloop.index }}</span>
                     </li>
                   {%- endfor -%}
                   {% if product.media.size > 1 %}
-                    <li class="main-product__media__dots__prev prev">
+                    <li class="main-product__media__dots__prev btn classic-arrow prev">
                       <span class="visually-hidden">Previous Slide</span>
                       {% render 'svg-slider-arrow' %}
                     </li>
-                    <li class="main-product__media__dots__next next">
+                    <li class="main-product__media__dots__next btn classic-arrow next">
                       <span class="visually-hidden">Next Slide</span>
                       {% render 'svg-slider-arrow' %}
                     </li>

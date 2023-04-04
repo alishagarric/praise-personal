@@ -1,3 +1,5 @@
+{{ 'divider.css' | asset_url | stylesheet_tag }}
+
 {% style %}
     #Divider-section-{{ section.id }} {
       --topSpacingRatio: {{section.settings.top_spacing}} / 100;

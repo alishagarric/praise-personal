@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,sBAAuB;EACrB,OAAO,EAAE,CAAC;EAGV,kCAAY;IACV,UAAU,EAAE,4DAA4D;IACxE,aAAa,EAAE,iEAEd",
+"sources": ["../dev/scss/sections/main-list-collections.scss"],
+"names": [],
+"file": "main-list-collections.css"
+}

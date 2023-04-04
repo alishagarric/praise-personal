@@ -27,6 +27,9 @@
     {% render 'content-card' image: block.settings.image, alignment: block.settings.alignment, crop_shape: block.settings.crop_shape, overlay_theme: block.settings.overlay_theme, overlay: section.settings.overlay, heading: block.settings.heading heading_size: block.settings.heading_size, button_link: block.settings.button_link, button_color: block.settings.button_color, text: block.settings.text %}
 {% endcomment %}
 
+{{ 'content-card.css' | asset_url | stylesheet_tag }}
+
+
 
 {% liquid 
   assign alignment = alignment | default: 'default'
@@ -44,7 +47,7 @@
 >
   {%- if image != blank -%}
     <div
-      class="content-card__image __crop-{{ crop_shape }} {% if overlay_theme %}__theme-{{ overlay_theme }}{% endif %}"
+      class="content-card__image image-container __crop-{{ crop_shape }} {% if overlay_theme %}__theme-{{ overlay_theme }}{% endif %}"
       style="--imageRatio: {{ image.height | divided_by: 1.00 | divided_by: image.width | times: 100 }}%; --overlayOpacity: calc({{ overlay }} / 100);"
     >
       {% render 'next-gen-img', image: image, width: img_width: widths: img_widths, sizes: img_sizes, preload: img_preload %}

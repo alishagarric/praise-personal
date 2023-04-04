@@ -5,6 +5,9 @@
 {% comment %}
   Filter store availabilities array to include only stores with pickup availability enabled
 {% endcomment %}
+
+{{ 'pickup-availability.css' | asset_url | stylesheet_tag }}
+
 {%- assign store_availabilities = product_variant.store_availabilities | where: 'pick_up_enabled', true -%}
 
 {%- if store_availabilities.size > 0 -%}
@@ -22,7 +25,7 @@
             <p class="pickup-availability__location__status">{% render 'svg-exit' %} {{ 'products.pickup_availability.unavailable' | t }}</p>
           {%- endif -%}
         {%- assign address = availability.location.address -%}
-        <address class="pickup-availability__location__address">{{ address | format_address }}</address>
+        <address class="pickup-availability__location__address p-sm">{{ address | format_address }}</address>
         {%- if address.phone.size > 0 -%}
           <p class="pickup-availability__location__phone">{{ address.phone }}</p>
         {%- endif -%}

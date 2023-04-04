@@ -145,8 +145,6 @@
             align-items: center;
 
             &__dot {
-              @extend .standard-flickity-dot;
-
               &.__active {
                 opacity: 1;
 
@@ -163,8 +161,6 @@
 
             &__prev,
             &__next {
-              @extend .btn;
-              @extend .classic-arrow;
               background: transparent;
               grid-row: 1 / calc(var(--dotsRows) + 1);
 

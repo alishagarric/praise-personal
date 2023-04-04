@@ -1,0 +1,10 @@
+.site-404 * {
+  max-width: var(--maxWidth); }
+.site-404__image {
+  max-width: var(--imageMaxWidth);
+  margin-bottom: calc(var(--sectionVerticalSpacing) / 2); }
+  .site-404__image img {
+    width: 100%;
+    height: auto; }
+
+/*# sourceMappingURL=main-404.css.map */

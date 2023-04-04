@@ -4,7 +4,6 @@
   gap: calc(var(--pxSize) / 2);
 
   &__image {
-    @extend .image-container;
     overflow: visible;
     width: 100%;
 

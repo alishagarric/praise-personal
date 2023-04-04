@@ -50,6 +50,8 @@
 
 {% endcomment %}
 
+{{ 'image-banner.css' | asset_url | stylesheet_tag }}
+
 
 {% liquid
   assign crop_shape = crop_shape | default: "default"
@@ -88,7 +90,7 @@
 
     {% comment %} Image content {% endcomment %}
     {%- if image != blank -%}
-      <div class="image-banner__image __crop-{{ crop_shape }} {% if crop_shape != "default" %}__theme-{{ overlay_theme }} {% endif %}">
+      <div class="image-banner__image image-container __crop-{{ crop_shape }} {% if crop_shape != "default" %}__theme-{{ overlay_theme }} {% endif %}">
         {% liquid
           if crop_shape == "default"
             assign width = 3360

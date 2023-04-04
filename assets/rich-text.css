@@ -1,0 +1,11 @@
+.rich-text {
+  display: flex;
+  flex-direction: column; }
+  .rich-text * {
+    max-width: var(--maxWidth); }
+  .rich-text > *:last-child {
+    margin-bottom: 0; }
+    .rich-text > *:last-child * {
+      margin-bottom: 0; }
+
+/*# sourceMappingURL=rich-text.css.map */

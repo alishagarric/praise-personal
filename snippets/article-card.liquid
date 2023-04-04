@@ -29,6 +29,8 @@
 
 {% endcomment %}
 
+{{ 'article-card.css' | asset_url | stylesheet_tag }}
+
 {% assign crop = crop | default: "default" %}
 {% assign alt_heading = alt_heading | default: false %}
 {% assign alignment = alignment | default: "default" %}
@@ -60,7 +62,7 @@
       {% assign featured_product = article.metafields.custom.associated_products.value | first %}
       {% assign assc_product_count = article.metafields.custom.associated_products | split: "," | size | minus: 1 %}
       <div class="article-card__assc-products">
-        <div class="article-card__assc-products__product __crop-{{ assc_product_crop_shape }}" style="--imageRatio: {{ featured_product.featured_image.height | divided_by: 1.00 | divided_by: featured_product.featured_image.width | times: 100 }}%">
+        <div class="article-card__assc-products__product image-container __crop-{{ assc_product_crop_shape }}" style="--imageRatio: {{ featured_product.featured_image.height | divided_by: 1.00 | divided_by: featured_product.featured_image.width | times: 100 }}%">
           {% render 'next-gen-img', image: featured_product.featured_image, width: img_width: widths: img_widths, sizes: img_sizes, preload: img_preload %}
         </div>
         {% if assc_product_count > 0 %}
@@ -70,7 +72,7 @@
     {% endif %}
 
     {% if article and article.image %}
-      <div class="article-card__image __crop-{{ crop }}" style="--imageRatio: {{ image_ratio }}%">
+      <div class="article-card__image image-container __crop-{{ crop }}" style="--imageRatio: {{ image_ratio }}%">
         {% render 'next-gen-img', image: article.image, width: img_width: widths: img_widths, sizes: img_sizes, preload: img_preload %}
       </div>
     {% elsif article == blank %}

@@ -1,0 +1,38 @@
+/* Custom icon, extend this class where custom icons are used */
+.custom-icon:before {
+  content: "";
+  width: var(--customIconHeight);
+  height: var(--customIconHeight);
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: block; }
+
+/* Custom icons container */
+.featured-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(var(--customIconHeight));
+  margin-bottom: calc(var(--pxSize) / 2); }
+  .featured-icons__icon {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--customIconHeight) / 3);
+    align-items: center;
+    text-align: center; }
+    .featured-icons__icon span {
+      margin: 0; }
+    .featured-icons__icon.user-added:before {
+      content: none !important; }
+    .featured-icons__icon.user-added svg {
+      width: var(--customIconHeight);
+      height: var(--customIconHeight); }
+  .featured-icons.__layout-row .featured-icons__icon {
+    flex-direction: row;
+    text-align: left; }
+  .featured-icons.__layout-icon-only .featured-icons__icon span {
+    display: none; }
+  .featured-icons.user-added {
+    display: none; }
+
+/*# sourceMappingURL=custom-icons.css.map */

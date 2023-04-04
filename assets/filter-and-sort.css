@@ -1,0 +1,35 @@
+.filter-and-sort {
+  display: flex;
+  gap: calc(var(--pxSize) / 3); }
+  .filter-and-sort__filters__details.disclosure .disclosure__content {
+    width: 0px;
+    overflow: visible; }
+  .filter-and-sort__filters__container {
+    padding: calc(var(--sectionVerticalSpacing) / 2) 0;
+    margin-top: calc(var(--sectionVerticalSpacing) / 4);
+    border-top: 1px solid RGB(var(--color-border));
+    width: calc( 100vw - var(--sectionGuttersSpacing) - var(--sectionGuttersSpacing) );
+    max-width: calc( var(--siteMaxWidth) - var(--sectionGuttersSpacing) - var(--sectionGuttersSpacing) );
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: calc(var(--pxSize) / 3); }
+  .filter-and-sort__filters__checkboxes {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem; }
+  .filter-and-sort__filters__label {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem; }
+    .filter-and-sort__filters__label * {
+      margin-bottom: 0; }
+  .filter-and-sort__filters__row {
+    display: flex; }
+  .filter-and-sort__sort {
+    --color-foreground: var(--color-background);
+    --color-foreground-text: var(--color-text); }
+    .filter-and-sort__sort__details .disclosure__summary {
+      border: 1px solid RGB(var(--color-foreground-text)) !important; }
+
+/*# sourceMappingURL=filter-and-sort.css.map */

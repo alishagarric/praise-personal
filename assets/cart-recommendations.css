@@ -1,0 +1,16 @@
+.cart-recommendations__container {
+  display: flex;
+  gap: calc(var(--pxSize) / 3); }
+  .cart-recommendations__container > * {
+    flex: 0 1 calc(100% / 3); }
+.cart-recommendations__heading {
+  border-bottom: 1px solid RGB(var(--color-border));
+  margin-bottom: calc(var(--pxSize) / 2);
+  padding-bottom: 1rem; }
+@media screen and (max-width: 1024px) {
+  .cart-recommendations__container {
+    flex-direction: column;
+    max-width: 400px;
+    margin: 0 auto; } }
+
+/*# sourceMappingURL=cart-recommendations.css.map */

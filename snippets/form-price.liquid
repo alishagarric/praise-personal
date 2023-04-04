@@ -11,6 +11,8 @@
 
 {% endcomment %}
 
+{{ 'form-price.css' | asset_url | stylesheet_tag }}
+
 <div
   id="Price-{{ form_id }}"
   class="form-price no-js-hidden {{ price_size }} {{ class }}" 

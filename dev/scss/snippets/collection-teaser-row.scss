@@ -111,7 +111,6 @@
 
   //Collection image
   &__image {
-    @extend .image-container;
     margin-bottom: calc(var(--pxSize) / 2);
   }
 

@@ -28,6 +28,8 @@
 
 {% endcomment %}
 
+{{ 'product-card.css' | asset_url | stylesheet_tag }}
+
 
 {% assign crop = crop | default: "default" %}
 {% assign alt_heading = alt_heading | default: false %}

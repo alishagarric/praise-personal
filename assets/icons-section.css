@@ -1,0 +1,40 @@
+.icons-section {
+  --iconsSectionGap: var(--vwSize); }
+  .icons-section__heading + * {
+    padding-top: calc(var(--pxSize) / 2); }
+  .icons-section__icons {
+    display: flex;
+    flex-flow: row wrap;
+    gap: var(--vwSize) 0; }
+    .icons-section__icons__icon {
+      text-align: center; }
+      .icons-section__icons__icon img,
+      .icons-section__icons__icon svg {
+        height: var(--iconHeight);
+        width: auto;
+        margin-bottom: 1rem; }
+    .icons-section__icons.__layout-rows {
+      gap: var(--iconsSectionGap); }
+    .icons-section__icons:not(.__layout-rows) {
+      gap: var(--iconsSectionGap) 0; }
+      .icons-section__icons:not(.__layout-rows) .icons-section__icons__icon {
+        flex: 0 0 calc(100% / var(--numColumns));
+        padding: 0 var(--iconsSectionGap); }
+  @media screen and (max-width: 676px) {
+    .icons-section {
+      --iconsSectionGap: var(--pxSize); }
+      .icons-section__icons {
+        overflow: hidden; }
+        .icons-section__icons.__mobile-layout-rows {
+          gap: var(--iconsSectionGap); }
+          .icons-section__icons.__mobile-layout-rows .icons-section__icons__icon {
+            padding: 0; }
+        .icons-section__icons:not(.__mobile-layout-rows) {
+          gap: var(--iconsSectionGap) 0; }
+          .icons-section__icons:not(.__mobile-layout-rows) .icons-section__icons__icon {
+            flex: 0 0 calc(100% / var(--mobileNumColumns));
+            padding: 0 var(--iconsSectionGap); }
+            .icons-section__icons:not(.__mobile-layout-rows) .icons-section__icons__icon img, .icons-section__icons:not(.__mobile-layout-rows) .icons-section__icons__icon svg {
+              max-width: 70vw; } }
+
+/*# sourceMappingURL=icons-section.css.map */

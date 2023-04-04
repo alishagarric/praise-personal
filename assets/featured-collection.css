@@ -1,0 +1,103 @@
+.featured-collection {
+  --featuredCollectionNavControlSize: calc(var(--vwSize) * 0.75);
+  --featuredCollectionCardWidth: calc(calc(100% / 3) - calc(var(--pxSize) / 3));
+  display: flex;
+  padding-right: 0;
+  padding-left: 0; }
+  .featured-collection__text, .featured-collection__container {
+    border-top: 1px solid RGB(var(--color-border));
+    border-bottom: 1px solid RGB(var(--color-border)); }
+  .featured-collection__text {
+    flex: 0 0 30%;
+    border-right: 1px solid RGB(var(--color-border));
+    padding: calc(var(--sectionGuttersSpacing) / 2); }
+    .featured-collection__text__desc {
+      max-width: var(--maxWidth); }
+  .featured-collection__container {
+    flex: 0 0 70%;
+    max-width: 70%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: var(--pxSize) 0 calc(var(--pxSize) / 2) 0; }
+  .featured-collection__cards {
+    flex: 1;
+    position: relative;
+    z-index: 1;
+    flex-wrap: wrap; }
+    .featured-collection__cards__card {
+      width: var(--featuredCollectionCardWidth);
+      padding: 0 calc(var(--pxSize) / 2); }
+      .featured-collection__cards__card .product-card__phrase {
+        color: var(--featuredCollectionThemedTextColor); }
+  .featured-collection__controls {
+    text-align: center; }
+    .featured-collection__controls__control {
+      width: var(--featuredCollectionNavControlSize);
+      height: var(--featuredCollectionNavControlSize);
+      margin: 0 calc(var(--featuredCollectionNavControlSize) / 3.5);
+      opacity: 1;
+      background: none; }
+      .featured-collection__controls__control:before, .featured-collection__controls__control:after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: var(--featuredCollectionNavControlSize);
+        height: var(--featuredCollectionNavControlSize);
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        display: block; }
+      .featured-collection__controls__control:before {
+        transform: translate(-50%, -50%) scale(0.8);
+        background-color: var(--productColor); }
+      .featured-collection__controls__control.is-selected:after {
+        border: 1px solid RGB(var(--color-border)); }
+  .featured-collection__background-color {
+    z-index: 0;
+    pointer-events: none;
+    position: absolute !important;
+    height: 100%;
+    inset: 0; }
+    .featured-collection__background-color .flickity-viewport {
+      height: 100% !important; }
+    .featured-collection__background-color .flickity-slider {
+      transform: translateX(0) !important; }
+    .featured-collection__background-color__item {
+      width: 100%;
+      height: 50%;
+      transition: opacity 0.4s;
+      opacity: 0;
+      transform: translateX(0) !important; }
+      .featured-collection__background-color__item.is-selected {
+        opacity: 1; }
+  .featured-collection.__no-slider .featured-collection__cards {
+    display: flex;
+    justify-content: center; }
+  @media screen and (max-width: 1024px) {
+    .featured-collection {
+      --featuredCollectionNavControlSize: calc(var(--pxSize));
+      display: block;
+      overflow: hidden; }
+      .featured-collection__text, .featured-collection__container {
+        border: none; }
+      .featured-collection__text {
+        padding: calc(var(--sectionVerticalSpacing) / 2) var(--sectionGuttersSpacing); }
+      .featured-collection__container {
+        max-width: none; }
+      .featured-collection .flickity-viewport {
+        overflow: visible; }
+      .featured-collection.__no-slider .featured-collection__cards {
+        gap: calc(var(--pxSize) / 2); }
+        .featured-collection.__no-slider .featured-collection__cards__card {
+          width: calc(50% - calc(var(--pxSize) / 4));
+          padding: 0; } }
+  @media screen and (max-width: 676px) {
+    .featured-collection {
+      --featuredCollectionCardWidth: 75%; }
+      .featured-collection__cards__card {
+        padding: 0 calc(var(--pxSize) / 1.5); }
+      .featured-collection .flickity-button {
+        display: none; } }
+
+/*# sourceMappingURL=featured-collection.css.map */

@@ -1,3 +1,6 @@
+{{ 'collections-list.css' | asset_url | stylesheet_tag }}
+{{ 'overflow-slider.css' | asset_url | stylesheet_tag }}
+
 {% liquid
   if section.blocks.size < 5
     assign hide_arrows_on_desktop = true

@@ -1,0 +1,22 @@
+.product-ratings {
+  position: relative; }
+  .product-ratings > * {
+    display: inline-block; }
+  .product-ratings__outlined-stars {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0; }
+  .product-ratings__solid-stars {
+    z-index: 1;
+    position: relative; }
+    .product-ratings__solid-stars:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: calc( 98% - calc(calc(var(--ratingWidth)) * 100%) );
+      background: RGB(var(--color-background)); }
+
+/*# sourceMappingURL=product-ratings.css.map */

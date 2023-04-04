@@ -23,10 +23,6 @@
     }
   }
 
-  &__arrow {
-    @extend .classic-arrow;
-  }
-
   span[aria-current="page"] {
     font-weight: bold;
   }

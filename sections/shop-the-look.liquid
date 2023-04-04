@@ -1,3 +1,7 @@
+{{ 'flickity.css' | asset_url | stylesheet_tag }}
+{{ 'cmnc-flickity.css' | asset_url | stylesheet_tag }}
+{{ 'shop-the-look.css' | asset_url | stylesheet_tag }}
+
 {% liquid
   assign products_count = section.blocks | size
   assign section_theme = section.settings.theme
@@ -5,6 +9,7 @@
   assign bottom_spacing = section.settings.bottom_spacing
   assign featured_image = section.settings.image 
 %}
+
 
 {% style %}
     #Shop-the-look-{{ section.id }} {
@@ -66,7 +71,7 @@
 
     {% comment %} Products slider {% endcomment %}
     <div class="shop-the-look__center-vertically">
-      <div class="shop-the-look__products">
+      <div class="shop-the-look__products cmnc-flickity-buttons-bottom">
         {% for block in section.blocks %}
           {% case block.type %}
             {% when 'product' %}

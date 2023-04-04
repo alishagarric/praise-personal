@@ -8,6 +8,7 @@ const cleanCss = require(`gulp-clean-css`);
 const concat = require(`gulp-concat`);
 const rename = require(`gulp-rename`);
 const replace = require(`gulp-replace`);
+const postcss = require("gulp-postcss");
 const sass = require(`gulp-sass`);
 const uglify = require(`gulp-uglify`);
 const scssLint = require(`gulp-scss-lint`);
@@ -15,7 +16,7 @@ const scssLint = require(`gulp-scss-lint`);
 /**
  * Asset paths.
  */
-const srcSCSS = `scss/**/*.scss`;
+const srcSCSS = `scss/**/*.{scss,sass}`;
 const srcJS = `js/*.js`;
 const assetsDir = `../assets/`;
 
@@ -31,10 +32,37 @@ gulp.task(`scss-lint`, () => {
  */
 gulp.task(
   `scss`,
+  () => {
+    return gulp
+      .src(srcSCSS)
+      .pipe(sass({ outputStyle: `expanded` }).on(`error`, sass.logError))
+      .pipe(
+        postcss([
+          prefix({
+            cascade: true,
+            remove: true,
+          }),
+        ])
+      )
+      .pipe(gulp.dest(assetsDir))
+      .pipe(rename({ suffix: ".min" }))
+      .pipe(
+        postcss([
+          minify({
+            discardComments: {
+              removeAll: true,
+            },
+          }),
+        ])
+      )
+      .pipe(gulp.dest(assetsDir));
+  }
+
+  /*
   gulp.series(`scss-lint`, () => {
     return gulp
-      .src(`scss/*.scss.liquid`)
-      .pipe(sass({ outputStyle: `expanded` }).on(`error`, sass.logError))
+   -   .src(`scss/*.scss.liquid`)
+   -   .pipe(sass({ outputStyle: `expanded` }).on(`error`, sass.logError))
       .pipe(autoprefixer({ cascade: false }))
       .pipe(
         rename((path) => {
@@ -46,7 +74,7 @@ gulp.task(
       .pipe(replace(`}}"`, "}}"))
       .pipe(cleanCss())
       .pipe(gulp.dest(assetsDir));
-  })
+  })*/
 );
 
 /**

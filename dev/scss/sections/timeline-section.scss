@@ -33,7 +33,6 @@
 
     &__image {
       grid-column: 1 / 2;
-      @extend .image-container;
       border-radius: 0;
       overflow: visible;
     }

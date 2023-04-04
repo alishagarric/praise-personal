@@ -5,6 +5,8 @@
   - class: {string} optional
 {% endcomment %}
 
+{{ 'announcement-bar.css' | asset_url | stylesheet_tag }}
+
 {% style %}
   #Announcement-bar-{{ section.id }} {
     --marqueeCharacterCount: {{ settings.announcement_bar_text | size }}ch;

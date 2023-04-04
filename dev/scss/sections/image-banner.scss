@@ -28,7 +28,6 @@
   }
 
   &__image {
-    @extend .image-container;
     pointer-events: none;
     position: relative;
     inset: auto;

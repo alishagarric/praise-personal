@@ -1,0 +1,20 @@
+.pagination {
+  text-align: center;
+  width: 100%;
+  margin-top: var(--sectionVerticalSpacing); }
+  .pagination__list {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center; }
+    .pagination__list__item {
+      display: grid;
+      place-content: center; }
+      .pagination__list__item:first-child {
+        margin-right: var(--pxSize); }
+      .pagination__list__item:last-child {
+        margin-left: var(--pxSize); }
+  .pagination span[aria-current="page"] {
+    font-weight: bold; }
+
+/*# sourceMappingURL=pagination.css.map */

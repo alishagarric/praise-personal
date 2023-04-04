@@ -1,0 +1,43 @@
+.main-collection-grid {
+  --mainCollectionGridColumns: 3; }
+  .main-collection-grid__container {
+    display: grid;
+    grid-template-columns: repeat(var(--mainCollectionGridColumns), 1fr);
+    gap: calc(var(--pxSize) / 2); }
+  .main-collection-grid__grid-item {
+    grid-column: span var(--gridItemWidth);
+    grid-row: span var(--gridItemHeight); }
+  .main-collection-grid__block {
+    height: 100%;
+    padding: var(--vwSize);
+    overflow: hidden;
+    display: block; }
+    .main-collection-grid__block:after {
+      content: "";
+      background: RGB(var(--color-background));
+      opacity: var(--overlayOpacity);
+      z-index: 2;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none; }
+    .main-collection-grid__block > *:not(img) {
+      position: relative;
+      z-index: 3; }
+  @media screen and (max-width: 1024px) {
+    .main-collection-grid {
+      --mainCollectionGridColumns: 2; } }
+  @media screen and (max-width: 676px) {
+    .main-collection-grid {
+      --mainCollectionGridColumns: 1; }
+      .main-collection-grid__grid-item {
+        min-height: var(--mobileMinHeight); }
+      .main-collection-grid__container {
+        gap: var(--sectionVerticalSpacing); }
+      .main-collection-grid.__mobile-fw {
+        padding-left: 0;
+        padding-right: 0; } }
+
+/*# sourceMappingURL=main-collection-grid.css.map */

@@ -42,10 +42,6 @@
       }
     }
 
-    &__address {
-      @extend .p-sm;
-    }
-
     &:not(:first-child) {
       margin-top: 2rem;
     }

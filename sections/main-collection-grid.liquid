@@ -1,3 +1,5 @@
+{{ 'main-collection-grid.css' | asset_url | stylesheet_tag }}
+
 {% style %}
   #Main-collection-grid-{{ section.id }} {
     --topSpacingRatio: {{ section.settings.top_spacing }} / 100;
@@ -65,7 +67,7 @@
                   style="order: {{ block.settings.position }}; --overlayOpacity: {{ block.settings.overlay }}%; --gridItemWidth: {{ block.settings.width }}; --gridItemHeight: {{ block.settings.height }}; --mobileMinHeight: {{ block.settings.mobile_min_height }}px;"
                   class="main-collection-grid__grid-item __theme-{{ block.settings.overlay_theme }}"
                 >
-                  <{{ promotion_tag}} href="{{ block.settings.link }}" class="main-collection-grid__block __crop-{{ block.settings.image_corners }}">
+                  <{{ promotion_tag}} href="{{ block.settings.link }}" class="main-collection-grid__block image-container __crop-{{ block.settings.image_corners }}">
                     {% render 'heading',
                       class: 'main-collection-grid__block',
                       heading: block.settings.heading,

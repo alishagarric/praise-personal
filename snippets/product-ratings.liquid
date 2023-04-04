@@ -10,6 +10,8 @@
 
 {% endcomment %}
 
+{{ 'product-ratings.css' | asset_url | stylesheet_tag }}
+
 {%- unless product.metafields.reviews.rating.value == blank -%}
   <div class="product-ratings {{ class }}">
     {% assign star_max = product.metafields.reviews.rating.value.scale_max | plus: 0.0 | round %}

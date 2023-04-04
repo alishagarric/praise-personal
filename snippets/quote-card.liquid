@@ -21,6 +21,8 @@
     {% render 'quote-card' quote: block.settings.quote %}
 {% endcomment %}
 
+{{ 'quote-card.css' | asset_url | stylesheet_tag }}
+
 <div class="quote-card {{ class}} __align-{{ alignment }} {% if background_theme %}__theme-{{ background_theme }}{% endif %}">
   <div class="quote-card__inner __crop-{{ card_corners }}">
 

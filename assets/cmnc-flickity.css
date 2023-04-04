@@ -1,0 +1,83 @@
+/* ---- previous/next buttons ---- */
+.flickity-prev-next-button.previous {
+  left: var(--pxSize); }
+
+.flickity-prev-next-button.next {
+  right: var(--pxSize); }
+
+/* right to left */
+.flickity-rtl .flickity-prev-next-button.previous {
+  right: var(--pxSize); }
+
+.flickity-rtl .flickity-prev-next-button.next {
+  left: var(--pxSize); }
+
+.flickity-prev-next-button .flickity-button-icon {
+  left: 35%;
+  top: 35%;
+  width: 30%;
+  height: 30%; }
+
+/* ---- flickity-button ---- */
+.flickity-button {
+  border-radius: 4px;
+  background: RGB(var(--color-foreground));
+  margin: 0;
+  height: var(--arrowBtnHeight);
+  width: var(--arrowBtnHeight);
+  padding: 0; }
+  .flickity-button svg * {
+    fill: RGB(var(--color-foreground-text)); }
+
+.cmnc-flickity-buttons-bottom .flickity-page-dots {
+  height: var(--arrowBtnHeight);
+  display: flex;
+  align-items: center;
+  margin-top: var(--pxSize); }
+.cmnc-flickity-buttons-bottom .flickity-controls {
+  margin-top: var(--pxSize); }
+  .cmnc-flickity-buttons-bottom .flickity-controls .flickity-slider > * {
+    height: var(--arrowBtnHeight); }
+.cmnc-flickity-buttons-bottom .flickity-button {
+  top: auto;
+  bottom: 0;
+  transform: translate(0, 0); }
+
+/* Not currently used after slider logic restructure. Keeping just in case. But can remove at time of launch if "cmnc-flickity-buttons-wide" isn't used anywhere
+
+.cmnc-flickity-buttons-wide {
+  .flickity-button {
+    &.previous {
+      left: 0;
+      transform: translate(-100%, -50%);
+    }
+
+    &.next {
+      right: 0;
+      transform: translate(100%, -50%);
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    .flickity-button {
+      &.previous {
+        transform: translate(0, -50%);
+      }
+
+      &.next {
+        transform: translate(0, -50%);
+      }
+    }
+  }
+} */
+.standard-flickity-dot, .flickity-page-dots .dot {
+  display: inline-block;
+  width: calc(var(--pxSize) / 4);
+  height: calc(var(--pxSize) / 4);
+  margin: 0 calc(var(--pxSize) / 8);
+  background: RGB(var(--color-text));
+  border-radius: 50%;
+  opacity: 0.25;
+  cursor: pointer; }
+
+/*# sourceMappingURL=cmnc-flickity.css.map */

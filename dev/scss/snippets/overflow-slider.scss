@@ -43,7 +43,6 @@ overflow-slider,
   }
 
   &__arrow {
-    @extend .classic-arrow;
     position: absolute;
     top: 0;
     right: calc(var(--arrowBtnHeight) * 1.5);

@@ -1,0 +1,152 @@
+@mixin basicHeading() {
+  font-family: var(--font-heading-family);
+  font-style: var(--font-heading-style);
+  font-weight: var(--font-heading-weight);
+  color: RGB(var(--color-text));
+  line-height: 1.15;
+  word-break: break-word;
+  margin: 0 0 1rem 0;
+
+  &.alt {
+    font-family: var(--font-body-family);
+    font-style: var(--font-body-style);
+    font-weight: var(--font-body-weight);
+  }
+}
+
+@mixin h1() {
+  @include basicHeading;
+  font-size: calc(4rem * var(--font-heading-scale));
+  font-weight: 900;
+
+  @media (max-width: 1024px) {
+    font-size: calc(2.6rem * var(--font-heading-scale));
+  }
+
+  @media (max-width: 676px) {
+    font-size: calc(2.25rem * var(--font-heading-scale));
+  }
+}
+
+@mixin h2() {
+  @include basicHeading;
+  font-size: calc(3rem * var(--font-heading-scale));
+  font-weight: 900;
+
+  @media (max-width: 1024px) {
+    font-size: calc(2rem * var(--font-heading-scale));
+  }
+
+  @media (max-width: 676px) {
+    font-size: calc(1.5rem * var(--font-heading-scale));
+  }
+}
+
+@mixin h3() {
+  @include basicHeading;
+  font-size: calc(3rem * var(--font-heading-scale));
+  font-weight: 500;
+
+  @media (max-width: 1024px) {
+    font-size: calc(2rem * var(--font-heading-scale));
+  }
+
+  @media (max-width: 676px) {
+    font-size: calc(1.5rem * var(--font-heading-scale));
+  }
+}
+
+@mixin h4() {
+  @include basicHeading;
+  font-size: calc(2.25rem * var(--font-heading-scale));
+
+  @media (max-width: 1024px) {
+    font-size: calc(1.75rem * var(--font-heading-scale));
+  }
+
+  @media (max-width: 676px) {
+    font-size: calc(1.25rem * var(--font-heading-scale));
+  }
+}
+
+@mixin h5() {
+  @include basicHeading;
+  font-size: calc(1.75rem * var(--font-heading-scale));
+
+  @media (max-width: 1024px) {
+    font-size: calc(1.65rem * var(--font-heading-scale));
+  }
+
+  @media (max-width: 676px) {
+    font-size: calc(1.25rem * var(--font-heading-scale));
+  }
+}
+
+@mixin h6() {
+  @include basicHeading;
+  font-size: calc(1.3125rem * var(--font-heading-scale));
+
+  @media (max-width: 1024px) {
+    font-size: calc(1.3rem * var(--font-heading-scale));
+  }
+
+  @media (max-width: 676px) {
+    font-size: calc(1.2rem * var(--font-heading-scale));
+  }
+}
+
+@mixin basicParagraph() {
+  letter-spacing: 0;
+  font-family: var(--font-body-family);
+  font-style: var(--font-body-style);
+  font-weight: var(--font-body-weight);
+  margin: 0 0 1rem 0;
+}
+
+@mixin p() {
+  @include basicParagraph;
+  font-size: calc(1.125rem * var(--font-body-scale));
+}
+
+@mixin p-sm() {
+  @include basicParagraph;
+  font-size: calc(0.9rem * var(--font-body-scale));
+}
+
+@mixin p-lg {
+  @include basicParagraph;
+  font-size: calc(1.375rem * var(--font-body-scale));
+
+  @media (max-width: 1024px) {
+    font-size: calc(1.2rem * var(--font-body-scale));
+  }
+}
+
+@mixin textLink() {
+  position: relative;
+  color: RGB(var(--color-text));
+  opacity: 1;
+  will-change: opacity;
+  transition: all 0.25s ease;
+
+  &:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: RGB(var(--color-text));
+    transform: scale(1);
+    will-change: transform;
+    transition: all 0.25s ease;
+  }
+
+  &:hover {
+    opacity: 0.8;
+
+    &:after {
+      transform: scale(1.1, 1.5);
+    }
+  }
+}

@@ -13,6 +13,8 @@
 
 {% endcomment %}
 
+{{ 'variant-picker.css' | asset_url | stylesheet_tag }}
+
 {%- unless product.has_only_default_variant -%}
 
   {% comment %} Layout button {% endcomment %}

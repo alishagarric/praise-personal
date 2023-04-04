@@ -1,0 +1,17 @@
+.split-slideshow {
+  padding-right: 0; }
+  .split-slideshow__inner {
+    --overflowSliderArrowRightOffset: calc(
+      100% - calc(var(--arrowBtnHeight) * 2.5)
+    ) !important;
+    --overflowSliderItemGap: var(--pxSize) !important;
+    --overflowSliderItemSizeDesktop: 80% !important;
+    --overflowSliderItemSizeTablet: 80% !important;
+    --overflowSliderItemSizeMobile: 90% !important; }
+  .split-slideshow__slides:after {
+    content: "";
+    width: var(--pxSize);
+    min-width: var(--pxSize);
+    display: block; }
+
+/*# sourceMappingURL=split-slideshow.css.map */

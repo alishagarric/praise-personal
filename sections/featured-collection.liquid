@@ -1,3 +1,7 @@
+{{ 'flickity.css' | asset_url | stylesheet_tag }}
+{{ 'cmnc-flickity.css' | asset_url | stylesheet_tag }}
+{{ 'featured-collection.css' | asset_url | stylesheet_tag }}
+ 
  {% liquid
   assign featured_collection = section.settings.collection
   assign collection_text_content = section.settings.collection_text_content
@@ -63,7 +67,7 @@
   {% endif %}
 
   <featured-collection 
-    class="featured-collection__container"
+    class="featured-collection__container cmnc-flickity-buttons-bottom"
     data-slider="{% if initiate_flickity %}true{% else %}false{% endif %}" 
     data-custom-controls="{{ theme_slideshow }}"
   >

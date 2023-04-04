@@ -17,6 +17,8 @@
 
 {% endcomment %}
 
+{{ 'quick-product.css' | asset_url | stylesheet_tag }}
+
 
 {% assign crop = crop | default: "default" %}
 {% assign style = style | default: "default" %}

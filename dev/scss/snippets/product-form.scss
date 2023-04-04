@@ -1,3 +1,5 @@
+@import "../utilities/mixins";
+
 form.product-form {
   > *:last-child {
     margin-bottom: calc(var(--pxSize) / 4);
@@ -53,7 +55,7 @@ form.product-form {
 
     &__more-options {
       all: unset;
-      @extend .txt-link;
+      @include textLink;
       cursor: pointer;
       position: relative;
       margin: 1rem auto 0 auto;

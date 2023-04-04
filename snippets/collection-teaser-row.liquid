@@ -39,6 +39,8 @@
 
 {% endcomment %}
 
+{{ 'collection-teaser-row.css' | asset_url | stylesheet_tag }}
+
 {% assign products_per_collection = products_per_collection | default: 2 %}
 {% assign marquee_speed = marquee_speed | default: 5 %}
 
@@ -49,7 +51,7 @@
     {% comment %} Collection Image {% endcomment %}
     {% if display_collection_image != false and collection.image != blank %}
       <div
-        class="collection-teaser-row__image __crop-{{ collection_image_crop_shape }}"
+        class="collection-teaser-row__image image-container __crop-{{ collection_image_crop_shape }}"
         style="--imageRatio: {{ collection.image.height | divided_by: 1.00 | divided_by: collection.image.width | times: 100 }}%"
       >
         {% render 'next-gen-img', image: collection.image, width: 1850, widths: '1850, 1000, 500', sizes: '(max-width: 676px) 95vw, (max-width: 1024px) 90vw, 30vw', preload: preload %}

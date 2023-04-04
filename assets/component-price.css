@@ -1,0 +1,24 @@
+.price {
+  display: flex;
+  gap: calc(var(--pxSize) / 6);
+  flex-wrap: wrap;
+  align-items: center; }
+  .price > *:not(.price__badge) {
+    flex: 1; }
+  .price__regular.__strikethrough {
+    margin-right: calc(var(--pxSize) / 6);
+    opacity: 0.6; }
+  .price__unit-price {
+    display: block; }
+  .price__badge {
+    text-transform: uppercase;
+    height: calc(var(--btnHeight) * 0.75);
+    padding: 0 calc(var(--btnHeight) / 3);
+    line-height: calc(var(--btnHeight) * 0.75);
+    white-space: nowrap;
+    background: RGB(var(--color-text));
+    color: RGB(var(--color-background));
+    margin: 0;
+    border-radius: var(--btnBorderRadius); }
+
+/*# sourceMappingURL=component-price.css.map */

@@ -26,14 +26,14 @@
     "gulp-postcss": "^9.0.0",
     "gulp-rename": "^2.0.0",
     "gulp-replace": "^1.0.0",
-    "gulp-sass": "^4.1.0",
+    "gulp-sass": "^4.1.1",
     "gulp-scss-lint": "^1.0.0",
     "gulp-uglify": "^3.0.1",
-    "jquery": "^3.5.1",
-    "node-sass": "^5.0.0"
+    "jquery": "^3.5.1"
   },
   "dependencies": {
-    "babel-polyfill": "^6.26.0"
+    "babel-polyfill": "^6.26.0",
+    "sass": "^1.60.0"
   },
   "browserslist": [
     "defaults"

@@ -1,3 +1,5 @@
+{{ 'main-article.css' | asset_url | stylesheet_tag }}
+
 {% style %}
   #Main-article-{{ section.id }} {
     --topSpacingRatio: {{ section.settings.top_spacing }} / 100;
@@ -13,7 +15,7 @@
         {%- when 'featured_image'-%}
           {%- if article.image -%}
             <div
-              class="main-article__image __crop-{{ block.settings.crop_shape }} __theme-{{ block.settings.overlay_theme }}"
+              class="main-article__image image-container __crop-{{ block.settings.crop_shape }} __theme-{{ block.settings.overlay_theme }}"
               style="--imageRatio: {{ article.image.height | divided_by: 1.00 | divided_by: article.image.width | times: 100 }}%; --overlayOpacity: calc( {{ block.settings.overlay }} / 100);"
             >
               {% assign image = article.image | image_url: width: article.image.width %}

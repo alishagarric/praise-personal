@@ -1,0 +1,18 @@
+.customer-forms__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 350px;
+  margin: 0 auto; }
+  .customer-forms__container#recover {
+    display: none; }
+    .customer-forms__container#recover:target {
+      display: flex; }
+      .customer-forms__container#recover:target ~ #login {
+        display: none; }
+.customer-forms__text {
+  margin-bottom: calc(var(--sectionVerticalSpacing) / 4); }
+.customer-forms__form {
+  margin-bottom: 1rem; }
+
+/*# sourceMappingURL=customer-forms.css.map */

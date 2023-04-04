@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,wBAAyB;EACvB,2BAA2B,CAAC,wBAAwB;EACpD,aAAa,EAAE,gCAAgC;EAE/C,iCAAW;IACT,aAAa,EAAE,uEAEd;EAGH,mCAAa;IACX,uBAAuB,CAAC,iCAAiC",
+"sources": ["../dev/scss/sections/product-recommendations.scss"],
+"names": [],
+"file": "product-recommendations.css"
+}

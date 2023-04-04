@@ -1,3 +1,6 @@
+{{ 'social-icons.css' | asset_url | stylesheet_tag }}
+{{ 'footer.css' | asset_url | stylesheet_tag }}
+
 {% style %}
     #Section-footer-{{ section.id }} {
       --footerLogoMaxWidth: {{ section.settings.logo_width }}px;

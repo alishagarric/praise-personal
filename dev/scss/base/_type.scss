@@ -1,0 +1,185 @@
+///////////////////////////////////////
+/////////////////////////////////////
+//Type
+/////////////////////////////////////
+/////////////////////////////////////
+@import "../utilities/mixins";
+
+h1,
+.h1,
+.h1 > p {
+  @include h1;
+}
+
+h2,
+.h2,
+.h2 > p {
+  @include h2;
+}
+
+h3,
+.h3,
+.h3 > p {
+  @include h3;
+}
+
+h4,
+.h4,
+.h4 > p {
+  @include h4;
+}
+
+h5,
+.h5,
+.h5 > p {
+  @include h5;
+}
+
+h6,
+.h6,
+.h6 > p {
+  @include h6;
+}
+
+p {
+  a {
+    @include textLink;
+  }
+}
+
+p,
+.p {
+  @include p;
+}
+
+.p-sm,
+.p-sm > p {
+  @include p-sm;
+}
+
+.p-lg,
+.p-lg > p {
+  @include p-lg;
+}
+
+a {
+  color: RGB(var(--color-text));
+  text-decoration: none;
+}
+
+ul,
+li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+em,
+i {
+  font-style: italic;
+}
+
+.txt-link {
+  @include textLink;
+}
+
+.__article-txt,
+.__article-txt-p-sm {
+  h1 {
+    font-size: calc(2.25rem * var(--font-heading-scale));
+  }
+
+  h2 {
+    font-size: calc(1.75rem * var(--font-heading-scale));
+  }
+
+  h3 {
+    font-size: calc(1.31rem * var(--font-heading-scale));
+  }
+
+  h4 {
+    font-size: calc(1.125rem * var(--font-heading-scale));
+  }
+
+  h5 {
+    font-size: calc(1rem * var(--font-heading-scale));
+  }
+
+  h6 {
+    font-size: calc(0.9rem * var(--font-heading-scale));
+  }
+
+  a {
+    @include textLink;
+  }
+
+  blockquote,
+  blockquote p {
+    padding-left: 0;
+    font-style: italic;
+    font-size: calc(1rem * var(--font-body-scale));
+    font-weight: 600;
+    padding-left: 1.5rem;
+    position: relative;
+    width: fit-content;
+
+    &::before {
+      content: '"';
+    }
+
+    &::after {
+      content: '"';
+    }
+  }
+
+  ul,
+  ol {
+    line-height: 28px;
+    margin-left: calc(var(--pxSize) / 4);
+    margin-bottom: 1rem;
+
+    li {
+      font-size: calc(0.9rem * var(--font-body-scale));
+    }
+  }
+
+  ul {
+    li {
+      list-style: inside;
+    }
+  }
+
+  ol {
+    padding-inline-start: 15px;
+
+    li {
+      list-style: revert;
+    }
+  }
+}
+
+.__article-txt-p-lg,
+.__article-txt.p-lg {
+  p,
+  ul li,
+  ol li {
+    font-size: calc(1.375rem * var(--font-body-scale));
+
+    @media (max-width: 1024px) {
+      font-size: calc(1.2rem * var(--font-body-scale));
+    }
+  }
+}
+
+.__article-txt-p-sm,
+.__article-txt.p-sm {
+  p,
+  ul li,
+  ol li {
+    font-size: calc(0.9rem * var(--font-body-scale));
+  }
+}
+
+strong {
+  font-weight: bold;
+}

@@ -17,13 +17,15 @@
 
 {% endcomment %}   
 
+{{ 'disclosure.css' | asset_url | stylesheet_tag }}
+
 {% assign open = open | default: false %}
 {% assign article_text = article_text | default: false %}
 {% assign style = style | default: 'default' %}
 
 {% if title and id and text or page %}
   <details class="disclosure {{ class }} __style-{{ style }}" {% if open %}open{% endif %} style="{{ css_vars }}">
-    <summary class="disclosure__summary " aria-label="{{ title }}" role="button" aria-expanded="true" aria-controls="dropdown-{{ id }}">
+    <summary class="disclosure__summary {% if style == "dropdown-button" or style == "blank-button" %}btn{% endif %}" aria-label="{{ title }}" role="button" aria-expanded="true" aria-controls="dropdown-{{ id }}">
       <span class="p-sm">{{ title }}</span>
     </summary>
     <div id="dropdown-{{ id }}" class="disclosure__content {% if article_text %}__article-txt-p-sm{% endif %}">

@@ -1,0 +1,73 @@
+//Main structures
+////////////////////////////////////
+
+html {
+  height: 100%;
+  background: RGB(var(--color-background));
+  color: RGB(var(--color-text));
+
+  * {
+    font-family: var(--font-body-family);
+    font-style: var(--font-body-style);
+    font-weight: var(--font-body-weight);
+  }
+}
+
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  min-height: calc(100% - var(--navWithAnnouncementHeight));
+
+  ::selection {
+    background: RGB(var(--color-foreground)); /* WebKit/Blink Browsers */
+  }
+  ::-moz-selection {
+    background: RGB(var(--color-foreground)); /* Gecko Browsers */
+  }
+
+  &.__mobile-overflow-none {
+    overflow: hidden;
+  }
+
+  main {
+    > *:first-child {
+      margin-top: var(--navWithAnnouncementHeight);
+    }
+  }
+}
+
+//Sections' space and color defaults
+////////////////////////////////////
+body > main > section > div,
+body > main > article > div,
+body > div > footer {
+  padding: calc(var(--sectionVerticalSpacing) * var(--topSpacingRatio))
+    var(--sectionGuttersSpacing)
+    calc(var(--sectionVerticalSpacing) * var(--bottomSpacingRatio))
+    var(--sectionGuttersSpacing);
+  position: relative;
+  color: RGB(var(--color-text));
+
+  &:after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 100vw;
+    transform: translateX(-50%);
+    background: RGB(var(--color-background));
+    z-index: -1;
+  }
+}
+
+body > main > section {
+  max-width: var(--siteMaxWidth);
+  margin: 0 auto;
+}
+
+//How the nav position effects sticky elements
+.__visible-nav + main {
+  --stickyElementTransition: translateY(var(--navHeight));
+}

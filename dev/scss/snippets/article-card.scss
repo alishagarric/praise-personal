@@ -9,10 +9,6 @@
     position: relative;
   }
 
-  &__image {
-    @extend .image-container;
-  }
-
   &__assc-products {
     display: grid;
     position: absolute;
@@ -39,10 +35,6 @@
         left: 50%;
         transform: translate(-50%, -50%);
       }
-    }
-
-    &__product {
-      @extend .image-container;
     }
 
     + * {

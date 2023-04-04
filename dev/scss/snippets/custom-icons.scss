@@ -1,13 +1,15 @@
 /* Custom icon, extend this class where custom icons are used */
 
 .custom-icon {
-  content: "";
-  width: var(--customIconHeight);
-  height: var(--customIconHeight);
-  background-size: contain;
-  background-position: center center;
-  background-repeat: no-repeat;
-  display: block;
+  &:before {
+    content: "";
+    width: var(--customIconHeight);
+    height: var(--customIconHeight);
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: block;
+  }
 }
 
 /* Custom icons container */
@@ -27,10 +29,6 @@
 
     span {
       margin: 0;
-    }
-
-    &:before {
-      @extend .custom-icon;
     }
 
     &.user-added {

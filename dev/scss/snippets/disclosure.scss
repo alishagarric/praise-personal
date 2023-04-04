@@ -181,7 +181,6 @@
     &-blank-button {
       .disclosure {
         &__summary {
-          @extend .btn;
           margin-top: 0;
           padding-right: calc(var(--expandableContentIconWidth) * 3);
 

@@ -1,0 +1,27 @@
+.main-blog {
+  --mainBlogGridColumns: 3; }
+  .main-blog__articles {
+    display: grid;
+    grid-template-columns: repeat(var(--mainBlogGridColumns), 1fr);
+    gap: calc(var(--pxSize) / 2); }
+  .main-blog__card {
+    width: 100%; }
+  .main-blog__tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: calc(var(--pxSize) / 3);
+    margin-bottom: calc(var(--sectionVerticalSpacing) / 2); }
+    .main-blog__tags__btn {
+      margin-top: 0; }
+    .main-blog__tags > * {
+      margin: 0; }
+  @media screen and (max-width: 1024px) {
+    .main-blog {
+      --mainBlogGridColumns: 2; } }
+  @media screen and (max-width: 676px) {
+    .main-blog {
+      --mainBlogGridColumns: 1; } }
+
+/*# sourceMappingURL=main-blog.css.map */

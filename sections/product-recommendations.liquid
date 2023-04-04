@@ -3,6 +3,9 @@
   <link rel="stylesheet" href="{{ 'component-card.css' | asset_url }}" media="print" onload="this.media='all'">
 {% endcomment %}
 
+{{ 'overflow-slider.css' | asset_url | stylesheet_tag }}
+{{ 'product-recommendations.css' | asset_url | stylesheet_tag }}
+
 <script src="{{ 'product-recommendations.js' | asset_url }}" defer="defer"></script>
 
 {% assign products_to_show = 4 %}

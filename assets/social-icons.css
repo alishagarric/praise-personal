@@ -1,0 +1,15 @@
+.social-icons {
+  display: flex;
+  gap: calc(var(--pxSize) / 2.5); }
+  .social-icons__item svg {
+    height: calc(var(--pxSize) / 2.5);
+    width: auto; }
+    .social-icons__item svg path {
+      fill: RGB(var(--color-text)); }
+  @media screen and (max-width: 676px) {
+    .social-icons {
+      gap: var(--pxSize); }
+      .social-icons__item svg {
+        height: var(--pxSize); } }
+
+/*# sourceMappingURL=social-icons.css.map */

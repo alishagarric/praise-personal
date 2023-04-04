@@ -1,0 +1,27 @@
+.collection-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; }
+  .collection-card__image {
+    position: relative;
+    overflow: hidden;
+    padding-top: 125%;
+    margin-bottom: 1rem;
+    width: 100%; }
+    .collection-card__image img,
+    .collection-card__image svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1);
+      will-change: transform;
+      transition: all 0.25s ease; }
+  .collection-card:hover {
+    cursor: pointer; }
+    .collection-card:hover img {
+      transform: scale(1.05); }
+
+/*# sourceMappingURL=collection-card.css.map */

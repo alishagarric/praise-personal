@@ -11,13 +11,15 @@
   - anchor: {String} (optional) This can be added so that on page reload it takes you to wherever you've placed your anchor tag.
 {% endcomment %}
 
+{{ 'pagination.css' | asset_url | stylesheet_tag }}
+
 {%- if paginate.parts.size > 0 -%}
   <nav role="navigation" class="pagination">
     <ol class="pagination__list list-unstyled" role="list">
 
       {% comment %} Previous Arrow {% endcomment %}
       <li class="pagination__list__item">
-        <a href="{{ paginate.previous.url }}{{ anchor }}" class="btn pagination__arrow {% unless paginate.previous %}disabled{% endunless %}" {% unless paginate.previous %}disabled{% endunless %} aria-label="{{ 'general.pagination.previous' | t }}">
+        <a href="{{ paginate.previous.url }}{{ anchor }}" class="btn pagination__arrow classic-arrow {% unless paginate.previous %}disabled{% endunless %}" {% unless paginate.previous %}disabled{% endunless %} aria-label="{{ 'general.pagination.previous' | t }}">
           {% render 'svg-slider-arrow' %}
         </a>
       </li>
@@ -43,7 +45,7 @@
       
       {% comment %} Next Arrow {% endcomment %}
       <li class="pagination__list__item">
-        <a href="{{ paginate.next.url }}{{ anchor }}" class="btn pagination__arrow next {% unless paginate.next %}disabled{% endunless %}" {% unless paginate.next %}disabled{% endunless %} aria-label="{{ 'general.pagination.next' | t }}">
+        <a href="{{ paginate.next.url }}{{ anchor }}" class="btn pagination__arrow classic-arrow next {% unless paginate.next %}disabled{% endunless %}" {% unless paginate.next %}disabled{% endunless %} aria-label="{{ 'general.pagination.next' | t }}">
           {% render 'svg-slider-arrow' %}
         </a>
       </li>

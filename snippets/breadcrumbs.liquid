@@ -1,3 +1,5 @@
+{{ 'breadcrumbs.css' | asset_url | stylesheet_tag }}
+
 {%- unless template == 'index' or template == 'cart' or template == 'list-collections' or template == '404' -%}
 {%- assign t = template | split: '.' | first -%}
 

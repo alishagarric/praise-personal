@@ -1,3 +1,5 @@
+{{ 'main-404.css' | asset_url | stylesheet_tag }}
+
 {% style %}
   #main-404-{{ section.id }} {
     --topSpacingRatio: {{ section.settings.top_spacing }} / 100;

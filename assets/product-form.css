@@ -1,0 +1,60 @@
+form.product-form > *:last-child {
+  margin-bottom: calc(var(--pxSize) / 4); }
+form.product-form .product-form__row, form.product-form .product-form__column {
+  display: flex;
+  gap: calc(var(--pxSize) / 5); }
+form.product-form .product-form__column {
+  flex-direction: column; }
+form.product-form .product-form__row {
+  margin-bottom: calc(var(--pxSize) / 4); }
+  form.product-form .product-form__row.__include-border {
+    padding-bottom: calc(var(--pxSize) / 4);
+    margin-bottom: calc(var(--pxSize) / 4);
+    border-bottom: 1px solid RGBA(var(--color-border)); }
+form.product-form .product-form__add-to-cart {
+  flex: 1; }
+form.product-form .shopify-payment-button__button {
+  border-radius: var(--btnBorderRadius); }
+  form.product-form .shopify-payment-button__button--unbranded {
+    background-color: transparent;
+    color: RGB(var(--color-text));
+    border: 1px solid RGB(var(--color-text)); }
+    form.product-form .shopify-payment-button__button--unbranded:hover:not([disabled]) {
+      background-color: RGB(var(--color-text));
+      color: RGB(var(--color-background)); }
+  form.product-form .shopify-payment-button__button + .shopify-payment-button__button--hidden {
+    /* Physically hide visually hidden dynamic buttons */
+    display: none; }
+form.product-form .shopify-payment-button__more-options {
+  all: unset;
+  position: relative;
+  color: RGB(var(--color-text));
+  opacity: 1;
+  will-change: opacity;
+  transition: all 0.25s ease;
+  cursor: pointer;
+  position: relative;
+  margin: 1rem auto 0 auto; }
+  form.product-form .shopify-payment-button__more-options:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: RGB(var(--color-text));
+    transform: scale(1);
+    will-change: transform;
+    transition: all 0.25s ease; }
+  form.product-form .shopify-payment-button__more-options:hover {
+    opacity: 0.8; }
+    form.product-form .shopify-payment-button__more-options:hover:after {
+      transform: scale(1.1, 1.5); }
+  form.product-form .shopify-payment-button__more-options:hover {
+    text-decoration: none; }
+form.product-form button {
+  margin: 0;
+  justify-content: center;
+  width: 100%; }
+
+/*# sourceMappingURL=product-form.css.map */
