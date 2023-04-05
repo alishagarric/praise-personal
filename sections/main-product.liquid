@@ -251,7 +251,7 @@
 
     {% if template == "product.modal" %}
       <div class="main-modal__close">
-        <button class="main-modal__close__btn" type="button" aria-label="Close">{% render 'svg-exit' %}</button>
+        <button class="main-modal__close__btn" type="button" aria-label="{{ 'products.product.close' | t }}">{% render 'svg-exit' %}</button>
       </div>
     {% endif %}
   </div>

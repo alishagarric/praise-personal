@@ -9,19 +9,22 @@
 
   Usage:
     {% render 'newsletter-signup' class: "my-class", style: "bold" %}
-
 {% endcomment %}
-  
-  
-{% assign style = style | default: "default" %}
+
+{% assign style = style | default: 'default' %}
 
 <div class="newsletter-signup {{ class }} __style-{{ style}}">
   {%- form 'customer' -%}
     {%- if form.errors -%}
-      <small id="NewsletterError--{{ section.id }}" class="message-error">{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}</small>
+      <small id="NewsletterError--{{ section.id }}" class="message-error">
+        {{- form.errors.translated_fields.email | capitalize }}
+        {{ form.errors.messages.email -}}
+      </small>
     {%- elsif form.posted_successfully? -%}
-      <small id="NewsletterSuccess--{{ section.id }}" class="message-success" tabindex="-1" autofocus>{{ 'general.newsletter.success' | t }}</small>
-    {%- endif -%}  
+      <small id="NewsletterSuccess--{{ section.id }}" class="message-success" tabindex="-1" autofocus>
+        {{- 'general.newsletter.success' | t -}}
+      </small>
+    {%- endif -%}
 
     <label for="NewsletterEmail--{{ section.id }}">{{ 'general.newsletter.email' | t }}</label>
     <input
@@ -43,7 +46,7 @@
         aria-describedby="NewsletterSuccess--{{ section.id }}"
       {% endif %}
     >
-    <input type="hidden" name="contact[tags]" value="newsletter">
+    <input type="hidden" name="contact[tags]" value="{{ 'general.newsletter.name' | t }}">
     <button type="submit" aria-label="{{ 'general.newsletter.subscribe' | t }}">
       {% render 'svg-slider-arrow' %}
     </button>

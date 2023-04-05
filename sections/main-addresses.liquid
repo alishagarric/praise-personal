@@ -2,7 +2,6 @@
 
 <script src="{{ 'province-selector.js' | asset_url }}" defer="defer"></script>
 
-
 <div class="main-order-main-account__breadcrumbs __theme-primary">
   {% render 'breadcrumbs' %}
 
@@ -21,19 +20,16 @@
     </ul>
   {% endcapture %}
 
-  {% render 'disclosure', title: page_title, id: "Account", text: nav_items, style: "dropdown-traditional" %}
-
+  {% render 'disclosure', title: page_title, id: 'Account', text: nav_items, style: 'dropdown-traditional' %}
 </div>
 
 <div class="main-order-main-account __theme-primary">
-
   <h1 class="visually-hidden">{{ 'customer.addresses.title' | t }}</h1>
 
-  {% render 'account-nav' current: "addresses" %}
+  {% render 'account-nav', current: 'addresses' %}
 
   <div class="main-order-main-account__orders">
-
-     <h2 class="p-lg">{{ 'customer.addresses.new_address' | t }}</h2>
+    <h2 class="p-lg">{{ 'customer.addresses.new_address' | t }}</h2>
 
     {% assign title = 'customer.addresses.add_new' | t %}
     {% assign id = 'AddAddress' %}
@@ -154,22 +150,21 @@
       </div>
     {% endcapture %}
     {% render 'disclosure', title: title, id: id, text: form, open: false, article_text: true %}
-  
-    {%- paginate customer.addresses by 5 -%}
-        <ul role="list" class="list-unstyled main-order-main-account__orders__list">
-          {%- for address in customer.addresses -%}
-            <li>
-              
-              {%- if address == customer.default_address -%}
-                <h2 class="p-lg">{{ 'customer.addresses.default' | t }}</h2>
-              {% else %}
-                <h2 class="p-lg">{{ 'customer.addresses.address' | t }}</h2>
-              {%- endif -%}
-              {{ address | format_address }}
 
-              {% assign title = 'customer.addresses.delete' | t %}
-              {% assign id = 'DeleteAddress-' | append: forloop.index %}
-              {% capture form %}
+    {%- paginate customer.addresses by 5 -%}
+      <ul role="list" class="list-unstyled main-order-main-account__orders__list">
+        {%- for address in customer.addresses -%}
+          <li>
+            {%- if address == customer.default_address -%}
+              <h2 class="p-lg">{{ 'customer.addresses.default' | t }}</h2>
+            {% else %}
+              <h2 class="p-lg">{{ 'customer.addresses.address' | t }}</h2>
+            {%- endif -%}
+            {{ address | format_address }}
+
+            {% assign title = 'customer.addresses.delete' | t %}
+            {% assign id = 'DeleteAddress-' | append: forloop.index %}
+            {% capture form %}
                 <p>{{ 'customer.addresses.delete_confirm' | t }}</p>
                 {{- address | format_address -}}
                 <form
@@ -186,11 +181,11 @@
                   </button>
                 </form>
               {% endcapture %}
-              {% render 'disclosure', title: title, id: id, text: form, open: false, article_text: true %}
+            {% render 'disclosure', title: title, id: id, text: form, open: false, article_text: true %}
 
-              {% assign title = 'customer.addresses.edit' | t %}
-              {% assign id = 'EditAddress-' | append: forloop.index %}
-              {% capture form %}
+            {% assign title = 'customer.addresses.edit' | t %}
+            {% assign id = 'EditAddress-' | append: forloop.index %}
+            {% capture form %}
                 {%- form 'customer_address', address, class: "form-styles" -%}
                   <div>
                     <label for="AddressFirstName_{{ form.id }}">{{ 'customer.addresses.first_name' | t }}</label>
@@ -320,15 +315,14 @@
                   </div>
                 {%- endform -%}
               {% endcapture %}
-              {% render 'disclosure', title: title, id: id, text: form, open: false, article_text: true %}
+            {% render 'disclosure', title: title, id: id, text: form, open: false, article_text: true %}
+          </li>
+        {%- endfor -%}
+      </ul>
 
-            </li>
-          {%- endfor -%}
-        </ul>
-
-        {%- if paginate.pages > 1 -%}
-          {% render 'pagination', paginate: paginate %}
-        {%- endif -%}
+      {%- if paginate.pages > 1 -%}
+        {% render 'pagination', paginate: paginate %}
+      {%- endif -%}
     {%- endpaginate -%}
   </div>
 </div>
@@ -337,8 +331,6 @@
 {
   "name": "t:sections.main-addresses.name",
   "tag": "section",
-  "settings": [
-
-  ]
+  "settings": []
 }
 {% endschema %}
