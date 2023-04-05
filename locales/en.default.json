@@ -4,6 +4,7 @@
     "newsletter": {
       "heading": "Stay in the know",
       "email": "Email",
+      "name": "newsletter",
       "subscribe": "Subscribe",
       "success": "Thanks for subscribing"
     },
@@ -41,6 +42,7 @@
     },
     "search": {
       "search": "Search",
+      "last" : "last",
       "no_results": "Your search returned no results",
       "no_terms": "Please enter a search term",
       "results": "{{ count }} results for {{ terms }}"
@@ -209,6 +211,7 @@
         "name": "Name",
         "email": "Email",
         "phone": "Phone number",
+        "reason": "Contact Reason",
         "comment": "Comment",
         "send": "Send",
         "post_success": "Thanks for contacting us. We'll get back to you as soon as possible.",
@@ -232,6 +235,9 @@
       "include_taxes": "Tax included.",
       "on_sale": "Sale",
       "sold_out": "Sold out",
+      "close": "Close",
+      "quick_buy": "Quick Buy",
+      "view_product": "View Product",
       "shipping_policy_html": "<a href=\"{{ link }}\">Shipping</a> calculated at checkout.",
       "product_variants": "Product variants",
       "total_reviews": "total reviews",
