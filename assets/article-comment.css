@@ -1,10 +1,16 @@
 .article-comment {
   display: grid;
   grid-template-columns: var(--pxSize) auto;
-  gap: 0 calc(var(--pxSize) / 4); }
-  .article-comment__image {
+  gap: 0 1rem; }
+  .article-comment__avatar {
     height: var(--pxSize);
-    width: var(--pxSize); }
+    line-height: var(--pxSize);
+    width: var(--pxSize);
+    text-align: center;
+    border-radius: 100%;
+    background-color: RGBA(var(--color-text)/0.05); }
+  .article-comment__content {
+    padding-top: calc(var(--pxSize) / 3); }
   .article-comment__author {
     font-weight: 700;
     margin-right: 0.5rem; }
