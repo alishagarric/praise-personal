@@ -1,8 +1,8 @@
 {{ 'flickity.css' | asset_url | stylesheet_tag }}
 {{ 'cmnc-flickity.css' | asset_url | stylesheet_tag }}
 {{ 'featured-collection.css' | asset_url | stylesheet_tag }}
- 
- {% liquid
+
+{% liquid
   assign featured_collection = section.settings.collection
   assign collection_text_content = section.settings.collection_text_content
   assign collection_heading = section.settings.heading
@@ -15,15 +15,15 @@
   assign theme_slideshow = section.settings.theme_slideshow
   assign price_pos = section.settings.price
   assign product_text_alignment = section.settings.product_text_alignment
-  assign alt_heading  = section.settings.alt_heading
-  assign alt_title  = section.settings.alt_title
+  assign alt_heading = section.settings.alt_heading
+  assign alt_title = section.settings.alt_title
   assign show_description = section.settings.show_description
   assign quick_add = section.settings.quick_add
   assign show_bg_color = section.settings.show_bg_color
 
   assign products_count = featured_collection.products | size
   assign initiate_flickity = false
-  
+
   if products_count > 3
     assign initiate_flickity = true
   endif
@@ -33,55 +33,71 @@
     assign section_text = featured_collection.description
   else
     if collection_heading
-        assign section_heading = collection_heading
+      assign section_heading = collection_heading
     endif
-      if collection_text
+    if collection_text
       assign section_text = collection_text
     endif
   endif
 %}
 
- {% style %}
-    #Featured-collection-{{ section.id }} {
-      --topSpacingRatio: {{ top_spacing }} / 100;
-      --bottomSpacingRatio: {{ bottom_spacing }} / 100;
-    }
- {% endstyle %}
+{% style %}
+  #Featured-collection-{{ section.id }} {
+    --topSpacingRatio: {{ top_spacing }} / 100;
+    --bottomSpacingRatio: {{ bottom_spacing }} / 100;
+  }
+{% endstyle %}
 
-<div 
-  id="Featured-collection-{{ section.id }}" 
-  class="featured-collection __theme-{{section_theme}} {% if theme_slideshow %}__theme-slider {% endif %} {% if initiate_flickity == false %}__no-slider {% endif %}"  
+<div
+  id="Featured-collection-{{ section.id }}"
+  class="featured-collection __theme-{{section_theme}} {% if theme_slideshow %}__theme-slider {% endif %} {% if initiate_flickity == false %}__no-slider {% endif %}"
 >
   {% comment %} Text Content {% endcomment %}
   {% if section_heading != blank or section_text != blank %}
     <div class="featured-collection__text">
-        {% if section_heading %}
-          <h2 class="featured-collection__text__heading h4 {% if alt_heading %}alt{% endif %}">{{ section_heading }}</h2>
-        {% endif %}
-        {% if section_text %}
-          <div class="featured-collection__text__desc __article-txt p">
-            {{ section_text }}
-          </div>
-        {% endif %}
+      {% if section_heading %}
+        <h2 class="featured-collection__text__heading h4 {% if alt_heading %}alt{% endif %}">{{ section_heading }}</h2>
+      {% endif %}
+      {% if section_text %}
+        <div class="featured-collection__text__desc __article-txt p">
+          {{ section_text }}
+        </div>
+      {% endif %}
     </div>
   {% endif %}
 
-  <featured-collection 
+  <featured-collection
     class="featured-collection__container cmnc-flickity-buttons-bottom"
-    data-slider="{% if initiate_flickity %}true{% else %}false{% endif %}" 
+    data-slider="{% if initiate_flickity %}true{% else %}false{% endif %}"
     data-custom-controls="{{ theme_slideshow }}"
   >
-
     {% unless featured_collection == blank %}
       {% comment %}
         Main Flickity slider that is only initiated when there are enough
         products in the collection. If theme_slideshow is toggled on, controls
-        (arrows and dots) are not added to this slider, but if it is, then 
+        (arrows and dots) are not added to this slider, but if it is, then
         a whole new controls Flickity slider is created below
       {% endcomment %}
-      <div class="featured-collection__cards" style="--featuredCollectionThemedTextColor: {{ featured_collection.products[0].metafields.custom.text_color }}">
+      <div
+        class="featured-collection__cards"
+        style="--featuredCollectionThemedTextColor: {{ featured_collection.products[0].metafields.custom.text_color }}"
+      >
         {% for product in featured_collection.products %}
-          {% render 'product-card' product: product, show_bg_color: show_bg_color, quick_add: quick_add, crop: crop_shape, show_phrase: show_phrase, alignment: product_text_alignment, show_description: show_description, price_position: price_pos, alt_heading: alt_title, img_width: 930, img_widths: "930, 650, 400", img_sizes: "(max-width: 676px) 75vw, (max-width: 1024px) 33vw, 25vw", class: "featured-collection__cards__card" %}
+          {% render 'product-card',
+            product: product,
+            show_bg_color: show_bg_color,
+            quick_add: quick_add,
+            crop: crop_shape,
+            show_phrase: show_phrase,
+            alignment: product_text_alignment,
+            show_description: show_description,
+            price_position: price_pos,
+            alt_heading: alt_title,
+            img_width: 930,
+            img_widths: '930, 650, 400',
+            img_sizes: '(max-width: 676px) 75vw, (max-width: 1024px) 33vw, 25vw',
+            class: 'featured-collection__cards__card'
+          %}
         {% endfor %}
       </div>
 
@@ -92,40 +108,44 @@
         {% endcomment %}
         <div class="featured-collection__controls flickity-controls">
           {% for product in featured_collection.products %}
-            <div class="featured-collection__controls__control" style="--productColor: {% if theme_slideshow %}{{product.metafields.custom.color }}{% else %}var(--color-text) {% endif %};">
+            <div
+              class="featured-collection__controls__control"
+              style="--productColor: {% if theme_slideshow %}{{product.metafields.custom.color }}{% else %}var(--color-text) {% endif %};"
+            >
               <span class="visually-hidden">{{ product.title }}</span>
             </div>
           {% endfor %}
         </div>
 
-      {% comment %}
-        Background Flickity slider that contains only background colors. 
-        Only used when theme_slideshow is toggled on
-      {% endcomment %}
+        {% comment %}
+          Background Flickity slider that contains only background colors.
+          Only used when theme_slideshow is toggled on
+        {% endcomment %}
         <div class="featured-collection__background-color">
           {% for product in featured_collection.products %}
-            <div class="featured-collection__background-color__item" style="background-color: {{product.metafields.custom.color }};"></div>
+            <div
+              class="featured-collection__background-color__item"
+              style="background-color: {{product.metafields.custom.color }};"
+            ></div>
           {% endfor %}
         </div>
       {% endif %}
     {% else %}
-
       {% comment %}
         Placeholder cards that display before a collection is chosen
       {% endcomment %}
       <div class="featured-collection__cards">
         {% for i in (1..3) %}
-          {% render 'product-card', price_position: 'bottom', class: "featured-collection__cards__card" %}
+          {% render 'product-card', price_position: 'bottom', class: 'featured-collection__cards__card' %}
         {% endfor %}
       </div>
     {% endunless %}
   </featured-collection>
-
 </div>
 
 {% schema %}
 {
-  "name": "Featured Collection",
+  "name": "t:sections.featured-collection.name",
   "tag": "section",
   "class": "section",
   "settings": [
@@ -176,7 +196,7 @@
       "label": "Use body font instead of heading font for product title"
     },
     {
-      "type": "select", 
+      "type": "select",
       "id": "product_text_alignment",
       "options": [
         {

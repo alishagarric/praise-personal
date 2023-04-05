@@ -1,18 +1,21 @@
 {{ 'timeline-section.css' | asset_url | stylesheet_tag }}
 
 {% style %}
-    #Timeline-section-{{ section.id }} {
-      --topSpacingRatio: {{section.settings.top_spacing}} / 100;
-      --bottomSpacingRatio: {{section.settings.bottom_spacing}} / 100;
-    }
+  #Timeline-section-{{ section.id }} {
+    --topSpacingRatio: {{section.settings.top_spacing}} / 100;
+    --bottomSpacingRatio: {{section.settings.bottom_spacing}} / 100;
+  }
 {% endstyle %}
- 
 
 {% if section.blocks.size > 0 %}
   <div id="Timeline-section-{{ section.id }}" class="timeline-section __theme-{{ section.settings.theme }}">
     {% if section.settings.heading or section.settings.text %}
       <div class="timeline-section__heading">
-        {% render 'heading' heading: section.settings.heading, heading_size: section.settings.heading_size, alt_heading: section.settings.alt_heading %}
+        {% render 'heading',
+          heading: section.settings.heading,
+          heading_size: section.settings.heading_size,
+          alt_heading: section.settings.alt_heading
+        %}
         {% if section.settings.text %}
           <div class="__article-txt">
             {{ section.settings.text }}
@@ -25,29 +28,48 @@
       {% case block.type %}
         {% when 'part' %}
           <div class="timeline-section__part">
-            {% assign image_ratio = block.settings.image.height | divided_by: 1.00 | divided_by: block.settings.image.width | times: 100 %}
+            {% assign image_ratio = block.settings.image.height
+              | divided_by: 1.00
+              | divided_by: block.settings.image.width
+              | times: 100
+            %}
 
-            <div class="timeline-section__part__image image-container __crop-{{ section.settings.crop_shape }}" style="--imageRatio: {{ image_ratio }}%">
-              {% render 'next-gen-img' image: block.settings.image, width: 1680, widths: "1680, 1400, 1100, 900, 600", sizes: "(max-width: 676px) 100vw, 50vw" %}
+            <div
+              class="timeline-section__part__image image-container __crop-{{ section.settings.crop_shape }}"
+              style="--imageRatio: {{ image_ratio }}%"
+            >
+              {% render 'next-gen-img',
+                image: block.settings.image,
+                width: 1680,
+                widths: '1680, 1400, 1100, 900, 600',
+                sizes: '(max-width: 676px) 100vw, 50vw'
+              %}
             </div>
 
             <div class="timeline-section__part__text __btn-clr-{{ section.settings.dot_color }}">
               <div class="timeline-section__part__text__inner">
-                {% render 'heading' heading: block.settings.heading, heading_size: block.settings.heading_size, alt_heading: block.settings.alt_heading %}
+                {% render 'heading',
+                  heading: block.settings.heading,
+                  heading_size: block.settings.heading_size,
+                  alt_heading: block.settings.alt_heading
+                %}
                 <div class="__article-txt">{{ block.settings.text }}</div>
-                {% render 'button' button_label: block.settings.button_label, button_link: block.settings.button_link, style: "underline" %}
+                {% render 'button',
+                  button_label: block.settings.button_label,
+                  button_link: block.settings.button_link,
+                  style: 'underline'
+                %}
               </div>
             </div>
           </div>
-
       {% endcase %}
     {% endfor %}
   </div>
 {% endif %}
 
- {% schema %}
+{% schema %}
 {
-  "name": "Timeline",
+  "name": "t:sections.timeline.name",
   "tag": "section",
   "settings": [
     {
@@ -256,7 +278,7 @@
     {
       "type": "part",
       "name": "Part",
-      "settings" : [
+      "settings": [
         {
           "type": "header",
           "content": "Image Content"

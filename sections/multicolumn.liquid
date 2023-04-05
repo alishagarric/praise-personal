@@ -28,40 +28,40 @@
     assign hide_arrows_on_tablet = false
   endif
 
-  if columns_desktop == 5 
-    assign width = 700 
+  if columns_desktop == 5
+    assign width = 700
     assign widths = '700, 400'
-    assign sizes = "20vw" 
+    assign sizes = '20vw'
   elsif columns_desktop == 4
     assign width = 800
     assign widths = '800, 400'
-    assign sizes = "25vw"   
+    assign sizes = '25vw'
   elsif columns_desktop == 3
-    assign width = 1100 
+    assign width = 1100
     assign widths = '1100, 600'
-    assign sizes = "33vw"   
-  else 
-    assign width = 1700 
+    assign sizes = '33vw'
+  else
+    assign width = 1700
     assign widths = '1700, 815'
-    assign sizes = "50vw"   
-  endif 
+    assign sizes = '50vw'
+  endif
 
   if columns_mobile == 3
     assign widths = widths | append: ' ,600, 400, 250'
-    assign sizes = sizes | prepend: "(max-width: 1024px) 33vw, "
+    assign sizes = sizes | prepend: '(max-width: 1024px) 33vw, '
   elsif columns_mobile == 2
     assign widths = widths | append: ' ,1000, 700, 500, 350'
-    assign sizes = sizes | prepend: "(max-width: 1024px) 50vw, "
-    if 1000 > width 
+    assign sizes = sizes | prepend: '(max-width: 1024px) 50vw, '
+    if 1000 > width
       assign width = 1000
-    endif    
-  else 
+    endif
+  else
     assign widths = widths | append: ' ,2100, 1400, 1100, 700'
-    assign sizes = sizes | prepend: "(max-width: 1024px) 100vw, "   
-    if 2100 > width 
+    assign sizes = sizes | prepend: '(max-width: 1024px) 100vw, '
+    if 2100 > width
       assign width = 2100
-    endif   
-  endif 
+    endif
+  endif
 %}
 
 {% style %}
@@ -95,7 +95,7 @@
   <overflow-slider class="multicolumn__inner overflow-slider {% if hide_arrows_on_desktop %}__hide-desktop-arrows{% endif %} {% if hide_arrows_on_tablet %}__hide-tablet-arrows{% endif%}">
     <div class="overflow-slider__container multicolumn__container">
       {% comment %} Real Content {% endcomment %}
-      {% liquid 
+      {% liquid
         if section.blocks.size > 0
           for block in section.blocks
             case block.type
@@ -107,7 +107,7 @@
 
               when 'products'
                 for product in block.settings.products
-                  render 'product-card', product: product, class: 'multicolumn__item', show_bg_color: block.settings.show_bg_color, quick_add: block.settings.quick_add, crop: block.settings.crop_shape, show_phrase: block.settings.show_phrase, alignment: block.settings.product_text_alignment, show_description: block.settings.show_description, price_position: block.settings.price, alt_heading: block.settings.alt_title img_width: width, img_widths: widths, img_sizes: sizes
+                  render 'product-card', product: product, class: 'multicolumn__item', show_bg_color: block.settings.show_bg_color, quick_add: block.settings.quick_add, crop: block.settings.crop_shape, show_phrase: block.settings.show_phrase, alignment: block.settings.product_text_alignment, show_description: block.settings.show_description, price_position: block.settings.price, alt_heading: block.settings.alt_title, img_width: width, img_widths: widths, img_sizes: sizes
                 endfor
 
               when 'collections'
@@ -118,7 +118,6 @@
           endfor
         endif
       %}
-        
 
       {% comment %} Placeholder Content {% endcomment %}
       {% if section.blocks.size == 0 %}
@@ -137,7 +136,7 @@
 
 {% schema %}
 {
-  "name": "Multicolumn",
+  "name": "t:sections.multicolumn.name",
   "tag": "section",
   "settings": [
     {
@@ -299,7 +298,7 @@
   "blocks": [
     {
       "type": "image",
-      "name": "Image with Text",
+      "name": "t:sections.multicolumn.blocks.image-with-text.name",
       "settings": [
         {
           "type": "header",
@@ -514,7 +513,7 @@
     },
     {
       "type": "quote",
-      "name": "Quote",
+      "name": "t:sections.multicolumn.blocks.quote.name",
       "settings": [
         {
           "type": "richtext",
@@ -610,7 +609,7 @@
     },
     {
       "type": "products",
-      "name": "Products",
+      "name": "t:sections.multicolumn.blocks.products.name",
       "settings": [
         {
           "type": "product_list",
@@ -740,7 +739,7 @@
     },
     {
       "type": "collections",
-      "name": "Collections",
+      "name": "t:sections.multicolumn.blocks.collections.name",
       "settings": [
         {
           "type": "collection_list",

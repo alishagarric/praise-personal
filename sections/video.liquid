@@ -1,17 +1,21 @@
 {% style %}
-    #Video-section-{{ section.id }} {
-      --topSpacingRatio: {{section.settings.top_spacing}} / 100;
-      --bottomSpacingRatio: {{section.settings.bottom_spacing}} / 100;
-    }
- {% endstyle %}
- 
-<div id="Video-section-{{ section.id }}" class="video-section __theme-{{section.settings.theme}}" style="background: magenta;">
+  #Video-section-{{ section.id }} {
+    --topSpacingRatio: {{section.settings.top_spacing}} / 100;
+    --bottomSpacingRatio: {{section.settings.bottom_spacing}} / 100;
+  }
+{% endstyle %}
+
+<div
+  id="Video-section-{{ section.id }}"
+  class="video-section __theme-{{section.settings.theme}}"
+  style="background: magenta;"
+>
   <h1>Video</h1>
 </div>
 
- {% schema %}
+{% schema %}
 {
-  "name": "Video",
+  "name": "t:sections.video.name",
   "tag": "section",
   "settings": [
     {
@@ -67,8 +71,7 @@
       "default": 50
     }
   ],
-  "blocks": [
-  ],
+  "blocks": [],
   "presets": [
     {
       "name": "Video"

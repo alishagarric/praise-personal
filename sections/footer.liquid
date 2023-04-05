@@ -2,165 +2,176 @@
 {{ 'footer.css' | asset_url | stylesheet_tag }}
 
 {% style %}
-    #Section-footer-{{ section.id }} {
-      --footerLogoMaxWidth: {{ section.settings.logo_width }}px;
-    }
- {% endstyle %}
+  #Section-footer-{{ section.id }} {
+    --footerLogoMaxWidth: {{ section.settings.logo_width }}px;
+  }
+{% endstyle %}
 
 {% liquid
-  assign icons = false 
+  assign icons = false
   assign img_width = section.settings.logo_width | times: 2
   assign img_widths = img_width | append: ', ' | append: section.settings.logo_width
   assign img_sizes = section.settings.logo_width | append: 'px'
 %}
 
 <footer id="Section-footer-{{ section.id }}" class="section-footer">
-    
-    <div class="section-footer__col __theme-{{section.settings.accent_theme}}">
-
-      {% comment %} Text content and logo {% endcomment %}
-      <div class="section-footer__branding {% if section.settings.stack_logo == true %}__stack {% endif %}">
-        {% if section.settings.logo %}
-          <div class="section-footer__branding__logo">
-            {% render 'next-gen-img', image: section.settings.logo, width: img_width, widths: img_widths, sizes: img_sizes %}
-          </div>
-        {% endif %}
-
-        {% if section.settings.heading %}
-          <h2 class="h6 alt">
-            {{ section.settings.heading }}
-          </h2>
-        {% endif %}
-        {% if section.settings.description %}
-          <p class="p-sm">
-            {{ section.settings.description }}
-          </p>
-        {% endif %}
-      </div>
-
-      {% comment %} Newsletter {% endcomment %}
-      {% if section.settings.newsletter_enable %}
-        {% render 'newsletter-signup' class: "section-footer__newsletter", style: "bold" %}
-      {% endif %}
-
-
-      {% comment %} Social Icons {% endcomment %}
-      {%- if section.settings.show_social -%}
-        {% render 'social-icons' class: "section-footer__social"%}
-      {%- endif -%}
-      
-      {% comment %} Country selector {% endcomment %}
-      {%- if localization.available_countries.size > 1 -%}
-        {%- form 'localization' -%}
-          <label for="CountryList--{{ section.id }}">{{ 'general.localization.country.label' | t }}</label>
-          <select name="country_code" id="CountryList--{{ section.id }}">
-            {%- for country in localization.available_countries -%}
-              <option 
-                value="{{ country.iso_code }}"
-                {%- if country.iso_code == localization.country.iso_code %} selected{% endif -%}
-              >
-                {{ 'general.localization.country.option_label' | t: name: country.name, currency_iso_code: country.currency.iso_code, currency_symbol: country.currency.symbol }}
-              </option>
-            {%- endfor -%}
-          </select>
-          <button type="submit">{{ 'general.localization.country.update' | t }}</button>
-        {%- endform -%}
-      {%- endif -%}
-
-
-      {% comment %} Language selector {% endcomment %}
-      {%- if localization.available_languages.size > 1 -%}
-        {%- form 'localization' -%}
-          <label for="LanguageList--{{ section.id }}">{{ 'general.localization.language.label' | t }}</label>
-          <select name="locale_code" id="LanguageList--{{ section.id }}">
-            {%- for language in localization.available_languages -%}
-              <option 
-                value="{{ language.iso_code }}" lang="{{ language.iso_code }}"
-                {%- if language.iso_code == localization.language.iso_code %} selected{% endif %} 
-              >
-                {{ language.endonym_name | capitalize }}
-              </option>
-            {%- endfor -%}
-          </select>
-          <button type="submit">{{ 'general.localization.language.update' | t }}</button>
-        {%- endform -%}
-      {%- endif -%}
-    </div>
-
-    {% comment %} Primary links {% endcomment %}
-    <div class="section-footer__col __theme-{{ section.settings.theme }}">
-      {%- if section.blocks.size > 0 -%}
-        <div class="section-footer__blocks">
-          {%- for block in section.blocks -%}
-            
-              {%- case block.type -%}
-                {%- when 'link_list' -%}
-                  <div class="section-footer__blocks__block" {{ block.shopify_attributes }}>
-                    {%- if block.settings.heading != blank -%}
-                      <p class="section-footer__header h6 alt">{{- block.settings.heading | escape -}}</p>
-                    {%- endif -%}
-                    {%- if block.settings.menu != blank -%}
-                      <ul class="section-footer__links list-unstyled">
-                        {%- for link in block.settings.menu.links -%}
-                          <li class="section-footer__links__item">
-                            <a class="section-footer__links__item__link p-sm" href="{{ link.url }}">
-                              {{ link.title }}
-                            </a>
-                          </li>
-                        {%- endfor -%}
-                      </ul>
-                    {%- endif -%}
-                  </div>
-                  
-
-                  {%- when 'icon' -%}
-                    {% assign icons = true %}
-                {%- endcase -%}
-            
-          {%- endfor -%}
-        </div>
-      {%- endif -%}
-
-      {% comment %} Badges/icons {% endcomment %}
-      {% if icons == true %}
-        <div class="section-footer__badges">
-          {%- for block in section.blocks -%}
-            {%- case block.type -%}
-              {%- when 'icon' -%}
-                <div class="section-footer__badges__badge">
-                  {%- if block.settings.icon != blank -%}
-                    {% render 'next-gen-img', image: block.settings.icon, height: 100 %}
-                  {%- endif -%}
-                </div>      
-              {%- endcase -%}
-          {%- endfor -%}
+  <div class="section-footer__col __theme-{{section.settings.accent_theme}}">
+    {% comment %} Text content and logo {% endcomment %}
+    <div class="section-footer__branding {% if section.settings.stack_logo == true %}__stack {% endif %}">
+      {% if section.settings.logo %}
+        <div class="section-footer__branding__logo">
+          {% render 'next-gen-img',
+            image: section.settings.logo,
+            width: img_width,
+            widths: img_widths,
+            sizes: img_sizes
+          %}
         </div>
       {% endif %}
 
-      {% comment %} Secondary links {% endcomment %}
-      <div class="section-footer__row">
-        {%- if section.settings.secondary_links %}
-          <ul class="section-footer__sec-links list-unstyled">
-            {%- for link in section.settings.secondary_links.links -%}
-              <li class="section-footer__sec-links__item">
-                <a class="section-footer__sec-links__item__link p-sm" href="{{ link.url }}">
-                  {{ link.title }}
-                </a>
-              </li>
-            {%- endfor -%}
-          </ul>
-        {%- endif -%}
-
-        {% comment %} Copywright {% endcomment %}
-        <span class="section-footer__copywright p-sm">&copy; {{ 'now' | date: "%Y" }} {{ shop.name | link_to: routes.root_url }}</span>
-      </div>
+      {% if section.settings.heading %}
+        <h2 class="h6 alt">
+          {{ section.settings.heading }}
+        </h2>
+      {% endif %}
+      {% if section.settings.description %}
+        <p class="p-sm">
+          {{ section.settings.description }}
+        </p>
+      {% endif %}
     </div>
 
+    {% comment %} Newsletter {% endcomment %}
+    {% if section.settings.newsletter_enable %}
+      {% render 'newsletter-signup', class: 'section-footer__newsletter', style: 'bold' %}
+    {% endif %}
+
+    {% comment %} Social Icons {% endcomment %}
+    {%- if section.settings.show_social -%}
+      {% render 'social-icons', class: 'section-footer__social' %}
+    {%- endif -%}
+
+    {% comment %} Country selector {% endcomment %}
+    {%- if localization.available_countries.size > 1 -%}
+      {%- form 'localization' -%}
+        <label for="CountryList--{{ section.id }}">{{ 'general.localization.country.label' | t }}</label>
+        <select name="country_code" id="CountryList--{{ section.id }}">
+          {%- for country in localization.available_countries -%}
+            <option
+              value="{{ country.iso_code }}"
+              {%- if country.iso_code == localization.country.iso_code %}
+                selected
+              {% endif -%}
+            >
+              {{
+                'general.localization.country.option_label'
+                | t:
+                  name: country.name,
+                  currency_iso_code: country.currency.iso_code,
+                  currency_symbol: country.currency.symbol
+              }}
+            </option>
+          {%- endfor -%}
+        </select>
+        <button type="submit">{{ 'general.localization.country.update' | t }}</button>
+      {%- endform -%}
+    {%- endif -%}
+
+    {% comment %} Language selector {% endcomment %}
+    {%- if localization.available_languages.size > 1 -%}
+      {%- form 'localization' -%}
+        <label for="LanguageList--{{ section.id }}">{{ 'general.localization.language.label' | t }}</label>
+        <select name="locale_code" id="LanguageList--{{ section.id }}">
+          {%- for language in localization.available_languages -%}
+            <option
+              value="{{ language.iso_code }}"
+              lang="{{ language.iso_code }}"
+              {%- if language.iso_code == localization.language.iso_code %}
+                selected
+              {% endif %}
+            >
+              {{ language.endonym_name | capitalize }}
+            </option>
+          {%- endfor -%}
+        </select>
+        <button type="submit">{{ 'general.localization.language.update' | t }}</button>
+      {%- endform -%}
+    {%- endif -%}
+  </div>
+
+  {% comment %} Primary links {% endcomment %}
+  <div class="section-footer__col __theme-{{ section.settings.theme }}">
+    {%- if section.blocks.size > 0 -%}
+      <div class="section-footer__blocks">
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when 'link_list' -%}
+              <div class="section-footer__blocks__block" {{ block.shopify_attributes }}>
+                {%- if block.settings.heading != blank -%}
+                  <p class="section-footer__header h6 alt">{{- block.settings.heading | escape -}}</p>
+                {%- endif -%}
+                {%- if block.settings.menu != blank -%}
+                  <ul class="section-footer__links list-unstyled">
+                    {%- for link in block.settings.menu.links -%}
+                      <li class="section-footer__links__item">
+                        <a class="section-footer__links__item__link p-sm" href="{{ link.url }}">
+                          {{ link.title }}
+                        </a>
+                      </li>
+                    {%- endfor -%}
+                  </ul>
+                {%- endif -%}
+              </div>
+
+            {%- when 'icon' -%}
+              {% assign icons = true %}
+          {%- endcase -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {% comment %} Badges/icons {% endcomment %}
+    {% if icons == true %}
+      <div class="section-footer__badges">
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when 'icon' -%}
+              <div class="section-footer__badges__badge">
+                {%- if block.settings.icon != blank -%}
+                  {% render 'next-gen-img', image: block.settings.icon, height: 100 %}
+                {%- endif -%}
+              </div>
+          {%- endcase -%}
+        {%- endfor -%}
+      </div>
+    {% endif %}
+
+    {% comment %} Secondary links {% endcomment %}
+    <div class="section-footer__row">
+      {%- if section.settings.secondary_links %}
+        <ul class="section-footer__sec-links list-unstyled">
+          {%- for link in section.settings.secondary_links.links -%}
+            <li class="section-footer__sec-links__item">
+              <a class="section-footer__sec-links__item__link p-sm" href="{{ link.url }}">
+                {{ link.title }}
+              </a>
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+
+      {% comment %} Copywright {% endcomment %}
+      <span class="section-footer__copywright p-sm"
+        >&copy; {{ 'now' | date: '%Y' }}
+        {{ shop.name | link_to: routes.root_url -}}
+      </span>
+    </div>
+  </div>
 </footer>
 
 {% schema %}
 {
-  "name": "Footer",
+  "name": "t:sections.footer.name",
   "blocks": [
     {
       "type": "link_list",
@@ -184,11 +195,11 @@
       "type": "icon",
       "name": "Icon",
       "settings": [
-          {
-            "type":"image_picker",
-            "id":"icon",
-            "label":"Icon"
-          }
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        }
       ]
     }
   ],
@@ -332,4 +343,3 @@
   }
 }
 {% endschema %}
-

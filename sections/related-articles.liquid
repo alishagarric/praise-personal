@@ -23,38 +23,38 @@
   id="Related-articles-{{ section.id }}"
   class="main-blog __theme-{{ section_theme }}"
 >
-    <div class="__align-center">
-      {% render 'heading',
-        class: 'main-blog',
-        heading: section.settings.heading,
-        heading_size: section.settings.heading_size
-      %}
-    </div>
+  <div class="__align-center">
+    {% render 'heading',
+      class: 'main-blog',
+      heading: section.settings.heading,
+      heading_size: section.settings.heading_size
+    %}
+  </div>
 
-    <ul class="main-blog__articles list-unstyled grid" role="list">
-      {% for article in blog.articles limit: 3 %}
-        {% render 'article-card',
-          class: 'main-blog__card',
-          crop: crop_shape,
-          assc_product_crop_shape: assc_product_crop_shape,
-          button_label: button_label,
-          alignment: alignment,
-          show_description: show_description,
-          show_author: show_author,
-          show_date: show_date,
-          alt_heading: alt_heading,
-          article: article,
-          img_width: 1280,
-          img_widths: '1280, 900, 700, 500',
-          img_sizes: '(max-width: 676px) 100vw, (max-width: 1024px) 45vw, 25vw'
-        %}
+  <ul class="main-blog__articles list-unstyled grid" role="list">
+    {% for article in blog.articles limit: 3 %}
+      {% render 'article-card',
+        class: 'main-blog__card',
+        crop: crop_shape,
+        assc_product_crop_shape: assc_product_crop_shape,
+        button_label: button_label,
+        alignment: alignment,
+        show_description: show_description,
+        show_author: show_author,
+        show_date: show_date,
+        alt_heading: alt_heading,
+        article: article,
+        img_width: 1280,
+        img_widths: '1280, 900, 700, 500',
+        img_sizes: '(max-width: 676px) 100vw, (max-width: 1024px) 45vw, 25vw'
+      %}
     {% endfor %}
   </ul>
 </div>
 
 {% schema %}
 {
-  "name": "Related Articles",
+  "name": "t:sections.related-articles.name",
   "tag": "section",
   "settings": [
     {

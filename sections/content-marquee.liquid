@@ -1,6 +1,6 @@
 {{ 'content-marquee.css' | asset_url | stylesheet_tag }}
 
-{% liquid 
+{% liquid
   assign card_width_divisor = 4
   assign placeholder_card_count = 4
 
@@ -8,7 +8,7 @@
     assign placeholder_content = false
   else
     assign placeholder_content = true
-  endif 
+  endif
 %}
 
 {% style %}
@@ -34,7 +34,7 @@
         {% if placeholder_content == false %}
           {% for block in section.blocks %}
             {% case block.type %}
-              {% comment %} Type quote {% endcomment %}
+                {% comment %} Type quote {% endcomment %}
               {% when 'quote' %}
                 {% render 'quote-card',
                   quote: block.settings.quote,
@@ -48,7 +48,6 @@
                   img_width: 800,
                   img_widths: '800, 500, 300',
                   img_sizes: '(max-width: 1024px) 40vw, 25vw'
-
                 %}
 
                 {% comment %} Type content card {% endcomment %}
@@ -91,7 +90,7 @@
 
 {% schema %}
 {
-  "name": "Content Marquee",
+  "name": "t:sections.content-marquee.name",
   "tag": "section",
   "settings": [
     {

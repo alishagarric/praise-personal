@@ -4,7 +4,7 @@
 {% liquid
   if section.blocks.size > 0
     assign array = section.blocks
-  elsif template.name == "blog"
+  elsif template.name == 'blog'
     assign array = blog.articles
   else
     assign array = blogs[0]
@@ -16,39 +16,35 @@
     assign hide_arrows_on_desktop = true
     assign hide_arrows_on_tablet = true
   endif
-
 %}
 
 {% style %}
-    #Split-slideshow-{{ section.id }} {
-      --topSpacingRatio: {{ section.settings.top_spacing}} / 100;
-      --bottomSpacingRatio: {{ section.settings.bottom_spacing}} / 100;
-    }
+  #Split-slideshow-{{ section.id }} {
+    --topSpacingRatio: {{ section.settings.top_spacing}} / 100;
+    --bottomSpacingRatio: {{ section.settings.bottom_spacing}} / 100;
+  }
 {% endstyle %}
 
- 
 <div id="Split-slideshow-{{ section.id }}" class="split-slideshow __theme-{{ section.settings.theme }}">
-
   {% comment %} Text Content {% endcomment %}
   {% if section.settings.hero == true %}
-    {% assign heading_tag = "h1" %}
+    {% assign heading_tag = 'h1' %}
   {% endif %}
 
   {% render 'heading',
     class: '__align-center split_slideshow',
     heading_tag: heading_tag,
     heading: section.settings.heading,
-    heading_size: section.settings.heading_size
+    heading_size: section.settings.heading_size,
     alt_heading: section.settings.alt_heading
   %}
 
   <overflow-slider class="split-slideshow__inner overflow-slider {% if hide_arrows_on_desktop %}__hide-desktop-arrows{% endif %} {% if hide_arrows_on_tablet %}__hide-tablet-arrows{% endif %}">
     <ul class="split-slideshow__slides list-unstyled overflow-slider__container" role="list">
-
       {% for item in array limit: 10 %}
         {% comment %} TODO: make Read More below a settings field {% endcomment %}
         {% liquid
-          if item.object_type == "article"
+          if item.object_type == 'article'
             assign heading = item.title
             assign text = item.excerpt_or_content | strip_html | truncatewords: 20
             assign button_label = section.settings.button_label
@@ -67,12 +63,12 @@
           endif
         %}
         <li>
-          {% render 'content-card' 
-            class: "split-slideshow__card",
-            style: "row",
+          {% render 'content-card',
+            class: 'split-slideshow__card',
+            style: 'row',
             heading: heading,
-            text: text, 
-            button_label: button_label, 
+            text: text,
+            button_label: button_label,
             button_link: button_link,
             image: card_image,
             overlay_theme: overlay_theme,
@@ -80,8 +76,8 @@
             crop_shape: section.settings.crop_shape,
             heading_size: section.settings.article_heading_size,
             button_color: section.settings.button_color,
-            img_width: 1200
-            img_widths: '1200, 800, 600, 400'
+            img_width: 1200,
+            img_widths: '1200, 800, 600, 400',
             img_sizes: '(max-width: 676px) 100vw, (max-width: 1024px) 40vw, 35vw',
             img_preload: section.settings.hero
           %}
@@ -96,7 +92,7 @@
 
 {% schema %}
 {
-  "name": "Split Slideshow",
+  "name": "t:sections.split-slideshow.name",
   "tag": "section",
   "blocks": [
     {

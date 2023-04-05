@@ -1,17 +1,17 @@
 {{ 'divider.css' | asset_url | stylesheet_tag }}
 
 {% style %}
-    #Divider-section-{{ section.id }} {
-      --topSpacingRatio: {{section.settings.top_spacing}} / 100;
-      --bottomSpacingRatio: {{section.settings.bottom_spacing}} / 100;
-    }
- {% endstyle %}
+  #Divider-section-{{ section.id }} {
+    --topSpacingRatio: {{section.settings.top_spacing}} / 100;
+    --bottomSpacingRatio: {{section.settings.bottom_spacing}} / 100;
+  }
+{% endstyle %}
 
 <div id="Divider-section-{{ section.id }}" class="divider-section __theme-{{section.settings.theme}}"></div>
 
 {% schema %}
 {
-  "name": "Divider",
+  "name": "t:sections.divider.name",
   "tag": "section",
   "settings": [
     {
@@ -67,8 +67,7 @@
       "default": 50
     }
   ],
-  "blocks": [
-  ],
+  "blocks": [],
   "presets": [
     {
       "name": "Divider"
