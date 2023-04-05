@@ -86,28 +86,27 @@
     {%- endcase -%}
   {%- endfor -%}
 
-  {{ blog.comments_enabled? }}
   {%- if blog.comments_enabled? -%}
     <div class="main-article__comments-wrapper">
       <div id="comments" class="main-article__comments-wrapper__comments">
         {%- if article.comments_count > 0 -%}
           {%- assign anchorId = '#Comments-' | append: article.id -%}
 
-          <h2 id="Comments-{{ article.id }}" class="h3">{{ 'blogs.article.comments' | t: count: article.comments_count }}</h2>
+          <h2 id="Comments-{{ article.id }}" class="h6">{{ 'blogs.article.comments' | t: count: article.comments_count }}</h2>
           {% paginate article.comments by 5 %}
-            <div class="main-article__comment">
+            <div>
               {%- liquid
                 if comment.status == 'pending' and comment.content
-                  render 'comment', comment: comment, show_gravatar: section.settings.show_gravatar
+                  render 'comment', comment: comment
                 endif
 
                 for comment in article.comments
-                  render 'comment', comment: comment, show_gravatar: section.settings.show_gravatar
+                  render 'comment', comment: comment
                 endfor
-
-                render 'pagination', paginate: paginate, anchor: anchorId
               -%}
             </div>
+            {% render 'pagination', paginate: paginate, anchor: anchorId %}
+
           {% endpaginate %}
         {%- endif -%}
 
@@ -119,7 +118,7 @@
                 assign post_message = 'blogs.article.success_moderated'
               endif
             -%}
-            <h2 class="h5">{{ 'blogs.article.comment_form_title' | t }}</h2>
+            <h2 class="h6">{{ 'blogs.article.comment_form_title' | t }}</h2>
             {%- if blog.moderated? -%}
               <p class="main-article__comment__warning">{{ 'blogs.article.moderated' | t }}</p>
             {%- endif -%}

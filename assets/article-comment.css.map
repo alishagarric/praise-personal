@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,gBAAiB;EACf,OAAO,EAAE,IAAI;EACb,qBAAqB,EAAE,kBAAkB;EACzC,GAAG,EAAE,yBAAyB;EAE9B,uBAAS;IACP,MAAM,EAAE,aAAa;IACrB,KAAK,EAAE,aAAa;EAGtB,wBAAU;IACR,WAAW,EAAE,GAAG;IAChB,YAAY,EAAE,MAAM;EAGtB,yBAAW;IACT,UAAU,EAAE,IAAI;IAChB,SAAS,EAAE,KAAK;EAGlB,iCAAmB;IACjB,cAAc,EAAE,aAAa;IAC7B,aAAa,EAAE,aAAa;IAC5B,aAAa,EAAE,4BAA4B",
+"sources": ["../dev/scss/snippets/article-comment.scss"],
+"names": [],
+"file": "article-comment.css"
+}

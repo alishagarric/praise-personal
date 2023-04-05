@@ -52,6 +52,8 @@
     margin-top: var(--sectionVerticalSpacing); }
     .main-article__comments-wrapper__disclaimer {
       margin-top: 1rem; }
+    .main-article__comments-wrapper form-state:not(:first-child) form {
+      margin-top: var(--sectionVerticalSpacing); }
   @media screen and (max-width: 1024px) {
     .main-article {
       display: block; }

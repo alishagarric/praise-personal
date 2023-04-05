@@ -91,6 +91,10 @@
     &__disclaimer {
       margin-top: 1rem;
     }
+
+    form-state:not(:first-child) form {
+      margin-top: var(--sectionVerticalSpacing);
+    }
   }
 
   @media screen and (max-width: 1024px) {
