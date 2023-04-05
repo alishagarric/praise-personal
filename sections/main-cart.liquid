@@ -120,7 +120,6 @@
                         {%- endif -%}
 
                         {%- comment -%} Item level discounts can be applied by merchants, and must be shown to the buyer {%- endcomment -%}
-                        BOOM - {{ item.discounts }} - {{ line_item.line_level_discount_allocations }}
                         {% if item.discounts.size > 0 %}
                           <div class="__article-txt-p-sm">
                             <ul aria-label="{{ 'customer.order.discount' | t }}">
@@ -174,7 +173,7 @@
                       </div>
                     </div>
 
-                    <div class="p">
+                    <div class="p main-cart__whole-price__container">
                       {%- comment -%}
                         This is the price of the entire line, as opposed to the units.
                       {%- endcomment -%}
