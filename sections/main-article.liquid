@@ -93,7 +93,7 @@
           {%- assign anchorId = '#Comments-' | append: article.id -%}
 
           <h2 id="Comments-{{ article.id }}" class="h6">{{ 'blogs.article.comments' | t: count: article.comments_count }}</h2>
-          {% paginate article.comments by 5 %}
+          {% paginate article.comments by 2 %}
             <div>
               {%- liquid
                 if comment.status == 'pending' and comment.content
