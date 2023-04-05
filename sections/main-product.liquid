@@ -138,10 +138,14 @@
             </div>
 
           {% comment %} Type text {% endcomment %}
-          {%- when 'text' -%}
+          {%- when 'text' or 'vendor' -%}
             <div class="main-product__block {% if block.settings.include_border %} __border-top {% endif %}">
               <p class="{{ block.settings.text_size }}" {{ block.shopify_attributes }}>
-                {{ block.settings.text }}
+                {% if block.type == 'text' %}
+                  {{ block.settings.text }}
+                {% else %}
+                  {{ product.vendor }}
+                {% endif %}
               </p>
             </div>
 
@@ -329,6 +333,38 @@
           "default": "Text",
           "label": "Text"
         },
+        {
+          "type": "select",
+          "id": "text_size",
+          "options": [
+            {
+              "value": "p-sm",
+              "label": "Small Text"
+            },
+            {
+              "value": "p",
+              "label": "Basic Text"
+            },
+            {
+              "value": "p-lg",
+              "label": "Large Text"
+            }
+          ],
+          "default": "p-sm",
+          "label": "Text Size"
+        },
+        {
+          "type": "checkbox",
+          "id": "include_border",
+          "label": "Include border",
+          "default": true
+        }
+      ]
+    },
+    {
+      "type": "vendor",
+      "name": "Vendor",
+      "settings": [
         {
           "type": "select",
           "id": "text_size",

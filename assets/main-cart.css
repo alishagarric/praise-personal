@@ -1,3 +1,5 @@
+.main-cart li p:first-child {
+  display: inline; }
 .main-cart__form > .js-contents {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -10,6 +12,11 @@
   grid-column: 2 / 3;
   grid-row: 1 / 2;
   text-align: right; }
+.main-cart__whole-price__container dl {
+  display: flex; }
+  .main-cart__whole-price__container dl s {
+    opacity: 0.6;
+    margin-right: calc(var(--pxSize) / 12); }
 .main-cart__table {
   grid-column: 1 / 2;
   grid-row: 2 / 3; }
@@ -56,6 +63,11 @@
     display: flex;
     flex-direction: column;
     justify-content: center; }
+    .main-cart__product-details__text__price {
+      display: flex; }
+      .main-cart__product-details__text__price s {
+        opacity: 0.6;
+        margin-right: calc(var(--pxSize) / 12); }
     .main-cart__product-details__text__list {
       display: flex;
       flex-wrap: wrap;

@@ -60,13 +60,13 @@
                         {%- comment -%} Price.  A line item is different from a product, so we can't use the price snippet {%- endcomment -%}
                         {%- if item.original_price != item.final_price -%}
                           <div class="main-cart__product-details__text__price p">
-                            <span>
+                            <span class="visually-hidden">
                               {{ 'products.price.regular_price' | t }}
                             </span>
                             <s>
                               {{- item.original_price | money -}}
                             </s>
-                            <span>
+                            <span class="visually-hidden">
                               {{ 'products.price.sale_price' | t }}
                             </span>
                             <strong>
@@ -120,6 +120,7 @@
                         {%- endif -%}
 
                         {%- comment -%} Item level discounts can be applied by merchants, and must be shown to the buyer {%- endcomment -%}
+                        BOOM - {{ item.discounts }} - {{ line_item.line_level_discount_allocations }}
                         {% if item.discounts.size > 0 %}
                           <div class="__article-txt-p-sm">
                             <ul aria-label="{{ 'customer.order.discount' | t }}">
@@ -158,7 +159,7 @@
                     </div>
                   </td>
 
-                  <td class="main-cart__table__item main-cart__price">
+                  <td class="main-cart__table__item main-cart__whole-price">
                     <div class="loading-overlay hidden">
                       <div>
                         <svg
@@ -179,7 +180,7 @@
                       {%- endcomment -%}
                       {%- if item.original_line_price != item.final_line_price -%}
                         <dl>
-                          <dt>
+                          <dt class="visually-hidden">
                             {{ 'products.price.regular_price' | t }}
                           </dt>
                           <dd>
@@ -187,7 +188,7 @@
                               {{ item.original_line_price | money }}
                             </s>
                           </dd>
-                          <dt>
+                          <dt class="visually-hidden">
                             {{ 'products.price.sale_price' | t }}
                           </dt>
                           <dd>

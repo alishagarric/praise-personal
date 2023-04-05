@@ -1,4 +1,10 @@
 .main-cart {
+  li {
+    p:first-child {
+      display: inline;
+    }
+  }
+
   &__form {
     > .js-contents {
       display: grid;
@@ -17,6 +23,19 @@
     grid-column: 2 / 3;
     grid-row: 1 / 2;
     text-align: right;
+  }
+
+  &__whole-price {
+    &__container {
+      dl {
+        display: flex;
+
+        s {
+          opacity: 0.6;
+          margin-right: calc(var(--pxSize) / 12);
+        }
+      }
+    }
   }
 
   &__table {
@@ -100,6 +119,15 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+
+      &__price {
+        display: flex;
+
+        s {
+          opacity: 0.6;
+          margin-right: calc(var(--pxSize) / 12);
+        }
+      }
 
       &__list {
         display: flex;
