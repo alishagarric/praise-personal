@@ -29,6 +29,7 @@
     &__container {
       dl {
         display: flex;
+        flex-wrap: wrap;
 
         s {
           opacity: 0.6;
@@ -44,7 +45,11 @@
 
     &__item {
       border: none;
-      padding: 0;
+      padding: 0 calc(var(--pxSize) / 3) 0 0;
+
+      &:last-child {
+        padding-right: 0;
+      }
     }
 
     &__head {
@@ -125,6 +130,7 @@
 
         s {
           opacity: 0.6;
+          flex-wrap: wrap;
           margin-right: calc(var(--pxSize) / 12);
         }
       }
