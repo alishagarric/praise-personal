@@ -46,7 +46,7 @@
         aria-describedby="NewsletterSuccess--{{ section.id }}"
       {% endif %}
     >
-    <input type="hidden" name="contact[tags]" value="{{ 'general.newsletter.name' | t }}">
+    <input type="hidden" name="contact[tags]" value="newsletter"> {% comment %}Exception to translation/locale rule {% endcomment %}
     <button type="submit" aria-label="{{ 'general.newsletter.subscribe' | t }}">
       {% render 'svg-slider-arrow' %}
     </button>

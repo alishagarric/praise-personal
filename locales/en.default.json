@@ -4,7 +4,6 @@
     "newsletter": {
       "heading": "Stay in the know",
       "email": "Email",
-      "name": "newsletter",
       "subscribe": "Subscribe",
       "success": "Thanks for subscribing"
     },
@@ -42,7 +41,7 @@
     },
     "search": {
       "search": "Search",
-      "last" : "last",
+      "last": "last",
       "no_results": "Your search returned no results",
       "no_terms": "Please enter a search term",
       "results": "{{ count }} results for {{ terms }}"
