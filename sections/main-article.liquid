@@ -124,8 +124,7 @@
             {%- endif -%}
 
             {%- if form.posted_successfully? -%}
-              <h3 class="" role="status" tabindex="-1" autofocus>
-                {% render 'icon', icon: 'success' %}
+              <h3 class="h6" role="status" tabindex="-1" autofocus>
                 {{ post_message | t }}
               </h3>
             {%- endif -%}
