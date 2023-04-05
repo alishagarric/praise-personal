@@ -37,7 +37,8 @@
   &__content,
   &__content img,
   &__heading,
-  &__details {
+  &__details,
+  &__comments-wrapper {
     max-width: var(--maxWidth);
     width: 100%;
   }

@@ -21,7 +21,7 @@
       flex-direction: column;
       gap: var(--pxSize);
       margin-bottom: var(--pxSize); }
-  .main-article__content, .main-article__content img, .main-article__heading, .main-article__details {
+  .main-article__content, .main-article__content img, .main-article__heading, .main-article__details, .main-article__comments-wrapper {
     max-width: var(--maxWidth);
     width: 100%; }
   .main-article__image {

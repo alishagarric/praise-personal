@@ -19,8 +19,8 @@
   }
 
   &:not(:last-child) {
-    padding-bottom: var(--pxSize);
-    margin-bottom: var(--pxSize);
-    border-bottom: 1px solid var(--colorBorder);
+    padding-bottom: calc(var(--pxSize) / 2);
+    margin-bottom: calc(var(--pxSize) / 2);
+    border-bottom: 1px solid RGB(var(--color-border));
   }
 }
