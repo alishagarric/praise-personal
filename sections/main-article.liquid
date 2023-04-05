@@ -7,85 +7,233 @@
   }
 {% endstyle %}
 
-  <div id="Main-article-{{ section.id }}" class="main-article __theme-{{ section.settings.theme }}">
-    {%- for block in section.blocks -%}
-      {%- case block.type -%}
-        {%- when '@app' -%}  
-          {% render block %}
-        {%- when 'featured_image'-%}
-          {%- if article.image -%}
-            <div
-              class="main-article__image image-container __crop-{{ block.settings.crop_shape }} __theme-{{ block.settings.overlay_theme }}"
-              style="--imageRatio: {{ article.image.height | divided_by: 1.00 | divided_by: article.image.width | times: 100 }}%; --overlayOpacity: calc( {{ block.settings.overlay }} / 100);"
-            >
-              {% assign image = article.image | image_url: width: article.image.width %}
-              {% render 'next-gen-img', image: image, width: 2620, widths: '2620, 1900, 1400, 1000, 700', sizes: '95vw', preload: true %}
-            </div>
-          {%- endif -%}  
-        {%- when 'title'-%}
-          {% assign heading_class = "__overlap-" | append: block.settings.overlap | append: ' main-article' %}
-          {% render 'heading' heading: article.title, class: heading_class, heading_tag: "h1", heading_size: block.settings.heading_size, alt_heading: block.settings.alt_heading %}
-
-        {%- when 'details' -%}  
-          <div class="main-article__details">
-            <p class="p-sm">{{ article.published_at | time_tag: format: 'date' }}</p>
-            <p class="p-sm">{{ article.author }}</p> 
-          </div>          
-        {%- when 'content'-%}
-          <div class="main-article__content __article-txt p">
-            {% assign article_content = article.content | split: '<img' %}
-            {% assign join_string = '<img class="__crop-' | append: block.settings.image_corners | append: '"' %}
-            {% assign article_content = article_content | join: join_string %}
-            {{ article_content }}
+<div id="Main-article-{{ section.id }}" class="main-article __theme-{{ section.settings.theme }}">
+  {%- for block in section.blocks -%}
+    {%- case block.type -%}
+      {%- when '@app' -%}  
+        {% render block %}
+      {%- when 'featured_image'-%}
+        {%- if article.image -%}
+          <div
+            class="main-article__image image-container __crop-{{ block.settings.crop_shape }} __theme-{{ block.settings.overlay_theme }}"
+            style="--imageRatio: {{ article.image.height | divided_by: 1.00 | divided_by: article.image.width | times: 100 }}%; --overlayOpacity: calc( {{ block.settings.overlay }} / 100);"
+          >
+            {% assign image = article.image | image_url: width: article.image.width %}
+            {% render 'next-gen-img', image: image, width: 2620, widths: '2620, 1900, 1400, 1000, 700', sizes: '95vw', preload: true %}
           </div>
+        {%- endif -%}  
+      {%- when 'title'-%}
+        {% assign heading_class = "__overlap-" | append: block.settings.overlap | append: ' main-article' %}
+        {% render 'heading' heading: article.title, class: heading_class, heading_tag: "h1", heading_size: block.settings.heading_size, alt_heading: block.settings.alt_heading %}
 
-          {% comment %} Not in design, but in starter, keeping just in case
-            {% assign button_label =  'blogs.article.back_to_blog' | t: title: blog.title %}
-            {% render 'button' button_link: blog.url, button_label: button_label, class: "main-article" %}
-          {% endcomment %}
+      {%- when 'details' -%}  
+        <div class="main-article__details">
+          <p class="p-sm">{{ article.published_at | time_tag: format: 'date' }}</p>
+          <p class="p-sm">{{ article.author }}</p> 
+        </div>          
+      {%- when 'content'-%}
+        <div class="main-article__content __article-txt p">
+          {% assign article_content = article.content | split: '<img' %}
+          {% assign join_string = '<img class="__crop-' | append: block.settings.image_corners | append: '"' %}
+          {% assign article_content = article_content | join: join_string %}
+          {{ article_content }}
+        </div>
 
-        {%- when 'side_bar' -%}
-          <div class="main-article__sidebar">
-            <div class="main-article__sidebar__inner">
-              {% if block.settings.label %}
-                <h6 class="p-sm">{{ block.settings.label }}</h6>
-              {% endif %}
+        {% comment %} Not in design, but in starter, keeping just in case
+          {% assign button_label =  'blogs.article.back_to_blog' | t: title: blog.title %}
+          {% render 'button' button_link: blog.url, button_label: button_label, class: "main-article" %}
+        {% endcomment %}
 
-              {% if article.metafields.custom.sidebar_content != blank %}
-                <div class="__article-txt-sm">
-                  {{ article.metafields.custom.sidebar_content }}
-                </div>
-              {% endif %}
-              
-              {% if block.settings.content != blank %}
-                <div class="">
-                  {{ block.settings.content }}
-                </div>
-              {% endif %}
+      {%- when 'side_bar' -%}
+        <div class="main-article__sidebar">
+          <div class="main-article__sidebar__inner">
+            {% if block.settings.label %}
+              <h6 class="p-sm">{{ block.settings.label }}</h6>
+            {% endif %}
 
-              {% if block.settings.associated_products == true and article.metafields.custom.associated_products %}
-                <div class="main-article__sidebar__products">
-                  {% for product in article.metafields.custom.associated_products.value %}
-                    {% render 'quick-product' 
-                      quick_product: product, 
-                      class: "main-article__sidebar__products__product", 
-                      style: "stacked"
-                      img_width: 600,
-                      img_widths: '600, 300'
-                      img_sizes: '(max-width: 676px) 50vw, (max-width: 1024px) 30vw, 20vw',
-                      preload: true
-                    %}
-                  {% endfor %}
-                </div>
-              {% endif %}
+            {% if article.metafields.custom.sidebar_content != blank %}
+              <div class="__article-txt-sm">
+                {{ article.metafields.custom.sidebar_content }}
+              </div>
+            {% endif %}
+            
+            {% if block.settings.content != blank %}
+              <div class="">
+                {{ block.settings.content }}
+              </div>
+            {% endif %}
 
-              <div class="p-sm">{{ 'general.social.share' | t }}</div>
-              {% render 'sharing-icons' %}
-            </div>
+            {% if block.settings.associated_products == true and article.metafields.custom.associated_products %}
+              <div class="main-article__sidebar__products">
+                {% for product in article.metafields.custom.associated_products.value %}
+                  {% render 'quick-product' 
+                    quick_product: product, 
+                    class: "main-article__sidebar__products__product", 
+                    style: "stacked"
+                    img_width: 600,
+                    img_widths: '600, 300'
+                    img_sizes: '(max-width: 676px) 50vw, (max-width: 1024px) 30vw, 20vw',
+                    preload: true
+                  %}
+                {% endfor %}
+              </div>
+            {% endif %}
+
+            <div class="p-sm">{{ 'general.social.share' | t }}</div>
+            {% render 'sharing-icons' %}
           </div>
-      {%- endcase -%}
-    {%- endfor -%}
-  </div>
+        </div>
+    {%- endcase -%}
+  {%- endfor -%}
+
+  {{ blog.comments_enabled? }}
+  {%- if blog.comments_enabled? -%}
+    <div class="main-article__comments-wrapper">
+      <div id="comments" class="main-article__comments-wrapper__comments">
+        {%- if article.comments_count > 0 -%}
+          {%- assign anchorId = '#Comments-' | append: article.id -%}
+
+          <h2 id="Comments-{{ article.id }}" class="h3">{{ 'blogs.article.comments' | t: count: article.comments_count }}</h2>
+          {% paginate article.comments by 5 %}
+            <div class="main-article__comment">
+              {%- liquid
+                if comment.status == 'pending' and comment.content
+                  render 'comment', comment: comment, show_gravatar: section.settings.show_gravatar
+                endif
+
+                for comment in article.comments
+                  render 'comment', comment: comment, show_gravatar: section.settings.show_gravatar
+                endfor
+
+                render 'pagination', paginate: paginate, anchor: anchorId
+              -%}
+            </div>
+          {% endpaginate %}
+        {%- endif -%}
+
+        <form-state>
+          {% form 'new_comment', article %}
+            {%- liquid
+              assign post_message = 'blogs.article.success'
+              if blog.moderated? and comment.status == 'unapproved'
+                assign post_message = 'blogs.article.success_moderated'
+              endif
+            -%}
+            <h2 class="h5">{{ 'blogs.article.comment_form_title' | t }}</h2>
+            {%- if blog.moderated? -%}
+              <p class="main-article__comment__warning">{{ 'blogs.article.moderated' | t }}</p>
+            {%- endif -%}
+
+            {%- if form.posted_successfully? -%}
+              <h3 class="" role="status" tabindex="-1" autofocus>
+                {% render 'icon', icon: 'success' %}
+                {{ post_message | t }}
+              </h3>
+            {%- endif -%}
+
+            <div {% if blog.moderated? == false %}class="main-article__comments-fields-wrapper"{% endif %}>
+              <div class="main-article__comments-fields-wrapper__fields">
+                <div class="main-article__comment-field">
+                  <input
+                    id="CommentForm-author"
+                    type="text"
+                    name="comment[author]"
+                    class="field__input required{% if form.errors contains 'author' %} invalid{% endif %}"
+                    required="required"
+                    autocomplete="name"
+                    value="{{ form.author }}"
+                    aria-required="true"
+                    placeholder="{{ 'blogs.article.name' | t }}"
+                    {%- if form.errors contains 'author' %}
+                      aria-invalid="true"
+                      aria-describedby="CommentForm-author-error"
+                    {% endif -%}
+                  />
+                  <label class="visually-hidden" for="CommentForm-author">{{ 'blogs.article.name' | t }}</label>
+                  {%- if form.errors contains 'author' -%}
+                    <small id="CommentForm-author-error">
+                      <span class="form__message errors">
+                        {% render 'icon', icon: 'error' %}
+                        {{ 'blogs.article.name' | t }} {{ form.errors.messages['author'] }}
+                      </span>
+                    </small>
+                  {%- endif -%}
+                </div>
+                <div class="main-article__comment-field">
+                  <input
+                    id="CommentForm-email"
+                    type="email"
+                    name="comment[email]"
+                    autocomplete="email"
+                    class="field__input required{% if form.errors contains 'email' %} invalid{% endif %}"
+                    required="required"
+                    value="{{ form.email }}"
+                    autocorrect="off"
+                    autocapitalize="off"
+                    aria-required="true"
+                    placeholder="{{ 'blogs.article.email' | t }}"
+                    {%- if form.errors contains 'email' %}
+                      aria-invalid="true"
+                      aria-describedby="CommentForm-email-error"
+                    {% endif -%}
+                  />
+                  <label class="visually-hidden" for="CommentForm-email">{{ 'blogs.article.email' | t }}</label>
+                  {%- if form.errors contains 'email' -%}
+                    <small id="CommentForm-email-error">
+                      <span class="form__message errors">
+                        {% render 'icon', icon: 'error' %}
+                        {{ 'blogs.article.email' | t }} {{ form.errors.messages['email'] }}
+                      </span>
+                    </small>
+                  {%- endif -%}
+                </div>
+              </div>
+              <div class="main-article__comment-field">
+                <textarea
+                  id="CommentForm-body"
+                  rows="5"
+                  name="comment[body]"
+                  class="text-area field__input required{% if form.errors contains 'body' %} invalid{% endif %}"
+                  required="required"
+                  aria-required="true"
+                  placeholder="{{ 'blogs.article.message' | t }}"
+                  {%- if form.errors contains 'body' %}
+                    aria-invalid="true"
+                    aria-describedby="CommentForm-body-error"
+                  {% endif -%}
+                >{{ form.body }}</textarea>
+                <label class="visually-hidden" for="CommentForm-body">{{ 'blogs.article.message' | t }}</label>
+              </div>
+              {%- if form.errors contains 'body' -%}
+                <small id="CommentForm-body-error">
+                  <span class="">
+                    {% render 'icon', icon: 'error' %}
+                    {{ 'blogs.article.message' | t }} {{ form.errors.messages['body'] }}
+                  </span>
+                </small>
+              {%- endif -%}
+            </div>
+            <div class="main-article__comment-button">
+              <button type="submit">{{ 'blogs.article.post' | t }}</button>
+            </div>
+            
+            {% comment %}
+              Remove the following three lines of code to remove the note
+              about being protected by Google's reCAPTCHA service.
+              By removing it, the small reCAPTCHA widget will appear in the
+              bottom right corner of the page.
+            {% endcomment %}
+            <div class="main-article__comments-wrapper__disclaimer __article-txt-p-sm">
+              {{ 'shopify.online_store.spam_detection.disclaimer_html' | t }}
+            </div>
+          {% endform %}
+        </form-state>
+      </div>
+    </div>
+  {%- endif -%}
+</div>
+
+
 
 
 <script type="application/ld+json">

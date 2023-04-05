@@ -6,7 +6,7 @@
         "heading_size": "h4",
         "alt_heading": false,
         "alignment": "left",
-        "show_image": false,
+        "show_image": true,
         "overlay": 50,
         "overlay_theme": "primary",
         "crop_shape": "default",
@@ -67,7 +67,7 @@
           "settings": {
             "icon": "shopify://shop_images/Frame.png",
             "heading": "One-of-a-kind treats",
-            "text": "<p>We make your treats fresh and full of fresh homemade ingredients</p>",
+            "text": "We make your treats fresh and full of fresh homemade ingredients",
             "layout": "row"
           }
         },
@@ -76,7 +76,7 @@
           "settings": {
             "icon": "shopify://shop_images/Frame.png",
             "heading": "One-of-a-kind treats",
-            "text": "<p>We make your treats fresh and full of fresh homemade ingredients</p>",
+            "text": "We make your treats fresh and full of fresh homemade ingredients",
             "layout": "row"
           }
         },
@@ -85,7 +85,7 @@
           "settings": {
             "icon": "shopify://shop_images/Frame.png",
             "heading": "One-of-a-kind treats",
-            "text": "<p>We make your treats fresh and full of fresh homemade ingredients</p>",
+            "text": "We make your treats fresh and full of fresh homemade ingredients",
             "layout": "row"
           }
         }

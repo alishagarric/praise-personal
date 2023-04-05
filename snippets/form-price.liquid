@@ -23,7 +23,7 @@
 </div>
 
 {%- if shop.taxes_included or shop.shipping_policy.body != blank -%}
-  <div>
+  <div class="__article-txt-p-sm">
     {%- if shop.taxes_included -%}
       {{ 'products.product.include_taxes' | t }}
     {%- endif -%}

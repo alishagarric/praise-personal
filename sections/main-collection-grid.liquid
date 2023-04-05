@@ -12,82 +12,92 @@
 {%- paginate collection.products by section.settings.pagination_count -%}
   <div id="Main-collection-grid-{{ section.id }}" class="main-collection-grid __theme-{{ section.settings.theme }} {% if section.settings.show_bg_color == true %}__mobile-fw{% endif %}">
     
-    {% comment %} Filter and sort {% endcomment %}
-    {% render 'filter-and-sort', results: collection %}
+    {% if collection.products.size > 0 and collection.filters.size > 0 %}
+      {% comment %} Filter and sort {% endcomment %}
+      {% render 'filter-and-sort', results: collection %}
 
-    {% comment %} No products found in general or with current filters applied {% endcomment %}
-    {%- if collection.products.size == 0 -%}
+      {% comment %} No products found in general or with current filters applied {% endcomment %}
+      {%- if collection.products.size == 0 -%}
+        <p class="__article-text __align-center">
+          {{ 'products.facets.use_fewer_filters_html' | t: link: collection.url }}
+        </p>
+
+      {% comment %} Product grid {% endcomment %}
+      {%- else -%}
+        <ul class="main-collection-grid__container list-unstyled" role="list">
+          {%- for product in collection.products -%}
+            {% assign preload = false %}
+            {% if forloop.index0 < 3 %}
+              {% assign preload = true %}
+            {% endif %}
+
+            <li style="order: {{ forloop.index }};">
+              {% render 'product-card' product: product, class: "main-collection-grid__grid-item", show_bg_color: section.settings.show_bg_color, quick_add: section.settings.quick_add, crop: section.settings.crop_shape, show_phrase: section.settings.show_phrase, alignment: section.settings.product_text_alignment, section.settings.show_description: section.settings.show_description, price_position: section.settings.price, alt_heading: section.settings.alt_title, img_width: 1280, img_widths: '1280, 900, 700, 500', img_sizes: '(max-width: 676px) 100vw, (max-width: 1024px) 45vw, 25vw', img_preload: preload %}
+            </li>
+          {%- endfor -%}
+
+          {% if paginate.current_page == 1 %}
+            {% for block in section.blocks %}
+              {% case block.type %}
+                {% when 'promotion' %}
+                  {% liquid 
+                    if block.settings.link != blank 
+                      assign promotion_tag = "a" 
+                    else 
+                      assign promotion_tag = "div" 
+                    endif 
+                    if block.settings.width == 1
+                      assign img_width = 1360
+                      assign img_widths = '1360, 900, 700, 500'
+                      assign img_sizes = '(max-width: 676px) 100vw, (max-width: 1024px) 45vw, 25vw'
+                    elsif block.settings.width == 2
+                      assign img_width = 1850
+                      assign img_widths = '1850, 1400, 1000, 700'
+                      assign img_sizes = '(max-width: 676px) 100vw, (max-width: 1024px) 95vw, 55vw'
+                    else 
+                      assign img_width = 2620
+                      assign img_widths = '2620, 2000, 1400, 1000, 700'
+                      assign img_sizes = '(max-width: 676px) 100vw, (max-width: 1024px) 95vw, 80vw'
+                    endif
+                    if block.settings.position < 3
+                      assign img_preload = true
+                    endif
+                  %}
+
+                  <li
+                    style="order: {{ block.settings.position }}; --overlayOpacity: {{ block.settings.overlay }}%; --gridItemWidth: {{ block.settings.width }}; --gridItemHeight: {{ block.settings.height }}; --mobileMinHeight: {{ block.settings.mobile_min_height }}px;"
+                    class="main-collection-grid__grid-item __theme-{{ block.settings.overlay_theme }}"
+                  >
+                    <{{ promotion_tag}} href="{{ block.settings.link }}" class="main-collection-grid__block image-container __crop-{{ block.settings.image_corners }}">
+                      {% render 'heading',
+                        class: 'main-collection-grid__block',
+                        heading: block.settings.heading,
+                        heading_size: block.settings.heading_size,
+                        alt_heading: block.settings.alt_heading
+                      %}
+                      <div class="__article-txt">
+                        {{ block.settings.text }}
+                      </div>
+
+                      {% if block.settings.image %}
+                        {% render 'next-gen-img', image: block.settings.image, width: img_width, widths: img_widths, sizes: img_sizes, preload: img_preload %}
+                      {% endif %}
+                    </{{ promotion_tag}}>
+                  </li>
+              {% endcase %}
+            {% endfor %}
+          {% endif%}
+        </ul>
+      {% endif %}
+
+    {% else %}
       <p class="__article-text __align-center">
-        {{ 'products.facets.use_fewer_filters_html' | t: link: collection.url }}
+        {{ 'products.facets.no_products' | t: link: collection.url }}
       </p>
-
-    {% comment %} Product grid {% endcomment %}
-    {%- else -%}
-      <ul class="main-collection-grid__container list-unstyled" role="list">
-        {%- for product in collection.products -%}
-          {% assign preload = false %}
-          {% if forloop.index0 < 3 %}
-            {% assign preload = true %}
-          {% endif %}
-
-          <li style="order: {{ forloop.index }};">
-            {% render 'product-card' product: product, class: "main-collection-grid__grid-item", show_bg_color: section.settings.show_bg_color, quick_add: section.settings.quick_add, crop: section.settings.crop_shape, show_phrase: section.settings.show_phrase, alignment: section.settings.product_text_alignment, section.settings.show_description: section.settings.show_description, price_position: section.settings.price, alt_heading: section.settings.alt_title, img_width: 1280, img_widths: '1280, 900, 700, 500', img_sizes: '(max-width: 676px) 100vw, (max-width: 1024px) 45vw, 25vw', img_preload: preload %}
-          </li>
-        {%- endfor -%}
-
-        {% if paginate.current_page == 1 %}
-          {% for block in section.blocks %}
-            {% case block.type %}
-              {% when 'promotion' %}
-                {% liquid 
-                  if block.settings.link != blank 
-                    assign promotion_tag = "a" 
-                  else 
-                    assign promotion_tag = "div" 
-                  endif 
-                  if block.settings.width == 1
-                    assign img_width = 1360
-                    assign img_widths = '1360, 900, 700, 500'
-                    assign img_sizes = '(max-width: 676px) 100vw, (max-width: 1024px) 45vw, 25vw'
-                  elsif block.settings.width == 2
-                    assign img_width = 1850
-                    assign img_widths = '1850, 1400, 1000, 700'
-                    assign img_sizes = '(max-width: 676px) 100vw, (max-width: 1024px) 95vw, 55vw'
-                  else 
-                    assign img_width = 2620
-                    assign img_widths = '2620, 2000, 1400, 1000, 700'
-                    assign img_sizes = '(max-width: 676px) 100vw, (max-width: 1024px) 95vw, 80vw'
-                  endif
-                  if block.settings.position < 3
-                    assign img_preload = true
-                  endif
-                %}
-
-                <li
-                  style="order: {{ block.settings.position }}; --overlayOpacity: {{ block.settings.overlay }}%; --gridItemWidth: {{ block.settings.width }}; --gridItemHeight: {{ block.settings.height }}; --mobileMinHeight: {{ block.settings.mobile_min_height }}px;"
-                  class="main-collection-grid__grid-item __theme-{{ block.settings.overlay_theme }}"
-                >
-                  <{{ promotion_tag}} href="{{ block.settings.link }}" class="main-collection-grid__block image-container __crop-{{ block.settings.image_corners }}">
-                    {% render 'heading',
-                      class: 'main-collection-grid__block',
-                      heading: block.settings.heading,
-                      heading_size: block.settings.heading_size,
-                      alt_heading: block.settings.alt_heading
-                    %}
-                    <div class="__article-txt">
-                      {{ block.settings.text }}
-                    </div>
-
-                    {% if block.settings.image %}
-                      {% render 'next-gen-img', image: block.settings.image, width: img_width, widths: img_widths, sizes: img_sizes, preload: img_preload %}
-                    {% endif %}
-                  </{{ promotion_tag}}>
-                </li>
-            {% endcase %}
-          {% endfor %}
-        {% endif%}
-      </ul>
     {% endif %}
+
+
+
 
     {% comment %} Pagination {% endcomment %}
     {% render 'pagination', paginate: paginate %}

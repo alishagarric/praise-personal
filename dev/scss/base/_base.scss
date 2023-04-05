@@ -278,13 +278,13 @@ form:not(.__no-form-styles),
     margin: 0;
   }
 
-  input:not([type="radio"]):not([type="checkbox"]),
+  input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]),
   select {
     height: var(--inputHeight);
     padding: 0 calc(var(--inputHeight) / 3);
   }
 
-  input:not([type="radio"]):not([type="checkbox"]),
+  input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]),
   textarea,
   select {
     @include p-sm;
@@ -658,5 +658,15 @@ details.overlay[open] > summary::before {
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+}
+
+//override shopify's default challenge styles
+
+.shopify-challenge__container {
+  max-width: none;
+
+  .shopify-challenge__button {
+    margin-top: 1rem;
   }
 }

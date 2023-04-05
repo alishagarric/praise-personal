@@ -16,8 +16,15 @@
   <div class="image-banner__description __article-txt p">{{ collection.description }}</div>
 {% endcapture %}
 
-{% unless collection.image == blank or section.settings.show_image == false %}
-  {% assign section_image =  collection.image %}
+{% unless section.settings.show_image == false %}
+  {% assign section_image = collection.featured_image %}
+  {% if section_image == blank %}
+    {% for product in collection.products %}
+      {% if product.featured_image != blank %}
+        {% assign section_image = product.featured_image %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
 {% endunless %}
 
 

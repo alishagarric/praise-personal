@@ -658,16 +658,16 @@ form:not(.__no-form-styles) textarea,
   font-family: var(--font-body-family);
   -webkit-appearance: none;
   margin: 0; }
-form:not(.__no-form-styles) input:not([type="radio"]):not([type="checkbox"]),
+form:not(.__no-form-styles) input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]),
 form:not(.__no-form-styles) select,
-.form-styles input:not([type="radio"]):not([type="checkbox"]),
+.form-styles input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]),
 .form-styles select {
   height: var(--inputHeight);
   padding: 0 calc(var(--inputHeight) / 3); }
-form:not(.__no-form-styles) input:not([type="radio"]):not([type="checkbox"]),
+form:not(.__no-form-styles) input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]),
 form:not(.__no-form-styles) textarea,
 form:not(.__no-form-styles) select,
-.form-styles input:not([type="radio"]):not([type="checkbox"]),
+.form-styles input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]),
 .form-styles textarea,
 .form-styles select {
   letter-spacing: 0;
@@ -990,6 +990,11 @@ details.overlay[open] > summary::before {
     height: 100%;
     object-fit: cover; }
 
+.shopify-challenge__container {
+  max-width: none; }
+  .shopify-challenge__container .shopify-challenge__button {
+    margin-top: 1rem; }
+
 html {
   height: 100%;
   background: RGB(var(--color-background));
@@ -1016,13 +1021,15 @@ body {
 
 body > main > section > div,
 body > main > article > div,
-body > div > footer {
+body > div > footer,
+body > main > .shopify-challenge__container {
   padding: calc(var(--sectionVerticalSpacing) * var(--topSpacingRatio)) var(--sectionGuttersSpacing) calc(var(--sectionVerticalSpacing) * var(--bottomSpacingRatio)) var(--sectionGuttersSpacing);
   position: relative;
   color: RGB(var(--color-text)); }
   body > main > section > div:after,
   body > main > article > div:after,
-  body > div > footer:after {
+  body > div > footer:after,
+  body > main > .shopify-challenge__container:after {
     content: "";
     position: absolute;
     pointer-events: none;

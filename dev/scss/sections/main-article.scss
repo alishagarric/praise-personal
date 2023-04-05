@@ -5,7 +5,8 @@
   &__content,
   &__details,
   &__btn,
-  &__heading {
+  &__heading,
+  &__comments-wrapper {
     grid-column: 2 / 3;
   }
 
@@ -81,6 +82,14 @@
 
     p img {
       margin-bottom: 0;
+    }
+  }
+
+  &__comments-wrapper {
+    margin-top: var(--sectionVerticalSpacing);
+
+    &__disclaimer {
+      margin-top: 1rem;
     }
   }
 

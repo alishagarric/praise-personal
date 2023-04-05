@@ -40,7 +40,8 @@ body {
 ////////////////////////////////////
 body > main > section > div,
 body > main > article > div,
-body > div > footer {
+body > div > footer,
+body > main > .shopify-challenge__container {
   padding: calc(var(--sectionVerticalSpacing) * var(--topSpacingRatio))
     var(--sectionGuttersSpacing)
     calc(var(--sectionVerticalSpacing) * var(--bottomSpacingRatio))
