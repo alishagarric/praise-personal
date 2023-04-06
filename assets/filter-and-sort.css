@@ -24,7 +24,7 @@
     margin-bottom: 0.25rem; }
   .filter-and-sort__filters__label {
     display: flex;
-    align-items: center;
+    align-items: baseline;
     gap: 1rem;
     margin-bottom: 1rem; }
     .filter-and-sort__filters__label * {
@@ -39,5 +39,16 @@
     align-self: flex-start; }
     .filter-and-sort__sort__details .disclosure__summary {
       border: 1px solid RGB(var(--color-foreground-text)) !important; }
+    .filter-and-sort__sort input {
+      display: none; }
+  @media screen and (max-width: 676px) {
+    .filter-and-sort__filters__container {
+      gap: var(--pxSize);
+      grid-template-columns: repeat(1, 1fr); }
+    .filter-and-sort__filters__checkboxes {
+      flex-direction: row;
+      flex-wrap: wrap; }
+      .filter-and-sort__filters__checkboxes > * {
+        flex-basis: calc(50% - calc(var(--pxSize) / 6)); } }
 
 /*# sourceMappingURL=filter-and-sort.css.map */

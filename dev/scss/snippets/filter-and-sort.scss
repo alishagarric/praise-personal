@@ -49,7 +49,7 @@
 
     &__label {
       display: flex;
-      align-items: center;
+      align-items: baseline;
       gap: 1rem;
       margin-bottom: 1rem;
 
@@ -76,6 +76,28 @@
       .disclosure {
         &__summary {
           border: 1px solid RGB(var(--color-foreground-text)) !important;
+        }
+      }
+    }
+
+    input {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 676px) {
+    &__filters {
+      &__container {
+        gap: var(--pxSize);
+        grid-template-columns: repeat(1, 1fr);
+      }
+
+      &__checkboxes {
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        > * {
+          flex-basis: calc(50% - calc(var(--pxSize) / 6));
         }
       }
     }

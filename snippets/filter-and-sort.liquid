@@ -1,6 +1,8 @@
 {{ 'filter-and-sort.css' | asset_url | stylesheet_tag }}
 {{ 'custom-icons.css' | asset_url | stylesheet_tag }}
 
+<script src="{{ 'filter-and-sort.js' | asset_url }}" defer="defer"></script>
+
 {% comment %}
   Renders the filtering and sorting for a collection or set of search results.
 
@@ -11,156 +13,171 @@
   - results: {Array objects}
 {% endcomment %}
 
-{% assign current_filters_string = '?' %}
-{% for filter in results.filters %}
-  {% for value in filter.active_values %}
-    {% assign current_filters_string = current_filters_string | append: filter.param_name | append: '=' | append: value.value | append: "&" %}
-  {% endfor %}
-{% endfor %}
-
 {%- assign sort_by = results.sort_by | default: results.default_sort_by -%}
 
-<div class="filter-and-sort">
-  <form class="filter-and-sort__filters">
-    {% unless results.terms == nil %}
-      <input type="hidden" name="q" value="{{ results.terms }}">
-      <input name="options[prefix]" type="hidden" value="last">
-    {% endunless %}
+  <filter-and-sort>
+    <form class="filter-and-sort">
+      <div class="filter-and-sort__filters">
+        {% unless results.terms == nil %}
+          <input type="hidden" name="q" value="{{ results.terms }}">
+          <input name="options[prefix]" type="hidden" value="last">
+        {% endunless %}
 
-    {% if results.current_vendor or results.current_type %}
-      {%- comment -%}
-        There are special collection pages for vendor and product types that use a "q" parameter.
-        For filtering and sorting to work properly for these, we must pass use a hidden input to pass them into the URL
-      {%- endcomment -%}
-      <input type="hidden" name="q" value="{{ results.current_vendor }}{{ results.current_type }}">
-    {% endif %}
+        {% if results.current_vendor or results.current_type %}
+          {%- comment -%}
+            There are special collection pages for vendor and product types that use a "q" parameter.
+            For filtering and sorting to work properly for these, we must pass use a hidden input to pass them into the URL
+          {%- endcomment -%}
+          <input type="hidden" name="q" value="{{ results.current_vendor }}{{ results.current_type }}">
+        {% endif %}
 
-    {% capture filter_title %}{{ 'products.facets.filter_by_label' | t }}{% endcapture %}
+        {% capture filter_title %}{{ 'products.facets.filter_by_label' | t }}{% endcapture %}
 
-    {% capture filter_content %}
-      <div class="filter-and-sort__filters__container">
-        {%- for filter in results.filters -%}
-          {% case filter.type %}
-            {% when 'boolean' or 'list' %}
-              <div>
-                <div class="filter-and-sort__filters__label">
-                  <div class="h6">
-                    {{ filter.label | escape }}
-                    {% unless filter.active_values == empty %}
-                      ({{ filter.active_values | size -}}
-                      <span class="visually-hidden">{{ 'accessibility.filter_active_values' | t }}</span>)
-                    {% endunless %}
-                  </div>
-                  <a href="{{ filter.url_to_remove }}" class="p-sm btn __with-underline">
-                    {{ 'products.facets.reset' | t }}
-                  </a>
-                </div>
-                <div>
-                  <fieldset>
-                    <legend class="visually-hidden">{{ filter.label | escape }}</legend>
-                    <ul class="filter-and-sort__filters__checkboxes list-unstyled" role="list">
-                      {%- for value in filter.values -%}
-                        <li class="filter-and-sort__row">
-                          <input
-                            type="checkbox"
-                            name="{{ value.param_name }}"
-                            value="{{ value.value }}"
-                            id="Filter-{{ filter.label | escape }}-{{ forloop.index }}"
-                            {% if value.active %}
-                              checked
-                            {% endif %}
-                            {% if value.count == 0 and value.active == false %}
-                              disabled
-                            {% endif %}
-                          >
-                            {%- if filter.param_name == 'filter.p.m.custom.featured_icons' -%}
-                              <label class="filter-and-sort__icon featured-icons __layout-row" for="Filter-{{ filter.label | escape }}-{{ forloop.index }}">
-                                  <div class="featured-icons__icon  custom-icon custom-icon-{{ value.label | handleize }}">
-                                    <span>{{ value.label | escape }} ({{ value.count }})</span>
-                                  </div>
-                              </label>
-                            {%- else -%}
-                              <label for="Filter-{{ filter.label | escape }}-{{ forloop.index }}">
-                                {{ value.label | escape }} ({{ value.count }})
-                              </label>
-                            {%- endif -%}
-                        </li>
-                      {%- endfor -%}
-                    </ul>
-                  </fieldset>
-                </div>
-              </div>
-              
-              {% when 'price_range' %}
-              <div>
-                <div class="filter-and-sort__filters__label">
-                  <div class="h6">
-                    {{ filter.label | escape }}
-                  </div>
-
-                  <a class="p-sm btn __with-underline" href="{{ filter.url_to_remove }}">
-                    {{ 'products.facets.reset' | t }}
-                  </a>
-                </div>
-                <div>
-                  <div class="filter-and-sort__filters__price">
-                    <fieldset class="filter-and-sort__row">
-                      <div>
-                        <label class="p-sm" for="Filter-{{ filter.label | escape }}-GTE">{{ 'products.facets.from' | t }}</label>
-                        <input
-                          name="{{ filter.min_value.param_name }}"
-                          id="Filter-{{ filter.label | escape }}-GTE"
-                          type="text"
-                          placeholder="0"
-                          value="{{ filter.min_value.value | money_without_currency }}"
-                        >
+        {% capture filter_content %}
+          <div class="filter-and-sort__filters__container">
+            {%- for filter in results.filters -%}
+              {% case filter.type %}
+                {% when 'boolean' or 'list' %}
+                  <div>
+                    <div class="filter-and-sort__filters__label">
+                      <div class="h6">
+                        {{ filter.label | escape }}
+                        {% unless filter.active_values == empty %}
+                          ({{ filter.active_values | size -}}
+                          <span class="visually-hidden">{{ 'accessibility.filter_active_values' | t }}</span>)
+                        {% endunless %}
                       </div>
-                      <div>
-                        <label class="p-sm" for="Filter-{{ filter.label | escape }}-LTE">{{ 'products.facets.to' | t }}</label>
-                        <input
-                          name="{{ filter.max_value.param_name }}"
-                          id="Filter-{{ filter.label | escape }}-LTE"
-                          type="text"
-                          value="{{ filter.max_value.value | money_without_currency }}"
-                        >
-                      </div>
-                    </fieldset>
-
+                      <a href="{{ filter.url_to_remove }}" class="p-sm btn __with-underline">
+                        {{ 'products.facets.reset' | t }}
+                      </a>
+                    </div>
                     <div>
-                      {%- assign max_price_amount = filter.range_max | money | strip_html | escape -%}
-                      <p class="p-sm">{{ 'products.facets.max_price' | t: price: max_price_amount }}</p>
+                      <fieldset>
+                        <legend class="visually-hidden">{{ filter.label | escape }}</legend>
+                        <ul class="filter-and-sort__filters__checkboxes list-unstyled" role="list">
+                          {%- for value in filter.values -%}
+                            <li class="filter-and-sort__row">
+                              <input
+                                type="checkbox"
+                                name="{{ value.param_name }}"
+                                value="{{ value.value }}"
+                                id="Filter-{{ filter.label | escape }}-{{ forloop.index }}"
+                                {% if value.active %}
+                                  checked
+                                {% endif %}
+                                {% if value.count == 0 and value.active == false %}
+                                  disabled
+                                {% endif %}
+                              >
+                                {%- if filter.param_name == 'filter.p.m.custom.featured_icons' -%}
+                                  <label class="filter-and-sort__icon featured-icons __layout-row" for="Filter-{{ filter.label | escape }}-{{ forloop.index }}">
+                                      <div class="featured-icons__icon  custom-icon custom-icon-{{ value.label | handleize }}">
+                                        <span>{{ value.label | escape }} ({{ value.count }})</span>
+                                      </div>
+                                  </label>
+                                {%- else -%}
+                                  <label for="Filter-{{ filter.label | escape }}-{{ forloop.index }}">
+                                    {{ value.label | escape }} ({{ value.count }})
+                                  </label>
+                                {%- endif -%}
+                            </li>
+                          {%- endfor -%}
+                        </ul>
+                      </fieldset>
                     </div>
                   </div>
-                </div>
-              </div>
-              {% endcase %}
-        {%- endfor -%}
+                  
+                  {% when 'price_range' %}
+                  <div>
+                    <div class="filter-and-sort__filters__label">
+                      <div class="h6">
+                        {{ filter.label | escape }}
+                      </div>
+
+                      <a class="p-sm btn __with-underline" href="{{ filter.url_to_remove }}">
+                        {{ 'products.facets.reset' | t }}
+                      </a>
+                    </div>
+                    <div>
+                      <div class="filter-and-sort__filters__price">
+                        <fieldset class="filter-and-sort__row">
+                          <div>
+                            <label class="p-sm" for="Filter-{{ filter.label | escape }}-GTE">{{ 'products.facets.from' | t }}</label>
+                            <input
+                              name="{{ filter.min_value.param_name }}"
+                              id="Filter-{{ filter.label | escape }}-GTE"
+                              type="text"
+                              placeholder="0"
+                              value="{{ filter.min_value.value | money_without_currency }}"
+                            >
+                          </div>
+                          <div>
+                            <label class="p-sm" for="Filter-{{ filter.label | escape }}-LTE">{{ 'products.facets.to' | t }}</label>
+                            <input
+                              name="{{ filter.max_value.param_name }}"
+                              id="Filter-{{ filter.label | escape }}-LTE"
+                              type="text"
+                              value="{{ filter.max_value.value | money_without_currency }}"
+                            >
+                          </div>
+                        </fieldset>
+
+                        <div>
+                          {%- assign max_price_amount = filter.range_max | money | strip_html | escape -%}
+                          <p class="p-sm">{{ 'products.facets.max_price' | t: price: max_price_amount }}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  {% endcase %}
+            {%- endfor -%}
+          </div>
+
+
+          <button class="button">{{ 'products.facets.filter_button' | t }}</button>
+        {% endcapture %}
+
+        {% render 'disclosure', title: filter_title, id: filter_title, text: filter_content, style: "blank-button", class: "filter-and-sort__filters__details", open: false %}
       </div>
 
-      <select class="visually-hidden" name="sort_by"><option selected value="{{ sort_by | escape }}"></option></select>
-
-      <button class="button">{{ 'products.facets.filter_button' | t }}</button>
-    {% endcapture %}
-
-    {% render 'disclosure', title: filter_title, id: filter_title, text: filter_content, style: "blank-button", class: "filter-and-sort__filters__details", open: false %}
-  </form>
-
-  <div class="filter-and-sort__sort">
-    {% capture sort_title %}{{ 'products.facets.sort_by_label' | t }}{% endcapture %}
-
-    {% capture sort_content %}
-      {%- assign sort_by = results.sort_by | default: results.default_sort_by -%}
-      <ul class="list-unstyled" role="list">
-        {%- for option in results.sort_options -%}
-          <li>
-            <a href="{{ canonical_url | append: current_filters_string | append: 'sort_by=' | append: option.value }}" class="{% if results.sort_by == option.value %}current{% endif %}">
+      <noscript>
+        <select name="sort_by" id="SortBy" aria-describedby="A11y-RefreshPageMessage">
+          {%- for option in results.sort_options -%}
+            <option
+              value="{{ option.value | escape }}"
+              {% if option.value == sort_by %}
+                selected="selected"
+              {% endif %}
+            >
               {{ option.name | escape }}
-            </a>
-          </li>
-        {%- endfor -%}
-      </select>
-    {% endcapture %}
+            </option>
+          {%- endfor -%}
+        </select>
+      </noscript>
 
-    {% render 'disclosure', title: sort_title, id: sort_title, text: sort_content, style: "dropdown-button", class: "filter-and-sort__sort__details" %}
-  </div>
-</div>
+      <div class="filter-and-sort__sort no-js-hidden">
+        {% capture sort_title %}{{ 'products.facets.sort_by_label' | t }}{% endcapture %}
+
+        {% capture sort_content %}
+          <ul class="list-unstyled" role="list">
+            {%- for option in results.sort_options -%}
+              <li>
+                <input 
+                  name="sort_by"
+                  id="Sort-by-{{ option.value }}" 
+                  type="radio"
+                  {% if sort_by == option.value %}checked selected{% endif %} 
+                  value="{{ option.value | escape }}"
+                >
+                <label for="Sort-by-{{ option.value }}">
+                  {{ option.name }}
+                </label>
+              </li>
+            {%- endfor -%}
+          </select>
+        {% endcapture %}
+
+        {% render 'disclosure', title: sort_title, id: sort_title, text: sort_content, style: "dropdown-button", class: "filter-and-sort__sort__details" %}
+      </div>
+    </form>
+  </filter-and-sort>

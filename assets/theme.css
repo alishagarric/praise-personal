@@ -726,14 +726,16 @@ form:not(.__no-form-styles) input[type="radio"],
     margin: 0 0 1rem 0;
     font-size: calc(0.9rem * var(--font-body-scale));
     margin: 0 !important;
-    height: calc(var(--inputHeight) / 2);
+    min-height: calc(var(--inputHeight) / 2);
     line-height: calc(var(--inputHeight) / 2);
     padding-left: calc(var(--inputHeight) / 4);
-    white-space: nowrap;
     display: inline-block; }
 form:not(.__no-form-styles) input[type="radio"],
 .form-styles input[type="radio"] {
   border-radius: 50%; }
+  form:not(.__no-form-styles) input[type="radio"]:checked::after,
+  .form-styles input[type="radio"]:checked::after {
+    border-radius: 50%; }
 form:not(.__no-form-styles) textarea,
 .form-styles textarea {
   padding: calc(var(--inputHeight) / 3); }

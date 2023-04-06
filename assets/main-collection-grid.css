@@ -38,6 +38,9 @@
         gap: var(--sectionVerticalSpacing); }
       .main-collection-grid.__mobile-fw {
         padding-left: 0;
-        padding-right: 0; } }
+        padding-right: 0; }
+        .main-collection-grid.__mobile-fw .filter-and-sort {
+          margin-left: var(--sectionGuttersSpacing);
+          margin-right: var(--sectionGuttersSpacing); } }
 
 /*# sourceMappingURL=main-collection-grid.css.map */

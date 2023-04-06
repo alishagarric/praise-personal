@@ -60,21 +60,25 @@
                 border-top: 1px solid RGB(var(--color-border));
               }
 
-              a {
+              a,
+              label {
                 display: block;
                 padding: var(--expandableContentIconWidth);
                 width: 100%;
+                height: auto;
+                cursor: pointer;
 
                 &:after {
                   content: none;
                 }
+              }
 
-                &.current {
-                  opacity: 0.8;
+              a.current,
+              input:checked + label {
+                opacity: 0.8;
 
-                  &:before {
-                    content: "- ";
-                  }
+                &:before {
+                  content: "- ";
                 }
               }
             }

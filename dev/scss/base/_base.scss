@@ -327,16 +327,21 @@ form:not(.__no-form-styles),
     + label {
       @include p-sm;
       margin: 0 !important;
-      height: calc(var(--inputHeight) / 2);
+      min-height: calc(var(--inputHeight) / 2);
       line-height: calc(var(--inputHeight) / 2);
       padding-left: calc(var(--inputHeight) / 4);
-      white-space: nowrap;
       display: inline-block;
     }
   }
 
   input[type="radio"] {
     border-radius: 50%;
+
+    &:checked {
+      &::after {
+        border-radius: 50%;
+      }
+    }
   }
 
   textarea {
