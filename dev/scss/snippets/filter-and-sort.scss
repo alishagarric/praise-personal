@@ -85,6 +85,13 @@
     }
   }
 
+  noscript {
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc(var(--pxSize) / 3);
+    align-items: flex-start;
+  }
+
   @media screen and (max-width: 676px) {
     &__filters {
       &__container {

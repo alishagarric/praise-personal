@@ -165,21 +165,11 @@
         {% render 'disclosure', title: sort_title, id: sort_title, text: sort_content, style: "dropdown-button", class: "filter-and-sort__sort__details" %}
       </div>
 
+      {% comment %}
+        Output submit button for users who disable javacript
+      {% endcomment%}
       <noscript>
-        <select name="sort_by" id="SortBy" aria-describedby="A11y-RefreshPageMessage">
-          {%- for option in results.sort_options -%}
-            <option
-              value="{{ option.value | escape }}"
-              {% if option.value == sort_by %}
-                selected="selected"
-              {% endif %}
-            >
-              {{ option.name | escape }}
-            </option>
-          {%- endfor -%}
-        </select>
-        <button class="button">{{ 'products.facets.sort_button' | t }}</button>
-
+        <button class="btn __with-underline button">{{ 'products.facets.sort_button' | t }}</button>
       </noscript>
     </form>
   </filter-and-sort>

@@ -41,6 +41,11 @@
       border: 1px solid RGB(var(--color-foreground-text)) !important; }
     .filter-and-sort__sort input {
       display: none; }
+  .filter-and-sort noscript {
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc(var(--pxSize) / 3);
+    align-items: flex-start; }
   @media screen and (max-width: 676px) {
     .filter-and-sort__filters__container {
       gap: var(--pxSize);
