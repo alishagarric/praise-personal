@@ -140,7 +140,7 @@
         {% render 'disclosure', title: filter_title, id: filter_title, text: filter_content, style: "blank-button", class: "filter-and-sort__filters__details", open: false %}
       </div>
 
-      <div class="filter-and-sort__sort no-js-hidden">
+      <div class="filter-and-sort__sort">
         {% capture sort_title %}{{ 'products.facets.sort_by_label' | t }}{% endcapture %}
 
         {% capture sort_content %}

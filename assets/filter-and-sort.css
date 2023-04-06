@@ -45,7 +45,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: calc(var(--pxSize) / 3);
-    align-items: flex-start; }
+    align-items: center; }
   @media screen and (max-width: 676px) {
     .filter-and-sort__filters__container {
       gap: var(--pxSize);
