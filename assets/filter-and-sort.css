@@ -35,7 +35,8 @@
     display: flex; }
   .filter-and-sort__sort {
     --color-foreground: var(--color-background);
-    --color-foreground-text: var(--color-text); }
+    --color-foreground-text: var(--color-text);
+    align-self: flex-start; }
     .filter-and-sort__sort__details .disclosure__summary {
       border: 1px solid RGB(var(--color-foreground-text)) !important; }
 

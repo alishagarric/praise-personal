@@ -11,10 +11,17 @@
   - results: {Array objects}
 {% endcomment %}
 
-{{ 'component-filter-and-sort.css' | asset_url | stylesheet_tag }}
+{% assign current_filters_string = '?' %}
+{% for filter in results.filters %}
+  {% for value in filter.active_values %}
+    {% assign current_filters_string = current_filters_string | append: filter.param_name | append: '=' | append: value.value | append: "&" %}
+  {% endfor %}
+{% endfor %}
 
-<form class="filter-and-sort">
-  <div class="filter-and-sort__filters">
+{%- assign sort_by = results.sort_by | default: results.default_sort_by -%}
+
+<div class="filter-and-sort">
+  <form class="filter-and-sort__filters">
     {% unless results.terms == nil %}
       <input type="hidden" name="q" value="{{ results.terms }}">
       <input name="options[prefix]" type="hidden" value="last">
@@ -126,35 +133,26 @@
                   </div>
                 </div>
               </div>
-             {% endcase %}
+              {% endcase %}
         {%- endfor -%}
       </div>
 
-      {%- assign sort_by = results.sort_by | default: results.default_sort_by -%}
       <select class="visually-hidden" name="sort_by"><option selected value="{{ sort_by | escape }}"></option></select>
 
       <button class="button">{{ 'products.facets.filter_button' | t }}</button>
     {% endcapture %}
 
-    {% render 'disclosure', title: filter_title, id: filter_title, text: filter_content, style: "blank-button", class: "filter-and-sort__filters__details", open: true %}
+    {% render 'disclosure', title: filter_title, id: filter_title, text: filter_content, style: "blank-button", class: "filter-and-sort__filters__details", open: false %}
+  </form>
 
-  </div>
-        {% assign current_filters_string = '?' %}
-        {% for filter in results.filters %}
-          {% for value in filter.active_values %}
-            {% assign current_filters_string = current_filters_string | append: filter.param_name | append: '=' | append: value.value | append: "&" %}
-          {% endfor %}
-        {% endfor %}
   <div class="filter-and-sort__sort">
     {% capture sort_title %}{{ 'products.facets.sort_by_label' | t }}{% endcapture %}
 
     {% capture sort_content %}
       {%- assign sort_by = results.sort_by | default: results.default_sort_by -%}
       <ul class="list-unstyled" role="list">
-
-       
         {%- for option in results.sort_options -%}
-          <li class="list-menu__item facets__item">
+          <li>
             <a href="{{ canonical_url | append: current_filters_string | append: 'sort_by=' | append: option.value }}" class="{% if results.sort_by == option.value %}current{% endif %}">
               {{ option.name | escape }}
             </a>
@@ -163,6 +161,6 @@
       </select>
     {% endcapture %}
 
-    {% render 'disclosure', title: sort_title, id: sort_title, text: sort_content, style: "dropdown-button", class: "filter-and-sort__sort__details __with-overlay" %}
+    {% render 'disclosure', title: sort_title, id: sort_title, text: sort_content, style: "dropdown-button", class: "filter-and-sort__sort__details" %}
   </div>
-</form>
+</div>

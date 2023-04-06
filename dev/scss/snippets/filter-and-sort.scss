@@ -70,6 +70,7 @@
   &__sort {
     --color-foreground: var(--color-background);
     --color-foreground-text: var(--color-text);
+    align-self: flex-start;
 
     &__details {
       .disclosure {
