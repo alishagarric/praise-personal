@@ -140,23 +140,6 @@
         {% render 'disclosure', title: filter_title, id: filter_title, text: filter_content, style: "blank-button", class: "filter-and-sort__filters__details", open: false %}
       </div>
 
-      <noscript>
-        <select name="sort_by" id="SortBy" aria-describedby="A11y-RefreshPageMessage">
-          {%- for option in results.sort_options -%}
-            <option
-              value="{{ option.value | escape }}"
-              {% if option.value == sort_by %}
-                selected="selected"
-              {% endif %}
-            >
-              {{ option.name | escape }}
-            </option>
-          {%- endfor -%}
-        </select>
-        <button class="button">{{ 'products.facets.sort_button' | t }}</button>
-
-      </noscript>
-
       <div class="filter-and-sort__sort no-js-hidden">
         {% capture sort_title %}{{ 'products.facets.sort_by_label' | t }}{% endcapture %}
 
@@ -181,5 +164,22 @@
 
         {% render 'disclosure', title: sort_title, id: sort_title, text: sort_content, style: "dropdown-button", class: "filter-and-sort__sort__details" %}
       </div>
+
+      <noscript>
+        <select name="sort_by" id="SortBy" aria-describedby="A11y-RefreshPageMessage">
+          {%- for option in results.sort_options -%}
+            <option
+              value="{{ option.value | escape }}"
+              {% if option.value == sort_by %}
+                selected="selected"
+              {% endif %}
+            >
+              {{ option.name | escape }}
+            </option>
+          {%- endfor -%}
+        </select>
+        <button class="button">{{ 'products.facets.sort_button' | t }}</button>
+
+      </noscript>
     </form>
   </filter-and-sort>
