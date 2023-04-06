@@ -39,11 +39,10 @@
 {% endcapture %}
 
 {%- if section.settings.image != blank -%}
-  {% assign section_image =  section.settings.image %}
+  {% assign section_image = section.settings.image %}
 {%- endif -%}
 
-
-{% render 'image-banner' 
+{% render 'image-banner',
   top_spacing: section.settings.top_spacing,
   bottom_spacing: section.settings.bottom_spacing,
   top_internal_spacing: section.settings.top_internal_spacing,
@@ -61,7 +60,7 @@
 
 {% schema %}
 {
-  "name": "Image Banner",
+  "name": "t:sections.image-banner.name",
   "tag": "section",
   "settings": [
     {

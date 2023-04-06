@@ -1,54 +1,55 @@
 {{ 'gift-card.css' | asset_url | stylesheet_tag }}
 
 <script src="{{ 'vendor/qrcode.js' | shopify_asset_url }}" defer></script>
+<div class="gift-card __theme-primary">
+  <div class="gift-card__text __align-center">
+    <p class="p-sm">{{ shop.name }}</p>
+    <h1>{{ 'gift_cards.issued.subtext' | t }}</h1>
 
-  <div class="gift-card __theme-primary">
-    <div class="gift-card__text __align-center">
+    {%- if gift_card.enabled == false or gift_card.expired -%}
+      <p class="gift-card__text__expired btn">{{ 'gift_cards.issued.expired' | t }}</p>
+    {%- endif -%}
 
-      <p class="p-sm">{{ shop.name }}</p>
-      <h1>{{ 'gift_cards.issued.subtext' | t }}</h1>
+    <div class="gift-card__text__value">
+      <p class="p-lg">
+        {{ gift_card.initial_value | money_with_currency }}
+      </p>
 
-      {%- if gift_card.enabled == false or gift_card.expired -%}
-        <p class="gift-card__text__expired btn">{{ 'gift_cards.issued.expired' | t }}</p>
+      {%- if gift_card.balance != gift_card.initial_value -%}
+        {%- assign gift_card_balance = gift_card.balance | money_with_currency -%}
+        <p class="p-lg">{{ 'gift_cards.issued.remaining_html' | t: balance: gift_card_balance }}</p>
       {%- endif -%}
-
-      <div class="gift-card__text__value">
-        <p class="p-lg">
-          {{ gift_card.initial_value | money_with_currency }}
-        </p>
-
-        {%- if gift_card.balance != gift_card.initial_value -%}
-          {%- assign gift_card_balance = gift_card.balance | money_with_currency -%}
-          <p class="p-lg">{{ 'gift_cards.issued.remaining_html' | t: balance: gift_card_balance }}</p>
-        {%- endif -%}
-      </div>
-
-      <copy-input-text class="gift-card__text__code __align-center">
-        <input
-          type="text"
-          class="p-lg"
-          value="{{ gift_card.code | format_code }}"
-          aria-label="{{ 'gift_cards.issued.gift_card_code' | t }}"
-          readonly
-        >
-
-        <button class="btn __with-underline no-js-hidden" type="button">Copy Code</button>
-      </copy-input-text>
-
-      {% capture button_label %}{{ 'gift_cards.issued.shop' | t }}{% endcapture %}
-      {% render 'button' button_label: button_label, button_link: routes.collections_url, class: "gift-card__text" %}
     </div>
 
-    <div class="gift-card__qr">
+    <copy-input-text class="gift-card__text__code __align-center">
+      <input
+        type="text"
+        class="p-lg"
+        value="{{ gift_card.code | format_code }}"
+        aria-label="{{ 'gift_cards.issued.gift_card_code' | t }}"
+        readonly
+      >
 
-      <div class="gift-card__qr__container" data-identifier="{{ gift_card.qr_identifier }}"></div>
+      <button class="btn __with-underline no-js-hidden" type="button">Copy Code</button>
+    </copy-input-text>
 
-      {%- if gift_card.pass_url -%}
-        {% render 'button' button_label: "Add to Wallet", button_link: gift_card.pass_url, style: "underline", class: "gift-card__code" %}
-      {%- endif -%}
-
-    </div>
+    {% capture button_label %}{{ 'gift_cards.issued.shop' | t }}{% endcapture %}
+    {% render 'button', button_label: button_label, button_link: routes.collections_url, class: 'gift-card__text' %}
   </div>
+
+  <div class="gift-card__qr">
+    <div class="gift-card__qr__container" data-identifier="{{ gift_card.qr_identifier }}"></div>
+
+    {%- if gift_card.pass_url -%}
+      {% render 'button',
+        button_label: 'Add to Wallet',
+        button_link: gift_card.pass_url,
+        style: 'underline',
+        class: 'gift-card__code'
+      %}
+    {%- endif -%}
+  </div>
+</div>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
@@ -60,10 +61,8 @@
 </script>
 
 {% schema %}
-
 {
-  "name": "Gift Card",
+  "name": "t:sections.gift-card.name",
   "tag": "section"
 }
-
 {% endschema %}

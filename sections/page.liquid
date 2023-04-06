@@ -9,7 +9,7 @@
 {% assign page_title = section.settings.page.title | default: default_title %}
 
 <div id="Page-output-{{ section.id }}" class="page-output __theme-{{ section.settings.theme }}">
-  {% render 'heading' heading: page_title %}
+  {% render 'heading', heading: page_title %}
 
   <div class="__article-text">
     {%- if section.settings.page.content != blank -%}
@@ -22,10 +22,9 @@
   </div>
 </div>
 
-
 {% schema %}
 {
-  "name": "Page",
+  "name": "t:sections.main-page.name",
   "tag": "section",
   "class": "section",
   "settings": [

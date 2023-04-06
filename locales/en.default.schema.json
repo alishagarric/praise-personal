@@ -332,9 +332,84 @@
     },
     "password-header": {
       "name": "Password header",
+      "group": "Password Header Group",
       "settings": {
         "logo": {
           "label": "Logo image"
+        }
+      }
+    },
+    "cart-recommendations": {
+      "name": "Cart Recommendations"
+    },
+    "collection-teaser": {
+      "name": "Collection Teaser"
+    },
+    "collections-list": {
+      "name": "Collections List"
+    },
+    "content-marquee": {
+      "name": "Content Marquee"
+    },
+    "divider": {
+      "name": "Divider"
+    },
+    "featured-collection": {
+      "name": "Featured Collection"
+    },
+    "featured-product": {
+      "name": "Featured Product"
+    },
+    "footer-group": {
+      "name": "Footer Group"
+    },
+    "gift-card": {
+      "name": "Gift Card"
+    },
+    "header-group": {
+      "name": "Header Group"
+    },
+    "header": {
+      "name": "Header"
+    },
+    "icons-section": {
+      "name": "Icons Section"
+    },
+    "image-banner": {
+      "name": "Image Banner"
+    },
+    "related-articles": {
+      "name": "Related Articles"
+    },
+    "shop-the-look": {
+      "name": "Shop the Look"
+    },
+    "split-slideshow": {
+      "name": "Split Slideshow"
+    },
+    "text-marquee": {
+      "name": "Text Marquee"
+    },
+    "timeline": {
+      "name": "Timeline"
+    },
+    "video": {
+      "name": "Video"
+    },
+    "multicolumn": {
+      "name": "Multicolumn",
+      "blocks": {
+        "image-with-text": {
+          "name": "Image with Text"
+        },
+        "quote": {
+          "name": "Quote"
+        },
+        "products": {
+          "name": "Products"
+        },
+        "collections": {
+          "name": "Collections"
         }
       }
     }

@@ -7,33 +7,35 @@
   assign section_theme = section.settings.theme
   assign top_spacing = section.settings.top_spacing
   assign bottom_spacing = section.settings.bottom_spacing
-  assign featured_image = section.settings.image 
+  assign featured_image = section.settings.image
 %}
 
-
 {% style %}
-    #Shop-the-look-{{ section.id }} {
-      --topSpacingRatio: {{ top_spacing }} / 100;
-      --bottomSpacingRatio: {{ bottom_spacing }} / 100;
-    }
- {% endstyle %}
+  #Shop-the-look-{{ section.id }} {
+    --topSpacingRatio: {{ top_spacing }} / 100;
+    --bottomSpacingRatio: {{ bottom_spacing }} / 100;
+  }
+{% endstyle %}
 
 {% if section.settings.quick_add %}
   <script src="{{ 'quick-add-modal.js' | asset_url }}" defer="defer"></script>
 {% endif %}
 
-
 <div
-  id="Shop-the-look-{{ section.id }}" 
+  id="Shop-the-look-{{ section.id }}"
   class="shop-the-look __theme-{{ section_theme }}"
 >
   <shop-the-look class="shop-the-look__inner" data-slider="{% if products_count > 1 %}true{% else %}false{% endif %}">
-
     {% comment %} Image content {% endcomment %}
     <div class="shop-the-look__center-vertically">
       <div class="shop-the-look__image __crop-{{ section.settings.image_crop_shape }}">
         {% if featured_image %}
-          {% render 'next-gen-img' image: featured_image, width: 1680, widths: '1680, 1400, 1100, 900, 700', sizes: '(max-width: 676px) 100vw, 50vw' %}
+          {% render 'next-gen-img',
+            image: featured_image,
+            width: 1680,
+            widths: '1680, 1400, 1100, 900, 700',
+            sizes: '(max-width: 676px) 100vw, 50vw'
+          %}
         {% else %}
           {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
         {% endif %}
@@ -46,23 +48,28 @@
                 {% if block.settings.product == blank %}
                   {% assign horizontal_pos = 50 %}
                   {% assign vertical_pos = 50 %}
-                  {% assign border_color = "0,0,0" %}
+                  {% assign border_color = '0,0,0' %}
                 {% else %}
                   {% assign horizontal_pos = block.settings.horizontal_pos %}
                   {% assign vertical_pos = block.settings.vertical_pos %}
-                  {% assign border_color = block.settings.product.metafields.custom.color.value.red | append: "," | append: block.settings.product.metafields.custom.color.value.green | append: "," | append: block.settings.product.metafields.custom.color.value.blue %}
+                  {% assign border_color = block.settings.product.metafields.custom.color.value.red
+                    | append: ','
+                    | append: block.settings.product.metafields.custom.color.value.green
+                    | append: ','
+                    | append: block.settings.product.metafields.custom.color.value.blue
+                  %}
                 {% endif %}
-                <div 
-                  class="shop-the-look__dots__dot" 
+                <div
+                  class="shop-the-look__dots__dot"
                   style="
-                    --shopTheLookDotleft: {{ horizontal_pos }}%; 
-                    --shopTheLookDotTop: {{ vertical_pos }}%; 
-                    background-color: rgb({{ border_color }}); 
+                    --shopTheLookDotleft: {{ horizontal_pos }}%;
+                    --shopTheLookDotTop: {{ vertical_pos }}%;
+                    background-color: rgb({{ border_color }});
                     border-color:rgba({{ border_color }}, .5);
-                  ">
+                  "
+                >
                   <span class="visually-hidden">{{ block.settings.product.title }}</span>
                 </div>
-
             {% endcase %}
           {% endfor %}
         </div>
@@ -86,7 +93,10 @@
       {% for block in section.blocks %}
         {% case block.type %}
           {% when 'product' %}
-            <div class="shop-the-look__background-color__item" style="background-color: {{ block.settings.product.metafields.custom.color }};"></div>
+            <div
+              class="shop-the-look__background-color__item"
+              style="background-color: {{ block.settings.product.metafields.custom.color }};"
+            ></div>
         {% endcase %}
       {% endfor %}
     </div>
@@ -95,7 +105,7 @@
 
 {% schema %}
 {
-  "name": "Shop the Look",
+  "name": "t:sections.shop-the-look.name",
   "tag": "section",
   "settings": [
     {
@@ -155,7 +165,7 @@
       "label": "Use body font instead of heading font for product title"
     },
     {
-      "type": "select", 
+      "type": "select",
       "id": "product_text_alignment",
       "options": [
         {

@@ -9,34 +9,36 @@
   }
 {% endstyle %}
 
-
 <div id="Cart-recommendations-{{ section.id }}" class="cart-recommendations __theme-{{ section.settings.theme }}">
   <cart-recommendations data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ cart.items.first.product.id }}&limit=3">
     {% if recommendations.performed and recommendations.products_count > 0 %}
+      {% comment %} Text Content {% endcomment %}
+      {% render 'heading',
+        class: 'cart-recommendations',
+        heading: section.settings.heading,
+        alt_heading: true,
+        heading_size: 'p-sm'
+      %}
 
-        {% comment %} Text Content {% endcomment %}
-        {% render 'heading',
-          class: 'cart-recommendations',
-          heading: section.settings.heading,
-          alt_heading: true,
-          heading_size: "p-sm"
-        %}
-
-        <ul class="cart-recommendations__container list-unstyled" role="list">
-          {% for recommendation in recommendations.products %}
-            <li>
-              {% render 'quick-product' quick_product: recommendation, img_width: 260, img_widths: '260, 150', img_sizes: '(max-width: 1024px) 150px, 10vw' %}
-            </li>
-          {% endfor %}
-        </ul>
+      <ul class="cart-recommendations__container list-unstyled" role="list">
+        {% for recommendation in recommendations.products %}
+          <li>
+            {% render 'quick-product',
+              quick_product: recommendation,
+              img_width: 260,
+              img_widths: '260, 150',
+              img_sizes: '(max-width: 1024px) 150px, 10vw'
+            %}
+          </li>
+        {% endfor %}
+      </ul>
     {% endif %}
   </cart-recommendations>
 </div>
 
-
 {% schema %}
 {
-  "name": "Cart Recommendations",
+  "name": "t:sections.cart-recommendations.name",
   "tag": "section",
   "settings": [
     {
