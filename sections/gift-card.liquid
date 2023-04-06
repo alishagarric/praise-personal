@@ -43,8 +43,6 @@
 
       <div class="gift-card__qr__container" data-identifier="{{ gift_card.qr_identifier }}"></div>
 
-      {{ gift_card }}
-      {{ gift_card.pass_url }}
       {%- if gift_card.pass_url -%}
         {% render 'button' button_label: "Add to Wallet", button_link: gift_card.pass_url, style: "underline", class: "gift-card__code" %}
       {%- endif -%}

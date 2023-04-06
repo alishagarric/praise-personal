@@ -1,4 +1,5 @@
 {{ 'filter-and-sort.css' | asset_url | stylesheet_tag }}
+{{ 'custom-icons.css' | asset_url | stylesheet_tag }}
 
 {% comment %}
   Renders the filtering and sorting for a collection or set of search results.
@@ -52,10 +53,10 @@
                     <legend class="visually-hidden">{{ filter.label | escape }}</legend>
                     <ul class="filter-and-sort__filters__checkboxes list-unstyled" role="list">
                       {%- for value in filter.values -%}
-                        <li class="filter-and-sort__filters__row">
+                        <li class="filter-and-sort__row">
                           <input
                             type="checkbox"
-                            name="{{ value.param_name }} "
+                            name="{{ value.param_name }}"
                             value="{{ value.value }}"
                             id="Filter-{{ filter.label | escape }}-{{ forloop.index }}"
                             {% if value.active %}
@@ -65,16 +66,25 @@
                               disabled
                             {% endif %}
                           >
-                          <label for="Filter-{{ filter.label | escape }}-{{ forloop.index }}">
-                            {{ value.label | escape }} ({{ value.count }})
-                          </label>
+                            {%- if filter.param_name == 'filter.p.m.custom.featured_icons' -%}
+                              <label class="filter-and-sort__icon featured-icons __layout-row" for="Filter-{{ filter.label | escape }}-{{ forloop.index }}">
+                                  <div class="featured-icons__icon  custom-icon custom-icon-{{ value.label | handleize }}">
+                                    <span>{{ value.label | escape }} ({{ value.count }})</span>
+                                  </div>
+                              </label>
+                            {%- else -%}
+                              <label for="Filter-{{ filter.label | escape }}-{{ forloop.index }}">
+                                {{ value.label | escape }} ({{ value.count }})
+                              </label>
+                            {%- endif -%}
                         </li>
                       {%- endfor -%}
                     </ul>
                   </fieldset>
                 </div>
               </div>
-            {% when 'price_range' %}
+              
+              {% when 'price_range' %}
               <div>
                 <div class="filter-and-sort__filters__label">
                   <div class="h6">
@@ -86,14 +96,10 @@
                   </a>
                 </div>
                 <div>
-                  <div>
-                    <div>
-                      {%- assign max_price_amount = filter.range_max | money | strip_html | escape -%}
-                      <span class="p-sm">{{ 'products.facets.max_price' | t: price: max_price_amount }}</span>
-                    </div>
-                    <fieldset>
+                  <div class="filter-and-sort__filters__price">
+                    <fieldset class="filter-and-sort__row">
                       <div>
-                        <label for="Filter-{{ filter.label | escape }}-GTE">{{ 'products.facets.from' | t }}</label>
+                        <label class="p-sm" for="Filter-{{ filter.label | escape }}-GTE">{{ 'products.facets.from' | t }}</label>
                         <input
                           name="{{ filter.min_value.param_name }}"
                           id="Filter-{{ filter.label | escape }}-GTE"
@@ -103,7 +109,7 @@
                         >
                       </div>
                       <div>
-                        <label for="Filter-{{ filter.label | escape }}-LTE">{{ 'products.facets.to' | t }}</label>
+                        <label class="p-sm" for="Filter-{{ filter.label | escape }}-LTE">{{ 'products.facets.to' | t }}</label>
                         <input
                           name="{{ filter.max_value.param_name }}"
                           id="Filter-{{ filter.label | escape }}-LTE"
@@ -112,29 +118,44 @@
                         >
                       </div>
                     </fieldset>
+
+                    <div>
+                      {%- assign max_price_amount = filter.range_max | money | strip_html | escape -%}
+                      <p class="p-sm">{{ 'products.facets.max_price' | t: price: max_price_amount }}</p>
+                    </div>
                   </div>
                 </div>
               </div>
-          {% endcase %}
+             {% endcase %}
         {%- endfor -%}
       </div>
 
-      {% comment %}<button class="button">{{ 'products.facets.filter_and_sort_button' | t }}</button>{% endcomment %}
+      {%- assign sort_by = results.sort_by | default: results.default_sort_by -%}
+      <select class="visually-hidden" name="sort_by"><option selected value="{{ sort_by | escape }}"></option></select>
+
+      <button class="button">{{ 'products.facets.filter_button' | t }}</button>
     {% endcapture %}
 
-    {% render 'disclosure', title: filter_title, id: filter_title, text: filter_content, style: "blank-button", class: "filter-and-sort__filters__details", open: false %}
+    {% render 'disclosure', title: filter_title, id: filter_title, text: filter_content, style: "blank-button", class: "filter-and-sort__filters__details", open: true %}
 
   </div>
-
+        {% assign current_filters_string = '?' %}
+        {% for filter in results.filters %}
+          {% for value in filter.active_values %}
+            {% assign current_filters_string = current_filters_string | append: filter.param_name | append: '=' | append: value.value | append: "&" %}
+          {% endfor %}
+        {% endfor %}
   <div class="filter-and-sort__sort">
     {% capture sort_title %}{{ 'products.facets.sort_by_label' | t }}{% endcapture %}
 
     {% capture sort_content %}
       {%- assign sort_by = results.sort_by | default: results.default_sort_by -%}
       <ul class="list-unstyled" role="list">
+
+       
         {%- for option in results.sort_options -%}
           <li class="list-menu__item facets__item">
-            <a href="{{ canonical_url | sort_by: option.value }}" class="{% if results.sort_by == option.value%}current{% endif %}">
+            <a href="{{ canonical_url | append: current_filters_string | append: 'sort_by=' | append: option.value }}" class="{% if results.sort_by == option.value %}current{% endif %}">
               {{ option.name | escape }}
             </a>
           </li>

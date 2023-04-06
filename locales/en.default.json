@@ -237,7 +237,8 @@
   },
   "products": {
     "facets": {
-      "filter_and_sort_button": "Filter and sort",
+      "filter_button": "Apply Filters",
+      "sort_button": "Sort",
       "from": "From",
       "max_price": "The highest price is {{ price }}",
       "reset": "Reset",
