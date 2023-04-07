@@ -123,6 +123,10 @@
           opacity: 0.8; }
           .main-order-main-account__orders__order a:hover:after {
             transform: scale(1.1, 1.5); }
+      .main-order-main-account__orders__order__unit-price {
+        margin-bottom: 0;
+        margin-top: 0.25rem;
+        opacity: 0.8; }
     .main-order-main-account__orders__list p {
       letter-spacing: 0;
       font-family: var(--font-body-family);

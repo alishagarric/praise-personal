@@ -74,6 +74,12 @@
       a {
         @include textLink;
       }
+
+      &__unit-price {
+        margin-bottom: 0;
+        margin-top: 0.25rem;
+        opacity: 0.8;
+      }
     }
 
     &__list {
