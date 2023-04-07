@@ -1,6 +1,7 @@
 {{ 'social-icons.css' | asset_url | stylesheet_tag }}
 {{ 'footer.css' | asset_url | stylesheet_tag }}
 
+
 {% style %}
   #Section-footer-{{ section.id }} {
     --footerLogoMaxWidth: {{ section.settings.logo_width }}px;
@@ -51,51 +52,8 @@
       {% render 'social-icons', class: 'section-footer__social' %}
     {%- endif -%}
 
-    {% comment %} Country selector {% endcomment %}
-    {%- if localization.available_countries.size > 1 -%}
-      {%- form 'localization' -%}
-        <label for="CountryList--{{ section.id }}">{{ 'general.localization.country.label' | t }}</label>
-        <select name="country_code" id="CountryList--{{ section.id }}">
-          {%- for country in localization.available_countries -%}
-            <option
-              value="{{ country.iso_code }}"
-              {%- if country.iso_code == localization.country.iso_code %}
-                selected
-              {% endif -%}
-            >
-              {{
-                'general.localization.country.option_label'
-                | t:
-                  name: country.name,
-                  currency_iso_code: country.currency.iso_code,
-                  currency_symbol: country.currency.symbol
-              }}
-            </option>
-          {%- endfor -%}
-        </select>
-        <button type="submit">{{ 'general.localization.country.update' | t }}</button>
-      {%- endform -%}
-    {%- endif -%}
-
-    {% comment %} Language selector {% endcomment %}
-    {%- if localization.available_languages.size > 1 -%}
-      {%- form 'localization' -%}
-        <label for="LanguageList--{{ section.id }}">{{ 'general.localization.language.label' | t }}</label>
-        <select name="locale_code" id="LanguageList--{{ section.id }}">
-          {%- for language in localization.available_languages -%}
-            <option
-              value="{{ language.iso_code }}"
-              lang="{{ language.iso_code }}"
-              {%- if language.iso_code == localization.language.iso_code %}
-                selected
-              {% endif %}
-            >
-              {{ language.endonym_name | capitalize }}
-            </option>
-          {%- endfor -%}
-        </select>
-        <button type="submit">{{ 'general.localization.language.update' | t }}</button>
-      {%- endform -%}
+    {%- if localization.available_countries.size > 1 or localization.available_languages.size > 1 -%}
+      {% render 'localization', class: 'section-footer__localization' %}
     {%- endif -%}
   </div>
 

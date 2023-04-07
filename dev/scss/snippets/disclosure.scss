@@ -37,7 +37,16 @@
           border: 1px solid RGBA(var(--color-border));
           box-shadow: 5px 5px 10px 0 RGB(var(--color-text) / 0.1);
           position: absolute;
+          left: 0;
           z-index: 500;
+
+          input {
+            display: none;
+          }
+
+          &.__content-top {
+            bottom: 100%;
+          }
         }
       }
     }

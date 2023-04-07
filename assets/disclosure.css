@@ -20,7 +20,12 @@
       border: 1px solid RGBA(var(--color-border));
       box-shadow: 5px 5px 10px 0 RGB(var(--color-text)/0.1);
       position: absolute;
+      left: 0;
       z-index: 500; }
+      .disclosure.__style-dropdown-traditional .disclosure__content input, .disclosure.__style-dropdown-button .disclosure__content input {
+        display: none; }
+      .disclosure.__style-dropdown-traditional .disclosure__content.__content-top, .disclosure.__style-dropdown-button .disclosure__content.__content-top {
+        bottom: 100%; }
   .disclosure.__style-dropdown-traditional .disclosure__content, .disclosure.__style-dropdown-button .disclosure__content {
     min-width: 200px;
     max-height: 350px;

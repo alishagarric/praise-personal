@@ -6,6 +6,8 @@
   &__col {
     color: RGB(var(--color-text));
     background: RGB(var(--color-background));
+    display: flex;
+    flex-direction: column;
 
     &:first-of-type {
       padding: var(--sectionVerticalSpacing);
@@ -53,6 +55,28 @@
 
   &__newsletter {
     margin-top: calc(var(--pxSize) / 2);
+  }
+
+  &__localization {
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+    gap: calc(var(--pxSize) / 3);
+    margin-top: calc(var(--pxSize) / 2);
+    align-items: flex-end;
+
+    > * {
+      flex-grow: 1;
+
+      summary {
+        width: 100%;
+        text-align: center;
+
+        span {
+          width: 100%;
+        }
+      }
+    }
   }
 
   &__badges {

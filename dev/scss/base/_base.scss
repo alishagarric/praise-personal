@@ -309,6 +309,8 @@ form:not(.__no-form-styles),
     border: 1px solid RGB(var(--color-text));
     height: calc(var(--inputHeight) / 2);
     width: calc(var(--inputHeight) / 2);
+    min-height: calc(var(--inputHeight) / 2);
+    min-width: calc(var(--inputHeight) / 2);
     position: relative;
 
     &:checked {

@@ -39,8 +39,6 @@
     align-self: flex-start; }
     .filter-and-sort__sort__details .disclosure__summary {
       border: 1px solid RGB(var(--color-foreground-text)) !important; }
-    .filter-and-sort__sort input {
-      display: none; }
   .filter-and-sort noscript {
     display: flex;
     flex-wrap: wrap;

@@ -1,7 +1,7 @@
 {{ 'filter-and-sort.css' | asset_url | stylesheet_tag }}
 {{ 'custom-icons.css' | asset_url | stylesheet_tag }}
 
-<script src="{{ 'filter-and-sort.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'submit-on-change.js' | asset_url }}" defer="defer"></script>
 
 {% comment %}
   Renders the filtering and sorting for a collection or set of search results.
@@ -15,7 +15,7 @@
 
 {%- assign sort_by = results.sort_by | default: results.default_sort_by -%}
 
-  <filter-and-sort>
+  <submit-on-change>
     <form class="filter-and-sort">
       <div class="filter-and-sort__filters">
         {% unless results.terms == nil %}
@@ -144,12 +144,13 @@
         {% capture sort_title %}{{ 'products.facets.sort_by_label' | t }}{% endcapture %}
 
         {% capture sort_content %}
-          <ul class="list-unstyled" role="list">
+        <ul class="list-unstyled" role="list">
             {%- for option in results.sort_options -%}
               <li>
                 <input 
                   name="sort_by"
                   id="Sort-by-{{ option.value }}" 
+                  class="submit-on-change__initiator"
                   type="radio"
                   {% if sort_by == option.value %}checked selected{% endif %} 
                   value="{{ option.value | escape }}"
@@ -159,7 +160,7 @@
                 </label>
               </li>
             {%- endfor -%}
-          </select>
+          </ul>
         {% endcapture %}
 
         {% render 'disclosure', title: sort_title, id: sort_title, text: sort_content, style: "dropdown-button", class: "filter-and-sort__sort__details" %}
@@ -172,4 +173,4 @@
         <button class="btn __with-underline button">{{ 'products.facets.sort_button' | t }}</button>
       </noscript>
     </form>
-  </filter-and-sort>
+  </submit-on-change>

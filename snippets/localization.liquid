@@ -1,0 +1,143 @@
+{% comment %}
+  Renders the dropdowns required to be able to change the region/country/currency of the site and the language of the site
+  Displays when the store's setting have them selling in multiple countries or multiple languages enabled on their site
+
+  Shows two diffeerent options, a traditional select with submit button for non-js users and
+  a styled dropdown that automatically submits on change for js users. This is because Shopify (https://shopify.dev/docs/themes/markets/country-language-ux)
+  mentions that "For accessibility purposes, you should create a custom component for your selectors. Native select elements can make navigation difficult for screen readers"
+
+  Expects:
+  - class
+
+  Usage:
+    {%- if localization.available_countries.size > 1 or localization.available_languages.size > 1 -%}
+      {% render 'localization', class: 'class-name' %}
+    {%- endif -%}
+
+{% endcomment %}
+<script src="{{ 'submit-on-change.js' | asset_url }}" defer="defer"></script>
+
+<div class="{{ class }}">
+  {%- if localization.available_countries.size > 1 -%}
+
+    {% comment %} No-js Country selector {% endcomment %}
+    <noscript>
+      {%- form 'localization', class: "form-styles" -%}
+        <label for="CountryList--{{ section.id }}">{{ 'general.localization.country.label' | t }}</label>
+        <select name="country_code" id="CountryList--{{ section.id }}" class="submit-on-change__initiator">
+          {%- for country in localization.available_countries -%}
+            <option
+              value="{{ country.iso_code }}"
+              {%- if country.iso_code == localization.country.iso_code %}
+                selected
+              {% endif -%}
+            >
+              {{
+                'general.localization.country.option_label'
+                | t:
+                  name: country.name,
+                  currency_iso_code: country.currency.iso_code,
+                  currency_symbol: country.currency.symbol
+              }}
+            </option>
+          {%- endfor -%}
+        </select>
+
+        <button class="btn __with-underline" type="submit">{{ 'general.localization.country.update' | t }}</button>
+      {%- endform -%}
+    </noscript>
+
+    {% comment %} Js Country selector {% endcomment %}
+    <submit-on-change class="no-js-hidden">  
+      {%- form 'localization', class: "form-styles" -%}
+        {% capture country_title %}{{ 'general.localization.country.label' | t }}{% endcapture %}
+        
+        {% capture country_content %}
+          <ul class="list-unstyled" role="list">
+            {%- for country in localization.available_countries -%}
+              <li>
+                <input
+                  name="country_code"
+                  id="Country-{{ country.iso_code }}"
+                  class="submit-on-change__initiator"
+                  type="radio"
+                  {%- if country.iso_code == localization.country.iso_code %}
+                    checked selected
+                  {% endif -%}
+                  value="{{ country.iso_code | escape }}"
+                >
+                <label for="Country-{{ country.iso_code }}">
+                  {{
+                    'general.localization.country.option_label'
+                    | t:
+                      name: country.name,
+                      currency_iso_code: country.currency.iso_code,
+                      currency_symbol: country.currency.symbol
+                  }}
+                </label>
+              </li>
+            {%- endfor -%}
+          </ul>
+        {% endcapture %}
+
+        {% render 'disclosure', title: country_title, id: country_title, text: country_content, style: "dropdown-button", location: 'bottom-edge' %}
+      {%- endform -%}
+    </submit-on-change>
+  {%- endif -%}
+
+  {%- if localization.available_languages.size > 1 -%}
+    {% comment %} No-js Language selector {% endcomment %}
+    <noscript>
+      {%- form 'localization', class: "form-styles" -%}
+        <label for="LanguageList--{{ section.id }}">{{ 'general.localization.language.label' | t }}</label>
+        <select name="locale_code" id="LanguageList--{{ section.id }}" class="submit-on-change__initiator">
+          {%- for language in localization.available_languages -%}
+            <option
+              value="{{ language.iso_code }}"
+              lang="{{ language.iso_code }}"
+              {%- if language.iso_code == localization.language.iso_code %}
+                selected
+              {% endif %}
+            >
+              {{ language.endonym_name | capitalize }}
+            </option>
+          {%- endfor -%}
+        </select>
+      
+        <button class="btn __with-underline" type="submit">{{ 'general.localization.language.update' | t }}</button>
+      {%- endform -%}
+    </noscript>
+
+    {% comment %} Js Language selector {% endcomment %}
+      <submit-on-change class="no-js-hidden">  
+        {%- form 'localization', class: "form-styles" -%}
+          {% capture language_title %}{{ 'general.localization.language.label' | t }}{% endcapture %}
+
+          {% capture language_content %}
+            <ul class="list-unstyled" role="list">
+              {%- for language in localization.available_languages -%}
+                <li>
+                  <input
+                    name="locale_code"
+                    id="Language-{{ language.iso_code }}" 
+                    class="submit-on-change__initiator"
+                    lang="{{ language.iso_code }}"
+                    type="radio"
+                    {%- if language.iso_code == localization.language.iso_code %}
+                      selected checked
+                    {% endif %}
+                    value="{{ language.iso_code | escape }}"
+                  >
+                  <label for="Language-{{ language.iso_code }}">
+                    {{ language.endonym_name | capitalize }}
+                  </label>
+                </li>
+              {%- endfor -%}
+            </ul>
+          {% endcapture %}
+
+          {% render 'disclosure', title: language_title, id: language_title, text: language_content, style: "dropdown-button", location: 'bottom-edge' %}
+        {%- endform -%}
+     </submit-on-change>  
+  {%- endif -%}
+</div>

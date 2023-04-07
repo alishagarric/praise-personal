@@ -702,6 +702,8 @@ form:not(.__no-form-styles) input[type="radio"],
   border: 1px solid RGB(var(--color-text));
   height: calc(var(--inputHeight) / 2);
   width: calc(var(--inputHeight) / 2);
+  min-height: calc(var(--inputHeight) / 2);
+  min-width: calc(var(--inputHeight) / 2);
   position: relative; }
   form:not(.__no-form-styles) input[type="checkbox"]:checked::after,
   form:not(.__no-form-styles) input[type="radio"]:checked::after,

@@ -11,6 +11,7 @@
   - article_text: {Boolen}, whether to apply article styles to content
   - class: {string} optional
   - css_vars: {string} optional
+  - location: {string} optional 'bottom-edge' will cause absolutely possitioned content to display on top instead of bottom
 
   Usage:
     {% render 'explandable-content', title: block.settings.title, text: block.settings.text, open: false %}
@@ -28,7 +29,7 @@
     <summary class="disclosure__summary {% if style == "dropdown-button" or style == "blank-button" %}btn noselect{% endif %}" aria-label="{{ title }}" role="button" aria-expanded="true" aria-controls="dropdown-{{ id }}">
       <span class="p-sm">{{ title }}</span>
     </summary>
-    <div id="dropdown-{{ id }}" class="disclosure__content {% if article_text %}__article-txt-p-sm{% endif %}">
+    <div id="dropdown-{{ id }}" class="disclosure__content {% if article_text %}__article-txt-p-sm{% endif %} {% if location == 'bottom-edge' %}__content-top{% endif %}">
       {{ text }}
 
       {{ page.content }}

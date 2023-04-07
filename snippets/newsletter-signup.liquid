@@ -13,7 +13,7 @@
 
 {% assign style = style | default: 'default' %}
 
-<div class="newsletter-signup {{ class }} __style-{{ style}}">
+<div class="newsletter-signup {{ class }} __style-{{ style }}">
   {%- form 'customer' -%}
     {%- if form.errors -%}
       <small id="NewsletterError--{{ section.id }}" class="message-error">
