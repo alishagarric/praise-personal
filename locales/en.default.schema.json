@@ -398,9 +398,31 @@
     },
     "multicolumn": {
       "name": "Multicolumn",
+      "presets": {
+        "name": "Multicolumn"
+      },
+     "settings": {
+        "header1": {
+          "content": "Text Content"
+        },
+        "header2": {
+          "content": "General"
+        },
+        "header3": {
+          "content": "Section"
+        }
+      },
       "blocks": {
         "image-with-text": {
-          "name": "Image with Text"
+          "name": "Image with Text",
+          "settings": {
+            "header1": {
+              "content": "Image Content"
+            },
+            "header2": {
+              "content": "Text"
+            }
+          }
         },
         "quote": {
           "name": "Quote"
