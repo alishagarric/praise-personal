@@ -9,7 +9,9 @@
     margin-right: calc(var(--pxSize) / 6);
     opacity: 0.6; }
   .price__unit-price {
-    display: block; }
+    display: block;
+    margin-top: 0.25rem;
+    opacity: 0.8; }
   .price__badge {
     text-transform: uppercase;
     height: calc(var(--btnHeight) * 0.75);

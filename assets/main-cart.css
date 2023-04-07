@@ -12,12 +12,18 @@
   grid-column: 2 / 3;
   grid-row: 1 / 2;
   text-align: right; }
-.main-cart__whole-price__container dl {
-  display: flex;
-  flex-wrap: wrap; }
-  .main-cart__whole-price__container dl s {
-    opacity: 0.6;
-    margin-right: calc(var(--pxSize) / 12); }
+.main-cart__whole-price__container {
+  margin: 0; }
+  .main-cart__whole-price__container dl {
+    display: flex;
+    flex-wrap: wrap; }
+    .main-cart__whole-price__container dl s {
+      opacity: 0.6;
+      margin-right: calc(var(--pxSize) / 12); }
+  .main-cart__whole-price__container__unit-price {
+    margin-bottom: 0;
+    margin-top: 0.25rem;
+    opacity: 0.8; }
 .main-cart__table {
   grid-column: 1 / 2;
   grid-row: 2 / 3; }

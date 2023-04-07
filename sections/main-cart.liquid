@@ -201,8 +201,8 @@
                       {%- endif -%}
 
                       {%- if item.variant.available and item.unit_price_measurement -%}
-                        <div>
-                          <span>{{ 'products.price.unit_price' | t }}</span>
+                        <div class="main-cart__whole-price__container__unit-price p-sm ">
+                          <span class="visually-hidden">{{ 'products.price.unit_price' | t }}</span>
                           {{ item.variant.unit_price | money }}
                           <span aria-hidden="true">/</span>
                           <span>&nbsp;{{ 'accessibility.unit_price_separator' | t }}&nbsp;</span>

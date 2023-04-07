@@ -72,15 +72,14 @@
         {{ money_price }}
       </span>
     {%- endif -%}
-  </div>
 
   {% unless product.selected_or_first_available_variant.unit_price_measurement == nil %}
-    {% comment %} Unit price {% endcomment %}
-    <small>
+    {% comment %} Unit price (Only available for stores in Germany and France at time of build) {% endcomment %}
+    <small class="price__unit-price p-sm">
       <span class="visually-hidden">
         {{ 'products.product.price.unit_price' | t }}
       </span>
-      <span class="price__unit-price">
+      <span>
         {% comment %} Price {% endcomment %}
         <span>{{- product.selected_or_first_available_variant.unit_price | money -}}</span>
         {% comment %} Separator {% endcomment %}
@@ -96,6 +95,9 @@
       </span>
     </small>
   {%- endunless -%}
+  </div>
+
+
 
   {%- if available == false and show_badges -%}
     <span class="price__badge p-sm">

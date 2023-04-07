@@ -27,6 +27,8 @@
 
   &__whole-price {
     &__container {
+      margin: 0;
+
       dl {
         display: flex;
         flex-wrap: wrap;
@@ -35,6 +37,13 @@
           opacity: 0.6;
           margin-right: calc(var(--pxSize) / 12);
         }
+      }
+
+      &__unit-price {
+        margin-bottom: 0;
+        margin-top: 0.25rem;
+
+        opacity: 0.8;
       }
     }
   }
