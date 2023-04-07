@@ -391,7 +391,121 @@
       "name": "Text Marquee"
     },
     "timeline": {
-      "name": "Timeline"
+      "name": "Timeline",
+      "presets": {
+        "name": "Timeline"
+      },
+      "settings": {
+        "content": "Text Content",
+        "heading": {
+          "label": "Heading"
+        },
+        "heading_size":{
+          "label_1": "X-Large",
+          "label_2": "Large",
+          "label_3": "Medium",
+          "label_4": "Small",
+          "label": "Heading Size"
+        },
+        "checkbox":{
+          "label": "Use body font instead of heading font for heading"
+        },
+        "description":{
+          "label": "Description"
+        },
+        "header":{
+          "content": "General"
+        },
+        "dot_color":{
+          "label": "Dot Color",
+          "options":{
+            "label_1": "Default",
+            "label_2": "Primary Theme",
+            "label_3": "2nd Theme",
+            "label_4": "3rd Theme",
+            "label_5": "4th Theme",
+            "label_6": "5th Theme"
+          }
+        },
+        "crop_shape":{
+          "options":{
+            "label_1": "No Crop",
+            "label_2": "Primary Theme",
+            "label_3": "Rounded Square",
+            "label_4": "Circle",
+            "label_5": "Portrait",
+            "label_6": "Rounded Portrait",
+            "label_7": "Semicircle Portrait",
+            "label_8": "Landscape",
+            "label_9": "Rounded Landscape",
+            "label_10": "Semicircle Landscape",
+            "label_11": "Wide",
+            "label_12": "Rounded Wide",
+            "label_13": "Semicircle Wide",
+            "label_14": "Semicircle Arch"
+          },
+          "label": "Image Crop Shape"
+        },
+        "header_2":{
+          "content": "Section"
+        },
+        "theme": {
+          "options": {
+            "label_1": "Primary Theme",
+            "label_2": "2nd Theme",
+            "label_3": "3rd Theme",
+            "label_4": "4th Theme",
+            "label_5": "5th Theme"
+          },
+          "label": "Theme"
+        },
+        "header_3":{
+          "content": "Spacing"
+        },
+        "top_spacing": {
+          "label": "Top Spacing"
+        },
+        "bottom_spacing": {
+          "label": "Bottom Spacing"
+        }
+      },
+      "blocks": {
+        "name": "Part",
+        "header":{
+          "content": "Image Content" 
+        },
+        "image_picker": {
+          "label": "Image"
+        },
+        "header_2":{
+          "content": "Text Content" 
+        },
+        "heading":{
+          "label": "Heading" 
+        },
+        "heading_size":{
+          "label_1": "X-Large",
+          "label_2": "Large",
+          "label_3": "Medium",
+          "label_4": "Small",
+          "label": "Heading Size"
+        },
+        "alt_heading": {
+          "label": "Use body font instead of heading font for heading"
+        },
+        "rich_text": {
+          "label": "Description"
+        },
+        "header_3": {
+          "label": "Button"
+        },
+        "button_label": {
+          "label": "Button Label"
+        },
+        "button_link":{
+          "label": "Button Link"
+        }
+      }
     },
     "video": {
       "name": "Video",
