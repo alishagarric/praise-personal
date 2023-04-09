@@ -370,7 +370,76 @@
       "name": "Header Group"
     },
     "header": {
-      "name": "Header"
+      "name": "Header",
+      "settings": {
+        "logo": {
+          "label": "logo"
+        },
+        "logo_placement":{
+          "label": "Logo Placement",
+          "options": {
+            "label:_1": "Left",
+            "label_2": "Center"
+          }
+        },
+        "link_list":{
+          "label": "Menu"
+        },
+        "always_show_nav": {
+          "label": "Don't hide navigation bar on scroll down"
+        }
+      },
+      "blocks": {
+        "mega_menu": {
+          "name": "Mega Menu",
+          "label": "Nav Item Label",
+          "header": {
+            "content": "Text Block"
+          },
+          "heading_0": {
+            "label": "Heading"
+          },
+          "description": {
+            "label": "Description"
+          },
+          "button_label": {
+            "label": "Button Label"
+          },
+          "button_link": {
+            "label": "Button Link"
+          },
+          "header_2": {
+            "content": "Promotion"
+          },
+          "heading_1": {
+            "label": "Heading"
+          },
+          "text_1": {
+            "label": "Description"
+          },
+          "link_1": {
+            "label": "Link"
+          },
+          "image_1": {
+            "label": "Image"
+          },
+          "header_3": {
+            "content": "Promotion 2"
+          },
+          "heading_2":{
+            "label": "Heading"
+          },
+          "text_2": {
+            "label": "Description"
+          },
+          "link_2": {
+            "label": "Link"
+          },
+          "image_2": {
+            "label": "Image"
+          }
+        }
+      }
     },
     "icons-section": {
       "name": "Icons Section",
