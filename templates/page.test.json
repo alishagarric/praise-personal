@@ -411,21 +411,73 @@
             "button_link": "",
             "button_color": "3"
           }
+        },
+        "29f4fd08-cdbb-4854-8f1a-f4ad46a85293": {
+          "type": "image",
+          "settings": {
+            "overlay": 20,
+            "overlay_theme": "primary",
+            "crop_shape": "default",
+            "heading": "Lorem ipsum",
+            "heading_size": "h5",
+            "overlap": false,
+            "text": "<p>Hello<\/p>",
+            "alignment": "center",
+            "button_label": "Laboris Nisi",
+            "button_link": "",
+            "button_color": "5"
+          }
+        },
+        "e955d7c3-5e82-4a6a-8101-0a50c25694df": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/ha-nguy-n-OFSQ6bHjFjs-unsplash_1.jpg",
+            "overlay": 30,
+            "overlay_theme": "primary",
+            "crop_shape": "circle",
+            "heading": "Lorem ipsum",
+            "heading_size": "h5",
+            "overlap": false,
+            "text": "",
+            "alignment": "right",
+            "button_label": "Laboris Nisi",
+            "button_link": "",
+            "button_color": "default"
+          }
+        },
+        "57b226bb-37f1-4351-aebd-1f996e5a72d9": {
+          "type": "image",
+          "settings": {
+            "overlay": 0,
+            "overlay_theme": "primary",
+            "crop_shape": "default",
+            "heading": "Lorem ipsum",
+            "heading_size": "h5",
+            "overlap": false,
+            "text": "",
+            "alignment": "left",
+            "button_label": "Laboris Nisi",
+            "button_link": "",
+            "button_color": "default"
+          }
         }
       },
       "block_order": [
-        "42faed85-fa8a-42f4-a030-9646019d1278"
+        "42faed85-fa8a-42f4-a030-9646019d1278",
+        "29f4fd08-cdbb-4854-8f1a-f4ad46a85293",
+        "e955d7c3-5e82-4a6a-8101-0a50c25694df",
+        "57b226bb-37f1-4351-aebd-1f996e5a72d9"
       ],
       "settings": {
-        "heading": "Lorem ipsum dolor sit",
-        "heading_size": "h4",
+        "heading": "Lorem ipsum dolor si",
+        "heading_size": "h2",
         "alt_heading": false,
-        "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.<\/p>",
+        "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip<\/p>",
         "alignment": "center",
-        "columns_desktop": 3,
+        "columns_desktop": 2,
         "columns_mobile": 2,
         "layout": "default",
-        "theme": "primary",
+        "theme": "2",
         "top_spacing": 50,
         "bottom_spacing": 50
       }
