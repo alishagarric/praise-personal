@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AACE,sBAAU;EACR,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,CAAC;EACT,aAAa,EAAE,CAAC",
+"sources": ["../dev/scss/sections/video-section.scss"],
+"names": [],
+"file": "video-section.css"
+}

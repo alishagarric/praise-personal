@@ -2,7 +2,7 @@ class DeferredMedia extends HTMLElement {
   constructor() {
     super();
     const poster = this.querySelector('[id^="Deferred-Poster-"]');
-    if (!this.poster) return;
+    if (!poster) return;
 
     poster.addEventListener("click", this.loadContent.bind(this));
   }

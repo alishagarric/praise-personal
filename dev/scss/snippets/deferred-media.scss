@@ -1,0 +1,36 @@
+.deferred-media {
+  overflow: hidden;
+
+  /*  &__poster {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: auto;
+      height: 100%;
+    }
+  }
+  */
+
+  &:not([loaded]) {
+    template {
+      z-index: -1;
+    }
+  }
+
+  &[loaded] > .deferred-media__poster {
+    display: none;
+  }
+
+  &:focus {
+    outline-offset: -0.3rem;
+  }
+}
