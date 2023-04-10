@@ -2,6 +2,7 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "top_spacing": 50,
         "bottom_spacing": 50,
@@ -10,6 +11,7 @@
     },
     "0978cd8e-e514-47cf-ac5e-00b5a4841ee4": {
       "type": "image-with-text",
+      "disabled": true,
       "blocks": {
         "template--16667010040030__0978cd8e-e514-47cf-ac5e-00b5a4841ee4-16744357773c9b5e8e-0": {
           "type": "heading",
@@ -54,6 +56,7 @@
     },
     "fcaa494f-a34f-4f27-94ea-7739c3c85310": {
       "type": "text-marquee",
+      "disabled": true,
       "settings": {
         "text": "Lorem ipsum dolor enim ad minim veniam",
         "text_size": "h6",
@@ -66,6 +69,7 @@
     },
     "5b6c79ec-6ed6-42d0-9152-89ee02e3c2e1": {
       "type": "content-marquee",
+      "disabled": true,
       "settings": {
         "alignment": "center",
         "speed": 5,
@@ -76,6 +80,7 @@
     },
     "420412b0-5ff1-498b-8638-a4506a52792d": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "collection": "",
         "theme_slideshow": false,
@@ -98,6 +103,7 @@
     },
     "26436845-ef08-408c-b334-f56747ca7916": {
       "type": "icons-section",
+      "disabled": true,
       "blocks": {
         "template--16667010040030__26436845-ef08-408c-b334-f56747ca7916-1674435829b28255b0-0": {
           "type": "icon",
@@ -141,6 +147,7 @@
     },
     "13355434-d857-4ad6-a479-714b2df7f492": {
       "type": "collections-list",
+      "disabled": true,
       "settings": {
         "heading": "Lorem ipsum dolor sit",
         "heading_size": "h4",
@@ -154,6 +161,7 @@
     },
     "ea3a7d55-b687-4a6c-bdf9-f9c9a5bf8f71": {
       "type": "shop-the-look",
+      "disabled": true,
       "blocks": {
         "template--16667010040030__ea3a7d55-b687-4a6c-bdf9-f9c9a5bf8f71-1674435869e5f9bf79-0": {
           "type": "product",
@@ -193,6 +201,7 @@
     },
     "56b949e4-d083-4bc7-95ab-a990c1575f1d": {
       "type": "image-banner",
+      "disabled": true,
       "blocks": {
         "template--16667010040030__56b949e4-d083-4bc7-95ab-a990c1575f1d-1674435855d662b82a-0": {
           "type": "heading",
@@ -236,6 +245,7 @@
     },
     "b179a3e5-e091-4a47-aa6e-57c08f3fe9a2": {
       "type": "featured-blog",
+      "disabled": true,
       "settings": {
         "heading": "Lorem ipsum dolor sit",
         "heading_size": "h5",
@@ -257,6 +267,7 @@
     },
     "ce02e8aa-f37c-46fe-bffb-0a5ca600f991": {
       "type": "multicolumn",
+      "disabled": true,
       "settings": {
         "heading": "Lorem ipsum dolor sit",
         "heading_size": "h4",
@@ -273,6 +284,7 @@
     },
     "92c30198-8f2c-4493-97a9-49556b7ebbcb": {
       "type": "rich-text",
+      "disabled": true,
       "blocks": {
         "template--16667010040030__92c30198-8f2c-4493-97a9-49556b7ebbcb-167443595750c84ff0-0": {
           "type": "heading",
@@ -310,6 +322,7 @@
     },
     "5342c31a-ae8a-4791-860a-cfa6c59360d6": {
       "type": "content-marquee",
+      "disabled": true,
       "blocks": {
         "3c77e5e9-a264-4c7b-b3d9-1aa0b59ad4a9": {
           "type": "image",
@@ -360,6 +373,7 @@
     },
     "7d2a9a62-29ec-4890-a840-064ac0cc6394": {
       "type": "collection-teaser",
+      "disabled": true,
       "settings": {
         "collections": [
           "cookie-collection",
@@ -394,6 +408,7 @@
     },
     "0d10def1-9b62-43cd-95b0-4ff44cc3bc7b": {
       "type": "multicolumn",
+      "disabled": true,
       "blocks": {
         "42faed85-fa8a-42f4-a030-9646019d1278": {
           "type": "image",
@@ -481,6 +496,45 @@
         "top_spacing": 50,
         "bottom_spacing": 50
       }
+    },
+    "ee671211-b366-4800-b512-79430d630a1d": {
+      "type": "shop-the-look",
+      "blocks": {
+        "template--16667010040030__ee671211-b366-4800-b512-79430d630a1d-1681162306af68278e-0": {
+          "type": "product",
+          "settings": {
+            "product": "baby-blues",
+            "horizontal_pos": 75,
+            "vertical_pos": 50
+          }
+        },
+        "template--16667010040030__ee671211-b366-4800-b512-79430d630a1d-1681162306af68278e-1": {
+          "type": "product",
+          "settings": {
+            "product": "beet-treat",
+            "horizontal_pos": 50,
+            "vertical_pos": 20
+          }
+        }
+      },
+      "block_order": [
+        "template--16667010040030__ee671211-b366-4800-b512-79430d630a1d-1681162306af68278e-0",
+        "template--16667010040030__ee671211-b366-4800-b512-79430d630a1d-1681162306af68278e-1"
+      ],
+      "settings": {
+        "image_crop_shape": "portrait",
+        "show_phrase": false,
+        "show_description": false,
+        "quick_add": false,
+        "show_bg_color": false,
+        "alt_title": false,
+        "product_text_alignment": "default",
+        "price": "default",
+        "crop_shape": "default",
+        "theme": "primary",
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
     }
   },
   "order": [
@@ -498,6 +552,7 @@
     "92c30198-8f2c-4493-97a9-49556b7ebbcb",
     "5342c31a-ae8a-4791-860a-cfa6c59360d6",
     "7d2a9a62-29ec-4890-a840-064ac0cc6394",
-    "0d10def1-9b62-43cd-95b0-4ff44cc3bc7b"
+    "0d10def1-9b62-43cd-95b0-4ff44cc3bc7b",
+    "ee671211-b366-4800-b512-79430d630a1d"
   ]
 }
