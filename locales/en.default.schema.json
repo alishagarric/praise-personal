@@ -358,16 +358,219 @@
       "name": "Featured Collection"
     },
     "featured-product": {
-      "name": "Featured Product"
-    },
-    "footer-group": {
-      "name": "Footer Group"
+      "name": "Featured Product",
+      "presets": {
+        "name": "Featured Product"
+      },
+      "settings": {
+        "header": {
+          "content": "General"
+        },
+        "product": {
+          "label": "Product"
+        },
+        "hero": {
+          "label": "Use as hero",
+          "info": "Should be selected if this section is the first or second on a page and contains the page title. There should only be one page title/hero used per page."
+        },
+        "alignment": {
+          "label": "Alignment",
+          "options": {
+            "label_1": "Left",
+            "label_2": "Center",
+            "label_3": "Right"
+          }
+        },
+        "theme_section": {
+          "label": "Theme section with product colors",
+          "options": {
+            "label_1": "Don't Theme",
+            "label_2": "Theme First Half of Blocks",
+            "label_3": "Theme All but Last Block"
+          },
+          "info": "Only applies when there's enough products in the collection to initiate a slideshow. Relies on the addition of product metafields. TODO: Add link with info"
+        },
+        "layout": {
+          "options": {
+            "label_1": "Align Image Right",
+            "label_2": "Align Image Left"
+          },
+          "label": "Layout"
+        },
+        "crop_shape": {
+          "options":{
+            "label_1": "No Crop",
+            "label_2": "Square",
+            "label_3": "Rounded Square",
+            "label_4": "Circle",
+            "label_5": "Portrait",
+            "label_6": "Rounded Portrait",
+            "label_7": "Semicircle Portrait",
+            "label_8": "Landscape",
+            "label_9": "Rounded Landscape",
+            "label_10": "Semicircle Landscape",
+            "label_11": "Wide",
+            "label_12": "Rounded Wide",
+            "label_13": "Semicircle Wide",
+            "label_14": "Semicircle Arch"
+          },
+          "label": "Image Crop Shape"
+        },
+        "show_phrase": {
+          "label": "Show product phrase"
+        },
+        "mobile_layout": {
+          "options": {
+            "label_1": "Image On Top",
+            "label_2": "Text On Top"
+          },
+          "label": "Mobile Layout"
+        },
+        "header_2": {
+          "content": "Section"
+        },
+        "theme": {
+          "options": {
+            "label_1": "Primary Theme",
+            "label_2": "2nd Theme",
+            "label_3": "3rd Theme",
+            "label_4": "4th Theme",
+            "label_5": "5th Theme"
+          },
+          "label": "Theme"
+        },
+        "top_spacing": {
+          "label": "Top Spacing"
+        },
+        "bottom_spacing": {
+          "label": "Bottom Spacing"
+        }
+      },
+      "blocks": {
+        "text": {
+          "label": "Text",
+          "settings": {
+            "name": "Text",
+            "text_size": {
+              "options": {
+                "label_1": "Small Text",
+                "label_2": "Basic Text",
+                "label_3": "Large Text"
+              },
+            "label": "Text Size"
+            },
+            "include_border": {
+              "label": "Include border"
+            }
+          }
+        },
+        "expandable": {
+          "name": "Expandable Content",
+          "settings":{
+            "title": {
+              "label": "Title"
+            },
+            "text": {
+              "label": "Text"
+            },
+            "page": {
+              "label": "Text from a page"
+            },
+            "open": {
+              "label": "Open"
+            }
+          }
+        },
+        "title": {
+          "settings": {
+            "options": {
+              "label_1": "X-Large",
+              "label_2": "Large",
+              "label_3": "Medium",
+              "label_4": "Small"
+            },
+            "label": "Heading Size",
+            "alt_heading": "Use body font instead of heading font for heading"
+          }
+        },
+        "price": {
+          "settings": {
+            "options": {
+              "label_1": "X-Large",
+              "label_2": "Large",
+              "label_3": "Medium",
+              "label_4": "Small"
+            },
+            "label": "Heading Size"
+          }
+        },
+        "variant_picker":{
+          "settings": {
+            "layout": {
+              "label": "Layout",
+              "options": {
+                "label_1": "Dropdown",
+                "label_2": "Buttons"
+              }
+            },
+            "show_option_labels": {
+              "label": "Show option labels and option descriptions",
+              "info": "Option descriptions can be added using metafields TODO: link"
+            },
+            "include_border": {
+              "label": "Include border"
+            }
+          }
+        },
+        "buy_buttons":{
+          "name": "Buy buttons/quanity",
+          "settings": {
+            "show_quantity": {
+              "label": "Show quantity selector"
+            },
+            "hide_dynamic_buttons":{
+              "label": "Hide dynamic checkout buttons"
+            },
+            "include_border":{
+              "label": "Include border"
+            }
+          }
+        },
+        "description": {
+          "settings": {
+            "options": {
+              "label_1": "Small Text",
+              "label_2": "Basic Text",
+              "label_3": "Large Text"
+            },
+            "label": "Text Size"
+          }
+        },
+        "shop_button":{
+          "name": "Shop Button",
+          "settings": {
+            "label": "Shop Now",
+            "info": "Links to the product's page"
+          }
+        },
+        "divider": {
+          "name": "Divider/Space",
+          "settings": {
+            "top": {
+              "label": "Top Spacing"
+            },
+            "bottom": {
+              "label": "Bottom Spacing"
+            },
+            "hide_divider": {
+              "label": "Hide divider"
+            }
+          }
+        }
+      }
     },
     "gift-card": {
       "name": "Gift Card"
-    },
-    "header-group": {
-      "name": "Header Group"
     },
     "header": {
       "name": "Header",
@@ -378,7 +581,7 @@
         "logo_placement":{
           "label": "Logo Placement",
           "options": {
-            "label:_1": "Left",
+            "label_1": "Left",
             "label_2": "Center"
           }
         },
@@ -1259,3 +1462,4 @@
     }
   }
 }
+
