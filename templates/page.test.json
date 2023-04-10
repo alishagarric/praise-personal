@@ -474,9 +474,9 @@
         "alt_heading": false,
         "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip<\/p>",
         "alignment": "center",
-        "columns_desktop": 2,
+        "columns_desktop": 3,
         "columns_mobile": 2,
-        "layout": "default",
+        "layout": "slideshow",
         "theme": "2",
         "top_spacing": 50,
         "bottom_spacing": 50
