@@ -358,7 +358,31 @@
       "name": "Content Marquee"
     },
     "divider": {
-      "name": "Divider"
+      "name": "Divider",
+      "presets": {
+        "name": "Divider"
+      },
+      "settings": {
+        "header": {
+          "content": "Section"
+        },
+        "theme": {
+          "options": {
+            "label_1": "Primary Theme",
+            "label_2": "2nd Theme",
+            "label_3": "3rd Theme",
+            "label_4": "4th Theme",
+            "label_5": "5th Theme"
+          },
+          "label": "Theme"
+        },
+        "top_spacing": {
+          "label": "Top Spacing"
+        },
+        "bottom_spacing": {
+          "label": "Bottom Spacing"
+        }
+      }
     },
     "featured-collection": {
       "name": "Featured Collection",
