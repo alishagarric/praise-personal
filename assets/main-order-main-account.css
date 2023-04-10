@@ -22,14 +22,16 @@
         font-weight: var(--font-heading-weight);
         color: RGB(var(--color-text));
         line-height: 1.15;
+        letter-spacing: var(--font-heading-spacing);
         word-break: break-word;
         margin: 0 0 1rem 0;
         font-size: calc(3rem * var(--font-heading-scale));
         font-weight: 900;
-        letter-spacing: 0;
+        letter-spacing: var(--font-body-spacing);
         font-family: var(--font-body-family);
         font-style: var(--font-body-style);
         font-weight: var(--font-body-weight);
+        line-height: 1.4;
         margin: 0 0 1rem 0;
         font-size: calc(1.125rem * var(--font-body-scale));
         text-transform: uppercase;
@@ -68,10 +70,11 @@
         .main-order-main-account__sidebar a:hover:after {
           transform: scale(1.1, 1.5); }
     .main-order-main-account__sidebar h1 {
-      letter-spacing: 0;
+      letter-spacing: var(--font-body-spacing);
       font-family: var(--font-body-family);
       font-style: var(--font-body-style);
       font-weight: var(--font-body-weight);
+      line-height: 1.4;
       margin: 0 0 1rem 0;
       font-size: calc(1.375rem * var(--font-body-scale)); }
       @media (max-width: 1024px) {
@@ -79,18 +82,20 @@
           font-size: calc(1.2rem * var(--font-body-scale)); } }
     .main-order-main-account__sidebar h2 {
       margin-top: var(--pxSize);
-      letter-spacing: 0;
+      letter-spacing: var(--font-body-spacing);
       font-family: var(--font-body-family);
       font-style: var(--font-body-style);
       font-weight: var(--font-body-weight);
+      line-height: 1.4;
       margin: 0 0 1rem 0;
       font-size: calc(1.125rem * var(--font-body-scale)); }
     .main-order-main-account__sidebar a,
     .main-order-main-account__sidebar p {
-      letter-spacing: 0;
+      letter-spacing: var(--font-body-spacing);
       font-family: var(--font-body-family);
       font-style: var(--font-body-style);
       font-weight: var(--font-body-weight);
+      line-height: 1.4;
       margin: 0 0 1rem 0;
       font-size: calc(0.9rem * var(--font-body-scale)); }
   .main-order-main-account__orders {
@@ -128,10 +133,11 @@
         margin-top: 0.25rem;
         opacity: 0.8; }
     .main-order-main-account__orders__list p {
-      letter-spacing: 0;
+      letter-spacing: var(--font-body-spacing);
       font-family: var(--font-body-family);
       font-style: var(--font-body-style);
       font-weight: var(--font-body-weight);
+      line-height: 1.4;
       margin: 0 0 1rem 0;
       font-size: calc(0.9rem * var(--font-body-scale)); }
     .main-order-main-account__orders__list li {
@@ -141,10 +147,11 @@
   .main-order-main-account__table__styled-head {
     border-bottom: 1px solid RGBA(var(--color-border)); }
     .main-order-main-account__table__styled-head th {
-      letter-spacing: 0;
+      letter-spacing: var(--font-body-spacing);
       font-family: var(--font-body-family);
       font-style: var(--font-body-style);
       font-weight: var(--font-body-weight);
+      line-height: 1.4;
       margin: 0 0 1rem 0;
       font-size: calc(0.9rem * var(--font-body-scale));
       border: none; }

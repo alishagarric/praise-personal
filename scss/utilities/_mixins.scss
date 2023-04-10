@@ -4,6 +4,7 @@
   font-weight: var(--font-heading-weight);
   color: RGB(var(--color-text));
   line-height: 1.15;
+  letter-spacing: var(--font-heading-spacing);
   word-break: break-word;
   margin: 0 0 1rem 0;
 
@@ -96,10 +97,11 @@
 }
 
 @mixin basicParagraph() {
-  letter-spacing: 0;
+  letter-spacing: var(--font-body-spacing);
   font-family: var(--font-body-family);
   font-style: var(--font-body-style);
   font-weight: var(--font-body-weight);
+  line-height: 1.4;
   margin: 0 0 1rem 0;
 }
 
