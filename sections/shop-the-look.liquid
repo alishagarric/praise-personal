@@ -45,19 +45,23 @@
           {% for block in section.blocks %}
             {% case block.type %}
               {% when 'product' %}
+                  {% assign border_color = '0,0,0' %}
                 {% if block.settings.product == blank %}
                   {% assign horizontal_pos = 50 %}
                   {% assign vertical_pos = 50 %}
-                  {% assign border_color = '0,0,0' %}
+                  
                 {% else %}
                   {% assign horizontal_pos = block.settings.horizontal_pos %}
                   {% assign vertical_pos = block.settings.vertical_pos %}
-                  {% assign border_color = block.settings.product.metafields.custom.color.value.red
-                    | append: ','
-                    | append: block.settings.product.metafields.custom.color.value.green
-                    | append: ','
-                    | append: block.settings.product.metafields.custom.color.value.blue
-                  %}
+
+                  {% if block.settings.product.metafields.custom.color != blank %}
+                    {% assign border_color = block.settings.product.metafields.custom.color.value.red
+                      | append: ','
+                      | append: block.settings.product.metafields.custom.color.value.green
+                      | append: ','
+                      | append: block.settings.product.metafields.custom.color.value.blue
+                    %}
+                  {% endif %}
                 {% endif %}
                 <div
                   class="shop-the-look__dots__dot"
@@ -314,6 +318,10 @@
       "type": "product",
       "name": "t:sections.shop-the-look.blocks.product.name",
       "settings": [
+        {
+          "type": "paragraph",
+          "content": "Add product metafields in order to theme the slideshow with associated product colors. TODO: Add link with info"
+        },
         {
           "type": "product",
           "id": "product",

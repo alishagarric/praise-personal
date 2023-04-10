@@ -223,8 +223,8 @@
         "type": "range",
         "id": "body_spacing",
         "min": 0,
-        "max": 100,
-        "step": 5,
+        "max": 40,
+        "step": 2,
         "unit": "%",
         "label": "t:settings_schema.typography.settings.body_spacing.label",
         "default": 0
