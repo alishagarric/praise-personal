@@ -13,7 +13,7 @@
         "599e2d68-7d31-4caf-baa2-43362684a30b": {
           "type": "text",
           "settings": {
-            "text": "<p>All our cookies use natural ingredients and are made in Williamsburg at our Brooklyn bakery.</p>"
+            "text": "<p>All our cookies use natural ingredients and are made in Williamsburg at our Brooklyn bakery.<\/p>"
           }
         }
       },
@@ -22,7 +22,7 @@
         "599e2d68-7d31-4caf-baa2-43362684a30b"
       ],
       "settings": {
-        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_549b821c-6850-42f3-ae03-51e8af8116c6.jpg",
+        "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_549b821c-6850-42f3-ae03-51e8af8116c6.jpg",
         "overlay": 50,
         "overlay_theme": "4",
         "crop_shape": "default",
@@ -48,7 +48,7 @@
         "eb3534e5-bccc-4b1d-8995-da0c99665bba": {
           "type": "text",
           "settings": {
-            "text": "<p>Atypical cookies and treats that push the boundaries of indulgence. An ode to the well-balanced classic cookie. This season we are celebrating all the nostalgia and what pairs best with chocolate chips.</p>"
+            "text": "<p>Atypical cookies and treats that push the boundaries of indulgence. An ode to the well-balanced classic cookie. This season we are celebrating all the nostalgia and what pairs best with chocolate chips.<\/p>"
           }
         }
       },
@@ -57,7 +57,7 @@
         "eb3534e5-bccc-4b1d-8995-da0c99665bba"
       ],
       "settings": {
-        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_549b821c-6850-42f3-ae03-51e8af8116c6.jpg",
+        "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_549b821c-6850-42f3-ae03-51e8af8116c6.jpg",
         "overlay": 70,
         "overlay_theme": "5",
         "crop_shape": "rounded-wide",
@@ -84,7 +84,7 @@
         "template--16406887071966__f2989769-c365-432b-8663-172dec4d23d5-167036307199fd24ce-0": {
           "type": "icon",
           "settings": {
-            "icon": "shopify://shop_images/Group_100.png",
+            "icon": "shopify:\/\/shop_images\/Group_100.png",
             "heading": "",
             "text": "Value"
           }
@@ -92,7 +92,7 @@
         "template--16406887071966__f2989769-c365-432b-8663-172dec4d23d5-167036307199fd24ce-1": {
           "type": "icon",
           "settings": {
-            "icon": "shopify://shop_images/Vector.png",
+            "icon": "shopify:\/\/shop_images\/Vector.png",
             "heading": "",
             "text": "Value"
           }
@@ -100,7 +100,7 @@
         "template--16406887071966__f2989769-c365-432b-8663-172dec4d23d5-167036307199fd24ce-2": {
           "type": "icon",
           "settings": {
-            "icon": "shopify://shop_images/Group.png",
+            "icon": "shopify:\/\/shop_images\/Group.png",
             "heading": "",
             "text": "Value"
           }
@@ -108,7 +108,7 @@
         "4b3a915a-bee5-49f9-9a78-d84f78290651": {
           "type": "icon",
           "settings": {
-            "icon": "shopify://shop_images/Group_100.png",
+            "icon": "shopify:\/\/shop_images\/Group_100.png",
             "heading": "",
             "text": "Lorem ipsum"
           }
@@ -116,7 +116,7 @@
         "50db8156-e4c0-4c21-b289-6ccb2088a577": {
           "type": "icon",
           "settings": {
-            "icon": "shopify://shop_images/Vector.png",
+            "icon": "shopify:\/\/shop_images\/Vector.png",
             "heading": "",
             "text": "Lorem ipsum"
           }
@@ -124,7 +124,7 @@
         "445bc021-ee04-4b20-a595-7cc635211260": {
           "type": "icon",
           "settings": {
-            "icon": "shopify://shop_images/Group.png",
+            "icon": "shopify:\/\/shop_images\/Group.png",
             "heading": "",
             "text": "Lorem ipsum"
           }
@@ -165,23 +165,23 @@
         "eb74b024-43e4-4343-8146-6c03e00cb3f1": {
           "type": "part",
           "settings": {
-            "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_bbf54c90-3c31-4e00-962c-f12d6b17cf77.jpg",
+            "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_bbf54c90-3c31-4e00-962c-f12d6b17cf77.jpg",
             "heading": "",
             "heading_size": "h4",
             "alt_heading": false,
-            "text": "<p><strong>Part of our story 1</strong></p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis ullamcorper donec at in tempor tortor facilisi egestas gravida. Porttitor sed amet mi elit eget blandit lacus, egestas laoreet. Magna mauris lobortis in laoreet venenatis tempus, non. Nisi suscipit tortor ornare eu, mattis. Velit sit elementum tristique aliquet viverra viverra ullamcorper sed. </p>",
+            "text": "<p><strong>Part of our story 1<\/strong><\/p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis ullamcorper donec at in tempor tortor facilisi egestas gravida. Porttitor sed amet mi elit eget blandit lacus, egestas laoreet. Magna mauris lobortis in laoreet venenatis tempus, non. Nisi suscipit tortor ornare eu, mattis. Velit sit elementum tristique aliquet viverra viverra ullamcorper sed. <\/p>",
             "button_label": "See Ingredients",
-            "button_link": "shopify://collections"
+            "button_link": "shopify:\/\/collections"
           }
         },
         "464bda83-5714-4bff-bcd6-ee1d1bcb4582": {
           "type": "part",
           "settings": {
-            "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_a6c4dcf8-a5c2-45ab-8711-f1aa9365378c.jpg",
+            "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_a6c4dcf8-a5c2-45ab-8711-f1aa9365378c.jpg",
             "heading": "Part of our story 2",
             "heading_size": "h6",
             "alt_heading": false,
-            "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>",
+            "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.<\/p>",
             "button_label": "",
             "button_link": ""
           }
@@ -189,11 +189,11 @@
         "c0b903c8-fc19-4ea1-a9c4-c82d8a64ab52": {
           "type": "part",
           "settings": {
-            "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash.jpg",
+            "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash.jpg",
             "heading": "Part of our story 3",
             "heading_size": "h6",
             "alt_heading": true,
-            "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>",
+            "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.<\/p>",
             "button_label": "",
             "button_link": ""
           }
@@ -205,9 +205,13 @@
         "c0b903c8-fc19-4ea1-a9c4-c82d8a64ab52"
       ],
       "settings": {
-        "theme": "primary",
-        "crop_shape": "square",
+        "heading": "Lorem ipsum",
+        "heading_size": "h4",
+        "alt_heading": false,
+        "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.<\/p>",
         "dot_color": "3",
+        "crop_shape": "square",
+        "theme": "primary",
         "top_spacing": 50,
         "bottom_spacing": 50
       }
@@ -226,7 +230,7 @@
           "type": "button",
           "settings": {
             "button_label": "Learn more",
-            "button_link": "shopify://collections/cookie-collection",
+            "button_link": "shopify:\/\/collections\/cookie-collection",
             "button_color": "default"
           }
         }
@@ -236,7 +240,7 @@
         "dfa21165-42de-44ad-b3ef-d70913dbfb50"
       ],
       "settings": {
-        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_a6c4dcf8-a5c2-45ab-8711-f1aa9365378c.jpg",
+        "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_a6c4dcf8-a5c2-45ab-8711-f1aa9365378c.jpg",
         "overlay": 40,
         "overlay_theme": "3",
         "crop_shape": "circle",
@@ -252,6 +256,13 @@
     "video": {
       "type": "video",
       "settings": {
+        "heading": "Lorem Ipsum",
+        "heading_size": "h4",
+        "alt_heading": false,
+        "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.<\/p>",
+        "cover_image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_cd0b890c-b357-4857-9c0d-36126dbfab86.jpg",
+        "video": "youtube.com\/watch?v=_A_Jpr9HkGA",
+        "crop_shape": "video",
         "theme": "primary",
         "top_spacing": 50,
         "bottom_spacing": 50
@@ -272,7 +283,7 @@
         "crop_shape": "square",
         "heading": "Shop Our Bestsellers",
         "alt_heading": true,
-        "text": "<p>Functional handbags made of luxurious and honest materials to improve people's lives in small but mighty ways.</p>",
+        "text": "<p>Functional handbags made of luxurious and honest materials to improve people's lives in small but mighty ways.<\/p>",
         "collection_text_content": false,
         "theme": "primary",
         "top_spacing": 50,
@@ -285,14 +296,14 @@
         "470fd417-3f1a-44c7-8382-ae14c26554b8": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_a6c4dcf8-a5c2-45ab-8711-f1aa9365378c.jpg",
+            "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_a6c4dcf8-a5c2-45ab-8711-f1aa9365378c.jpg",
             "overlay": 40,
             "overlay_theme": "5",
             "crop_shape": "semicircle-portrait",
             "heading": "Alisha Garric",
             "heading_size": "h2",
             "overlap": true,
-            "text": "<p><strong>Head Chef</strong></p><p><strong>A little About Me<br/></strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mattis pellentesque velit convallis scelerisque. Ultrices quis aliquet nulla at magna imperdiet. Eu eget tristique ipsum malesuada convallis felis.</p>",
+            "text": "<p><strong>Head Chef<\/strong><\/p><p><strong>A little About Me<br\/><\/strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mattis pellentesque velit convallis scelerisque. Ultrices quis aliquet nulla at magna imperdiet. Eu eget tristique ipsum malesuada convallis felis.<\/p>",
             "alignment": "left",
             "button_label": "",
             "button_link": "",
@@ -302,14 +313,14 @@
         "61ff9c84-50f8-4831-8a55-c57073c1bcd2": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_a6c4dcf8-a5c2-45ab-8711-f1aa9365378c.jpg",
+            "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_a6c4dcf8-a5c2-45ab-8711-f1aa9365378c.jpg",
             "overlay": 40,
             "overlay_theme": "3",
             "crop_shape": "semicircle-portrait",
             "heading": "Daniel Day Clueless",
             "heading_size": "h2",
             "overlap": true,
-            "text": "<p><strong>Head Chef</strong></p><p><strong>A little About Me<br/></strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mattis pellentesque velit convallis scelerisque. Ultrices quis aliquet nulla at magna imperdiet. Eu eget tristique ipsum malesuada convallis felis.</p>",
+            "text": "<p><strong>Head Chef<\/strong><\/p><p><strong>A little About Me<br\/><\/strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mattis pellentesque velit convallis scelerisque. Ultrices quis aliquet nulla at magna imperdiet. Eu eget tristique ipsum malesuada convallis felis.<\/p>",
             "alignment": "left",
             "button_label": "",
             "button_link": "",
@@ -319,14 +330,14 @@
         "99b8531b-074b-4667-998e-bbe00d2e275e": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_a6c4dcf8-a5c2-45ab-8711-f1aa9365378c.jpg",
+            "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_a6c4dcf8-a5c2-45ab-8711-f1aa9365378c.jpg",
             "overlay": 40,
             "overlay_theme": "4",
             "crop_shape": "semicircle-portrait",
             "heading": "Danny “Thunder” McBride",
             "heading_size": "h2",
             "overlap": true,
-            "text": "<p><strong>Head Chef</strong></p><p><strong>A little About Me<br/></strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mattis pellentesque velit convallis scelerisque. Ultrices quis aliquet nulla at magna imperdiet. Eu eget tristique ipsum malesuada convallis felis.</p>",
+            "text": "<p><strong>Head Chef<\/strong><\/p><p><strong>A little About Me<br\/><\/strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mattis pellentesque velit convallis scelerisque. Ultrices quis aliquet nulla at magna imperdiet. Eu eget tristique ipsum malesuada convallis felis.<\/p>",
             "alignment": "left",
             "button_label": "",
             "button_link": "",
@@ -336,14 +347,14 @@
         "4387cb75-4bc2-4503-95b5-dd98f7f824ae": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_a6c4dcf8-a5c2-45ab-8711-f1aa9365378c.jpg",
+            "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_a6c4dcf8-a5c2-45ab-8711-f1aa9365378c.jpg",
             "overlay": 40,
             "overlay_theme": "5",
             "crop_shape": "semicircle-portrait",
             "heading": "Alisha Garric",
             "heading_size": "h2",
             "overlap": true,
-            "text": "<p><strong>Head Chef</strong></p><p><strong>A little About Me<br/></strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mattis pellentesque velit convallis scelerisque. Ultrices quis aliquet nulla at magna imperdiet. Eu eget tristique ipsum malesuada convallis felis.</p>",
+            "text": "<p><strong>Head Chef<\/strong><\/p><p><strong>A little About Me<br\/><\/strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mattis pellentesque velit convallis scelerisque. Ultrices quis aliquet nulla at magna imperdiet. Eu eget tristique ipsum malesuada convallis felis.<\/p>",
             "alignment": "left",
             "button_label": "",
             "button_link": "",
@@ -377,10 +388,10 @@
         "830e5ff8-b1ac-469b-91e1-0a5d71ab525c": {
           "type": "quote",
           "settings": {
-            "quote": "<p>1 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.</p>",
+            "quote": "<p>1 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.<\/p>",
             "quotations": true,
             "details": "",
-            "logo": "shopify://shop_images/image_14.png",
+            "logo": "shopify:\/\/shop_images\/image_14.png",
             "background_theme": "3",
             "card_corners": "rounded"
           }
@@ -388,10 +399,10 @@
         "5bfa76eb-f1fb-4649-8d9f-0771396e136f": {
           "type": "quote",
           "settings": {
-            "quote": "<p>2 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.</p>",
+            "quote": "<p>2 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.<\/p>",
             "quotations": true,
             "details": "",
-            "logo": "shopify://shop_images/image_14.png",
+            "logo": "shopify:\/\/shop_images\/image_14.png",
             "background_theme": "4",
             "card_corners": "rounded"
           }
@@ -399,10 +410,10 @@
         "6ba997ed-491d-48f4-bad3-c9cb67930f72": {
           "type": "quote",
           "settings": {
-            "quote": "<p>3 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.</p>",
+            "quote": "<p>3 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.<\/p>",
             "quotations": true,
             "details": "",
-            "logo": "shopify://shop_images/image_14.png",
+            "logo": "shopify:\/\/shop_images\/image_14.png",
             "background_theme": "5",
             "card_corners": "rounded"
           }
@@ -410,10 +421,10 @@
         "367cc0c5-6fad-45cb-aa18-67496c784724": {
           "type": "quote",
           "settings": {
-            "quote": "<p>4 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.</p>",
+            "quote": "<p>4 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.<\/p>",
             "quotations": true,
             "details": "",
-            "logo": "shopify://shop_images/image_14.png",
+            "logo": "shopify:\/\/shop_images\/image_14.png",
             "background_theme": "3",
             "card_corners": "rounded"
           }
@@ -421,10 +432,10 @@
         "367cc0c5-6fad-45cb-aa18-67496c784724-1": {
           "type": "quote",
           "settings": {
-            "quote": "<p>5 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.</p>",
+            "quote": "<p>5 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.<\/p>",
             "quotations": true,
             "details": "",
-            "logo": "shopify://shop_images/image_14.png",
+            "logo": "shopify:\/\/shop_images\/image_14.png",
             "background_theme": "4",
             "card_corners": "rounded"
           }
