@@ -216,7 +216,7 @@
         "max": 130,
         "step": 5,
         "unit": "%",
-        "label": "t:settings_schema.typography.settings.body_spacing.label",
+        "label": "t:settings_schema.typography.settings.body_scale.label",
         "default": 100
       },
       {
@@ -226,7 +226,7 @@
         "max": 100,
         "step": 5,
         "unit": "%",
-        "label": "t:settings_schema.typography.settings.body_scale.label",
+        "label": "t:settings_schema.typography.settings.body_spacing.label",
         "default": 0
       }
     ]
