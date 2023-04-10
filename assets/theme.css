@@ -1097,6 +1097,8 @@ body > main > section {
 
 .__crop-default {
   padding-top: var(--imageRatio); }
+.__crop-video {
+  padding-top: 56.25%; }
 .__crop-circle, .__crop-square, .__crop-rounded-square {
   padding-top: 100%; }
 .__crop-landscape, .__crop-semicircle-landscape, .__crop-rounded-landscape {

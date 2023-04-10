@@ -75,7 +75,7 @@
 
               <ul class="main-product__media__container product-media list-unstyled" role="list">
 
-                {% comment %} If no media exists, output placeholder content? {% endcomment %}
+                {% comment %} Output first image (not lzayloaded) (changes depengind on variant availability and assigned variant images) {% endcomment %}
                 {%- unless featured_media == null -%}
                   <li class="main-product__media__item" data-media-id="{{ section.id }}-{{ featured_media.id }}">
                     {% render 'product-thumbnail', media: featured_media, loading: 'eager' %}
