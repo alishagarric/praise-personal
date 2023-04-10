@@ -371,7 +371,7 @@
         },
         "hero": {
           "label": "Use as hero",
-          "info": "Should be selected if this section is the first or second on a page and contains the page title. There should only be one page title/hero used per page."
+          "info": "Should be selected if this section is the first or second on a page and contains the page title. There should only be one page title\/hero used per page."
         },
         "alignment": {
           "label": "Alignment",
@@ -398,7 +398,7 @@
           "label": "Layout"
         },
         "crop_shape": {
-          "options":{
+          "options": {
             "label_1": "No Crop",
             "label_2": "Square",
             "label_3": "Rounded Square",
@@ -457,7 +457,7 @@
                 "label_2": "Basic Text",
                 "label_3": "Large Text"
               },
-            "label": "Text Size"
+              "label": "Text Size"
             },
             "include_border": {
               "label": "Include border"
@@ -466,7 +466,7 @@
         },
         "expandable": {
           "name": "Expandable Content",
-          "settings":{
+          "settings": {
             "title": {
               "label": "Title"
             },
@@ -504,7 +504,7 @@
             "label": "Heading Size"
           }
         },
-        "variant_picker":{
+        "variant_picker": {
           "settings": {
             "layout": {
               "label": "Layout",
@@ -522,16 +522,16 @@
             }
           }
         },
-        "buy_buttons":{
-          "name": "Buy buttons/quanity",
+        "buy_buttons": {
+          "name": "Buy buttons\/quanity",
           "settings": {
             "show_quantity": {
               "label": "Show quantity selector"
             },
-            "hide_dynamic_buttons":{
+            "hide_dynamic_buttons": {
               "label": "Hide dynamic checkout buttons"
             },
-            "include_border":{
+            "include_border": {
               "label": "Include border"
             }
           }
@@ -546,7 +546,7 @@
             "label": "Text Size"
           }
         },
-        "shop_button":{
+        "shop_button": {
           "name": "Shop Button",
           "settings": {
             "label": "Shop Now",
@@ -554,7 +554,7 @@
           }
         },
         "divider": {
-          "name": "Divider/Space",
+          "name": "Divider\/Space",
           "settings": {
             "top": {
               "label": "Top Spacing"
@@ -578,14 +578,14 @@
         "logo": {
           "label": "logo"
         },
-        "logo_placement":{
+        "logo_placement": {
           "label": "Logo Placement",
           "options": {
             "label_1": "Left",
             "label_2": "Center"
           }
         },
-        "link_list":{
+        "link_list": {
           "label": "Menu"
         },
         "always_show_nav": {
@@ -629,7 +629,7 @@
           "header_3": {
             "content": "Promotion 2"
           },
-          "heading_2":{
+          "heading_2": {
             "label": "Heading"
           },
           "text_2": {
@@ -665,7 +665,7 @@
           },
           "label": "Heading Size"
         },
-        "alt_heading":{
+        "alt_heading": {
           "label": "Use body font instead of heading font for heading"
         },
         "header_2": {
@@ -766,8 +766,8 @@
           },
           "label": "Overlay Theme"
         },
-        "crop_shape":{
-          "options":{
+        "crop_shape": {
+          "options": {
             "label_1": "No Crop",
             "label_2": "Square",
             "label_3": "Rounded Square",
@@ -804,7 +804,7 @@
           "content": "Section"
         },
         "theme": {
-           "options": {
+          "options": {
             "label_1": "Primary Theme",
             "label_2": "2nd Theme",
             "label_3": "3rd Theme",
@@ -828,7 +828,7 @@
       },
       "blocks": {
         "heading": {
-          "name": "Heading", 
+          "name": "Heading",
           "settings": {
             "header": "Heading",
             "heading_size": {
@@ -910,7 +910,7 @@
           "label": "Show article author"
         },
         "assc_product_crop_shape": {
-          "options":{
+          "options": {
             "label_1": "Not Visible",
             "label_2": "No Crop",
             "label_3": "Square",
@@ -925,14 +925,14 @@
             "label_12": "Semicircle Arch"
           },
           "label": "Associated Product Image Crop Shape",
-          "info": "Relies on the addition of article metafields. TODO: Add link with info, this is how starter did it: Add a <a href=https://praise-store-theme.myshopify.com/admin/metafields/product/create>article subtitle metafield to display.</a>"
+          "info": "Relies on the addition of article metafields. TODO: Add link with info, this is how starter did it: Add a <a href=https:\/\/praise-store-theme.myshopify.com\/admin\/metafields\/product\/create>article subtitle metafield to display.<\/a>"
         },
         "button_label": {
           "label": "Article Button Text",
           "info": "Displays an underlined button if included, no button if not."
         },
-        "crop_shape":{
-          "options":{
+        "crop_shape": {
+          "options": {
             "label_1": "No Crop",
             "label_2": "Square",
             "label_3": "Rounded Square",
@@ -955,7 +955,7 @@
             "label_3": "Right"
           }
         },
-         "theme": {
+        "theme": {
           "options": {
             "label_1": "Primary Theme",
             "label_2": "2nd Theme",
@@ -965,10 +965,10 @@
           },
           "label": "Theme"
         },
-        "top_spacing":{
+        "top_spacing": {
           "label": "Top Spacing"
         },
-        "bottom_spacing":{
+        "bottom_spacing": {
           "label": "Bottom Spacing"
         }
       }
@@ -1026,8 +1026,8 @@
           },
           "label": "Price Position"
         },
-        "crop_shape":{
-          "options":{
+        "crop_shape": {
+          "options": {
             "label_1": "No Crop",
             "label_2": "Square",
             "label_3": "Rounded Square",
@@ -1055,10 +1055,10 @@
           },
           "label": "Theme"
         },
-        "top_spacing":{
+        "top_spacing": {
           "label": "Top Spacing"
         },
-        "bottom_spacing":{
+        "bottom_spacing": {
           "label": "Bottom Spacing"
         }
       },
@@ -1089,7 +1089,7 @@
         "heading": {
           "label": "Heading"
         },
-        "heading_size":{
+        "heading_size": {
           "label_1": "X-Large",
           "label_2": "Large",
           "label_3": "Medium",
@@ -1107,12 +1107,12 @@
         },
         "hero": {
           "label": "Use as hero",
-          "info": "Should be selected if this section is the first or second on a page and contains the page title. There should only be one page title/hero used per page."
+          "info": "Should be selected if this section is the first or second on a page and contains the page title. There should only be one page title\/hero used per page."
         },
         "header_3": {
           "content": "Article Cards"
         },
-        "button_label":{
+        "button_label": {
           "label": "Button Label",
           "info": "Used for article buttons"
         },
@@ -1136,8 +1136,8 @@
             "label": "Heading Size"
           }
         },
-        "crop_shape":{
-          "options":{
+        "crop_shape": {
+          "options": {
             "label_1": "No Crop",
             "label_2": "Square",
             "label_3": "Rounded Square",
@@ -1165,21 +1165,21 @@
             "label": "Theme"
           }
         },
-        "top_spacing":{
+        "top_spacing": {
           "label": "Top Spacing"
         },
-        "bottom_spacing":{
+        "bottom_spacing": {
           "label": "Bottom Spacing"
         }
       },
       "blocks": {
-        "image-with-text": {    
+        "image-with-text": {
           "name": "Image with Text",
           "settings": {
             "header": {
               "content": "Image Content"
             },
-            "image_picker":{
+            "image_picker": {
               "label": "Image"
             },
             "overlay_opacity": {
@@ -1207,7 +1207,7 @@
             "button_link": "Button Link"
           }
         },
-        "article": {  
+        "article": {
           "name": "Article",
           "settings": {
             "label": "Article",
@@ -1229,7 +1229,7 @@
               },
               "label": "Theme"
             }
-          }  
+          }
         }
       }
     },
@@ -1239,26 +1239,26 @@
         "name": "Text Marquee"
       },
       "settings": {
-        "header":{
+        "header": {
           "content": "Text Content"
         },
-        "text":{
+        "text": {
           "label": "Text"
         },
-        "text_size":{
+        "text_size": {
           "label_1": "X-Large",
           "label_2": "Large",
           "label_3": "Medium",
           "label_4": "Small",
           "label": "Text Size"
         },
-        "checkbox":{
+        "checkbox": {
           "label": "Use body font instead of heading font"
         },
-        "speed":{
+        "speed": {
           "label": "Speed"
         },
-        "header_2":{
+        "header_2": {
           "content": "Section"
         },
         "theme": {
@@ -1271,10 +1271,10 @@
           },
           "label": "Theme"
         },
-        "top_spacing":{
+        "top_spacing": {
           "label": "Top Spacing"
         },
-        "bottom_spacing":{
+        "bottom_spacing": {
           "label": "Bottom Spacing"
         }
       }
@@ -1289,25 +1289,25 @@
         "heading": {
           "label": "Heading"
         },
-        "heading_size":{
+        "heading_size": {
           "label_1": "X-Large",
           "label_2": "Large",
           "label_3": "Medium",
           "label_4": "Small",
           "label": "Heading Size"
         },
-        "checkbox":{
+        "checkbox": {
           "label": "Use body font instead of heading font for heading"
         },
-        "description":{
+        "description": {
           "label": "Description"
         },
-        "header":{
+        "header": {
           "content": "General"
         },
-        "dot_color":{
+        "dot_color": {
           "label": "Dot Color",
-          "options":{
+          "options": {
             "label_1": "Default",
             "label_2": "Primary Theme",
             "label_3": "2nd Theme",
@@ -1316,8 +1316,8 @@
             "label_6": "5th Theme"
           }
         },
-        "crop_shape":{
-          "options":{
+        "crop_shape": {
+          "options": {
             "label_1": "No Crop",
             "label_2": "Primary Theme",
             "label_3": "Rounded Square",
@@ -1335,7 +1335,7 @@
           },
           "label": "Image Crop Shape"
         },
-        "header_2":{
+        "header_2": {
           "content": "Section"
         },
         "theme": {
@@ -1348,7 +1348,7 @@
           },
           "label": "Theme"
         },
-        "header_3":{
+        "header_3": {
           "content": "Spacing"
         },
         "top_spacing": {
@@ -1360,19 +1360,19 @@
       },
       "blocks": {
         "name": "Part",
-        "header":{
-          "content": "Image Content" 
+        "header": {
+          "content": "Image Content"
         },
         "image_picker": {
           "label": "Image"
         },
-        "header_2":{
-          "content": "Text Content" 
+        "header_2": {
+          "content": "Text Content"
         },
-        "heading":{
-          "label": "Heading" 
+        "heading": {
+          "label": "Heading"
         },
-        "heading_size":{
+        "heading_size": {
           "label_1": "X-Large",
           "label_2": "Large",
           "label_3": "Medium",
@@ -1391,7 +1391,7 @@
         "button_label": {
           "label": "Button Label"
         },
-        "button_link":{
+        "button_link": {
           "label": "Button Link"
         }
       }
@@ -1426,7 +1426,7 @@
       "presets": {
         "name": "Multicolumn"
       },
-     "settings": {
+      "settings": {
         "header1": {
           "content": "Text Content"
         },
@@ -1462,4 +1462,3 @@
     }
   }
 }
-
