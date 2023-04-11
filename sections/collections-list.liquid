@@ -67,13 +67,13 @@
   "settings": [
     {
       "type": "header",
-      "content": "Text Content"
+      "content": "t:sections.collections-list.settings.header.content"
     },
     {
       "type": "text",
       "id": "heading",
       "default": "Lorem ipsum dolor sit",
-      "label": "Heading"
+      "label": "t:sections.collections-list.settings.heading.label"
     },
     {
       "type": "select",
@@ -81,49 +81,49 @@
       "options": [
         {
           "value": "h2",
-          "label": "X-Large"
+          "label": "Xt:sections.collections-list.settings.heading_size.options.label_1"
         },
         {
           "value": "h4",
-          "label": "Large"
+          "label": "Xt:sections.collections-list.settings.heading_size.options.label_2"
         },
         {
           "value": "h5",
-          "label": "Medium"
+          "label": "Xt:sections.collections-list.settings.heading_size.options.label_3"
         },
         {
           "value": "h6",
-          "label": "Small"
+          "label": "Xt:sections.collections-list.settings.heading_size.options.label_4"
         }
       ],
       "default": "h4",
-      "label": "Heading Size"
+      "label": "t:sections.collections-list.settings.heading_size.label"
     },
     {
       "type": "checkbox",
       "id": "alt_heading",
-      "label": "Use body font instead of heading font for heading"
+      "label": "t:sections.collections-list.settings.alt_heading.label"
     },
     {
       "type": "header",
-      "content": "Collections Settings"
+      "content": "t:sections.collections-list.settings.header_2.content"
     },
     {
       "type": "radio",
       "id": "collections_text_alignment",
-      "label": "Collections Text Alignment",
+      "label": "t:sections.collections-list.settings.collections_text_alignment.label",
       "options": [
         {
           "value": "left",
-          "label": "Left"
+          "label": "t:sections.collections-list.settings.collections_text_alignment.options.label_1"
         },
         {
           "value": "center",
-          "label": "Center"
+          "label": "t:sections.collections-list.settings.collections_text_alignment.options.label_2"
         },
         {
           "value": "right",
-          "label": "Right"
+          "label": "t:sections.collections-list.settings.collections_text_alignment.options.label_3"
         }
       ],
       "default": "left"
@@ -131,12 +131,12 @@
     {
       "type": "text",
       "id": "button_label",
-      "label": "Button Label",
-      "info": "If excluded, no button will display on each collection card"
+      "label": "t:sections.collections-list.settings.button_label.label",
+      "info": "t:sections.collections-list.settings.button_label.info"
     },
     {
       "type": "header",
-      "content": "Section"
+      "content": "t:sections.collections-list.settings.header_3.content"
     },
     {
       "type": "select",
@@ -144,27 +144,27 @@
       "options": [
         {
           "value": "primary",
-          "label": "Primary Theme"
+          "label": "t:sections.collections-list.settings.theme.options.label_1"
         },
         {
           "value": "2",
-          "label": "2nd Theme"
+          "label": "t:sections.collections-list.settings.theme.options.label_2"
         },
         {
           "value": "3",
-          "label": "3rd Theme"
+          "label": "t:sections.collections-list.settings.theme.options.label_3"
         },
         {
           "value": "4",
-          "label": "4th Theme"
+          "label": "t:sections.collections-list.settings.theme.options.label_4"
         },
         {
           "value": "5",
-          "label": "5th Theme"
+          "label": "t:sections.collections-list.settings.theme.options.label_5"
         }
       ],
       "default": "primary",
-      "label": "Theme"
+      "label": "t:sections.collections-list.settings.theme.label"
     },
     {
       "type": "range",
@@ -173,7 +173,7 @@
       "max": 100,
       "step": 10,
       "unit": "%",
-      "label": "Top Spacing",
+      "label": "t:sections.collections-list.settings.top_spacing.label",
       "default": 50
     },
     {
@@ -183,27 +183,27 @@
       "max": 100,
       "step": 10,
       "unit": "%",
-      "label": "Bottom Spacing",
+      "label": "t:sections.collections-list.settings.bottom_spacing.label",
       "default": 50
     }
   ],
   "blocks": [
     {
-      "name": "Collection",
+      "name": "t:sections.collections-list.blocks.name",
       "type": "collection",
       "limit": 12,
       "settings": [
         {
           "type": "collection",
           "id": "collection",
-          "label": "Collection"
+          "label": "t:sections.collections-list.blocks.settings.label"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Collections List"
+      "name": "t:sections.collections-list.presets.name"
     }
   ]
 }
