@@ -14,11 +14,11 @@
             "button_label": "",
             "button_link": "",
             "heading_1": "Peanut Butter Collection",
-            "text_1": "<p>Nutty rick, peanut butter cups and more</p>",
+            "text_1": "Nutty rich, peanut butter cups and more",
             "link_1": "shopify://collections/peanut-butter-collection",
             "image_1": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_bbf54c90-3c31-4e00-962c-f12d6b17cf77.jpg",
             "heading_2": "Chocolate Essentials",
-            "text_2": "<p>Banana caramel filled peanut butter cookie with chocolate covered candied bacon</p>",
+            "text_2": "Banana caramel filled peanut butter cookie with chocolate covered candied bacon",
             "link_2": "shopify://collections/chocolate-essentials",
             "image_2": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_cd0b890c-b357-4857-9c0d-36126dbfab86.jpg"
           }
@@ -28,7 +28,7 @@
           "settings": {
             "label": "Collections",
             "heading_0": "Our Collections",
-            "text_0": "<p>Atypical cookies and treats that push the boundaries of indulgence</p>",
+            "text_0": "Atypical cookies and treats that push the boundaries of indulgence",
             "button_label": "Shop Treats",
             "button_link": "shopify://collections",
             "heading_1": "",
