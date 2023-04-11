@@ -346,7 +346,41 @@
       }
     },
     "cart-recommendations": {
-      "name": "Cart Recommendations"
+      "name": "Cart Recommendations",
+      "presets": {
+        "name": "Cart Recommendations"
+      },
+      "settings": {
+        "header": {
+          "content": "Text Content"
+        },
+        "header_2": {
+          "content": "Section"
+        },
+        "theme": {
+          "options": {
+            "label_1": "Default",
+            "label_2": "Primary Theme",
+            "label_3": "2nd Theme",
+            "label_4": "3rd Theme",
+            "label_5": "4th Theme",
+            "label_6": "5th Theme"
+          },
+          "label": "Theme"
+        },
+        "top_internal_spacing": {
+          "label": "Top Text Content Spacing"
+        },
+        "bottom_internal_spacing": {
+          "label": "Bottom Text Content Spacing"
+        },
+        "top_spacing": {
+          "label": "Top Section Spacing"
+        },
+        "bottom_spacing": {
+          "label": "Top Section Spacing"
+        }
+      }
     },
     "collection-teaser": {
       "name": "Collection Teaser",
