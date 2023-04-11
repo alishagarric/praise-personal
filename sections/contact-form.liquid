@@ -5,7 +5,7 @@
   assign section_theme = section.settings.theme
   assign top_spacing = section.settings.top_spacing
   assign bottom_spacing = section.settings.bottom_spacing
-  assign form_class = 'contact-form__form form-styles' | append: " __hide-labels-" | append: section.settings.hide_labels
+  assign form_class = 'contact-form__form form-styles' | append: ' __hide-labels-' | append: section.settings.hide_labels
 %}
 {% style %}
   #Contact-form-{{ section.id }} {
@@ -15,198 +15,199 @@
 {% endstyle %}
 
 <div id="Contact-form-{{ section.id }}" class="contact-form  __theme-{{ section_theme }}">
-  
-    <div class="contact-form__text __align-center">
-      {% render 'heading', heading: section.settings.heading, heading_size: section.settings.heading_size, alt_heading: section.settings.alt_heading %}
-      <div class="contact-form__text__description __article-txt-p-sm" {{ block.shopify_attributes }}>
-        {{ section.settings.description }}
-      </div>
+  <div class="contact-form__text __align-center">
+    {% render 'heading',
+      heading: section.settings.heading,
+      heading_size: section.settings.heading_size,
+      alt_heading: section.settings.alt_heading
+    %}
+    <div class="contact-form__text__description __article-txt-p-sm" {{ block.shopify_attributes }}>
+      {{ section.settings.description }}
+    </div>
+  </div>
+
+  {%- form 'contact', id: 'ContactForm', class: form_class -%}
+    {% if section.settings.disclaimer != blank %}
+      <span class="p-sm">
+        {{ section.settings.disclaimer }}
+      </span>
+    {% endif %}
+
+    {% comment %}
+      Check if the form submitted successfully
+      If not it could only have come from the email field which is the only required field
+    {% endcomment %}
+    {%- if form.posted_successfully? -%}
+      <p class="message-success">{{ 'templates.contact.form.post_success' | t }}</p>
+    {%- elsif form.errors -%}
+      <p class="message-error">
+        {{ 'templates.contact.form.error_heading' | t }}
+        <a href="#ContactForm-email">
+          {{ form.errors.translated_fields.email | capitalize }}
+          {{ form.errors.messages.email }}
+        </a>
+      </p>
+    {%- endif -%}
+
+    {% comment %}
+      Email field, which is required
+      Aria is used for accessibility
+    {% endcomment %}
+    <div>
+      <label
+        for="ContactForm-email"
+        class=""
+      >
+        {{ section.settings.email_label }}
+        <span aria-hidden="true">*</span></label
+      >
+      <input
+        required
+        autocomplete="email"
+        type="email"
+        id="ContactForm-email"
+        name="contact[email]"
+        spellcheck="false"
+        placeholder="{{ section.settings.email_placeholder }}*"
+        autocapitalize="off"
+        aria-required="true"
+        value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+        {% if form.errors contains 'email' %}
+          aria-invalid="true"
+          aria-describedby="ContactForm-email-error"
+        {% endif %}
+      >
     </div>
 
-    {%- form 'contact', id: 'ContactForm', class: form_class -%}
-      {% if section.settings.disclaimer != blank %}
-        <span class="p-sm">
-          {{ section.settings.disclaimer }}
+    {% comment %} Print email errors {% endcomment %}
+    {%- if form.errors contains 'email' -%}
+      <small id="ContactForm-email-error">
+        <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
+        <span class="message-error">
+          {{- form.errors.translated_fields.email | capitalize }}
+          {{ form.errors.messages.email -}}
         </span>
-      {% endif %}
+      </small>
+    {%- endif -%}
 
-
-      {% comment %}
-        Check if the form submitted successfully
-        If not it could only have come from the email field which is the only required field
-      {% endcomment %}
-      {%- if form.posted_successfully? -%} 
-        <p class="message-success">{{ 'templates.contact.form.post_success' | t }}</p>
-      {%- elsif form.errors -%}
-        <p class="message-error">
-          {{ 'templates.contact.form.error_heading' | t }}
-          <a href="#ContactForm-email">
-            {{ form.errors.translated_fields.email | capitalize }}
-            {{ form.errors.messages.email }}
-          </a>
-        </p>
-      {%- endif -%}
-
-      {% comment %}
-        Email field, which is required
-        Aria is used for accessibility
-      {% endcomment %}
+    {% comment %}
+      Name field
+      The inputs need to have an attribute of name="contact[information_id]", where information_id briefly
+      identifies the information that you're collecting. These titles appear in contact notifications, and
+      must be unique within the form. The emails sent to the buyer related to contact us form submissions
+      uses the name string for the label in the email and thus needs to be translated.
+    {% endcomment %}
+    {% unless section.settings.hide_name_field %}
       <div>
         <label
-          for="ContactForm-email"
-          class=""
+          for="ContactForm-name"
         >
-          {{ section.settings.email_label }}
-          <span aria-hidden="true">*</span></label
-        >
+          {{- section.settings.name_label -}}
+          {% if section.settings.name_required %}
+            <span aria-hidden="true">*</span>
+          {%- endif -%}
+        </label>
+
         <input
-          required
-          autocomplete="email"
-          type="email"
-          id="ContactForm-email"
-          name="contact[email]"
-          spellcheck="false"
-          placeholder="{{ section.settings.email_placeholder }}*"
-          autocapitalize="off"
-          aria-required="true"
-          value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
-          {% if form.errors contains 'email' %}
-            aria-invalid="true"
-            aria-describedby="ContactForm-email-error"
+          {% if section.settings.name_required %}
+            required
           {% endif %}
+          autocomplete="name"
+          type="text"
+          placeholder="{{ section.settings.name_placeholder }}{% if section.settings.name_required %}*{% endif %}"
+          id="ContactForm-name"
+          name="contact[{{- section.settings.name_label -}}]"
+          value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
         >
       </div>
+    {% endunless %}
 
-      {% comment %} Print email errors {% endcomment %}
-      {%- if form.errors contains 'email' -%}
-        <small id="ContactForm-email-error">
-          <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
-          <span class="message-error">
-            {{- form.errors.translated_fields.email | capitalize }}
-            {{ form.errors.messages.email -}}
-          </span>
-        </small>
-      {%- endif -%}
-
-      {% comment %}
-        Name field
-        The inputs need to have an attribute of name="contact[information_id]", where information_id briefly
-        identifies the information that you're collecting. These titles appear in contact notifications, and
-        must be unique within the form. The emails sent to the buyer related to contact us form submissions
-        uses the name string for the label in the email and thus needs to be translated.
-      {% endcomment %}
-      {% unless section.settings.hide_name_field %}
-        <div>
-          <label
-            for="ContactForm-name"
-          >
-            {{- section.settings.name_label -}}
-            {% if section.settings.name_required %}
-              <span aria-hidden="true">*</span>
-            {%- endif -%}
-          </label>
-
-          <input
-            {% if section.settings.name_required %}
-              required
-            {% endif %}
-            autocomplete="name"
-            type="text"
-            placeholder="{{ section.settings.name_placeholder }}{% if section.settings.name_required %}*{% endif %}"
-            id="ContactForm-name"
-            name="contact[{{- section.settings.name_label -}}]"
-            value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
-          >
-        </div>
-      {% endunless %}
-
-      {% comment %}
-        Contact Reason field
-      {% endcomment %}
-      {% unless section.settings.hide_reason_field %}
-        <div>
-          <label
-            for="ContactForm-contactReason"
-          >
-            {{- section.settings.contact_reason_label -}}
-            {% if section.settings.contact_reason_required %}
-              <span aria-hidden="true">*</span>
-            {%- endif -%}
-          </label>
-          <input
-            {% if section.settings.contact_reason_required %}
-              required
-            {% endif %}
-            autocomplete="contactReason"
-            type="text"
-            placeholder="{{ section.settings.contact_reason_placeholder }}{% if section.settings.contact_reason_required %}*{% endif %}"
-            id="ContactForm-contactReason"
-            name="contact[{{- section.settings.contact_reason_label -}}]"
-          >
-        </div>
-      {% endunless %}
-
-      {% comment %} 
-        Phone field 
-      {% endcomment %}
-      {% unless section.settings.hide_phone_field %}
-        <div>
-          <label
-            for="ContactForm-phone"
-          >
-            {{- section.settings.phone_label -}}
-            {% if section.settings.phone_required %}
-              <span aria-hidden="true">*</span>
-            {%- endif -%}
-          </label>
-          <input
-            {% if section.settings.phone_required %}
-              required
-            {% endif %}
-            type="text"
-            id="ContactForm-phone"
-            placeholder="{{ section.settings.phone_placeholder }}{% if section.settings.phone_required %}*{% endif %}"
-            autocomplete="tel"
-            name="contact[{{- section.settings.phone_label -}}]"
-            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-            value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
-          >
-        </div>
-      {% endunless %}
-
-      {% comment %} 
-        Comment field 
-      {% endcomment %}
+    {% comment %}
+      Contact Reason field
+    {% endcomment %}
+    {% unless section.settings.hide_reason_field %}
       <div>
         <label
-          for="ContactForm-body"
+          for="ContactForm-contactReason"
         >
-          {{- section.settings.message_label -}}
-          <span aria-hidden="true">*</span></label
-        >
-        <textarea-counter class="textarea-counter">
-          <textarea
+          {{- section.settings.contact_reason_label -}}
+          {% if section.settings.contact_reason_required %}
+            <span aria-hidden="true">*</span>
+          {%- endif -%}
+        </label>
+        <input
+          {% if section.settings.contact_reason_required %}
             required
-            id="ContactForm-body"
-            rows="15"
-            maxlength="1000"
-            placeholder="{{ section.settings.message_placeholder }}*"
-            name="contact[{{- section.settings.message_label -}}]"
-          >
+          {% endif %}
+          autocomplete="contactReason"
+          type="text"
+          placeholder="{{ section.settings.contact_reason_placeholder }}{% if section.settings.contact_reason_required %}*{% endif %}"
+          id="ContactForm-contactReason"
+          name="contact[{{- section.settings.contact_reason_label -}}]"
+        >
+      </div>
+    {% endunless %}
+
+    {% comment %}
+      Phone field
+    {% endcomment %}
+    {% unless section.settings.hide_phone_field %}
+      <div>
+        <label
+          for="ContactForm-phone"
+        >
+          {{- section.settings.phone_label -}}
+          {% if section.settings.phone_required %}
+            <span aria-hidden="true">*</span>
+          {%- endif -%}
+        </label>
+        <input
+          {% if section.settings.phone_required %}
+            required
+          {% endif %}
+          type="text"
+          id="ContactForm-phone"
+          placeholder="{{ section.settings.phone_placeholder }}{% if section.settings.phone_required %}*{% endif %}"
+          autocomplete="tel"
+          name="contact[{{- section.settings.phone_label -}}]"
+          pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+          value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+        >
+      </div>
+    {% endunless %}
+
+    {% comment %}
+      Comment field
+    {% endcomment %}
+    <div>
+      <label
+        for="ContactForm-body"
+      >
+        {{- section.settings.message_label -}}
+        <span aria-hidden="true">*</span></label
+      >
+      <textarea-counter class="textarea-counter">
+        <textarea
+          required
+          id="ContactForm-body"
+          rows="15"
+          maxlength="1000"
+          placeholder="{{ section.settings.message_placeholder }}*"
+          name="contact[{{- section.settings.message_label -}}]"
+        >
               {{- form.body -}}
             </textarea>
-          <div class="textarea-counter__count p-sm">
-            <span class="textarea-counter__count__current">0</span>
-            <span class="textarea-counter__count__max">/ 1000</span>
-          </div>
-        </textarea-counter>
-      </div>
+        <div class="textarea-counter__count p-sm">
+          <span class="textarea-counter__count__current">0</span>
+          <span class="textarea-counter__count__max">/ 1000</span>
+        </div>
+      </textarea-counter>
+    </div>
 
-      <button class="contact-form__button button">
-        {{ 'templates.contact.form.send' | t }}
-      </button>
-    {%- endform -%}
-
+    <button class="contact-form__button button">
+      {{ 'templates.contact.form.send' | t }}
+    </button>
+  {%- endform -%}
 </div>
 
 {% schema %}
@@ -217,13 +218,13 @@
   "settings": [
     {
       "type": "header",
-      "content": "Text Content"
+      "content": "t:sections.contact-form.settings.header.content"
     },
     {
       "type": "text",
       "id": "heading",
       "default": "Lorem ipsum dolor sit",
-      "label": "Heading"
+      "label": "t:sections.contact-form.settings.heading.label"
     },
     {
       "type": "select",
@@ -231,170 +232,170 @@
       "options": [
         {
           "value": "h2",
-          "label": "X-Large"
+          "label": "t:sections.contact-form.settings.heading_size.options.label_1"
         },
         {
           "value": "h4",
-          "label": "Large"
+          "label": "t:sections.contact-form.settings.heading_size.options.label_2"
         },
         {
           "value": "h5",
-          "label": "Medium"
+          "label": "t:sections.contact-form.settings.heading_size.options.label_3"
         },
         {
           "value": "h6",
-          "label": "Small"
+          "label": "t:sections.contact-form.settings.heading_size.options.label_4"
         }
       ],
       "default": "h4",
-      "label": "Heading Size"
+      "label": "t:sections.contact-form.settings.heading_size.label"
     },
     {
       "type": "checkbox",
       "id": "alt_heading",
-      "label": "Use body font instead of heading font for heading"
+      "label": "t:sections.contact-form.settings.alt_heading.label"
     },
     {
       "type": "richtext",
       "id": "description",
       "default": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>",
-      "label": "Description"
+      "label": "t:sections.contact-form.settings.description.label"
     },
     {
       "type": "text",
       "id": "disclaimer",
       "default": "*indicates a required field",
-      "label": "Disclaimer"
+      "label": "t:sections.contact-form.settings.disclaimer.label"
     },
     {
       "type": "header",
-      "content": "General"
+      "content": "t:sections.contact-form.settings.header_2.content"
     },
     {
       "type": "checkbox",
       "id": "hide_labels",
-      "label": "Hide Labels",
+      "label": "t:sections.contact-form.settings.hide_labels.label",
       "default": true
     },
     {
       "type": "header",
-      "content": "Email Field"
+      "content": "t:sections.contact-form.settings.header_3.content"
     },
     {
       "type": "text",
       "id": "email_label",
       "default": "Email",
-      "label": "Email Label"
+      "label": "t:sections.contact-form.settings.email_label.label"
     },
     {
       "type": "text",
       "id": "email_placeholder",
       "default": "Email",
-      "label": "Email Placeholder"
+      "label": "t:sections.contact-form.settings.email_placeholder.label"
     },
     {
       "type": "header",
-      "content": "Name Field"
+      "content": "t:sections.contact-form.settings.header_4.content"
     },
     {
       "type": "text",
       "id": "name_label",
       "default": "Name",
-      "label": "Name Label"
+      "label": "t:sections.contact-form.settings.name_label.label"
     },
     {
       "type": "text",
       "id": "name_placeholder",
       "default": "Name",
-      "label": "Name Placeholder"
+      "label": "t:sections.contact-form.settings.name_placeholder.label"
     },
     {
       "type": "checkbox",
       "id": "name_required",
-      "label": "Make field required",
+      "label": "t:sections.contact-form.settings.name_required.label",
       "default": false
     },
     {
       "type": "checkbox",
       "id": "hide_name_field",
-      "label": "Hide field",
+      "label": "t:sections.contact-form.settings.hide_name_field.label",
       "default": false
     },
     {
       "type": "header",
-      "content": "Contact Reason Field"
+      "content": "t:sections.contact-form.settings.header_5.content"
     },
     {
       "type": "text",
       "id": "contact_reason_label",
       "default": "Contact Reason",
-      "label": "Contact Reason Label"
+      "label": "t:sections.contact-form.settings.contact_reason_label.label"
     },
     {
       "type": "text",
       "id": "contact_reason_placeholder",
       "default": "Contact Reason",
-      "label": "Contact Reason Placeholder"
+      "label": "t:sections.contact-form.settings.contact_reason_placeholder.label"
     },
     {
       "type": "checkbox",
       "id": "hide_reason_field",
-      "label": "Hide field",
+      "label": "t:sections.contact-form.settings.hide_reason_field.label",
       "default": false
     },
     {
       "type": "checkbox",
       "id": "contact_reason_required",
-      "label": "Make field required",
+      "label": "t:sections.contact-form.settings.contact_reason_required.label",
       "default": false
     },
     {
       "type": "header",
-      "content": "Phone Field"
+      "content": "t:sections.contact-form.settings.header_6.content"
     },
     {
       "type": "text",
       "id": "phone_label",
       "default": "Phone",
-      "label": "Phone Label"
+      "label": "t:sections.contact-form.settings.phone_label.label"
     },
     {
       "type": "text",
       "id": "phone_placeholder",
       "default": "123-456-7890",
-      "label": "Phone Placeholder"
+      "label": "t:sections.contact-form.settings.phone_placeholder.label"
     },
     {
       "type": "checkbox",
       "id": "hide_phone_field",
-      "label": "Hide field",
+      "label": "t:sections.contact-form.settings.hide_phone_field.label",
       "default": false
     },
     {
       "type": "checkbox",
       "id": "phone_required",
-      "label": "Make field required",
+      "label": "t:sections.contact-form.settings.phone_required.label",
       "default": false
     },
     {
       "type": "header",
-      "content": "Message Field"
+      "content": "t:sections.contact-form.settings.header_7.content"
     },
     {
       "type": "text",
       "id": "message_label",
       "default": "Leave a Message",
-      "label": "Message Label"
+      "label": "t:sections.contact-form.settings.message_label.label"
     },
     {
       "type": "text",
       "id": "message_placeholder",
       "default": "What can we help you with?",
-      "label": "Message Placeholder"
+      "label": "t:sections.contact-form.settings.message_placeholder.label"
     },
     {
       "type": "header",
-      "content": "Section"
+      "content": "t:sections.contact-form.settings.header_8.content"
     },
     {
       "type": "select",
@@ -402,27 +403,27 @@
       "options": [
         {
           "value": "primary",
-          "label": "Primary Theme"
+          "label": "t:sections.contact-form.settings.theme.options.label_1"
         },
         {
           "value": "2",
-          "label": "2nd Theme"
+          "label": "t:sections.contact-form.settings.theme.options.label_2"
         },
         {
           "value": "3",
-          "label": "3rd Theme"
+          "label": "t:sections.contact-form.settings.theme.options.label_3"
         },
         {
           "value": "4",
-          "label": "4th Theme"
+          "label": "t:sections.contact-form.settings.theme.options.label_4"
         },
         {
           "value": "5",
-          "label": "5th Theme"
+          "label": "t:sections.contact-form.settings.theme.options.label_5"
         }
       ],
       "default": "primary",
-      "label": "Theme"
+      "label": "t:sections.contact-form.settings.theme.label"
     },
     {
       "type": "range",
@@ -431,7 +432,7 @@
       "max": 100,
       "step": 10,
       "unit": "%",
-      "label": "Top Spacing",
+      "label": "t:sections.contact-form.settings.top_spacing.label",
       "default": 50
     },
     {
@@ -441,7 +442,7 @@
       "max": 100,
       "step": 10,
       "unit": "%",
-      "label": "Bottom Spacing",
+      "label": "t:sections.contact-form.settings.bottom_spacing.label",
       "default": 50
     }
   ],
