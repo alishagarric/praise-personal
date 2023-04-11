@@ -6,12 +6,12 @@
 {% endstyle %}
 
 <div id="Main-page-{{ section.id }}" class="main-page __theme-{{ section.settings.theme }}">
-  {% render 'heading' heading: page.title, heading_tag: "h1" %}
+  {% render 'heading', heading: page.title, heading_tag: 'h1' %}
   {% if page.content != blank %}
     <div class="__article-txt">{{ page.content }}</div>
   {% endif %}
 </div>
-  
+
 {% schema %}
 {
   "name": "t:sections.main-page.name",
@@ -24,7 +24,7 @@
       "max": 100,
       "step": 10,
       "unit": "%",
-      "label": "Top Section Spacing",
+      "label": "t:sections.main-page.settings.top_spacing",
       "default": 50
     },
     {
@@ -34,7 +34,7 @@
       "max": 100,
       "step": 10,
       "unit": "%",
-      "label": "Bottom Section Spacing",
+      "label": "t:sections.main-page.settings.bottom_spacing",
       "default": 50
     },
     {
@@ -43,32 +43,32 @@
       "options": [
         {
           "value": "primary",
-          "label": "Primary Theme"
+          "label": "t:sections.main-page.settings.theme.options.label_1"
         },
         {
           "value": "2",
-          "label": "2nd Theme"
+          "label": "t:sections.main-page.settings.theme.options.label_2"
         },
         {
           "value": "3",
-          "label": "3rd Theme"
+          "label": "t:sections.main-page.settings.theme.options.label_3"
         },
         {
           "value": "4",
-          "label": "4th Theme"
+          "label": "t:sections.main-page.settings.theme.options.label_4"
         },
         {
           "value": "5",
-          "label": "5th Theme"
+          "label": "t:sections.main-page.settings.theme.options.label_5"
         }
       ],
       "default": "primary",
-      "label": "Theme"
+      "label": "t:sections.main-page.settings.theme.label"
     }
   ],
-    "presets": [
+  "presets": [
     {
-      "name": "Main Page"
+      "name": "t:sections.main-page.presets.name"
     }
   ]
 }
