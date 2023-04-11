@@ -241,18 +241,112 @@
     },
     "main-article": {
       "name": "Blog post",
+      "presets": {
+        "name": "Main Article"
+      },
+      "settings": {
+        "header": {
+          "content": "Section"
+        },
+        "theme": {
+          "options": {
+            "label_1": "Primary Theme",
+            "label_2": "2nd Theme",
+            "label_3": "3rd Theme",
+            "label_4": "4th Theme",
+            "label_5": "5th Theme"
+          },
+          "label": "Theme"
+        },
+        "top_spacing": {
+          "label": "Top Spacing"
+        },
+        "bottom_spacing": {
+          "label": "Bottom Spacing"
+        }
+      },
       "blocks": {
         "featured_image": {
-          "name": "Featured image"
+          "name": "Featured image",
+          "settings": {
+            "overlay": {
+              "label": "Overlay Opacity",
+              "info": "If above 0%, an overlay will be added on top of the image to create contrast behind the text."
+            },
+            "overlay_theme": {
+              "options": {
+                "label_1": "Primary Theme",
+                "label_2": "2nd Theme",
+                "label_3": "3rd Theme",
+                "label_4": "4th Theme",
+                "label_5": "5th Theme"
+              },
+              "label": "Theme"
+            },
+            "crop_shape": {
+               "options": {
+                "label_1": "No Crop",
+                "label_2": "Landscape",
+                "label_3": "Rounded Landscape",
+                "label_4": "Semicircle Landscape",
+                "label_5": "Wide",
+                "label_6": "Rounded Wide",
+                "label_7": "Semicircle Wide"
+              },
+              "label": "Image Crop Shape"
+            }
+          }
         },
         "title": {
-          "name": "Title"
+          "name": "Title",
+          "settings": {
+            "heading_size": {
+              "options": {
+                "label_1": "X-Large",
+                "label_2": "Large",
+                "label_3": "Medium",
+                "label_4": "Small"
+              },
+              "label": "Heading Size"
+            },
+            "alt_heading": {
+              "label": "Use body font instead of heading font for heading"
+            },
+            "overlap": {
+              "label": "Enable overlap",
+              "info": "Requires a featured image"
+            }
+          }
+        },
+        "content": {
+          "name": "Content",
+          "settings": {
+            "image_corners": {
+              "options": {
+                "label_1": "Square Corners",
+                "label_2": "Rounded Corners",
+                "label_3": "Semicircle Corners"
+              },
+              "label": "Image Corners"
+            }
+          }
+        },
+        "side_bar": {
+          "name": "Side Bar",
+          "settings": {
+            "label": "Label",
+            "content": {
+              "label": "Content",
+              "info": "Add content here, or by utilizing the article metafeild TODO: link"
+            },
+            "associated_products": {
+              "label": "Show associated products",
+              "info": "Dependent on article metafield TODO: link"
+            }
+          }
         },
         "details": {
           "name": "Details"
-        },
-        "content": {
-          "name": "Content"
         }
       }
     },
