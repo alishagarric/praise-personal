@@ -33,15 +33,6 @@
 
   &__image {
     padding-left: var(--featuredProductSpace);
-
-    &__phrase {
-      position: absolute;
-      width: 50%;
-      text-align: center;
-      right: 5%;
-      top: 5%;
-      transform: rotate(5deg);
-    }
   }
 
   //block wrapper that wraps some product blocks

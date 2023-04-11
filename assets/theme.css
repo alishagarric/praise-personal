@@ -45,8 +45,7 @@ h1,
   letter-spacing: var(--font-heading-spacing);
   word-break: break-word;
   margin: 0 0 1rem 0;
-  font-size: calc(4rem * var(--font-heading-scale));
-  font-weight: 900; }
+  font-size: calc(4rem * var(--font-heading-scale)); }
   h1.alt,
   .h1.alt,
   .h1 > p.alt {
@@ -75,8 +74,7 @@ h2,
   letter-spacing: var(--font-heading-spacing);
   word-break: break-word;
   margin: 0 0 1rem 0;
-  font-size: calc(3rem * var(--font-heading-scale));
-  font-weight: 900; }
+  font-size: calc(3rem * var(--font-heading-scale)); }
   h2.alt,
   .h2.alt,
   .h2 > p.alt {
@@ -105,8 +103,7 @@ h3,
   letter-spacing: var(--font-heading-spacing);
   word-break: break-word;
   margin: 0 0 1rem 0;
-  font-size: calc(3rem * var(--font-heading-scale));
-  font-weight: 500; }
+  font-size: calc(3rem * var(--font-heading-scale)); }
   h3.alt,
   .h3.alt,
   .h3 > p.alt {
@@ -1025,6 +1022,23 @@ details.overlay[open] > summary::before {
   max-width: none; }
   .shopify-challenge__container .shopify-challenge__button {
     margin-top: 1rem; }
+
+.product-phrase {
+  position: absolute;
+  width: 50%;
+  text-align: center;
+  right: 5%;
+  top: 5%;
+  transform: rotate(var(--productPhraseTilt)); }
+  .product-phrase.alt {
+    font-family: var(--font-heading-family); }
+  .product-phrase.__style-badge {
+    --sideSpace: calc(var(--btnHeight) * var(--btnSidesSpace));
+    background: RGB(var(--color-foreground));
+    color: RGB(var(--color-foreground-text));
+    width: calc(50% + var(--sideSpace) + var(--sideSpace));
+    border-radius: var(--btnBorderRadius);
+    padding: calc(var(--sideSpace) / 4) var(--sideSpace); }
 
 html {
   height: 100%;

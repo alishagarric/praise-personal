@@ -26,7 +26,6 @@
         word-break: break-word;
         margin: 0 0 1rem 0;
         font-size: calc(3rem * var(--font-heading-scale));
-        font-weight: 900;
         letter-spacing: var(--font-body-spacing);
         font-family: var(--font-body-family);
         font-style: var(--font-body-style);

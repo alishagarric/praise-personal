@@ -60,7 +60,7 @@
   <a href="{{ product_url }}" aria-label="{{ 'products.product.view_product' | t }}"></a>
 
   {% if show_phrase and product.metafields.custom.phrase %}
-    <p class="product-card__phrase h6">{{ product.metafields.custom.phrase }}</p>
+    {% render 'product-phrase' phrase: product.metafields.custom.phrase, class: 'product-card__phrase' %}
   {% endif %}
 
   <div class="product-card__image image-container __crop-{{ crop }}" style="--imageRatio: {{ image_ratio }}%">

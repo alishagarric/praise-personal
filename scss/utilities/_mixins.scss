@@ -18,7 +18,6 @@
 @mixin h1() {
   @include basicHeading;
   font-size: calc(4rem * var(--font-heading-scale));
-  font-weight: 900;
 
   @media (max-width: 1024px) {
     font-size: calc(2.6rem * var(--font-heading-scale));
@@ -32,7 +31,6 @@
 @mixin h2() {
   @include basicHeading;
   font-size: calc(3rem * var(--font-heading-scale));
-  font-weight: 900;
 
   @media (max-width: 1024px) {
     font-size: calc(2rem * var(--font-heading-scale));
@@ -46,7 +44,6 @@
 @mixin h3() {
   @include basicHeading;
   font-size: calc(3rem * var(--font-heading-scale));
-  font-weight: 500;
 
   @media (max-width: 1024px) {
     font-size: calc(2rem * var(--font-heading-scale));

@@ -20,12 +20,9 @@
       margin: 0;
       transform: translateY(-100%); }
   .product-card__phrase {
-    position: absolute;
-    width: 50%;
-    text-align: center;
     right: 10%;
     top: 0;
-    transform: rotate(5deg) translateY(30%);
+    transform: rotate(var(--productPhraseTilt)) translateY(30%);
     z-index: 2; }
     .product-card__phrase + * {
       margin-top: var(--pxSize); }

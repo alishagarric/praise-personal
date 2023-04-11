@@ -115,9 +115,7 @@
   </div>
 
   {% comment %} Image content column {% endcomment %}
-  <div class="featured-product__image"
-   style="{% if section.settings.product.metafields.custom.color %}--color-background: {{ section.settings.product.metafields.custom.color.value.rgb }}; --color-foreground-text: {{ section.settings.product.metafields.custom.color.value.rgb }};{% endif %} {% if section.settings.product.metafields.custom.text_color %} --color-text: {{ section.settings.product.metafields.custom.text_color.value.rgb }}; --color-foreground: {{ section.settings.product.metafields.custom.text_color.value.rgb }}; --color-border: {{ section.settings.product.metafields.custom.text_color.value.rgb }} / .3;{% endif %}"
-  >
+  <div class="featured-product__image">
     <div class="image-container __crop-{{ section.settings.crop_shape }}" style="--imageRatio: {{ section.settings.product.featured_image.height | divided_by: 1.00 | divided_by: section.settings.product.featured_image.width | times: 100 }}%">
       {%- if section.settings.product.featured_image != blank -%}
         {% render 'next-gen-img', image: section.settings.product.featured_image, width: 1400, widths: "1400, 940, 700, 500" sizes: '(max-width: 676px) 100vw, (max-width: 1024px) 40vw, 30vw', preload: section.settings.hero %}
@@ -126,7 +124,7 @@
       {%- endif -%}
 
       {% if section.settings.show_phrase == true and section.settings.product.metafields.custom.phrase %}
-        <p class="featured-product__image__phrase h6">{{ section.settings.product.metafields.custom.phrase }}</p>
+         {% render 'product-phrase' phrase: section.settings.product.metafields.custom.phrase, class: 'featured-product__image__phrase' %}
       {% endif %}
     </div>
   </div>

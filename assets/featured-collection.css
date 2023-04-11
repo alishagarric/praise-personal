@@ -28,7 +28,7 @@
     .featured-collection__cards__card {
       width: var(--featuredCollectionCardWidth);
       padding: 0 calc(var(--pxSize) / 2); }
-      .featured-collection__cards__card .product-card__phrase {
+      .featured-collection__cards__card .product-card__phrase:not(.__style-badge) {
         color: var(--featuredCollectionThemedTextColor); }
   .featured-collection__controls {
     text-align: center; }

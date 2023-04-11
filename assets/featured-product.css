@@ -21,13 +21,6 @@
       margin-top: var(--pxSize); }
   .featured-product__image {
     padding-left: var(--featuredProductSpace); }
-    .featured-product__image__phrase {
-      position: absolute;
-      width: 50%;
-      text-align: center;
-      right: 5%;
-      top: 5%;
-      transform: rotate(5deg); }
   .featured-product__block {
     display: block; }
     .featured-product__block.__border-top {

@@ -687,3 +687,27 @@ details.overlay[open] > summary::before {
     margin-top: 1rem;
   }
 }
+
+// product phrase
+
+.product-phrase {
+  position: absolute;
+  width: 50%;
+  text-align: center;
+  right: 5%;
+  top: 5%;
+  transform: rotate(var(--productPhraseTilt));
+
+  &.alt {
+    font-family: var(--font-heading-family);
+  }
+
+  &.__style-badge {
+    --sideSpace: calc(var(--btnHeight) * var(--btnSidesSpace));
+    background: RGB(var(--color-foreground));
+    color: RGB(var(--color-foreground-text));
+    width: calc(50% + var(--sideSpace) + var(--sideSpace));
+    border-radius: var(--btnBorderRadius);
+    padding: calc(var(--sideSpace) / 4) var(--sideSpace);
+  }
+}

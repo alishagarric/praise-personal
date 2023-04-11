@@ -40,7 +40,7 @@
       width: var(--featuredCollectionCardWidth);
       padding: 0 calc(var(--pxSize) / 2);
 
-      .product-card__phrase {
+      .product-card__phrase:not(.__style-badge) {
         color: var(--featuredCollectionThemedTextColor);
       }
     }

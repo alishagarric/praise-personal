@@ -236,27 +236,28 @@
     "settings": [
       {
         "type": "checkbox",
-        "id": "alt_heading",
-        "label": "Use body font instead of heading font"
+        "id": "product_phrase_alt_heading",
+        "label": "Use heading font instead of body font",
+        "default": false
       },
       {
         "type": "select",
         "id": "product_phrase_text_size",
         "options": [
           {
-            "value": "p",
+            "value": "p-sm",
             "label": "Small Text"
           },
           {
-            "value": "p-lg",
+            "value": "p",
             "label": "Basic Text"
           },
           {
-            "value": "h6",
+            "value": "p-lg",
             "label": "Large Text"
           }
         ],
-        "default": "h6",
+        "default": "p-lg",
         "label": "Text Size"
       },
       {
