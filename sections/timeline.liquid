@@ -7,47 +7,57 @@
   }
 {% endstyle %}
 
+{% assign image_ratio = 100 %}
+{% if section.settings.image %}
+  {% assign image_ratio = section.settings.image.height
+    | divided_by: 1.00
+    | divided_by: section.settings.image.width
+    | times: 100
+  %}
+{% endif %}
+
 {% if section.blocks.size > 0 %}
   <div id="Timeline-section-{{ section.id }}" class="timeline-section __theme-{{ section.settings.theme }}">
-    {% if section.settings.heading or section.settings.text %}
-      <div class="timeline-section__heading">
-        {% render 'heading',
-          heading: section.settings.heading,
-          heading_size: section.settings.heading_size,
-          alt_heading: section.settings.alt_heading
-        %}
-        {% if section.settings.text %}
-          <div class="__article-txt">
-            {{ section.settings.text }}
-          </div>
+
+    <div class="timeline-section__container">
+      <div
+        class="timeline-section__image image-container __crop-{{ section.settings.crop_shape }}"
+        style="--imageRatio: {{ image_ratio }}%"
+      >
+        {% if section.settings.image %}
+          {% render 'next-gen-img',
+            image: section.settings.image,
+            width: 1680,
+            widths: '1680, 1400, 1100, 900, 600',
+            sizes: '(max-width: 676px) 100vw, 50vw'
+          %}
+        {% else %}
+          {{ 'collection-2' | placeholder_svg_tag: 'placeholder' }}
         {% endif %}
       </div>
-    {% endif %}
+    </div>
 
-    {% for block in section.blocks %}
-      {% case block.type %}
-        {% when 'part' %}
-          <div class="timeline-section__part">
-            {% assign image_ratio = block.settings.image.height
-              | divided_by: 1.00
-              | divided_by: block.settings.image.width
-              | times: 100
-            %}
-
-            <div
-              class="timeline-section__part__image image-container __crop-{{ section.settings.crop_shape }}"
-              style="--imageRatio: {{ image_ratio }}%"
-            >
-              {% render 'next-gen-img',
-                image: block.settings.image,
-                width: 1680,
-                widths: '1680, 1400, 1100, 900, 600',
-                sizes: '(max-width: 676px) 100vw, 50vw'
-              %}
+    <div class="timeline-section__parts">
+      {% if section.settings.heading or section.settings.text %}
+        <div class="timeline-section__heading">
+          {% render 'heading',
+            heading: section.settings.heading,
+            heading_size: section.settings.heading_size,
+            alt_heading: section.settings.alt_heading
+          %}
+          {% if section.settings.text %}
+            <div class="__article-txt">
+              {{ section.settings.text }}
             </div>
+          {% endif %}
+        </div>
+      {% endif %}
 
-            <div class="timeline-section__part__text __btn-clr-{{ section.settings.dot_color }}">
-              <div class="timeline-section__part__text__inner">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'part' %}
+            <div class="timeline-section__parts__part __btn-clr-{{ section.settings.dot_color }}">
+              <div class="timeline-section__parts__part__text ">
                 {% render 'heading',
                   heading: block.settings.heading,
                   heading_size: block.settings.heading_size,
@@ -61,9 +71,9 @@
                 %}
               </div>
             </div>
-          </div>
-      {% endcase %}
-    {% endfor %}
+        {% endcase %}
+      {% endfor %}
+    </div>
   </div>
 {% endif %}
 
@@ -152,6 +162,15 @@
           "label": "t:sections.timeline.settings.dot_color.options.label_6"
         }
       ]
+    },
+    {
+      "type": "header",
+      "content": "t:sections.timeline.blocks.header.content"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.timeline.blocks.image_picker.label"
     },
     {
       "type": "select",
@@ -279,15 +298,6 @@
       "type": "part",
       "name": "t:sections.timeline.blocks.name",
       "settings": [
-        {
-          "type": "header",
-          "content": "t:sections.timeline.blocks.header.content"
-        },
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "t:sections.timeline.blocks.image_picker.label"
-        },
         {
           "type": "header",
           "content": "t:sections.timeline.blocks.header_2.content"

@@ -2,49 +2,28 @@
   --timelineSectionDotSize: calc(var(--pxSize) / 2);
   --timelineSectionGap: calc(var(--sectionVerticalSpacing) / 2);
   --timelineBgColor: var(--color-background);
+  display: flex;
+  gap: var(--timelineSectionGap);
+  align-items: flex-start;
 
-  &__heading {
-    margin-bottom: calc(var(--navWithAnnouncementHeight));
+  &__container,
+  &__parts {
+    flex: 0 0 calc(50% - calc(var(--timelineSectionGap) / 2));
   }
 
-  &__part {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--timelineSectionGap);
-    position: sticky;
-    -webkit-position: sticky;
-    top: calc(var(--navWithAnnouncementHeight) * 2);
-    padding-bottom: var(--timelineSectionGap);
-    background: linear-gradient(
-      to right,
-      RGB(var(--timelineBgColor)) 50%,
-      RGB(var(--timelineBgColor) / 0) 50%,
-      RGB(var(--timelineBgColor) / 0)
-        calc(
-          50% + calc(var(--timelineSectionDotSize) * 1.5) +
-            calc(var(--timelineSectionGap) / 2)
-        ),
-      RGB(var(--timelineBgColor))
-        calc(
-          50% + calc(var(--timelineSectionDotSize) * 1.5) +
-            calc(var(--timelineSectionGap) / 2)
-        )
-    );
+  &__parts {
+    background-color: RGB(var(--color-background));
 
-    &__image {
-      grid-column: 1 / 2;
-      border-radius: 0;
-      overflow: visible;
-    }
-
-    &__text {
-      grid-column: 2 / 3;
-      padding-left: calc(var(--timelineSectionDotSize) * 1.5);
+    &__part {
+      padding-bottom: var(--timelineSectionGap);
       position: relative;
-      z-index: 3;
+      min-height: min(
+        calc(100vh - calc(var(--navWithAnnouncementHeight) * 2)),
+        50vh
+      );
 
-      &__inner {
-        height: 100%;
+      &__text {
+        padding-left: calc(var(--timelineSectionDotSize) * 1.5);
       }
 
       //timeline dots
@@ -59,91 +38,61 @@
         left: 0;
         border-radius: 50%;
       }
-    }
 
-    //line behind the timeline dots
-    &:before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: calc(
-        50% + calc(var(--timelineSectionDotSize) / 2) +
-          calc(var(--timelineSectionGap) / 2)
-      );
-      width: 1px;
-      background: RGB(var(--color-border));
-      height: calc(100% + var(--timelineSectionGap));
-      z-index: 2;
-    }
-
-    // gradient margin above every part but the last
-    &:not(:first-of-type) {
-      .timeline-section {
-        &__part {
-          &__image,
-          &__text__inner {
-            &:before {
-              content: "";
-              position: absolute;
-              top: calc(var(--timelineSectionGap) * -1);
-              left: 0;
-              width: 100%;
-              height: var(--timelineSectionGap);
-              background: linear-gradient(
-                to top,
-                RGBA(var(--timelineBgColor) / 1),
-                RGBA(var(--timelineBgColor) / 1),
-                RGBA(var(--timelineBgColor) / 0)
-              );
-            }
-          }
-        }
+      //line behind the timeline dots
+      &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: calc(var(--timelineSectionDotSize) / 2);
+        width: 1px;
+        background: RGB(var(--color-border));
+        height: 100%;
       }
     }
   }
 
+  &__container {
+    position: sticky;
+    min-height: calc(100vh - calc(var(--navWithAnnouncementHeight) * 2));
+    -webkit-position: sticky;
+    top: calc(var(--navWithAnnouncementHeight) * 2);
+    z-index: 2;
+
+    &:before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 100%;
+      width: calc(100% + var(--timelineSectionGap));
+      height: 25vh;
+      background: linear-gradient(
+        to top,
+        RGBA(var(--timelineBgColor) / 1),
+        RGBA(var(--timelineBgColor) / 1),
+        RGBA(var(--timelineBgColor) / 0)
+      );
+    }
+  }
+
+  &__heading {
+    margin-bottom: calc(var(--sectionVerticalSpacing) / 2);
+  }
+
   @media screen and (max-width: 676px) {
     --timelineSectionGap: var(--sectionVerticalSpacing);
+    flex-direction: column;
 
-    &__heading {
-      margin-bottom: calc(var(--sectionVerticalSpacing) / 2);
-    }
-
-    &__part {
-      grid-template-columns: calc(var(--timelineSectionDotSize) * 1.5) 1fr;
-      gap: calc(var(--timelineSectionGap) / 2) 0;
-      background: transparent;
+    &__container {
+      width: 100%;
+      min-height: auto;
       position: relative;
       top: 0;
+    }
 
-      &__text {
-        grid-column: 1 / 3;
-        grid-row: 1 / 2;
-      }
-
-      &__image {
-        grid-column: 2 / 3;
-        grid-row: 2 / 3;
-      }
-
-      &__image,
-      &__text__inner {
-        &:before {
-          content: none !important;
-        }
-      }
-
-      &:last-child {
-        padding-bottom: 0;
-
-        &:before {
-          height: auto;
-          bottom: 0;
-        }
-      }
-
-      &:before {
-        left: calc(var(--timelineSectionDotSize) / 2);
+    &__parts {
+      &__part {
+        min-height: auto;
       }
     }
   }

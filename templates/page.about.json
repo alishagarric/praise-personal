@@ -165,7 +165,6 @@
         "eb74b024-43e4-4343-8146-6c03e00cb3f1": {
           "type": "part",
           "settings": {
-            "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_bbf54c90-3c31-4e00-962c-f12d6b17cf77.jpg",
             "heading": "",
             "heading_size": "h4",
             "alt_heading": false,
@@ -177,7 +176,6 @@
         "464bda83-5714-4bff-bcd6-ee1d1bcb4582": {
           "type": "part",
           "settings": {
-            "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_a6c4dcf8-a5c2-45ab-8711-f1aa9365378c.jpg",
             "heading": "Part of our story 2",
             "heading_size": "h6",
             "alt_heading": false,
@@ -189,7 +187,6 @@
         "c0b903c8-fc19-4ea1-a9c4-c82d8a64ab52": {
           "type": "part",
           "settings": {
-            "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash.jpg",
             "heading": "Part of our story 3",
             "heading_size": "h6",
             "alt_heading": true,
@@ -208,9 +205,10 @@
         "heading": "Lorem ipsum",
         "heading_size": "h4",
         "alt_heading": false,
+        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_bbf54c90-3c31-4e00-962c-f12d6b17cf77.jpg",
         "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>",
         "dot_color": "3",
-        "crop_shape": "square",
+        "crop_shape": "rounded-square",
         "theme": "primary",
         "top_spacing": 50,
         "bottom_spacing": 50
