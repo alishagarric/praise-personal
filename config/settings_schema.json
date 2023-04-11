@@ -256,7 +256,7 @@
             "label": "Large Text"
           }
         ],
-        "default": "p-sm",
+        "default": "h6",
         "label": "Text Size"
       },
       {
