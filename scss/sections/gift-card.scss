@@ -58,13 +58,13 @@
   }
 
   &__qr {
-    max-width: 450px;
-
     &__container {
+      max-width: 450px;
       position: relative;
       border: 1px solid RGB(var(--color-border));
       width: 100%;
-      padding-top: 100%;
+      padding-top: min(100%, 450px);
+      margin: 0 auto;
 
       * {
         position: absolute;
@@ -82,7 +82,10 @@
 
   @media screen and (max-width: 1024px) {
     &__qr {
-      max-width: 300px;
+      &__container {
+        max-width: 300px;
+        padding-top: min(100%, 300px);
+      }
     }
   }
 
