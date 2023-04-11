@@ -293,6 +293,25 @@
         },
         "paragraph": {
           "content": "Dynamic recommendations use order and product information to change and improve over time. [Learn more](https:\/\/help.shopify.com\/themes\/development\/recommended-products)"
+        },
+        "heading_size": {
+          "options": {
+            "label_1": "X-Large",
+            "label_2": "Large",
+            "label_3": "Medium",
+            "label_4": "Small"
+          }
+        },
+        "alt_heading": {
+          "label": "Use body font instead of heading font for heading"
+        },
+        "alignment": {
+          "label": "Text Alignment",
+          "options": {
+            "label_1": "Left",
+            "label_2": "Center",
+            "label_3": "Right"
+          }
         }
       }
     },

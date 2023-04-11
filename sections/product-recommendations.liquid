@@ -26,7 +26,12 @@
         <ul class="product-recommendations__container overflow-slider__container" role="list">
           {% for recommendation in recommendations.products %}
             <li>
-              {% render 'product-card', product: recommendation, img_width: 1000, img_widths: '1000, 750, 500', img_sizes: '(max-width: 676px) 75vw, (max-width: 1024px) 50vw, 25vw' %}
+              {% render 'product-card',
+                product: recommendation,
+                img_width: 1000,
+                img_widths: '1000, 750, 500',
+                img_sizes: '(max-width: 676px) 75vw, (max-width: 1024px) 50vw, 25vw'
+              %}
             </li>
           {% endfor %}
         </ul>
@@ -60,45 +65,45 @@
       "options": [
         {
           "value": "h2",
-          "label": "X-Large"
+          "label": "t:sections.product-recommendations.settings.heading_size.options.label_1"
         },
         {
           "value": "h4",
-          "label": "Large"
+          "label": "t:sections.product-recommendations.settings.heading_size.options.label_2"
         },
         {
           "value": "h5",
-          "label": "Medium"
+          "label": "t:sections.product-recommendations.settings.heading_size.options.label_3"
         },
         {
           "value": "h6",
-          "label": "Small"
+          "label": "t:sections.product-recommendations.settings.heading_size.options.label_4"
         }
       ],
       "default": "h4",
-      "label": "Heading Size"
+      "label": "t:sections.product-recommendations.settings.heading_size.label"
     },
     {
       "type": "checkbox",
       "id": "alt_heading",
-      "label": "Use body font instead of heading font for heading"
+      "label": "t:sections.product-recommendations.settings.alt_heading.label"
     },
     {
       "type": "radio",
       "id": "alignment",
-      "label": "Text Alignment",
+      "label": "t:sections.product-recommendations.settings.alignment.label",
       "options": [
         {
           "value": "left",
-          "label": "Left"
+          "label": "t:sections.product-recommendations.settings.alignment.options.label_1"
         },
         {
           "value": "center",
-          "label": "Center"
+          "label": "t:sections.product-recommendations.settings.alignment.options.label_2"
         },
         {
           "value": "right",
-          "label": "Right"
+          "label": "t:sections.product-recommendations.settings.alignment.options.label_3"
         }
       ],
       "default": "center"
