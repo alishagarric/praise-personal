@@ -341,7 +341,14 @@
       "group": "Password Header Group",
       "settings": {
         "logo": {
-          "label": "Logo image"
+          "label": "Logo"
+        },
+        "logo_placement":{
+          "label": "Label Placement",
+          "options": {
+            "label_1": "Left",
+            "label_2": "Center"
+          }
         }
       }
     },
