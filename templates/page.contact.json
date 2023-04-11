@@ -1,7 +1,54 @@
 {
   "sections": {
+    "5c7c185a-cfe0-4f9a-9c38-7e06a4046485": {
+      "type": "image-banner",
+      "blocks": {
+        "template--16686755184862__5c7c185a-cfe0-4f9a-9c38-7e06a4046485-1678746758dd315200-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "",
+            "heading_size": "h4"
+          }
+        },
+        "template--16686755184862__5c7c185a-cfe0-4f9a-9c38-7e06a4046485-1678746758dd315200-1": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>"
+          }
+        },
+        "template--16686755184862__5c7c185a-cfe0-4f9a-9c38-7e06a4046485-1678746758dd315200-2": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Laboris Nisi",
+            "button_link": "",
+            "button_color": "default"
+          }
+        }
+      },
+      "block_order": [
+        "template--16686755184862__5c7c185a-cfe0-4f9a-9c38-7e06a4046485-1678746758dd315200-0",
+        "template--16686755184862__5c7c185a-cfe0-4f9a-9c38-7e06a4046485-1678746758dd315200-1",
+        "template--16686755184862__5c7c185a-cfe0-4f9a-9c38-7e06a4046485-1678746758dd315200-2"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/angelica-echeverry-oZ1u0l17lns-unsplash.jpg",
+        "overlay": 0,
+        "overlay_theme": "3",
+        "crop_shape": "default",
+        "hero": false,
+        "alignment": "left",
+        "theme": "primary",
+        "top_internal_spacing": 100,
+        "bottom_internal_spacing": 170,
+        "top_spacing": 0,
+        "bottom_spacing": 0
+      }
+    },
     "1662063884d9fa6284": {
       "type": "image-with-text",
+      "disabled": true,
       "blocks": {
         "20cf5bbf-ba1c-4586-bb93-3f7a3fe1b475": {
           "type": "heading",
@@ -13,7 +60,7 @@
         "1662063884b661ea2d-0": {
           "type": "text",
           "settings": {
-            "text": "<p>Our customer service hours are Monday through Friday 9am to 6pm PST.</p><p>We can help answer any questions about our products, shippings, or anything else on your mind!</p><p><strong>Call Us</strong><br/>818-777-5577</p><p><strong>Visit Us</strong><br/>1557 S McCarran Blvd<br/>New York, NY 21212</p>"
+            "text": "<p>Our customer service hours are Monday through Friday 9am to 6pm PST.</p><p>We can help answer any questions about our products, shipping, or anything else on your mind!</p><p><strong>Call Us</strong><br/>818-777-5577</p><p><strong>Visit Us</strong><br/>1557 S McCarran Blvd<br/>New York, NY 21212</p>"
           }
         }
       },
@@ -27,6 +74,8 @@
         "hero": true,
         "alignment": "default",
         "layout": "reversed",
+        "mobile_layout": "default",
+        "mobile_image_height": 450,
         "theme": "2",
         "top_internal_spacing": 100,
         "bottom_internal_spacing": 100,
@@ -34,18 +83,83 @@
         "bottom_spacing": 0
       }
     },
+    "c5cd1b48-2085-450c-89bf-25c77b8b07bd": {
+      "type": "rich-text",
+      "blocks": {
+        "template--16686755184862__c5cd1b48-2085-450c-89bf-25c77b8b07bd-167874692583fd58f3-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Contact Us",
+            "heading_size": "h4"
+          }
+        },
+        "template--16686755184862__c5cd1b48-2085-450c-89bf-25c77b8b07bd-167874692583fd58f3-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Our customer service hours are Monday through Friday 9am to 6pm PST. <br/><br/>We can help answer any questions about our products, shippings, or anything else on your mind!</p><p><br/><strong>Text Us<br/></strong>775-777-5567<br/><br/><strong>Visit Us<br/></strong>1440 East 4th St<br/>Reno, NV 89512</p>"
+          }
+        },
+        "template--16686755184862__c5cd1b48-2085-450c-89bf-25c77b8b07bd-167874692583fd58f3-2": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Laboris Nisi",
+            "button_link": "",
+            "button_color": "default"
+          }
+        }
+      },
+      "block_order": [
+        "template--16686755184862__c5cd1b48-2085-450c-89bf-25c77b8b07bd-167874692583fd58f3-0",
+        "template--16686755184862__c5cd1b48-2085-450c-89bf-25c77b8b07bd-167874692583fd58f3-1",
+        "template--16686755184862__c5cd1b48-2085-450c-89bf-25c77b8b07bd-167874692583fd58f3-2"
+      ],
+      "settings": {
+        "alignment": "center",
+        "theme": "2",
+        "top_spacing": 10,
+        "bottom_spacing": 10
+      }
+    },
     "form": {
       "type": "contact-form",
       "settings": {
-        "heading": "Email Us",
-        "heading_size": "h4",
-        "alt_heading": true,
-        "description": "<p>Please contact us using the form below and allow 1-2 business days for your response.</p>",
-        "disclaimer": "*indicates a required field",
-        "hide_labels": true,
-        "name_required": true
+        "heading": "Contact Us"
+      }
+    },
+    "38acd668-f5df-4477-acc9-3577d1b9d5cb": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": ""
+      }
+    },
+    "e9c36f10-6ea6-4536-a082-55b161fb2dd8": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": ""
+      }
+    },
+    "2e5803b0-2ac5-4680-8a58-25ff7012643c": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": ""
+      }
+    },
+    "197c75f7-5a19-42e4-a92b-03d4ef6aca3c": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": ""
       }
     }
   },
-  "order": ["1662063884d9fa6284", "form"]
+  "order": [
+    "5c7c185a-cfe0-4f9a-9c38-7e06a4046485",
+    "1662063884d9fa6284",
+    "c5cd1b48-2085-450c-89bf-25c77b8b07bd",
+    "form",
+    "38acd668-f5df-4477-acc9-3577d1b9d5cb",
+    "e9c36f10-6ea6-4536-a082-55b161fb2dd8",
+    "2e5803b0-2ac5-4680-8a58-25ff7012643c",
+    "197c75f7-5a19-42e4-a92b-03d4ef6aca3c"
+  ]
 }

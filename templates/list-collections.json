@@ -1,231 +1,10 @@
 {
   "sections": {
-    "e016bbbd-0856-455a-8d09-653c667e35b4": {
-      "type": "image-banner",
-      "blocks": {
-        "template--16398178844894__e016bbbd-0856-455a-8d09-653c667e35b4-167581221261978a4c-0": {
-          "type": "heading",
-          "settings": {
-            "heading": "SHop All Cookies",
-            "heading_size": "h2"
-          }
-        },
-        "template--16398178844894__e016bbbd-0856-455a-8d09-653c667e35b4-167581221261978a4c-1": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Atypical cookies and treats that push the boundaires of indulgence</p>"
-          }
-        }
-      },
-      "block_order": [
-        "template--16398178844894__e016bbbd-0856-455a-8d09-653c667e35b4-167581221261978a4c-0",
-        "template--16398178844894__e016bbbd-0856-455a-8d09-653c667e35b4-167581221261978a4c-1"
-      ],
-      "settings": {
-        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_549b821c-6850-42f3-ae03-51e8af8116c6.jpg",
-        "overlay": 70,
-        "overlay_theme": "primary",
-        "crop_shape": "default",
-        "hero": false,
-        "alignment": "left",
-        "theme": "primary",
-        "top_internal_spacing": 100,
-        "bottom_internal_spacing": 100,
-        "top_spacing": 0,
-        "bottom_spacing": 0
-      }
-    },
-    "e016bbbd-0856-455a-8d09-653c667e35b41": {
-      "type": "featured-product",
-      "blocks": {
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "The best around",
-            "text_size": "p-sm",
-            "include_border": false
-          }
-        },
-        "title": {
-          "type": "title",
-          "settings": {
-            "heading_size": "h2",
-            "alt_heading": false
-          }
-        },
-        "description": {
-          "type": "description",
-          "settings": {
-            "text_size": "p-sm"
-          }
-        },
-        "divider": {
-          "type": "divider",
-          "settings": {
-            "top": 30,
-            "bottom": 0,
-            "hide_divider": true
-          }
-        },
-        "variant_picker": {
-          "type": "variant_picker",
-          "settings": {
-            "layout": "buttons",
-            "show_option_labels": true,
-            "include_border": true
-          }
-        },
-        "buy_buttons": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_quantity": true,
-            "hide_dynamic_buttons": true,
-            "include_border": true
-          }
-        },
-        "shop_button": {
-          "type": "shop_button",
-          "settings": {
-            "button_label": "Shop Now"
-          }
-        }
-      },
-      "block_order": [
-        "text",
-        "title",
-        "description",
-        "divider",
-        "variant_picker",
-        "buy_buttons",
-        "shop_button"
-      ],
-      "settings": {
-        "product": "all-hail-sugar-baby",
-        "alignment": "left",
-        "theme_section": "half",
-        "layout": "reversed",
-        "crop_shape": "rounded-square",
-        "show_phrase": true,
-        "mobile_layout": "default",
-        "theme": "primary",
-        "top_spacing": 100,
-        "bottom_spacing": 50
-      }
-    },
-    "c134d071-5105-4f8b-9ef7-aa480c33a8b2": {
-      "type": "divider",
-      "settings": {
-        "theme": "primary",
-        "top_spacing": 0,
-        "bottom_spacing": 0
-      }
-    },
     "main": {
       "type": "main-list-collections",
       "settings": {
-        "collections_per_page": 12,
-        "products_per_collection": 2,
-        "heading_size": "h4",
-        "alt_heading": true,
-        "view_all_button_label": "View All",
-        "enable_sticky_details": false,
-        "display_collection_image": false,
-        "collection_image_crop_shape": "rounded-landscape",
-        "display_featured_icons": true,
-        "enable_icons_marquee": false,
-        "speed": 5,
-        "display_featured_stats": true,
-        "stats_color": "3",
-        "icon_height": 40,
-        "layout": "stacked",
-        "show_phrase": true,
-        "show_description": true,
-        "quick_add": false,
-        "show_bg_color": false,
-        "alt_title": false,
-        "product_text_alignment": "default",
-        "price": "default",
-        "crop_shape": "rounded-square",
-        "theme": "primary",
-        "top_spacing": 50,
-        "bottom_spacing": 50
-      }
-    },
-    "fbac5ff6-332f-4a5e-9eb9-38330cc2ec29": {
-      "type": "divider",
-      "settings": {
-        "theme": "primary",
-        "top_spacing": 50,
-        "bottom_spacing": 50
-      }
-    },
-    "78b9e982-5826-4af1-bb33-6c800579102b": {
-      "type": "multicolumn",
-      "blocks": {
-        "9fed0646-618c-4d33-8279-11160ad8351b": {
-          "type": "products",
-          "settings": {
-            "products": [
-              "all-hail-sugar-baby",
-              "peanut-cravings-beware",
-              "moose-munchers-snap",
-              "the-king-otto"
-            ],
-            "show_phrase": true,
-            "show_description": true,
-            "quick_add": false,
-            "show_bg_color": false,
-            "alt_title": false,
-            "product_text_alignment": "default",
-            "price": "default",
-            "crop_shape": "rounded-square"
-          }
-        }
-      },
-      "block_order": ["9fed0646-618c-4d33-8279-11160ad8351b"],
-      "settings": {
-        "heading": "",
-        "heading_size": "h4",
-        "alt_heading": false,
-        "text": "",
-        "alignment": "center",
-        "columns_desktop": 3,
-        "columns_mobile": 2,
-        "layout": "default",
-        "theme": "primary",
-        "top_spacing": 50,
-        "bottom_spacing": 50
-      }
-    },
-    "0aedd12b-7b12-49e2-9817-c331fb847e55": {
-      "type": "collection-teaser",
-      "settings": {
-        "collections": ["cookie-collection"],
-        "products_per_collection": 2,
-        "heading_size": "h4",
-        "alt_heading": true,
-        "view_all_button_label": "View All",
-        "enable_sticky_details": true,
-        "display_collection_image": false,
-        "collection_image_crop_shape": "default",
-        "display_featured_icons": true,
-        "enable_icons_marquee": false,
-        "speed": 5,
-        "display_featured_stats": true,
-        "stats_color": "5",
-        "icon_height": 40,
-        "layout": "stacked",
-        "show_phrase": true,
-        "show_description": true,
-        "quick_add": false,
-        "show_bg_color": false,
-        "alt_title": false,
-        "product_text_alignment": "default",
-        "price": "default",
-        "crop_shape": "rounded-square",
-        "theme": "primary",
-        "top_spacing": 50,
-        "bottom_spacing": 50
+        "title": "Collections",
+        "collections_per_page": 4
       }
     },
     "85c58e07-278d-42c1-b9f3-f6bab28fee7f": {
@@ -264,8 +43,6 @@
         "hero": false,
         "alignment": "center",
         "layout": "reversed",
-        "mobile_layout": "default",
-        "mobile_image_height": 450,
         "theme": "primary",
         "top_internal_spacing": 100,
         "bottom_internal_spacing": 100,
@@ -273,76 +50,30 @@
         "bottom_spacing": 0
       }
     },
-    "54960ca1-1142-4191-a745-689603d4ca23": {
-      "type": "multicolumn",
-      "blocks": {
-        "f59e2fe6-d3ba-4912-95b8-88c242212711": {
-          "type": "products",
-          "settings": {
-            "products": [
-              "all-hail-sugar-baby",
-              "peanut-cravings-beware",
-              "moose-munchers-snap",
-              "the-king-otto"
-            ],
-            "show_phrase": false,
-            "show_description": false,
-            "quick_add": true,
-            "show_bg_color": false,
-            "alt_title": false,
-            "product_text_alignment": "default",
-            "price": "default",
-            "crop_shape": "rounded-square"
-          }
-        },
-        "180929a3-dca6-4523-91a5-a03a69559836": {
-          "type": "products",
-          "settings": {
-            "products": [
-              "all-hail-sugar-baby",
-              "peanut-cravings-beware",
-              "moose-munchers-snap",
-              "the-king-otto"
-            ],
-            "show_phrase": false,
-            "show_description": false,
-            "quick_add": true,
-            "show_bg_color": false,
-            "alt_title": false,
-            "product_text_alignment": "default",
-            "price": "default",
-            "crop_shape": "rounded-square"
-          }
-        }
-      },
-      "block_order": [
-        "f59e2fe6-d3ba-4912-95b8-88c242212711",
-        "180929a3-dca6-4523-91a5-a03a69559836"
-      ],
+    "7691bbe1-f26e-4754-a188-f70a1bca5076": {
+      "type": "featured-collection",
       "settings": {
+        "collection": "cookie-collection",
+        "theme_slider": false,
+        "show_phrase": false,
+        "show_description": false,
+        "quick_add": true,
+        "product_text_alignment": "default",
+        "price": "default",
+        "crop_shape": "rounded-square",
         "heading": "Stock your cabinet",
-        "heading_size": "h4",
         "alt_heading": true,
         "text": "",
-        "alignment": "center",
-        "columns_desktop": 4,
-        "columns_mobile": 1,
-        "layout": "slideshow",
+        "collection_text_content": false,
         "theme": "2",
-        "top_spacing": 50,
-        "bottom_spacing": 100
+        "top_spacing": 0,
+        "bottom_spacing": 50
       }
     }
   },
   "order": [
-    "e016bbbd-0856-455a-8d09-653c667e35b4",
-    "e016bbbd-0856-455a-8d09-653c667e35b41",
-    "c134d071-5105-4f8b-9ef7-aa480c33a8b2",
     "main",
-    "fbac5ff6-332f-4a5e-9eb9-38330cc2ec29",
-    "78b9e982-5826-4af1-bb33-6c800579102b",
-    "0aedd12b-7b12-49e2-9817-c331fb847e55",
     "85c58e07-278d-42c1-b9f3-f6bab28fee7f",
-    "54960ca1-1142-4191-a745-689603d4ca23"
+    "7691bbe1-f26e-4754-a188-f70a1bca5076"
   ]
 }

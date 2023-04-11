@@ -1,56 +1,57 @@
 {
   "sections": {
-    "main-banner": {
-      "type": "main-collection-banner",
+    "126cc255-b160-4164-b83c-6150d1a017f7": {
+      "type": "image-banner",
+      "blocks": {
+        "template--16686755512542__126cc255-b160-4164-b83c-6150d1a017f7-16784108291229b9bf-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Better Skin from within",
+            "heading_size": "h4"
+          }
+        },
+        "template--16686755512542__126cc255-b160-4164-b83c-6150d1a017f7-16784108291229b9bf-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We don't make juices just to taste good. We make skin care drinks to build health. It's holistic, whole body approach.</p>"
+          }
+        },
+        "template--16686755512542__126cc255-b160-4164-b83c-6150d1a017f7-16784108291229b9bf-2": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop Now",
+            "button_link": "",
+            "button_color": "default"
+          }
+        }
+      },
+      "block_order": [
+        "template--16686755512542__126cc255-b160-4164-b83c-6150d1a017f7-16784108291229b9bf-0",
+        "template--16686755512542__126cc255-b160-4164-b83c-6150d1a017f7-16784108291229b9bf-1",
+        "template--16686755512542__126cc255-b160-4164-b83c-6150d1a017f7-16784108291229b9bf-2"
+      ],
       "settings": {
-        "heading_size": "h4",
-        "alt_heading": false,
-        "alignment": "left",
-        "show_image": true,
-        "overlay": 50,
-        "overlay_theme": "primary",
+        "image": "shopify://shop_images/SKin-Collection.jpg",
+        "overlay": 10,
+        "overlay_theme": "5",
         "crop_shape": "default",
-        "theme": "primary",
-        "top_internal_spacing": 100,
-        "bottom_internal_spacing": 100,
+        "hero": true,
+        "alignment": "left",
+        "theme": "2",
+        "top_internal_spacing": 150,
+        "bottom_internal_spacing": 190,
         "top_spacing": 0,
         "bottom_spacing": 0
       }
     },
+    "main-banner": {
+      "type": "main-collection-banner",
+      "disabled": true,
+      "settings": {}
+    },
     "main-product-grid": {
       "type": "main-collection-grid",
-      "blocks": {
-        "837b278a-9884-4aa7-a382-569b6b13c55c": {
-          "type": "promotion",
-          "settings": {
-            "position": 2,
-            "width": 1,
-            "height": 2,
-            "heading": "",
-            "heading_size": "h6",
-            "alt_heading": false,
-            "text": "",
-            "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_cd0b890c-b357-4857-9c0d-36126dbfab86.jpg",
-            "overlay": 0,
-            "overlay_theme": "primary",
-            "image_corners": "default"
-          }
-        }
-      },
-      "block_order": ["837b278a-9884-4aa7-a382-569b6b13c55c"],
-      "settings": {
-        "show_phrase": true,
-        "show_description": true,
-        "quick_add": false,
-        "show_bg_color": true,
-        "alt_title": true,
-        "product_text_alignment": "default",
-        "price": "default",
-        "crop_shape": "default",
-        "theme": "primary",
-        "top_spacing": 50,
-        "bottom_spacing": 50
-      }
+      "settings": {}
     },
     "1f0676f2-7350-438a-8c08-755d0e96e91c": {
       "type": "image-with-text",
@@ -97,22 +98,23 @@
         "1bdd81eb-fea5-4259-8a4c-ae4b17255381-3"
       ],
       "settings": {
-        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_e7c90847-70c1-47f4-a82d-2369a2b4a718.jpg",
+        "image": "shopify://shop_images/angelica-echeverry-VjJr17GkX1M-unsplash.jpg",
         "image_style": "square",
         "hero": false,
-        "alignment": "default",
+        "alignment": "center",
         "layout": "reversed",
         "mobile_layout": "default",
         "mobile_image_height": 450,
         "theme": "2",
         "top_internal_spacing": 0,
         "bottom_internal_spacing": 0,
-        "top_spacing": 50,
-        "bottom_spacing": 50
+        "top_spacing": 60,
+        "bottom_spacing": 60
       }
     },
     "d7ab5552-b9ce-4e1e-89aa-af7c046263d2": {
       "type": "image-with-text",
+      "disabled": true,
       "blocks": {
         "template--16398178320606__d7ab5552-b9ce-4e1e-89aa-af7c046263d2-167036242761bb5f6f-0": {
           "type": "heading",
@@ -155,12 +157,49 @@
         "top_spacing": 0,
         "bottom_spacing": 0
       }
+    },
+    "ce70f34d-4f54-49d4-ac85-7a84399b20a7": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "",
+        "theme_slider": false,
+        "show_phrase": false,
+        "show_description": false,
+        "quick_add": false,
+        "alt_title": true,
+        "product_text_alignment": "default",
+        "price": "not-visible",
+        "crop_shape": "default",
+        "heading": "Skin loving juices",
+        "alt_heading": false,
+        "text": "",
+        "collection_text_content": false,
+        "theme": "primary",
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
+    },
+    "194fd8e1-ea71-441f-8665-d0f1d20513e3": {
+      "type": "collections-list",
+      "settings": {
+        "heading": "Lorem ipsum dolor sit",
+        "heading_size": "h4",
+        "alt_heading": false,
+        "collections_text_alignment": "left",
+        "button_label": "",
+        "theme": "primary",
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
     }
   },
   "order": [
+    "126cc255-b160-4164-b83c-6150d1a017f7",
     "main-banner",
     "main-product-grid",
     "1f0676f2-7350-438a-8c08-755d0e96e91c",
-    "d7ab5552-b9ce-4e1e-89aa-af7c046263d2"
+    "d7ab5552-b9ce-4e1e-89aa-af7c046263d2",
+    "ce70f34d-4f54-49d4-ac85-7a84399b20a7",
+    "194fd8e1-ea71-441f-8665-d0f1d20513e3"
   ]
 }
