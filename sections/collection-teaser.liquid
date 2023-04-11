@@ -24,16 +24,16 @@
   "settings": [
     {
       "type": "header",
-      "content": "General"
+      "content": "t:sections.collection-teaser.settings.header.content"
     },
     {
       "type": "collection_list",
       "id": "collections",
-      "label": "Collections"
+      "label": "t:sections.collection-teaser.settings.collections.label"
     },
     {
       "type": "header",
-      "content": "Collection Row Settings"
+      "content": "t:sections.collection-teaser.settings.header_2.content"
     },
     {
       "type": "range",
@@ -42,7 +42,7 @@
       "min": 2,
       "max": 12,
       "step": 1,
-      "label": "Products per collection"
+      "label": "t:sections.collection-teaser.settings.products_per_collection.label"
     },
     {
       "type": "select",
@@ -50,48 +50,48 @@
       "options": [
         {
           "value": "h2",
-          "label": "X-Large"
+          "label": "t:sections.collection-teaser.settings.heading_size.options.label_1"
         },
         {
           "value": "h4",
-          "label": "Large"
+          "label": "t:sections.collection-teaser.settings.heading_size.options.label_2"
         },
         {
           "value": "h5",
-          "label": "Medium"
+          "label": "t:sections.collection-teaser.settings.heading_size.options.label_3"
         },
         {
           "value": "h6",
-          "label": "Small"
+          "label": "t:sections.collection-teaser.settings.heading_size.options.label_4"
         }
       ],
       "default": "h4",
-      "label": "Collection Titles Size"
+      "label": "t:sections.collection-teaser.settings.heading_size.label"
     },
     {
       "type": "checkbox",
       "id": "alt_heading",
-      "label": "Use body font instead of heading font for collection titles"
+      "label": "t:sections.collection-teaser.settings.alt_heading.label"
     },
     {
       "type": "text",
       "id": "view_all_button_label",
-      "label": "View All Button Label",
-      "info": "If excluded, no view all button will display",
+      "label": "t:sections.collection-teaser.settings.view_all_button_label.label",
+      "info": "t:sections.collection-teaser.settings.view_all_button_label.info",
       "default": "View All"
     },
     {
       "type": "checkbox",
       "id": "enable_sticky_details",
       "default": true,
-      "label": "Enable collection details to 'stick'",
-      "info": "'Sticks' within view while user scrolls through product cards. Requires product cards to be taller than collection details per collection row."
+      "label": "t:sections.collection-teaser.settings.enable_sticky_details.label",
+      "info": "t:sections.collection-teaser.settings.enable_sticky_details.info"
     },
     {
       "type": "checkbox",
       "id": "display_collection_image",
-      "label": "Display collection image",
-      "info": "Dependent on collection having an image assign to it",
+      "label": "t:sections.collection-teaser.settings.display_collection_image.label",
+      "info": "t:sections.collection-teaser.settings.display_collection_image.info",
       "default": false
     },
     {
@@ -100,75 +100,75 @@
       "options": [
         {
           "value": "default",
-          "label": "No Crop"
+          "label": "t:sections.collection-teaser.settings.collection_image_crop_shape.options.label_1"
         },
         {
           "value": "square",
-          "label": "Square"
+          "label": "t:sections.collection-teaser.settings.collection_image_crop_shape.options.label_2"
         },
         {
           "value": "rounded-square",
-          "label": "Rounded Square"
+          "label": "t:sections.collection-teaser.settings.collection_image_crop_shape.options.label_3"
         },
         {
           "value": "circle",
-          "label": "Circle"
+          "label": "t:sections.collection-teaser.settings.collection_image_crop_shape.options.label_4"
         },
         {
           "value": "portrait",
-          "label": "Portrait"
+          "label": "t:sections.collection-teaser.settings.collection_image_crop_shape.options.label_5"
         },
         {
           "value": "rounded-portrait",
-          "label": "Rounded Portrait"
+          "label": "t:sections.collection-teaser.settings.collection_image_crop_shape.options.label_6"
         },
         {
           "value": "semicircle-portrait",
-          "label": "Semicircle Portrait"
+          "label": "t:sections.collection-teaser.settings.collection_image_crop_shape.options.label_7"
         },
         {
           "value": "landscape",
-          "label": "Landscape"
+          "label": "t:sections.collection-teaser.settings.collection_image_crop_shape.options.label_8"
         },
         {
           "value": "rounded-landscape",
-          "label": "Rounded Landscape"
+          "label": "t:sections.collection-teaser.settings.collection_image_crop_shape.options.label_9"
         },
         {
           "value": "semicircle-landscape",
-          "label": "Semicircle Landscape"
+          "label": "t:sections.collection-teaser.settings.collection_image_crop_shape.options.label_10"
         },
         {
           "value": "wide",
-          "label": "Wide"
+          "label": "t:sections.collection-teaser.settings.collection_image_crop_shape.options.label_11"
         },
         {
           "value": "rounded-wide",
-          "label": "Rounded Wide"
+          "label": "t:sections.collection-teaser.settings.collection_image_crop_shape.options.label_12"
         },
         {
           "value": "semicircle-wide",
-          "label": "Semicircle Wide"
+          "label": "t:sections.collection-teaser.settings.collection_image_crop_shape.options.label_13"
         },
         {
           "value": "arch",
-          "label": "Semicircle Arch"
+          "label": "t:sections.collection-teaser.settings.collection_image_crop_shape.options.label_14"
         }
       ],
       "default": "default",
-      "label": "Collection Image Crop Shape"
+      "label": "t:sections.collection-teaser.settings.collection_image_crop_shape.label"
     },
     {
       "type": "checkbox",
       "id": "display_featured_icons",
-      "label": "Display featured icons",
-      "info": "Dependent on addition of product featured icons metafield. //TODO: add link here",
+      "label": "t:sections.collection-teaser.settings.display_featured_icons.label",
+      "info": "t:sections.collection-teaser.settings.display_featured_icons.info",
       "default": false
     },
     {
       "type": "checkbox",
       "id": "enable_icons_marquee",
-      "label": "Enable featured icons marquee",
+      "label": "t:sections.collection-teaser.settings.enable_icons_marquee.label",
       "default": false
     },
     {
@@ -178,45 +178,45 @@
       "max": 10,
       "step": 1,
       "unit": "x",
-      "label": "Marquee Speed",
+      "label": "t:sections.collection-teaser.settings.speed.label",
       "default": 5
     },
     {
       "type": "checkbox",
       "id": "display_featured_stats",
-      "label": "Display featured stats",
-      "info": "Dependent on addition of collection featured stats metafield. //TODO: add link here",
+      "label": "t:sections.collection-teaser.settings.display_featured_stats.label",
+      "info": "t:sections.collection-teaser.settings.display_featured_stats.info",
       "default": false
     },
     {
       "type": "select",
       "id": "stats_color",
-      "label": "Stats Color",
+      "label": "t:sections.collection-teaser.settings.stats_color.label",
       "default": "default",
       "options": [
         {
           "value": "default",
-          "label": "Default"
+          "label": "t:sections.collection-teaser.settings.stats_color.options.label_1"
         },
         {
           "value": "primary",
-          "label": "Primary Theme"
+          "label": "t:sections.collection-teaser.settings.stats_color.options.label_2"
         },
         {
           "value": "2",
-          "label": "2nd Theme"
+          "label": "t:sections.collection-teaser.settings.stats_color.options.label_3"
         },
         {
           "value": "3",
-          "label": "3rd Theme"
+          "label": "t:sections.collection-teaser.settings.stats_color.options.label_4"
         },
         {
           "value": "4",
-          "label": "4th Theme"
+          "label": "t:sections.collection-teaser.settings.stats_color.options.label_5"
         },
         {
           "value": "5",
-          "label": "5th Theme"
+          "label": "t:sections.collection-teaser.settings.stats_color.options.label_6"
         }
       ]
     },
@@ -227,59 +227,59 @@
       "max": 100,
       "step": 10,
       "unit": "px",
-      "label": "Icon Height",
+      "label": "t:sections.collection-teaser.settings.icon_height.label",
       "default": 40
     },
     {
       "type": "radio",
       "id": "layout",
-      "label": "Icon Layout",
+      "label": "t:sections.collection-teaser.settings.layout.label",
       "options": [
         {
           "value": "stacked",
-          "label": "Stacked"
+          "label": "t:sections.collection-teaser.settings.layout.options.label_1"
         },
         {
           "value": "row",
-          "label": "Row"
+          "label": "t:sections.collection-teaser.settings.layout.options.label_2"
         },
         {
           "value": "icon-only",
-          "label": "Icon Only"
+          "label": "t:sections.collection-teaser.settings.layout.options.label_3"
         }
       ],
       "default": "stacked"
     },
     {
       "type": "header",
-      "content": "Product Card Settings"
+      "content": "t:sections.collection-teaser.settings.header_3.content"
     },
     {
       "type": "checkbox",
       "id": "show_phrase",
-      "label": "Show product phrase"
+      "label": "t:sections.collection-teaser.settings.show_phrase.label"
     },
     {
       "type": "checkbox",
       "id": "show_description",
-      "label": "Show product description"
+      "label": "t:sections.collection-teaser.settings.show_description.label"
     },
     {
       "type": "checkbox",
       "id": "quick_add",
-      "label": "Enable quick add",
+      "label": "t:sections.collection-teaser.settings.quick_add.label",
       "default": false
     },
     {
       "type": "checkbox",
       "id": "show_bg_color",
-      "label": "Show background color",
+      "label": "t:sections.collection-teaser.settings.show_bg_color.label",
       "default": false
     },
     {
       "type": "checkbox",
       "id": "alt_title",
-      "label": "Use body font instead of heading font for product title"
+      "label": "t:sections.collection-teaser.settings.alt_title.label"
     },
     {
       "type": "select",
@@ -287,19 +287,19 @@
       "options": [
         {
           "value": "default",
-          "label": "Left"
+          "label": "t:sections.collection-teaser.settings.product_text_alignment.options.label_1"
         },
         {
           "value": "center",
-          "label": "Center"
+          "label": "t:sections.collection-teaser.settings.product_text_alignment.options.label_2"
         },
         {
           "value": "right",
-          "label": "Right"
+          "label": "t:sections.collection-teaser.settings.product_text_alignment.options.label_3"
         }
       ],
       "default": "default",
-      "label": "Product Text Alignment"
+      "label": "t:sections.collection-teaser.settings.product_text_alignment.label"
     },
     {
       "type": "select",
@@ -307,19 +307,19 @@
       "options": [
         {
           "value": "default",
-          "label": "Right of Title"
+          "label": "t:sections.collection-teaser.settings.price.options.label_1"
         },
         {
           "value": "bottom",
-          "label": "Bottom"
+          "label": "t:sections.collection-teaser.settings.price.options.label_2"
         },
         {
           "value": "not-visible",
-          "label": "Not Visible"
+          "label": "t:sections.collection-teaser.settings.price.options.label_3"
         }
       ],
       "default": "default",
-      "label": "Price Position"
+      "label": "t:sections.collection-teaser.settings.price.label"
     },
     {
       "type": "select",
@@ -327,55 +327,55 @@
       "options": [
         {
           "value": "default",
-          "label": "No Crop"
+          "label": "t:sections.collection-teaser.settings.crop_shape.options.label_1"
         },
         {
           "value": "square",
-          "label": "Square"
+          "label": "t:sections.collection-teaser.settings.crop_shape.options.label_2"
         },
         {
           "value": "rounded-square",
-          "label": "Rounded Square"
+          "label": "t:sections.collection-teaser.settings.crop_shape.options.label_3"
         },
         {
           "value": "circle",
-          "label": "Circle"
+          "label": "t:sections.collection-teaser.settings.crop_shape.options.label_4"
         },
         {
           "value": "portrait",
-          "label": "Portrait"
+          "label": "t:sections.collection-teaser.settings.crop_shape.options.label_5"
         },
         {
           "value": "rounded-portrait",
-          "label": "Rounded Portrait"
+          "label": "t:sections.collection-teaser.settings.crop_shape.options.label_6"
         },
         {
           "value": "semicircle-portrait",
-          "label": "Semicircle Portrait"
+          "label": "t:sections.collection-teaser.settings.crop_shape.options.label_7"
         },
         {
           "value": "landscape",
-          "label": "Landscape"
+          "label": "t:sections.collection-teaser.settings.crop_shape.options.label_8"
         },
         {
           "value": "rounded-landscape",
-          "label": "Rounded Landscape"
+          "label": "t:sections.collection-teaser.settings.crop_shape.options.label_9"
         },
         {
           "value": "semicircle-landscape",
-          "label": "Semicircle Landscape"
+          "label": "t:sections.collection-teaser.settings.crop_shape.options.label_10"
         },
         {
           "value": "arch",
-          "label": "Semicircle Arch"
+          "label": "t:sections.collection-teaser.settings.crop_shape.options.label_11"
         }
       ],
       "default": "default",
-      "label": "Product Image Crop Shape"
+      "label": "t:sections.collection-teaser.settings.crop_shape.label"
     },
     {
       "type": "header",
-      "content": "Section"
+      "content": "t:sections.collection-teaser.settings.header_4.content"
     },
     {
       "type": "select",
@@ -383,27 +383,27 @@
       "options": [
         {
           "value": "primary",
-          "label": "Primary Theme"
+          "label": "t:sections.collection-teaser.settings.theme.options.label_1"
         },
         {
           "value": "2",
-          "label": "2nd Theme"
+          "label": "t:sections.collection-teaser.settings.theme.options.label_2"
         },
         {
           "value": "3",
-          "label": "3rd Theme"
+          "label": "t:sections.collection-teaser.settings.theme.options.label_3"
         },
         {
           "value": "4",
-          "label": "4th Theme"
+          "label": "t:sections.collection-teaser.settings.theme.options.label_4"
         },
         {
           "value": "5",
-          "label": "5th Theme"
+          "label": "t:sections.collection-teaser.settings.theme.options.label_5"
         }
       ],
       "default": "primary",
-      "label": "Theme"
+      "label": "t:sections.collection-teaser.settings.theme.label"
     },
     {
       "type": "range",
@@ -412,7 +412,7 @@
       "max": 100,
       "step": 10,
       "unit": "%",
-      "label": "Top Spacing",
+      "label": "t:sections.collection-teaser.settings.top_spacing.label",
       "default": 50
     },
     {
@@ -422,13 +422,13 @@
       "max": 100,
       "step": 10,
       "unit": "%",
-      "label": "Bottom Spacing",
+      "label": "t:sections.collection-teaser.settings.bottom_spacing.label",
       "default": 50
     }
   ],
   "presets": [
     {
-      "name": "Collection Teaser"
+      "name": "t:sections.collection-teaser.presets.name"
     }
   ]
 }
