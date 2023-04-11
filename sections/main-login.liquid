@@ -4,7 +4,7 @@
   assign section_theme = section.settings.theme
   assign top_spacing = section.settings.top_spacing
   assign bottom_spacing = section.settings.bottom_spacing
-  assign form_class = 'customer-forms__form form-styles' | append: " __hide-labels-" | append: section.settings.hide_labels
+  assign form_class = 'customer-forms__form form-styles' | append: ' __hide-labels-' | append: section.settings.hide_labels
 %}
 
 {% style %}
@@ -64,13 +64,22 @@
     {%- endform -%}
 
     {% assign button_label = 'customer.login_page.cancel' | t %}
-    {% render 'button', class: "customer-forms", button_label: button_label, button_link: "#login", style: "underline" %}
-
+    {% render 'button',
+      class: 'customer-forms',
+      button_label: button_label,
+      button_link: '#login',
+      style: 'underline'
+    %}
   </div>
 
   <div class="customer-forms__container" id="login">
     <div class="customer-forms__text __align-center">
-        {% render 'heading', heading: section.settings.heading, heading_size: 'h5', heading_tag: 'h1', class: "customer-forms__text" %}
+      {% render 'heading',
+        heading: section.settings.heading,
+        heading_size: 'h5',
+        heading_tag: 'h1',
+        class: 'customer-forms__text'
+      %}
       <div class="customer-forms__text__description __article-txt-p-sm" {{ block.shopify_attributes }}>
         {{ section.settings.description }}
       </div>
@@ -134,7 +143,12 @@
     {%- endform -%}
 
     {% assign button_label = 'customer.login_page.forgot_password' | t %}
-    {% render 'button', class: "customer-forms", button_label: button_label, button_link: "#recover", style: "underline" %}
+    {% render 'button',
+      class: 'customer-forms',
+      button_label: button_label,
+      button_link: '#recover',
+      style: 'underline'
+    %}
   </div>
 </div>
 
@@ -145,43 +159,43 @@
   "settings": [
     {
       "type": "header",
-      "content": "General"
+      "content": "t:sections.main-login.settings.header.content"
     },
     {
       "type": "checkbox",
       "id": "hide_labels",
-      "label": "Hide labels",
+      "label": "t:sections.main-login.settings.hide_labels.label",
       "default": false
     },
     {
       "type": "header",
-      "content": "Login Form"
+      "content": "t:sections.main-login.settings.header_2.content"
     },
     {
       "type": "text",
       "id": "heading",
       "default": "Welcome",
-      "label": "Heading"
+      "label": "t:sections.main-login.settings.heading.label"
     },
     {
       "type": "richtext",
       "id": "description",
-      "default":"<p>Log in to Your Account<\/p><p>Don't have an account? <a href=\"\/account\/register\" title=\"\/account\/register\">Register<\/a><\/p>",
-      "label": "Description"
+      "default": "<p>Log in to Your Account<\/p><p>Don't have an account? <a href=\"\/account\/register\" title=\"\/account\/register\">Register<\/a><\/p>",
+      "label": "t:sections.main-login.settings.description.label"
     },
     {
       "type": "header",
-      "content": "Reset Form"
+      "content": "t:sections.main-login.settings.header_3.content"
     },
     {
       "type": "text",
       "id": "reset_heading",
       "default": "Reset Your Password",
-      "label": "Reset Form Heading"
+      "label": "t:sections.main-login.settings.reset_heading.label"
     },
     {
       "type": "header",
-      "content": "Section"
+      "content": "t:sections.main-login.settings.header_4.content"
     },
     {
       "type": "range",
@@ -190,7 +204,7 @@
       "max": 100,
       "step": 10,
       "unit": "%",
-      "label": "Top Spacing",
+      "label": "t:sections.main-login.settings.top_spacing.label",
       "default": 50
     },
     {
@@ -200,7 +214,7 @@
       "max": 100,
       "step": 10,
       "unit": "%",
-      "label": "Bottom Spacing",
+      "label": "t:sections.main-login.settings.bottom_spacing.label",
       "default": 50
     },
     {
@@ -209,32 +223,32 @@
       "options": [
         {
           "value": "primary",
-          "label": "Primary Theme"
+          "label": "t:sections.main-login.settings.theme.options.label_1"
         },
         {
           "value": "2",
-          "label": "2nd Theme"
+          "label": "t:sections.main-login.settings.theme.options.label_2"
         },
         {
           "value": "3",
-          "label": "3rd Theme"
+          "label": "t:sections.main-login.settings.theme.options.label_3"
         },
         {
           "value": "4",
-          "label": "4th Theme"
+          "label": "t:sections.main-login.settings.theme.options.label_4"
         },
         {
           "value": "5",
-          "label": "5th Theme"
+          "label": "t:sections.main-login.settings.theme.options.label_5"
         }
       ],
       "default": "primary",
-      "label": "Theme"
+      "label": "t:sections.main-login.settings.theme.label"
     }
   ],
   "presets": [
     {
-      "name": "t:sections.contact-form.presets.name"
+      "name": "t:sections.main-login.presets.name"
     }
   ]
 }

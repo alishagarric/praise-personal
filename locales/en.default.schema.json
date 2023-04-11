@@ -317,10 +317,60 @@
       "name": "Registration"
     },
     "footer": {
-      "name": "Footer"
+      "name": "Footer",
+      "settings": {
+        "heading": {
+          "label": "Heading"
+        }
+      }
     },
     "main-login": {
-      "name": "Login"
+      "name": "Login",
+      "presets": {
+        "name": "Main Login"
+      },
+      "settings": {
+        "header": {
+          "content": "General"
+        },
+        "hide_labels": {
+          "label": "Hide labels"
+        },
+        "header_2": {
+          "content": "Login Form"
+        },
+        "heading": {
+          "label": "Heading"
+        },
+        "description": {
+          "label": "Description"
+        },
+        "header_3": {
+          "content": "Reset Form"
+        },
+        "reset_heading": {
+          "label": "Reset Form Heading"
+        },
+        "header_4": {
+          "content": "Section"
+        },
+        "top_spacing": {
+          "label": "Top Section Spacing"
+        },
+        "bottom_spacing": {
+          "label": "Top Section Spacing"
+        },
+        "theme": {
+          "options": {
+            "label_1": "Primary Theme",
+            "label_2": "2nd Theme",
+            "label_3": "3rd Theme",
+            "label_4": "4th Theme",
+            "label_5": "5th Theme"
+          },
+          "label": "Theme"
+        }
+      }
     },
     "main-reset-password": {
       "name": "Password reset"
