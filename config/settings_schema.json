@@ -5,7 +5,7 @@
     "theme_version": "1.0.0",
     "theme_author": "Commence Studio",
     "theme_support_email": "hello@commence.studio",
-    "theme_documentation_url": "https:\/\/commence.studio"
+    "theme_documentation_url": "https://commence.studio"
   },
   {
     "name": "Announcement Bar",
@@ -228,6 +228,52 @@
         "unit": "%",
         "label": "t:settings_schema.typography.settings.body_spacing.label",
         "default": 0
+      }
+    ]
+  },
+  {
+    "name": "Product Phrase",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "alt_heading",
+        "label": "Use body font instead of heading font"
+      },
+      {
+        "type": "select",
+        "id": "product_phrase_text_size",
+        "options": [
+          {
+            "value": "p",
+            "label": "Small Text"
+          },
+          {
+            "value": "p-lg",
+            "label": "Basic Text"
+          },
+          {
+            "value": "h6",
+            "label": "Large Text"
+          }
+        ],
+        "default": "p-sm",
+        "label": "Text Size"
+      },
+      {
+        "type": "checkbox",
+        "id": "product_phrase_badgify",
+        "label": "Make into badge",
+        "default": false
+      },
+      {
+        "type": "range",
+        "id": "product_phrase_tilt",
+        "min": -10,
+        "max": 10,
+        "step": 1,
+        "unit": "°",
+        "label": "Tilt",
+        "default": 5
       }
     ]
   },
