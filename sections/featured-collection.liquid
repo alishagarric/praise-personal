@@ -2,6 +2,8 @@
 {{ 'cmnc-flickity.css' | asset_url | stylesheet_tag }}
 {{ 'featured-collection.css' | asset_url | stylesheet_tag }}
 
+<script src="{{ 'flickity.js' | asset_url }}" defer></script>
+
 {% liquid
   assign featured_collection = section.settings.collection
   assign collection_text_content = section.settings.collection_text_content

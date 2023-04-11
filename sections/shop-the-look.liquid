@@ -2,6 +2,8 @@
 {{ 'cmnc-flickity.css' | asset_url | stylesheet_tag }}
 {{ 'shop-the-look.css' | asset_url | stylesheet_tag }}
 
+<script src="{{ 'flickity.js' | asset_url }}" defer></script>
+
 {% liquid
   assign products_count = section.blocks | size
   assign section_theme = section.settings.theme
