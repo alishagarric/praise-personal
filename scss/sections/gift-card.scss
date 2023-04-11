@@ -59,11 +59,11 @@
 
   &__qr {
     &__container {
-      max-width: 450px;
+      max-width: 300px;
       position: relative;
       border: 1px solid RGB(var(--color-border));
       width: 100%;
-      padding-top: min(100%, 450px);
+      padding-top: min(100%, 300px);
       margin: 0 auto;
 
       * {
@@ -77,15 +77,6 @@
 
     &__btn.__with-underline {
       margin: calc(var(--pxSize) / 2) auto 0 auto;
-    }
-  }
-
-  @media screen and (max-width: 1024px) {
-    &__qr {
-      &__container {
-        max-width: 300px;
-        padding-top: min(100%, 300px);
-      }
     }
   }
 
