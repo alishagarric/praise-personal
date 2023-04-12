@@ -3245,36 +3245,278 @@
         "name": "Multicolumn"
       },
       "settings": {
-        "header1": {
+        "header_1": {
           "content": "Text Content"
         },
-        "header2": {
+        "heading": {
+          "label": "Heading"
+        },
+        "heading_size": {
+          "options": {
+            "label_1": "X-Large",
+            "label_2": "Large",
+            "label_3": "Medium",
+            "label_4": "Small"
+          },
+          "label": "Heading Size"
+        },
+        "alt_heading": {
+          "label": "Use body font instead of heading font for heading"
+        },
+        "text": {
+          "label": "Description"
+        },
+        "alignment": {
+          "label": "Alignment",
+          "options": {
+            "label_1": "Left",
+            "label_2": "Center",
+            "label_3": "Right"
+          }
+        },
+        "header_2": {
           "content": "General"
         },
-        "header3": {
+        "header_3": {
           "content": "Section"
+        },
+        "columns_desktop": {
+          "label": "Desktop Columns Per Row"
+        },
+        "columns_mobile": {
+          "label": "Mobile Columns Per Row"
+        },
+        "layout": {
+          "options": {
+            "label_1": "Stacking Columns",
+            "label_2": "Slideshow"
+          },
+          "label": "Layout"
+        },
+        "theme": {
+          "options": {
+            "label_1": "Primary Theme",
+            "label_2": "2nd Theme",
+            "label_3": "3rd Theme",
+            "label_4": "4th Theme",
+            "label_5": "5th Theme"
+          },
+          "label": "Theme"
+        },
+        "top_spacing": {
+          "label": "Top Spacing"
+        },
+        "bottom_spacing": {
+          "label": "Bottom Spacing"
         }
       },
       "blocks": {
         "image-with-text": {
           "name": "Image with Text",
           "settings": {
-            "header1": {
+            "header_1": {
               "content": "Image Content"
             },
-            "header2": {
-              "content": "Text"
+            "image_picker": {
+              "label": "Image"
+            },
+            "overlay": {
+              "label": "Overlay Opacity",
+              "info": "If above 0%, an overlay will be added on top of the image"
+            },
+            "overlay_theme": {
+              "options": {
+                "label_1": "Primary Theme",
+                "label_2": "2nd Theme",
+                "label_3": "3rd Theme",
+                "label_4": "4th Theme",
+                "label_5": "5th Theme"
+              },
+              "label": "Overlay Theme"
+            },
+            "crop_shape": {
+              "options": {
+                "label_1": "No Crop",
+                "label_2": "Square",
+                "label_3": "Rounded Square",
+                "label_4": "Circle",
+                "label_5": "Portrait",
+                "label_6": "Rounded Portrait",
+                "label_7": "Semicircle Portrait",
+                "label_8": "Landscape",
+                "label_9": "Rounded Landscape",
+                "label_10": "Semicircle Landscape",
+                "label_11": "Semicircle Arch"
+              },
+              "label": "Image Crop Shape"
+            },
+            "header_2": {
+              "content": "General"
+            },
+            "heading": {
+              "label": "Heading"
+            },
+            "heading_size": {
+              "options": {
+                "label_1": "X-Large",
+                "label_2": "Large",
+                "label_3": "Medium",
+                "label_4": "Small"
+              },
+              "label": "Heading Size"
+            },
+            "overlap": {
+              "label": "Enable overlap",
+              "info": "Requires both heading and image field content."
+            },
+            "text": {
+              "label": "Description"
+            },
+            "alignment": {
+              "label": "Text Alignment",
+              "options": {
+                "label_1": "Left",
+                "label_2": "Center",
+                "label_3": "Right"
+              }
+            },
+            "button_label": {
+              "label": "Button Label"
+            },
+            "button_link": {
+              "label": "Button Link"
+            },
+            "button_color": {
+              "label": "Button Color",
+              "options": {
+                "label_0": "Default",
+                "label_1": "Primary Theme",
+                "label_2": "2nd Theme",
+                "label_3": "3rd Theme",
+                "label_4": "4th Theme",
+                "label_5": "5th Theme"
+              }
             }
           }
         },
         "quote": {
-          "name": "Quote"
+          "name": "Quote",
+          "settings": {
+            "quote": {
+              "label": "Quote"
+            },
+            "quotations": {
+              "label": "Show quotation marks",
+              "info": "Requires quote field to have content."
+            },
+            "details": {
+              "label": "Extra Details"
+            },
+            "alignment": {
+              "label": "Text Alignment",
+              "options": {
+                "label_1": "Left",
+                "label_2": "Center",
+                "label_3": "Right"
+              }
+            },
+            "logo": {
+              "label": "Logo"
+            },
+            "background_theme": {
+              "options": {
+                "label_1": "Primary Theme",
+                "label_2": "2nd Theme",
+                "label_3": "3rd Theme",
+                "label_4": "4th Theme",
+                "label_5": "5th Theme"
+              },
+              "label": "Theme"
+            },
+            "card_corners": {
+              "options": {
+                "label_1": "Square Corners",
+                "label_2": "Rounded Corners",
+                "label_3": "Semicircle Corners"
+              },
+              "label": "Card Corners"
+            }
+          }
         },
         "products": {
-          "name": "Products"
+          "name": "Products",
+          "settings": {
+            "products": {
+              "label": "Products"
+            },
+            "show_phrase": {
+              "label": "Show product phrase"
+            },
+            "show_description": {
+              "label": "Show product description"
+            },
+            "quick_add": {
+              "label": "Enable quick add"
+            },
+            "show_bg_color": {
+              "label": "Show background color"
+            },
+            "alt_title": {
+              "label": "Use body font instead of heading font for product title"             
+            },
+            "product_text_alignment": {
+              "options": {
+                "label_1": "Left",
+                "label_2": "Center",
+                "label_3": "Right"
+              },
+              "label": "Product Text Alignment"
+            },
+            "price": {
+              "options": {
+                "label_1": "Right of Title",
+                "label_2": "Bottom",
+                "label_3": "Not Visible"
+              },
+              "label": "Price Position"
+            },
+            "crop_shape": {
+              "options": {
+                "label_1": "No Crop",
+                "label_2": "Square",
+                "label_3": "Rounded Square",
+                "label_4": "Circle",
+                "label_5": "Portrait",
+                "label_6": "Rounded Portrait",
+                "label_7": "Semicircle Portrait",
+                "label_8": "Landscape",
+                "label_9": "Rounded Landscape",
+                "label_10": "Semicircle Landscape",
+                "label_11": "Semicircle Arch"
+              },
+              "label": "Product Image Crop Shape"
+            }
+          }
         },
         "collections": {
-          "name": "Collections"
+          "name": "Collections",
+          "settings": {
+            "collections": {
+              "label": "Collections"
+            },
+            "alignment": {
+              "label": "Text Alignment",
+              "options": {
+                "label_1": "Left",
+                "label_2": "Center",
+                "label_3": "Right"
+              }
+            },
+            "button_label": {
+              "label": "Button Label",
+              "info": "If excluded, no button will display on each collection card"
+            }
+          }
         }
       }
     }
