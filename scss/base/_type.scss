@@ -182,6 +182,6 @@ i {
   }
 }
 
-strong {
-  font-weight: bold;
+.rte {
+  @extend .__article-txt;
 }

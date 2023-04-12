@@ -9,8 +9,11 @@
     font-weight: var(--font-body-weight);
     line-height: 1.4;
     margin: 0 0 1rem 0;
+    max-width: 700px;
     font-size: calc(1.375rem * var(--font-body-scale));
     margin: 0; }
+    .overlay-nav__plain-link span:is(p), .overlay-nav__disclosure.__style-default .disclosure__summary span:is(p) {
+      max-width: 600px; }
     @media (max-width: 1024px) {
       .overlay-nav__plain-link span, .overlay-nav__disclosure.__style-default .disclosure__summary span {
         font-size: calc(1.2rem * var(--font-body-scale)); } }
@@ -38,6 +41,8 @@
     margin: 0 0 1rem 0;
     font-size: calc(1.125rem * var(--font-body-scale));
     font-weight: 600; }
+    .overlay-nav__disclosure.disclosure.__style-default .disclosure__content .p-lg:is(p) {
+      max-width: 500px; }
   .overlay-nav__disclosure.disclosure.__style-default .disclosure__content a.p-sm:hover,
   .overlay-nav__disclosure.disclosure.__style-default .disclosure__content a.__featured-page:hover {
     opacity: 0.6; }

@@ -75,21 +75,23 @@
 
 <div
   id="Multicolumn-{{ section.id }}"
-  class="multicolumn __theme-{{ section.settings.theme }} __layout-{{ section.settings.layout }} __align-{{section.settings.alignment}}"
+  class="multicolumn __theme-{{ section.settings.theme }} __layout-{{ section.settings.layout }}"
 >
   {% comment %} Text Content {% endcomment %}
+  <div class="multicolumn__text __align-{{section.settings.alignment}}">
   {% render 'heading',
-    class: 'multicolumn',
+    class: 'multicolumn__text',
     heading: section.settings.heading,
     alt_heading: section.settings.alt_heading,
     heading_size: section.settings.heading_size
   %}
 
-  {% if section.settings.text %}
-    <div class="multicolumn__text __article-txt">
-      {{ section.settings.text }}
-    </div>
-  {% endif %}
+    {% if section.settings.text %}
+      <div class="multicolumn__text__desc __article-txt">
+        {{ section.settings.text }}
+      </div>
+    {% endif %}
+  </div>
 
   {% comment %} Content Container (slider or stacked depending on layout) {% endcomment %}
   <overflow-slider class="multicolumn__inner overflow-slider {% if hide_arrows_on_desktop %}__hide-desktop-arrows{% endif %} {% if hide_arrows_on_tablet %}__hide-tablet-arrows{% endif%}">

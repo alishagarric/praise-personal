@@ -10,6 +10,7 @@
   grid-column: 1 / -1; }
   .announcement-bar__text {
     margin-bottom: 0;
-    white-space: nowrap; }
+    white-space: nowrap;
+    max-width: none; }
 
 /*# sourceMappingURL=announcement-bar.css.map */

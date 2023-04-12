@@ -1,7 +1,8 @@
 .article-card {
   position: relative;
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  width: 100%; }
   .article-card__top {
     width: 100%;
     margin-bottom: calc(var(--btnHeight) / 2);

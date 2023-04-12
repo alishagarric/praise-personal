@@ -604,6 +604,7 @@ details.overlay[open] > summary::before {
     animation: textMarquee var(--marqueeSpeed) linear infinite;
     margin-bottom: 0 !important;
     width: var(--marqueeCharacterCount);
+    max-width: none;
     text-shadow: var(--marqueeCharacterCount) 0 RGB(var(--color-text)),
       calc(var(--marqueeCharacterCount) * 2) 0 RGB(var(--color-text)),
       calc(var(--marqueeCharacterCount) * 3) 0 RGB(var(--color-text)),
@@ -685,6 +686,21 @@ details.overlay[open] > summary::before {
 
   .shopify-challenge__button {
     margin-top: 1rem;
+  }
+}
+
+//override shopify's default policy styles
+
+.shopify-policy__container {
+  max-width: none;
+
+  .shopify-policy__body {
+    max-width: var(--maxWidth);
+    margin: 0 auto;
+
+    p {
+      max-width: none;
+    }
   }
 }
 

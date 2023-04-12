@@ -48,6 +48,8 @@
     margin-bottom: 1rem; }
   .main-article__content p img {
     margin-bottom: 0; }
+  .main-article__content p {
+    max-width: none; }
   .main-article__comments-wrapper {
     margin-top: var(--sectionVerticalSpacing); }
     .main-article__comments-wrapper__disclaimer {

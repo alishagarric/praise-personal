@@ -1,10 +1,10 @@
 .multicolumn {
   --multiColumnGap: calc(var(--pxSize) / 3); }
   .multicolumn__text {
-    max-width: 600px; }
-  .multicolumn__heading, .multicolumn__text {
     padding-left: calc(var(--sectionGuttersSpacing) - var(--multiColumnGap));
     padding-right: calc(var(--sectionGuttersSpacing) - var(--multiColumnGap)); }
+    .multicolumn__text__heading {
+      max-width: var(--maxWidth); }
   .multicolumn__inner {
     --overflowSliderItemGap: var(--multiColumnGap) !important;
     --overflowSliderItemSizeDesktop: calc(

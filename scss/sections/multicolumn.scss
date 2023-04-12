@@ -2,13 +2,12 @@
   --multiColumnGap: calc(var(--pxSize) / 3);
 
   &__text {
-    max-width: 600px;
-  }
-
-  &__heading,
-  &__text {
     padding-left: calc(var(--sectionGuttersSpacing) - var(--multiColumnGap));
     padding-right: calc(var(--sectionGuttersSpacing) - var(--multiColumnGap));
+
+    &__heading {
+      max-width: var(--maxWidth);
+    }
   }
 
   &__inner {

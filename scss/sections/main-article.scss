@@ -86,6 +86,13 @@
     }
   }
 
+  //The article is the only place we don't want the auto paragraph max width to apply
+  &__content {
+    p {
+      max-width: none;
+    }
+  }
+
   &__comments-wrapper {
     margin-top: var(--sectionVerticalSpacing);
 
