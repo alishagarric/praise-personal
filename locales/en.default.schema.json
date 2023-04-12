@@ -8,39 +8,39 @@
         },
         "social_twitter_link": {
           "label": "Twitter",
-          "info": "https:\/\/twitter.com\/shopify"
+          "info": "https://twitter.com/shopify"
         },
         "social_facebook_link": {
           "label": "Facebook",
-          "info": "https:\/\/facebook.com\/shopify"
+          "info": "https://facebook.com/shopify"
         },
         "social_pinterest_link": {
           "label": "Pinterest",
-          "info": "https:\/\/pinterest.com\/shopify"
+          "info": "https://pinterest.com/shopify"
         },
         "social_instagram_link": {
           "label": "Instagram",
-          "info": "http:\/\/instagram.com\/shopify"
+          "info": "http://instagram.com/shopify"
         },
         "social_tiktok_link": {
           "label": "TikTok",
-          "info": "https:\/\/tiktok.com\/@shopify"
+          "info": "https://tiktok.com/@shopify"
         },
         "social_tumblr_link": {
           "label": "Tumblr",
-          "info": "https:\/\/shopify.tumblr.com"
+          "info": "https://shopify.tumblr.com"
         },
         "social_snapchat_link": {
           "label": "Snapchat",
-          "info": "https:\/\/www.snapchat.com\/add\/shopify"
+          "info": "https://www.snapchat.com/add/shopify"
         },
         "social_youtube_link": {
           "label": "YouTube",
-          "info": "https:\/\/www.youtube.com\/shopify"
+          "info": "https://www.youtube.com/shopify"
         },
         "social_vimeo_link": {
           "label": "Vimeo",
-          "info": "https:\/\/vimeo.com\/shopify"
+          "info": "https://vimeo.com/shopify"
         }
       }
     },
@@ -49,7 +49,7 @@
       "settings": {
         "type_header_font": {
           "label": "Font",
-          "info": "Selecting a different font can affect the speed of your store. [Learn more about system fonts.](https:\/\/help.shopify.com\/en\/manual\/online-store\/os\/store-speed\/improving-speed#fonts)"
+          "info": "Selecting a different font can affect the speed of your store. [Learn more about system fonts.](https://help.shopify.com/en/manual/online-store/os/store-speed/improving-speed#fonts)"
         },
         "heading_scale": {
           "label": "Font size scale"
@@ -65,7 +65,7 @@
         },
         "type_body_font": {
           "label": "Font",
-          "info": "Selecting a different font can affect the speed of your store. [Learn more about system fonts.](https:\/\/help.shopify.com\/en\/manual\/online-store\/os\/store-speed\/improving-speed#fonts)"
+          "info": "Selecting a different font can affect the speed of your store. [Learn more about system fonts.](https://help.shopify.com/en/manual/online-store/os/store-speed/improving-speed#fonts)"
         },
         "body_scale": {
           "label": "Font size scale"
@@ -213,7 +213,7 @@
               "content": "This are generated from the featured icons product metafield. Learn More TODO: link this to a description. You can add additional featured icons below."
             },
             "icon_1": {
-              "options":{
+              "options": {
                 "label_1": "None",
                 "label_2": "Box",
                 "label_3": "Briefcase",
@@ -254,7 +254,7 @@
               "label": "Icon 1 Title"
             },
             "icon_2": {
-              "options":{
+              "options": {
                 "label_1": "None",
                 "label_2": "Box",
                 "label_3": "Briefcase",
@@ -295,7 +295,7 @@
               "label": "Icon 2 Title"
             },
             "icon_3": {
-              "options":{
+              "options": {
                 "label_1": "None",
                 "label_2": "Box",
                 "label_3": "Briefcase",
@@ -402,7 +402,7 @@
         "buy_buttons": {
           "name": "Buy buttons",
           "settings": {
-            "show_quantity":{
+            "show_quantity": {
               "label": "Show quantity selector"
             },
             "hide_dynamic_buttons": {
@@ -430,7 +430,7 @@
           "settings": {
             "title": {
               "label": "Title"
-            } 
+            }
           }
         },
         "description": {
@@ -450,7 +450,7 @@
           "name": "Product rating",
           "settings": {
             "paragraph": {
-              "content": "To display a rating, add a product rating app. [Learn more](https:\/\/help.shopify.com\/manual\/online-store\/themes\/theme-structure\/theme-features#featured-product-rating)"
+              "content": "To display a rating, add a product rating app. [Learn more](https://help.shopify.com/manual/online-store/themes/theme-structure/theme-features#featured-product-rating)"
             }
           }
         }
@@ -486,7 +486,7 @@
           "options": {
             "label_1": "Standard, Without Space",
             "label_2": "Wide, Without Space",
-            "label_3": "Square, With Space"          
+            "label_3": "Square, With Space"
           },
           "label": "Image Style"
         },
@@ -535,7 +535,7 @@
           },
           "label": "Theme"
         },
-         "top_internal_spacing": {
+        "top_internal_spacing": {
           "label": "Top Text Content Spacing"
         },
         "bottom_internal_spacing": {
@@ -921,7 +921,7 @@
               "label": "Theme"
             },
             "crop_shape": {
-               "options": {
+              "options": {
                 "label_1": "No Crop",
                 "label_2": "Landscape",
                 "label_3": "Rounded Landscape",
@@ -1211,7 +1211,7 @@
           "label": "Heading"
         },
         "paragraph": {
-          "content": "Dynamic recommendations use order and product information to change and improve over time. [Learn more](https:\/\/help.shopify.com\/themes\/development\/recommended-products)"
+          "content": "Dynamic recommendations use order and product information to change and improve over time. [Learn more](https://help.shopify.com/themes/development/recommended-products)"
         },
         "heading_size": {
           "options": {
@@ -1605,7 +1605,7 @@
         "logo": {
           "label": "Logo"
         },
-        "logo_placement":{
+        "logo_placement": {
           "label": "Label Placement",
           "options": {
             "label_1": "Left",
@@ -1915,7 +1915,7 @@
           },
           "label": "Theme"
         },
-         "top_spacing": {
+        "top_spacing": {
           "label": "Top Spacing"
         },
         "bottom_spacing": {
@@ -1983,7 +1983,7 @@
               "label": "Overlay Theme"
             },
             "crop_shape": {
-              "options":{
+              "options": {
                 "label_1": "No Crop",
                 "label_2": "Square",
                 "label_3": "Rounded Square",
@@ -2088,6 +2088,9 @@
           "label": "Theme collection slideshow with product colors",
           "info": "Only applies when there's enough products in the collection to initiate a slideshow. Relies on the addition of product metafields. TODO: Add link with info"
         },
+        "include_border": {
+          "label": "Include border"
+        },
         "header": {
           "content": "Product Cards"
         },
@@ -2123,7 +2126,7 @@
           "label": "Price Position"
         },
         "crop_shape": {
-           "options":{
+          "options": {
             "label_1": "No Crop",
             "label_2": "Square",
             "label_3": "Rounded Square",
@@ -2187,7 +2190,7 @@
         },
         "hero": {
           "label": "Use as hero",
-          "info": "Should be selected if this section is the first or second on a page and contains the page title. There should only be one page title\/hero used per page."
+          "info": "Should be selected if this section is the first or second on a page and contains the page title. There should only be one page title/hero used per page."
         },
         "alignment": {
           "label": "Alignment",
@@ -2341,7 +2344,7 @@
           }
         },
         "buy_buttons": {
-          "name": "Buy buttons\/quantity",
+          "name": "Buy buttons/quantity",
           "settings": {
             "show_quantity": {
               "label": "Show quantity selector"
@@ -2372,7 +2375,7 @@
           }
         },
         "divider": {
-          "name": "Divider\/Space",
+          "name": "Divider/Space",
           "settings": {
             "top": {
               "label": "Top Spacing"
@@ -2743,7 +2746,7 @@
             "label_12": "Semicircle Arch"
           },
           "label": "Associated Product Image Crop Shape",
-          "info": "Relies on the addition of article metafields. TODO: Add link with info, this is how starter did it: Add a <a href=https:\/\/praise-store-theme.myshopify.com\/admin\/metafields\/product\/create>article subtitle metafield to display.<\/a>"
+          "info": "Relies on the addition of article metafields. TODO: Add link with info, this is how starter did it: Add a <a href=https://praise-store-theme.myshopify.com/admin/metafields/product/create>article subtitle metafield to display.</a>"
         },
         "button_label": {
           "label": "Article Button Text",
@@ -2925,7 +2928,7 @@
         },
         "hero": {
           "label": "Use as hero",
-          "info": "Should be selected if this section is the first or second on a page and contains the page title. There should only be one page title\/hero used per page."
+          "info": "Should be selected if this section is the first or second on a page and contains the page title. There should only be one page title/hero used per page."
         },
         "header_3": {
           "content": "Article Cards"
@@ -3462,7 +3465,7 @@
               "label": "Show background color"
             },
             "alt_title": {
-              "label": "Use body font instead of heading font for product title"             
+              "label": "Use body font instead of heading font for product title"
             },
             "product_text_alignment": {
               "options": {

@@ -63,6 +63,7 @@
         "collection": "back-in-stock",
         "theme_slideshow": true,
         "show_phrase": true,
+        "include_border": true,
         "show_description": false,
         "quick_add": false,
         "show_bg_color": false,

@@ -22,6 +22,7 @@
   assign show_description = section.settings.show_description
   assign quick_add = section.settings.quick_add
   assign show_bg_color = section.settings.show_bg_color
+  assign include_border = section.settings.include_border
 
   assign products_count = featured_collection.products | size
   assign initiate_flickity = false
@@ -52,7 +53,7 @@
 
 <div
   id="Featured-collection-{{ section.id }}"
-  class="featured-collection __theme-{{section_theme}} {% if theme_slideshow %}__theme-slider {% endif %} {% if initiate_flickity == false %}__no-slider {% endif %}"
+  class="featured-collection __theme-{{section_theme}} {% if theme_slideshow %}__theme-slider {% endif %} {% if initiate_flickity == false %}__no-slider {% endif %} {% if include_border %}__include-border{% endif %}"
 >
   {% comment %} Text Content {% endcomment %}
   {% if section_heading != blank or section_text != blank %}
@@ -165,6 +166,12 @@
       "id": "theme_slideshow",
       "label": "t:sections.featured-collection.settings.theme_slideshow.label",
       "info": "t:sections.featured-collection.settings.theme_slideshow.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "include_border",
+      "label": "t:sections.featured-collection.settings.include_border.label",
+      "default": true
     },
     {
       "type": "header",
