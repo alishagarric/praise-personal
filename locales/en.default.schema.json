@@ -974,7 +974,7 @@
             "label": "Label",
             "content": {
               "label": "Content",
-              "info": "Add content here, or by utilizing the article metafeild TODO: link"
+              "info": "Add content here, or by utilizing the article metafield TODO: link"
             },
             "associated_products": {
               "label": "Show associated products",
@@ -1574,7 +1574,7 @@
           "label": "Style",
           "options": {
             "label_1": "Basic",
-            "label_2": "Bolds"
+            "label_2": "Bold"
           }
         },
         "header_3": {
@@ -2341,7 +2341,7 @@
           }
         },
         "buy_buttons": {
-          "name": "Buy buttons\/quanity",
+          "name": "Buy buttons\/quantity",
           "settings": {
             "show_quantity": {
               "label": "Show quantity selector"
@@ -2551,7 +2551,7 @@
               "label": "Label"
             },
             "description": {
-              "label": "Desciption"
+              "label": "Description"
             }
           }
         }
@@ -2918,7 +2918,7 @@
           "label": "Use body font instead of heading font for heading"
         },
         "header_2": {
-          "content": "Gereral"
+          "content": "General"
         },
         "paragraph": {
           "content": "If used on a blog template, articles from that blog will populate. If used anywhere else, articles from all blogs will populate. Additionally, you can populate your own content by adding blocks to this section."
