@@ -71,7 +71,7 @@
     {%- paginate search.results by 8 -%}
       <ul class="main-search__results list-unstyled" role="list">
         {%- for item in search.results -%}
-          <li>
+          <li style="--searchType:'{{ item.object_type | capitalize }}'">
             {% liquid
               assign preload = false
               if forloop.index0 < 3
@@ -84,8 +84,8 @@
                 when 'article'
                   render 'article-card', article: item, crop: crop_shape, alignment: alignment, alt_heading: alt_title, show_description: show_description, img_width: 1280, img_widths: '1280, 900, 700, 500', img_sizes: '(max-width: 676px) 100vw, (max-width: 1024px) 45vw, 25vw', img_preload: preload
                 when 'page'
-                  assign text = item.content | strip_html | truncatewords: 20
-                  render 'quote-card', quote: item.title, details: text, link: page.url, alignment: alignment, card_corners: crop_shape, img_width: 1280, img_widths: '1280, 900, 700, 500', img_sizes: '(max-width: 676px) 100vw, (max-width: 1024px) 45vw, 25vw', img_preload: preload
+                  assign text = item.content | strip_html | truncatewords: 20 | prepend: '</p><p class="p-sm">' | prepend: item.title | prepend: '<p class="p-lg">' | append: "</p>"
+                  render 'content-card', heading: item.title, heading_size: 'h2', text: text, overlap: true, crop_shape: crop_shape, alignment: alignment, button_link: item.url 
               endcase
             %}
           </li>
@@ -273,3 +273,5 @@
   ]
 }
 {% endschema %}
+
+{% comment %}render 'quote-card', quote: item.title, details: text, link: page.url, alignment: alignment, card_corners: crop_shape, img_width: 1280, img_widths: '1280, 900, 700, 500', img_sizes: '(max-width: 676px) 100vw, (max-width: 1024px) 45vw, 25vw', img_preload: preload{% endcomment %}

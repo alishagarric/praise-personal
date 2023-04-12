@@ -29,7 +29,7 @@
 
 {{ 'content-card.css' | asset_url | stylesheet_tag }}
 
-
+{% assign overlay = overlay | default: 5 %}
 
 {% liquid 
   assign alignment = alignment | default: 'default'
@@ -41,29 +41,35 @@
   
 %}
 
-<div
+{% capture card_tag %}{% if button_link != blank and button_label == blank %}a{% else %}div{% endif %}{% endcapture %}
+
+<{{ card_tag }}
   class="content-card {{ class }} __align-{{ alignment }} __style-{{ style }}"
   style="--contentCardSectionTextColor: RGB(var(--color-text));"
+  {% if card_tag == 'a' %}href="{{ button_link }}"{% endif %}
 >
-  {%- if image != blank -%}
-    <div
-      class="content-card__image image-container __crop-{{ crop_shape }} {% if overlay_theme %}__theme-{{ overlay_theme }}{% endif %}"
-      style="--imageRatio: {{ image.height | divided_by: 1.00 | divided_by: image.width | times: 100 }}%; --overlayOpacity: calc({{ overlay }} / 100);"
-    >
+  <div
+    class="content-card__image image-container __crop-{{ crop_shape }} {% if overlay_theme %}__theme-{{ overlay_theme }}{% endif %}"
+    style="--imageRatio: {{ image.height | divided_by: 1.00 | divided_by: image.width | times: 100 }}%; --overlayOpacity: calc({{ overlay }} / 100);"
+  >
+    {%- if image != blank -%}
       {% render 'next-gen-img', image: image, width: img_width: widths: img_widths, sizes: img_sizes, preload: img_preload %}
-
-      {% if overlap == true %}
-        {%
-          render 'heading',
-          class: 'content-card__image',
-          heading: heading,
-          heading_size: heading_size,
-        %}
-      {% endif %}
-    </div>
-  {%- endif -%}
+    {%- endif -%}
+    {% if overlap == true %}
+      {%
+        render 'heading',
+        class: 'content-card__image',
+        heading: heading,
+        heading_size: heading_size,
+      %}
+    {% endif %}
+  </div>
+  
   <div class="content-card__text">
-    {% if overlap == false or image == blank %}
+    {% if image == blank and crop_shape != "default" %}
+      {% assign space_for_heading = false %}
+    {% endif %}
+    {% if space_for_heading or overlap == false %}
       {% render 'heading', class: 'content-card', heading: heading, heading_size: heading_size, heading_tag: 'h3' %}
     {% endif %}
 
@@ -77,4 +83,4 @@
       button_color: button_color
     %}
   </div>
-</div>
+</{{ card_tag }}>
