@@ -845,6 +845,13 @@ input[type="submit"] {
   margin: 1rem 0 0 0;
   align-items: center;
   -webkit-appearance: none; }
+  .btn:hover:not(:disabled):not([aria-disabled="true"]),
+  .button:hover:not(:disabled):not([aria-disabled="true"]),
+  button:hover:not(:disabled):not([aria-disabled="true"]),
+  .shopify-payment-button__button--unbranded:hover:not(:disabled):not([aria-disabled="true"]),
+  .shopify-payment-button__button button:hover:not(:disabled):not([aria-disabled="true"]),
+  input[type="submit"]:hover:not(:disabled):not([aria-disabled="true"]) {
+    opacity: 0.8; }
   .btn.__with-border,
   .button.__with-border,
   button.__with-border,
@@ -908,7 +915,25 @@ input[type="submit"] {
       left: 0;
       height: 1px;
       width: 100%;
-      background-color: RGB(var(--color-text)); }
+      background-color: RGB(var(--color-text));
+      will-change: transform;
+      transform: scaleX(1);
+      transform-origin: center left;
+      transition: all 0.25s ease; }
+    .btn.__with-underline:hover:not(:disabled):not([aria-disabled="true"]),
+    .button.__with-underline:hover:not(:disabled):not([aria-disabled="true"]),
+    button.__with-underline:hover:not(:disabled):not([aria-disabled="true"]),
+    .shopify-payment-button__button--unbranded.__with-underline:hover:not(:disabled):not([aria-disabled="true"]),
+    .shopify-payment-button__button button.__with-underline:hover:not(:disabled):not([aria-disabled="true"]),
+    input[type="submit"].__with-underline:hover:not(:disabled):not([aria-disabled="true"]) {
+      opacity: 1; }
+      .btn.__with-underline:hover:not(:disabled):not([aria-disabled="true"]):after,
+      .button.__with-underline:hover:not(:disabled):not([aria-disabled="true"]):after,
+      button.__with-underline:hover:not(:disabled):not([aria-disabled="true"]):after,
+      .shopify-payment-button__button--unbranded.__with-underline:hover:not(:disabled):not([aria-disabled="true"]):after,
+      .shopify-payment-button__button button.__with-underline:hover:not(:disabled):not([aria-disabled="true"]):after,
+      input[type="submit"].__with-underline:hover:not(:disabled):not([aria-disabled="true"]):after {
+        transform: scaleX(0); }
   .btn:disabled, .btn:is([disabled], [aria-disabled="true"]), .btn[aria-disabled="true"],
   .button:disabled,
   .button:is([disabled], [aria-disabled="true"]),
@@ -927,25 +952,6 @@ input[type="submit"] {
   input[type="submit"][aria-disabled="true"] {
     opacity: 0.6;
     cursor: not-allowed; }
-
-.__btn-hover-default .btn:hover:not(:disabled):not([aria-disabled="true"]),
-.__btn-hover-default button:hover:not(:disabled):not([aria-disabled="true"]),
-.__btn-hover-default input[type="submit"]:hover:not(:disabled):not([aria-disabled="true"]) {
-  opacity: 0.8; }
-.__btn-hover-border .btn:not(.__with-underline):hover:not(:disabled):not([aria-disabled="true"]),
-.__btn-hover-border button:not(.__with-underline):hover:not(:disabled):not([aria-disabled="true"]),
-.__btn-hover-border input[type="submit"]:not(.__with-underline):hover:not(:disabled):not([aria-disabled="true"]) {
-  outline: 2px solid RGBA(var(--color-text)/0.5); }
-.__btn-hover-shadow .btn:not(.__with-underline),
-.__btn-hover-shadow button:not(.__with-underline),
-.__btn-hover-shadow input[type="submit"]:not(.__with-underline) {
-  will-change: transform;
-  transition: transform 0.25s ease; }
-  .__btn-hover-shadow .btn:not(.__with-underline):hover:not(:disabled):not([aria-disabled="true"]),
-  .__btn-hover-shadow button:not(.__with-underline):hover:not(:disabled):not([aria-disabled="true"]),
-  .__btn-hover-shadow input[type="submit"]:not(.__with-underline):hover:not(:disabled):not([aria-disabled="true"]) {
-    box-shadow: 2px 2px 10px 0 RGBA(var(--color-text)/0.2);
-    transform: translate(2px, -3px); }
 
 .placeholder-svg,
 .page-placeholder {

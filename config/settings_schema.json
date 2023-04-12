@@ -518,22 +518,6 @@
         "info": "Relative to button height",
         "label": "Button Sides Space",
         "default": 0.6
-      },
-      {
-        "type": "select",
-        "id": "button_hover",
-        "options": [
-          {
-            "value": "default",
-            "label": "Opacity Change"
-          },
-          {
-            "value": "border",
-            "label": "Border"
-          }
-        ],
-        "default": "default",
-        "label": "Mobile Layout"
       }
     ]
   },
