@@ -24,6 +24,16 @@
       padding: 0 calc(var(--pxSize) / 3);
       color: RGB(var(--color-text));
       margin-bottom: 1rem; }
+  .content-card:is(a) img,
+  .content-card:is(a) .content-card__image__heading {
+    transform: scale(1);
+    will-change: transform;
+    transition: all 0.25s ease; }
+  .content-card:is(a):hover {
+    cursor: pointer; }
+    .content-card:is(a):hover img,
+    .content-card:is(a):hover .content-card__image__heading {
+      transform: scale(1.05); }
   .content-card.__style-row {
     display: grid;
     grid-template-columns: repeat(2, 1fr); }

@@ -43,6 +43,24 @@
     }
   }
 
+  &:is(a) {
+    img,
+    .content-card__image__heading {
+      transform: scale(1);
+      will-change: transform;
+      transition: all 0.25s ease;
+    }
+
+    &:hover {
+      cursor: pointer;
+
+      img,
+      .content-card__image__heading {
+        transform: scale(1.05);
+      }
+    }
+  }
+
   &.__style-row {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
