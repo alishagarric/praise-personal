@@ -969,7 +969,7 @@
           }
         },
         "side_bar": {
-          "name": "Side Bar",
+          "name": "Sidebar",
           "settings": {
             "label": "Label",
             "content": {
@@ -1406,13 +1406,13 @@
       "name": "Footer",
       "blocks": {
         "link_list": {
-          "name": "Menu",
+          "name": "Footer Menu",
           "settings": {
             "heading": {
               "label": "Heading"
             },
             "menu": {
-              "label": "Menu",
+              "label": "Footer Menu",
               "info": "Displays only top-level menu items."
             }
           }
@@ -2410,7 +2410,7 @@
           }
         },
         "link_list": {
-          "label": "Menu"
+          "label": "Main Menu"
         },
         "always_show_nav": {
           "label": "Don't hide navigation bar on scroll down"
@@ -2614,7 +2614,7 @@
         },
         "hero": {
           "label": "Use as hero",
-          "info": "Select if this section is the first or second on a page and contains the page title."
+          "info": "Select if this section is the first or second on a page and contains the page Title."
         },
         "alignment": {
           "label": "Alignment",
@@ -2724,7 +2724,7 @@
           "content": "Section"
         },
         "alt_heading": {
-          "label": "Use body font instead of heading font for article title"
+          "label": "Use body font instead of heading font for article Title"
         },
         "show_date": {
           "label": "Show date"
@@ -2752,7 +2752,7 @@
             "label_12": "Semicircle Arch"
           },
           "label": "Associated Product Image Crop Shape",
-          "info": "Relies on the addition of article metafields. TODO: Add link with info, this is how starter did it: Add a <a href=https://praise-store-theme.myshopify.com/admin/metafields/product/create>article subtitle metafield to display.</a>"
+          "info": "Relies on the addition of article metafields. TODO: Add link with info, this is how starter did it: Add a <a href=https://praise-store-theme.myshopify.com/admin/metafields/product/create>article subTitle metafield to display.</a>"
         },
         "button_label": {
           "label": "Article Button Text",
@@ -2834,8 +2834,8 @@
         "show_bg_color": {
           "label": "Show background color"
         },
-        "alt_title": {
-          "label": "Use body font instead of heading font for product title"
+        "alt_Title": {
+          "label": "Use body font instead of heading font for product Title"
         },
         "product_text_alignment": {
           "options": {
@@ -2934,7 +2934,7 @@
         },
         "hero": {
           "label": "Use as hero",
-          "info": "Select this setting if this section is the first or second on a page and contains the page title. There should only be one page title/hero used per page."
+          "info": "Select this setting if this section is the first or second on a page and contains the page Title. There should only be one page Title/hero used per page."
         },
         "header_3": {
           "content": "Article Cards"
@@ -3471,7 +3471,7 @@
               "label": "Show background color"
             },
             "alt_title": {
-              "label": "Use body font instead of heading font for product title"
+              "label": "Use body font instead of heading font for product Title"
             },
             "product_text_alignment": {
               "options": {
