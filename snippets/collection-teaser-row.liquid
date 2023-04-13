@@ -9,6 +9,7 @@
   - collection_image_crop_shape {string} optional, circle, rounded-square, square, portrait, landscape, default (adapt)
   - alt_heading {boolean} optional, section level
   - heading_size {string} optional, h2, h4, h5, h6
+  - description_size {string} optional, p-sm, p, p-lg
   - display_featured_icons {boolean} optional, section level
   - enable_icons_marquee {boolean} optional, section level
   - marquee_speed {int} optional, section level
@@ -43,6 +44,7 @@
 
 {% assign products_per_collection = products_per_collection | default: 2 %}
 {% assign marquee_speed = marquee_speed | default: 5 %}
+{% assign description_size = description_size | default: "p-sm" %}
 
 {% comment %} Collection row {% endcomment %}
 <div class="collection-teaser-row">
@@ -67,9 +69,11 @@
     %}
 
     {% comment %} Description {% endcomment %}
-    <div class="collection-teaser-row__description __article-txt-p-sm p-sm">
-      {{ collection.description }}
-    </div>
+    {% if collection.description != blank %}
+      <div class="collection-teaser-row__description __article-txt-{{ description_size }} {{ description_size }}">
+        {{ collection.description }}
+      </div>
+    {% endif %}
 
     {% comment %} Featured Icons {% endcomment %}
     {% if display_featured_icons %}

@@ -46,7 +46,7 @@
             alt_heading: section.settings.alt_heading
           %}
           {% if section.settings.text %}
-            <div class="__article-txt">
+            <div class="__article-txt-{{ section.settings.text_size }}">
               {{ section.settings.text }}
             </div>
           {% endif %}
@@ -63,7 +63,7 @@
                   heading_size: block.settings.heading_size,
                   alt_heading: block.settings.alt_heading
                 %}
-                <div class="__article-txt">{{ block.settings.text }}</div>
+                <div class="__article-txt-{{ block.settings.text_size }}">{{ block.settings.text }}</div>
                 {% render 'button',
                   button_label: block.settings.button_label,
                   button_link: block.settings.button_link,
@@ -126,6 +126,26 @@
       "id": "text",
       "default": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>",
       "label": "t:sections.timeline.settings.description.label"
+    },
+    {
+      "type": "select",
+      "id": "text_size",
+      "options": [
+        {
+          "value": "p-sm",
+          "label": "t:sections.timeline.settings.description_text_size.options.label_1"
+        },
+        {
+          "value": "p",
+          "label": "t:sections.timeline.settings.description_text_size.options.label_2"
+        },
+        {
+          "value": "p-lg",
+          "label": "t:sections.timeline.settings.description_text_size.options.label_3"
+        }
+      ],
+      "default": "p-sm",
+      "label": "t:sections.timeline.settings.description_text_size.label"
     },
     {
       "type": "header",
@@ -342,6 +362,26 @@
           "id": "text",
           "default": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>",
           "label": "t:sections.timeline.blocks.rich_text.label"
+        },
+        {
+          "type": "select",
+          "id": "text_size",
+          "options": [
+            {
+              "value": "p-sm",
+              "label": "t:sections.timeline.blocks.description_text_size.options.label_1"
+            },
+            {
+              "value": "p",
+              "label": "t:sections.timeline.blocks.description_text_size.options.label_2"
+            },
+            {
+              "value": "p-lg",
+              "label": "t:sections.timeline.blocks.description_text_size.options.label_3"
+            }
+          ],
+          "default": "p-sm",
+          "label": "t:sections.timeline.blocks.description_text_size.label"
         },
         {
           "type": "header",

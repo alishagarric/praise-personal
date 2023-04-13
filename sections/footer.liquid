@@ -35,7 +35,7 @@
         </h2>
       {% endif %}
       {% if section.settings.description %}
-        <p class="p-sm">
+        <p class="{{ section.settings.text_size }}">
           {{ section.settings.description }}
         </p>
       {% endif %}
@@ -175,6 +175,26 @@
       "type": "text",
       "id": "description",
       "label": "t:sections.footer.settings.description.label"
+    },
+    {
+      "type": "select",
+      "id": "text_size",
+      "options": [
+        {
+          "value": "p-sm",
+          "label": "t:sections.footer.settings.description_text_size.options.label_1"
+        },
+        {
+          "value": "p",
+          "label": "t:sections.footer.settings.description_text_size.options.label_2"
+        },
+        {
+          "value": "p-lg",
+          "label": "t:sections.footer.settings.description_text_size.options.label_3"
+        }
+      ],
+      "default": "p-sm",
+      "label": "t:sections.footer.settings.description_text_size.label"
     },
     {
       "type": "header",

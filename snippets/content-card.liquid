@@ -13,6 +13,7 @@
   - heading: {string}
   - heading_size: {String} "h2", "h4", "h5", "h6"
   - text: {richtext}
+  - text_size: {string} optional p-sm, p, p-lg
   - button_label: {string} optional
   - button_link: {url} optional
   - button_color: {string} optional
@@ -30,6 +31,8 @@
 {{ 'content-card.css' | asset_url | stylesheet_tag }}
 
 {% assign overlay = overlay | default: 5 %}
+{% assign text_size = text_size | default: "p-sm" %}
+
 
 {% liquid 
   assign alignment = alignment | default: 'default'
@@ -74,7 +77,9 @@
     {% endif %}
 
     {%- if text -%}
-      <div class="content-card__text__desc __article-txt" {{ block.shopify_attributes }}>{{ text }}</div>
+      <div class="content-card__text__desc __article-txt-{{ text_size }}" {{ block.shopify_attributes }}>
+        {{ text }}
+      </div>
     {%- endif -%}
     {% render 'button',
       class: 'content-card',

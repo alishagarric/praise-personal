@@ -561,6 +561,14 @@
             "text": {
               "label": "Description"
             },
+            "description_text_size": {
+              "options": {
+                "label_1": "Small Text",
+                "label_2": "Basic Text",
+                "label_3": "Large Text"
+              },
+              "label": "Description Size"
+            },
             "layout": {
               "label": "Layout",
               "options": {
@@ -591,7 +599,15 @@
           "name": "Text",
           "settings": {
             "text": {
-              "label": "Content"
+              "label": "Description"
+            },
+            "description_text_size": {
+              "options": {
+                "label_1": "Small Text",
+                "label_2": "Basic Text",
+                "label_3": "Large Text"
+              },
+              "label": "Description Size"
             }
           }
         },
@@ -649,6 +665,14 @@
         },
         "alt_heading": {
           "label": "Use body font instead of heading font for collection titles"
+        },
+        "description_text_size": {
+          "options": {
+            "label_1": "Small Text",
+            "label_2": "Basic Text",
+            "label_3": "Large Text"
+          },
+          "label": "Description Size"
         },
         "view_all_button_label": {
           "label": "View All Button Label",
@@ -844,7 +868,15 @@
           "name": "Text",
           "settings": {
             "text": {
-              "label": "Content"
+              "label": "Description"
+            },
+            "description_text_size": {
+              "options": {
+                "label_1": "Small Text",
+                "label_2": "Basic Text",
+                "label_3": "Large Text"
+              },
+              "label": "Description Size"
             }
           }
         },
@@ -1001,12 +1033,91 @@
         }
       }
     },
+    "main-password": {
+      "name": "Main Password",
+      "settings": {
+        "header": {
+          "content": "text Content"
+        },
+        "heading": {
+          "label": "Heading"
+        },
+        "heading_size": {
+          "options": {
+            "label_1": "X-Large",
+            "label_2": "Large",
+            "label_3": "Medium",
+            "label_4": "Small"
+          },
+          "label": "Heading Size"
+        },
+        "alt_heading": {
+          "label": "Use body font instead of heading font for heading"
+        },
+        "description": {
+          "label": "Description"
+        },
+        "description_text_size": {
+          "options": {
+            "label_1": "Small Text",
+            "label_2": "Basic Text",
+            "label_3": "Large Text"
+          },
+          "label": "Description Size"
+        },
+        "header_2": {
+          "content": "Section"
+        },
+        "top_spacing": {
+          "label": "Top Section Spacing"
+        },
+        "bottom_spacing": {
+          "label": "Bottom Section Spacing"
+        },
+        "theme": {
+          "options": {
+            "label_1": "Primary Theme",
+            "label_2": "2nd Theme",
+            "label_3": "3rd Theme",
+            "label_4": "4th Theme",
+            "label_5": "5th Theme"
+          },
+          "label": "Theme"
+        }
+      }
+    },
     "main-page": {
       "name": "Page",
       "presets": {
         "name": "Main Page"
       },
       "settings": {
+        "heading_1": {
+          "label": "Text Content"
+        },
+        "heading_size": {
+          "options": {
+            "label_1": "X-Large",
+            "label_2": "Large",
+            "label_3": "Medium",
+            "label_4": "Small"
+          },
+          "label": "Heading Size"
+        },
+        "alt_heading": {
+          "label": "Use body font instead of heading font for heading"
+        },
+        "description_text_size": {
+          "options": {
+            "label_1": "Small Text",
+            "label_2": "Basic Text",
+            "label_3": "Large Text"
+          },
+          "label": "Description Size"
+        },
+        "heading_2": {
+          "label": "Section"
+        },
         "top_spacing": {
           "label": "Top Spacing"
         },
@@ -1051,6 +1162,14 @@
         },
         "description": {
           "label": "Description"
+        },
+        "description_text_size": {
+          "options": {
+            "label_1": "Small Text",
+            "label_2": "Basic Text",
+            "label_3": "Large Text"
+          },
+          "label": "Description Size"
         },
         "disclaimer": {
           "label": "Disclaimer"
@@ -1141,7 +1260,7 @@
           "label": "Top Section Spacing"
         },
         "bottom_spacing": {
-          "label": "Top Section Spacing"
+          "label": "Bottom Section Spacing"
         }
       }
     },
@@ -1160,7 +1279,7 @@
           "label": "Top Section Spacing"
         },
         "bottom_spacing": {
-          "label": "Top Section Spacing"
+          "label": "Bottom Section Spacing"
         },
         "theme": {
           "options": {
@@ -1183,11 +1302,40 @@
         "page": {
           "label": "Page"
         },
+        "heading": {
+          "label": "General"
+        },
+        "heading_1": {
+          "label": "Text Content"
+        },
+        "heading_size": {
+          "options": {
+            "label_1": "X-Large",
+            "label_2": "Large",
+            "label_3": "Medium",
+            "label_4": "Small"
+          },
+          "label": "Heading Size"
+        },
+        "alt_heading": {
+          "label": "Use body font instead of heading font for heading"
+        },
+        "description_text_size": {
+          "options": {
+            "label_1": "Small Text",
+            "label_2": "Basic Text",
+            "label_3": "Large Text"
+          },
+          "label": "Description Size"
+        },
+        "heading_2": {
+          "label": "Section"
+        },
         "top_spacing": {
           "label": "Top Section Spacing"
         },
         "bottom_spacing": {
-          "label": "Top Section Spacing"
+          "label": "Bottom Section Spacing"
         },
         "theme": {
           "options": {
@@ -1353,7 +1501,7 @@
           "label": "Top Section Spacing"
         },
         "bottom_spacing": {
-          "label": "Top Section Spacing"
+          "label": "Bottom Section Spacing"
         }
       },
       "presets": {
@@ -1372,8 +1520,28 @@
         "heading": {
           "label": "Heading"
         },
+        "heading_size": {
+          "options": {
+            "label_1": "X-Large",
+            "label_2": "Large",
+            "label_3": "Medium",
+            "label_4": "Small"
+          },
+          "label": "Heading Size"
+        },
+        "alt_heading": {
+          "label": "Use body font instead of heading font for heading"
+        },
         "description": {
           "label": "Description"
+        },
+        "description_text_size": {
+          "options": {
+            "label_1": "Small Text",
+            "label_2": "Basic Text",
+            "label_3": "Large Text"
+          },
+          "label": "Description Size"
         },
         "header_2": {
           "content": "General"
@@ -1388,7 +1556,7 @@
           "label": "Top Section Spacing"
         },
         "bottom_spacing": {
-          "label": "Top Section Spacing"
+          "label": "Bottom Section Spacing"
         },
         "theme": {
           "options": {
@@ -1435,6 +1603,14 @@
         },
         "description": {
           "label": "Description"
+        },
+        "description_text_size": {
+          "options": {
+            "label_1": "Small Text",
+            "label_2": "Basic Text",
+            "label_3": "Large Text"
+          },
+          "label": "Description Size"
         },
         "header_2": {
           "content": "Logo"
@@ -1510,8 +1686,28 @@
         "heading": {
           "label": "Heading"
         },
+        "heading_size": {
+          "options": {
+            "label_1": "X-Large",
+            "label_2": "Large",
+            "label_3": "Medium",
+            "label_4": "Small"
+          },
+          "label": "Heading Size"
+        },
+        "alt_heading": {
+          "label": "Use body font instead of heading font for heading"
+        },
         "description": {
           "label": "Description"
+        },
+        "description_text_size": {
+          "options": {
+            "label_1": "Small Text",
+            "label_2": "Basic Text",
+            "label_3": "Large Text"
+          },
+          "label": "Description Size"
         },
         "header_3": {
           "content": "Reset Form"
@@ -1526,7 +1722,7 @@
           "label": "Top Section Spacing"
         },
         "bottom_spacing": {
-          "label": "Top Section Spacing"
+          "label": "Bottom Section Spacing"
         },
         "theme": {
           "options": {
@@ -1594,7 +1790,7 @@
           "label": "Top Section Spacing"
         },
         "bottom_spacing": {
-          "label": "Top Section Spacing"
+          "label": "Bottom Section Spacing"
         }
       }
     },
@@ -1647,7 +1843,7 @@
           "label": "Top Section Spacing"
         },
         "bottom_spacing": {
-          "label": "Top Section Spacing"
+          "label": "Bottom Section Spacing"
         }
       }
     },
@@ -1680,6 +1876,14 @@
         },
         "alt_heading": {
           "label": "Use body font instead of heading font for collection titles"
+        },
+        "description_text_size": {
+          "options": {
+            "label_1": "Small Text",
+            "label_2": "Basic Text",
+            "label_3": "Large Text"
+          },
+          "label": "Description Size"
         },
         "view_all_button_label": {
           "label": "View All Button Label",
@@ -1928,6 +2132,14 @@
           "settings": {
             "quote": {
               "label": "Quote",
+              "description_text_size": {
+                "options": {
+                  "label_1": "Small Text",
+                  "label_2": "Basic Text",
+                  "label_3": "Large Text"
+                },
+                "label": "Quote Size"
+              },
               "quotations": {
                 "label": "Show quotation marks",
                 "info": "Requires quote field to have content."
@@ -2019,6 +2231,14 @@
             },
             "text": {
               "label": "Description"
+            },
+            "description_text_size": {
+              "options": {
+                "label_1": "Small Text",
+                "label_2": "Basic Text",
+                "label_3": "Large Text"
+              },
+              "label": "Description Size"
             },
             "alignment": {
               "label": "Text Alignment",
@@ -2150,6 +2370,14 @@
         },
         "text": {
           "label": "Description"
+        },
+        "description_text_size": {
+          "options": {
+            "label_1": "Small Text",
+            "label_2": "Basic Text",
+            "label_3": "Large Text"
+          },
+          "label": "Description Size"
         },
         "collection_text_content": {
           "label": "Use collection title and description for text content",
@@ -2426,6 +2654,14 @@
           "description": {
             "label": "Description"
           },
+          "description_text_size": {
+            "options": {
+              "label_1": "Small Text",
+              "label_2": "Basic Text",
+              "label_3": "Large Text"
+            },
+            "label": "Description Size"
+          },
           "button_label": {
             "label": "Button Label"
           },
@@ -2441,6 +2677,14 @@
           "text_1": {
             "label": "Description"
           },
+          "description_text_size_1": {
+            "options": {
+              "label_1": "Small Text",
+              "label_2": "Basic Text",
+              "label_3": "Large Text"
+            },
+            "label": "Description Size"
+          },
           "link_1": {
             "label": "Link"
           },
@@ -2455,6 +2699,14 @@
           },
           "text_2": {
             "label": "Description"
+          },
+          "description_text_size_2": {
+            "options": {
+              "label_1": "Small Text",
+              "label_2": "Basic Text",
+              "label_3": "Large Text"
+            },
+            "label": "Description Size"
           },
           "link_2": {
             "label": "Link"
@@ -2644,7 +2896,7 @@
           "label": "Top Section Spacing"
         },
         "bottom_spacing": {
-          "label": "Top Section Spacing"
+          "label": "Bottom Section Spacing"
         }
       },
       "blocks": {
@@ -2667,6 +2919,14 @@
           "name": "Text",
           "settings": {
             "label": "Description"
+          },
+          "description_text_size": {
+            "options": {
+              "label_1": "Small Text",
+              "label_2": "Basic Text",
+              "label_3": "Large Text"
+            },
+            "label": "Description Size"
           }
         },
         "button": {
@@ -2920,6 +3180,14 @@
         "alt_heading": {
           "label": "Use body font instead of heading font for heading"
         },
+        "description_text_size": {
+          "options": {
+            "label_1": "Small Text",
+            "label_2": "Basic Text",
+            "label_3": "Large Text"
+          },
+          "label": "Text Size"
+        },
         "header_2": {
           "content": "General"
         },
@@ -3123,6 +3391,14 @@
         "description": {
           "label": "Description"
         },
+        "description_text_size": {
+          "options": {
+            "label_1": "Small Text",
+            "label_2": "Basic Text",
+            "label_3": "Large Text"
+          },
+          "label": "Description Size"
+        },
         "header": {
           "content": "General"
         },
@@ -3206,6 +3482,14 @@
         "rich_text": {
           "label": "Description"
         },
+        "description_text_size": {
+          "options": {
+            "label_1": "Small Text",
+            "label_2": "Basic Text",
+            "label_3": "Large Text"
+          },
+          "label": "Description Size"
+        },
         "header_3": {
           "label": "Button"
         },
@@ -3223,6 +3507,13 @@
         "name": "Video"
       },
       "settings": {
+        "description_text_size": {
+          "options": {
+            "label_1": "Small Text",
+            "label_2": "Basic Text",
+            "label_3": "Large Text"
+          }
+        },
         "options": {
           "label1": "Primary Theme",
           "label2": "2nd Theme",
@@ -3268,6 +3559,14 @@
         },
         "text": {
           "label": "Description"
+        },
+        "description_text_size": {
+          "options": {
+            "label_1": "Small Text",
+            "label_2": "Basic Text",
+            "label_3": "Large Text"
+          },
+          "label": "Description Size"
         },
         "alignment": {
           "label": "Alignment",

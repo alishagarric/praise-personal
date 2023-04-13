@@ -81,16 +81,16 @@
                     {% when 'mega_menu' %}
                       {% if block.settings.label == primary_link.title %}
                         {% comment %} Text Block {% endcomment %}
-                        {% render 'nav-dropdown-text-block' heading: block.settings.heading_0, text: block.settings.text_0, button_label: block.settings.button_label, button_link: block.settings.button_link, button_color: block.settings.button_color, className: blockClassName %}
+                        {% render 'nav-dropdown-text-block' heading: block.settings.heading_0, text: block.settings.text_0, text_size: block.settings.text_size_0, button_label: block.settings.button_label, button_link: block.settings.button_link, button_color: block.settings.button_color, className: blockClassName %}
 
                         {% comment %} Promotion 1 {% endcomment %}
                         {% if block.settings.heading_1 or block.settings.image_1 %}
-                          {% render 'nav-dropdown-promotion' heading: block.settings.heading_1, text: block.settings.text_1, link: block.settings.link_1, image: block.settings.image_1, className: blockClassName %}
+                          {% render 'nav-dropdown-promotion' heading: block.settings.heading_1, text: block.settings.text_1, text_size: block.settings.text_size_1, link: block.settings.link_1, image: block.settings.image_1, className: blockClassName %}
                         {% endif %}
 
                         {% comment %} Promotion 2 {% endcomment %}
                         {% if block.settings.heading_2 or block.settings.image_2 %}
-                          {% render 'nav-dropdown-promotion' heading: block.settings.heading_2, text: block.settings.text_2, link: block.settings.link_2, image: block.settings.image_2, className: blockClassName %}
+                          {% render 'nav-dropdown-promotion' heading: block.settings.heading_2, text: block.settings.text_2, text_size: block.settings.text_size_2, link: block.settings.link_2, image: block.settings.image_2, className: blockClassName %}
                         {% endif %}
                         {% break %}
                       {% endif %}
@@ -274,6 +274,26 @@
           "label": "t:sections.header.blocks.mega_menu.description.label"
         },
         {
+          "type": "select",
+          "id": "text_size_0",
+          "options": [
+            {
+              "value": "p-sm",
+              "label": "t:sections.header.blocks.mega_menu.description_text_size.options.label_1"
+            },
+            {
+              "value": "p",
+              "label": "t:sections.header.blocks.mega_menu.description_text_size.options.label_2"
+            },
+            {
+              "value": "p-lg",
+              "label": "t:sections.header.blocks.mega_menu.description_text_size.options.label_3"
+            }
+          ],
+          "default": "p-sm",
+          "label": "t:sections.header.blocks.mega_menu.description_text_size.label"
+        },
+        {
           "type": "text",
           "id": "button_label",
           "label": "t:sections.header.blocks.mega_menu.button_label.label"
@@ -298,6 +318,26 @@
           "label": "t:sections.header.blocks.mega_menu.text_1.label"
         },
         {
+          "type": "select",
+          "id": "text_size_1",
+          "options": [
+            {
+              "value": "p-sm",
+              "label": "t:sections.header.blocks.mega_menu.description_text_size_1.options.label_1"
+            },
+            {
+              "value": "p",
+              "label": "t:sections.header.blocks.mega_menu.description_text_size_1.options.label_2"
+            },
+            {
+              "value": "p-lg",
+              "label": "t:sections.header.blocks.mega_menu.description_text_size_1.options.label_3"
+            }
+          ],
+          "default": "p-sm",
+          "label": "t:sections.header.blocks.mega_menu.description_text_size_1.label"
+        },
+        {
           "type": "url",
           "id": "link_1",
           "label": "t:sections.header.blocks.mega_menu.link_1.label"
@@ -320,6 +360,26 @@
           "type": "inline_richtext",
           "id": "text_2",
           "label": "t:sections.header.blocks.mega_menu.text_2.label"
+        },
+        {
+          "type": "select",
+          "id": "text_size_2",
+          "options": [
+            {
+              "value": "p-sm",
+              "label": "t:sections.header.blocks.mega_menu.description_text_size_2.options.label_1"
+            },
+            {
+              "value": "p",
+              "label": "t:sections.header.blocks.mega_menu.description_text_size_2.options.label_2"
+            },
+            {
+              "value": "p-lg",
+              "label": "t:sections.header.blocks.mega_menu.description_text_size_2.options.label_3"
+            }
+          ],
+          "default": "p-sm",
+          "label": "t:sections.header.blocks.mega_menu.description_text_size_2.label"
         },
         {
           "type": "url",

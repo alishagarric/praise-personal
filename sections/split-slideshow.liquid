@@ -72,6 +72,7 @@
             image: card_image,
             overlay_theme: overlay_theme,
             overlay: overlay,
+            text_size: section.settings.text_size,
             crop_shape: section.settings.crop_shape,
             heading_size: section.settings.article_heading_size,
             button_color: section.settings.button_color,
@@ -270,6 +271,26 @@
       "type": "checkbox",
       "id": "alt_heading",
       "label": "t:sections.split-slideshow.settings.alt_heading.label"
+    },
+    {
+      "type": "select",
+      "id": "text_size",
+      "options": [
+        {
+          "value": "p-sm",
+          "label": "t:sections.split-slideshow.settings.description_text_size.options.label_1"
+        },
+        {
+          "value": "p",
+          "label": "t:sections.split-slideshow.settings.description_text_size.options.label_2"
+        },
+        {
+          "value": "p-lg",
+          "label": "t:sections.split-slideshow.settings.description_text_size.options.label_3"
+        }
+      ],
+      "default": "p-sm",
+      "label": "t:sections.split-slideshow.settings.description_text_size.label"
     },
     {
       "type": "header",

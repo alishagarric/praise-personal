@@ -33,7 +33,7 @@
 
         {% comment %} Type Text {% endcomment %}
       {%- when 'text' -%}
-        <div class="__article-txt" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
+        <div class="__article-txt-{{ block.settings.text_size }}" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
 
         {% comment %} Type Button {% endcomment %}
       {%- when 'button' -%}
@@ -181,6 +181,26 @@
           "id": "text",
           "default": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>",
           "label": "t:sections.rich-text.blocks.text.settings.text.label"
+        },
+        {
+          "type": "select",
+          "id": "text_size",
+          "options": [
+            {
+              "value": "p-sm",
+              "label": "t:sections.main-page.settings.description_text_size.options.label_1"
+            },
+            {
+              "value": "p",
+              "label": "t:sections.main-page.settings.description_text_size.options.label_2"
+            },
+            {
+              "value": "p-lg",
+              "label": "t:sections.main-page.settings.description_text_size.options.label_3"
+            }
+          ],
+          "default": "p-sm",
+          "label": "t:sections.main-page.settings.description_text_size.label"
         }
       ]
     },

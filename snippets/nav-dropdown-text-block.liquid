@@ -4,6 +4,7 @@
     Expects:
     - heading: {string} optional
     - text: {string} optional
+    - text_size: {string} optional
     - button_label: {string} optional
     - button_link: {url} optional
     - button_color: {string} optional
@@ -13,10 +14,12 @@
     {% render 'nav-dropdown-text-block' heading: heading %}
 {% endcomment %}
 
+{% assign text_size = text_size | default: "p-sm" %}
+
 {% if heading != blank or text != blank or button_label != blank %}
   <div class="{{ className }} __text-block">
     {% if heading %} <div class="h6">{{ heading | escape }}</div>{% endif %}
-    {% if text %}<div class="p-sm">{{ text }}</div>{% endif %}
+    {% if text %}<div class="{{ text_size }}">{{ text }}</div>{% endif %}
     {% render 'button', button_label: button_label, button_link: button_link, button_color: button_color %}
   </div>
 {% endif %}

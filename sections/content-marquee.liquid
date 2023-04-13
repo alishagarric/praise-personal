@@ -38,6 +38,7 @@
               {% when 'quote' %}
                 {% render 'quote-card',
                   quote: block.settings.quote,
+                  quote_size: block.settings.text_size,
                   alignment: section.settings.alignment,
                   background_theme: block.settings.background_theme,
                   card_corners: block.settings.card_corners,
@@ -64,6 +65,7 @@
                   button_link: block.settings.button_link,
                   button_color: block.settings.button_color,
                   text: block.settings.text,
+                  text_size: block.settings.text_size,
                   img_width: 800,
                   img_widths: '800, 500, 300',
                   img_sizes: '(max-width: 1024px) 40vw, 25vw'
@@ -189,6 +191,26 @@
           "type": "richtext",
           "id": "quote",
           "label": "t:sections.content-marquee.blocks.quote.settings.quote.label"
+        },
+        {
+          "type": "select",
+          "id": "text_size",
+          "options": [
+            {
+              "value": "p-sm",
+              "label": "t:sections.content-marquee.blocks.quote.settings.description_text_size.options.label_1"
+            },
+            {
+              "value": "p",
+              "label": "t:sections.content-marquee.blocks.quote.settings.description_text_size.options.label_2"
+            },
+            {
+              "value": "p-lg",
+              "label": "t:sections.content-marquee.blocks.quote.settings.description_text_size.options.label_3"
+            }
+          ],
+          "default": "p-sm",
+          "label": "t:sections.content-marquee.blocks.quote.settings.description_text_size.label"
         },
         {
           "type": "checkbox",
@@ -406,6 +428,26 @@
           "type": "richtext",
           "id": "text",
           "label": "t:sections.content-marquee.blocks.image.settings.text.label"
+        },
+        {
+          "type": "select",
+          "id": "text_size",
+          "options": [
+            {
+              "value": "p-sm",
+              "label": "t:sections.content-marquee.blocks.image.settings.description_text_size.options.label_1"
+            },
+            {
+              "value": "p",
+              "label": "t:sections.content-marquee.blocks.image.settings.description_text_size.options.label_2"
+            },
+            {
+              "value": "p-lg",
+              "label": "t:sections.content-marquee.blocks.image.settings.description_text_size.options.label_3"
+            }
+          ],
+          "default": "p-sm",
+          "label": "t:sections.content-marquee.blocks.image.settings.description_text_size.label"
         },
         {
           "type": "radio",

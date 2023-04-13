@@ -87,7 +87,7 @@
   %}
 
     {% if section.settings.text %}
-      <div class="multicolumn__text__desc __article-txt">
+      <div class="multicolumn__text__desc __article-txt-{{ section.settings.text_size }}">
         {{ section.settings.text }}
       </div>
     {% endif %}
@@ -185,6 +185,26 @@
       "id": "text",
       "default": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>",
       "label": "t:sections.multicolumn.settings.text.label"
+    },
+    {
+      "type": "select",
+      "id": "text_size",
+      "options": [
+        {
+          "value": "p-sm",
+          "label": "t:sections.multicolumn.settings.description_text_size.options.label_1"
+        },
+        {
+          "value": "p",
+          "label": "t:sections.multicolumn.settings.description_text_size.options.label_2"
+        },
+        {
+          "value": "p-lg",
+          "label": "t:sections.multicolumn.settings.description_text_size.options.label_3"
+        }
+      ],
+      "default": "p-sm",
+      "label": "t:sections.multicolumn.settings.description_text_size.label"
     },
     {
       "type": "radio",

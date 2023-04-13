@@ -23,7 +23,7 @@
 
           {% comment %} Type Text {% endcomment %}
         {%- when 'text' -%}
-          <div class="image-banner__text __article-txt">{{ block.settings.text }}</div>
+          <div class="image-banner__text __article-txt-{{ block.settings.text_size }}">{{ block.settings.text }}</div>
 
           {% comment %} Type Button {% endcomment %}
         {%- when 'button' -%}
@@ -327,6 +327,26 @@
           "id": "text",
           "default": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>",
           "label": "t:sections.image-banner.blocks.text.settings.label"
+        },
+        {
+          "type": "select",
+          "id": "text_size",
+          "options": [
+            {
+              "value": "p-sm",
+              "label": "t:sections.image-banner.blocks.text.settings.description_text_size.options.label_1"
+            },
+            {
+              "value": "p",
+              "label": "t:sections.image-banner.blocks.text.settings.description_text_size.options.label_2"
+            },
+            {
+              "value": "p-lg",
+              "label": "t:sections.image-banner.blocks.text.settings.description_text_size.options.label_3"
+            }
+          ],
+          "default": "p-sm",
+          "label": "t:sections.image-banner.blocks.text.settings.description_text_size.label"
         }
       ]
     },

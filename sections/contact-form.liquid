@@ -21,7 +21,7 @@
       heading_size: section.settings.heading_size,
       alt_heading: section.settings.alt_heading
     %}
-    <div class="contact-form__text__description __article-txt-p-sm" {{ block.shopify_attributes }}>
+    <div class="contact-form__text__description __article-txt-{{ section.settings.text_size }}" {{ block.shopify_attributes }}>
       {{ section.settings.description }}
     </div>
   </div>
@@ -260,6 +260,26 @@
       "id": "description",
       "default": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>",
       "label": "t:sections.contact-form.settings.description.label"
+    },
+    {
+      "type": "select",
+      "id": "text_size",
+      "options": [
+        {
+          "value": "p-sm",
+          "label": "t:sections.contact-form.settings.description_text_size.options.label_1"
+        },
+        {
+          "value": "p",
+          "label": "t:sections.contact-form.settings.description_text_size.options.label_2"
+        },
+        {
+          "value": "p-lg",
+          "label": "t:sections.contact-form.settings.description_text_size.options.label_3"
+        }
+      ],
+      "default": "p-sm",
+      "label": "t:sections.contact-form.settings.description_text_size.label"
     },
     {
       "type": "text",

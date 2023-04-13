@@ -33,7 +33,7 @@
 
           {% comment %} Type Text {% endcomment %}
         {%- when 'text' -%}
-          <div class="image-with-text__text__rich-text __article-txt" {{ block.shopify_attributes }}>
+          <div class="image-with-text__text__rich-text __article-txt-{{ block.settings.text_size }}" {{ block.shopify_attributes }}>
             {{ block.settings.text }}
           </div>
         {%- when 'button' -%}
@@ -53,7 +53,7 @@
                 <h3 class="h6">{{ block.settings.heading | escape }}</h3>
               {% endif %}
               {% if block.settings.text != blank %}
-                <div class="p-sm">{{ block.settings.text }}</div>
+                <div class="{{ block.settings.text_size }}">{{ block.settings.text }}</div>
               {% endif %}
             </div>
           {%- endif -%}
@@ -278,6 +278,26 @@
           "label": "t:sections.image-with-text.blocks.icon.settings.text.label"
         },
         {
+          "type": "select",
+          "id": "text_size",
+          "options": [
+            {
+              "value": "p-sm",
+              "label": "t:sections.image-with-text.blocks.icon.settings.description_text_size.options.label_1"
+            },
+            {
+              "value": "p",
+              "label": "t:sections.image-with-text.blocks.icon.settings.description_text_size.options.label_2"
+            },
+            {
+              "value": "p-lg",
+              "label": "t:sections.image-with-text.blocks.icon.settings.description_text_size.options.label_3"
+            }
+          ],
+          "default": "p-sm",
+          "label": "t:sections.image-with-text.blocks.icon.settings.description_text_size.label"
+        },
+        {
           "type": "radio",
           "id": "layout",
           "label": "t:sections.image-with-text.blocks.icon.settings.layout.label",
@@ -340,6 +360,26 @@
           "id": "text",
           "default": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>",
           "label": "t:sections.image-with-text.blocks.text.settings.text.label"
+        },
+        {
+          "type": "select",
+          "id": "text_size",
+          "options": [
+            {
+              "value": "p-sm",
+              "label": "t:sections.image-with-text.blocks.text.settings.description_text_size.options.label_1"
+            },
+            {
+              "value": "p",
+              "label": "t:sections.image-with-text.blocks.text.settings.description_text_size.options.label_2"
+            },
+            {
+              "value": "p-lg",
+              "label": "t:sections.image-with-text.blocks.text.settings.description_text_size.options.label_3"
+            }
+          ],
+          "default": "p",
+          "label": "t:sections.image-with-text.blocks.text.settings.description_text_size.label"
         }
       ]
     },

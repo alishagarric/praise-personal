@@ -62,7 +62,7 @@
         <h2 class="featured-collection__text__heading h4 {% if alt_heading %}alt{% endif %}">{{ section_heading }}</h2>
       {% endif %}
       {% if section_text %}
-        <div class="featured-collection__text__desc __article-txt p">
+        <div class="featured-collection__text__desc __article-txt-{{ section.settings.text_size }} {{ section.settings.text_size }}">
           {{ section_text }}
         </div>
       {% endif %}
@@ -316,6 +316,26 @@
       "id": "text",
       "default": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>",
       "label": "t:sections.featured-collection.settings.text.label"
+    },
+    {
+      "type": "select",
+      "id": "text_size",
+      "options": [
+        {
+          "value": "p-sm",
+          "label": "t:sections.featured-collection.settings.description_text_size.options.label_1"
+        },
+        {
+          "value": "p",
+          "label": "t:sections.featured-collection.settings.description_text_size.options.label_2"
+        },
+        {
+          "value": "p-lg",
+          "label": "t:sections.featured-collection.settings.description_text_size.options.label_3"
+        }
+      ],
+      "default": "p",
+      "label": "t:sections.featured-collection.settings.description_text_size.label"
     },
     {
       "type": "checkbox",

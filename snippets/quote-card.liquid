@@ -4,6 +4,7 @@
     Expects:
     - class: 
     - quote: {string} Richtext, expected but optional
+    - quote_size: {string} optional p-sm, p, p-lg
     - quotations: {bool} optional
     - details: {string} Richtext, optional
     - logo: {image}, optional
@@ -23,6 +24,8 @@
 
 {{ 'quote-card.css' | asset_url | stylesheet_tag }}
 
+{% assign quote_size = quote_size | default: "p-sm" %}
+
 <div class="quote-card {{ class}} __align-{{ alignment }} {% if background_theme %}__theme-{{ background_theme }}{% endif %}">
   <div class="quote-card__inner __crop-{{ card_corners }}">
 
@@ -35,7 +38,7 @@
     {% endif %}
 
     {% if details != blank %}
-      <div class="quote-card__details __article-txt-p-sm">{{ details }}</div>
+      <div class="quote-card__details __article-txt-{{ quote_size }}">{{ details }}</div>
     {% endif %}
 
     {%- if logo != blank -%}

@@ -4,6 +4,7 @@
     Expects:
     - heading: {string} optional
     - text: {string } optional
+    - text_size: {string} optional
     - link: {url} optional
     - image: {object} required
     - className: {string} optional
@@ -11,6 +12,8 @@
     Usage:
     {% render 'nav-dropdown-page' page: page %}
 {% endcomment %}
+
+{% assign text_size = text_size | default: "p-sm" %}
 
 {% if heading != blank or image != blank or text != blank %}
   {% capture promo %}
@@ -23,7 +26,7 @@
         <div class="{{ className }}__label h6 p-lg">{{ heading | escape }}</div>
       {% endif %}
       {% if text %}
-        <div class="p-sm">
+        <div class="{{ text_size }}">
           {{ text }}
         </div>
       {% endif %}
