@@ -833,14 +833,14 @@ input[type="submit"] {
   padding: 0 calc(var(--btnHeight) * var(--btnSidesSpace));
   display: flex;
   width: fit-content;
-  text-transform: uppercase;
+  text-transform: var(--btnTextTransform);
   border: none;
   text-align: center;
   text-decoration: none;
   cursor: pointer;
   white-space: nowrap;
   font-size: calc(1rem * var(--font-body-scale));
-  letter-spacing: calc(0.05rem * var(--font-body-scale));
+  letter-spacing: var(--btnSpacing);
   font-weight: 500;
   margin: 1rem 0 0 0;
   align-items: center;

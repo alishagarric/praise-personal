@@ -518,6 +518,22 @@
         "info": "Relative to button height",
         "label": "Sides Space",
         "default": 0.6
+      },
+      {
+        "type": "checkbox",
+        "id": "button_uppercase",
+        "label": "Uppercase",
+        "default": true
+      },
+      {
+        "type": "range",
+        "id": "button_spacing",
+        "min": 0,
+        "max": 24,
+        "step": 2,
+        "unit": "%",
+        "label": "Spacing",
+        "default": 12
       }
     ]
   },

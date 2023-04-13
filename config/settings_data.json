@@ -1,5 +1,7 @@
 {
   "current": {
+    "button_uppercase": true,
+    "button_spacing": 6,
     "product_phrase_tilt": 5,
     "announcement_bar_text": "Testing the announcement bar",
     "announcement_bar_text_size": "p-sm",
