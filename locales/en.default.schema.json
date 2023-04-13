@@ -879,7 +879,7 @@
     "main-article": {
       "name": "Blog post",
       "presets": {
-        "name": "Main Article"
+        "name": "Main article"
       },
       "settings": {
         "header": {
@@ -1004,7 +1004,7 @@
     "main-page": {
       "name": "Page",
       "presets": {
-        "name": "Main Page"
+        "name": "Main page"
       },
       "settings": {
         "top_spacing": {
@@ -1026,7 +1026,7 @@
       }
     },
     "contact-form": {
-      "name": "Contact Form",
+      "name": "Contact form",
       "presets": {
         "name": "Contact form"
       },
@@ -1146,7 +1146,7 @@
       }
     },
     "custom-liquid": {
-      "name": "Custom Liquid",
+      "name": "Custom liquid",
       "settings": {
         "custom_liquid": {
           "label": "Custom Liquid",
@@ -1174,7 +1174,7 @@
         }
       },
       "presets": {
-        "name": "Custom Liquid"
+        "name": "Custom liquid"
       }
     },
     "page": {
@@ -1363,7 +1363,7 @@
     "main-register": {
       "name": "Registration",
       "presets": {
-        "name": "Main Register"
+        "name": "Main register"
       },
       "settings": {
         "header": {
@@ -1495,7 +1495,7 @@
     "main-login": {
       "name": "Login",
       "presets": {
-        "name": "Main Login"
+        "name": "Main login"
       },
       "settings": {
         "header": {
@@ -1544,9 +1544,9 @@
       "name": "Password reset"
     },
     "email-signup": {
-      "name": "Email Signup",
+      "name": "Email signup",
       "presets": {
-        "name": "Email Signup"
+        "name": "Email signup"
       },
       "settings": {
         "header": {
@@ -1615,9 +1615,9 @@
       }
     },
     "cart-recommendations": {
-      "name": "Cart Recommendations",
+      "name": "Cart recommendations",
       "presets": {
-        "name": "Cart Recommendations"
+        "name": "Cart recommendations"
       },
       "settings": {
         "header": {
@@ -1652,9 +1652,9 @@
       }
     },
     "collection-teaser": {
-      "name": "Collection Teaser",
+      "name": "Collection teaser",
       "presets": {
-        "name": "Collection Teaser"
+        "name": "Collection teaser"
       },
       "settings": {
         "header": {
@@ -1820,9 +1820,9 @@
       }
     },
     "collections-list": {
-      "name": "Collections List",
+      "name": "Collections list",
       "presets": {
-        "name": "Collections List"
+        "name": "Collections list"
       },
       "settings": {
         "header": {
@@ -1889,7 +1889,7 @@
       }
     },
     "content-marquee": {
-      "name": "Content Marquee",
+      "name": "Content marquee",
       "settings": {
         "header": {
           "content": "General"
@@ -2080,9 +2080,9 @@
       }
     },
     "featured-collection": {
-      "name": "Featured Collection",
+      "name": "Featured collection",
       "presets": {
-        "name": "Featured Collection"
+        "name": "Featured collection"
       },
       "settings": {
         "content": "Collection",
@@ -2180,9 +2180,9 @@
       }
     },
     "featured-product": {
-      "name": "Featured Product",
+      "name": "Featured product",
       "presets": {
-        "name": "Featured Product"
+        "name": "Featured product"
       },
       "settings": {
         "header": {
@@ -2394,7 +2394,7 @@
       }
     },
     "gift-card": {
-      "name": "Gift Card"
+      "name": "Gift card"
     },
     "header": {
       "name": "Header",
@@ -2469,9 +2469,9 @@
       }
     },
     "icons-section": {
-      "name": "Icons Section",
+      "name": "Icons section",
       "presets": {
-        "name": "Icons Section"
+        "name": "Icons section"
       },
       "settings": {
         "header": {
@@ -2564,9 +2564,9 @@
       }
     },
     "image-banner": {
-      "name": "Image Banner",
+      "name": "Image banner",
       "presets": {
-        "name": "Image Banner"
+        "name": "Image banner"
       },
       "settings": {
         "header": {
@@ -2697,9 +2697,9 @@
       }
     },
     "related-articles": {
-      "name": "Related Articles",
+      "name": "Related articles",
       "presets": {
-        "name": "Related Articles"
+        "name": "Related articles"
       },
       "settings": {
         "header": {
@@ -2801,9 +2801,9 @@
       }
     },
     "shop-the-look": {
-      "name": "Shop the Look",
+      "name": "Shop the look",
       "presets": {
-        "name": "Shop the Look"
+        "name": "Shop the look"
       },
       "settings": {
         "header": {
@@ -2905,9 +2905,9 @@
       }
     },
     "split-slideshow": {
-      "name": "Split Slideshow",
+      "name": "Split slideshow",
       "presets": {
-        "name": "Split Slideshow"
+        "name": "Split slideshow"
       },
       "settings": {
         "header": {
@@ -3001,7 +3001,7 @@
       },
       "blocks": {
         "image-with-text": {
-          "name": "Image with Text",
+          "name": "Image with text",
           "settings": {
             "header": {
               "content": "Image Content"
@@ -3061,9 +3061,9 @@
       }
     },
     "text-marquee": {
-      "name": "Text Marquee",
+      "name": "Text marquee",
       "presets": {
-        "name": "Text Marquee"
+        "name": "Text marquee"
       },
       "settings": {
         "header": {

@@ -8,7 +8,7 @@
     "theme_documentation_url": "https://commence.studio"
   },
   {
-    "name": "Announcement Bar",
+    "name": "Announcement bar",
     "settings": [
       {
         "type": "text",
@@ -90,7 +90,7 @@
     ]
   },
   {
-    "name": "Quick Add Modal",
+    "name": "Quick add modal",
     "settings": [
       {
         "type": "text",
@@ -232,7 +232,7 @@
     ]
   },
   {
-    "name": "Product Phrase",
+    "name": "Product phrase",
     "settings": [
       {
         "type": "checkbox",
@@ -522,7 +522,7 @@
     ]
   },
   {
-    "name": "Icon Library",
+    "name": "Icon library",
     "settings": [
       {
         "type": "paragraph",
