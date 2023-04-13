@@ -248,10 +248,10 @@
                 "label_32": "Truck",
                 "label_33": "Washing"
               },
-              "label": "Icon 1"
+              "label": "First Icon"
             },
             "icon_1_title": {
-              "label": "Icon 1 Title"
+              "label": "First Icon Title"
             },
             "icon_2": {
               "options": {
@@ -289,10 +289,10 @@
                 "label_32": "Truck",
                 "label_33": "Washing"
               },
-              "label": "Icon 2"
+              "label": "Second Icon"
             },
             "icon_2_title": {
-              "label": "Icon 2 Title"
+              "label": "Second Icon Title"
             },
             "icon_3": {
               "options": {
@@ -330,13 +330,13 @@
                 "label_32": "Truck",
                 "label_33": "Washing"
               },
-              "label": "Icon 3"
+              "label": "Third Icon"
             },
             "icon_3_title": {
-              "label": "Icon 3 Title"
+              "label": "Third Icon Title"
             },
             "icon_height": {
-              "label": "Icon Height"
+              "label": "Icons Height"
             },
             "title": {
               "label": "Title"
