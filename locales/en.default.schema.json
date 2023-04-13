@@ -52,10 +52,10 @@
           "info": "Selecting a different font can affect the speed of your store. [Learn more about system fonts.](https://help.shopify.com/en/manual/online-store/os/store-speed/improving-speed#fonts)"
         },
         "heading_scale": {
-          "label": "Font size scale"
+          "label": "Size scale"
         },
         "heading_spacing": {
-          "label": "Font spacing"
+          "label": "Spacing"
         },
         "header__1": {
           "content": "Headings"
@@ -68,10 +68,10 @@
           "info": "Selecting a different font can affect the speed of your store. [Learn more about system fonts.](https://help.shopify.com/en/manual/online-store/os/store-speed/improving-speed#fonts)"
         },
         "body_scale": {
-          "label": "Font size scale"
+          "label": "Size scale"
         },
         "body_spacing": {
-          "label": "Font spacing"
+          "label": "Spacing"
         }
       }
     }
@@ -476,7 +476,7 @@
       "name": "Image with text",
       "settings": {
         "header": {
-          "content": "Image Content"
+          "content": "Content"
         },
         "image": {
           "label": "Image",
@@ -488,7 +488,7 @@
             "label_2": "Wide, Without Space",
             "label_3": "Square, With Space"
           },
-          "label": "Image Style"
+          "label": "Style"
         },
         "header_2": {
           "content": "General"
@@ -542,10 +542,10 @@
           "label": "Bottom Text Content Spacing"
         },
         "top_spacing": {
-          "label": "Top Section Spacing"
+          "label": "Top Spacing"
         },
         "bottom_spacing": {
-          "label": "Bottom Section Spacing"
+          "label": "Bottom Spacing"
         }
       },
       "blocks": {
@@ -583,7 +583,7 @@
                 "label_3": "Medium",
                 "label_4": "Small"
               },
-              "label": "Heading Size"
+              "label": "Size"
             }
           }
         },
@@ -599,14 +599,14 @@
           "name": "Button",
           "settings": {
             "button_label": {
-              "label": "Button label",
+              "label": "Label",
               "info": "Leave the label blank to hide the button."
             },
             "button_link": {
-              "label": "Button link"
+              "label": "Link"
             },
             "button_color": {
-              "label": "Button Color",
+              "label": "Color",
               "options": {
                 "label_1": "Default",
                 "label_2": "Primary Theme",
@@ -836,7 +836,7 @@
                 "label_3": "Medium",
                 "label_4": "Small"
               },
-              "label": "Heading Size"
+              "label": "Size"
             }
           }
         },
@@ -852,14 +852,14 @@
           "name": "Button",
           "settings": {
             "button_label": {
-              "label": "Button label",
+              "label": "Label",
               "info": "Leave the label blank to hide the button."
             },
             "button_link": {
-              "label": "Button link"
+              "label": "Link"
             },
             "button_color": {
-              "label": "Button Color",
+              "label": "Color",
               "options": {
                 "label_1": "Default",
                 "label_2": "Primary Theme",
@@ -930,7 +930,7 @@
                 "label_6": "Rounded Wide",
                 "label_7": "Semicircle Wide"
               },
-              "label": "Image Crop Shape"
+              "label": "Crop Shape"
             }
           }
         },
@@ -944,7 +944,7 @@
                 "label_3": "Medium",
                 "label_4": "Small"
               },
-              "label": "Heading Size"
+              "label": "Size"
             },
             "alt_heading": {
               "label": "Use body font instead of heading font for heading"
@@ -1059,73 +1059,73 @@
           "content": "General"
         },
         "hide_labels": {
-          "label": "Hide Label"
+          "label": "Hide Labels"
         },
         "header_3": {
           "content": "Email Field"
         },
         "email_label": {
-          "label": "Email Label"
+          "label": "Label"
         },
         "email_placeholder": {
-          "label": "Email Placeholder"
+          "label": "Placeholder"
         },
         "header_4": {
           "content": "Name Field"
         },
         "name_label": {
-          "label": "Name Label"
+          "label": "Label"
         },
         "name_placeholder": {
-          "label": "Name Placeholder"
+          "label": "Placeholder"
         },
         "name_required": {
-          "label": "Make field required"
+          "label": "Make required"
         },
         "hide_name_field": {
-          "label": "Hide field"
+          "label": "Hide"
         },
         "header_5": {
           "content": "Contact Reason Field"
         },
         "contact_reason_label": {
-          "label": "Contact Reason Label"
+          "label": "Label"
         },
         "contact_reason_placeholder": {
-          "label": "Contact Reason Placeholder"
+          "label": "Placeholder"
         },
         "hide_reason_field": {
-          "label": "Hide field"
+          "label": "Hide"
         },
         "contact_reason_required": {
-          "label": "Make field required"
+          "label": "Make required"
         },
         "header_6": {
           "content": "Phone Field"
         },
         "phone_label": {
-          "label": "Phone Label"
+          "label": "Label"
         },
         "phone_placeholder": {
-          "label": "Phone Label"
+          "label": "Placeholder"
         },
         "hide_phone_field": {
-          "label": "Hide field"
+          "label": "Hide"
         },
         "phone_required": {
-          "label": "Make field required"
+          "label": "Make required"
         },
         "header_7": {
           "content": "Message Field"
         },
         "message_label": {
-          "label": "Message Label"
+          "label": "Label"
         },
         "message_placeholder": {
-          "label": "Message Placeholder"
+          "label": "Placeholder"
         },
         "header_8": {
-          "content": "Message Field"
+          "content": "Section"
         },
         "theme": {
           "options": {
@@ -1138,10 +1138,10 @@
           "label": "Theme"
         },
         "top_spacing": {
-          "label": "Top Section Spacing"
+          "label": "Top Spacing"
         },
         "bottom_spacing": {
-          "label": "Top Section Spacing"
+          "label": "Bottom Spacing"
         }
       }
     },
@@ -1157,10 +1157,10 @@
           "info": "Fields below apply only if checked"
         },
         "top_spacing": {
-          "label": "Top Section Spacing"
+          "label": "Top Spacing"
         },
         "bottom_spacing": {
-          "label": "Top Section Spacing"
+          "label": "Bottom Spacing"
         },
         "theme": {
           "options": {
@@ -1184,10 +1184,10 @@
           "label": "Page"
         },
         "top_spacing": {
-          "label": "Top Section Spacing"
+          "label": "Top Spacing"
         },
         "bottom_spacing": {
-          "label": "Top Section Spacing"
+          "label": "Bottom Spacing"
         },
         "theme": {
           "options": {
@@ -1350,10 +1350,10 @@
           "label": "Theme"
         },
         "top_spacing": {
-          "label": "Top Section Spacing"
+          "label": "Top Spacing"
         },
         "bottom_spacing": {
-          "label": "Top Section Spacing"
+          "label": "Bottom Spacing"
         }
       },
       "presets": {
@@ -1385,10 +1385,10 @@
           "content": "Section"
         },
         "top_spacing": {
-          "label": "Top Section Spacing"
+          "label": "Top Spacing"
         },
         "bottom_spacing": {
-          "label": "Top Section Spacing"
+          "label": "Bottom Spacing"
         },
         "theme": {
           "options": {
@@ -1443,7 +1443,7 @@
           "label": "logo"
         },
         "logo_width": {
-          "label": "Logo Max Width"
+          "label": "Max Width"
         },
         "stack_logo": {
           "label": "Stack logo above text content"
@@ -1517,16 +1517,16 @@
           "content": "Reset Form"
         },
         "reset_heading": {
-          "label": "Reset Form Heading"
+          "label": "Heading"
         },
         "header_4": {
           "content": "Section"
         },
         "top_spacing": {
-          "label": "Top Section Spacing"
+          "label": "Top Spacing"
         },
         "bottom_spacing": {
-          "label": "Top Section Spacing"
+          "label": "Bottom Spacing"
         },
         "theme": {
           "options": {
@@ -1591,10 +1591,10 @@
           "label": "Theme"
         },
         "top_spacing": {
-          "label": "Top Section Spacing"
+          "label": "Top Spacing"
         },
         "bottom_spacing": {
-          "label": "Top Section Spacing"
+          "label": "Bottom Spacing"
         }
       }
     },
@@ -1644,10 +1644,10 @@
           "label": "Bottom Text Content Spacing"
         },
         "top_spacing": {
-          "label": "Top Section Spacing"
+          "label": "Top Spacing"
         },
         "bottom_spacing": {
-          "label": "Top Section Spacing"
+          "label": "Bottom Spacing"
         }
       }
     },
@@ -1664,7 +1664,7 @@
           "label": "Collections"
         },
         "header_2": {
-          "content": "Collection Row Settings"
+          "content": "Row Settings"
         },
         "products_per_collection": {
           "label": "Products per collection"
@@ -1676,7 +1676,7 @@
             "label_3": "Medium",
             "label_4": "Small"
           },
-          "label": "Collection Titles Size"
+          "label": "Titles Size"
         },
         "alt_heading": {
           "label": "Use body font instead of heading font for collection titles"
@@ -1686,11 +1686,11 @@
           "info": "If excluded, no view all button will display"
         },
         "enable_sticky_details": {
-          "label": "Enable collection details to 'stick",
+          "label": "Enable details to 'stick",
           "info": "'Sticks' within view while user scrolls through product cards. Requires product cards to be taller than collection details per collection row."
         },
         "display_collection_image": {
-          "label": "Display collection image",
+          "label": "Display image",
           "info": "Dependent on collection having an image assign to it"
         },
         "collection_image_crop_shape": {
@@ -1710,7 +1710,7 @@
             "label_13": "Semicircle Wide",
             "label_14": "Semicircle Arch"
           },
-          "label": "Collection Image Crop Shape"
+          "label": "Image Crop Shape"
         },
         "display_featured_icons": {
           "label": "Display featured icons",
@@ -1727,7 +1727,7 @@
           "info": "Dependent on addition of collection featured stats metafield. //TODO: add link here"
         },
         "stats_color": {
-          "label": "Display featured stats",
+          "label": "Theme",
           "options": {
             "label_1": "Default",
             "label_2": "Primary Theme",
@@ -1752,10 +1752,10 @@
           "content": "Product Card Settings"
         },
         "show_phrase": {
-          "label": "Show product phrase"
+          "label": "Show phrase"
         },
         "show_description": {
-          "label": "Show product description"
+          "label": "Show description"
         },
         "quick_add": {
           "label": "Enable quick add"
@@ -1764,7 +1764,7 @@
           "label": "Show background color"
         },
         "alt_title": {
-          "label": "Use body font instead of heading font for product title"
+          "label": "Use body font instead of heading font for title"
         },
         "product_text_alignment": {
           "options": {
@@ -1772,7 +1772,7 @@
             "label_2": "Center",
             "label_3": "Right"
           },
-          "label": "Product Text Alignment"
+          "label": "Text Alignment"
         },
         "price": {
           "options": {
@@ -1796,7 +1796,7 @@
             "label_10": "Semicircle Landscape",
             "label_11": "Semicircle Arch"
           },
-          "label": "Product Image Crop Shape"
+          "label": "Image Crop Shape"
         },
         "header_4": {
           "content": "Section"
@@ -1821,6 +1821,9 @@
     },
     "collections-list": {
       "name": "Collections List",
+      "presets": {
+        "name": "Collections List"
+      },
       "settings": {
         "header": {
           "content": "Text Content"
@@ -1841,10 +1844,10 @@
           "label": "Use body font instead of heading font for heading"
         },
         "header_2": {
-          "content": "Collections Settings"
+          "content": "Settings"
         },
         "collections_text_alignment": {
-          "label": "Collections Text Alignment",
+          "label": "Text Alignment",
           "options": {
             "label_1": "Left",
             "label_2": "Center",
@@ -1878,7 +1881,7 @@
       "blocks": {
         "name": "Collection",
         "settings": {
-          "label": "collection",
+          "label": "Collection",
           "presets": {
             "name": "Collections List"
           }
@@ -2095,10 +2098,10 @@
           "content": "Product Cards"
         },
         "show_phrase": {
-          "label": "Show product phrase"
+          "label": "Show phrase"
         },
         "show_description": {
-          "label": "Show product description"
+          "label": "Show description"
         },
         "quick_add": {
           "label": "Enable quick add"
@@ -2115,7 +2118,7 @@
             "label_2": "Center",
             "label_3": "Right"
           },
-          "label": "Product Text Alignment"
+          "label": "Text Alignment"
         },
         "price": {
           "options": {
@@ -2139,7 +2142,7 @@
             "label_10": "Semicircle Landscape",
             "label_11": "Semicircle Arch"
           },
-          "label": "Product Image Crop Shape"
+          "label": "Image Crop Shape"
         },
         "header_2": {
           "content": "Text Content"
@@ -2276,7 +2279,7 @@
                 "label_2": "Basic Text",
                 "label_3": "Large Text"
               },
-              "label": "Text Size"
+              "label": "Size"
             },
             "include_border": {
               "label": "Include border"
@@ -2397,7 +2400,7 @@
       "name": "Header",
       "settings": {
         "logo": {
-          "label": "logo"
+          "label": "Logo"
         },
         "logo_placement": {
           "label": "Logo Placement",
@@ -2604,7 +2607,7 @@
             "label_13": "Semicircle Wide",
             "label_14": "Semicircle Arch"
           },
-          "label": "Image Crop Shape"
+          "label": "Crop Shape"
         },
         "header_2": {
           "label": "General"
@@ -2641,10 +2644,10 @@
           "label": "Bottom Text Content Spacing"
         },
         "top_spacing": {
-          "label": "Top Section Spacing"
+          "label": "Top Spacing"
         },
         "bottom_spacing": {
-          "label": "Top Section Spacing"
+          "label": "Bottom Spacing"
         }
       },
       "blocks": {
@@ -2717,18 +2720,21 @@
         "header_2": {
           "content": "Article Cards"
         },
+        "header_3": {
+          "content": "Section"
+        },
         "alt_heading": {
           "label": "Use body font instead of heading font for article title"
         },
         "show_date": {
-          "label": "Show article date"
+          "label": "Show date"
         },
         "show_description": {
-          "label": "Show article excerpt",
+          "label": "Show excerpt",
           "info": "Shows excerpt if it exists, content if it doesn't."
         },
         "show_author": {
-          "label": "Show article author"
+          "label": "Show author"
         },
         "assc_product_crop_shape": {
           "options": {
@@ -2811,16 +2817,16 @@
             "label_1": "Square",
             "label_2": "Portrait"
           },
-          "label": "Image Crop Shape"
+          "label": "Crop Shape"
         },
         "header_2": {
           "content": "Product Card Settings"
         },
         "show_phrase": {
-          "label": "Show product phrase"
+          "label": "Show phrase"
         },
         "show_description": {
-          "label": "Show product description"
+          "label": "Show description"
         },
         "quick_add": {
           "label": "Enable quick add"
@@ -2837,7 +2843,7 @@
             "label_2": "Center",
             "label_3": "Right"
           },
-          "label": "Product Text Alignment"
+          "label": "Text Alignment"
         },
         "price": {
           "options": {
@@ -2861,7 +2867,7 @@
             "label_10": "Semicircle Landscape",
             "label_11": "Semicircle Arch"
           },
-          "label": "Product Image Crop Shape"
+          "label": "Image Crop Shape"
         },
         "header_3": {
           "content": "Section"
@@ -3071,7 +3077,7 @@
           "label_2": "Large",
           "label_3": "Medium",
           "label_4": "Small",
-          "label": "Text Size"
+          "label": "Size"
         },
         "checkbox": {
           "label": "Use body font instead of heading font"
@@ -3154,7 +3160,7 @@
             "label_13": "Semicircle Wide",
             "label_14": "Semicircle Arch"
           },
-          "label": "Image Crop Shape"
+          "label": "Crop Shape"
         },
         "header_2": {
           "content": "Section"
@@ -3453,10 +3459,10 @@
               "label": "Products"
             },
             "show_phrase": {
-              "label": "Show product phrase"
+              "label": "Show phrase"
             },
             "show_description": {
-              "label": "Show product description"
+              "label": "Show description"
             },
             "quick_add": {
               "label": "Enable quick add"
@@ -3473,7 +3479,7 @@
                 "label_2": "Center",
                 "label_3": "Right"
               },
-              "label": "Product Text Alignment"
+              "label": "Text Alignment"
             },
             "price": {
               "options": {
@@ -3497,7 +3503,7 @@
                 "label_10": "Semicircle Landscape",
                 "label_11": "Semicircle Arch"
               },
-              "label": "Product Image Crop Shape"
+              "label": "Image Crop Shape"
             }
           }
         },

@@ -289,14 +289,14 @@
         "type": "color",
         "id": "error_color",
         "default": "#DC143C",
-        "label": "Error Color",
+        "label": "Error",
         "info": "Must have enough contrast between the color white"
       },
       {
         "type": "color",
         "id": "success_color",
         "default": "#008000",
-        "label": "Success Color",
+        "label": "Success",
         "info": "Must have enough contrast between the color white"
       },
       {
@@ -307,32 +307,32 @@
         "type": "color",
         "id": "background_color",
         "default": "#FFFFFF",
-        "label": "Background Color"
+        "label": "Background"
       },
       {
         "type": "color",
         "id": "text_color",
         "default": "#000000",
-        "label": "Text Color",
+        "label": "Text",
         "info": "Must have enough contrast between the chosen background color."
       },
       {
         "type": "color",
         "id": "border_color",
         "default": "#000000",
-        "label": "Border Color"
+        "label": "Border"
       },
       {
         "type": "color",
         "id": "button_color",
         "default": "#000000",
-        "label": "Button Color"
+        "label": "Button"
       },
       {
         "type": "color",
         "id": "button_text_color",
         "default": "#FFFFFF",
-        "label": "Button Text Color",
+        "label": "Button Text",
         "info": "Must have enough contrast between the chosen button color."
       },
       {
@@ -343,32 +343,32 @@
         "type": "color",
         "id": "background_color_2",
         "default": "#FFFFFF",
-        "label": "Background Color"
+        "label": "Background"
       },
       {
         "type": "color",
         "id": "text_color_2",
         "default": "#000000",
-        "label": "Text Color",
+        "label": "Text",
         "info": "Must have enough contrast between the chosen background color."
       },
       {
         "type": "color",
         "id": "border_color_2",
         "default": "#000000",
-        "label": "Border Color"
+        "label": "Border"
       },
       {
         "type": "color",
         "id": "button_color_2",
         "default": "#000000",
-        "label": "Button Color"
+        "label": "Button"
       },
       {
         "type": "color",
         "id": "button_text_color_2",
         "default": "#FFFFFF",
-        "label": "Button Text Color",
+        "label": "Button Text",
         "info": "Must have enough contrast between the chosen button color."
       },
       {
@@ -379,32 +379,32 @@
         "type": "color",
         "id": "background_color_3",
         "default": "#FFFFFF",
-        "label": "Background Color"
+        "label": "Background"
       },
       {
         "type": "color",
         "id": "text_color_3",
         "default": "#000000",
-        "label": "Text Color",
+        "label": "Text",
         "info": "Must have enough contrast between the chosen background color."
       },
       {
         "type": "color",
         "id": "border_color_3",
         "default": "#000000",
-        "label": "Border Color"
+        "label": "Border"
       },
       {
         "type": "color",
         "id": "button_color_3",
         "default": "#000000",
-        "label": "Button Color"
+        "label": "Button"
       },
       {
         "type": "color",
         "id": "button_text_color_3",
         "default": "#FFFFFF",
-        "label": "Button Text Color",
+        "label": "Button Text",
         "info": "Must have enough contrast between the chosen button color."
       },
       {
@@ -415,32 +415,32 @@
         "type": "color",
         "id": "background_color_4",
         "default": "#FFFFFF",
-        "label": "Background Color"
+        "label": "Background"
       },
       {
         "type": "color",
         "id": "text_color_4",
         "default": "#000000",
-        "label": "Text Color",
+        "label": "Text",
         "info": "Must have enough contrast between the chosen background color."
       },
       {
         "type": "color",
         "id": "border_color_4",
         "default": "#000000",
-        "label": "Border Color"
+        "label": "Border"
       },
       {
         "type": "color",
         "id": "button_color_4",
         "default": "#000000",
-        "label": "Button Color"
+        "label": "Button"
       },
       {
         "type": "color",
         "id": "button_text_color_4",
         "default": "#FFFFFF",
-        "label": "Button Text Color",
+        "label": "Button Text",
         "info": "Must have enough contrast between the chosen button color."
       },
       {
@@ -451,32 +451,32 @@
         "type": "color",
         "id": "background_color_5",
         "default": "#FFFFFF",
-        "label": "Background Color"
+        "label": "Background"
       },
       {
         "type": "color",
         "id": "text_color_5",
         "default": "#000000",
-        "label": "Text Color",
+        "label": "Text",
         "info": "Must have enough contrast between the chosen background color."
       },
       {
         "type": "color",
         "id": "border_color_5",
         "default": "#000000",
-        "label": "Border Color"
+        "label": "Border"
       },
       {
         "type": "color",
         "id": "button_color_5",
         "default": "#000000",
-        "label": "Button Color"
+        "label": "Button"
       },
       {
         "type": "color",
         "id": "button_text_color_5",
         "default": "#FFFFFF",
-        "label": "Button Text Color",
+        "label": "Button Text",
         "info": "Must have enough contrast between the chosen button color."
       }
     ]
@@ -516,7 +516,7 @@
         "step": 0.2,
         "unit": "x",
         "info": "Relative to button height",
-        "label": "Button Sides Space",
+        "label": "Sides Space",
         "default": 0.6
       }
     ]
@@ -535,7 +535,7 @@
       {
         "type": "text",
         "id": "custom_icon_title_1",
-        "label": "Custom Icon Title"
+        "label": "Title"
       },
       {
         "type": "image_picker",
@@ -549,7 +549,7 @@
       {
         "type": "text",
         "id": "custom_icon_title_2",
-        "label": "Custom Icon Title"
+        "label": "Title"
       },
       {
         "type": "image_picker",
@@ -563,7 +563,7 @@
       {
         "type": "text",
         "id": "custom_icon_title_3",
-        "label": "Custom Icon Title"
+        "label": "Title"
       },
       {
         "type": "image_picker",
@@ -577,7 +577,7 @@
       {
         "type": "text",
         "id": "custom_icon_title_4",
-        "label": "Custom Icon Title"
+        "label": "Title"
       },
       {
         "type": "image_picker",
@@ -591,7 +591,7 @@
       {
         "type": "text",
         "id": "custom_icon_title_5",
-        "label": "Custom Icon Title"
+        "label": "Title"
       },
       {
         "type": "image_picker",
@@ -605,7 +605,7 @@
       {
         "type": "text",
         "id": "custom_icon_title_6",
-        "label": "Custom Icon Title"
+        "label": "Title"
       },
       {
         "type": "image_picker",
@@ -619,7 +619,7 @@
       {
         "type": "text",
         "id": "custom_icon_title_7",
-        "label": "Custom Icon Title"
+        "label": "Title"
       },
       {
         "type": "image_picker",
@@ -633,7 +633,7 @@
       {
         "type": "text",
         "id": "custom_icon_title_8",
-        "label": "Custom Icon Title"
+        "label": "Title"
       },
       {
         "type": "image_picker",
@@ -647,7 +647,7 @@
       {
         "type": "text",
         "id": "custom_icon_title_9",
-        "label": "Custom Icon Title"
+        "label": "Title"
       },
       {
         "type": "image_picker",
@@ -661,7 +661,7 @@
       {
         "type": "text",
         "id": "custom_icon_title_10",
-        "label": "Custom Icon Title"
+        "label": "Title"
       },
       {
         "type": "image_picker",
@@ -675,7 +675,7 @@
       {
         "type": "text",
         "id": "custom_icon_title_11",
-        "label": "Custom Icon Title"
+        "label": "Title"
       },
       {
         "type": "image_picker",
@@ -689,7 +689,7 @@
       {
         "type": "text",
         "id": "custom_icon_title_12",
-        "label": "Custom Icon Title"
+        "label": "Title"
       },
       {
         "type": "image_picker",
@@ -703,7 +703,7 @@
       {
         "type": "text",
         "id": "custom_icon_title_13",
-        "label": "Custom Icon Title"
+        "label": "Title"
       },
       {
         "type": "image_picker",
@@ -717,7 +717,7 @@
       {
         "type": "text",
         "id": "custom_icon_title_14",
-        "label": "Custom Icon Title"
+        "label": "Title"
       },
       {
         "type": "image_picker",
@@ -731,7 +731,7 @@
       {
         "type": "text",
         "id": "custom_icon_title_15",
-        "label": "Custom Icon Title"
+        "label": "Title"
       },
       {
         "type": "image_picker",
@@ -745,7 +745,7 @@
       {
         "type": "text",
         "id": "custom_icon_title_16",
-        "label": "Custom Icon Title"
+        "label": "Title"
       },
       {
         "type": "image_picker",
@@ -759,7 +759,7 @@
       {
         "type": "text",
         "id": "custom_icon_title_17",
-        "label": "Custom Icon Title"
+        "label": "Title"
       },
       {
         "type": "image_picker",
@@ -773,7 +773,7 @@
       {
         "type": "text",
         "id": "custom_icon_title_18",
-        "label": "Custom Icon Title"
+        "label": "Title"
       },
       {
         "type": "image_picker",
@@ -787,7 +787,7 @@
       {
         "type": "text",
         "id": "custom_icon_title_19",
-        "label": "Custom Icon Title"
+        "label": "Title"
       },
       {
         "type": "image_picker",
@@ -801,7 +801,7 @@
       {
         "type": "text",
         "id": "custom_icon_title_20",
-        "label": "Custom Icon Title"
+        "label": "Title"
       },
       {
         "type": "image_picker",
@@ -815,7 +815,7 @@
       {
         "type": "text",
         "id": "custom_icon_title_21",
-        "label": "Custom Icon Title"
+        "label": "Title"
       },
       {
         "type": "image_picker",
@@ -829,7 +829,7 @@
       {
         "type": "text",
         "id": "custom_icon_title_22",
-        "label": "Custom Icon Title"
+        "label": "Title"
       },
       {
         "type": "image_picker",
@@ -843,7 +843,7 @@
       {
         "type": "text",
         "id": "custom_icon_title_23",
-        "label": "Custom Icon Title"
+        "label": "Title"
       },
       {
         "type": "image_picker",
@@ -857,7 +857,7 @@
       {
         "type": "text",
         "id": "custom_icon_title_24",
-        "label": "Custom Icon Title"
+        "label": "Title"
       },
       {
         "type": "image_picker",
@@ -871,7 +871,7 @@
       {
         "type": "text",
         "id": "custom_icon_title_25",
-        "label": "Custom Icon Title"
+        "label": "Title"
       },
       {
         "type": "image_picker",
