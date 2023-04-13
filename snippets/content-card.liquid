@@ -77,7 +77,7 @@
     {% endif %}
 
     {%- if text -%}
-      <div class="content-card__text__desc __article-txt-{{ text_size }}" {{ block.shopify_attributes }}>
+      <div class="content-card__text__desc __article-txt-{{ text_size }} {{ text_size }}" {{ block.shopify_attributes }}>
         {{ text }}
       </div>
     {%- endif -%}

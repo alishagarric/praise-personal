@@ -12,7 +12,7 @@
   {% render 'heading', heading: page_title, heading_size: section.settings.heading_size, alt_heading: section.settings.alt_heading %}
 
   <div class="__article-txt-{{ section.settings.text_size }}">
-    {%- if section.settings.page.content != blank -%}
+    {%- if section.settings.page != blank -%}
       {{ section.settings.page.content }}
     {%- else -%}
       <div class="page-output__image image-container" style="padding-top: 50%;">

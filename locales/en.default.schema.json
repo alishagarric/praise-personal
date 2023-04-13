@@ -1303,9 +1303,9 @@
           "label": "Page"
         },
         "heading": {
-          "label": "General"
+          "content": "General"
         },
-        "heading_1": {
+        "header_1": {
           "label": "Text Content"
         },
         "heading_size": {
@@ -1326,7 +1326,7 @@
             "label_2": "Basic Text",
             "label_3": "Large Text"
           },
-          "label": "Description Size"
+          "label": "Text Size"
         },
         "heading_2": {
           "label": "Section"

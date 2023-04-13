@@ -30,7 +30,7 @@
   <div class="quote-card__inner __crop-{{ card_corners }}">
 
     {% if quote != blank %}
-      <div class="quote-card__quote __article-txt-p-sm">
+      <div class="quote-card__quote __article-txt-{{ quote_size }}">
         {% if quotations == true %}{% render 'svg-quotes' %}{% endif %}
           {{ quote }}
         {% if quotations == true %}{% render 'svg-quotes' %}{% endif %}
@@ -38,7 +38,7 @@
     {% endif %}
 
     {% if details != blank %}
-      <div class="quote-card__details __article-txt-{{ quote_size }}">{{ details }}</div>
+      <div class="quote-card__details __article-txt-p-sm">{{ details }}</div>
     {% endif %}
 
     {%- if logo != blank -%}
