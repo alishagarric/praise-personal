@@ -34,6 +34,12 @@
   width: var(--arrowBtnHeight);
   padding: 0;
 
+  &:hover {
+    &:after {
+      content: none;
+    }
+  }
+
   svg {
     * {
       fill: RGB(var(--color-foreground-text));

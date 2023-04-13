@@ -408,6 +408,7 @@ input[type="submit"] {
   line-height: var(--btnHeight);
   border-radius: var(--btnBorderRadius);
   background: RGB(var(--color-foreground));
+  border: 1px solid RGB(var(--color-foreground));
   color: RGB(var(--color-foreground-text));
   padding: 0 calc(var(--btnHeight) * var(--btnSidesSpace));
   display: flex;
@@ -425,16 +426,25 @@ input[type="submit"] {
   align-items: center;
   -webkit-appearance: none;
 
+  svg * {
+    fill: RGB(var(--color-foreground-text));
+  }
+
   &:hover:not(:disabled):not([aria-disabled="true"]) {
-    opacity: 0.8;
+    background: RGB(var(--color-foreground-text));
+    color: RGB(var(--color-foreground));
+    border: 1px solid RGB(var(--color-foreground));
+
+    svg * {
+      fill: RGB(var(--color-foreground));
+    }
   }
 
   &.__with-border {
     background: none;
-    border: 2px solid RGB(var(--color-text));
+    border: 1px solid RGB(var(--color-text));
     color: RGB(var(--color-text));
     width: fit-content;
-    border-radius: 2px;
 
     &:hover:not(:disabled):not([aria-disabled="true"]) {
       background: RGB(var(--color-foreground));
@@ -479,7 +489,9 @@ input[type="submit"] {
     }
 
     &:hover:not(:disabled):not([aria-disabled="true"]) {
-      opacity: 1;
+      border: none;
+      color: RGB(var(--color-text));
+      background: transparent;
 
       &:after {
         transform: scaleX(0);

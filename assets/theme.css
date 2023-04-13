@@ -829,6 +829,7 @@ input[type="submit"] {
   line-height: var(--btnHeight);
   border-radius: var(--btnBorderRadius);
   background: RGB(var(--color-foreground));
+  border: 1px solid RGB(var(--color-foreground));
   color: RGB(var(--color-foreground-text));
   padding: 0 calc(var(--btnHeight) * var(--btnSidesSpace));
   display: flex;
@@ -845,13 +846,29 @@ input[type="submit"] {
   margin: 1rem 0 0 0;
   align-items: center;
   -webkit-appearance: none; }
+  .btn svg *,
+  .button svg *,
+  button svg *,
+  .shopify-payment-button__button--unbranded svg *,
+  .shopify-payment-button__button button svg *,
+  input[type="submit"] svg * {
+    fill: RGB(var(--color-foreground-text)); }
   .btn:hover:not(:disabled):not([aria-disabled="true"]),
   .button:hover:not(:disabled):not([aria-disabled="true"]),
   button:hover:not(:disabled):not([aria-disabled="true"]),
   .shopify-payment-button__button--unbranded:hover:not(:disabled):not([aria-disabled="true"]),
   .shopify-payment-button__button button:hover:not(:disabled):not([aria-disabled="true"]),
   input[type="submit"]:hover:not(:disabled):not([aria-disabled="true"]) {
-    opacity: 0.8; }
+    background: RGB(var(--color-foreground-text));
+    color: RGB(var(--color-foreground));
+    border: 1px solid RGB(var(--color-foreground)); }
+    .btn:hover:not(:disabled):not([aria-disabled="true"]) svg *,
+    .button:hover:not(:disabled):not([aria-disabled="true"]) svg *,
+    button:hover:not(:disabled):not([aria-disabled="true"]) svg *,
+    .shopify-payment-button__button--unbranded:hover:not(:disabled):not([aria-disabled="true"]) svg *,
+    .shopify-payment-button__button button:hover:not(:disabled):not([aria-disabled="true"]) svg *,
+    input[type="submit"]:hover:not(:disabled):not([aria-disabled="true"]) svg * {
+      fill: RGB(var(--color-foreground)); }
   .btn.__with-border,
   .button.__with-border,
   button.__with-border,
@@ -859,10 +876,9 @@ input[type="submit"] {
   .shopify-payment-button__button button.__with-border,
   input[type="submit"].__with-border {
     background: none;
-    border: 2px solid RGB(var(--color-text));
+    border: 1px solid RGB(var(--color-text));
     color: RGB(var(--color-text));
-    width: fit-content;
-    border-radius: 2px; }
+    width: fit-content; }
     .btn.__with-border:hover:not(:disabled):not([aria-disabled="true"]),
     .button.__with-border:hover:not(:disabled):not([aria-disabled="true"]),
     button.__with-border:hover:not(:disabled):not([aria-disabled="true"]),
@@ -926,7 +942,9 @@ input[type="submit"] {
     .shopify-payment-button__button--unbranded.__with-underline:hover:not(:disabled):not([aria-disabled="true"]),
     .shopify-payment-button__button button.__with-underline:hover:not(:disabled):not([aria-disabled="true"]),
     input[type="submit"].__with-underline:hover:not(:disabled):not([aria-disabled="true"]) {
-      opacity: 1; }
+      border: none;
+      color: RGB(var(--color-text));
+      background: transparent; }
       .btn.__with-underline:hover:not(:disabled):not([aria-disabled="true"]):after,
       .button.__with-underline:hover:not(:disabled):not([aria-disabled="true"]):after,
       button.__with-underline:hover:not(:disabled):not([aria-disabled="true"]):after,
