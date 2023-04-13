@@ -1,4 +1,5 @@
 {{ 'main-cart.css' | asset_url | stylesheet_tag }}
+{{ 'quick-product.css' | asset_url | stylesheet_tag }} {% comment %}Must load here so that there isn't a flash of unstyled cards when the deffered recommendations section loads {% endcomment %}
 {{ 'number-input.css' | asset_url | stylesheet_tag }}
 
 
@@ -229,6 +230,10 @@
                 >{{ cart.note }}</textarea>
             </div>
           {% endif %}
+
+          {% if section.settings.show_recommendations %}
+            {% render 'cart-recommendations' heading: section.settings.recommendations_heading, limit: section.settings.recommendations_limit %}
+          {% endif %}
         {%- else -%}
           <div>
             <h1 class="h2">{{ 'sections.cart.empty' | t }}</h1>
@@ -444,6 +449,32 @@
       "id": "show_vendor",
       "label": "Show vendor",
       "default": false
+    },
+    {
+      "type": "header",
+      "content": "Cart Recommendations"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_recommendations",
+      "label": "Show recommendations",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "recommendations_heading",
+      "default": "You may also like",
+      "label": "Label"
+    },
+    {
+      "type": "range",
+      "id": "recommendations_limit",
+      "min": 2,
+      "max": 6,
+      "step": 1,
+      "unit": "%",
+      "label": "Limit",
+      "default": 2
     },
     {
       "type": "header",

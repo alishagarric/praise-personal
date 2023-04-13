@@ -1,14 +1,17 @@
 .cart-recommendations {
   &__container {
     display: flex;
-    gap: calc(var(--pxSize) / 3);
+    flex-wrap: wrap;
+    gap: var(--pxSize) calc(var(--pxSize) / 3);
 
     > * {
-      flex: 0 1 calc(100% / 3);
+      width: 100%;
+      flex: 0 0 calc(50% - calc(var(--pxSize) / 6));
     }
   }
 
   &__heading {
+    margin-top: calc(var(--sectionVerticalSpacing) / 2);
     border-bottom: 1px solid RGB(var(--color-border));
     margin-bottom: calc(var(--pxSize) / 2);
     padding-bottom: 1rem;

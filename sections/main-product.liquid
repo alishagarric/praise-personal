@@ -204,10 +204,6 @@
           {%- when 'pickup_availability' -%}
 
             {% capture pickup_availability_content %}
-              {% comment %}
-                Pickup availability block's contents are rendered async to ensure faster Liquid render times, but this may cause a noticeable increase in cumulative layout shift (CLS) if rendered near the top of the page.
-                To mitigate CLS, the contents of `pickup-availability.liquid` could alternatively be rendered directly in this Liquid file.
-              {% endcomment %}
               <script src="{{ 'pickup-availability.js' | asset_url }}" defer="defer"></script>
               <pickup-availability data-product-variant="{{ product.selected_or_first_available_variant.id }}">
                 {% comment %}

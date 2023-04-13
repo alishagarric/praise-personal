@@ -3,7 +3,7 @@
 .main-cart__form > .js-contents {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  grid-template-rows: auto auto 1fr;
+  grid-template-rows: auto auto auto auto 1fr;
   gap: 0 var(--pxSize); }
 .main-cart__heading {
   grid-column: 1 / 2;
@@ -41,7 +41,7 @@
   margin-left: 0; }
 .main-cart__footer {
   grid-column: 2 / 3;
-  grid-row: 2 / 4; }
+  grid-row: 2 / 6; }
   .main-cart__footer > .cart-actions {
     background: RGBA(var(--color-text)/0.05);
     padding: calc(var(--pxSize) / 2); }

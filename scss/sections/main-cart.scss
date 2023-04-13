@@ -9,7 +9,7 @@
     > .js-contents {
       display: grid;
       grid-template-columns: 2fr 1fr;
-      grid-template-rows: auto auto 1fr;
+      grid-template-rows: auto auto auto auto 1fr;
       gap: 0 var(--pxSize);
     }
   }
@@ -80,7 +80,7 @@
 
   &__footer {
     grid-column: 2 / 3;
-    grid-row: 2 / 4;
+    grid-row: 2 / 6;
 
     > .cart-actions {
       background: RGBA(var(--color-text) / 0.05);

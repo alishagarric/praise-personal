@@ -12,7 +12,6 @@ class ProductRecommendations extends HTMLElement {
           const recommendations = new DOMParser()
             .parseFromString(text, "text/html")
             .querySelector("product-recommendations");
-          console.log(this.dataset.url);
           if (recommendations && recommendations.innerHTML.trim().length) {
             this.innerHTML = recommendations.innerHTML;
           }

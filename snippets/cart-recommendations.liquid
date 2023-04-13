@@ -1,0 +1,48 @@
+{% comment %}
+  Technically a section, but used more like a component. Must be a section because we use the section rendering API to render it after page load
+
+  Cart recommendations based off of first item in cart
+
+  Expects:
+  - heading: {string} optional
+  - limit: {int} optional
+{% endcomment %}
+
+
+{{ 'cart-recommendations.css' | asset_url | stylesheet_tag }}
+
+<script src="{{ 'cart-recommendations.js' | asset_url }}" defer="defer"></script>
+
+{% assign limit = limit | default: 2 %}
+
+<cart-recommendations class="cart-recommendations" data-line-item-id="{{ cart.items[0].product.id }}" data-section-id="{{ section.id }}" data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ cart.items.first.product.id }}&limit={{ limit }}">
+  {% if recommendations.performed and recommendations.products_count > 0 %}
+
+    {% comment %} Text Content {% endcomment %}
+    {% render 'heading',
+      class: 'cart-recommendations',
+      heading: heading,
+      alt_heading: true,
+      heading_size: 'p-sm'
+    %}
+
+    <ul class="cart-recommendations__container list-unstyled" role="list">
+      {% for recommendation in recommendations.products %}
+        <li>
+          {% render 'quick-product',
+            quick_product: recommendation,
+            img_width: 260,
+            img_widths: '260, 150',
+            img_sizes: '(max-width: 1024px) 150px, 10vw'
+          %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</cart-recommendations>
+
+
+            
+
+
+
