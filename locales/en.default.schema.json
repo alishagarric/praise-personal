@@ -210,7 +210,7 @@
           "name": "Featured Icons",
           "settings": {
             "paragraph": {
-              "content": "This are generated from the featured icons product metafield. Learn More TODO: link this to a description. You can add additional featured icons below."
+              "content": "These are generated from the featured icons product metafield. Learn More TODO: link this to a description. You can add additional featured icons below."
             },
             "icon_1": {
               "options": {
@@ -495,7 +495,7 @@
         },
         "hero": {
           "label": "Use as hero",
-          "info": "Should be selected if this section is the first or second on a page and contains the page title. There should only be one page title/hero used per page."
+          "info": "Select this setting if this section is the first or second on a page and contains the page title. There should only be one page title/hero used per page."
         },
         "alignment": {
           "options": {
@@ -660,7 +660,7 @@
         },
         "display_collection_image": {
           "label": "Display collection image",
-          "info": "Dependent on collection having an image assign to it"
+          "info": "This feature depends on assigning an image to the collection."
         },
         "collection_image_crop_shape": {
           "options": {
@@ -683,7 +683,7 @@
         },
         "display_featured_icons": {
           "label": "Display featured icons",
-          "info": "Dependent on addition of product featured icons metafield. //TODO: add link here"
+          "info": "This feature depends on the addition of the product featured icons metafield. //TODO: add link here"
         },
         "enable_icons_marquee": {
           "label": "Enable featured icons marquee"
@@ -693,7 +693,7 @@
         },
         "display_featured_stats": {
           "label": "Display featured stats",
-          "info": "Dependent on addition of collection featured stats metafield. //TODO: add link here"
+          "info": "This feature depends on the addition of the collection featured stats metafield. //TODO: add link here"
         },
         "stats_color": {
           "label": "Stats Color",
@@ -908,7 +908,7 @@
           "settings": {
             "overlay": {
               "label": "Overlay Opacity",
-              "info": "If above 0%, an overlay will be added on top of the image to create contrast behind the text."
+              "info": "A value above 0% will add an overlay on top of the image to create contrast behind the text."
             },
             "overlay_theme": {
               "options": {
@@ -978,7 +978,7 @@
             },
             "associated_products": {
               "label": "Show associated products",
-              "info": "Dependent on article metafield TODO: link"
+              "info": "This feature is dependent on the article metafield TODO: link"
             }
           }
         },
@@ -1154,7 +1154,7 @@
         },
         "output_section": {
           "label": "Treat as section",
-          "info": "Fields below apply only if checked"
+          "info": "Check to enable the fields below"
         },
         "top_spacing": {
           "label": "Top Spacing"
@@ -1291,11 +1291,11 @@
             "label_12": "Semicircle Arch"
           },
           "label": "Associated Product Image Crop Shape",
-          "info": "Relies on the addition of article metafields. TODO: Add link with info, this is how starter did it: Add a <a href=https://praise-store-theme.myshopify.com/admin/metafields/product/create>article subtitle metafield to display.</a>"
+          "info": "This feature relies on the addition of article metafields. TODO: Add link with info, this is how starter did it: Add a <a href=https://praise-store-theme.myshopify.com/admin/metafields/product/create>article subtitle metafield to display.</a>"
         },
         "button_label": {
           "label": "Article Button Text",
-          "info": "Displays an underlined button if included, no button if not."
+          "info": "If this is included, it will display an underlined button, otherwise no button will be displayed"
         },
         "crop_shape": {
           "options": {
@@ -1334,7 +1334,7 @@
         },
         "view_all_button_label": {
           "label": "View All Button Label",
-          "info": "If excluded, no view all button will display"
+          "info": "The view all button will be hidden if this is excluded"
         },
         "header_4": {
           "content": "Section"
@@ -1683,15 +1683,15 @@
         },
         "view_all_button_label": {
           "label": "View All Button Label",
-          "info": "If excluded, no view all button will display"
+          "info": "Excluding this will hide the view all button"
         },
         "enable_sticky_details": {
           "label": "Enable details to 'stick",
-          "info": "'Sticks' within view while user scrolls through product cards. Requires product cards to be taller than collection details per collection row."
+          "info": "This causes details to 'stick' within view while user scrolls through product cards. This setting requires the product cards to be taller than collection details per collection row."
         },
         "display_collection_image": {
           "label": "Display image",
-          "info": "Dependent on collection having an image assign to it"
+          "info": "This is dependent on the collection having an image assigned to it"
         },
         "collection_image_crop_shape": {
           "options": {
@@ -1714,7 +1714,7 @@
         },
         "display_featured_icons": {
           "label": "Display featured icons",
-          "info": "Dependent on addition of product featured icons metafield. //TODO: add link here"
+          "info": "This is dependent on the product featured icons metafield being added. //TODO: add link here"
         },
         "enable_icons_marquee": {
           "label": "Enable featured icons marquee"
@@ -1724,7 +1724,7 @@
         },
         "display_featured_stats": {
           "label": "Display featured stats",
-          "info": "Dependent on addition of collection featured stats metafield. //TODO: add link here"
+          "info": "This is dependent on the collection featured stats metafield being added . //TODO: add link here"
         },
         "stats_color": {
           "label": "Theme",
@@ -1856,7 +1856,7 @@
         },
         "button_label": {
           "label": "Button Label",
-          "info": "If excluded, no button will display on each collection card"
+          "info": "No button will be displayed on each collection card if this label is excluded"
         },
         "header_3": {
           "content": "Section"
@@ -1973,7 +1973,7 @@
             },
             "overlay": {
               "label": "Overlay Opacity",
-              "info": "If above 0%, an overlay will be added on top of the image"
+              "info": "A value above 0% will add an overlay on top of the image to create contrast behind the text"
             },
             "overlay_theme": {
               "options": {
@@ -2018,7 +2018,7 @@
             },
             "overlap": {
               "label": "Enable overlap",
-              "info": "Requires both heading and image field content."
+              "info": "The overlap requires both the heading and image fields to have content."
             },
             "text": {
               "label": "Description"
@@ -2089,7 +2089,7 @@
         "label": "Collection",
         "theme_slideshow": {
           "label": "Theme collection slideshow with product colors",
-          "info": "Only applies when there's enough products in the collection to initiate a slideshow. Relies on the addition of product metafields. TODO: Add link with info"
+          "info": "The slideshow only applies when there's enough products in the collection. It relies on the addition of product metafields. TODO: Add link with info"
         },
         "include_border": {
           "label": "Include border"
@@ -2156,7 +2156,7 @@
         },
         "collection_text_content": {
           "label": "Use collection title and description for text content",
-          "info": "If chosen, the collection title and description will replace the heading and description added above, if any."
+          "info": "The collection title and description will replace the heading and description added above, if any."
         },
         "header_3": {
           "content": "Section"
@@ -2193,7 +2193,7 @@
         },
         "hero": {
           "label": "Use as hero",
-          "info": "Should be selected if this section is the first or second on a page and contains the page title. There should only be one page title/hero used per page."
+          "info": "Select this setting if this section is the first or second on a page and contains the page title. There should only be one page title/hero used per page."
         },
         "alignment": {
           "label": "Alignment",
@@ -2339,7 +2339,7 @@
             },
             "show_option_labels": {
               "label": "Show option labels and option descriptions",
-              "info": "Option descriptions can be added using metafields TODO: link"
+              "info": "Use metafields to add option descriptions TODO: link"
             },
             "include_border": {
               "label": "Include border"
@@ -2577,7 +2577,7 @@
         },
         "overlay_opacity": {
           "label": "Overlay Opacity",
-          "info": "If above 0%, an overlay will be added on top of the image to create contrast behind the text."
+          "info": "A value above 0% will add an overlay on top of the image to create contrast behind the text."
         },
         "overlay_theme": {
           "info": "Only applies when the image crop shape is not set to default.",
@@ -2614,7 +2614,7 @@
         },
         "hero": {
           "label": "Use as hero",
-          "info": "uld be selected if this section is the first or second on a page and contains the page title."
+          "info": "Select if this section is the first or second on a page and contains the page title."
         },
         "alignment": {
           "label": "Alignment",
@@ -2934,7 +2934,7 @@
         },
         "hero": {
           "label": "Use as hero",
-          "info": "Should be selected if this section is the first or second on a page and contains the page title. There should only be one page title/hero used per page."
+          "info": "Select this setting if this section is the first or second on a page and contains the page title. There should only be one page title/hero used per page."
         },
         "header_3": {
           "content": "Article Cards"
@@ -3011,7 +3011,7 @@
             },
             "overlay_opacity": {
               "label": "Overlay Opacity",
-              "info": "If above 0%, an overlay will be added on top of the image"
+              "info": "A value above 0% will add an overlay on top of the image"
             },
             "overlay_theme": {
               "options": {
@@ -3040,11 +3040,11 @@
             "label": "Article",
             "image_picker": {
               "label": "Image",
-              "info": "By default, if an article image exists it will be used as the image, unless overwritten here"
+              "info": "An article image (if it exists) will be used as the image by default unless overwritten here"
             },
             "overlay_opacity": {
               "label": "Overlay Opacity",
-              "info": "If above 0%, an overlay will be added on top of the image"
+              "info": "A value above 0% will add an overlay on top of the image"
             },
             "overlay_theme": {
               "options": {
@@ -3331,7 +3331,7 @@
             },
             "overlay": {
               "label": "Overlay Opacity",
-              "info": "If above 0%, an overlay will be added on top of the image"
+              "info": "A value above 0% will add an overlay on top of the image to create contrast behind the text"
             },
             "overlay_theme": {
               "options": {
