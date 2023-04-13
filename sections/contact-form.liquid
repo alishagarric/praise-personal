@@ -21,7 +21,10 @@
       heading_size: section.settings.heading_size,
       alt_heading: section.settings.alt_heading
     %}
-    <div class="contact-form__text__description __article-txt-{{ section.settings.text_size }}" {{ block.shopify_attributes }}>
+    <div
+      class="contact-form__text__description __article-txt-{{ section.settings.text_size }}"
+      {{ block.shopify_attributes }}
+    >
       {{ section.settings.description }}
     </div>
   </div>
@@ -223,7 +226,7 @@
     {
       "type": "text",
       "id": "heading",
-      "default": "Lorem ipsum dolor sit",
+      "default": "Section Heading",
       "label": "t:sections.contact-form.settings.heading.label"
     },
     {
@@ -258,7 +261,7 @@
     {
       "type": "richtext",
       "id": "description",
-      "default": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>",
+      "default": "<p>Add a descrition to be displayed below the heading here.</p>",
       "label": "t:sections.contact-form.settings.description.label"
     },
     {

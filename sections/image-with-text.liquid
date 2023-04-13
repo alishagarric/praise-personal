@@ -33,7 +33,10 @@
 
           {% comment %} Type Text {% endcomment %}
         {%- when 'text' -%}
-          <div class="image-with-text__text__rich-text __article-txt-{{ block.settings.text_size }}" {{ block.shopify_attributes }}>
+          <div
+            class="image-with-text__text__rich-text __article-txt-{{ block.settings.text_size }}"
+            {{ block.shopify_attributes }}
+          >
             {{ block.settings.text }}
           </div>
         {%- when 'button' -%}
@@ -322,7 +325,7 @@
         {
           "type": "text",
           "id": "heading",
-          "default": "Lorem ipsum",
+          "default": "Section Heading",
           "label": "t:sections.image-with-text.blocks.heading.settings.heading.label"
         },
         {
@@ -358,7 +361,7 @@
         {
           "type": "richtext",
           "id": "text",
-          "default": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>",
+          "default": "<p>Add additonal text content here.</p>",
           "label": "t:sections.image-with-text.blocks.text.settings.text.label"
         },
         {
@@ -391,7 +394,7 @@
         {
           "type": "text",
           "id": "button_label",
-          "default": "Laboris Nisi",
+          "default": "Click Here",
           "label": "t:sections.image-with-text.blocks.button.settings.button_label.label"
         },
         {
