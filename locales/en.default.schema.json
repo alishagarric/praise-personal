@@ -52,10 +52,10 @@
           "info": "Selecting a different font can affect the speed of your store. [Learn more about system fonts.](https://help.shopify.com/en/manual/online-store/os/store-speed/improving-speed#fonts)"
         },
         "heading_scale": {
-          "label": "Font size scale"
+          "label": "Size scale"
         },
         "heading_spacing": {
-          "label": "Font spacing"
+          "label": "Spacing"
         },
         "header__1": {
           "content": "Headings"
@@ -68,10 +68,10 @@
           "info": "Selecting a different font can affect the speed of your store. [Learn more about system fonts.](https://help.shopify.com/en/manual/online-store/os/store-speed/improving-speed#fonts)"
         },
         "body_scale": {
-          "label": "Font size scale"
+          "label": "Size scale"
         },
         "body_spacing": {
-          "label": "Font spacing"
+          "label": "Spacing"
         }
       }
     }
@@ -210,7 +210,7 @@
           "name": "Featured Icons",
           "settings": {
             "paragraph": {
-              "content": "This are generated from the featured icons product metafield. Learn More TODO: link this to a description. You can add additional featured icons below."
+              "content": "These are generated from the featured icons product metafield. Learn More TODO: link this to a description. You can add additional featured icons below."
             },
             "icon_1": {
               "options": {
@@ -476,7 +476,7 @@
       "name": "Image with text",
       "settings": {
         "header": {
-          "content": "Image Content"
+          "content": "Content"
         },
         "image": {
           "label": "Image",
@@ -488,14 +488,14 @@
             "label_2": "Wide, Without Space",
             "label_3": "Square, With Space"
           },
-          "label": "Image Style"
+          "label": "Style"
         },
         "header_2": {
           "content": "General"
         },
         "hero": {
           "label": "Use as hero",
-          "info": "Should be selected if this section is the first or second on a page and contains the page title. There should only be one page title/hero used per page."
+          "info": "Select this setting if this section is the first or second on a page and contains the page title. There should only be one page title/hero used per page."
         },
         "alignment": {
           "options": {
@@ -542,10 +542,10 @@
           "label": "Bottom Text Content Spacing"
         },
         "top_spacing": {
-          "label": "Top Section Spacing"
+          "label": "Top Spacing"
         },
         "bottom_spacing": {
-          "label": "Bottom Section Spacing"
+          "label": "Bottom Spacing"
         }
       },
       "blocks": {
@@ -591,7 +591,7 @@
                 "label_3": "Medium",
                 "label_4": "Small"
               },
-              "label": "Heading Size"
+              "label": "Size"
             }
           }
         },
@@ -615,14 +615,14 @@
           "name": "Button",
           "settings": {
             "button_label": {
-              "label": "Button label",
+              "label": "Label",
               "info": "Leave the label blank to hide the button."
             },
             "button_link": {
-              "label": "Button link"
+              "label": "Link"
             },
             "button_color": {
-              "label": "Button Color",
+              "label": "Color",
               "options": {
                 "label_1": "Default",
                 "label_2": "Primary Theme",
@@ -684,7 +684,7 @@
         },
         "display_collection_image": {
           "label": "Display collection image",
-          "info": "Dependent on collection having an image assign to it"
+          "info": "This feature depends on assigning an image to the collection."
         },
         "collection_image_crop_shape": {
           "options": {
@@ -707,7 +707,7 @@
         },
         "display_featured_icons": {
           "label": "Display featured icons",
-          "info": "Dependent on addition of product featured icons metafield. //TODO: add link here"
+          "info": "This feature depends on the addition of the product featured icons metafield. //TODO: add link here"
         },
         "enable_icons_marquee": {
           "label": "Enable featured icons marquee"
@@ -717,7 +717,7 @@
         },
         "display_featured_stats": {
           "label": "Display featured stats",
-          "info": "Dependent on addition of collection featured stats metafield. //TODO: add link here"
+          "info": "This feature depends on the addition of the collection featured stats metafield. //TODO: add link here"
         },
         "stats_color": {
           "label": "Stats Color",
@@ -860,7 +860,7 @@
                 "label_3": "Medium",
                 "label_4": "Small"
               },
-              "label": "Heading Size"
+              "label": "Size"
             }
           }
         },
@@ -884,14 +884,14 @@
           "name": "Button",
           "settings": {
             "button_label": {
-              "label": "Button label",
+              "label": "Label",
               "info": "Leave the label blank to hide the button."
             },
             "button_link": {
-              "label": "Button link"
+              "label": "Link"
             },
             "button_color": {
-              "label": "Button Color",
+              "label": "Color",
               "options": {
                 "label_1": "Default",
                 "label_2": "Primary Theme",
@@ -911,7 +911,7 @@
     "main-article": {
       "name": "Blog post",
       "presets": {
-        "name": "Main Article"
+        "name": "Main article"
       },
       "settings": {
         "header": {
@@ -940,7 +940,7 @@
           "settings": {
             "overlay": {
               "label": "Overlay Opacity",
-              "info": "If above 0%, an overlay will be added on top of the image to create contrast behind the text."
+              "info": "A value above 0% will add an overlay on top of the image to create contrast behind the text."
             },
             "overlay_theme": {
               "options": {
@@ -962,7 +962,7 @@
                 "label_6": "Rounded Wide",
                 "label_7": "Semicircle Wide"
               },
-              "label": "Image Crop Shape"
+              "label": "Crop Shape"
             }
           }
         },
@@ -976,7 +976,7 @@
                 "label_3": "Medium",
                 "label_4": "Small"
               },
-              "label": "Heading Size"
+              "label": "Size"
             },
             "alt_heading": {
               "label": "Use body font instead of heading font for heading"
@@ -1001,7 +1001,7 @@
           }
         },
         "side_bar": {
-          "name": "Side Bar",
+          "name": "Sidebar",
           "settings": {
             "label": "Label",
             "content": {
@@ -1010,7 +1010,7 @@
             },
             "associated_products": {
               "label": "Show associated products",
-              "info": "Dependent on article metafield TODO: link"
+              "info": "This feature is dependent on the article metafield TODO: link"
             }
           }
         },
@@ -1089,7 +1089,7 @@
     "main-page": {
       "name": "Page",
       "presets": {
-        "name": "Main Page"
+        "name": "Main page"
       },
       "settings": {
         "heading_1": {
@@ -1137,7 +1137,7 @@
       }
     },
     "contact-form": {
-      "name": "Contact Form",
+      "name": "Contact form",
       "presets": {
         "name": "Contact form"
       },
@@ -1178,73 +1178,73 @@
           "content": "General"
         },
         "hide_labels": {
-          "label": "Hide Label"
+          "label": "Hide Labels"
         },
         "header_3": {
           "content": "Email Field"
         },
         "email_label": {
-          "label": "Email Label"
+          "label": "Label"
         },
         "email_placeholder": {
-          "label": "Email Placeholder"
+          "label": "Placeholder"
         },
         "header_4": {
           "content": "Name Field"
         },
         "name_label": {
-          "label": "Name Label"
+          "label": "Label"
         },
         "name_placeholder": {
-          "label": "Name Placeholder"
+          "label": "Placeholder"
         },
         "name_required": {
-          "label": "Make field required"
+          "label": "Make required"
         },
         "hide_name_field": {
-          "label": "Hide field"
+          "label": "Hide"
         },
         "header_5": {
           "content": "Contact Reason Field"
         },
         "contact_reason_label": {
-          "label": "Contact Reason Label"
+          "label": "Label"
         },
         "contact_reason_placeholder": {
-          "label": "Contact Reason Placeholder"
+          "label": "Placeholder"
         },
         "hide_reason_field": {
-          "label": "Hide field"
+          "label": "Hide"
         },
         "contact_reason_required": {
-          "label": "Make field required"
+          "label": "Make required"
         },
         "header_6": {
           "content": "Phone Field"
         },
         "phone_label": {
-          "label": "Phone Label"
+          "label": "Label"
         },
         "phone_placeholder": {
-          "label": "Phone Label"
+          "label": "Placeholder"
         },
         "hide_phone_field": {
-          "label": "Hide field"
+          "label": "Hide"
         },
         "phone_required": {
-          "label": "Make field required"
+          "label": "Make required"
         },
         "header_7": {
           "content": "Message Field"
         },
         "message_label": {
-          "label": "Message Label"
+          "label": "Label"
         },
         "message_placeholder": {
-          "label": "Message Placeholder"
+          "label": "Placeholder"
         },
         "header_8": {
-          "content": "Message Field"
+          "content": "Section"
         },
         "theme": {
           "options": {
@@ -1257,15 +1257,15 @@
           "label": "Theme"
         },
         "top_spacing": {
-          "label": "Top Section Spacing"
+          "label": "Top Spacing"
         },
         "bottom_spacing": {
-          "label": "Bottom Section Spacing"
+          "label": "Bottom Spacing"
         }
       }
     },
     "custom-liquid": {
-      "name": "Custom Liquid",
+      "name": "Custom liquid",
       "settings": {
         "custom_liquid": {
           "label": "Custom Liquid",
@@ -1273,13 +1273,13 @@
         },
         "output_section": {
           "label": "Treat as section",
-          "info": "Fields below apply only if checked"
+          "info": "Check to enable the fields below"
         },
         "top_spacing": {
-          "label": "Top Section Spacing"
+          "label": "Top Spacing"
         },
         "bottom_spacing": {
-          "label": "Bottom Section Spacing"
+          "label": "Bottom Spacing"
         },
         "theme": {
           "options": {
@@ -1293,7 +1293,7 @@
         }
       },
       "presets": {
-        "name": "Custom Liquid"
+        "name": "Custom liquid"
       }
     },
     "page": {
@@ -1332,10 +1332,10 @@
           "label": "Section"
         },
         "top_spacing": {
-          "label": "Top Section Spacing"
+          "label": "Top Spacing"
         },
         "bottom_spacing": {
-          "label": "Bottom Section Spacing"
+          "label": "Bottom Spacing"
         },
         "theme": {
           "options": {
@@ -1439,11 +1439,11 @@
             "label_12": "Semicircle Arch"
           },
           "label": "Associated Product Image Crop Shape",
-          "info": "Relies on the addition of article metafields. TODO: Add link with info, this is how starter did it: Add a <a href=https://praise-store-theme.myshopify.com/admin/metafields/product/create>article subtitle metafield to display.</a>"
+          "info": "This feature relies on the addition of article metafields. TODO: Add link with info, this is how starter did it: Add a <a href=https://praise-store-theme.myshopify.com/admin/metafields/product/create>article subtitle metafield to display.</a>"
         },
         "button_label": {
           "label": "Article Button Text",
-          "info": "Displays an underlined button if included, no button if not."
+          "info": "If this is included, it will display an underlined button, otherwise no button will be displayed"
         },
         "crop_shape": {
           "options": {
@@ -1482,7 +1482,7 @@
         },
         "view_all_button_label": {
           "label": "View All Button Label",
-          "info": "If excluded, no view all button will display"
+          "info": "The view all button will be hidden if this is excluded"
         },
         "header_4": {
           "content": "Section"
@@ -1498,10 +1498,10 @@
           "label": "Theme"
         },
         "top_spacing": {
-          "label": "Top Section Spacing"
+          "label": "Top Spacing"
         },
         "bottom_spacing": {
-          "label": "Bottom Section Spacing"
+          "label": "Bottom Spacing"
         }
       },
       "presets": {
@@ -1511,7 +1511,7 @@
     "main-register": {
       "name": "Registration",
       "presets": {
-        "name": "Main Register"
+        "name": "Main register"
       },
       "settings": {
         "header": {
@@ -1553,10 +1553,10 @@
           "content": "Section"
         },
         "top_spacing": {
-          "label": "Top Section Spacing"
+          "label": "Top Spacing"
         },
         "bottom_spacing": {
-          "label": "Bottom Section Spacing"
+          "label": "Bottom Spacing"
         },
         "theme": {
           "options": {
@@ -1574,13 +1574,13 @@
       "name": "Footer",
       "blocks": {
         "link_list": {
-          "name": "Menu",
+          "name": "Footer Menu",
           "settings": {
             "heading": {
               "label": "Heading"
             },
             "menu": {
-              "label": "Menu",
+              "label": "Footer Menu",
               "info": "Displays only top-level menu items."
             }
           }
@@ -1619,7 +1619,7 @@
           "label": "logo"
         },
         "logo_width": {
-          "label": "Logo Max Width"
+          "label": "Max Width"
         },
         "stack_logo": {
           "label": "Stack logo above text content"
@@ -1671,7 +1671,7 @@
     "main-login": {
       "name": "Login",
       "presets": {
-        "name": "Main Login"
+        "name": "Main login"
       },
       "settings": {
         "header": {
@@ -1713,16 +1713,16 @@
           "content": "Reset Form"
         },
         "reset_heading": {
-          "label": "Reset Form Heading"
+          "label": "Heading"
         },
         "header_4": {
           "content": "Section"
         },
         "top_spacing": {
-          "label": "Top Section Spacing"
+          "label": "Top Spacing"
         },
         "bottom_spacing": {
-          "label": "Bottom Section Spacing"
+          "label": "Bottom Spacing"
         },
         "theme": {
           "options": {
@@ -1740,9 +1740,9 @@
       "name": "Password reset"
     },
     "email-signup": {
-      "name": "Email Signup",
+      "name": "Email signup",
       "presets": {
-        "name": "Email Signup"
+        "name": "Email signup"
       },
       "settings": {
         "header": {
@@ -1787,10 +1787,10 @@
           "label": "Theme"
         },
         "top_spacing": {
-          "label": "Top Section Spacing"
+          "label": "Top Spacing"
         },
         "bottom_spacing": {
-          "label": "Bottom Section Spacing"
+          "label": "Bottom Spacing"
         }
       }
     },
@@ -1811,9 +1811,9 @@
       }
     },
     "cart-recommendations": {
-      "name": "Cart Recommendations",
+      "name": "Cart recommendations",
       "presets": {
-        "name": "Cart Recommendations"
+        "name": "Cart recommendations"
       },
       "settings": {
         "header": {
@@ -1840,17 +1840,17 @@
           "label": "Bottom Text Content Spacing"
         },
         "top_spacing": {
-          "label": "Top Section Spacing"
+          "label": "Top Spacing"
         },
         "bottom_spacing": {
-          "label": "Bottom Section Spacing"
+          "label": "Bottom Spacing"
         }
       }
     },
     "collection-teaser": {
-      "name": "Collection Teaser",
+      "name": "Collection teaser",
       "presets": {
-        "name": "Collection Teaser"
+        "name": "Collection teaser"
       },
       "settings": {
         "header": {
@@ -1860,7 +1860,7 @@
           "label": "Collections"
         },
         "header_2": {
-          "content": "Collection Row Settings"
+          "content": "Row Settings"
         },
         "products_per_collection": {
           "label": "Products per collection"
@@ -1872,7 +1872,7 @@
             "label_3": "Medium",
             "label_4": "Small"
           },
-          "label": "Collection Titles Size"
+          "label": "Titles Size"
         },
         "alt_heading": {
           "label": "Use body font instead of heading font for collection titles"
@@ -1887,15 +1887,15 @@
         },
         "view_all_button_label": {
           "label": "View All Button Label",
-          "info": "If excluded, no view all button will display"
+          "info": "Excluding this will hide the view all button"
         },
         "enable_sticky_details": {
-          "label": "Enable collection details to 'stick",
-          "info": "'Sticks' within view while user scrolls through product cards. Requires product cards to be taller than collection details per collection row."
+          "label": "Enable details to 'stick",
+          "info": "This causes details to 'stick' within view while user scrolls through product cards. This setting requires the product cards to be taller than collection details per collection row."
         },
         "display_collection_image": {
-          "label": "Display collection image",
-          "info": "Dependent on collection having an image assign to it"
+          "label": "Display image",
+          "info": "This is dependent on the collection having an image assigned to it"
         },
         "collection_image_crop_shape": {
           "options": {
@@ -1914,11 +1914,11 @@
             "label_13": "Semicircle Wide",
             "label_14": "Semicircle Arch"
           },
-          "label": "Collection Image Crop Shape"
+          "label": "Image Crop Shape"
         },
         "display_featured_icons": {
           "label": "Display featured icons",
-          "info": "Dependent on addition of product featured icons metafield. //TODO: add link here"
+          "info": "This is dependent on the product featured icons metafield being added. //TODO: add link here"
         },
         "enable_icons_marquee": {
           "label": "Enable featured icons marquee"
@@ -1928,10 +1928,10 @@
         },
         "display_featured_stats": {
           "label": "Display featured stats",
-          "info": "Dependent on addition of collection featured stats metafield. //TODO: add link here"
+          "info": "This is dependent on the collection featured stats metafield being added . //TODO: add link here"
         },
         "stats_color": {
-          "label": "Display featured stats",
+          "label": "Theme",
           "options": {
             "label_1": "Default",
             "label_2": "Primary Theme",
@@ -1956,10 +1956,10 @@
           "content": "Product Card Settings"
         },
         "show_phrase": {
-          "label": "Show product phrase"
+          "label": "Show phrase"
         },
         "show_description": {
-          "label": "Show product description"
+          "label": "Show description"
         },
         "quick_add": {
           "label": "Enable quick add"
@@ -1968,7 +1968,7 @@
           "label": "Show background color"
         },
         "alt_title": {
-          "label": "Use body font instead of heading font for product title"
+          "label": "Use body font instead of heading font for title"
         },
         "product_text_alignment": {
           "options": {
@@ -1976,7 +1976,7 @@
             "label_2": "Center",
             "label_3": "Right"
           },
-          "label": "Product Text Alignment"
+          "label": "Text Alignment"
         },
         "price": {
           "options": {
@@ -2000,7 +2000,7 @@
             "label_10": "Semicircle Landscape",
             "label_11": "Semicircle Arch"
           },
-          "label": "Product Image Crop Shape"
+          "label": "Image Crop Shape"
         },
         "header_4": {
           "content": "Section"
@@ -2024,7 +2024,10 @@
       }
     },
     "collections-list": {
-      "name": "Collections List",
+      "name": "Collections list",
+      "presets": {
+        "name": "Collections list"
+      },
       "settings": {
         "header": {
           "content": "Text Content"
@@ -2045,10 +2048,10 @@
           "label": "Use body font instead of heading font for heading"
         },
         "header_2": {
-          "content": "Collections Settings"
+          "content": "Settings"
         },
         "collections_text_alignment": {
-          "label": "Collections Text Alignment",
+          "label": "Text Alignment",
           "options": {
             "label_1": "Left",
             "label_2": "Center",
@@ -2057,7 +2060,7 @@
         },
         "button_label": {
           "label": "Button Label",
-          "info": "If excluded, no button will display on each collection card"
+          "info": "No button will be displayed on each collection card if this label is excluded"
         },
         "header_3": {
           "content": "Section"
@@ -2082,7 +2085,7 @@
       "blocks": {
         "name": "Collection",
         "settings": {
-          "label": "collection",
+          "label": "Collection",
           "presets": {
             "name": "Collections List"
           }
@@ -2090,7 +2093,7 @@
       }
     },
     "content-marquee": {
-      "name": "Content Marquee",
+      "name": "Content marquee",
       "settings": {
         "header": {
           "content": "General"
@@ -2182,7 +2185,7 @@
             },
             "overlay": {
               "label": "Overlay Opacity",
-              "info": "If above 0%, an overlay will be added on top of the image"
+              "info": "A value above 0% will add an overlay on top of the image to create contrast behind the text"
             },
             "overlay_theme": {
               "options": {
@@ -2227,7 +2230,7 @@
             },
             "overlap": {
               "label": "Enable overlap",
-              "info": "Requires both heading and image field content."
+              "info": "The overlap requires both the heading and image fields to have content."
             },
             "text": {
               "label": "Description"
@@ -2297,16 +2300,16 @@
       }
     },
     "featured-collection": {
-      "name": "Featured Collection",
+      "name": "Featured collection",
       "presets": {
-        "name": "Featured Collection"
+        "name": "Featured collection"
       },
       "settings": {
         "content": "Collection",
         "label": "Collection",
         "theme_slideshow": {
           "label": "Theme collection slideshow with product colors",
-          "info": "Only applies when there's enough products in the collection to initiate a slideshow. Relies on the addition of product metafields. TODO: Add link with info"
+          "info": "The slideshow only applies when there's enough products in the collection. It relies on the addition of product metafields. TODO: Add link with info"
         },
         "include_border": {
           "label": "Include border"
@@ -2315,10 +2318,10 @@
           "content": "Product Cards"
         },
         "show_phrase": {
-          "label": "Show product phrase"
+          "label": "Show phrase"
         },
         "show_description": {
-          "label": "Show product description"
+          "label": "Show description"
         },
         "quick_add": {
           "label": "Enable quick add"
@@ -2335,7 +2338,7 @@
             "label_2": "Center",
             "label_3": "Right"
           },
-          "label": "Product Text Alignment"
+          "label": "Text Alignment"
         },
         "price": {
           "options": {
@@ -2359,7 +2362,7 @@
             "label_10": "Semicircle Landscape",
             "label_11": "Semicircle Arch"
           },
-          "label": "Product Image Crop Shape"
+          "label": "Image Crop Shape"
         },
         "header_2": {
           "content": "Text Content"
@@ -2381,7 +2384,7 @@
         },
         "collection_text_content": {
           "label": "Use collection title and description for text content",
-          "info": "If chosen, the collection title and description will replace the heading and description added above, if any."
+          "info": "The collection title and description will replace the heading and description added above, if any."
         },
         "header_3": {
           "content": "Section"
@@ -2405,9 +2408,9 @@
       }
     },
     "featured-product": {
-      "name": "Featured Product",
+      "name": "Featured product",
       "presets": {
-        "name": "Featured Product"
+        "name": "Featured product"
       },
       "settings": {
         "header": {
@@ -2418,7 +2421,7 @@
         },
         "hero": {
           "label": "Use as hero",
-          "info": "Should be selected if this section is the first or second on a page and contains the page title. There should only be one page title/hero used per page."
+          "info": "Select this setting if this section is the first or second on a page and contains the page title. There should only be one page title/hero used per page."
         },
         "alignment": {
           "label": "Alignment",
@@ -2504,7 +2507,7 @@
                 "label_2": "Basic Text",
                 "label_3": "Large Text"
               },
-              "label": "Text Size"
+              "label": "Size"
             },
             "include_border": {
               "label": "Include border"
@@ -2564,7 +2567,7 @@
             },
             "show_option_labels": {
               "label": "Show option labels and option descriptions",
-              "info": "Option descriptions can be added using metafields TODO: link"
+              "info": "Use metafields to add option descriptions TODO: link"
             },
             "include_border": {
               "label": "Include border"
@@ -2619,13 +2622,13 @@
       }
     },
     "gift-card": {
-      "name": "Gift Card"
+      "name": "Gift card"
     },
     "header": {
       "name": "Header",
       "settings": {
         "logo": {
-          "label": "logo"
+          "label": "Logo"
         },
         "logo_placement": {
           "label": "Logo Placement",
@@ -2635,7 +2638,7 @@
           }
         },
         "link_list": {
-          "label": "Menu"
+          "label": "Main Menu"
         },
         "always_show_nav": {
           "label": "Don't hide navigation bar on scroll down"
@@ -2718,9 +2721,9 @@
       }
     },
     "icons-section": {
-      "name": "Icons Section",
+      "name": "Icons section",
       "presets": {
-        "name": "Icons Section"
+        "name": "Icons section"
       },
       "settings": {
         "header": {
@@ -2813,9 +2816,9 @@
       }
     },
     "image-banner": {
-      "name": "Image Banner",
+      "name": "Image banner",
       "presets": {
-        "name": "Image Banner"
+        "name": "Image banner"
       },
       "settings": {
         "header": {
@@ -2826,7 +2829,7 @@
         },
         "overlay_opacity": {
           "label": "Overlay Opacity",
-          "info": "If above 0%, an overlay will be added on top of the image to create contrast behind the text."
+          "info": "A value above 0% will add an overlay on top of the image to create contrast behind the text."
         },
         "overlay_theme": {
           "info": "Only applies when the image crop shape is not set to default.",
@@ -2856,14 +2859,14 @@
             "label_13": "Semicircle Wide",
             "label_14": "Semicircle Arch"
           },
-          "label": "Image Crop Shape"
+          "label": "Crop Shape"
         },
         "header_2": {
           "label": "General"
         },
         "hero": {
           "label": "Use as hero",
-          "info": "uld be selected if this section is the first or second on a page and contains the page title."
+          "info": "Select if this section is the first or second on a page and contains the page Title."
         },
         "alignment": {
           "label": "Alignment",
@@ -2893,10 +2896,10 @@
           "label": "Bottom Text Content Spacing"
         },
         "top_spacing": {
-          "label": "Top Section Spacing"
+          "label": "Top Spacing"
         },
         "bottom_spacing": {
-          "label": "Bottom Section Spacing"
+          "label": "Bottom Spacing"
         }
       },
       "blocks": {
@@ -2954,9 +2957,9 @@
       }
     },
     "related-articles": {
-      "name": "Related Articles",
+      "name": "Related articles",
       "presets": {
-        "name": "Related Articles"
+        "name": "Related articles"
       },
       "settings": {
         "header": {
@@ -2977,18 +2980,21 @@
         "header_2": {
           "content": "Article Cards"
         },
+        "header_3": {
+          "content": "Section"
+        },
         "alt_heading": {
-          "label": "Use body font instead of heading font for article title"
+          "label": "Use body font instead of heading font for article Title"
         },
         "show_date": {
-          "label": "Show article date"
+          "label": "Show date"
         },
         "show_description": {
-          "label": "Show article excerpt",
+          "label": "Show excerpt",
           "info": "Shows excerpt if it exists, content if it doesn't."
         },
         "show_author": {
-          "label": "Show article author"
+          "label": "Show author"
         },
         "assc_product_crop_shape": {
           "options": {
@@ -3006,7 +3012,7 @@
             "label_12": "Semicircle Arch"
           },
           "label": "Associated Product Image Crop Shape",
-          "info": "Relies on the addition of article metafields. TODO: Add link with info, this is how starter did it: Add a <a href=https://praise-store-theme.myshopify.com/admin/metafields/product/create>article subtitle metafield to display.</a>"
+          "info": "Relies on the addition of article metafields. TODO: Add link with info, this is how starter did it: Add a <a href=https://praise-store-theme.myshopify.com/admin/metafields/product/create>article subTitle metafield to display.</a>"
         },
         "button_label": {
           "label": "Article Button Text",
@@ -3055,9 +3061,9 @@
       }
     },
     "shop-the-look": {
-      "name": "Shop the Look",
+      "name": "Shop the look",
       "presets": {
-        "name": "Shop the Look"
+        "name": "Shop the look"
       },
       "settings": {
         "header": {
@@ -3071,16 +3077,16 @@
             "label_1": "Square",
             "label_2": "Portrait"
           },
-          "label": "Image Crop Shape"
+          "label": "Crop Shape"
         },
         "header_2": {
           "content": "Product Card Settings"
         },
         "show_phrase": {
-          "label": "Show product phrase"
+          "label": "Show phrase"
         },
         "show_description": {
-          "label": "Show product description"
+          "label": "Show description"
         },
         "quick_add": {
           "label": "Enable quick add"
@@ -3088,8 +3094,8 @@
         "show_bg_color": {
           "label": "Show background color"
         },
-        "alt_title": {
-          "label": "Use body font instead of heading font for product title"
+        "alt_Title": {
+          "label": "Use body font instead of heading font for product Title"
         },
         "product_text_alignment": {
           "options": {
@@ -3097,7 +3103,7 @@
             "label_2": "Center",
             "label_3": "Right"
           },
-          "label": "Product Text Alignment"
+          "label": "Text Alignment"
         },
         "price": {
           "options": {
@@ -3121,7 +3127,7 @@
             "label_10": "Semicircle Landscape",
             "label_11": "Semicircle Arch"
           },
-          "label": "Product Image Crop Shape"
+          "label": "Image Crop Shape"
         },
         "header_3": {
           "content": "Section"
@@ -3159,9 +3165,9 @@
       }
     },
     "split-slideshow": {
-      "name": "Split Slideshow",
+      "name": "Split slideshow",
       "presets": {
-        "name": "Split Slideshow"
+        "name": "Split slideshow"
       },
       "settings": {
         "header": {
@@ -3196,7 +3202,7 @@
         },
         "hero": {
           "label": "Use as hero",
-          "info": "Should be selected if this section is the first or second on a page and contains the page title. There should only be one page title/hero used per page."
+          "info": "Select this setting if this section is the first or second on a page and contains the page Title. There should only be one page Title/hero used per page."
         },
         "header_3": {
           "content": "Article Cards"
@@ -3263,7 +3269,7 @@
       },
       "blocks": {
         "image-with-text": {
-          "name": "Image with Text",
+          "name": "Image with text",
           "settings": {
             "header": {
               "content": "Image Content"
@@ -3273,7 +3279,7 @@
             },
             "overlay_opacity": {
               "label": "Overlay Opacity",
-              "info": "If above 0%, an overlay will be added on top of the image"
+              "info": "A value above 0% will add an overlay on top of the image"
             },
             "overlay_theme": {
               "options": {
@@ -3302,11 +3308,11 @@
             "label": "Article",
             "image_picker": {
               "label": "Image",
-              "info": "By default, if an article image exists it will be used as the image, unless overwritten here"
+              "info": "An article image (if it exists) will be used as the image by default unless overwritten here"
             },
             "overlay_opacity": {
               "label": "Overlay Opacity",
-              "info": "If above 0%, an overlay will be added on top of the image"
+              "info": "A value above 0% will add an overlay on top of the image"
             },
             "overlay_theme": {
               "options": {
@@ -3323,9 +3329,9 @@
       }
     },
     "text-marquee": {
-      "name": "Text Marquee",
+      "name": "Text marquee",
       "presets": {
-        "name": "Text Marquee"
+        "name": "Text marquee"
       },
       "settings": {
         "header": {
@@ -3339,7 +3345,7 @@
           "label_2": "Large",
           "label_3": "Medium",
           "label_4": "Small",
-          "label": "Text Size"
+          "label": "Size"
         },
         "checkbox": {
           "label": "Use body font instead of heading font"
@@ -3430,7 +3436,7 @@
             "label_13": "Semicircle Wide",
             "label_14": "Semicircle Arch"
           },
-          "label": "Image Crop Shape"
+          "label": "Crop Shape"
         },
         "header_2": {
           "content": "Section"
@@ -3624,7 +3630,7 @@
             },
             "overlay": {
               "label": "Overlay Opacity",
-              "info": "If above 0%, an overlay will be added on top of the image"
+              "info": "A value above 0% will add an overlay on top of the image to create contrast behind the text"
             },
             "overlay_theme": {
               "options": {
@@ -3752,10 +3758,10 @@
               "label": "Products"
             },
             "show_phrase": {
-              "label": "Show product phrase"
+              "label": "Show phrase"
             },
             "show_description": {
-              "label": "Show product description"
+              "label": "Show description"
             },
             "quick_add": {
               "label": "Enable quick add"
@@ -3764,7 +3770,7 @@
               "label": "Show background color"
             },
             "alt_title": {
-              "label": "Use body font instead of heading font for product title"
+              "label": "Use body font instead of heading font for product Title"
             },
             "product_text_alignment": {
               "options": {
@@ -3772,7 +3778,7 @@
                 "label_2": "Center",
                 "label_3": "Right"
               },
-              "label": "Product Text Alignment"
+              "label": "Text Alignment"
             },
             "price": {
               "options": {
@@ -3796,7 +3802,7 @@
                 "label_10": "Semicircle Landscape",
                 "label_11": "Semicircle Arch"
               },
-              "label": "Product Image Crop Shape"
+              "label": "Image Crop Shape"
             }
           }
         },
