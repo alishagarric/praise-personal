@@ -36,7 +36,7 @@
 %}
 
 <a class="collection-card {{ class }} __align-{{ alignment }}" href="{{ collection_url }}">
-  <div class="collection-card__image">
+  <div class="collection-card__image image-container">
     {% if collection and collection.image %}
       {% render 'next-gen-img', image: collection.image, width: img_width: widths: img_widths, sizes: img_sizes, preload: img_preload %}
     {% elsif collection == blank %}

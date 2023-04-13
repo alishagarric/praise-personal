@@ -46,7 +46,7 @@
         "alt_title": true,
         "product_text_alignment": "default",
         "price": "default",
-        "crop_shape": "default",
+        "crop_shape": "rounded-square",
         "theme": "primary",
         "top_spacing": 50,
         "bottom_spacing": 50

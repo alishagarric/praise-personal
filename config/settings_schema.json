@@ -232,8 +232,22 @@
     ]
   },
   {
-    "name": "Product phrase",
+    "name": "Product Cards",
     "settings": [
+      {
+        "type": "header",
+        "content": "General"
+      },
+      {
+        "type": "checkbox",
+        "id": "product_card_hover",
+        "label": "Show second image on hover",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Phrase"
+      },
       {
         "type": "checkbox",
         "id": "product_phrase_alt_heading",

@@ -12,6 +12,13 @@
     width: 100%;
     margin-bottom: calc(var(--btnHeight) / 2);
     z-index: 1;
+
+    img,
+    svg {
+      transform: scale(1);
+      will-change: transform;
+      transition: all 0.25s ease;
+    }
   }
 
   &__quick-add-btn {
@@ -61,28 +68,37 @@
   }
 
   &.__include-bg {
+    &:before {
+      content: "";
+      height: 50%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: var(--productColor);
+    }
+
     .product-card__image {
-      border-radius: 0 !important;
-
-      &:before {
-        content: "";
-        height: 50%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        background: var(--productColor);
-      }
-
-      img {
-        transform: scale(0.9);
-        transform-origin: bottom;
-      }
+      transform: scale(0.9);
+      transform-origin: bottom;
 
       ~ *:not(.btn) {
         padding-left: 5%;
         padding-right: 5%;
       }
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    img,
+    svg {
+      transform: scale(1.05);
+    }
+
+    .product-card__image img:first-of-type {
+      z-index: 2;
     }
   }
 }

@@ -65,6 +65,10 @@
 
   <div class="product-card__image image-container __crop-{{ crop }}" style="--imageRatio: {{ image_ratio }}%">
     {% if product and product.featured_image %}
+      {% if settings.product_card_hover and product.images[2] %}
+        {% render 'next-gen-img', image: product.images[2], width: img_width: widths: img_widths, sizes: img_sizes %}
+      {% endif %}
+
       {% render 'next-gen-img', image: product.featured_image, width: img_width: widths: img_widths, sizes: img_sizes, preload: img_preload %}
     {% elsif product == blank %}
       {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
