@@ -1557,8 +1557,8 @@
         "name": "Main page"
       },
       "settings": {
-        "heading_1": {
-          "label": "Text Content"
+        "header_1": {
+          "content": "Text Content"
         },
         "heading_size": {
           "options": {
@@ -1580,8 +1580,8 @@
           },
           "label": "Description Size"
         },
-        "heading_2": {
-          "label": "Section"
+        "header_2": {
+          "content": "Section"
         },
         "top_spacing": {
           "label": "Top Spacing"
@@ -1793,7 +1793,7 @@
           },
           "label": "Text Size"
         },
-        "heading_2": {
+        "header_2": {
           "label": "Section"
         },
         "top_spacing": {
