@@ -3847,12 +3847,34 @@
         "name": "Video"
       },
       "settings": {
+        "header": {
+          "content": "Text Content"
+        },
+        "heading": {
+          "label": "Heading"
+        },
+        "heading_size": {
+          "options": {
+            "label_1": "X-Large",
+            "label_2": "Large",
+            "label_3": "Medium",
+            "label_4": "Small"
+          },
+          "label": "Heading Size"
+        },
         "description_text_size": {
           "options": {
             "label_1": "Small Text",
             "label_2": "Basic Text",
             "label_3": "Large Text"
-          }
+          },
+          "label": "Text Size"
+        },
+        "text": {
+          "label": "Description"
+        },
+        "alt_heading":{
+          "label": "Use body font instead of heading font for heading"
         },
         "options": {
           "label1": "Primary Theme",
@@ -3862,7 +3884,31 @@
           "label5": "5th Theme"
         },
         "label": "Theme",
-        "header": {
+        "header_2": {
+          "content": "Text Content"
+        },
+        "cover_image": {
+          "label": "Cover Image"
+        },
+        "video_url": {
+          "label": "Video"
+        },
+        "crop_shape": {
+          "options": {
+            "label_1": "Standard Video",
+            "label_2": "Landscape",
+            "label_3": "Rounded Landscape",
+            "label_4": "Semicircle Landscape",
+            "label_5": "Wide",
+            "label_6": "Rounded Wide",
+            "label_7": "Semicircle Wide"
+          },
+          "label": "Image Crop Shape"
+        },
+        "header_4": {
+          "content": "Section"
+        },
+        "header_3": {
           "content": "Spacing"
         },
         "range1": {
