@@ -1097,10 +1097,107 @@
       "name": "Blog posts",
       "settings": {
         "header": {
-          "content": "Blog post card"
+          "content": "General"
         },
         "posts_per_page": {
           "label": "Number of posts per page"
+        },
+        "blog_show_tags": {
+          "label": "Show blog tags"
+        },
+        "tags_label": {
+          "label": "Tags Label"
+        },
+        "tag_color": {
+          "label": "Tag Color",
+          "options": {
+            "label_0": "Default",
+            "label_1": "Primary Theme",
+            "label_2": "2nd Theme",
+            "label_3": "3rd Theme",
+            "label_4": "4th Theme",
+            "label_5": "5th Theme"
+          }
+        },
+        "header_2": {
+          "content": "Blog and Article Cards"
+        },
+        "alt_heading": {
+          "label": "Use body font instead of heading font for article title"
+        },
+        "show_date": {
+          "label": "Show article date"
+        },
+        "show_description": {
+          "label": "Show article excerpt",
+          "info": "Shows excerpt if it exists, content if it doesn't."
+        },
+        "show_author": {
+          "label": "Show article author"
+        },
+        "assc_product_crop_shape": {
+          "options": {
+            "label_1": "No Crop",
+            "label_2": "Square",
+            "label_3": "Rounded Square",
+            "label_4": "Circle",
+            "label_5": "Portrait",
+            "label_6": "Rounded Portrait",
+            "label_7": "Semicircle Portrait",
+            "label_8": "Landscape",
+            "label_9": "Rounded Landscape",
+            "label_10": "Semicircle Landscape",
+            "label_11": "Semicircle Arch"
+          },
+          "label": "Associated Product Image Crop Shape",
+          "info": "Relies on the addition of article metafields. TODO: Add link with info, this is how starter did it: Add a <a href=https://praise-store-theme.myshopify.com/admin/metafields/product/create>article subtitle metafield to display.</a>"
+        },
+        "button_label": {
+          "label": "Article Button Text",
+          "info": "Displays an underlined button if included, no button if not."
+        },
+        "crop_shape": {
+          "options": {
+            "label_1": "No Crop",
+            "label_2": "Square",
+            "label_3": "Rounded Square",
+            "label_4": "Circle",
+            "label_5": "Portrait",
+            "label_6": "Rounded Portrait",
+            "label_7": "Semicircle Portrait",
+            "label_8": "Landscape",
+            "label_9": "Rounded Landscape",
+            "label_10": "Semicircle Landscape",
+            "label_11": "Semicircle Arch"
+          },
+          "label": "Item Image Crop Shape"
+        },
+        "alignment": {
+          "label": "Alignment",
+          "options": {
+            "label_1": "Left",
+            "label_2": "Center",
+            "label_3": "Right"
+          }
+        },
+        "header_3": {
+          "content": "Section"
+        },
+        "theme": {
+          "options": {
+            "label_1": "Primary Theme",
+            "label_2": "2nd Theme",
+            "label_3": "3rd Theme",
+            "label_4": "4th Theme",
+            "label_5": "5th Theme"
+          },
+          "label": "Theme"
+        },
+        "top_spacing": {
+          "label": "Top Section Spacing"
+        },
+        "bottom_spacing": {
+          "label": "Bottom Section Spacing"
         }
       }
     },
