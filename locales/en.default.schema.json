@@ -3252,15 +3252,15 @@
         "text": {
           "name": "Text",
           "settings": {
-            "label": "Description"
-          },
-          "description_text_size": {
-            "options": {
-              "label_1": "Small Text",
-              "label_2": "Basic Text",
-              "label_3": "Large Text"
-            },
+            "label": "Description",
+            "description_text_size": {
+              "options": {
+                "label_1": "Small Text",
+                "label_2": "Basic Text",
+                "label_3": "Large Text"
+              },
             "label": "Description Size"
+          }
           }
         },
         "button": {
