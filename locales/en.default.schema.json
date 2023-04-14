@@ -1093,8 +1093,60 @@
     "main-addresses": {
       "name": "Addresses"
     },
+    "main-blog-banner": {
+      "settings": {
+        "header": {
+          "content": "Text Content"
+        },
+        "heading_size": {
+          "options": {
+            "label_1": "X-Large",
+            "label_2": "Large",
+            "label_3": "Medium",
+            "label_4": "Small"
+          },
+          "label": "Heading Size"
+        },
+        "alt_heading": {
+          "label": "Use body font instead of heading font for heading"
+        },
+        "alignment": {
+          "label": "Text Alignment",
+          "options": {
+            "label_1": "Left",
+            "label_2": "Center",
+            "label_3": "Right"
+          }
+        },
+        "header_2": {
+          "content": "Section"
+        },
+        "theme": {
+          "options": {
+            "label_1": "Primary Theme",
+            "label_2": "2nd Theme",
+            "label_3": "3rd Theme",
+            "label_4": "4th Theme",
+            "label_5": "5th Theme"
+          },
+          "label": "Theme"
+        },
+        "top_spacing": {
+          "label": "Top Section Spacing"
+        },
+        "bottom_spacing": {
+          "label": "Bottom Section Spacing"
+        }
+      },
+      "presets":{
+        "name": "Main blog banner"
+      }
+    },
     "main-blog": {
       "name": "Blog posts",
+      "presets": {
+        "name": "Blog posts"
+      },
       "settings": {
         "header": {
           "content": "General"
@@ -1379,7 +1431,7 @@
         }
       },
       "presets": {
-        "name": "Main Cart"
+        "name": "Main cart"
       }
     },
     "main-collection-grid": {
@@ -2556,6 +2608,9 @@
         "bottom_spacing": {
           "label": "Bottom Spacing"
         }
+      },
+      "presets": {
+        "name": "Content marquee"
       },
       "blocks": {
         "quote": {
