@@ -1108,10 +1108,23 @@
       "name": "Main Password",
       "settings": {
         "header": {
-          "content": "text Content"
+          "content": "General"
+        },
+        "full_height": {
+          "label": "Full Height"
+        },
+        "header_2": {
+          "content": "Social Media Icons",
+          "info": "To display your social media accounts, link them in your theme settings."
+        },
+        "show_social": {
+          "label": "Show social icons"
         },
         "heading": {
           "label": "Heading"
+        },
+        "newsletter_enable": {
+          "label": "Show newsletter form"
         },
         "heading_size": {
           "options": {
@@ -1136,7 +1149,7 @@
           },
           "label": "Description Size"
         },
-        "header_2": {
+        "header_3": {
           "content": "Section"
         },
         "top_spacing": {
