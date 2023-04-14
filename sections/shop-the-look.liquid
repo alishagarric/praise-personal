@@ -47,11 +47,11 @@
           {% for block in section.blocks %}
             {% case block.type %}
               {% when 'product' %}
-                  {% assign border_color = '0,0,0' %}
+                {% assign border_color = '0,0,0' %}
                 {% if block.settings.product == blank %}
                   {% assign horizontal_pos = 50 %}
                   {% assign vertical_pos = 50 %}
-                  
+
                 {% else %}
                   {% assign horizontal_pos = block.settings.horizontal_pos %}
                   {% assign vertical_pos = block.settings.vertical_pos %}
@@ -322,7 +322,7 @@
       "settings": [
         {
           "type": "paragraph",
-          "content": "Add product metafields in order to theme the slideshow with associated product colors. TODO: Add link with info"
+          "content": "t:sections.shop-the-look.blocks.product.settings.paragraph.content"
         },
         {
           "type": "product",

@@ -3425,7 +3425,7 @@
         "show_bg_color": {
           "label": "Show background color"
         },
-        "alt_Title": {
+        "alt_title": {
           "label": "Use body font instead of heading font for product Title"
         },
         "product_text_alignment": {
@@ -3485,6 +3485,9 @@
           "name": "Product",
           "settings": {
             "label": "Product",
+            "paragraph": {
+              "content": "Add product metafields in order to theme the slideshow with associated product colors. TODO: Add link with info"
+            },
             "horizontal_pos": {
               "label": "Dot Horizontal Position"
             },
