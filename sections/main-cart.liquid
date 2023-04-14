@@ -340,12 +340,12 @@
 
 {% schema %}
 {
-  "name": "Main Cart",
+  "name": "t:sections.main-cart.name",
   "tag": "section",
   "settings": [
     {
       "type": "header",
-      "content": "Text Content"
+      "content": "t:sections.main-cart.settings.header.content"
     },
     {
       "type": "select",
@@ -353,32 +353,32 @@
       "options": [
         {
           "value": "h2",
-          "label": "X-Large"
+          "label": "t:sections.main-cart.settings.heading_size.options.label_1"
         },
         {
           "value": "h4",
-          "label": "Large"
+          "label": "t:sections.main-cart.settings.heading_size.options.label_2"
         },
         {
           "value": "h5",
-          "label": "Medium"
+          "label": "t:sections.main-cart.settings.heading_size.options.label_3"
         },
         {
           "value": "h6",
-          "label": "Small"
+          "label": "t:sections.main-cart.settings.heading_size.options.label_4"
         }
       ],
       "default": "h4",
-      "label": "Heading Size"
+      "label": "t:sections.main-cart.settings.heading_size.label"
     },
     {
       "type": "checkbox",
       "id": "alt_heading",
-      "label": "Use body font instead of heading font for heading"
+      "label": "t:sections.main-cart.settings.alt_heading.label"
     },
     {
       "type": "header",
-      "content": "Cart Item Settings"
+      "content": "t:sections.main-cart.settings.header_2.content"
     },
     {
       "type": "select",
@@ -386,85 +386,85 @@
       "options": [
         {
           "value": "default",
-          "label": "No Crop"
+          "label": "t:sections.main-cart.settings.crop_shape.options.label_1"
         },
         {
           "value": "square",
-          "label": "Square"
+          "label": "t:sections.main-cart.settings.crop_shape.options.label_2"
         },
         {
           "value": "rounded-square",
-          "label": "Rounded Square"
+          "label": "t:sections.main-cart.settings.crop_shape.options.label_3"
         },
         {
           "value": "circle",
-          "label": "Circle"
+          "label": "t:sections.main-cart.settings.crop_shape.options.label_4"
         },
         {
           "value": "portrait",
-          "label": "Portrait"
+          "label": "t:sections.main-cart.settings.crop_shape.options.label_5"
         },
         {
           "value": "rounded-portrait",
-          "label": "Rounded Portrait"
+          "label": "t:sections.main-cart.settings.crop_shape.options.label_6"
         },
         {
           "value": "semicircle-portrait",
-          "label": "Semicircle Portrait"
+          "label": "t:sections.main-cart.settings.crop_shape.options.label_7"
         },
         {
           "value": "landscape",
-          "label": "Landscape"
+          "label": "t:sections.main-cart.settings.crop_shape.options.label_8"
         },
         {
           "value": "rounded-landscape",
-          "label": "Rounded Landscape"
+          "label": "t:sections.main-cart.settings.crop_shape.options.label_9"
         },
         {
           "value": "semicircle-landscape",
-          "label": "Semicircle Landscape"
+          "label": "t:sections.main-cart.settings.crop_shape.options.label_10"
         },
         {
           "value": "wide",
-          "label": "Wide"
+          "label": "t:sections.main-cart.settings.crop_shape.options.label_11"
         },
         {
           "value": "rounded-wide",
-          "label": "Rounded Wide"
+          "label": "t:sections.main-cart.settings.crop_shape.options.label_12"
         },
         {
           "value": "semicircle-wide",
-          "label": "Semicircle Wide"
+          "label": "t:sections.main-cart.settings.crop_shape.options.label_13"
         },
         {
           "value": "arch",
-          "label": "Semicircle Arch"
+          "label": "t:sections.main-cart.settings.crop_shape.options.label_14"
         }
       ],
       "default": "default",
-      "label": "Item Image Crop Shape"
+      "label": "t:sections.main-cart.settings.crop_shape.label"
     },
     {
       "type": "checkbox",
       "id": "show_vendor",
-      "label": "Show vendor",
+      "label": "t:sections.main-cart.settings.show_vendor.label",
       "default": false
     },
     {
       "type": "header",
-      "content": "Cart Recommendations"
+      "content": "t:sections.main-cart.settings.header_3.content"
     },
     {
       "type": "checkbox",
       "id": "show_recommendations",
-      "label": "Show recommendations",
+      "label": "t:sections.main-cart.settings.show_recommendations.label",
       "default": true
     },
     {
       "type": "text",
       "id": "recommendations_heading",
       "default": "You may also like",
-      "label": "Label"
+      "label": "t:sections.main-cart.settings.recommendations_heading.label"
     },
     {
       "type": "range",
@@ -473,22 +473,22 @@
       "max": 6,
       "step": 1,
       "unit": "%",
-      "label": "Limit",
+      "label": "t:sections.main-cart.settings.recommendations_limit.label",
       "default": 2
     },
     {
       "type": "header",
-      "content": "General"
+      "content": "t:sections.main-cart.settings.header_4.content"
     },
     {
       "type": "checkbox",
       "id": "show_textarea",
-      "label": "Show special instructions",
+      "label": "t:sections.main-cart.settings.show_textarea.label",
       "default": true
     },
     {
       "type": "header",
-      "content": "Section"
+      "content": "t:sections.main-cart.settings.header_5.content"
     },
     {
       "type": "select",
@@ -496,27 +496,27 @@
       "options": [
         {
           "value": "primary",
-          "label": "Primary Theme"
+          "label": "t:sections.main-cart.settings.theme.options.label_1"
         },
         {
           "value": "2",
-          "label": "2nd Theme"
+          "label": "t:sections.main-cart.settings.theme.options.label_2"
         },
         {
           "value": "3",
-          "label": "3rd Theme"
+          "label": "t:sections.main-cart.settings.theme.options.label_3"
         },
         {
           "value": "4",
-          "label": "4th Theme"
+          "label": "t:sections.main-cart.settings.theme.options.label_4"
         },
         {
           "value": "5",
-          "label": "5th Theme"
+          "label": "t:sections.main-cart.settings.theme.options.label_5"
         }
       ],
       "default": "primary",
-      "label": "Theme"
+      "label": "t:sections.main-cart.settings.theme.label"
     },
     {
       "type": "range",
@@ -525,7 +525,7 @@
       "max": 100,
       "step": 10,
       "unit": "%",
-      "label": "Top Spacing",
+      "label": "t:sections.main-cart.settings.top_spacing.label",
       "default": 50
     },
     {
@@ -535,19 +535,19 @@
       "max": 100,
       "step": 10,
       "unit": "%",
-      "label": "Bottom Spacing",
+      "label": "t:sections.main-cart.settings.bottom_spacing.label",
       "default": 50
     }
   ],
   "blocks": [
     {
       "type": "message",
-      "name": "Message",
+      "name": "t:sections.main-cart.blocks.message.name",
       "settings": [
         {
           "type": "text",
           "id": "heading",
-          "label": "Label"
+          "label": "t:sections.main-cart.blocks.message.settings.heading.label"
         },
         {
           "type": "select",
@@ -555,29 +555,29 @@
           "options": [
             {
               "value": "h4",
-              "label": "Large"
+              "label": "t:sections.main-cart.blocks.message.settings.heading_size.options.label_1"
             },
             {
               "value": "h5",
-              "label": "Medium"
+              "label": "t:sections.main-cart.blocks.message.settings.heading_size.options.label_2"
             },
             {
               "value": "h6",
-              "label": "Small"
+              "label": "t:sections.main-cart.blocks.message.settings.heading_size.options.label_3"
             }
           ],
           "default": "h6",
-          "label": "Heading Size"
+          "label": "t:sections.main-cart.blocks.message.settings.heading_size.label"
         },
         {
           "type": "checkbox",
           "id": "alt_heading",
-          "label": "Use body font instead of heading font for heading"
+          "label": "t:sections.main-cart.blocks.message.settings.alt_heading.label"
         },
         {
           "type": "richtext",
           "id": "text",
-          "label": "Description"
+          "label": "t:sections.main-cart.blocks.message.settings.text.label"
         },
         {
           "type": "select",
@@ -585,26 +585,26 @@
           "options": [
             {
               "value": "p-sm",
-              "label": "Small Text"
+              "label": "t:sections.main-cart.blocks.message.settings.description_text_size.options.label_1"
             },
             {
               "value": "p",
-              "label": "Basic Text"
+              "label": "t:sections.main-cart.blocks.message.settings.description_text_size.options.label_2"
             },
             {
               "value": "p-lg",
-              "label": "Large Text"
+              "label": "t:sections.main-cart.blocks.message.settings.description_text_size.options.label_3"
             }
           ],
           "default": "p-sm",
-          "label": "Text Size"
+          "label": "t:sections.main-cart.blocks.message.settings.description_text_size.label"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Main Cart"
+      "name": "t:sections.main-cart.presets.name"
     }
   ]
 }
