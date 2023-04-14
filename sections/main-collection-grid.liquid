@@ -114,12 +114,12 @@
 
 {% schema %}
 {
-  "name": "Main Collection Grid",
+  "name": "t:sections.main-collection-grid.name",
   "tag": "section",
   "settings": [
     {
       "type": "header",
-      "content": "General"
+      "content": "t:sections.main-collection-grid.settings.header.content"
     },
     {
       "type": "range",
@@ -127,39 +127,39 @@
       "min": 4,
       "max": 24,
       "step": 1,
-      "label": "Products per page",
+      "label": "t:sections.main-collection-grid.settings.pagination_count.label",
       "default": 12
     },
     {
       "type": "header",
-      "content": "Product Card Settings"
+      "content": "t:sections.main-collection-grid.settings.header_2.content"
     },
     {
       "type": "checkbox",
       "id": "show_phrase",
-      "label": "Show product phrase"
+      "label": "t:sections.main-collection-grid.settings.pagination_count.label"
     },
     {
       "type": "checkbox",
       "id": "show_description",
-      "label": "Show product description"
+      "label": "t:sections.main-collection-grid.settings.show_description.label"
     },
     {
       "type": "checkbox",
       "id": "quick_add",
-      "label": "Enable quick add",
+      "label": "t:sections.main-collection-grid.settings.quick_add.label",
       "default": false
     },
     {
       "type": "checkbox",
       "id": "show_bg_color",
-      "label": "Show background color",
+      "label": "t:sections.main-collection-grid.settings.show_bg_color.label",
       "default": false
     },
     {
       "type": "checkbox",
       "id": "alt_title",
-      "label": "Use body font instead of heading font for product title"
+      "label": "t:sections.main-collection-grid.settings.alt_title.label"
     },
     {
       "type": "select",
@@ -167,19 +167,19 @@
       "options": [
         {
           "value": "default",
-          "label": "Left"
+          "label": "t:sections.main-collection-grid.settings.product_text_alignment.options.label_1"
         },
         {
           "value": "center",
-          "label": "Center"
+          "label": "t:sections.main-collection-grid.settings.product_text_alignment.options.label_2"
         },
         {
           "value": "right",
-          "label": "Right"
+          "label": "t:sections.main-collection-grid.settings.product_text_alignment.options.label_3"
         }
       ],
       "default": "default",
-      "label": "Product Text Alignment"
+      "label": "t:sections.main-collection-grid.settings.product_text_alignment.label"
     },
     {
       "type": "select",
@@ -187,19 +187,19 @@
       "options": [
         {
           "value": "default",
-          "label": "Right of Title"
+          "label": "t:sections.main-collection-grid.settings.price.options.label_1"
         },
         {
           "value": "bottom",
-          "label": "Bottom"
+          "label": "t:sections.main-collection-grid.settings.price.options.label_2"
         },
         {
           "value": "not-visible",
-          "label": "Not Visible"
+          "label": "t:sections.main-collection-grid.settings.price.options.label_3"
         }
       ],
       "default": "default",
-      "label": "Price Position"
+      "label": "t:sections.main-collection-grid.settings.price.label"
     },
     {
       "type": "select",
@@ -207,55 +207,55 @@
       "options": [
         {
           "value": "default",
-          "label": "No Crop"
+          "label": "t:sections.main-collection-grid.settings.crop_shape.options.label_1"
         },
         {
           "value": "square",
-          "label": "Square"
+          "label": "t:sections.main-collection-grid.settings.crop_shape.options.label_2"
         },
         {
           "value": "rounded-square",
-          "label": "Rounded Square"
+          "label": "t:sections.main-collection-grid.settings.crop_shape.options.label_3"
         },
         {
           "value": "circle",
-          "label": "Circle"
+          "label": "t:sections.main-collection-grid.settings.crop_shape.options.label_4"
         },
         {
           "value": "portrait",
-          "label": "Portrait"
+          "label": "t:sections.main-collection-grid.settings.crop_shape.options.label_5"
         },
         {
           "value": "rounded-portrait",
-          "label": "Rounded Portrait"
+          "label": "t:sections.main-collection-grid.settings.crop_shape.options.label_6"
         },
         {
           "value": "semicircle-portrait",
-          "label": "Semicircle Portrait"
+          "label": "t:sections.main-collection-grid.settings.crop_shape.options.label_7"
         },
         {
           "value": "landscape",
-          "label": "Landscape"
+          "label": "t:sections.main-collection-grid.settings.crop_shape.options.label_8"
         },
         {
           "value": "rounded-landscape",
-          "label": "Rounded Landscape"
+          "label": "t:sections.main-collection-grid.settings.crop_shape.options.label_9"
         },
         {
           "value": "semicircle-landscape",
-          "label": "Semicircle Landscape"
+          "label": "t:sections.main-collection-grid.settings.crop_shape.options.label_10"
         },
         {
           "value": "arch",
-          "label": "Semicircle Arch"
+          "label": "t:sections.main-collection-grid.settings.crop_shape.options.label_11"
         }
       ],
       "default": "default",
-      "label": "Product Image Crop Shape"
+      "label": "t:sections.main-collection-grid.settings.crop_shape.label"
     },
     {
       "type": "header",
-      "content": "Section"
+      "content": "t:sections.main-collection-grid.settings.header_3.content"
     },
     {
       "type": "select",
@@ -263,27 +263,27 @@
       "options": [
         {
           "value": "primary",
-          "label": "Primary Theme"
+          "label": "t:sections.main-collection-grid.settings.theme.options.label_1"
         },
         {
           "value": "2",
-          "label": "2nd Theme"
+          "label": "t:sections.main-collection-grid.settings.theme.options.label_2"
         },
         {
           "value": "3",
-          "label": "3rd Theme"
+          "label": "t:sections.main-collection-grid.settings.theme.options.label_3"
         },
         {
           "value": "4",
-          "label": "4th Theme"
+          "label": "t:sections.main-collection-grid.settings.theme.options.label_4"
         },
         {
           "value": "5",
-          "label": "5th Theme"
+          "label": "t:sections.main-collection-grid.settings.theme.options.label_5"
         }
       ],
       "default": "primary",
-      "label": "Theme"
+      "label": "t:sections.main-collection-grid.settings.theme.label"
     },
     {
       "type": "range",
@@ -292,7 +292,7 @@
       "max": 100,
       "step": 10,
       "unit": "%",
-      "label": "Top Spacing",
+      "label": "t:sections.main-collection-grid.settings.top_spacing.label",
       "default": 50
     },
     {
@@ -302,18 +302,18 @@
       "max": 100,
       "step": 10,
       "unit": "%",
-      "label": "Bottom Spacing",
+      "label": "t:sections.main-collection-grid.settings.bottom_spacing.label",
       "default": 50
     }
   ],
   "blocks": [
     {
       "type": "promotion",
-      "name": "Featured Promotion",
+      "name": "t:sections.main-collection-grid.blocks.promotion.name",
       "settings": [
         {
           "type": "header",
-          "content": "General"
+          "content": "t:sections.main-collection-grid.blocks.promotion.settings.header.content"
         },
         {
           "type": "range",
@@ -321,7 +321,7 @@
           "min": 0,
           "max": 13,
           "step": 1,
-          "label": "Display after how many products",
+          "label": "t:sections.main-collection-grid.blocks.promotion.settings.position.label",
           "default": 4
         },
         {
@@ -330,7 +330,7 @@
           "min": 1,
           "max": 3,
           "step": 1,
-          "label": "How many products wide",
+          "label": "t:sections.main-collection-grid.blocks.promotion.settings.width.label",
           "default": 1
         },
         {
@@ -339,7 +339,7 @@
           "min": 1,
           "max": 3,
           "step": 1,
-          "label": "How many products tall",
+          "label": "t:sections.main-collection-grid.blocks.promotion.settings.height.label",
           "default": 1
         },
         {
@@ -349,23 +349,23 @@
           "max": 600,
           "step": 50,
           "unit": "px",
-          "label": "Mobile Minimum Height",
+          "label": "t:sections.main-collection-grid.blocks.promotion.settings.mobile_min_height.label",
           "default": 450
         },
         {
           "type": "url",
           "id": "link",
-          "label": "Link"
+          "label": "t:sections.main-collection-grid.blocks.promotion.settings.link.label"
         },
         {
           "type": "header",
-          "content": "Text Content"
+          "content": "t:sections.main-collection-grid.blocks.promotion.settings.header_2.content"
         },
         {
           "type": "text",
           "id": "heading",
           "default": "Promotion Heading",
-          "label": "Heading"
+          "label": "t:sections.main-collection-grid.blocks.promotion.settings.heading.label"
         },
         {
           "type": "select",
@@ -373,33 +373,33 @@
           "options": [
             {
               "value": "h2",
-              "label": "X-Large"
+              "label": "t:sections.main-collection-grid.blocks.promotion.settings.heading_size.options.label_1"
             },
             {
               "value": "h4",
-              "label": "Large"
+              "label": "t:sections.main-collection-grid.blocks.promotion.settings.heading_size.options.label_2"
             },
             {
               "value": "h5",
-              "label": "Medium"
+              "label": "t:sections.main-collection-grid.blocks.promotion.settings.heading_size.options.label_3"
             },
             {
               "value": "h6",
-              "label": "Small"
+              "label": "t:sections.main-collection-grid.blocks.promotion.settings.heading_size.options.label_4"
             }
           ],
           "default": "h4",
-          "label": "Heading Size"
+          "label": "t:sections.main-collection-grid.blocks.promotion.settings.heading_size.label"
         },
         {
           "type": "checkbox",
           "id": "alt_heading",
-          "label": "Use body font instead of heading font for heading"
+          "label": "t:sections.main-collection-grid.blocks.promotion.settings.alt_heading.label"
         },
         {
           "type": "richtext",
           "id": "text",
-          "label": "Description"
+          "label": "t:sections.main-collection-grid.blocks.promotion.settings.text.label"
         },
         {
           "type": "select",
@@ -407,34 +407,34 @@
           "options": [
             {
               "value": "p-sm",
-              "label": "Small Text"
+              "label": "t:sections.main-collection-grid.blocks.promotion.settings.text_size.options.label_1"
             },
             {
               "value": "p",
-              "label": "Basic Text"
+              "label": "t:sections.main-collection-grid.blocks.promotion.settings.text_size.options.label_2"
             },
             {
               "value": "p-lg",
-              "label": "Large Text"
+              "label": "t:sections.main-collection-grid.blocks.promotion.settings.text_size.options.label_3"
             }
           ],
           "default": "p",
-          "label": "Description Size"
+          "label": "t:sections.main-collection-grid.blocks.promotion.settings.text_size.label"
         },
         {
           "type": "header",
-          "content": "Image Content"
+          "content": "t:sections.main-collection-grid.blocks.promotion.settings.header_3.content"
         },
         {
           "type": "image_picker",
           "id": "image",
-          "label": "Image"
+          "label": "t:sections.main-collection-grid.blocks.promotion.settings.image.label"
         },
         {
           "type": "range",
           "id": "overlay",
-          "label": "Overlay Opacity",
-          "info": "If above 0%, an overlay will be added on top of the image to create contrast behind the text.",
+          "label": "t:sections.main-collection-grid.blocks.promotion.settings.overlay.label",
+          "info": "t:sections.main-collection-grid.blocks.promotion.settings.overlay.info",
           "min": 0,
           "max": 70,
           "step": 10,
@@ -447,27 +447,27 @@
           "options": [
             {
               "value": "primary",
-              "label": "Primary Theme"
+              "label": "t:sections.main-collection-grid.blocks.promotion.settings.overlay_theme.options.label_1"
             },
             {
               "value": "2",
-              "label": "2nd Theme"
+              "label": "t:sections.main-collection-grid.blocks.promotion.settings.overlay_theme.options.label_2"
             },
             {
               "value": "3",
-              "label": "3rd Theme"
+              "label": "t:sections.main-collection-grid.blocks.promotion.settings.overlay_theme.options.label_3"
             },
             {
               "value": "4",
-              "label": "4th Theme"
+              "label": "t:sections.main-collection-grid.blocks.promotion.settings.overlay_theme.options.label_4"
             },
             {
               "value": "5",
-              "label": "5th Theme"
+              "label": "t:sections.main-collection-grid.blocks.promotion.settings.overlay_theme.options.label_5"
             }
           ],
           "default": "primary",
-          "label": "Overlay Theme"
+          "label": "t:sections.main-collection-grid.blocks.promotion.settings.overlay_theme.label"
         },
         {
           "type": "select",
@@ -475,26 +475,26 @@
           "options": [
             {
               "value": "default",
-              "label": "Square Corners"
+              "label": "t:sections.main-collection-grid.blocks.promotion.settings.image_corners.options.label_1"
             },
             {
               "value": "rounded",
-              "label": "Rounded Corners"
+              "label": "t:sections.main-collection-grid.blocks.promotion.settings.image_corners.options.label_2"
             },
             {
               "value": "semicircle",
-              "label": "Semicircle Corners"
+              "label": "t:sections.main-collection-grid.blocks.promotion.settings.image_corners.options.label_3"
             }
           ],
           "default": "default",
-          "label": "Image Corners"
+          "label": "t:sections.main-collection-grid.blocks.promotion.settings.image_corners.label"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Main Collection Grid"
+      "name": "t:sections.main-collection-grid.presets.name"
     }
   ]
 }
