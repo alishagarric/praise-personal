@@ -519,8 +519,19 @@
         "max": 60,
         "step": 2,
         "unit": "px",
-        "label": "Button Height",
+        "label": "Basic Button Height",
         "default": 48
+      },
+      {
+        "type": "range",
+        "id": "arrow_button_height",
+        "min": 26,
+        "max": 60,
+        "step": 2,
+        "unit": "px",
+        "label": "Arrow Button Height",
+        "info": "Used on slideshows",
+        "default": 40
       },
       {
         "type": "range",

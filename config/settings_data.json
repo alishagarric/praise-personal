@@ -1,5 +1,6 @@
 {
   "current": {
+    "arrow_button_height": 40,
     "button_uppercase": true,
     "button_spacing": 6,
     "product_card_hover": true,
