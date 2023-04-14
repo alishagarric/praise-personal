@@ -17,7 +17,12 @@
 <div id="Main-register-{{ section.id }}" class="customer-forms __theme-{{ section_theme }}">
   <div class="customer-forms__container">
     <div class="customer-forms__text __align-center">
-      {% render 'heading', heading: section.settings.heading, heading_size: section.settings.heading_size, alt_heading: section.settings.alt_heading, heading_tag: 'h1' %}
+      {% render 'heading',
+        heading: section.settings.heading,
+        heading_size: section.settings.heading_size,
+        alt_heading: section.settings.alt_heading,
+        heading_tag: 'h1'
+      %}
       <div class="__article-txt-{{ section.settings.text_size }}" {{ block.shopify_attributes }}>
         {{ section.settings.description }}
       </div>
@@ -280,7 +285,7 @@
         }
       ],
       "default": "primary",
-      "label": "t:sections.main-register.settings.theme.options.label"
+      "label": "t:sections.main-register.settings.theme.label"
     }
   ],
   "presets": [
