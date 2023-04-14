@@ -1819,11 +1819,11 @@
         "page": {
           "label": "Page"
         },
-        "heading": {
+        "header": {
           "content": "General"
         },
         "header_1": {
-          "label": "Text Content"
+          "content": "Text Content"
         },
         "heading_size": {
           "options": {
@@ -1846,7 +1846,7 @@
           "label": "Text Size"
         },
         "header_2": {
-          "label": "Section"
+          "content": "Section"
         },
         "top_spacing": {
           "label": "Top Spacing"
