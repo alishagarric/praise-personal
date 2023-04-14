@@ -1170,6 +1170,9 @@
         }
       }
     },
+    "main-order": {
+      "name": "Page"
+    },
     "main-page": {
       "name": "Page",
       "presets": {
