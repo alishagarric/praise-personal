@@ -1315,7 +1315,19 @@
             "label_4": "4th Theme",
             "label_5": "5th Theme"
           },
-          "label": "Theme"
+          "label": "Theme",
+          "info": "Theme used for the right side of the footer."
+        },
+        "accent_theme": {
+          "options": {
+          "label_1": "Primary Theme",
+          "label_2": "2nd Theme",
+          "label_3": "3rd Theme",
+          "label_4": "4th Theme",
+          "label_5": "5th Theme"
+          },
+          "label": "Accent Theme",
+          "info": "Theme used for the left side of the footer."
         }
       }
     },
