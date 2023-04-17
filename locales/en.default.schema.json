@@ -1,5 +1,53 @@
 {
   "settings_schema": {
+    "cart": {
+      "name": "Cart",
+      "settings": {
+        "header": {
+          "content": "Text Content"
+        },
+        "heading_size": {
+          "options": {
+            "label_1": "X-Large",
+            "label_2": "Large",
+            "label_3": "Medium",
+            "label_4": "Small"
+          },
+          "label": "Heading Size"
+        },
+        "alt_heading": {
+          "label": "Use body font instead of heading font for heading"
+        },
+        "header_2": {
+          "content": "Cart Item Settings"
+        },
+        "crop_shape": {
+          "options": {
+            "label_1": "No Crop",
+            "label_2": "Square",
+            "label_3": "Rounded Square",
+            "label_4": "Circle",
+            "label_5": "Portrait",
+            "label_6": "Rounded Portrait",
+            "label_7": "Semicircle Portrait",
+            "label_8": "Landscape",
+            "label_9": "Rounded Landscape",
+            "label_10": "Semicircle Landscape",
+            "label_11": "Semicircle Arch"
+          },
+          "label": "Item Image Crop Shape"
+        },
+        "show_vendor": {
+          "label": "Show vendor"
+        },
+        "header_4": {
+          "content": "General"
+        },
+        "show_textarea": {
+          "label": "Show special instructions"
+        }
+      }
+    },
     "social_media": {
       "name": "Social media",
       "settings": {
@@ -118,7 +166,7 @@
         "paragraph": {
           "content": "Results can be of type 'page', 'product' or 'article'. Each setting below can only applies to each as applicable"
         },
-        "show_description":{
+        "show_description": {
           "label": "Show description"
         },
         "quick_add": {
@@ -179,7 +227,7 @@
           "label": "Bottom Spacing"
         }
       }
-     },
+    },
     "main-product": {
       "name": "Product information",
       "blocks": {
@@ -1173,43 +1221,6 @@
     "main-cart": {
       "name": "Main cart",
       "settings": {
-        "header": {
-          "content": "Text Content"
-        },
-        "heading_size": {
-          "options": {
-            "label_1": "X-Large",
-            "label_2": "Large",
-            "label_3": "Medium",
-            "label_4": "Small"
-          },
-          "label": "Heading Size"
-        },
-        "alt_heading": {
-          "label": "Use body font instead of heading font for heading"
-        },
-        "header_2": {
-          "content": "Cart Item Settings"
-        },
-         "crop_shape": {
-          "options": {
-            "label_1": "No Crop",
-            "label_2": "Square",
-            "label_3": "Rounded Square",
-            "label_4": "Circle",
-            "label_5": "Portrait",
-            "label_6": "Rounded Portrait",
-            "label_7": "Semicircle Portrait",
-            "label_8": "Landscape",
-            "label_9": "Rounded Landscape",
-            "label_10": "Semicircle Landscape",
-            "label_11": "Semicircle Arch"
-          },
-          "label": "Item Image Crop Shape"
-        },
-        "show_vendor": {
-          "label": "Show vendor"
-        },
         "header_3": {
           "content": "Cart Recommendations"
         },
@@ -1221,12 +1232,6 @@
         },
         "recommendations_limit": {
           "label": "Limit"
-        },
-        "header_4": {
-          "content": "General"
-        },
-        "show_textarea": {
-          "label": "Show special instructions"
         },
         "header_5": {
           "content": "Section"
@@ -1345,8 +1350,8 @@
           "label": "Product Image Crop Shape"
         },
         "header_3": {
-        "type": "header",
-        "content": "Section"
+          "type": "header",
+          "content": "Section"
         },
         "theme": {
           "options": {
@@ -1358,7 +1363,7 @@
           },
           "label": "Theme"
         },
-         "top_spacing": {
+        "top_spacing": {
           "label": "Top Spacing"
         },
         "bottom_spacing": {
@@ -1366,7 +1371,7 @@
         }
       },
       "blocks": {
-        "promotion":{
+        "promotion": {
           "name": "Featured promotion",
           "settings": {
             "header": {
@@ -1446,7 +1451,7 @@
             }
           }
         }
-      }, 
+      },
       "presets": {
         "name": "Main collection grid"
       }
@@ -3259,8 +3264,8 @@
                 "label_2": "Basic Text",
                 "label_3": "Large Text"
               },
-            "label": "Description Size"
-          }
+              "label": "Description Size"
+            }
           }
         },
         "button": {
@@ -3873,7 +3878,7 @@
         "text": {
           "label": "Description"
         },
-        "alt_heading":{
+        "alt_heading": {
           "label": "Use body font instead of heading font for heading"
         },
         "options": {
