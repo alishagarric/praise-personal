@@ -60,7 +60,6 @@
     content: "";
     width: var(--expandableContentIconWidth);
     height: 1px;
-    background: RGB(var(--color-text));
     position: absolute;
     right: 0;
     top: 50%; }
@@ -101,7 +100,6 @@
     .disclosure.__style-dropdown-button .disclosure__summary span, .disclosure.__style-blank-button .disclosure__summary span {
       margin: 0; }
     .disclosure.__style-dropdown-button .disclosure__summary:before, .disclosure.__style-dropdown-button .disclosure__summary:after, .disclosure.__style-blank-button .disclosure__summary:before, .disclosure.__style-blank-button .disclosure__summary:after {
-      background: RGB(var(--color-foreground-text));
       right: var(--expandableContentIconWidth); }
 
 /*# sourceMappingURL=disclosure.css.map */

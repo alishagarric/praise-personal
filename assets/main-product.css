@@ -83,7 +83,8 @@
         cursor: auto; }
     .main-product__media:not(.__layout-stacked) .main-product__media__dots__prev, .main-product__media:not(.__layout-stacked) .main-product__media__dots__next {
       background: transparent;
-      grid-row: 1/calc(var(--dotsRows) + 1); }
+      grid-row: 1/calc(var(--dotsRows) + 1);
+      border: none; }
       .main-product__media:not(.__layout-stacked) .main-product__media__dots__prev svg *, .main-product__media:not(.__layout-stacked) .main-product__media__dots__next svg * {
         fill: RGB(var(--color-text)); }
     .main-product__media:not(.__layout-stacked) .main-product__media__dots__prev {

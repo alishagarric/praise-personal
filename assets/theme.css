@@ -806,14 +806,14 @@ form:not(.__no-form-styles) ::placeholder,
     margin-bottom: 0.5rem !important; }
     .form-styles label:is(p) {
       max-width: 400px; }
-  .form-styles button:not(.__with-underline) {
+  .form-styles button:not(.__style-underline) {
     margin: 2rem auto 0 auto;
     width: 100%;
     justify-content: center;
     max-width: 350px; }
-    .form-styles button:not(.__with-underline) + button {
+    .form-styles button:not(.__style-underline) + button {
       margin-top: 1rem; }
-  .form-styles button.__with-underline {
+  .form-styles button.__style-underline {
     align-self: center; }
   .form-styles.__hide-labels-true label {
     display: none; }
@@ -834,7 +834,6 @@ input[type="submit"] {
   display: flex;
   width: fit-content;
   text-transform: var(--btnTextTransform);
-  border: none;
   text-align: center;
   text-decoration: none;
   cursor: pointer;
@@ -852,6 +851,18 @@ input[type="submit"] {
   .shopify-payment-button__button button svg *,
   input[type="submit"] svg * {
     fill: RGB(var(--color-foreground-text)); }
+  .btn:before, .btn:after,
+  .button:before,
+  .button:after,
+  button:before,
+  button:after,
+  .shopify-payment-button__button--unbranded:before,
+  .shopify-payment-button__button--unbranded:after,
+  .shopify-payment-button__button button:before,
+  .shopify-payment-button__button button:after,
+  input[type="submit"]:before,
+  input[type="submit"]:after {
+    background: RGB(var(--color-foreground-text)); }
   .btn:hover:not(:disabled):not([aria-disabled="true"]),
   .button:hover:not(:disabled):not([aria-disabled="true"]),
   button:hover:not(:disabled):not([aria-disabled="true"]),
@@ -868,46 +879,81 @@ input[type="submit"] {
     .shopify-payment-button__button button:hover:not(:disabled):not([aria-disabled="true"]) svg *,
     input[type="submit"]:hover:not(:disabled):not([aria-disabled="true"]) svg * {
       fill: RGB(var(--color-foreground)); }
-  .btn.__with-border,
-  .button.__with-border,
-  button.__with-border,
-  .shopify-payment-button__button--unbranded.__with-border,
-  .shopify-payment-button__button button.__with-border,
-  input[type="submit"].__with-border {
-    background: none;
-    border: 1px solid RGB(var(--color-text));
-    color: RGB(var(--color-text));
-    width: fit-content; }
-    .btn.__with-border:hover:not(:disabled):not([aria-disabled="true"]),
-    .button.__with-border:hover:not(:disabled):not([aria-disabled="true"]),
-    button.__with-border:hover:not(:disabled):not([aria-disabled="true"]),
-    .shopify-payment-button__button--unbranded.__with-border:hover:not(:disabled):not([aria-disabled="true"]),
-    .shopify-payment-button__button button.__with-border:hover:not(:disabled):not([aria-disabled="true"]),
-    input[type="submit"].__with-border:hover:not(:disabled):not([aria-disabled="true"]) {
-      background: RGB(var(--color-foreground));
-      color: RGB(var(--color-foreground-text)); }
-      .btn.__with-border:hover:not(:disabled):not([aria-disabled="true"]) svg,
-      .button.__with-border:hover:not(:disabled):not([aria-disabled="true"]) svg,
-      button.__with-border:hover:not(:disabled):not([aria-disabled="true"]) svg,
-      .shopify-payment-button__button--unbranded.__with-border:hover:not(:disabled):not([aria-disabled="true"]) svg,
-      .shopify-payment-button__button button.__with-border:hover:not(:disabled):not([aria-disabled="true"]) svg,
-      input[type="submit"].__with-border:hover:not(:disabled):not([aria-disabled="true"]) svg {
-        stroke: RGB(var(--color-foreground-text)); }
-    .btn.__with-border svg,
-    .button.__with-border svg,
-    button.__with-border svg,
-    .shopify-payment-button__button--unbranded.__with-border svg,
-    .shopify-payment-button__button button.__with-border svg,
-    input[type="submit"].__with-border svg {
-      stroke: RGB(var(--color-text));
-      width: calc(var(--btnHeight) / 3);
-      margin-left: calc(var(--btnHeight) / 4); }
-  .btn.__with-underline,
-  .button.__with-underline,
-  button.__with-underline,
-  .shopify-payment-button__button--unbranded.__with-underline,
-  .shopify-payment-button__button button.__with-underline,
-  input[type="submit"].__with-underline {
+    .btn:hover:not(:disabled):not([aria-disabled="true"]):before, .btn:hover:not(:disabled):not([aria-disabled="true"]):after,
+    .button:hover:not(:disabled):not([aria-disabled="true"]):before,
+    .button:hover:not(:disabled):not([aria-disabled="true"]):after,
+    button:hover:not(:disabled):not([aria-disabled="true"]):before,
+    button:hover:not(:disabled):not([aria-disabled="true"]):after,
+    .shopify-payment-button__button--unbranded:hover:not(:disabled):not([aria-disabled="true"]):before,
+    .shopify-payment-button__button--unbranded:hover:not(:disabled):not([aria-disabled="true"]):after,
+    .shopify-payment-button__button button:hover:not(:disabled):not([aria-disabled="true"]):before,
+    .shopify-payment-button__button button:hover:not(:disabled):not([aria-disabled="true"]):after,
+    input[type="submit"]:hover:not(:disabled):not([aria-disabled="true"]):before,
+    input[type="submit"]:hover:not(:disabled):not([aria-disabled="true"]):after {
+      background: RGB(var(--color-foreground)); }
+  .btn.__style-secondary,
+  .button.__style-secondary,
+  button.__style-secondary,
+  .shopify-payment-button__button--unbranded.__style-secondary,
+  .shopify-payment-button__button button.__style-secondary,
+  input[type="submit"].__style-secondary {
+    background: RGBA(var(--color-text)/0.05);
+    border: 1px solid transparent;
+    color: RGB(var(--color-text)); }
+    .btn.__style-secondary svg *,
+    .button.__style-secondary svg *,
+    button.__style-secondary svg *,
+    .shopify-payment-button__button--unbranded.__style-secondary svg *,
+    .shopify-payment-button__button button.__style-secondary svg *,
+    input[type="submit"].__style-secondary svg * {
+      fill: RGB(var(--color-text)); }
+    .btn.__style-secondary:before, .btn.__style-secondary:after,
+    .button.__style-secondary:before,
+    .button.__style-secondary:after,
+    button.__style-secondary:before,
+    button.__style-secondary:after,
+    .shopify-payment-button__button--unbranded.__style-secondary:before,
+    .shopify-payment-button__button--unbranded.__style-secondary:after,
+    .shopify-payment-button__button button.__style-secondary:before,
+    .shopify-payment-button__button button.__style-secondary:after,
+    input[type="submit"].__style-secondary:before,
+    input[type="submit"].__style-secondary:after {
+      background: RGB(var(--color-text)); }
+    .btn.__style-secondary:hover:not(:disabled):not([aria-disabled="true"]),
+    .button.__style-secondary:hover:not(:disabled):not([aria-disabled="true"]),
+    button.__style-secondary:hover:not(:disabled):not([aria-disabled="true"]),
+    .shopify-payment-button__button--unbranded.__style-secondary:hover:not(:disabled):not([aria-disabled="true"]),
+    .shopify-payment-button__button button.__style-secondary:hover:not(:disabled):not([aria-disabled="true"]),
+    input[type="submit"].__style-secondary:hover:not(:disabled):not([aria-disabled="true"]) {
+      background: RGBA(var(--color-text)/0.05);
+      color: RGB(var(--color-text));
+      border: 1px solid transparent;
+      opacity: 0.5; }
+      .btn.__style-secondary:hover:not(:disabled):not([aria-disabled="true"]) svg *,
+      .button.__style-secondary:hover:not(:disabled):not([aria-disabled="true"]) svg *,
+      button.__style-secondary:hover:not(:disabled):not([aria-disabled="true"]) svg *,
+      .shopify-payment-button__button--unbranded.__style-secondary:hover:not(:disabled):not([aria-disabled="true"]) svg *,
+      .shopify-payment-button__button button.__style-secondary:hover:not(:disabled):not([aria-disabled="true"]) svg *,
+      input[type="submit"].__style-secondary:hover:not(:disabled):not([aria-disabled="true"]) svg * {
+        fill: RGB(var(--color-text)); }
+      .btn.__style-secondary:hover:not(:disabled):not([aria-disabled="true"]):before, .btn.__style-secondary:hover:not(:disabled):not([aria-disabled="true"]):after,
+      .button.__style-secondary:hover:not(:disabled):not([aria-disabled="true"]):before,
+      .button.__style-secondary:hover:not(:disabled):not([aria-disabled="true"]):after,
+      button.__style-secondary:hover:not(:disabled):not([aria-disabled="true"]):before,
+      button.__style-secondary:hover:not(:disabled):not([aria-disabled="true"]):after,
+      .shopify-payment-button__button--unbranded.__style-secondary:hover:not(:disabled):not([aria-disabled="true"]):before,
+      .shopify-payment-button__button--unbranded.__style-secondary:hover:not(:disabled):not([aria-disabled="true"]):after,
+      .shopify-payment-button__button button.__style-secondary:hover:not(:disabled):not([aria-disabled="true"]):before,
+      .shopify-payment-button__button button.__style-secondary:hover:not(:disabled):not([aria-disabled="true"]):after,
+      input[type="submit"].__style-secondary:hover:not(:disabled):not([aria-disabled="true"]):before,
+      input[type="submit"].__style-secondary:hover:not(:disabled):not([aria-disabled="true"]):after {
+        background: RGB(var(--color-text)); }
+  .btn.__style-underline,
+  .button.__style-underline,
+  button.__style-underline,
+  .shopify-payment-button__button--unbranded.__style-underline,
+  .shopify-payment-button__button button.__style-underline,
+  input[type="submit"].__style-underline {
     background: none;
     color: RGB(var(--color-text));
     border: none;
@@ -918,12 +964,12 @@ input[type="submit"] {
     padding: 0 0 0.25rem 0;
     margin-top: 0;
     margin-bottom: 0; }
-    .btn.__with-underline:after,
-    .button.__with-underline:after,
-    button.__with-underline:after,
-    .shopify-payment-button__button--unbranded.__with-underline:after,
-    .shopify-payment-button__button button.__with-underline:after,
-    input[type="submit"].__with-underline:after {
+    .btn.__style-underline:after,
+    .button.__style-underline:after,
+    button.__style-underline:after,
+    .shopify-payment-button__button--unbranded.__style-underline:after,
+    .shopify-payment-button__button button.__style-underline:after,
+    input[type="submit"].__style-underline:after {
       content: "";
       position: absolute;
       bottom: 0;
@@ -935,21 +981,21 @@ input[type="submit"] {
       transform: scaleX(1);
       transform-origin: center left;
       transition: all 0.25s ease; }
-    .btn.__with-underline:hover:not(:disabled):not([aria-disabled="true"]),
-    .button.__with-underline:hover:not(:disabled):not([aria-disabled="true"]),
-    button.__with-underline:hover:not(:disabled):not([aria-disabled="true"]),
-    .shopify-payment-button__button--unbranded.__with-underline:hover:not(:disabled):not([aria-disabled="true"]),
-    .shopify-payment-button__button button.__with-underline:hover:not(:disabled):not([aria-disabled="true"]),
-    input[type="submit"].__with-underline:hover:not(:disabled):not([aria-disabled="true"]) {
+    .btn.__style-underline:hover:not(:disabled):not([aria-disabled="true"]),
+    .button.__style-underline:hover:not(:disabled):not([aria-disabled="true"]),
+    button.__style-underline:hover:not(:disabled):not([aria-disabled="true"]),
+    .shopify-payment-button__button--unbranded.__style-underline:hover:not(:disabled):not([aria-disabled="true"]),
+    .shopify-payment-button__button button.__style-underline:hover:not(:disabled):not([aria-disabled="true"]),
+    input[type="submit"].__style-underline:hover:not(:disabled):not([aria-disabled="true"]) {
       border: none;
       color: RGB(var(--color-text));
       background: transparent; }
-      .btn.__with-underline:hover:not(:disabled):not([aria-disabled="true"]):after,
-      .button.__with-underline:hover:not(:disabled):not([aria-disabled="true"]):after,
-      button.__with-underline:hover:not(:disabled):not([aria-disabled="true"]):after,
-      .shopify-payment-button__button--unbranded.__with-underline:hover:not(:disabled):not([aria-disabled="true"]):after,
-      .shopify-payment-button__button button.__with-underline:hover:not(:disabled):not([aria-disabled="true"]):after,
-      input[type="submit"].__with-underline:hover:not(:disabled):not([aria-disabled="true"]):after {
+      .btn.__style-underline:hover:not(:disabled):not([aria-disabled="true"]):after,
+      .button.__style-underline:hover:not(:disabled):not([aria-disabled="true"]):after,
+      button.__style-underline:hover:not(:disabled):not([aria-disabled="true"]):after,
+      .shopify-payment-button__button--unbranded.__style-underline:hover:not(:disabled):not([aria-disabled="true"]):after,
+      .shopify-payment-button__button button.__style-underline:hover:not(:disabled):not([aria-disabled="true"]):after,
+      input[type="submit"].__style-underline:hover:not(:disabled):not([aria-disabled="true"]):after {
         transform: scaleX(0); }
   .btn:disabled, .btn:is([disabled], [aria-disabled="true"]), .btn[aria-disabled="true"],
   .button:disabled,

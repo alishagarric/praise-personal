@@ -43,7 +43,7 @@
       <p class="quick-product__variants p-sm">{{ quick_product.selected_or_first_available_variant.options | join: " - "}}</p>
     {% endif %}
 
-    {% render 'product-form' class: "quick-product__btn", product: quick_product, product_form_id: quick_product.id, hide_dynamic_buttons: true %}
+    {% render 'product-form' class: "quick-product__btn", product: quick_product, product_form_id: quick_product.id, hide_dynamic_buttons: true, button_style: "secondary" %}
   </a>
 
 {% endif %}

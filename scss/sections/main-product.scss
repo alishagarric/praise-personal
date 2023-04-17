@@ -163,6 +163,7 @@
             &__next {
               background: transparent;
               grid-row: 1 / calc(var(--dotsRows) + 1);
+              border: none;
 
               svg * {
                 fill: RGB(var(--color-text));

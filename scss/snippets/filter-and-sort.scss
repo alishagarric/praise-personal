@@ -68,17 +68,7 @@
   }
 
   &__sort {
-    --color-foreground: var(--color-background);
-    --color-foreground-text: var(--color-text);
     align-self: flex-start;
-
-    &__details {
-      .disclosure {
-        &__summary {
-          border: 1px solid RGB(var(--color-foreground-text)) !important;
-        }
-      }
-    }
   }
 
   noscript {

@@ -373,7 +373,7 @@ form:not(.__no-form-styles),
     margin-bottom: 0.5rem !important;
   }
 
-  button:not(.__with-underline) {
+  button:not(.__style-underline) {
     margin: 2rem auto 0 auto;
     width: 100%;
     justify-content: center;
@@ -384,7 +384,7 @@ form:not(.__no-form-styles),
     }
   }
 
-  button.__with-underline {
+  button.__style-underline {
     align-self: center;
   }
 
@@ -414,7 +414,6 @@ input[type="submit"] {
   display: flex;
   width: fit-content;
   text-transform: var(--btnTextTransform);
-  border: none;
   text-align: center;
   text-decoration: none;
   cursor: pointer;
@@ -430,6 +429,11 @@ input[type="submit"] {
     fill: RGB(var(--color-foreground-text));
   }
 
+  &:before,
+  &:after {
+    background: RGB(var(--color-foreground-text));
+  }
+
   &:hover:not(:disabled):not([aria-disabled="true"]) {
     background: RGB(var(--color-foreground-text));
     color: RGB(var(--color-foreground));
@@ -438,31 +442,45 @@ input[type="submit"] {
     svg * {
       fill: RGB(var(--color-foreground));
     }
+
+    &:before,
+    &:after {
+      background: RGB(var(--color-foreground));
+    }
   }
 
-  &.__with-border {
-    background: none;
-    border: 1px solid RGB(var(--color-text));
+  &.__style-secondary {
+    background: RGBA(var(--color-text) / 0.05);
+    border: 1px solid transparent;
     color: RGB(var(--color-text));
-    width: fit-content;
+
+    svg * {
+      fill: RGB(var(--color-text));
+    }
+
+    &:before,
+    &:after {
+      background: RGB(var(--color-text));
+    }
 
     &:hover:not(:disabled):not([aria-disabled="true"]) {
-      background: RGB(var(--color-foreground));
-      color: RGB(var(--color-foreground-text));
+      background: RGBA(var(--color-text) / 0.05);
+      color: RGB(var(--color-text));
+      border: 1px solid transparent;
+      opacity: 0.5;
 
-      svg {
-        stroke: RGB(var(--color-foreground-text));
+      svg * {
+        fill: RGB(var(--color-text));
       }
-    }
 
-    svg {
-      stroke: RGB(var(--color-text));
-      width: calc(var(--btnHeight) / 3);
-      margin-left: calc(var(--btnHeight) / 4);
+      &:before,
+      &:after {
+        background: RGB(var(--color-text));
+      }
     }
   }
 
-  &.__with-underline {
+  &.__style-underline {
     background: none;
     color: RGB(var(--color-text));
     border: none;

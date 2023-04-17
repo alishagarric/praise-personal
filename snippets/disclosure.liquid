@@ -19,6 +19,8 @@
 {% endcomment %}   
 
 {{ 'disclosure.css' | asset_url | stylesheet_tag }}
+{% assign style_escaped = style | split: ' ' | first %}
+{% assign style_prepends = style | remove: style_escaped %}
 
 {% assign open = open | default: false %}
 {% assign article_text = article_text | default: false %}
@@ -26,7 +28,7 @@
 
 {% if title and id and text or page %}
   <details class="disclosure {{ class }} __style-{{ style }}" {% if open %}open{% endif %} style="{{ css_vars }}">
-    <summary class="disclosure__summary {% if style == "dropdown-button" or style == "blank-button" %}btn noselect{% endif %}" aria-label="{{ title }}" role="button" aria-expanded="true" aria-controls="dropdown-{{ id }}">
+    <summary class="disclosure__summary {{ style_prepends }} {% if style_escaped == "dropdown-button" or style_escaped == "blank-button" %}btn noselect {% endif %}" aria-label="{{ title }}" role="button" aria-expanded="true" aria-controls="dropdown-{{ id }}">
       <span class="p-sm">{{ title }}</span>
     </summary>
     <div id="dropdown-{{ id }}" class="disclosure__content {% if article_text %}__article-txt-p-sm{% endif %} {% if location == 'bottom-edge' %}__content-top{% endif %}">

@@ -107,7 +107,6 @@
             content: "";
             width: var(--expandableContentIconWidth);
             height: 1px;
-            background: RGB(var(--color-text));
             position: absolute;
             right: 0;
             top: 50%;
@@ -203,7 +202,6 @@
 
           &:before,
           &:after {
-            background: RGB(var(--color-foreground-text));
             right: var(--expandableContentIconWidth);
           }
         }

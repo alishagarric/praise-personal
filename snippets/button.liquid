@@ -6,7 +6,7 @@
   - button_link: {Url}
   - button_color: {String}
   - class: {String}
-  - style: {string} Accepts nothing (default) "border", or "underline"
+  - style: {string} Accepts nothing (default) "secondary", or "underline"
 
 
   Usage:
@@ -19,14 +19,14 @@
   {% if button_link != blank %}
     <a 
       href="{{ button_link }}"
-      class="{% if class %}{{ class }}__btn{% endif %} btn __btn-clr-{{ button_color }} {% if style %}__with-{{ style }}{% endif %}"
+      class="{% if class %}{{ class }}__btn{% endif %} btn __btn-clr-{{ button_color }} {% if style %}__style-{{ style }}{% endif %}"
       {{ block.shopify_attributes }}
     >
       {{- button_label | escape -}}
     </a>
   {% else %}
     <span
-      class="{% if class %}{{ class }}__btn{% endif %} btn __btn-clr-{{ button_color }} {% if style %}__with-{{ style }}{% endif %}"
+      class="{% if class %}{{ class }}__btn{% endif %} btn __btn-clr-{{ button_color }} {% if style %}__style-{{ style }}{% endif %}"
       {{ block.shopify_attributes }}
     >
       {{- button_label | escape -}}
