@@ -660,6 +660,7 @@ class NumberInput extends HTMLElement {
     this.increment = this.querySelector(".increment");
     this.decrement = this.querySelector(".decrement");
     this.input = this.querySelector("input[type='number']");
+    this.min = this.input.getAttribute("min");
 
     if (!this.increment || !this.decrement || !this.input) return;
     this.increment.addEventListener(
@@ -676,7 +677,9 @@ class NumberInput extends HTMLElement {
     this.input.value = parseInt(this.input.value) + 1;
   }
   decreaseInputValue() {
-    this.input.value = parseInt(this.input.value) - 1;
+    if (this.min == undefined || parseInt(this.input.value) != this.min) {
+      this.input.value = parseInt(this.input.value) - 1;
+    }
   }
 }
 customElements.define("number-input", NumberInput);
