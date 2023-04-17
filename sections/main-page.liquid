@@ -6,7 +6,12 @@
 {% endstyle %}
 
 <div id="Main-page-{{ section.id }}" class="main-page __theme-{{ section.settings.theme }}">
-  {% render 'heading', heading: page.title, heading_size: section.settings.heading_size, alt_heading: section.settings.alt_heading, heading_tag: 'h1' %}
+  {% render 'heading',
+    heading: page.title,
+    heading_size: section.settings.heading_size,
+    alt_heading: section.settings.alt_heading,
+    heading_tag: 'h1'
+  %}
   {% if page.content != blank %}
     <div class="__article-txt-{{ section.settings.text_size }}">{{ page.content }}</div>
   {% endif %}
@@ -81,7 +86,7 @@
       "max": 100,
       "step": 10,
       "unit": "%",
-      "label": "t:sections.main-page.settings.top_spacing",
+      "label": "t:sections.main-page.settings.top_spacing.label",
       "default": 50
     },
     {
@@ -91,7 +96,7 @@
       "max": 100,
       "step": 10,
       "unit": "%",
-      "label": "t:sections.main-page.settings.bottom_spacing",
+      "label": "t:sections.main-page.settings.bottom_spacing.label",
       "default": 50
     },
     {

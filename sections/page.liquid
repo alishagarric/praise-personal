@@ -9,7 +9,11 @@
 {% assign page_title = section.settings.page.title | default: default_title %}
 
 <div id="Page-output-{{ section.id }}" class="page-output __theme-{{ section.settings.theme }}">
-  {% render 'heading', heading: page_title, heading_size: section.settings.heading_size, alt_heading: section.settings.alt_heading %}
+  {% render 'heading',
+    heading: page_title,
+    heading_size: section.settings.heading_size,
+    alt_heading: section.settings.alt_heading
+  %}
 
   <div class="__article-txt-{{ section.settings.text_size }}">
     {%- if section.settings.page != blank -%}

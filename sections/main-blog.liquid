@@ -21,47 +21,49 @@
   }
 {% endstyle %}
 
-
 {%- paginate blog.articles by section.settings.posts_per_page -%}
-
-    <div id="Main-blog-{{ section.id }}" class="main-blog __theme-{{ section_theme }}">
-
+  <div id="Main-blog-{{ section.id }}" class="main-blog __theme-{{ section_theme }}">
     {%- if section.settings.blog_show_tags -%}
       <aside>
-          <ul class="main-blog__tags">
-            {% if section.settings.tags_label %}
-              <li class="p-sm">{{ section.settings.tags_label }}</li>
-            {% endif %}
+        <ul class="main-blog__tags">
+          {% if section.settings.tags_label %}
+            <li class="p-sm">{{ section.settings.tags_label }}</li>
+          {% endif %}
 
-            {%- for tag in blog.all_tags -%}
-              <li>
-                {% capture button_link %} {{ blog.url }}/tagged/{{ tag | handle }} {% endcapture %}
-                {% render 'button' button_link: button_link, button_label: tag, button_color: section.settings.tag_color, class: "main-blog__tags" %}
-              </li>
-            {%- endfor -%}
-          </ul>
+          {%- for tag in blog.all_tags -%}
+            <li>
+              {% capture button_link %} {{ blog.url }}/tagged/{{ tag | handle }} {% endcapture %}
+              {% render 'button',
+                button_link: button_link,
+                button_label: tag,
+                button_color: section.settings.tag_color,
+                class: 'main-blog__tags'
+              %}
+            </li>
+          {%- endfor -%}
+        </ul>
       </aside>
     {%- endif -%}
 
     <ul class="main-blog__articles list-unstyled grid" role="list">
       {%- for article in blog.articles -%}
-          <li class="main-blog__articles__article-container">
-            {% render 'article-card',
-              class: 'main-blog__card',
-              crop: crop_shape,
-              assc_product_crop_shape: assc_product_crop_shape,
-              button_label: button_label,
-              alignment: alignment,
-              show_description: show_description,
-              show_author: show_author,
-              show_date: show_date,
-              alt_heading: alt_heading,
-              article: article,
-              img_width: 1280,
-              img_widths: '1280, 900, 700, 500',
-              img_sizes: '(max-width: 676px) 100vw, (max-width: 1024px) 45vw, 25vw'
-            %}
-          </li>
+        <li class="main-blog__articles__article-container">
+          {% render 'article-card',
+            class: 'main-blog__card',
+            crop: crop_shape,
+            assc_product_crop_shape: assc_product_crop_shape,
+            button_label: button_label,
+            alignment: alignment,
+            show_description: show_description,
+            show_author: show_author,
+            show_date: show_date,
+            alt_heading: alt_heading,
+            article: article,
+            img_width: 1280,
+            img_widths: '1280, 900, 700, 500',
+            img_sizes: '(max-width: 676px) 100vw, (max-width: 1024px) 45vw, 25vw'
+          %}
+        </li>
       {%- endfor -%}
     </ul>
     {%- if paginate.pages > 1 -%}
@@ -78,7 +80,7 @@
   "settings": [
     {
       "type": "header",
-      "content": "General"
+      "content": "t:sections.main-blog.settings.header.content"
     },
     {
       "type": "range",
@@ -92,70 +94,70 @@
     {
       "type": "checkbox",
       "id": "blog_show_tags",
-      "label": "Show blog tags"
+      "label": "t:sections.main-blog.settings.blog_show_tags.label"
     },
     {
       "type": "text",
       "id": "tags_label",
-      "label": "Tags Label",
+      "label": "t:sections.main-blog.settings.tags_label.label",
       "default": "Browse Tags"
     },
     {
       "type": "select",
       "id": "tag_color",
-      "label": "Tag Color",
+      "label": "t:sections.main-blog.settings.tag_color.label",
       "default": "default",
       "options": [
         {
           "value": "default",
-          "label": "Default"
+          "label": "t:sections.main-blog.settings.tag_color.options.label_0"
         },
         {
           "value": "primary",
-          "label": "Primary Theme"
+          "label": "t:sections.main-blog.settings.tag_color.options.label_1"
         },
         {
           "value": "2",
-          "label": "2nd Theme"
+          "label": "t:sections.main-blog.settings.tag_color.options.label_2"
         },
         {
           "value": "3",
-          "label": "3rd Theme"
+          "label": "t:sections.main-blog.settings.tag_color.options.label_3"
         },
         {
           "value": "4",
-          "label": "4th Theme"
+          "label": "t:sections.main-blog.settings.tag_color.options.label_4"
         },
         {
           "value": "5",
-          "label": "5th Theme"
+          "label": "t:sections.main-blog.settings.tag_color.options.label_5"
         }
       ]
     },
     {
       "type": "header",
-      "content": "Blog and Article Cards"
+      "content": "t:sections.main-blog.settings.header_2.content"
     },
     {
       "type": "checkbox",
       "id": "alt_heading",
-      "label": "Use body font instead of heading font for article title"
+      "label": "t:sections.main-blog.settings.alt_heading.label"
     },
     {
       "type": "checkbox",
       "id": "show_date",
-      "label": "Show article date"
+      "label": "t:sections.main-blog.settings.show_date.label"
     },
     {
       "type": "checkbox",
       "id": "show_description",
-      "label": "Show article excerpt",
-      "info": "Shows excerpt if it exists, content if it doesn't."
+      "label": "t:sections.main-blog.settings.show_description.label",
+      "info": "t:sections.main-blog.settings.show_description.info"
     },
     {
       "type": "checkbox",
       "id": "show_author",
-      "label": "Show article author"
+      "label": "t:sections.main-blog.settings.show_author.label"
     },
     {
       "type": "select",
@@ -163,62 +165,62 @@
       "options": [
         {
           "value": "not-visible",
-          "label": "Not Visible"
+          "label": "t:sections.main-blog.settings.assc_product_crop_shape.options.label_1"
         },
         {
           "value": "default",
-          "label": "No Crop"
+          "label": "t:sections.main-blog.settings.assc_product_crop_shape.options.label_2"
         },
         {
           "value": "square",
-          "label": "Square"
+          "label": "t:sections.main-blog.settings.assc_product_crop_shape.options.label_3"
         },
         {
           "value": "rounded-square",
-          "label": "Rounded Square"
+          "label": "t:sections.main-blog.settings.assc_product_crop_shape.options.label_4"
         },
         {
           "value": "circle",
-          "label": "Circle"
+          "label": "t:sections.main-blog.settings.assc_product_crop_shape.options.label_5"
         },
         {
           "value": "portrait",
-          "label": "Portrait"
+          "label": "t:sections.main-blog.settings.assc_product_crop_shape.options.label_6"
         },
         {
           "value": "rounded-portrait",
-          "label": "Rounded Portrait"
+          "label": "t:sections.main-blog.settings.assc_product_crop_shape.options.label_7"
         },
         {
           "value": "semicircle-portrait",
-          "label": "Semicircle Portrait"
+          "label": "t:sections.main-blog.settings.assc_product_crop_shape.options.label_8"
         },
         {
           "value": "landscape",
-          "label": "Landscape"
+          "label": "t:sections.main-blog.settings.assc_product_crop_shape.options.label_9"
         },
         {
           "value": "rounded-landscape",
-          "label": "Rounded Landscape"
+          "label": "t:sections.main-blog.settings.assc_product_crop_shape.options.label_10"
         },
         {
           "value": "semicircle-landscape",
-          "label": "Semicircle Landscape"
+          "label": "t:sections.main-blog.settings.assc_product_crop_shape.options.label_11"
         },
         {
           "value": "arch",
-          "label": "Semicircle Arch"
+          "label": "t:sections.main-blog.settings.assc_product_crop_shape.options.label_12"
         }
       ],
       "default": "not-visible",
-      "label": "Associated Product Image Crop Shape",
-      "info": "Relies on the addition of article metafields. TODO: Add link with info, this is how starter did it: Add a <a href=https://praise-store-theme.myshopify.com/admin/metafields/product/create>article subtitle metafield to display.</a>"
+      "label": "t:sections.main-blog.settings.assc_product_crop_shape.label",
+      "info": "t:sections.main-blog.settings.assc_product_crop_shape.info"
     },
     {
       "type": "text",
       "id": "button_label",
-      "label": "Article Button Text",
-      "info": "Displays an underlined button if included, no button if not."
+      "label": "t:sections.main-blog.settings.button_label.label",
+      "info": "t:sections.main-blog.settings.button_label.info"
     },
     {
       "type": "select",
@@ -226,75 +228,75 @@
       "options": [
         {
           "value": "default",
-          "label": "No Crop"
+          "label": "t:sections.main-blog.settings.crop_shape.options.label_1"
         },
         {
           "value": "square",
-          "label": "Square"
+          "label": "t:sections.main-blog.settings.crop_shape.options.label_2"
         },
         {
           "value": "rounded-square",
-          "label": "Rounded Square"
+          "label": "t:sections.main-blog.settings.crop_shape.options.label_3"
         },
         {
           "value": "circle",
-          "label": "Circle"
+          "label": "t:sections.main-blog.settings.crop_shape.options.label_4"
         },
         {
           "value": "portrait",
-          "label": "Portrait"
+          "label": "t:sections.main-blog.settings.crop_shape.options.label_5"
         },
         {
           "value": "rounded-portrait",
-          "label": "Rounded Portrait"
+          "label": "t:sections.main-blog.settings.crop_shape.options.label_6"
         },
         {
           "value": "semicircle-portrait",
-          "label": "Semicircle Portrait"
+          "label": "t:sections.main-blog.settings.crop_shape.options.label_7"
         },
         {
           "value": "landscape",
-          "label": "Landscape"
+          "label": "t:sections.main-blog.settings.crop_shape.options.label_8"
         },
         {
           "value": "rounded-landscape",
-          "label": "Rounded Landscape"
+          "label": "t:sections.main-blog.settings.crop_shape.options.label_9"
         },
         {
           "value": "semicircle-landscape",
-          "label": "Semicircle Landscape"
+          "label": "t:sections.main-blog.settings.crop_shape.options.label_10"
         },
         {
           "value": "arch",
-          "label": "Semicircle Arch"
+          "label": "t:sections.main-blog.settings.crop_shape.options.label_11"
         }
       ],
       "default": "default",
-      "label": "Product Image Crop Shape"
+      "label": "t:sections.main-blog.settings.crop_shape.label"
     },
     {
       "type": "radio",
       "id": "alignment",
-      "label": "Alignment",
+      "label": "t:sections.main-blog.settings.alignment.label",
       "options": [
         {
           "value": "left",
-          "label": "Left"
+          "label": "t:sections.main-blog.settings.alignment.options.label_1"
         },
         {
           "value": "center",
-          "label": "Center"
+          "label": "t:sections.main-blog.settings.alignment.options.label_2"
         },
         {
           "value": "right",
-          "label": "Right"
+          "label": "t:sections.main-blog.settings.alignment.options.label_3"
         }
       ],
       "default": "left"
     },
     {
       "type": "header",
-      "content": "Section"
+      "content": "t:sections.main-blog.settings.header_3.content"
     },
     {
       "type": "select",
@@ -302,27 +304,27 @@
       "options": [
         {
           "value": "primary",
-          "label": "Primary Theme"
+          "label": "t:sections.main-blog.settings.theme.options.label_1"
         },
         {
           "value": "2",
-          "label": "2nd Theme"
+          "label": "t:sections.main-blog.settings.theme.options.label_2"
         },
         {
           "value": "3",
-          "label": "3rd Theme"
+          "label": "t:sections.main-blog.settings.theme.options.label_3"
         },
         {
           "value": "4",
-          "label": "4th Theme"
+          "label": "t:sections.main-blog.settings.theme.options.label_4"
         },
         {
           "value": "5",
-          "label": "5th Theme"
+          "label": "t:sections.main-blog.settings.theme.options.label_5"
         }
       ],
       "default": "primary",
-      "label": "Theme"
+      "label": "t:sections.main-blog.settings.theme.label"
     },
     {
       "type": "range",
@@ -331,7 +333,7 @@
       "max": 100,
       "step": 10,
       "unit": "%",
-      "label": "Top Spacing",
+      "label": "t:sections.main-blog.settings.top_spacing.label",
       "default": 50
     },
     {
@@ -341,7 +343,7 @@
       "max": 100,
       "step": 10,
       "unit": "%",
-      "label": "Bottom Spacing",
+      "label": "t:sections.main-blog.settings.bottom_spacing.label",
       "default": 50
     }
   ]

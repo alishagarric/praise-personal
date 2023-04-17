@@ -1141,14 +1141,163 @@
     "main-addresses": {
       "name": "Addresses"
     },
-    "main-blog": {
-      "name": "Blog posts",
+    "main-blog-banner": {
       "settings": {
         "header": {
-          "content": "Blog post card"
+          "content": "Text Content"
+        },
+        "heading_size": {
+          "options": {
+            "label_1": "X-Large",
+            "label_2": "Large",
+            "label_3": "Medium",
+            "label_4": "Small"
+          },
+          "label": "Heading Size"
+        },
+        "alt_heading": {
+          "label": "Use body font instead of heading font for heading"
+        },
+        "alignment": {
+          "label": "Text Alignment",
+          "options": {
+            "label_1": "Left",
+            "label_2": "Center",
+            "label_3": "Right"
+          }
+        },
+        "header_2": {
+          "content": "Section"
+        },
+        "theme": {
+          "options": {
+            "label_1": "Primary Theme",
+            "label_2": "2nd Theme",
+            "label_3": "3rd Theme",
+            "label_4": "4th Theme",
+            "label_5": "5th Theme"
+          },
+          "label": "Theme"
+        },
+        "top_spacing": {
+          "label": "Top Section Spacing"
+        },
+        "bottom_spacing": {
+          "label": "Bottom Section Spacing"
+        }
+      },
+      "presets":{
+        "name": "Main blog banner"
+      }
+    },
+    "main-blog": {
+      "name": "Blog posts",
+      "presets": {
+        "name": "Blog posts"
+      },
+      "settings": {
+        "header": {
+          "content": "General"
         },
         "posts_per_page": {
           "label": "Number of posts per page"
+        },
+        "blog_show_tags": {
+          "label": "Show blog tags"
+        },
+        "tags_label": {
+          "label": "Tags Label"
+        },
+        "tag_color": {
+          "label": "Tag Color",
+          "options": {
+            "label_0": "Default",
+            "label_1": "Primary Theme",
+            "label_2": "2nd Theme",
+            "label_3": "3rd Theme",
+            "label_4": "4th Theme",
+            "label_5": "5th Theme"
+          }
+        },
+        "header_2": {
+          "content": "Blog and Article Cards"
+        },
+        "alt_heading": {
+          "label": "Use body font instead of heading font for article title"
+        },
+        "show_date": {
+          "label": "Show article date"
+        },
+        "show_description": {
+          "label": "Show article excerpt",
+          "info": "Shows excerpt if it exists, content if it doesn't."
+        },
+        "show_author": {
+          "label": "Show article author"
+        },
+        "assc_product_crop_shape": {
+          "options": {
+            "label_1": "No Crop",
+            "label_2": "Square",
+            "label_3": "Rounded Square",
+            "label_4": "Circle",
+            "label_5": "Portrait",
+            "label_6": "Rounded Portrait",
+            "label_7": "Semicircle Portrait",
+            "label_8": "Landscape",
+            "label_9": "Rounded Landscape",
+            "label_10": "Semicircle Landscape",
+            "label_11": "Semicircle Arch"
+          },
+          "label": "Associated Product Image Crop Shape",
+          "info": "Relies on the addition of article metafields. TODO: Add link with info, this is how starter did it: Add a <a href=https://praise-store-theme.myshopify.com/admin/metafields/product/create>article subtitle metafield to display.</a>"
+        },
+        "button_label": {
+          "label": "Article Button Text",
+          "info": "Displays an underlined button if included, no button if not."
+        },
+        "crop_shape": {
+          "options": {
+            "label_1": "No Crop",
+            "label_2": "Square",
+            "label_3": "Rounded Square",
+            "label_4": "Circle",
+            "label_5": "Portrait",
+            "label_6": "Rounded Portrait",
+            "label_7": "Semicircle Portrait",
+            "label_8": "Landscape",
+            "label_9": "Rounded Landscape",
+            "label_10": "Semicircle Landscape",
+            "label_11": "Semicircle Arch"
+          },
+          "label": "Item Image Crop Shape"
+        },
+        "alignment": {
+          "label": "Alignment",
+          "options": {
+            "label_1": "Left",
+            "label_2": "Center",
+            "label_3": "Right"
+          }
+        },
+        "header_3": {
+          "content": "Section"
+        },
+        "theme": {
+          "options": {
+            "label_1": "Primary Theme",
+            "label_2": "2nd Theme",
+            "label_3": "3rd Theme",
+            "label_4": "4th Theme",
+            "label_5": "5th Theme"
+          },
+          "label": "Theme"
+        },
+        "top_spacing": {
+          "label": "Top Section Spacing"
+        },
+        "bottom_spacing": {
+          "label": "Bottom Section Spacing"
         }
       }
     },
@@ -1214,7 +1363,19 @@
             "label_4": "4th Theme",
             "label_5": "5th Theme"
           },
-          "label": "Theme"
+          "label": "Theme",
+          "info": "Theme used for the right side of the footer."
+        },
+        "accent_theme": {
+          "options": {
+          "label_1": "Primary Theme",
+          "label_2": "2nd Theme",
+          "label_3": "3rd Theme",
+          "label_4": "4th Theme",
+          "label_5": "5th Theme"
+          },
+          "label": "Accent Theme",
+          "info": "Theme used for the left side of the footer."
         }
       }
     },
@@ -1287,7 +1448,7 @@
         }
       },
       "presets": {
-        "name": "Main Cart"
+        "name": "Main cart"
       }
     },
     "main-collection-grid": {
@@ -1465,8 +1626,8 @@
         "name": "Main page"
       },
       "settings": {
-        "heading_1": {
-          "label": "Text Content"
+        "header_1": {
+          "content": "Text Content"
         },
         "heading_size": {
           "options": {
@@ -1488,8 +1649,8 @@
           },
           "label": "Description Size"
         },
-        "heading_2": {
-          "label": "Section"
+        "header_2": {
+          "content": "Section"
         },
         "top_spacing": {
           "label": "Top Spacing"
@@ -1675,11 +1836,11 @@
         "page": {
           "label": "Page"
         },
-        "heading": {
+        "header": {
           "content": "General"
         },
         "header_1": {
-          "label": "Text Content"
+          "content": "Text Content"
         },
         "heading_size": {
           "options": {
@@ -1701,8 +1862,8 @@
           },
           "label": "Text Size"
         },
-        "heading_2": {
-          "label": "Section"
+        "header_2": {
+          "content": "Section"
         },
         "top_spacing": {
           "label": "Top Spacing"
@@ -2465,48 +2626,51 @@
           "label": "Bottom Spacing"
         }
       },
+      "presets": {
+        "name": "Content marquee"
+      },
       "blocks": {
         "quote": {
           "name": "Quote",
           "settings": {
             "quote": {
-              "label": "Quote",
-              "description_text_size": {
-                "options": {
-                  "label_1": "Small Text",
-                  "label_2": "Basic Text",
-                  "label_3": "Large Text"
-                },
-                "label": "Quote Size"
+              "label": "Quote"
+            },
+            "description_text_size": {
+              "options": {
+                "label_1": "Small Text",
+                "label_2": "Basic Text",
+                "label_3": "Large Text"
               },
-              "quotations": {
-                "label": "Show quotation marks",
-                "info": "Requires quote field to have content."
+              "label": "Quote Size"
+            },
+            "quotations": {
+              "label": "Show quotation marks",
+              "info": "Requires quote field to have content."
+            },
+            "details": {
+              "label": "Extra Details"
+            },
+            "logo": {
+              "label": "Logo"
+            },
+            "background_theme": {
+              "options": {
+                "label_1": "Primary Theme",
+                "label_2": "2nd Theme",
+                "label_3": "3rd Theme",
+                "label_4": "4th Theme",
+                "label_5": "5th Theme"
               },
-              "details": {
-                "label": "Extra Details"
+              "label": "Theme"
+            },
+            "card_corners": {
+              "options": {
+                "label_1": "Square Corners",
+                "label_2": "Rounded Corners",
+                "label_3": "Semicircle Corners"
               },
-              "logo": {
-                "label": "Logo"
-              },
-              "background_theme": {
-                "options": {
-                  "label_1": "Primary Theme",
-                  "label_2": "2nd Theme",
-                  "label_3": "3rd Theme",
-                  "label_4": "4th Theme",
-                  "label_5": "5th Theme"
-                },
-                "label": "Theme"
-              },
-              "card_corners": {
-                "options": {
-                  "label_1": "Square Corners",
-                  "label_2": "Rounded Corners",
-                  "label_3": "Semicircle Corners"
-                },
-                "label": "Card Corners"
-              }
+              "label": "Card Corners"
             }
           }
         },
