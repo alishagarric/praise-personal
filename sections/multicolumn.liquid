@@ -85,12 +85,12 @@
 >
   {% comment %} Text Content {% endcomment %}
   <div class="multicolumn__text __align-{{section.settings.alignment}}">
-  {% render 'heading',
-    class: 'multicolumn__text',
-    heading: section.settings.heading,
-    alt_heading: section.settings.alt_heading,
-    heading_size: section.settings.heading_size
-  %}
+    {% render 'heading',
+      class: 'multicolumn__text',
+      heading: section.settings.heading,
+      alt_heading: section.settings.alt_heading,
+      heading_size: section.settings.heading_size
+    %}
 
     {% if section.settings.text %}
       <div class="multicolumn__text__desc __article-txt-{{ section.settings.text_size }}">
@@ -154,7 +154,7 @@
     {
       "type": "text",
       "id": "heading",
-      "default": "Lorem ipsum dolor sit",
+      "default": "Heading Content",
       "label": "t:sections.multicolumn.settings.heading.label"
     },
     {
@@ -435,7 +435,7 @@
         {
           "type": "text",
           "id": "heading",
-          "default": "Lorem ipsum",
+          "default": "Heading Content",
           "label": "t:sections.multicolumn.blocks.image-with-text.settings.heading.label"
         },
         {
