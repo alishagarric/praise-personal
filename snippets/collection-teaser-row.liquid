@@ -40,8 +40,6 @@
 
 {% endcomment %}
 
-{{ 'collection-teaser-row.css' | asset_url | stylesheet_tag }}
-
 {% assign products_per_collection = products_per_collection | default: 2 %}
 {% assign marquee_speed = marquee_speed | default: 5 %}
 {% assign description_size = description_size | default: "p-sm" %}

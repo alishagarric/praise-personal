@@ -11,7 +11,8 @@
     justify-content: center; }
   .shop-the-look__image, .shop-the-look__products {
     position: relative;
-    z-index: 1; }
+    z-index: 1;
+    max-width: 50vw; }
   .shop-the-look__image {
     position: relative; }
     .shop-the-look__image img,
@@ -51,7 +52,7 @@
     .shop-the-look__products__product {
       width: 60%;
       flex: 0 0 60%;
-      padding-left: var(--pxSize); }
+      margin-left: var(--pxSize); }
     .shop-the-look__products:not(.flickity-enabled) {
       display: flex;
       overflow: auto; }

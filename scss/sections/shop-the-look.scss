@@ -24,6 +24,7 @@
   &__products {
     position: relative;
     z-index: 1;
+    max-width: 50vw; //TODO x-large screens
   }
 
   &__image {
@@ -82,7 +83,7 @@
     &__product {
       width: 60%;
       flex: 0 0 60%; // For when Flickity is not applied
-      padding-left: var(--pxSize);
+      margin-left: var(--pxSize);
     }
 
     // For when Flickity is not applied
@@ -118,9 +119,6 @@
         opacity: 1;
       }
     }
-  }
-
-  @media screen and (max-width: 1024px) {
   }
 
   @media screen and (max-width: 676px) {

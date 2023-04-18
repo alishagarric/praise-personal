@@ -1,4 +1,10 @@
 {{ 'header.css' | asset_url | stylesheet_tag }}
+{{ 'announcement-bar.css' | asset_url | stylesheet_tag }}
+{{ 'dialog.css' | asset_url | stylesheet_tag }}
+{{ 'disclosure.css' | asset_url | stylesheet_tag }}
+{{ 'main-cart.css' | asset_url | stylesheet_tag }}
+{{ 'quick-product.css' | asset_url | stylesheet_tag }} {% comment %}Must load here so that there isn't a flash of unstyled cards when the deffered recommendations section loads {% endcomment %}
+{{ 'number-input.css' | asset_url | stylesheet_tag }}
 
 {% assign className = 'site-header' %}
 

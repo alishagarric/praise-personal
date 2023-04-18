@@ -8,11 +8,6 @@
   - limit: {int} optional
 {% endcomment %}
 
-
-{{ 'cart-recommendations.css' | asset_url | stylesheet_tag }}
-
-<script src="{{ 'cart-recommendations.js' | asset_url }}" defer="defer"></script>
-
 {% assign limit = limit | default: 2 %}
 
 <cart-recommendations class="cart-recommendations" data-line-item-id="{{ cart.items[0].product.id }}" data-section-id="{{ section.id }}" data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ cart.items.first.product.id }}&limit={{ limit }}">

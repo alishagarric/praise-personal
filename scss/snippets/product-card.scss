@@ -1,15 +1,36 @@
 .product-card {
   position: relative;
-  display: block;
+  display: grid;
+  grid-template-columns: 1fr auto;
 
   a {
     position: absolute;
     inset: 0;
     z-index: 3;
+    display: none; //TO remove after restyle
+  }
+
+  &__image,
+  &__desc,
+  &__bottom-price {
+    grid-column: 1 / -1;
+  }
+
+  &__quick-add-btn {
+    grid-column: 2 / 3;
+
+    .btn {
+      padding-left: 0;
+      padding-right: calc(var(--expandableContentIconWidth) * 4) !important;
+
+      &::before,
+      &:after {
+        right: calc(var(--expandableContentIconWidth) * 1.5) !important;
+      }
+    }
   }
 
   &__image {
-    width: 100%;
     margin-bottom: calc(var(--btnHeight) / 2);
     z-index: 1;
 
@@ -21,7 +42,7 @@
     }
   }
 
-  &__quick-add-btn {
+  &__quick-add-btn.__modal {
     position: relative;
     height: calc(var(--btnHeight) / 4);
     z-index: 3;
@@ -38,24 +59,30 @@
   &__phrase {
     right: 10%;
     top: 0;
-    transform: rotate(var(--productPhraseTilt)) translateY(30%);
+    transform: rotate(var(--productPhraseTilt));
     z-index: 2;
 
     + * {
-      margin-top: var(--pxSize);
+      margin-top: 3rem;
     }
   }
 
   &__row {
-    display: block;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
     z-index: 1;
+    gap: 0.25rem 1rem;
+    margin-bottom: 1rem;
 
-    * {
-      display: inline-block;
+    .price {
+      display: inline-flex;
+      gap: 1rem;
+      margin: 0;
     }
 
-    > *:last-child:before:not(:first-child) {
-      content: "\00a0";
+    * {
+      margin: 0;
     }
   }
 
@@ -68,6 +95,10 @@
   }
 
   &.__include-bg {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 3rem;
+
     &:before {
       content: "";
       height: 50%;
@@ -78,13 +109,13 @@
       background: var(--productColor);
     }
 
-    .product-card__image {
-      transform: scale(0.9);
-      transform-origin: bottom;
+    .product-card {
+      &__phrase {
+        top: 1rem;
 
-      ~ *:not(.btn) {
-        padding-left: 5%;
-        padding-right: 5%;
+        + * {
+          margin-top: 0;
+        }
       }
     }
   }

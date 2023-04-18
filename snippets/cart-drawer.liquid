@@ -13,10 +13,6 @@
 
 {% endcomment %}
 
-{{ 'main-cart.css' | asset_url | stylesheet_tag }}
-{{ 'quick-product.css' | asset_url | stylesheet_tag }} {% comment %}Must load here so that there isn't a flash of unstyled cards when the deffered recommendations section loads {% endcomment %}
-{{ 'number-input.css' | asset_url | stylesheet_tag }}
-
 <div class="main-cart {{ class }}" id="{{id}}">
   <cart-form>
     <form action="{{ routes.cart_url }}" method="post" class="main-cart__form __no-form-styles" id="Cart" data-id="{{ section.id }}">

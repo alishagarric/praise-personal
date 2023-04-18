@@ -14,8 +14,6 @@
 
 {% endcomment %}    
 
-{{ 'dialog.css' | asset_url | stylesheet_tag }}
-
 {% assign style = style | default: "pop-up" %}
 {% assign aria_label = aria_label | default: title %}
 {% assign close = close | default: false %}

@@ -16,6 +16,7 @@
 
 {% endcomment %}
 <script src="{{ 'submit-on-change.js' | asset_url }}" defer="defer"></script>
+{{ 'disclosure.css' | asset_url | stylesheet_tag }}
 
 <div class="{{ class }}">
   {%- if localization.available_countries.size > 1 -%}

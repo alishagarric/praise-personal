@@ -19,6 +19,8 @@
   }
 {% endstyle %}
 
+{{ 'article-card.css' | asset_url | stylesheet_tag }}
+
 <div
   id="Related-articles-{{ section.id }}"
   class="main-blog __theme-{{ section_theme }}"

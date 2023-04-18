@@ -22,8 +22,6 @@
     {% render 'quote-card' quote: block.settings.quote %}
 {% endcomment %}
 
-{{ 'quote-card.css' | asset_url | stylesheet_tag }}
-
 {% assign quote_size = quote_size | default: "p-sm" %}
 
 <div class="quote-card {{ class}} __align-{{ alignment }} {% if background_theme %}__theme-{{ background_theme }}{% endif %}">

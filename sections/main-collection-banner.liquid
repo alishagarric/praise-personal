@@ -1,6 +1,7 @@
 {% comment %}
   This is a version of image banner that contains content specific to a collection page
 {% endcomment %}
+{{ 'breadcrumbs.css' | asset_url | stylesheet_tag }}
 
 {% capture section_id %}Main-collection-banner-{{ section.id }}{% endcapture %}
 

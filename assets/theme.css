@@ -1114,7 +1114,8 @@ details.overlay[open] > summary::before {
 
 .image-container {
   position: relative;
-  overflow: hidden; }
+  overflow: hidden;
+  width: 100%; }
   .image-container img,
   .image-container svg {
     position: absolute;

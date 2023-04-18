@@ -11,14 +11,13 @@
   - article_text: {Boolen}, whether to apply article styles to content
   - class: {string} optional
   - css_vars: {string} optional
-  - location: {string} optional 'bottom-edge' will cause absolutely possitioned content to display on top instead of bottom
+  - location: {string} optional 'bottom-edge' will cause absolutely positioned content to display on top instead of bottom
 
   Usage:
     {% render 'explandable-content', title: block.settings.title, text: block.settings.text, open: false %}
 
 {% endcomment %}   
 
-{{ 'disclosure.css' | asset_url | stylesheet_tag }}
 {% assign style_escaped = style | split: ' ' | first %}
 {% assign style_prepends = style | remove: style_escaped %}
 
