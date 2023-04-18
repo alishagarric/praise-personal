@@ -81,7 +81,14 @@
 
     &__product {
       width: 60%;
+      flex: 0 0 60%; // For when Flickity is not applied
       padding-left: var(--pxSize);
+    }
+
+    // For when Flickity is not applied
+    &:not(.flickity-enabled) {
+      display: flex;
+      overflow: auto;
     }
   }
 

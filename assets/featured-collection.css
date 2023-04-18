@@ -19,13 +19,18 @@
   .featured-collection__cards {
     flex: 1;
     position: relative;
-    z-index: 1;
-    flex-wrap: wrap; }
+    z-index: 1; }
     .featured-collection__cards__card {
       width: var(--featuredCollectionCardWidth);
-      padding: 0 calc(var(--pxSize) / 2); }
+      padding: 0 calc(var(--pxSize) / 2);
+      flex: 0 0 var(--featuredCollectionCardWidth); }
       .featured-collection__cards__card .product-card__phrase:not(.__style-badge) {
         color: var(--featuredCollectionThemedTextColor); }
+    .featured-collection__cards:not(.flickity-enabled) {
+      display: flex;
+      overflow: auto; }
+      .featured-collection__cards:not(.flickity-enabled) + .featured-collection__controls {
+        display: none; }
   .featured-collection__controls {
     text-align: center; }
     .featured-collection__controls__control {

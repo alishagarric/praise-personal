@@ -50,7 +50,11 @@
     margin: var(--pxSize) 0; }
     .shop-the-look__products__product {
       width: 60%;
+      flex: 0 0 60%;
       padding-left: var(--pxSize); }
+    .shop-the-look__products:not(.flickity-enabled) {
+      display: flex;
+      overflow: auto; }
   .shop-the-look__background-color {
     z-index: 0;
     pointer-events: none;

@@ -27,14 +27,26 @@
     flex: 1;
     position: relative;
     z-index: 1;
-    flex-wrap: wrap;
 
     &__card {
       width: var(--featuredCollectionCardWidth);
       padding: 0 calc(var(--pxSize) / 2);
+      flex: 0 0 var(--featuredCollectionCardWidth); // For when Flickity is not applied
 
       .product-card__phrase:not(.__style-badge) {
         color: var(--featuredCollectionThemedTextColor);
+      }
+    }
+
+    // For when Flickity is not applied
+    &:not(.flickity-enabled) {
+      display: flex;
+      overflow: auto;
+
+      + .featured-collection {
+        &__controls {
+          display: none;
+        }
       }
     }
   }
