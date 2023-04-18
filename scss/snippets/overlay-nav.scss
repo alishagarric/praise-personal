@@ -1,6 +1,8 @@
 @import "../utilities/mixins";
 
 .overlay-nav {
+  padding-top: var(--navHeight);
+
   &__plain-link,
   &__disclosure.__style-default .disclosure__summary {
     display: block;
@@ -82,9 +84,5 @@
         }
       }
     }
-  }
-
-  > li:last-of-type {
-    margin-bottom: 50vh;
   }
 }

@@ -107,7 +107,6 @@
       position: relative;
       padding: 0 calc(var(--cartBubbleSize) / 2) calc(var(--cartBubbleSize) / 5)
         0;
-      text-align: center;
 
       span {
         position: absolute;
@@ -118,6 +117,7 @@
         background-color: RGB(var(--color-foreground));
         color: RGB(var(--color-foreground-text));
         border-radius: 50%;
+        text-align: center;
         line-height: var(--cartBubbleSize);
         font-size: 10px;
         font-weight: 600;
@@ -327,56 +327,6 @@
     .dialog {
       &__summary {
         margin-left: var(--siteHeaderGuttersSpace);
-        display: flex;
-        height: calc(var(--navHeight) * 0.4);
-        width: calc(var(--navHeight) * 0.7);
-        flex-direction: column;
-        justify-content: space-between;
-
-        &:before,
-        &:after,
-        span {
-          content: "";
-          display: block;
-          left: 0;
-          height: 2px;
-          border-radius: 2px;
-          width: 100%;
-          background: RGB(var(--color-text));
-          transform: scaleX(1) rotate(0deg);
-          will-change: transform, opacity;
-          opacity: 1;
-          transition: all 0.25s ease;
-        }
-
-        &:before {
-          transform-origin: top left;
-        }
-
-        &:after {
-          transform-origin: bottom left;
-        }
-      }
-    }
-
-    &[open] {
-      .dialog {
-        &__summary {
-          &:before {
-            background-color: RGB(var(--color-text));
-            transform: rotate(45deg)
-              translate(0, calc(var(--navHeight) * -0.08));
-          }
-
-          &:after {
-            transform: rotate(-45deg)
-              translate(0, calc(var(--navHeight) * 0.08));
-          }
-
-          span {
-            transform: scale(0);
-          }
-        }
       }
     }
   }

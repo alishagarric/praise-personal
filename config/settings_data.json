@@ -1,5 +1,8 @@
 {
   "current": {
+    "cart_alt_heading": true,
+    "cart_heading_size": "h6",
+    "cart_crop_shape": "circle",
     "arrow_button_height": 40,
     "button_uppercase": true,
     "button_spacing": 6,

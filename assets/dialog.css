@@ -2,7 +2,23 @@
   --margin: 20px;
   --width: 750px; }
   .dialog__summary__close {
-    display: none; }
+    display: grid;
+    opacity: 0;
+    will-change: opacity;
+    transition: opacity ease 0s;
+    position: fixed;
+    height: var(--navHeight);
+    width: var(--navHeight);
+    z-index: 3;
+    top: 0;
+    place-content: center; }
+    .dialog__summary__close svg {
+      will-change: transform;
+      transition: all 0.25s ease;
+      height: 20px;
+      width: auto; }
+  .dialog__summary:hover {
+    cursor: pointer; }
   .dialog__content {
     display: flex;
     flex-direction: column;
@@ -11,9 +27,7 @@
     z-index: 2;
     background-color: RGB(var(--color-background));
     border: 1px solid RGB(var(--color-border));
-    box-shadow: 5px 5px 10px 0 RGBA(var(--color-text)/0.1);
-    /* Add space for close toggle */
-    margin-top: var(--navWithAnnouncementHeight); }
+    box-shadow: 5px 5px 10px 0 RGBA(var(--color-text)/0.1); }
     .dialog__content__header, .dialog__content__footer {
       flex-grow: 0;
       flex-shrink: 0;
@@ -22,32 +36,26 @@
       border-bottom: 1px solid RGB(var(--color-border)); }
     .dialog__content__body {
       flex-grow: 1;
-      overflow-y: auto;
-      padding: 0 calc(var(--pxSize) / 2); }
-    .dialog__content__footer {
-      border-top: 1px solid lightgrey; }
-    .dialog__content.__with-overlay[open] > summary::before {
-      content: "";
-      position: fixed;
-      z-index: 2;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      cursor: default; }
-  .dialog[open] .dialog__summary > * {
-    visibility: hidden; }
-  .dialog[open] .dialog__summary__close {
-    display: block;
-    visibility: visible;
-    position: fixed;
-    z-index: 3;
-    left: 50%;
-    top: 10px;
-    /* Align with top-left corner of modal */
-    transform: translate(MAX(calc(-1 * var(--width) / 2 + var(--pxSize) / 2), calc(var(--pxSize) * 2 - 50vw)), var(--pxSize)); }
+      padding: 0 calc(var(--pxSize) / 4);
+      margin-bottom: min(150px, 50vh); }
   .dialog[open] .dialog__summary:before {
+    all: unset;
+    content: "";
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    cursor: default;
     background-color: RGBA(var(--color-text)/0.1); }
+  .dialog[open] .dialog__summary__close {
+    opacity: 1;
+    transition: opacity 0.25s ease 0.25s; }
+    .dialog[open] .dialog__summary__close:hover {
+      cursor: pointer; }
+      .dialog[open] .dialog__summary__close:hover svg {
+        transform: scale(1.05); }
   .dialog[open] .dialog__summary:focus {
     outline: none; }
   .dialog[open] .dialog__summary:focus-visible .dialog__summary__close, .dialog[open] .dialog__summary:focus .dialog__summary__close {
@@ -62,26 +70,35 @@
     width: calc(100% - var(--pxSize) * 2);
     transform: translateX(-50%);
     max-height: calc(100% - var(--pxSize) * 2); }
-  .dialog.__style-drawer .dialog__content {
+  .dialog.__style-left-drawer .dialog__content, .dialog.__style-right-drawer .dialog__content {
     top: 0;
-    left: 0;
     bottom: 0;
-    max-width: 350px;
-    width: 350px;
-    transform: translateX(-100%);
+    max-width: 375px;
+    width: 375px;
     will-change: transform;
     transition: transform 0.25s ease; }
-  .dialog.__style-drawer[open] .dialog__content {
+  .dialog.__style-left-drawer[open] .dialog__content, .dialog.__style-right-drawer[open] .dialog__content {
     transform: translateX(0); }
+  .dialog.__style-left-drawer .dialog__content {
+    left: 0;
+    transform: translateX(-100%); }
+  .dialog.__style-left-drawer .dialog__summary__close {
+    left: 0; }
+  .dialog.__style-right-drawer .dialog__content {
+    right: 0;
+    transform: translateX(100%); }
+  .dialog.__style-right-drawer .dialog__summary__close {
+    right: 0; }
   @media screen and (max-width: 676px) {
     .dialog[open] .dialog__summary__close {
       transform: none;
       left: 10px; }
-    .dialog.__style-pop-up .dialog__content, .dialog.__style-drawer .dialog__content {
+    .dialog.__style-pop-up .dialog__content, .dialog.__style-left-drawer .dialog__content, .dialog.__style-right-drawer .dialog__content {
       top: 0;
       right: 0;
       bottom: 0;
-      min-height: 350px;
+      left: 0;
+      min-height: 375px;
       max-width: none;
       width: auto; } }
 

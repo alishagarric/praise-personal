@@ -307,6 +307,7 @@
     "cart": {
       "title": "Your cart",
       "total": "Total",
+      "view_cart": "View Bag",
       "note": "Order special instructions",
       "checkout": "Check out",
       "empty": "Your cart is empty",

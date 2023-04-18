@@ -6,14 +6,19 @@
     width: 100%;
     flex: 0 0 calc(50% - calc(var(--pxSize) / 6)); }
 .cart-recommendations__heading {
-  margin-top: calc(var(--sectionVerticalSpacing) / 2);
   border-bottom: 1px solid RGB(var(--color-border));
   margin-bottom: calc(var(--pxSize) / 2);
   padding-bottom: 1rem; }
 @media screen and (max-width: 1024px) {
+  .cart-recommendations__container, .cart-recommendations__heading {
+    max-width: var(--maxWidth);
+    margin-left: auto;
+    margin-right: auto; } }
+@media screen and (max-width: 676px) {
   .cart-recommendations__container {
-    flex-direction: column;
-    max-width: 400px;
-    margin: 0 auto; } }
+    flex-wrap: nowrap;
+    overflow: auto; }
+    .cart-recommendations__container > * {
+      flex: 1 0 300px; } }
 
 /*# sourceMappingURL=cart-recommendations.css.map */

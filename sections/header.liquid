@@ -17,10 +17,12 @@
     {% endif %}
     
     {% comment %} Mobile hamburger button {% endcomment %}
-    {% capture dialog_class %}<script>__with-overlay</script> {{ className }}__hamburger{% endcapture %}
-    {% capture dialog_id %}hamburger-{{ forloop.index }}{% endcapture %}
-    {% capture dialog_content %}{% render 'overlay-nav' %}{% endcapture %}
-    {% render 'dialog' style: "drawer", title: "<span></span>", content: dialog_content, class: dialog_class, id: dialog_id %}
+    {% capture hamburger_class %}{{ className }}__hamburger{% endcapture %}
+    {% capture hamburger_id %}hamburger-{{ forloop.index }}{% endcapture %}
+    {% capture hamburger_content %}{% render 'overlay-nav' %}{% endcapture %}
+    {% capture hamburger_title %}{% render 'svg-hamburger' %}{% endcapture %}
+    {% assign hamburger_aria_label = 'sections.header.menu' | t %}
+    {% render 'dialog' style: "left-drawer", title: hamburger_title, aria_label: hamburger_aria_label, content: hamburger_content, class: hamburger_class, id: hamburger_id %}
 
     {% comment %} All the links {% endcomment %}
     <nav class="{{ className }}__main {% if section.settings.logo_placement == "center" %}__center-links{% endif%}">
@@ -113,18 +115,28 @@
     <div class="{{ className }}__utility-links">
       <a href="{{ routes.search_url }}">{% render 'svg-search' %}</a>
       {%- if customer -%}
-        <a class="{{ className }}__plain-link" href="{{ routes.account_url }}">{{ 'sections.header.account' | t }}</a>
+        <a class="{{ className }}__plain-link p-sm" href="{{ routes.account_url }}">{{ 'sections.header.account' | t }}</a>
       {%- else -%}
-        <a class="{{ className }}__plain-link" href="{{ routes.account_login_url }}">
+        <a class="{{ className }}__plain-link -psm" href="{{ routes.account_login_url }}">
           {{- 'sections.header.login' | t -}}
         </a>
       {%- endif -%}
-      <a href="{{ routes.cart_url }}" class="{{ className }}__utility-links__cart">
+
+      {% comment %} Cart Drawer button {% endcomment %}
+      {% capture cart_class %}{{ className }}__utility-links__cart{% endcapture %}
+      {% capture cart_id %}cart-{{ forloop.index }}{% endcapture %}
+      {% capture cart_title %}
         {% render 'svg-cart' %}
         <span id="CartBubble-{{ forloop.index0 }}">
           {{ cart.item_count }}
         </span>
-      </a>
+      {% endcapture %}
+      {% capture cart_button_label %}{{ 'sections.cart.view_cart' | t }}{% endcapture %}
+      {% assign cart_aria_label = 'sections.cart.view_cart' | t %}
+      {% capture cart_content %}
+        {% render 'cart-drawer' button_link: routes.cart_url, button_label: cart_button_label, class: "__cart-drawer" %}
+      {% endcapture %}
+      {% render 'dialog' style: "right-drawer", title: cart_title, content: cart_content, class: cart_class, id: cart_id, aria_label: cart_aria_label %}
     </div>
   </{% if style == "on-scroll" %}sticky-header{% else %}header{% endif %}>
 {% endfor %}
@@ -136,7 +148,7 @@
       super();
 
       this.header = this;
-      this.hamburgerButton = this.querySelector(".site-header__hamburger");
+     // this.hamburgerButton = this.querySelector(".site-header__hamburger");
       this.dropdowns = this.querySelectorAll("details.site-header__label");
       this.setupListener();
 
@@ -148,7 +160,7 @@
       this.dropdowns.forEach((dropdown) => {
         dropdown.querySelector("summary").addEventListener('click', this.updateActiveDialog.bind(this));
       });
-      this.hamburgerButton.addEventListener('click', this.updateActiveDialog.bind(this));
+    //  this.hamburgerButton.addEventListener('click', this.updateActiveDialog.bind(this));
     }
 
     updateActiveDialog(e) {

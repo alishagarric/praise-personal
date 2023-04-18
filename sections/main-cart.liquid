@@ -2,6 +2,13 @@
 {{ 'quick-product.css' | asset_url | stylesheet_tag }} {% comment %}Must load here so that there isn't a flash of unstyled cards when the deffered recommendations section loads {% endcomment %}
 {{ 'number-input.css' | asset_url | stylesheet_tag }}
 
+{% style %}
+  #Main-cart-{{ section.id }} {
+    --topSpacingRatio: {{ section.settings.top_spacing }} / 100;
+    --bottomSpacingRatio: {{ section.settings.bottom_spacing }} / 100;
+  }
+{% endstyle %}
+
 
 {% if section.settings.show_recommendations %}
   {% capture additional_sections %}
@@ -30,7 +37,11 @@
   {% endcapture %}
 {% endif %}
 
-{% render 'cart-drawer' additional_sections: additional_sections, footer_components: footer_components %}
+{% capture cart_class %}__theme-{{ section.settings.theme }}{% endcapture %}
+{% capture cart_id %}Main-cart-{{ section.id }}{% endcapture %}
+{% capture cart_button_label %}{{ 'general.continue_shopping' | t }}{% endcapture %}
+
+{% render 'cart-drawer' button_label: cart_button_label, button_link: routes.root_url, additional_sections: additional_sections, footer_components: footer_components, class: cart_class, id: cart_id %}
 
 
 {% schema %}

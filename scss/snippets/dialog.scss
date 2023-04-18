@@ -4,7 +4,27 @@
 
   &__summary {
     &__close {
-      display: none;
+      display: grid;
+      opacity: 0;
+      will-change: opacity;
+      transition: opacity ease 0s;
+      position: fixed;
+      height: var(--navHeight);
+      width: var(--navHeight);
+      z-index: 3;
+      top: 0;
+      place-content: center;
+
+      svg {
+        will-change: transform;
+        transition: all 0.25s ease;
+        height: 20px;
+        width: auto;
+      }
+    }
+
+    &:hover {
+      cursor: pointer;
     }
   }
 
@@ -17,8 +37,6 @@
     background-color: RGB(var(--color-background));
     border: 1px solid RGB(var(--color-border));
     box-shadow: 5px 5px 10px 0 RGBA(var(--color-text) / 0.1);
-    /* Add space for close toggle */
-    margin-top: var(--navWithAnnouncementHeight);
 
     &__header,
     &__footer {
@@ -33,54 +51,38 @@
 
     &__body {
       flex-grow: 1;
-      overflow-y: auto;
-      padding: 0 calc(var(--pxSize) / 2);
-    }
-
-    &__footer {
-      border-top: 1px solid lightgrey;
-    }
-
-    &.__with-overlay {
-      &[open] > summary::before {
-        content: "";
-        position: fixed;
-        z-index: 2;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        cursor: default;
-      }
+      padding: 0 calc(var(--pxSize) / 4);
+      margin-bottom: min(150px, 50vh);
     }
   }
 
   &[open] {
     .dialog {
       &__summary {
-        > * {
-          visibility: hidden;
+        &:before {
+          all: unset;
+          content: "";
+          position: fixed;
+          z-index: 2;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          cursor: default;
+          background-color: RGBA(var(--color-text) / 0.1);
         }
 
         &__close {
-          display: block;
-          visibility: visible;
-          position: fixed;
-          z-index: 3;
-          left: 50%;
-          top: 10px;
-          /* Align with top-left corner of modal */
-          transform: translate(
-            MAX(
-              calc(-1 * var(--width) / 2 + var(--pxSize) / 2),
-              calc(var(--pxSize) * 2 - 50vw)
-            ),
-            var(--pxSize)
-          );
-        }
+          opacity: 1;
+          transition: opacity 0.25s ease 0.25s;
 
-        &:before {
-          background-color: RGBA(var(--color-text) / 0.1);
+          &:hover {
+            cursor: pointer;
+
+            svg {
+              transform: scale(1.05);
+            }
+          }
         }
 
         // Let .dialog-close handle focus styles when dialog is open
@@ -129,15 +131,14 @@
       }
     }
 
-    &-drawer {
+    &-left-drawer,
+    &-right-drawer {
       .dialog {
         &__content {
           top: 0;
-          left: 0;
           bottom: 0;
-          max-width: 350px;
-          width: 350px;
-          transform: translateX(-100%);
+          max-width: 375px;
+          width: 375px;
           will-change: transform;
           transition: transform 0.25s ease;
         }
@@ -147,6 +148,36 @@
         .dialog {
           &__content {
             transform: translateX(0);
+          }
+        }
+      }
+    }
+
+    &-left-drawer {
+      .dialog {
+        &__content {
+          left: 0;
+          transform: translateX(-100%);
+        }
+
+        &__summary {
+          &__close {
+            left: 0;
+          }
+        }
+      }
+    }
+
+    &-right-drawer {
+      .dialog {
+        &__content {
+          right: 0;
+          transform: translateX(100%);
+        }
+
+        &__summary {
+          &__close {
+            right: 0;
           }
         }
       }
@@ -167,13 +198,15 @@
 
     &.__style {
       &-pop-up,
-      &-drawer {
+      &-left-drawer,
+      &-right-drawer {
         .dialog {
           &__content {
             top: 0;
             right: 0;
             bottom: 0;
-            min-height: 350px;
+            left: 0;
+            min-height: 375px;
             max-width: none;
             width: auto;
           }

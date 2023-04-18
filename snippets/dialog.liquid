@@ -2,12 +2,12 @@
   Renders a dialog button that opens a dialog when clicked
 
   Expects: 
-    - title: {String} required
+    - title: {String or Html} required
+    - aria_label: {string} required if the title above is html
     - id: {String or Int} required, makes aria controls unique to this instance
     - content: {html} required if page isn't included below
-    - style: {string} optional, "pop-up", "drawer"
+    - style: {string} optional, "pop-up", "left-drawer", "right-drawer"
     - class: {string} optional
-    - close: {html} optional
 
   Usage:
     {% render 'dialog', type: "default" %}
@@ -17,21 +17,19 @@
 {{ 'dialog.css' | asset_url | stylesheet_tag }}
 
 {% assign style = style | default: "pop-up" %}
+{% assign aria_label = aria_label | default: title %}
+{% assign close = close | default: false %}
     
 {% if title and id and content %}
   <details class="dialog {{ class }} __style-{{ style }}">
-    <summary class="dialog__summary" aria-label="{{ title }}" aria-haspopup="dialog" aria-controls="dialog-{{ id }}">
+    <summary class="dialog__summary" aria-label="{{ aria_label }}" aria-haspopup="dialog" aria-controls="dialog-{{ id }}">
       {{ title }}
-      {% if close %}<span class="dialog__summary__close btn" aria-label="Close modal">{{ close }}</span>{% endif %}
+      <div class="dialog__summary__close" aria-label="Close modal">{% render 'svg-exit' %}</div>
     </summary>
     <div class="dialog__content" id="dialog-{{ id }}" role="dialog" aria-modal="true">
       <div class="dialog__content__body">
         {{ content }}
       </div>
-        
-      {% comment %}<div class="dialog__content__footer">
-        <p>Modal footer</p>
-      </div>{% endcomment %}
     </div>
   </details>
 {% endif %}

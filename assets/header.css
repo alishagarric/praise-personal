@@ -62,8 +62,7 @@
     .site-header__utility-links__cart {
       --cartBubbleSize: 17px;
       position: relative;
-      padding: 0 calc(var(--cartBubbleSize) / 2) calc(var(--cartBubbleSize) / 5) 0;
-      text-align: center; }
+      padding: 0 calc(var(--cartBubbleSize) / 2) calc(var(--cartBubbleSize) / 5) 0; }
       .site-header__utility-links__cart span {
         position: absolute;
         bottom: 0;
@@ -73,6 +72,7 @@
         background-color: RGB(var(--color-foreground));
         color: RGB(var(--color-foreground-text));
         border-radius: 50%;
+        text-align: center;
         line-height: var(--cartBubbleSize);
         font-size: 10px;
         font-weight: 600; }
@@ -180,36 +180,7 @@
   .site-header__hamburger {
     display: none; }
   .site-header__hamburger.dialog .dialog__summary {
-    margin-left: var(--siteHeaderGuttersSpace);
-    display: flex;
-    height: calc(var(--navHeight) * 0.4);
-    width: calc(var(--navHeight) * 0.7);
-    flex-direction: column;
-    justify-content: space-between; }
-    .site-header__hamburger.dialog .dialog__summary:before, .site-header__hamburger.dialog .dialog__summary:after,
-    .site-header__hamburger.dialog .dialog__summary span {
-      content: "";
-      display: block;
-      left: 0;
-      height: 2px;
-      border-radius: 2px;
-      width: 100%;
-      background: RGB(var(--color-text));
-      transform: scaleX(1) rotate(0deg);
-      will-change: transform, opacity;
-      opacity: 1;
-      transition: all 0.25s ease; }
-    .site-header__hamburger.dialog .dialog__summary:before {
-      transform-origin: top left; }
-    .site-header__hamburger.dialog .dialog__summary:after {
-      transform-origin: bottom left; }
-  .site-header__hamburger.dialog[open] .dialog__summary:before {
-    background-color: RGB(var(--color-text));
-    transform: rotate(45deg) translate(0, calc(var(--navHeight) * -0.08)); }
-  .site-header__hamburger.dialog[open] .dialog__summary:after {
-    transform: rotate(-45deg) translate(0, calc(var(--navHeight) * 0.08)); }
-  .site-header__hamburger.dialog[open] .dialog__summary span {
-    transform: scale(0); }
+    margin-left: var(--siteHeaderGuttersSpace); }
   @media screen and (max-width: 1200px) {
     .site-header:not(.__style-password) .site-header__logo {
       flex: 1; }

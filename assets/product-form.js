@@ -31,7 +31,7 @@ if (!customElements.get("product-form")) {
         };
 
         const formData = new FormData(this.form);
-        formData.append("sections", ["cart-bubble"]);
+        formData.append("sections", ["cart-bubble", "cart-drawer"]);
 
         config.body = formData;
 
@@ -53,6 +53,27 @@ if (!customElements.get("product-form")) {
             document.getElementById(
               "CartBubble-1"
             ).innerHTML = `${response.sections["cart-bubble"].match(/\d+/)}`;
+
+            console.log(
+              document
+                .getElementById("dialog-cart-1")
+                .querySelector(".dialog__content__body"),
+              typeof response.sections["cart-drawer"]
+            );
+
+            document
+              .getElementById("dialog-cart-1")
+              .querySelector(
+                ".dialog__content__body"
+              ).innerHTML = `${response.sections["cart-drawer"]}`;
+
+            document
+              .getElementById("dialog-cart-2")
+              .querySelector(
+                ".dialog__content__body"
+              ).innerHTML = `${response.sections["cart-drawer"]}`;
+
+            document.getElementById("dialog-cart-2").parentNode.open = true;
 
             this.error = false;
           })

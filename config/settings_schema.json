@@ -35,7 +35,7 @@
             "label": "t:settings_schema.cart.settings.heading_size.options.label_4"
           }
         ],
-        "default": "h4",
+        "default": "h6",
         "label": "t:settings_schema.cart.settings.heading_size.label"
       },
       {
