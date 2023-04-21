@@ -2,30 +2,31 @@
   Renders variant dropdowns or radios
 
   Expects: 
-  - product: {Object} Product object
+  - this_product: {Object} Product object
+  - product_form_id {string} required
   - class: {String} optional
-  - layout: {String} optional. 
+  - layout: {String} optional. dropdown (default), buttons
   - include_border: {Bool} optional bool
   - show_option_labels {bool} optional
 
   Usage:
-    {% render 'variant_picker' product: section.settings.product, layout: block.settings.layout, include_border: block.settings.include_border, show_option_labels: block.settings.show_option_labels, class: "featured-product__block" %}
+    {% render 'variant_picker' this_product: section.settings.product, layout: block.settings.layout, include_border: block.settings.include_border, show_option_labels: block.settings.show_option_labels, class: "featured-product__block" %}
 
 {% endcomment %}
 
-{%- unless product.has_only_default_variant -%}
+{%- unless this_product.has_only_default_variant -%}
 
   {% comment %} Layout button {% endcomment %}
   {%- if layout == 'buttons' -%}
-    <variant-radios class="no-js-hidden variant-picker__radios" data-section="{{ section.id }}" data-url="{{ product.url }}" {{ block.shopify_attributes }}>
-      {%- for option in product.options_with_values -%}
+    <variant-radios class="no-js-hidden variant-picker__radios" data-section="{{ section.id }}" data-product-id="{{ this_product.id }}" data-url="{{ this_product.url }}" {{ block.shopify_attributes }}>
+      {%- for option in this_product.options_with_values -%}
         {% capture option_variable_name %}option_{{ forloop.index }}_description{% endcapture %}
         {% comment %} TODO logic that hanfles special color swatch and size options scenarios 
         {%- liquid
           assign is_color = false
           if block.settings.enable_color_swatches
             assign swatch_file_extension = 'png'
-            assign swatch_trigger = 'products.product.color_swatch_trigger' | t | downcase
+            assign swatch_trigger = 'products.this_product.color_swatch_trigger' | t | downcase
             assign downcased_option = option.name | downcase
             if downcased_option contains swatch_trigger
               assign is_color = true
@@ -36,7 +37,7 @@
 
           assign is_size = false
           if block.settings.size_chart != blank
-            assign size_trigger = 'products.product.size_chart_trigger' | t | downcase
+            assign size_trigger = 'products.this_product.size_chart_trigger' | t | downcase
             assign downcased_option = option.name | downcase
             if downcased_option contains size_trigger
               assign is_size = true
@@ -56,7 +57,7 @@
             {%- if show_option_labels -%}
               <legend class="variant-picker__fieldset__label p-sm">
                 <span>{{ option.name }}</span>
-                {{ product.metafields.custom[option_variable_name] }}
+                {{ this_product.metafields.custom[option_variable_name] }}
                 {% comment %}{%- if is_color -%}
                   <span class="form__label-info" id="color-{{ section.id }}">&ndash;&nbsp;{{ option.selected_value }}</span>
                 {%- endif -%}{% endcomment %}
@@ -65,11 +66,11 @@
             {%- for value in option.values -%}
               <input
                 type="radio"
-                id="{{ section.id }}-{{ option.name }}-{{ forloop.index0 }}"
-                name="{{ option.name }}"
+                id="{{ section.id }}-{{ this_product.id }}-{{ option.name }}-{{ forloop.index0 }}"
+                name="{{ section.id }}-{{ this_product.id }}-{{ option.name }}"
                 value="{{ value | escape }}"
                 form="{{ product_form_id }}"
-                {%- if option.selected_value == value %}checked="checked"{% endif -%}
+                {%- if option.selected_value == value %}checked {% endif -%}
                 data-option-value="{{ value | escape }}"
                 class="variant-picker__fieldset__input"
               />
@@ -94,7 +95,7 @@
                 </label>
               {%- endif -%}
               {% endcomment %}
-                <label for="{{ section.id }}-{{ option.name }}-{{ forloop.index0 }}" class="p-sm variant-picker__fieldset__value">
+                <label for="{{ section.id }}-{{ this_product.id }}-{{ option.name }}-{{ forloop.index0 }}" class="p-sm variant-picker__fieldset__value">
                   {{ value }}
                 </label>
             {%- endfor -%}
@@ -105,12 +106,12 @@
                 <modal-opener class="no-js-hidden" data-modal="#PopupModal-{{ block.id }}" {{ block.shopify_attributes }}>
                   <button id="ProductPopup-{{ block.id }}" class="link link-with-icon" type="button" aria-haspopup="dialog">
                     {% render 'icon', icon: 'ruler' %}
-                    <span class="label">{{ 'products.product.size_chart' | t | default: block.settings.size_chart.title }}</span>
+                    <span class="label">{{ 'products.this_product.size_chart' | t | default: block.settings.size_chart.title }}</span>
                   </button>
                 </modal-opener>
                 <a href="{{ block.settings.size_chart.url }}" class="link link-with-icon no-js">
                   {% render 'icon', icon: 'ruler' %}
-                  <span class="label">{{ 'products.product.size_chart' | t | default: block.settings.size_chart.title }}</span>
+                  <span class="label">{{ 'products.this_product.size_chart' | t | default: block.settings.size_chart.title }}</span>
                 </a>
               </div>
             {%- endif -%}
@@ -120,20 +121,20 @@
       {%- endfor -%}
       
       <script type="application/json">
-        {{ product.variants | json }}
+        {{ this_product.variants | json }}
       </script>
     </variant-radios>
   {% comment %} Layout dropdowns {% endcomment %}
   {%- else -%}
-    <variant-selects class="no-js-hidden variant-picker__variant-dropdowns {{ class }} form-styles {% if include_border %} __border-top {% endif %}" data-section="{{ section.id }}" data-url="{{ product.url }}">
-      {%- for option in product.options_with_values -%}
+    <variant-selects class="no-js-hidden variant-picker__variant-dropdowns {{ class }} form-styles {% if include_border %} __border-top {% endif %}" data-section="{{ section.id }}" data-url="{{ this_product.url }}">
+      {%- for option in this_product.options_with_values -%}
         <div class="variant-picker__dropdown">
-          <label for="Option-{{ section.id }}-{{ forloop.index0 }}" class="variant-picker__dropdown__label p-sm">
+          <label for="Option-{{ section.id }}-{{ this_product.id }}-{{ forloop.index0 }}" class="variant-picker__dropdown__label p-sm">
             {{ option.name }}
           </label>
           <select
-            id="Option-{{ section.id }}-{{ forloop.index0 }}"
-            name="options[{{ option.name | escape }}]"
+            id="Option-{{ section.id }}-{{ this_product.id }}-{{ forloop.index0 }}"
+            name="options[{{ section.id }}-{{ this_product.id }}-{{ option.name }}]"
             form="{{ product_form_id }}"
             class="variant-picker__dropdown__select"
           >
@@ -152,7 +153,7 @@
       {%- endfor -%}
 
       <script type="application/json">
-        {{ product.variants | json }}
+        {{ this_product.variants | json }}
       </script>
     </variant-selects>
   {%- endif -%}
@@ -169,9 +170,9 @@
         form="{{ product_form_id }}"
         class="variant-picker__dropdown__select"
       >
-        {%- for variant in product.variants -%}
+        {%- for variant in this_product.variants -%}
           <option
-            {% if variant == product.selected_or_first_available_variant %}
+            {% if variant == this_product.selected_or_first_available_variant %}
               selected="selected"
             {% endif %}
             {% if variant.available == false %}

@@ -223,8 +223,8 @@
             "label": "Modal"
           },
           {
-            "value": "simple",
-            "label": "Simple"
+            "value": "dropdown",
+            "label": "Dropdown"
           }
         ],
         "default": "modal",

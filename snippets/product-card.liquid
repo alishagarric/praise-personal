@@ -2,7 +2,7 @@
   Renders a product card
 
   Expects:
-  - product: {Object} Product object
+  - this_product: {Object} Product object
   - class: {String} optional
   - crop: {String} optional. circle, rounded-square, square, portrait, landscape, default (adapt)
   - alt_heading: {Bool} optional bool
@@ -21,7 +21,7 @@
   <ul class="list-unstyled" role="list">
     {%- for product in collection.products -%}
       <li>
-        {% render 'product-card' product: product, show_bg_color: show_bg_color, quick_add: quick_add, crop: crop_shape, show_phrase: show_phrase, alignment: product_text_alignment, show_description: show_description, price_position: price_pos, alt_heading: alt_title, class: "featured-collection__cards__card" %}
+        {% render 'product-card this_product: product, show_bg_color: show_bg_color, quick_add: quick_add, crop: crop_shape, show_phrase: show_phrase, alignment: product_text_alignment, show_description: show_description, price_position: price_pos, alt_heading: alt_title, class: "featured-collection__cards__card" %}
       </li>
     {%- endfor -%}
   </ul>
@@ -35,73 +35,87 @@
 {% assign show_description = show_description | default: false %}
 {% assign price_position = price_position | default: 'default' %}
 
-{% assign product_url = product.url %}
-{% assign product_title = product.title %}
-{% assign image_ratio = product.featured_image.height
+{% assign product_url = this_product.url %}
+{% assign product_title = this_product.title %}
+{% assign image_ratio = this_product.featured_image.height
   | divided_by: 1.00
-  | divided_by: product.featured_image.width
+  | divided_by: this_product.featured_image.width
   | times: 100
 %}
 
-{% unless product != blank %}
+{% unless this_product != blank %}
   {% assign product_url = '/' %}
   {% assign product_title = 'Enim ad minim' %}
   {% assign image_ratio = 100 %}
 {% endunless %}
 
+{% capture title_trigger %}
+  <div class="product-card__row">
+    <h3 class="product-card__title h6 {% if alt_heading == true %}alt{% endif %}">
+      {{ product_title }}
+    </h3>
+    {% if price_position == 'default' %}
+      {%- render 'price', class: 'product-card__price', product: this_product -%}
+    {% endif %}
+  </div>
+
+  <div class="btn __with-plus"></div>
+{% endcapture %}
+
 <div
-  class="product-card {{ class }} __align-{{ alignment }} {% if show_bg_color and product.metafields.custom.color %}__include-bg{% endif %}"
-  style="{% if product.metafields.custom.color %}--productColor: {{ product.metafields.custom.color }}{% endif %}"
-  data-bg-color="{% if product.metafields.custom.color %} {{ product.metafields.custom.color }} {% else %}var(--color-background){% endif %}"
-  data-text-color="{% if product.metafields.custom.text_color %} {{ product.metafields.custom.text_color }} {% else %}var(--color-text){% endif %}"
+  class="product-card {{ class }} __align-{{ alignment }} {% if show_bg_color and this_product.metafields.custom.color %}__include-bg{% endif %}"
+  style="{% if this_product.metafields.custom.color %}--productColor: {{ this_product.metafields.custom.color }}{% endif %}"
+  data-bg-color="{% if this_product.metafields.custom.color %} {{ this_product.metafields.custom.color }} {% else %}var(--color-background){% endif %}"
+  data-text-color="{% if this_product.metafields.custom.text_color %} {{ this_product.metafields.custom.text_color }} {% else %}var(--color-text){% endif %}"
 >
   <a href="{{ product_url }}" aria-label="{{ 'products.product.view_product' | t }}"></a>
 
-  {% if show_phrase and product.metafields.custom.phrase %}
-    {% render 'product-phrase' phrase: product.metafields.custom.phrase, class: 'product-card__phrase' %}
+  {% if show_phrase and this_product.metafields.custom.phrase %}
+    {% render 'product-phrase' phrase: this_product.metafields.custom.phrase, class: 'product-card__phrase' %}
   {% endif %}
 
   <div class="product-card__image image-container __crop-{{ crop }}" style="--imageRatio: {{ image_ratio }}%">
-    {% if product and product.featured_image %}
-      {% if settings.product_card_hover and product.images[2] %}
-        {% render 'next-gen-img', image: product.images[2], width: img_width: widths: img_widths, sizes: img_sizes %}
+    {% if this_product and this_product.featured_image %}
+      {% if settings.product_card_hover and this_product.images[2] %}
+        {% render 'next-gen-img', image: this_product.images[2], width: img_width: widths: img_widths, sizes: img_sizes %}
       {% endif %}
 
-      {% render 'next-gen-img', image: product.featured_image, width: img_width: widths: img_widths, sizes: img_sizes, preload: img_preload %}
-    {% elsif product == blank %}
+      {% render 'next-gen-img', image: this_product.featured_image, width: img_width: widths: img_widths, sizes: img_sizes, preload: img_preload %}
+    {% elsif this_product == blank %}
       {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
     {% else %}
       <h3 class="p-lg">{{ product_title }}</h3>
     {% endif %}
   </div>
 
-  <div class="product-card__row">
-    <h3 class="product-card__title h6 {% if alt_heading == true %}alt{% endif %}">
-      {{ product_title }}
-    </h3>
-    {% if price_position == 'default' %}
-      {%- render 'price', class: 'product-card__price', product: product -%}
-    {% endif %}
-  </div>
-
   {% if quick_add %}
     {% if settings.quick_add_style == 'modal' %}
-      <div class="product-card__quick-add-btn disclosure __style-blank-button no-js-hidden">
+      <div class="product-card__quick-add-btn no-js-hidden">
         <quick-add-modal
-          class="product-card__quick-add-btn__btn btn disclosure__summary"
+          class="product-card__quick-add-btn__btn btn __with-plus"
           aria-label="{{ 'products.product.quick_buy' | t }}"
           data-product-url="{{ product_url }}"
           ></quick-add-modal
         >
       </div>
     {% else %}
-      {% assign quick_add_id = product.id | append: "-quick-add" %}
-      {% render 'disclosure' title: '', id: quick_add_id, text: "Text", style: "blank-button", class: "product-card__quick-add-btn" %}
+      {% assign quick_add_id = this_product.id | append: "-quick-add" %}
+      {% assign quick_add_product_id = 'Product-Form-' | append: section.id | append: this_product.id %}
+      {% capture quick_add_content %}
+        <p class="p-sm">{{ this_product.description }}</p>
+
+        {% render 'variant_picker' this_product: this_product, layout: 'buttons', product_form_id: quick_add_product_id %}
+        {% render 'product-form' id: quick_add_product_id, product: this_product, show_quantity: true, hide_dynamic_buttons: true %}
+      {% endcapture %}
+      <quick-add-dropdown class="product-card__quick-add-btn no-js-hidden">
+        {% render 'disclosure' html_title: title_trigger, id: quick_add_id, text: quick_add_content, style: "blank", aria_label: "Quick Add" %}
+      </quick-add-dropdown>
     {% endif %}
+  
   {% endif %}
 
-  {% if show_description and product.description %}
-    <p class="product-card__desc p-sm">{{ product.description | strip_html | truncatewords: 20 }}</p>
+  {% if show_description and this_product.description %}
+    <p class="product-card__desc p-sm">{{ this_product.description | strip_html | truncatewords: 20 }}</p>
   {% endif %}
 
   {% if price_position == 'bottom' %}

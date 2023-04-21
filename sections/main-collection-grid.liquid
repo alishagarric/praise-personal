@@ -37,7 +37,7 @@
             {% endif %}
 
             <li style="order: {{ forloop.index }};">
-              {% render 'product-card' product: product, class: "main-collection-grid__grid-item", show_bg_color: section.settings.show_bg_color, quick_add: section.settings.quick_add, crop: section.settings.crop_shape, show_phrase: section.settings.show_phrase, alignment: section.settings.product_text_alignment, section.settings.show_description: section.settings.show_description, price_position: section.settings.price, alt_heading: section.settings.alt_title, img_width: 1280, img_widths: '1280, 900, 700, 500', img_sizes: '(max-width: 676px) 100vw, (max-width: 1024px) 45vw, 25vw', img_preload: preload %}
+              {% render 'product-card' this_product: product, class: "main-collection-grid__grid-item", show_bg_color: section.settings.show_bg_color, quick_add: section.settings.quick_add, crop: section.settings.crop_shape, show_phrase: section.settings.show_phrase, alignment: section.settings.product_text_alignment, section.settings.show_description: section.settings.show_description, price_position: section.settings.price, alt_heading: section.settings.alt_title, img_width: 1280, img_widths: '1280, 900, 700, 500', img_sizes: '(max-width: 676px) 100vw, (max-width: 1024px) 45vw, 25vw', img_preload: preload %}
             </li>
           {%- endfor -%}
 

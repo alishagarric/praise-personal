@@ -82,8 +82,8 @@
 
     &__product {
       width: 60%;
+      padding-left: var(--pxSize);
       flex: 0 0 60%; // For when Flickity is not applied
-      margin-left: var(--pxSize);
     }
 
     // For when Flickity is not applied

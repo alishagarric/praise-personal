@@ -2,6 +2,9 @@
 {{ 'content-card.css' | asset_url | stylesheet_tag }}
 {{ 'quote-card.css' | asset_url | stylesheet_tag }}
 
+<script src="{{ 'content-marquee.js' | asset_url }}" defer></script>
+
+
 {% liquid
   assign card_width_divisor = 4
   assign placeholder_card_count = 4

@@ -49,12 +49,12 @@ class VariantSelects extends HTMLElement {
     if (!this.currentVariant.featured_media) return;
 
     const mediaGallery = document.getElementById(
-      `Product-MediaGallery-${this.dataset.section}`
+      `Product-MediaGallery-${this.dataset.section}${this.dataset.productId}`
     );
     if (!mediaGallery) return;
 
     mediaGallery.setActiveMedia(
-      `${this.dataset.section}-${this.currentVariant.featured_media.id}`
+      `${this.dataset.section}${this.dataset.productId}-${this.currentVariant.featured_media.id}`
     );
   }
 
@@ -71,7 +71,7 @@ class VariantSelects extends HTMLElement {
   //TODO unaware of a share component exsiting in starter, we may have to build it
   updateShareUrl() {
     const shareButton = document.getElementById(
-      `Share-${this.dataset.section}`
+      `Share-${this.dataset.section}${this.dataset.productId}`
     );
     if (!shareButton || !shareButton.updateUrl) return;
     shareButton.updateUrl(
@@ -82,7 +82,7 @@ class VariantSelects extends HTMLElement {
   //Update the current variant id value on all product forms that use it
   updateVariantInput() {
     const productForms = document.querySelectorAll(
-      `#Product-Form-${this.dataset.section}, #Installment-${this.dataset.section}`
+      `#Product-Form-${this.dataset.section}${this.dataset.productId}, #Installment-${this.dataset.section}${this.dataset.productId}`
     );
 
     productForms.forEach((productForm) => {
@@ -110,12 +110,16 @@ class VariantSelects extends HTMLElement {
       .then((responseText) => {
         const html = new DOMParser().parseFromString(responseText, "text/html");
         const destination = document.getElementById(
-          `Price-${this.dataset.section}`
+          `Price-${this.dataset.section}${this.dataset.productId}`
         );
-        const source = html.getElementById(`Price-${this.dataset.section}`);
+        const source = html.getElementById(
+          `Price-${this.dataset.section}${this.dataset.productId}`
+        );
         if (source && destination) destination.innerHTML = source.innerHTML;
 
-        const price = document.getElementById(`Price-${this.dataset.section}`);
+        const price = document.getElementById(
+          `Price-${this.dataset.section}${this.dataset.productId}`
+        );
 
         if (price) price.classList.remove("visibility-hidden");
         this.toggleAddButton(
@@ -128,7 +132,7 @@ class VariantSelects extends HTMLElement {
   // update add to cart button's text and disabled state
   toggleAddButton(disable = true, text) {
     const productForm = document.getElementById(
-      `Product-Form-${this.dataset.section}`
+      `Product-Form-${this.dataset.section}${this.dataset.productId}`
     );
     if (!productForm) return;
 
@@ -149,11 +153,13 @@ class VariantSelects extends HTMLElement {
   // Change button text to unavailable and hide price
   setUnavailable() {
     const button = document.getElementById(
-      `Product-Form-${this.dataset.section}`
+      `Product-Form-${this.dataset.section}${this.dataset.productId}`
     );
     const addButton = button.querySelector('[name="add"]');
     const addButtonText = button.querySelector('[name="add"] > span');
-    const price = document.getElementById(`Price-${this.dataset.section}`);
+    const price = document.getElementById(
+      `Price-${this.dataset.section}${this.dataset.productId}`
+    );
 
     if (!addButton) return;
     addButtonText.textContent = window.variantStrings.unavailable;

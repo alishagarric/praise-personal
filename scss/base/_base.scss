@@ -449,6 +449,27 @@ input[type="submit"] {
     }
   }
 
+  &.__with-plus {
+    padding-right: calc(var(--expandableContentIconWidth) * 3);
+    position: relative;
+
+    &:before,
+    &:after {
+      content: "";
+      width: var(--expandableContentIconWidth);
+      height: 1px;
+      position: absolute;
+      right: var(--expandableContentIconWidth);
+      top: 50%;
+    }
+
+    &:after {
+      will-change: transform;
+      transition: transform 0.25s ease;
+      transform: rotate(90deg);
+    }
+  }
+
   &.__style-secondary {
     background: RGBA(var(--color-text) / 0.05);
     border: 1px solid transparent;

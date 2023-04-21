@@ -45,20 +45,24 @@
       height: calc(var(--navHeight) * 0.6);
       width: auto; }
   .site-header__main {
+    position: relative;
     display: flex;
     gap: var(--pxSize);
     flex: 1;
     align-self: stretch;
     padding-left: var(--siteHeaderGuttersSpace);
-    height: var(--navHeight); }
+    height: var(--navHeight);
+    z-index: 3; }
     .site-header__main.__center-links {
       justify-content: center; }
   .site-header__utility-links {
+    position: relative;
     display: flex;
     height: var(--navHeight);
     align-items: center;
     gap: calc(var(--pxSize) / 4);
-    padding-right: var(--siteHeaderGuttersSpace); }
+    padding-right: var(--siteHeaderGuttersSpace);
+    z-index: 4; }
     .site-header__utility-links__cart {
       --cartBubbleSize: 17px;
       position: relative;

@@ -1,6 +1,4 @@
 .disclosure {
-  --expandableContentIconWidth: 0.75rem;
-
   //Styles used on all types of disclosures
   &__summary {
     position: relative;
@@ -99,27 +97,7 @@
     &-dropdown-button,
     &-default,
     &-blank-button {
-      //the plus sign made out of pseudo elements
-      .disclosure {
-        &__summary {
-          &:before,
-          &:after {
-            content: "";
-            width: var(--expandableContentIconWidth);
-            height: 1px;
-            position: absolute;
-            right: 0;
-            top: 50%;
-          }
-
-          &:after {
-            will-change: transform;
-            transition: transform 0.25s ease;
-            transform: rotate(90deg);
-          }
-        }
-      }
-
+      //close plus sign
       &[open] {
         .disclosure {
           &__summary {
@@ -182,10 +160,6 @@
         &__content {
           padding: calc(var(--pxSize) / 4) 0;
         }
-
-        &__summary {
-          padding-right: calc(var(--expandableContentIconWidth) * 2);
-        }
       }
     }
 
@@ -194,15 +168,9 @@
       .disclosure {
         &__summary {
           margin-top: 0;
-          padding-right: calc(var(--expandableContentIconWidth) * 3);
 
           span {
             margin: 0;
-          }
-
-          &:before,
-          &:after {
-            right: var(--expandableContentIconWidth);
           }
         }
       }

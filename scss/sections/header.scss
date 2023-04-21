@@ -82,12 +82,14 @@
 
   // All the links container
   &__main {
+    position: relative;
     display: flex;
     gap: var(--pxSize);
     flex: 1;
     align-self: stretch;
     padding-left: var(--siteHeaderGuttersSpace);
     height: var(--navHeight);
+    z-index: 3;
 
     &.__center-links {
       justify-content: center;
@@ -96,11 +98,13 @@
 
   // Search, Account and Cart
   &__utility-links {
+    position: relative;
     display: flex;
     height: var(--navHeight);
     align-items: center;
     gap: calc(var(--pxSize) / 4);
     padding-right: var(--siteHeaderGuttersSpace);
+    z-index: 4;
 
     &__cart {
       --cartBubbleSize: 17px;

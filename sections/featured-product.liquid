@@ -9,7 +9,7 @@
   assign top_spacing = section.settings.top_spacing
   assign bottom_spacing = section.settings.bottom_spacing
   assign alignment = section.settings.alignment
-  assign product_form_id = 'Product-Form-' | append: section.id
+  assign product_form_id = 'Product-Form-' | append: section.id | append: product.id
   
 %}
 
@@ -91,7 +91,7 @@
 
             {% comment %} Type variant picker {% endcomment %}
             {%- when 'variant_picker' -%}
-              {% render 'variant_picker' product: section.settings.product, layout: block.settings.layout, include_border: block.settings.include_border, show_option_labels: block.settings.show_option_labels, class: "featured-product__block" %}
+              {% render 'variant_picker' this_product: section.settings.product, product_form_id: product_form_id, layout: block.settings.layout, include_border: block.settings.include_border, show_option_labels: block.settings.show_option_labels, class: "featured-product__block" %}
 
             {% comment %} Type price {% endcomment %}
             {%- when 'price' -%}

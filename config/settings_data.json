@@ -1,6 +1,6 @@
 {
   "current": {
-    "quick_add_style": "simple",
+    "quick_add_style": "dropdown",
     "cart_alt_heading": true,
     "cart_heading_size": "h6",
     "cart_crop_shape": "circle",

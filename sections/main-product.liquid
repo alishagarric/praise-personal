@@ -34,7 +34,7 @@
     assign media_count = media_count | minus: variant_images.size | plus: 1
   endif
   assign first_3d_model = product.media | where: "media_type", "model" | first
-  assign product_form_id = 'Product-Form-' | append: section.id
+  assign product_form_id = 'Product-Form-' | append: section.id | append: product.id
 -%}
 
 {% comment %} Add style sheet that'll apply to 3d model instances? {% endcomment %}
@@ -45,7 +45,7 @@
 <div class="main-product product {% if template == "product.modal" %}main-modal{% endif %} __theme-{{ section.settings.theme }}">
   
     {% comment %} Product info {% endcomment %}
-    <div id="Product-Info-{{ section.id }}" class="main-product__container __offset-{% if section.blocks.first.type == "media" %}left{% elsif section.blocks.last.type == "media" %}right{% else %}none{% endif %}">
+    <div id="Product-Info-{{ section.id }}{{ product.id }}" class="main-product__container __offset-{% if section.blocks.first.type == "media" %}left{% elsif section.blocks.last.type == "media" %}right{% else %}none{% endif %}">
       {% comment %} 
         Seems weird but we need to open this container without a closing tag. 
         Either the end of the loop of the media block within the loop will close 
@@ -70,10 +70,10 @@
             </div>
 
 
-            <media-gallery class="main-product__media __layout-{{ block.settings.layout }}" id="Product-MediaGallery-{{ section.id }}" data-section="{{ section.id }}">
+            <media-gallery class="main-product__media __layout-{{ block.settings.layout }}" id="Product-MediaGallery-{{ section.id }}{{ product.id }}" data-section="{{ section.id }}">
 
               {% comment %} Skip to content anchor link {% endcomment %}
-              <a class="skip-to-content-link visually-hidden" href="#ProductInfo-{{ section.id }}">
+              <a class="skip-to-content-link visually-hidden" href="#ProductInfo-{{ section.id }}{{ product.id }}">
                 {{ 'accessibility.skip_to_product_info' | t }}
               </a>
 
@@ -81,7 +81,7 @@
 
                 {% comment %} Output first image (not lzayloaded) (changes depengind on variant availability and assigned variant images) {% endcomment %}
                 {%- unless featured_media == null -%}
-                  <li class="main-product__media__item" data-media-id="{{ section.id }}-{{ featured_media.id }}">
+                  <li class="main-product__media__item" data-media-id="{{ section.id }}{{ product.id }}-{{ featured_media.id }}">
                     {% render 'product-thumbnail', media: featured_media, loading: 'eager' %}
                   </li>
                 {%- endunless -%}
@@ -90,7 +90,7 @@
                 {% comment %} What does the parent <media-gallery> component do, why do these li's have data-media-id attr on them? {% endcomment %}
                 {%- for media in product.media -%}
                   {%- unless media.id == featured_media.id -%}
-                    <li class="main-product__media__item" data-media-id="{{ section.id }}-{{ media.id }}">
+                    <li class="main-product__media__item" data-media-id="{{ section.id }}{{ product.id }}-{{ media.id }}">
                       {%- liquid
                         assign media_position = media_position | default: 0 | plus: 1
                         assign loading = 'eager'
@@ -107,7 +107,7 @@
               {% if block.settings.layout != "stacked" %}
                 <ul class="main-product__media__dots" style="--dotsColumns: {% if product.media.size > 5 %}5{% else %}{{ product.media.size }}{% endif %}; --dotsRows: {{ product.media.size | divided_by: 5.0 | ceil }}">
                   {%- for media in product.media -%}
-                    <li class="main-product__media__dots__dot standard-flickity-dot {% if media == product.selected_or_first_available_variant.featured_media %}__active{% endif %}" data-media-dot-id="{{ section.id }}-{{ media.id }}">
+                    <li class="main-product__media__dots__dot standard-flickity-dot {% if media == product.selected_or_first_available_variant.featured_media %}__active{% endif %}" data-media-dot-id="{{ section.id }}{{ product.id }}-{{ media.id }}">
                       <span class="visually-hidden">{{ forloop.index }}</span>
                     </li>
                   {%- endfor -%}
@@ -159,12 +159,13 @@
 
           {% comment %} Type price {% endcomment %}
           {%- when 'price' -%}
-            {% render 'form-price' product: product, price_size: block.settings.heading_size, form_id: section.id %}
+            {% assign form_id = section.id | append: product.id %}
+            {% render 'form-price' product: product, price_size: block.settings.heading_size, form_id: form_id %}
 
           
           {% comment %} Type variant picker {% endcomment %}
           {%- when 'variant_picker' -%}
-            {% render 'variant_picker' product: product, layout: block.settings.layout, include_border: block.settings.include_border, show_option_labels: block.settings.show_option_labels, class: "main-product__block" %}
+            {% render 'variant_picker' this_product: product, product_form_id: product_form_id, layout: block.settings.layout, include_border: block.settings.include_border, show_option_labels: block.settings.show_option_labels, class: "main-product__block" %}
 
           {% comment %} Type buy buttons {% endcomment %}
           {%- when 'buy_buttons' -%}
@@ -218,7 +219,7 @@
                 </template>
               </pickup-availability>  
             {% endcapture %}
-            {% capture pickup_availability_id %}pickup-{{ section.id }}-{{ block.id }}{% endcapture %}
+            {% capture pickup_availability_id %}pickup-{{ section.id }}{{ product.id }}-{{ block.id }}{% endcapture %}
             {% render 'disclosure' title: block.settings.title, text: pickup_availability_content, id: pickup_availability_id, class: "main-product__block main-product__pickup-disclosure" %}
           
           {% comment %} Product Recommendations {% endcomment %}

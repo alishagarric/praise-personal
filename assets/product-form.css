@@ -6,7 +6,8 @@ form.product-form .product-form__row, form.product-form .product-form__column {
 form.product-form .product-form__column {
   flex-direction: column; }
 form.product-form .product-form__row {
-  margin-bottom: calc(var(--pxSize) / 4); }
+  margin-bottom: calc(var(--pxSize) / 4);
+  flex-wrap: wrap; }
   form.product-form .product-form__row.__include-border {
     padding-bottom: calc(var(--pxSize) / 4);
     margin-bottom: calc(var(--pxSize) / 4);

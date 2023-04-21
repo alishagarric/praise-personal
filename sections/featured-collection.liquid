@@ -6,6 +6,7 @@
 {{ 'disclosure.css' | asset_url | stylesheet_tag }}
 
 <script src="{{ 'flickity.js' | asset_url }}" defer></script>
+<script src="{{ 'featured-collection.js' | asset_url }}" defer></script>
 
 {% liquid
   assign featured_collection = section.settings.collection
@@ -90,7 +91,7 @@
       >
         {% for product in featured_collection.products %}
           {% render 'product-card',
-            product: product,
+            this_product: product,
             show_bg_color: show_bg_color,
             quick_add: quick_add,
             crop: crop_shape,
