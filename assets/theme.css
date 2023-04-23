@@ -892,40 +892,6 @@ input[type="submit"] {
     input[type="submit"]:hover:not(:disabled):not([aria-disabled="true"]):before,
     input[type="submit"]:hover:not(:disabled):not([aria-disabled="true"]):after {
       background: RGB(var(--color-foreground)); }
-  .btn.__with-plus,
-  .button.__with-plus,
-  button.__with-plus,
-  .shopify-payment-button__button--unbranded.__with-plus,
-  .shopify-payment-button__button button.__with-plus,
-  input[type="submit"].__with-plus {
-    padding-right: calc(var(--expandableContentIconWidth) * 3);
-    position: relative; }
-    .btn.__with-plus:before, .btn.__with-plus:after,
-    .button.__with-plus:before,
-    .button.__with-plus:after,
-    button.__with-plus:before,
-    button.__with-plus:after,
-    .shopify-payment-button__button--unbranded.__with-plus:before,
-    .shopify-payment-button__button--unbranded.__with-plus:after,
-    .shopify-payment-button__button button.__with-plus:before,
-    .shopify-payment-button__button button.__with-plus:after,
-    input[type="submit"].__with-plus:before,
-    input[type="submit"].__with-plus:after {
-      content: "";
-      width: var(--expandableContentIconWidth);
-      height: 1px;
-      position: absolute;
-      right: var(--expandableContentIconWidth);
-      top: 50%; }
-    .btn.__with-plus:after,
-    .button.__with-plus:after,
-    button.__with-plus:after,
-    .shopify-payment-button__button--unbranded.__with-plus:after,
-    .shopify-payment-button__button button.__with-plus:after,
-    input[type="submit"].__with-plus:after {
-      will-change: transform;
-      transition: transform 0.25s ease;
-      transform: rotate(90deg); }
   .btn.__style-secondary,
   .button.__style-secondary,
   button.__style-secondary,
@@ -1050,6 +1016,22 @@ input[type="submit"] {
   input[type="submit"][aria-disabled="true"] {
     opacity: 0.6;
     cursor: not-allowed; }
+
+.__with-plus {
+  padding-right: calc(var(--expandableContentIconWidth) * 3);
+  position: relative; }
+  .__with-plus:before, .__with-plus:after {
+    content: "";
+    width: var(--expandableContentIconWidth);
+    height: 1px;
+    position: absolute;
+    right: var(--expandableContentIconWidth);
+    top: 50%;
+    background: RGB(var(--color-text)); }
+  .__with-plus:after {
+    will-change: transform;
+    transition: transform 0.25s ease;
+    transform: rotate(90deg); }
 
 .placeholder-svg,
 .page-placeholder {
