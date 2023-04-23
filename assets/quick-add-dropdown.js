@@ -8,12 +8,11 @@ class QuickAddDropdown extends HTMLElement {
     this.closestOverflowParent = this.findClosestOverflowParent(
       this.disclosure
     );
-
+    this.closestFlickityParent = this.closest(".flickity-slider");
     this.disclosure.addEventListener("toggle", this.openDisclosure.bind(this));
   }
 
   openDisclosure() {
-    console.log("click");
     if (this.disclosure.getAttribute("open") == false) {
       // Get the top, left coordinates of two elements
       let sectionBounds = this.section.getBoundingClientRect();
@@ -29,7 +28,6 @@ class QuickAddDropdown extends HTMLElement {
       this.disclosureContent.classList.add(
         "product-card-relocated-dosclosure-content"
       );
-      console.log(top, left, this.disclosureContent.style);
       this.section.appendChild(this.disclosureContent);
 
       if (this.closestOverflowParent) {
@@ -39,9 +37,28 @@ class QuickAddDropdown extends HTMLElement {
           false
         );
       }
+      if (this.closestFlickityParent) {
+        const observer = new MutationObserver((mutationsList) => {
+          for (let mutation of mutationsList) {
+            if (mutation.attributeName === "style") {
+              this.onFlickityChange();
+            }
+          }
+        });
+        observer.observe(this.closestFlickityParent, { attributes: true });
+        this.flickityObserver = observer;
+      }
+
       window.addEventListener("resize", this.closeDisclosure.bind(this), false);
     } else {
       this.closeDisclosure();
+    }
+  }
+
+  onFlickityChange() {
+    this.closeDisclosure();
+    if (this.flickityObserver) {
+      this.flickityObserver.disconnect();
     }
   }
 
