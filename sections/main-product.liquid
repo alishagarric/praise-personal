@@ -1,7 +1,6 @@
 {{ 'product.css' | asset_url | stylesheet_tag }}
 {{ 'cmnc-flickity.css' | asset_url | stylesheet_tag }}
 {{ 'main-product.css' | asset_url | stylesheet_tag }}
-{{ 'disclosure.css' | asset_url | stylesheet_tag }}
 {{ 'number-input.css' | asset_url | stylesheet_tag }}
 {{ 'product-form.css' | asset_url | stylesheet_tag }}
 {{ 'variant-picker.css' | asset_url | stylesheet_tag }}
@@ -181,6 +180,7 @@
           {%- when 'icons' -%}
             {% if product.metafields.custom.featured_icons.value.size > 0 %}
               <div class="main-product__block {% if block.settings.include_border %} __border-top {% endif %}">
+                {{ 'custom-icons.css' | asset_url | stylesheet_tag }}
                 {% if block.settings.title %}
                   <div class="p-sm">{{ block.settings.title }}</div>
                 {% endif %}
@@ -203,6 +203,7 @@
 
           {% comment %} Type rating {% endcomment %}
           {%- when 'rating' -%}
+            {{ 'product-ratings.css' | asset_url | stylesheet_tag }}
             {% render 'product-ratings' product: product %}
 
           {% comment %} Type pickup availability {% endcomment %}

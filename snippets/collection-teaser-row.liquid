@@ -75,6 +75,7 @@
 
     {% comment %} Featured Icons {% endcomment %}
     {% if display_featured_icons %}
+      {{ 'custom-icons.css' | asset_url | stylesheet_tag }}
       {% assign icons = '' %}
       {% for product in collection.products %}
         {% for icon in product.metafields.custom.featured_icons.value %}
@@ -92,7 +93,7 @@
               layout: layout,
               icon_height: icon_height
             %}
-          {% endfor%}
+          {% endfor %}
         {% else %}
           {% render 'featured-icons',
             icons: icons,

@@ -1,6 +1,7 @@
 {% comment %}
   This is a version of image banner that contains content specific to a blog page
 {% endcomment %}
+{{ 'image-banner.css' | asset_url | stylesheet_tag }}
 
 {% capture section_id %}Main-blog-banner-{{ section.id }}{% endcapture %}
 

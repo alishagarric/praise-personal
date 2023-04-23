@@ -1,5 +1,4 @@
 {{ 'featured-product.css' | asset_url | stylesheet_tag }}
-{{ 'disclosure.css' | asset_url | stylesheet_tag }}
 {{ 'number-input.css' | asset_url | stylesheet_tag }}
 {{ 'product-form.css' | asset_url | stylesheet_tag }}
 {{ 'variant-picker.css' | asset_url | stylesheet_tag }}
@@ -79,6 +78,7 @@
 
             {% comment %} Type rating {% endcomment %}
             {%- when 'rating' -%}
+               {{ 'product-ratings.css' | asset_url | stylesheet_tag }}
               {% render 'product-ratings' product: section.settings.product %}
 
             {% comment %} Type shop button {% endcomment %}
