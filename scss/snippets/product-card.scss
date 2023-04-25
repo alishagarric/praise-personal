@@ -1,23 +1,79 @@
-.disclosure-content {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  border: 1px solid RGB(var(--color-text));
-  border-top: none;
-  background: RGB(var(--color-background));
-  padding: 1rem;
+@import "../snippets/variant-picker";
+
+.disclosure-styles {
   z-index: 4;
 
-  form.product-form .product-form__row {
-    margin-bottom: 0;
+  &[open] {
+    //  border: 1px solid RGB(var(--color-text));
+    box-shadow: 5px 5px 10px 0 RGBA(var(--color-text) / 0.1);
+    background: RGB(var(--color-background));
+    padding: 1rem;
+    margin: 0 -1rem;
+    transform: translateY(-1rem);
+
+    .disclosure__summary {
+      //rotate plus sign into negative
+      .btn:after {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  &.__align {
+    &-center {
+      .disclosure__summary {
+        flex-direction: column-reverse;
+        align-items: center;
+      }
+
+      form.product-form .product-form__row {
+        justify-content: center;
+      }
+    }
+
+    &-right {
+      .disclosure__summary {
+        flex-direction: row-reverse;
+      }
+
+      form.product-form .product-form__row {
+        justify-content: flex-end;
+      }
+    }
+  }
+
+  .disclosure {
+    &__content {
+      form.product-form .product-form__row {
+        margin-bottom: 0;
+      }
+    }
+
+    &__summary {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      will-change: transform;
+      transition: transform 0.25s ease;
+
+      .btn {
+        --btnHeight: 2rem;
+        --expandableContentIconWidth: calc(var(--btnHeight) / 4);
+        margin: 0;
+        padding-left: 0;
+        padding-right: calc(var(--expandableContentIconWidth) * 4) !important;
+
+        &::before,
+        &:after {
+          right: calc(var(--expandableContentIconWidth) * 1.5) !important;
+        }
+      }
+    }
   }
 }
 
 .product-card {
   position: relative;
-  display: grid;
-  grid-template-columns: 1fr;
 
   a {
     position: absolute;
@@ -27,59 +83,19 @@
 
   &__quick-add-btn {
     position: relative;
+    display: block;
     z-index: 4;
     width: 100%;
 
     .disclosure {
-      background: RGBA(var(--color-background) / 0);
-      box-shadow: 5px 5px 10px 0 RGBA(var(--color-text) / 0);
-
-      &__content {
-        @extend .disclosure-content;
-      }
-
-      &__summary {
-        display: flex;
-        justify-content: space-between;
-        gap: 1rem;
-        will-change: transform;
-        transition: transform 0.25s ease;
-        padding-top: 1rem;
-
-        .btn {
-          margin: 0;
-          padding-left: 0;
-          padding-right: calc(var(--expandableContentIconWidth) * 4) !important;
-
-          &::before,
-          &:after {
-            right: calc(var(--expandableContentIconWidth) * 1.5) !important;
-          }
-        }
-      }
-
-      &[open] {
-        border: 1px solid RGB(var(--color-text));
-        border-bottom: none;
-        background: RGB(var(--color-background));
-
-        .disclosure {
-          &__summary {
-            transform: scale(0.9);
-
-            //rotate plus sign into negative
-            .btn:after {
-              transform: rotate(180deg);
-            }
-          }
-        }
-      }
+      @extend .disclosure-styles;
+      position: static;
     }
   }
 
   &__image {
     z-index: 1;
-    margin-bottom: 0.25rem;
+    margin-bottom: 1.25rem;
 
     img,
     svg {
@@ -106,7 +122,6 @@
     align-items: baseline;
     gap: 0.25rem 1rem;
     margin-bottom: 1rem;
-    grid-row: 2 / 3;
     z-index: 4;
 
     .price {
@@ -135,7 +150,7 @@
 
     &:before {
       content: "";
-      height: 50%;
+      padding-top: var(--bgRatio);
       position: absolute;
       top: 0;
       left: 0;
@@ -169,5 +184,6 @@
 }
 
 .product-card-relocated-dosclosure-content {
-  @extend .disclosure-content;
+  @extend .disclosure-styles;
+  position: absolute;
 }

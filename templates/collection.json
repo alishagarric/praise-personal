@@ -41,7 +41,7 @@
       "settings": {
         "show_phrase": true,
         "show_description": true,
-        "quick_add": false,
+        "quick_add": true,
         "show_bg_color": true,
         "alt_title": true,
         "product_text_alignment": "default",

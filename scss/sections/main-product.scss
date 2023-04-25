@@ -200,11 +200,22 @@
 
   @media screen and (max-width: 676px) {
     &__container {
-      display: block;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
     }
 
     &__media {
+      --color-background: var(--mobile-color-background);
+      --color-foreground: var(--mobile-color-foreground);
+      --color-border: var(--mobile-color-border);
+      --color-text: var(--mobile-color-text);
+      --color-foreground-text: var(--mobile-color-foreground-text);
       position: relative;
+      order: -1;
+      padding-top: var(--sectionGuttersSpacing);
+      padding-bottom: 0;
+      background-color: RGB(var(--color-background));
 
       // All from shopify starter
       &__container {
@@ -222,8 +233,8 @@
 
         li {
           scroll-snap-align: center;
-          max-width: calc(100% - 60px);
-          min-width: calc(100% - 60px);
+          max-width: 100%;
+          min-width: 100%;
 
           &:first-child {
             scroll-snap-align: start;
@@ -233,10 +244,35 @@
       }
     }
 
-    &__blocks-after-media,
+    //block wrapper that wraps some product blocks
+    &__block {
+      &.__border-top {
+        padding-top: calc(var(--pxSize) / 1.5);
+      }
+    }
+
     &__blocks-before-media {
+      &:before {
+        width: 100%;
+        right: 0;
+        bottom: 0;
+        top: 0;
+      }
+    }
+
+    &__blocks-after-media,
+    &__blocks-before-media,
+    &__media {
       padding-left: var(--sectionGuttersSpacing);
       padding-right: var(--sectionGuttersSpacing);
+    }
+
+    &__blocks-after-media {
+      padding-top: var(--pxSize);
+    }
+
+    &__blocks-before-media {
+      padding-bottom: var(--pxSize);
     }
   }
 }

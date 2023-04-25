@@ -47,6 +47,14 @@
   endif
 %}
 
+{% if quick_add %}
+  <script src="{{ 'quick-add-modal.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'quick-add-dropdown.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'variant-selects.js' | asset_url }}" defer="defer"></script>
+{% endif %}
+
+
 {% style %}
   #Featured-collection-{{ section.id }} {
     --topSpacingRatio: {{ top_spacing }} / 100;

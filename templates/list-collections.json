@@ -283,30 +283,12 @@
               "all-hail-sugar-baby",
               "peanut-cravings-beware",
               "moose-munchers-snap",
-              "the-king-otto"
+              "the-king-otto",
+              "all-hail-sugar-boo"
             ],
             "show_phrase": false,
             "show_description": false,
-            "quick_add": true,
-            "show_bg_color": false,
-            "alt_title": false,
-            "product_text_alignment": "default",
-            "price": "default",
-            "crop_shape": "rounded-square"
-          }
-        },
-        "180929a3-dca6-4523-91a5-a03a69559836": {
-          "type": "products",
-          "settings": {
-            "products": [
-              "all-hail-sugar-baby",
-              "peanut-cravings-beware",
-              "moose-munchers-snap",
-              "the-king-otto"
-            ],
-            "show_phrase": false,
-            "show_description": false,
-            "quick_add": true,
+            "quick_add": false,
             "show_bg_color": false,
             "alt_title": false,
             "product_text_alignment": "default",
@@ -315,10 +297,7 @@
           }
         }
       },
-      "block_order": [
-        "f59e2fe6-d3ba-4912-95b8-88c242212711",
-        "180929a3-dca6-4523-91a5-a03a69559836"
-      ],
+      "block_order": ["f59e2fe6-d3ba-4912-95b8-88c242212711"],
       "settings": {
         "heading": "Stock your cabinet",
         "heading_size": "h4",

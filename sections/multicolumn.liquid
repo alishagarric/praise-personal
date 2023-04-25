@@ -3,7 +3,6 @@
 {{ 'collection-card.css' | asset_url | stylesheet_tag }}
 {{ 'content-card.css' | asset_url | stylesheet_tag }}
 {{ 'quote-card.css' | asset_url | stylesheet_tag }}
-{{ 'product-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 
 {% liquid
@@ -69,6 +68,7 @@
   endif
 %}
 
+
 {% style %}
   #Multicolumn-{{ section.id }} {
     --topSpacingRatio: {{ section.settings.top_spacing }} / 100;
@@ -102,29 +102,38 @@
   <overflow-slider class="multicolumn__inner overflow-slider {% if hide_arrows_on_desktop %}__hide-desktop-arrows{% endif %} {% if hide_arrows_on_tablet %}__hide-tablet-arrows{% endif%}">
     <div class="overflow-slider__container multicolumn__container">
       {% comment %} Real Content {% endcomment %}
-      {% liquid
-        if section.blocks.size > 0
-          for block in section.blocks
-            case block.type
-              when 'quote'
-                render 'quote-card', quote: block.settings.quote, alignment: block.settings.alignment, background_theme: block.settings.background_theme, card_corners: block.settings.card_corners, quotations: block.settings.quotations, details: block.settings.details, logo: block.settings.logo, class: 'multicolumn__item', img_width: width, img_widths: widths, img_sizes: sizes
+        {% assign first_product = false %}
+        {% if section.blocks.size > 0 %}
+          {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'quote' %}
+                {% render 'quote-card', quote: block.settings.quote, alignment: block.settings.alignment, background_theme: block.settings.background_theme, card_corners: block.settings.card_corners, quotations: block.settings.quotations, details: block.settings.details, logo: block.settings.logo, class: 'multicolumn__item', img_width: width, img_widths: widths, img_sizes: sizes %}
 
-              when 'image'
-                render 'content-card', class: 'multicolumn__item', image: block.settings.image, alignment: block.settings.alignment, crop_shape: block.settings.crop_shape, overlay_theme: block.settings.overlay_theme, overlay: block.settings.overlay, heading: block.settings.heading, overlap: block.settings.overlap, heading_size: block.settings.heading_size, button_label: block.settings.button_label, button_link: block.settings.button_link, button_color: block.settings.button_color, text: block.settings.text, img_width: width, img_widths: widths, img_sizes: sizes
+              {% when 'image' %}
+                {% render 'content-card', class: 'multicolumn__item', image: block.settings.image, alignment: block.settings.alignment, crop_shape: block.settings.crop_shape, overlay_theme: block.settings.overlay_theme, overlay: block.settings.overlay, heading: block.settings.heading, overlap: block.settings.overlap, heading_size: block.settings.heading_size, button_label: block.settings.button_label, button_link: block.settings.button_link, button_color: block.settings.button_color, text: block.settings.text, img_width: width, img_widths: widths, img_sizes: sizes %}
 
-              when 'products'
-                for product in block.settings.products
-                  render 'product-card', product: product, class: 'multicolumn__item', show_bg_color: block.settings.show_bg_color, quick_add: block.settings.quick_add, crop: block.settings.crop_shape, show_phrase: block.settings.show_phrase, alignment: block.settings.product_text_alignment, show_description: block.settings.show_description, price_position: block.settings.price, alt_heading: block.settings.alt_title, img_width: width, img_widths: widths, img_sizes: sizes
-                endfor
+              {% when 'products' %}
+                {% for product in block.settings.products %}
+                  {% if first_product == false %}
+                    {% assign first_product = true %}
+                    {{ 'product-card.css' | asset_url | stylesheet_tag }}
+                    {% if block.settings.quick_add %}
+                      <script src="{{ 'quick-add-modal.js' | asset_url }}" defer="defer"></script>
+                      <script src="{{ 'quick-add-dropdown.js' | asset_url }}" defer="defer"></script>
+                      <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+                      <script src="{{ 'variant-selects.js' | asset_url }}" defer="defer"></script>
+                    {% endif %}
+                  {% endif %}
+                  {% render 'product-card', this_product: product, class: 'multicolumn__item', show_bg_color: block.settings.show_bg_color, quick_add: block.settings.quick_add, crop: block.settings.crop_shape, show_phrase: block.settings.show_phrase, alignment: block.settings.product_text_alignment, show_description: block.settings.show_description, price_position: block.settings.price, alt_heading: block.settings.alt_title, img_width: width, img_widths: widths, img_sizes: sizes %}
+                {% endfor %}
 
-              when 'collections'
-                for collection in block.settings.collections
-                  render 'collection-card', collection: collection, class: 'multicolumn__item', alignment: block.settings.alignment, button_label: block.settings.button_label, img_width: width, img_widths: widths, img_sizes: sizes
-                endfor
-            endcase
-          endfor
-        endif
-      %}
+              {% when 'collections' %}
+                {% for collection in block.settings.collections %}
+                  {% render 'collection-card', collection: collection, class: 'multicolumn__item', alignment: block.settings.alignment, button_label: block.settings.button_label, img_width: width, img_widths: widths, img_sizes: sizes %}
+                {% endfor %}
+            {% endcase %}
+          {% endfor %}
+        {% endif %}
 
       {% comment %} Placeholder Content {% endcomment %}
       {% if section.blocks.size == 0 %}
@@ -635,6 +644,7 @@
     },
     {
       "type": "products",
+      "limit": 1,
       "name": "t:sections.multicolumn.blocks.products.name",
       "settings": [
         {

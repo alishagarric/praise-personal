@@ -3,6 +3,7 @@
 {{ 'content-card.css' | asset_url | stylesheet_tag }}
 {{ 'product-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'product-form.css' | asset_url | stylesheet_tag }}
 {{ 'filter-and-sort.css' | asset_url | stylesheet_tag }}
 {{ 'custom-icons.css' | asset_url | stylesheet_tag }}
 
@@ -15,6 +16,14 @@
   assign quick_add = section.settings.quick_add
   assign show_description = section.settings.show_description
 %}
+
+{% if quick_add %}
+  <script src="{{ 'quick-add-modal.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'quick-add-dropdown.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'variant-selects.js' | asset_url }}" defer="defer"></script>
+{% endif %}
+
 
 {% style %}
   #Main-search-{{ section.id }} {
@@ -86,7 +95,7 @@
 
               case item.object_type
                 when 'product'
-                  render 'product-card', product: item, price_position: price, crop: crop_shape, alignment: alignment, alt_heading: alt_title, show_description: show_description, quick_add: quick_add, img_width: 1280, img_widths: '1280, 900, 700, 500', img_sizes: '(max-width: 676px) 100vw, (max-width: 1024px) 45vw, 25vw', img_preload: preload
+                  render 'product-card', this_product: item, price_position: price, crop: crop_shape, alignment: alignment, alt_heading: alt_title, show_description: show_description, quick_add: quick_add, img_width: 1280, img_widths: '1280, 900, 700, 500', img_sizes: '(max-width: 676px) 100vw, (max-width: 1024px) 45vw, 25vw', img_preload: preload
                 when 'article'
                   render 'article-card', article: item, crop: crop_shape, alignment: alignment, alt_heading: alt_title, show_description: show_description, img_width: 1280, img_widths: '1280, 900, 700, 500', img_sizes: '(max-width: 676px) 100vw, (max-width: 1024px) 45vw, 25vw', img_preload: preload
                 when 'page'

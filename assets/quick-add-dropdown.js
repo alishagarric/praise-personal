@@ -3,7 +3,6 @@ class QuickAddDropdown extends HTMLElement {
     super();
 
     this.disclosure = this.querySelector("details");
-    this.disclosureContent = this.querySelector(".disclosure__content");
     this.section = this.closest("section").querySelector("div");
     this.closestOverflowParent = this.findClosestOverflowParent(
       this.disclosure
@@ -16,19 +15,22 @@ class QuickAddDropdown extends HTMLElement {
     if (this.disclosure.getAttribute("open") == false) {
       // Get the top, left coordinates of two elements
       let sectionBounds = this.section.getBoundingClientRect();
-      let disclosureBounds = this.disclosure.getBoundingClientRect();
+      let quickAddBounds = this.getBoundingClientRect();
 
       // Calculate the top and left positions
-      let top = disclosureBounds.bottom - sectionBounds.top;
-      let left = disclosureBounds.left - sectionBounds.left;
-      let right = sectionBounds.right - disclosureBounds.right;
-      this.disclosureContent.style.top = top + "px";
-      this.disclosureContent.style.left = left + "px";
-      this.disclosureContent.style.right = right + "px";
-      this.disclosureContent.classList.add(
+      let top = quickAddBounds.top - sectionBounds.top;
+      let left = quickAddBounds.left - sectionBounds.left;
+      let right = sectionBounds.right - quickAddBounds.right;
+      let height = this.disclosure.querySelector("summary").offsetHeight;
+      this.disclosure.style.top = top + "px";
+      this.disclosure.style.left = left + "px";
+      this.disclosure.style.right = right + "px";
+
+      this.style.height = height + "px";
+      this.section.appendChild(this.disclosure);
+      this.disclosure.classList.add(
         "product-card-relocated-dosclosure-content"
       );
-      this.section.appendChild(this.disclosureContent);
 
       if (this.closestOverflowParent) {
         this.closestOverflowParent.addEventListener(
@@ -112,7 +114,8 @@ class QuickAddDropdown extends HTMLElement {
     );
 
     this.disclosure.open = false;
-    this.disclosure.appendChild(this.disclosureContent);
+    this.style.height = "auto";
+    this.appendChild(this.disclosure);
   }
 }
 customElements.define("quick-add-dropdown", QuickAddDropdown);

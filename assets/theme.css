@@ -1032,6 +1032,8 @@ input[type="submit"] {
     will-change: transform;
     transition: transform 0.25s ease;
     transform: rotate(90deg); }
+  .__with-plus.btn:before, .__with-plus.btn:after {
+    background: RGB(var(--color-foreground-text)); }
 
 .placeholder-svg,
 .page-placeholder {

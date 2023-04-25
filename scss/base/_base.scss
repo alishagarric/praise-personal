@@ -546,6 +546,13 @@ input[type="submit"] {
     transition: transform 0.25s ease;
     transform: rotate(90deg);
   }
+
+  &.btn {
+    &:before,
+    &:after {
+      background: RGB(var(--color-foreground-text));
+    }
+  }
 }
 
 // Placeholder SVG styles

@@ -69,7 +69,12 @@
             </div>
 
 
-            <media-gallery class="main-product__media __layout-{{ block.settings.layout }}" id="Product-MediaGallery-{{ section.id }}{{ product.id }}" data-section="{{ section.id }}">
+            <media-gallery 
+              class="main-product__media __layout-{{ block.settings.layout }}" 
+              id="Product-MediaGallery-{{ section.id }}{{ product.id }}" 
+              style="{% if product.metafields.custom.color %}--mobile-color-background: {{ product.metafields.custom.color.value.rgb }}; --mobile-color-foreground-text: {{ product.metafields.custom.color.value.rgb }};{% endif %} {% if product.metafields.custom.text_color %} --mobile-color-text: {{ product.metafields.custom.text_color.value.rgb }}; --mobile-color-foreground: {{ product.metafields.custom.text_color.value.rgb }}; --mobile-color-border: {{ product.metafields.custom.text_color.value.rgb }} / .3;{% endif %}"
+              data-section="{{ section.id }}"
+            >
 
               {% comment %} Skip to content anchor link {% endcomment %}
               <a class="skip-to-content-link visually-hidden" href="#ProductInfo-{{ section.id }}{{ product.id }}">
@@ -259,7 +264,6 @@
   </div>
 
   {% comment %} TODO: IE purchase flow fix {% endcomment %}
-  {% comment %} TODO: SEO JSON {% endcomment %}
   {%- if first_3d_model -%}
     <script type="application/json" id="Product-JSON-{{ product.id }}">
       {{ product.media | where: 'media_type', 'model' | json }}
@@ -269,8 +273,8 @@
 </div>
 
 <script src="{{ 'media-gallery.js' | asset_url }}" defer="defer"></script>
-<script src="{{ 'variant-selects.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'variant-selects.js' | asset_url }}" defer="defer"></script>
 
 {%- liquid
   if product.selected_or_first_available_variant.featured_media

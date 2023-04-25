@@ -4,12 +4,9 @@
 {{ 'product-card.css' | asset_url | stylesheet_tag }}
 {{ 'product-form.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
-{{ 'variant-picker.css' | asset_url | stylesheet_tag }}
 
 <script src="{{ 'flickity.js' | asset_url }}" defer></script>
 <script src="{{ 'shop-the-look.js' | asset_url }}" defer></script>
-<script src="{{ 'variant-selects.js' | asset_url }}" defer="defer"></script>
-<script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
 
 
 {% liquid
@@ -30,6 +27,8 @@
 {% if section.settings.quick_add %}
   <script src="{{ 'quick-add-modal.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'quick-add-dropdown.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'variant-selects.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
 {% endif %}
 
 <div

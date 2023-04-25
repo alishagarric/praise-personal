@@ -100,9 +100,20 @@
     margin-top: var(--pxSize); }
   @media screen and (max-width: 676px) {
     .main-product__container {
-      display: block; }
+      display: flex;
+      flex-direction: column;
+      overflow: hidden; }
     .main-product__media {
-      position: relative; }
+      --color-background: var(--mobile-color-background);
+      --color-foreground: var(--mobile-color-foreground);
+      --color-border: var(--mobile-color-border);
+      --color-text: var(--mobile-color-text);
+      --color-foreground-text: var(--mobile-color-foreground-text);
+      position: relative;
+      order: -1;
+      padding-top: var(--sectionGuttersSpacing);
+      padding-bottom: 0;
+      background-color: RGB(var(--color-background)); }
       .main-product__media__container {
         display: flex;
         overflow-x: auto;
@@ -117,14 +128,25 @@
         margin-right: calc(var(--container-padding) * -1); }
         .main-product__media__container li {
           scroll-snap-align: center;
-          max-width: calc(100% - 60px);
-          min-width: calc(100% - 60px); }
+          max-width: 100%;
+          min-width: 100%; }
           .main-product__media__container li:first-child {
             scroll-snap-align: start;
             margin-left: var(--container-padding); }
-    .main-product__blocks-after-media, .main-product__blocks-before-media {
+    .main-product__block.__border-top {
+      padding-top: calc(var(--pxSize) / 1.5); }
+    .main-product__blocks-before-media:before {
+      width: 100%;
+      right: 0;
+      bottom: 0;
+      top: 0; }
+    .main-product__blocks-after-media, .main-product__blocks-before-media, .main-product__media {
       padding-left: var(--sectionGuttersSpacing);
-      padding-right: var(--sectionGuttersSpacing); } }
+      padding-right: var(--sectionGuttersSpacing); }
+    .main-product__blocks-after-media {
+      padding-top: var(--pxSize); }
+    .main-product__blocks-before-media {
+      padding-bottom: var(--pxSize); } }
 
 /* Product model UI */
 /* TODO What is all of this */

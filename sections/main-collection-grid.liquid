@@ -13,6 +13,14 @@
   }
 {% endstyle %}
 
+{% if section.settings.quick_add %}
+  <script src="{{ 'quick-add-modal.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'quick-add-dropdown.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'variant-selects.js' | asset_url }}" defer="defer"></script>
+{% endif %}
+
+
 {%- paginate collection.products by section.settings.pagination_count -%}
   <div
     id="Main-collection-grid-{{ section.id }}"
