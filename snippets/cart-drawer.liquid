@@ -220,11 +220,11 @@
 
           {% if settings.cart_show_textarea == true %}
             <div class="main-cart__textarea form-styles">
-                <label class="visually-hidden" for="Cart-Note">{{ 'sections.cart.note' | t }}</label>
                 <textarea
                   name="note"
                   placeholder="{{ 'sections.cart.note' | t }}"
                   id="Cart-Note"
+                  aria-label="{{ 'sections.cart.note' | t }}"
                 >{{ cart.note }}</textarea>
             </div>
           {% endif %}
