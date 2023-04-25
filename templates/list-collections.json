@@ -13,7 +13,8 @@
         "template--16398178844894__e016bbbd-0856-455a-8d09-653c667e35b4-167581221261978a4c-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Atypical cookies and treats that push the boundaires of indulgence</p>"
+            "text": "<p>Atypical cookies and treats that push the boundaires of indulgence<\/p>",
+            "text_size": "p-sm"
           }
         }
       },
@@ -22,7 +23,7 @@
         "template--16398178844894__e016bbbd-0856-455a-8d09-653c667e35b4-167581221261978a4c-1"
       ],
       "settings": {
-        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_549b821c-6850-42f3-ae03-51e8af8116c6.jpg",
+        "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_549b821c-6850-42f3-ae03-51e8af8116c6.jpg",
         "overlay": 70,
         "overlay_theme": "primary",
         "crop_shape": "default",
@@ -101,6 +102,7 @@
       ],
       "settings": {
         "product": "all-hail-sugar-baby",
+        "hero": false,
         "alignment": "left",
         "theme_section": "half",
         "layout": "reversed",
@@ -127,6 +129,7 @@
         "products_per_collection": 2,
         "heading_size": "h4",
         "alt_heading": true,
+        "text_size": "p-sm",
         "view_all_button_label": "View All",
         "enable_sticky_details": false,
         "display_collection_image": false,
@@ -182,12 +185,15 @@
           }
         }
       },
-      "block_order": ["9fed0646-618c-4d33-8279-11160ad8351b"],
+      "block_order": [
+        "9fed0646-618c-4d33-8279-11160ad8351b"
+      ],
       "settings": {
         "heading": "",
         "heading_size": "h4",
         "alt_heading": false,
         "text": "",
+        "text_size": "p-sm",
         "alignment": "center",
         "columns_desktop": 3,
         "columns_mobile": 2,
@@ -200,10 +206,13 @@
     "0aedd12b-7b12-49e2-9817-c331fb847e55": {
       "type": "collection-teaser",
       "settings": {
-        "collections": ["cookie-collection"],
+        "collections": [
+          "cookie-collection"
+        ],
         "products_per_collection": 2,
         "heading_size": "h4",
         "alt_heading": true,
+        "text_size": "p-sm",
         "view_all_button_label": "View All",
         "enable_sticky_details": true,
         "display_collection_image": false,
@@ -241,14 +250,15 @@
         "template--16398178844894__85c58e07-278d-42c1-b9f3-f6bab28fee7f-16703627747c9db086-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Atypical cookies and treats that push the boundaries of indulgence. An odea to the well-baanced classic cookie. This season we are celebrating all the nostalgia and what pairs best with chocolate chips.</p>"
+            "text": "<p>Atypical cookies and treats that push the boundaries of indulgence. An odea to the well-baanced classic cookie. This season we are celebrating all the nostalgia and what pairs best with chocolate chips.<\/p>",
+            "text_size": "p"
           }
         },
         "template--16398178844894__85c58e07-278d-42c1-b9f3-f6bab28fee7f-16703627747c9db086-2": {
           "type": "button",
           "settings": {
             "button_label": "Shop lemon cookies",
-            "button_link": "shopify://collections/cookie-collection",
+            "button_link": "shopify:\/\/collections\/cookie-collection",
             "button_color": "default"
           }
         }
@@ -259,7 +269,7 @@
         "template--16398178844894__85c58e07-278d-42c1-b9f3-f6bab28fee7f-16703627747c9db086-2"
       ],
       "settings": {
-        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_e7c90847-70c1-47f4-a82d-2369a2b4a718.jpg",
+        "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_e7c90847-70c1-47f4-a82d-2369a2b4a718.jpg",
         "image_style": "wide",
         "hero": false,
         "alignment": "center",
@@ -297,12 +307,15 @@
           }
         }
       },
-      "block_order": ["f59e2fe6-d3ba-4912-95b8-88c242212711"],
+      "block_order": [
+        "f59e2fe6-d3ba-4912-95b8-88c242212711"
+      ],
       "settings": {
         "heading": "Stock your cabinet",
         "heading_size": "h4",
         "alt_heading": true,
         "text": "",
+        "text_size": "p-sm",
         "alignment": "center",
         "columns_desktop": 4,
         "columns_mobile": 1,
@@ -310,6 +323,32 @@
         "theme": "2",
         "top_spacing": 50,
         "bottom_spacing": 100
+      }
+    },
+    "8dffe81d-f969-4183-989c-a6385ced689e": {
+      "type": "content-marquee",
+      "blocks": {
+        "c3916db9-2c34-4fdd-b61b-813545186f36": {
+          "type": "quote",
+          "settings": {
+            "quote": "",
+            "text_size": "p-sm",
+            "quotations": true,
+            "details": "",
+            "background_theme": "primary",
+            "card_corners": "default"
+          }
+        }
+      },
+      "block_order": [
+        "c3916db9-2c34-4fdd-b61b-813545186f36"
+      ],
+      "settings": {
+        "alignment": "center",
+        "speed": 5,
+        "theme": "primary",
+        "top_spacing": 50,
+        "bottom_spacing": 50
       }
     }
   },
@@ -322,6 +361,7 @@
     "78b9e982-5826-4af1-bb33-6c800579102b",
     "0aedd12b-7b12-49e2-9817-c331fb847e55",
     "85c58e07-278d-42c1-b9f3-f6bab28fee7f",
-    "54960ca1-1142-4191-a745-689603d4ca23"
+    "54960ca1-1142-4191-a745-689603d4ca23",
+    "8dffe81d-f969-4183-989c-a6385ced689e"
   ]
 }
