@@ -71,20 +71,18 @@
     </button>
 {%- else -%}
 {% comment %} Image thumbnail {% endcomment %}
-  <a href="{{ media | image_url }}">
-    <div
-      class="media" 
-      style="--width: {{ media.preview_image.width }}; --height: {{ media.preview_image.height }};"
-    >
-        {{
-          media.preview_image |
-          image_url: width: 1440 |
-          image_tag:
-            widths: '360, 450, 540, 630, 720, 900, 1050, 1200, 1320, 1440',
-            sizes: "(min-width: 1200px) 269px, (min-width: 990px) calc(25vw - 30px - 96px), (min-width: 750px) calc(50vw - 30px - 32px), calc(100vw - 30px)",
-            loading: loading,
-            alt: media.preview_image.alt | escape
-        }}
-    </div>
-  </a>
+  <div
+    class="media" 
+    style="--width: {{ media.preview_image.width }}; --height: {{ media.preview_image.height }};"
+  >
+      {{
+        media.preview_image |
+        image_url: width: 1440 |
+        image_tag:
+          widths: '360, 450, 540, 630, 720, 900, 1050, 1200, 1320, 1440',
+          sizes: "(min-width: 1200px) 269px, (min-width: 990px) calc(25vw - 30px - 96px), (min-width: 750px) calc(50vw - 30px - 32px), calc(100vw - 30px)",
+          loading: loading,
+          alt: media.preview_image.alt | escape
+      }}
+  </div>
 {%- endif -%}
