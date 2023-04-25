@@ -1,5 +1,9 @@
 {
   "general": {
+    "slideshow": {
+      "previous": "Previous Slide",
+      "next": "Next Slide"
+    },
     "continue_shopping": "Continue shopping",
     "newsletter": {
       "heading": "Stay in the know",

@@ -37,9 +37,9 @@
     {% render 'other-variables' %}
 
     {%- if settings.favicon != blank and settings.favicon contains '.png' -%}
-      <link rel="favicon" href="{{ settings.favicon | img_url: 'master' }}" type="image/png">
+      <link rel="icon" href="{{ settings.favicon | image_url: width: 32, height: 32 }}" type="image/png">
     {%- elsif settings.favicon != blank and settings.favicon contains '.ico' -%}
-      <link rel="favicon" href="{{ settings.favicon | img_url: 'master' }}" type="image/x-icon">
+      <link rel="icon" href="{{ settings.favicon | image_url: width: 32, height: 32 }}" type="image/x-icon">
     {%- endif -%}
   </head>
   <body>

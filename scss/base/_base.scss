@@ -718,11 +718,18 @@ details.overlay[open] > summary::before {
 
 //override shopify's default challenge styles
 
-.shopify-challenge__container {
-  max-width: none;
+.shopify-challenge {
+  &__container {
+    max-width: none;
+  }
 
-  .shopify-challenge__button {
-    margin-top: 1rem;
+  &__message {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__button {
+    margin-top: 1rem !important;
   }
 }
 

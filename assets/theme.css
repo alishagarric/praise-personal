@@ -1145,8 +1145,11 @@ details.overlay[open] > summary::before {
 
 .shopify-challenge__container {
   max-width: none; }
-  .shopify-challenge__container .shopify-challenge__button {
-    margin-top: 1rem; }
+.shopify-challenge__message {
+  margin-left: auto;
+  margin-right: auto; }
+.shopify-challenge__button {
+  margin-top: 1rem !important; }
 
 .shopify-policy__container {
   max-width: none; }
@@ -1271,12 +1274,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   min-height: calc(100% - var(--navWithAnnouncementHeight)); }
-  body ::selection {
-    background: RGB(var(--color-foreground));
-    /* WebKit/Blink Browsers */ }
-  body ::-moz-selection {
-    background: RGB(var(--color-foreground));
-    /* Gecko Browsers */ }
   body.__mobile-overflow-none {
     overflow: hidden; }
   body main > *:first-child {

@@ -26,9 +26,9 @@
 
 {% endcomment %}
 
-<button class="overflow-slider__arrow classic-arrow next {{ class }} no-js-hidden">
+<button class="overflow-slider__arrow classic-arrow next {{ class }} no-js-hidden" aria-label="{{ 'general.slideshow.previous' | t }}">
   {% render 'svg-slider-arrow' %}
 </button>
-<button class="overflow-slider__arrow classic-arrow prev disabled {{ class }} no-js-hidden">
+<button class="overflow-slider__arrow classic-arrow prev disabled {{ class }} no-js-hidden" aria-label="{{ 'general.slideshow.next' | t }}">
   {% render 'svg-slider-arrow' %}
 </button>

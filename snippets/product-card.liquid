@@ -66,7 +66,7 @@
   data-bg-color="{% if this_product.metafields.custom.color %} {{ this_product.metafields.custom.color }} {% else %}var(--color-background){% endif %}"
   data-text-color="{% if this_product.metafields.custom.text_color %} {{ this_product.metafields.custom.text_color }} {% else %}var(--color-text){% endif %}"
 >
-  <a href="{{ product_url }}" aria-label="{{ 'products.product.view_product' | t }}"></a>
+  <a href="{{ product_url }}" aria-label="{{ 'products.product.view_product' | t }} {{ product_title }}"></a>
 
   {% if show_phrase and this_product.metafields.custom.phrase %}
     {% render 'product-phrase' phrase: this_product.metafields.custom.phrase, class: 'product-card__phrase' %}
