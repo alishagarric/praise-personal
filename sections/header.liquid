@@ -25,7 +25,7 @@
     {% comment %} Mobile hamburger button {% endcomment %}
     {% capture hamburger_class %}{{ className }}__hamburger{% endcapture %}
     {% capture hamburger_id %}hamburger-{{ forloop.index }}{% endcapture %}
-    {% capture hamburger_content %}{% render 'overlay-nav' %}{% endcapture %}
+    {% capture hamburger_content %}{% render 'overlay-nav', nav_index: forloop.index %}{% endcapture %}
     {% capture hamburger_title %}{% render 'svg-hamburger' %}{% endcapture %}
     {% assign hamburger_aria_label = 'sections.header.menu' | t %}
     {% render 'dialog' style: "left-drawer", title: hamburger_title, aria_label: hamburger_aria_label, content: hamburger_content, class: hamburger_class, id: hamburger_id %}

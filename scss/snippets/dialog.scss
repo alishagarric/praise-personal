@@ -12,7 +12,7 @@
       height: var(--navHeight);
       width: var(--navHeight);
       z-index: 3;
-      top: 0;
+      top: -100%;
       place-content: center;
 
       svg {
@@ -66,7 +66,7 @@
           z-index: 2;
           top: 0;
           right: 0;
-          bottom: 0;
+          height: 100vh;
           left: 0;
           cursor: default;
           background-color: RGBA(var(--color-text) / 0.1);
@@ -75,6 +75,7 @@
         &__close {
           opacity: 1;
           transition: opacity 0.25s ease 0.25s;
+          top: 0;
 
           &:hover {
             cursor: pointer;
@@ -136,7 +137,7 @@
       .dialog {
         &__content {
           top: 0;
-          bottom: 0;
+          height: 100vh;
           max-width: 375px;
           width: 375px;
           will-change: transform;

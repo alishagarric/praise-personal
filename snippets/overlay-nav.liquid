@@ -1,3 +1,10 @@
+{% comment %}
+
+  Expects: 
+  - nav_index: {int} used to make ids unique since we output the nav twice
+
+{% endcomment %}   
+
 <ul class="overlay-nav">
 {% assign className = "overlay-nav" %}
 {% for primary_link in section.settings.menu.links %}
@@ -46,7 +53,7 @@
         {% endfor %}
       {% endcapture %}
 
-      {% capture disclosure_id %}{{ className }}-{{ forloop.index }}{% endcapture %}
+      {% capture disclosure_id %}{{ className }}-{{ nav_index }}-{{ forloop.index }}{% endcapture %}
       {% capture disclosure_class %}{{ className }}__disclosure {% endcapture %}
 
       {% render 'disclosure' title: primary_link.title, text: disclosure_content, id: disclosure_id, class: disclosure_class %}

@@ -10,7 +10,7 @@
     height: var(--navHeight);
     width: var(--navHeight);
     z-index: 3;
-    top: 0;
+    top: -100%;
     place-content: center; }
     .dialog__summary__close svg {
       will-change: transform;
@@ -45,13 +45,14 @@
     z-index: 2;
     top: 0;
     right: 0;
-    bottom: 0;
+    height: 100vh;
     left: 0;
     cursor: default;
     background-color: RGBA(var(--color-text)/0.1); }
   .dialog[open] .dialog__summary__close {
     opacity: 1;
-    transition: opacity 0.25s ease 0.25s; }
+    transition: opacity 0.25s ease 0.25s;
+    top: 0; }
     .dialog[open] .dialog__summary__close:hover {
       cursor: pointer; }
       .dialog[open] .dialog__summary__close:hover svg {
@@ -72,7 +73,7 @@
     max-height: calc(100% - var(--pxSize) * 2); }
   .dialog.__style-left-drawer .dialog__content, .dialog.__style-right-drawer .dialog__content {
     top: 0;
-    bottom: 0;
+    height: 100vh;
     max-width: 375px;
     width: 375px;
     will-change: transform;
