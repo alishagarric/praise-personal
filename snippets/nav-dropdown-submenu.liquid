@@ -24,11 +24,10 @@
       {% for link in menu %}
         <li>
           <a href="{{ link.url }}" class="p-sm">
-            {{ link.title | escape}}
+            {{ link.title | escape }}
           </a>
         </li>
       {% endfor %}
     </ul>
-    </span>
   </div>
 {% endif %}

@@ -10,7 +10,7 @@
       text-align: center; }
       .icons-section__icons__icon img,
       .icons-section__icons__icon svg {
-        height: var(--iconHeight);
+        height: min(var(--iconHeight), calc( 100vw - var(--sectionGuttersSpacing) - var(--sectionGuttersSpacing) ));
         width: auto;
         margin-bottom: 1rem; }
     .icons-section__icons.__layout-rows {
@@ -23,18 +23,14 @@
   @media screen and (max-width: 676px) {
     .icons-section {
       --iconsSectionGap: var(--pxSize); }
-      .icons-section__icons {
-        overflow: hidden; }
-        .icons-section__icons.__mobile-layout-rows {
-          gap: var(--iconsSectionGap); }
-          .icons-section__icons.__mobile-layout-rows .icons-section__icons__icon {
-            padding: 0; }
-        .icons-section__icons:not(.__mobile-layout-rows) {
-          gap: var(--iconsSectionGap) 0; }
-          .icons-section__icons:not(.__mobile-layout-rows) .icons-section__icons__icon {
-            flex: 0 0 calc(100% / var(--mobileNumColumns));
-            padding: 0 var(--iconsSectionGap); }
-            .icons-section__icons:not(.__mobile-layout-rows) .icons-section__icons__icon img, .icons-section__icons:not(.__mobile-layout-rows) .icons-section__icons__icon svg {
-              max-width: 70vw; } }
+      .icons-section__icons.__mobile-layout-rows {
+        gap: var(--iconsSectionGap); }
+        .icons-section__icons.__mobile-layout-rows .icons-section__icons__icon {
+          padding: 0; }
+      .icons-section__icons:not(.__mobile-layout-rows) {
+        gap: var(--iconsSectionGap) 0; }
+        .icons-section__icons:not(.__mobile-layout-rows) .icons-section__icons__icon {
+          flex: 0 0 calc(100% / var(--mobileNumColumns));
+          padding: 0 var(--iconsSectionGap); } }
 
 /*# sourceMappingURL=icons-section.css.map */

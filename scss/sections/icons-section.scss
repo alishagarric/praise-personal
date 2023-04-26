@@ -17,7 +17,12 @@
 
       img,
       svg {
-        height: var(--iconHeight);
+        height: min(
+          var(--iconHeight),
+          calc(
+            100vw - var(--sectionGuttersSpacing) - var(--sectionGuttersSpacing)
+          )
+        );
         width: auto;
         margin-bottom: 1rem;
       }
@@ -41,8 +46,6 @@
     --iconsSectionGap: var(--pxSize);
 
     &__icons {
-      overflow: hidden;
-      
       &.__mobile-layout-rows {
         gap: var(--iconsSectionGap);
 
@@ -57,13 +60,8 @@
         .icons-section__icons__icon {
           flex: 0 0 calc(100% / var(--mobileNumColumns));
           padding: 0 var(--iconsSectionGap);
-
-          img, svg{
-            max-width: 70vw;
-          }
         }
       }
     }
   }
 }
-
