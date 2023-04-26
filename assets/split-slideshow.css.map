@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAAA,gBAAiB;EACf,aAAa,EAAE,CAAC;EAEhB,uBAAS;IACP,gCAAgC,CAAC;;gBAErB;IACZ,uBAAuB,CAAC,yBAAyB;IACjD,+BAA+B,CAAC,eAAe;IAC/C,8BAA8B,CAAC,eAAe;IAC9C,8BAA8B,CAAC,eAAe;EAK9C,8BAAQ;IACN,OAAO,EAAE,EAAE;IACX,KAAK,EAAE,aAAa;IACpB,SAAS,EAAE,aAAa;IACxB,OAAO,EAAE,KAAK",
-"sources": ["../dev/scss/sections/split-slideshow.scss"],
-"names": [],
-"file": "split-slideshow.css"
-}

@@ -32,5 +32,3 @@
         .icons-section__icons:not(.__mobile-layout-rows) .icons-section__icons__icon {
           flex: 0 0 calc(100% / var(--mobileNumColumns));
           padding: 0 var(--iconsSectionGap); } }
-
-/*# sourceMappingURL=icons-section.css.map */

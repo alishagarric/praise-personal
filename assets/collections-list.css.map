@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAAA,iBAAkB;EAChB,wBAAwB,CAAC,wBAAwB;EACjD,YAAY,EAAE,6BAA6B;EAC3C,aAAa,EAAE,6BAA6B;EAE5C,0BAAW;IACT,UAAU,EAAE,MAAM;IAClB,SAAS,EAAE,KAAK;IAChB,MAAM,EAAE,gBAAgB;IACxB,YAAY,EAAE,oEAEb;IACD,aAAa,EAAE,oEAEd;EAGH,yBAAU;IACR,uBAAuB,CAAC,yCAAyC",
-"sources": ["../dev/scss/sections/collections-list.scss"],
-"names": [],
-"file": "collections-list.css"
-}

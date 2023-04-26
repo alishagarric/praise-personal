@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAEI,wCAAe;EACb,aAAa,EAAE,IAAI",
-"sources": ["../dev/scss/snippets/form-price.scss"],
-"names": [],
-"file": "form-price.css"
-}
