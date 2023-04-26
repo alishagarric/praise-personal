@@ -10,6 +10,7 @@
 
 {% comment %} Output navigation twice, one to display on scroll up and one that always exists at the top of the page content {% endcomment %}
 {% for i in (1..2) %}
+  {% assign nav_index = forloop.index %}
   {% assign style = 'on-scroll' %}
   {% if forloop.index0 == 1 %}
     {% assign style = 'relative' %}
@@ -25,7 +26,7 @@
     {% comment %} Mobile hamburger button {% endcomment %}
     {% capture hamburger_class %}{{ className }}__hamburger{% endcapture %}
     {% capture hamburger_id %}hamburger-{{ forloop.index }}{% endcapture %}
-    {% capture hamburger_content %}{% render 'overlay-nav', nav_index: forloop.index %}{% endcapture %}
+    {% capture hamburger_content %}{% render 'overlay-nav', nav_index: nav_index %}{% endcapture %}
     {% capture hamburger_title %}{% render 'svg-hamburger' %}{% endcapture %}
     {% assign hamburger_aria_label = 'sections.header.menu' | t %}
     {% render 'dialog' style: "left-drawer", title: hamburger_title, aria_label: hamburger_aria_label, content: hamburger_content, class: hamburger_class, id: hamburger_id %}
@@ -112,8 +113,9 @@
 
           {% capture disclosure_class %}__with-overlay {{ className }}__label p-sm {% if primary_link.levels == 1 %}__skinny{% endif %}{% endcapture %}
           {% capture css_vars %}--linkOrder: {{ forloop.index0 }};{% endcapture %}
+          {% capture disclosure_id %}{{ primary_link.title }}-{{ nav_index }}-{{ forloop.index }}{% endcapture %}
 
-          {% render 'disclosure' class: disclosure_class, title: primary_link.title, id: forloop.index, text: dropdown, style: "blank", css_vars: css_vars %}
+          {% render 'disclosure' class: disclosure_class, title: primary_link.title, id: disclosure_id, text: dropdown, style: "blank", css_vars: css_vars %}
         {% endif %}
       {% endfor %}
     </nav>
