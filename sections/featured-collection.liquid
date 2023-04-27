@@ -90,7 +90,7 @@
         class="featured-collection__cards"
         style="--featuredCollectionThemedTextColor: {{ featured_collection.products[0].metafields.custom.text_color }}"
       >
-        {% for product in featured_collection.products %}
+        {% for product in featured_collection.products limit: 10 %}
           {% render 'product-card',
             this_product: product,
             show_bg_color: show_bg_color,
@@ -164,7 +164,8 @@
     {
       "type": "collection",
       "id": "collection",
-      "label": "t:sections.featured-collection.settings.label"
+      "label": "t:sections.featured-collection.settings.label",
+      "info": "t:sections.featured-collection.settings.info"
     },
     {
       "type": "checkbox",

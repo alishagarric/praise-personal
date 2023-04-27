@@ -1,9 +1,22 @@
 .product-recommendations {
   --productRecommendationsGap: calc(var(--pxSize) / 3);
-  padding-right: var(--productRecommendationsGap); }
+  --gutterPlusButtonsSize: calc(
+    var(--sectionGuttersSpacing) + calc(var(--arrowBtnHeight) * 2.5)
+  );
+  padding-right: 0; }
   .product-recommendations__heading {
-    padding-right: calc( var(--sectionGuttersSpacing) - var(--productRecommendationsGap) ); }
-  .product-recommendations__container {
-    --overflowSliderItemGap: var(--productRecommendationsGap); }
-
-/*# sourceMappingURL=product-recommendations.css.map */
+    padding-right: var(--sectionGuttersSpacing); }
+  .product-recommendations__inner {
+    --overflowSliderArrowRightOffset: min(
+      calc(100vw - var(--gutterPlusButtonsSize)),
+      calc(var(--siteMaxWidth) - var(--gutterPlusButtonsSize))
+    ) !important;
+    --overflowSliderItemGap: var(--productRecommendationsGap) !important;
+    --overflowSliderItemSizeDesktop: 30% !important;
+    --overflowSliderItemSizeTablet: 40% !important;
+    --overflowSliderItemSizeMobile: 60% !important; }
+  .product-recommendations__container:after {
+    content: "";
+    width: var(--productRecommendationsGap);
+    min-width: var(--productRecommendationsGap);
+    display: block; }

@@ -80,7 +80,7 @@
           </ul>
         {% endcapture %}
 
-        {% render 'disclosure', title: country_title, id: country_title, text: country_content, style: "dropdown-button", location: 'bottom-edge' %}
+        {% render 'disclosure', title: country_title, id: country_title, text: country_content, style: "dropdown-button __style-secondary", location: 'bottom-edge' %}
       {%- endform -%}
     </submit-on-change>
   {%- endif -%}
@@ -136,7 +136,7 @@
             </ul>
           {% endcapture %}
 
-          {% render 'disclosure', title: language_title, id: language_title, text: language_content, style: "dropdown-button", location: 'bottom-edge' %}
+          {% render 'disclosure', title: language_title, id: language_title, text: language_content, style: "dropdown-button __style-secondary", location: 'bottom-edge' %}
         {%- endform -%}
      </submit-on-change>  
   {%- endif -%}

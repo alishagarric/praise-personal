@@ -58,7 +58,7 @@
         min-height: auto;
         position: relative;
         top: 0; }
+        .timeline-section__container:before {
+          content: none; }
       .timeline-section__parts__part {
         min-height: auto; } }
-
-/*# sourceMappingURL=timeline-section.css.map */

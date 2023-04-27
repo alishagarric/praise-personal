@@ -88,6 +88,10 @@
       min-height: auto;
       position: relative;
       top: 0;
+
+      &:before {
+        content: none;
+      }
     }
 
     &__parts {

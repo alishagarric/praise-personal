@@ -22,6 +22,9 @@
       position: sticky;
       -webkit-position: sitcky;
       top: calc(var(--navHeight));
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
     }
 
     &__products {
@@ -137,6 +140,7 @@
         &__product {
           flex: 1 0 200px;
           max-width: 300px;
+          width: 300px;
         }
       }
     }

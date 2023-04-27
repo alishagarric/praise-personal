@@ -1,14 +1,31 @@
 .product-recommendations {
   --productRecommendationsGap: calc(var(--pxSize) / 3);
-  padding-right: var(--productRecommendationsGap);
+  --gutterPlusButtonsSize: calc(
+    var(--sectionGuttersSpacing) + calc(var(--arrowBtnHeight) * 2.5)
+  );
+  padding-right: 0;
 
   &__heading {
-    padding-right: calc(
-      var(--sectionGuttersSpacing) - var(--productRecommendationsGap)
-    );
+    padding-right: var(--sectionGuttersSpacing);
+  }
+
+  &__inner {
+    --overflowSliderArrowRightOffset: min(
+      calc(100vw - var(--gutterPlusButtonsSize)),
+      calc(var(--siteMaxWidth) - var(--gutterPlusButtonsSize))
+    ) !important;
+    --overflowSliderItemGap: var(--productRecommendationsGap) !important;
+    --overflowSliderItemSizeDesktop: 30% !important;
+    --overflowSliderItemSizeTablet: 40% !important;
+    --overflowSliderItemSizeMobile: 60% !important;
   }
 
   &__container {
-    --overflowSliderItemGap: var(--productRecommendationsGap);
+    &:after {
+      content: "";
+      width: var(--productRecommendationsGap);
+      min-width: var(--productRecommendationsGap);
+      display: block;
+    }
   }
 }

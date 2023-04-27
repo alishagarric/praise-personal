@@ -102,7 +102,8 @@
     display: flex;
     height: var(--navHeight);
     align-items: center;
-    gap: calc(var(--pxSize) / 4);
+    justify-content: flex-end;
+    gap: 0.75rem;
     padding-right: var(--siteHeaderGuttersSpace);
     z-index: 4;
 
@@ -328,6 +329,12 @@
   }
 
   &__hamburger.dialog {
+    position: relative;
+
+    &[open] {
+      z-index: 5;
+    }
+
     .dialog {
       &__summary {
         margin-left: var(--siteHeaderGuttersSpace);
@@ -337,88 +344,19 @@
 
   @media screen and (max-width: 1200px) {
     &:not(.__style-password) {
-      .site-header {
-        &__logo {
-          flex: 1;
-        }
+      grid-template-columns: 1fr auto 1fr;
 
+      .site-header {
         &__main {
-          display: none;
-          position: fixed;
-          top: var(--navHeight);
-          left: 0;
-          right: 0;
-          bottom: 0;
-          height: calc(100vh - var(--navHeight));
-          background-color: RGB(var(--color-background));
-          padding: var(--sectionGuttersSpacing) var(--sectionGuttersSpacing)
-            calc(var(--sectionGuttersSpacing) * 2) var(--sectionGuttersSpacing);
-          overflow: auto;
+          > *:not(.site-header__logo) {
+            display: none;
+          }
         }
 
         // All the links text (dropdown labels and plain links)
         &__plain-link,
         &__label {
-          font-weight: 600;
-          padding: calc(var(--pxSize) / 3) 0;
-
-          &__btn {
-            --btnHeight: 5rem;
-            padding: 0 calc(var(--btnHeight) / 2);
-          }
-        }
-
-        &__label {
-          justify-content: space-between;
-
-          &:after {
-            order: 3;
-            border-width: 2px;
-            height: calc(var(--navHeight) / 4);
-            width: calc(var(--navHeight) / 4);
-          }
-        }
-
-        &__dropdown {
-          position: static;
-          inset: auto;
-          flex-direction: column;
-          padding-left: 0;
-          padding-right: 0;
-          padding: 0 0 var(--pxSize) calc(var(--pxSize));
-
-          &:before {
-            content: none;
-          }
-
-          // Used to dull out other links that aren't part of the active dropdown
-          &:after {
-            // content: "";
-            position: absolute;
-            z-index: 0;
-            inset: 0;
-            background: RGB(var(--color-background));
-            opacity: 0.4;
-            pointer-events: none;
-          }
-
-          &__block {
-            position: relative;
-            z-index: 1;
-
-            &__label.p-lg {
-              opacity: 0.5;
-              text-transform: uppercase;
-            }
-
-            &__submenu-list {
-              li {
-                a {
-                  padding: 0;
-                }
-              }
-            }
-          }
+          display: none;
         }
 
         &__hamburger.dialog {
