@@ -36,6 +36,10 @@
     }
   }
 
+  .filter-and-sort {
+    margin-bottom: var(--pxSize);
+  }
+
   @media screen and (max-width: 1024px) {
     --mainCollectionGridColumns: 2;
   }

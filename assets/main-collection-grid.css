@@ -26,6 +26,8 @@
     .main-collection-grid__block > *:not(img) {
       position: relative;
       z-index: 3; }
+  .main-collection-grid .filter-and-sort {
+    margin-bottom: var(--pxSize); }
   @media screen and (max-width: 1024px) {
     .main-collection-grid {
       --mainCollectionGridColumns: 2; } }
@@ -42,5 +44,3 @@
         .main-collection-grid.__mobile-fw .filter-and-sort {
           margin-left: var(--sectionGuttersSpacing);
           margin-right: var(--sectionGuttersSpacing); } }
-
-/*# sourceMappingURL=main-collection-grid.css.map */

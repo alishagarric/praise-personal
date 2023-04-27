@@ -14,8 +14,8 @@
     margin-bottom: var(--sectionVerticalSpacing);
 
     > input[type="search"]:first-of-type {
-      border-bottom-right-radius: 0px;
-      border-top-right-radius: 0px;
+      border-bottom-right-radius: 0px !important;
+      border-top-right-radius: 0px !important;
       flex: 1;
     }
 

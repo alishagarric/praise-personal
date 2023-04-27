@@ -29,7 +29,6 @@ class QuickAddModal extends HTMLElement {
           this.appendChild(productElement);
 
           if (window.Shopify && Shopify.PaymentButton) {
-            //TODO: what is this?
             Shopify.PaymentButton.init();
           }
         }, 200);

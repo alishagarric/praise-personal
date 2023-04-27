@@ -164,7 +164,7 @@
           "content": "Result Cards"
         },
         "paragraph": {
-          "content": "Results can be of type 'page', 'product' or 'article'. Each setting below can only applies to each as applicable"
+          "content": "Results can be of type 'page', 'product' or 'article'. Each setting below applies to each as applicable"
         },
         "show_description": {
           "label": "Show description"
@@ -205,7 +205,24 @@
             "label_10": "Semicircle Landscape",
             "label_11": "Semicircle Arch"
           },
-          "label": "Product Image Crop Shape"
+          "label": "Main Image Crop Shape"
+        },
+        "assc_product_crop_shape": {
+          "options": {
+            "label_1": "No Crop",
+            "label_2": "Square",
+            "label_3": "Rounded Square",
+            "label_4": "Circle",
+            "label_5": "Portrait",
+            "label_6": "Rounded Portrait",
+            "label_7": "Semicircle Portrait",
+            "label_8": "Landscape",
+            "label_9": "Rounded Landscape",
+            "label_10": "Semicircle Landscape",
+            "label_11": "Semicircle Arch"
+          },
+          "label": "Article Associated Product Image Crop Shape",
+          "info": "Relies on the addition of article metafields. TODO: Add link with info, this is how starter did it: Add a <a href=https://praise-store-theme.myshopify.com/admin/metafields/product/create>article subtitle metafield to display.</a>"
         },
         "header_2": {
           "content": "Section"

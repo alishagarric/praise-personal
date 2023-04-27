@@ -8,8 +8,8 @@
     display: flex;
     margin-bottom: var(--sectionVerticalSpacing); }
     .main-search__form > input[type="search"]:first-of-type {
-      border-bottom-right-radius: 0px;
-      border-top-right-radius: 0px;
+      border-bottom-right-radius: 0px !important;
+      border-top-right-radius: 0px !important;
       flex: 1; }
     .main-search__form button {
       border-bottom-left-radius: 0px;
@@ -66,5 +66,3 @@
   @media screen and (max-width: 676px) {
     .main-search {
       --mainSearchColumns: 1; } }
-
-/*# sourceMappingURL=main-search.css.map */

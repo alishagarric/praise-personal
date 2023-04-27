@@ -74,18 +74,37 @@
                 width: 100%;
                 height: auto;
                 cursor: pointer;
+                position: relative;
 
                 &:after {
                   content: none;
+                }
+
+                &:hover {
+                  &::after {
+                    content: "";
+                    inset: 0;
+                    position: absolute;
+                    display: block;
+                    background-color: RGBA(var(--color-text) / 0.05);
+                  }
                 }
               }
 
               a.current,
               input:checked + label {
-                opacity: 0.8;
+                font-weight: 600;
 
                 &:before {
                   content: "- ";
+                }
+
+                &::after {
+                  content: "";
+                  inset: 0;
+                  position: absolute;
+                  display: block;
+                  background-color: RGBA(var(--color-text) / 0.05);
                 }
               }
             }

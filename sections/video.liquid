@@ -10,8 +10,6 @@
 
 <script src="{{ 'video-section.js' | asset_url }}" defer></script>
 
-{% comment %} TODO introduce other settings Section and Text Content {% endcomment %}
-
 {% if section.settings.video_url != blank %}
   {% capture cover %}
     {% if section.settings.cover_image %}

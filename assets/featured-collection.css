@@ -1,5 +1,5 @@
 .featured-collection {
-  --featuredCollectionNavControlSize: calc(var(--vwSize) * 0.75);
+  --featuredCollectionNavControlSize: max(calc(var(--vwSize) * 0.75), 1.5rem);
   --featuredCollectionCardWidth: calc(calc(100% / 3) - calc(var(--pxSize) / 3));
   display: flex;
   padding-right: 0;
@@ -82,7 +82,6 @@
     border-right: 1px solid RGB(var(--color-border)); }
   @media screen and (max-width: 1024px) {
     .featured-collection {
-      --featuredCollectionNavControlSize: calc(var(--pxSize));
       display: block;
       overflow: hidden; }
       .featured-collection__text {
@@ -105,5 +104,3 @@
         padding: 0 calc(var(--pxSize) / 1.5); }
       .featured-collection .flickity-button {
         display: none; } }
-
-/*# sourceMappingURL=featured-collection.css.map */

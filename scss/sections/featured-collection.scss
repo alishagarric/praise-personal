@@ -1,5 +1,5 @@
 .featured-collection {
-  --featuredCollectionNavControlSize: calc(var(--vwSize) * 0.75);
+  --featuredCollectionNavControlSize: max(calc(var(--vwSize) * 0.75), 1.5rem);
   --featuredCollectionCardWidth: calc(calc(100% / 3) - calc(var(--pxSize) / 3));
   display: flex;
   padding-right: 0;
@@ -143,7 +143,6 @@
   }
 
   @media screen and (max-width: 1024px) {
-    --featuredCollectionNavControlSize: calc(var(--pxSize));
     display: block;
     overflow: hidden;
 

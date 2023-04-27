@@ -24,7 +24,7 @@ if (
         this.updateURL();
         this.updateVariantInput();
         this.renderProductInfo();
-        this.updateShareUrl();
+        // this.updateShareUrl();
       }
     }
 
@@ -72,8 +72,7 @@ if (
       );
     }
 
-    //TODO unaware of a share component exsiting in starter, we may have to build it
-    updateShareUrl() {
+    /*updateShareUrl() {
       const shareButton = document.getElementById(
         `Share-${this.dataset.section}${this.dataset.productId}`
       );
@@ -81,7 +80,7 @@ if (
       shareButton.updateUrl(
         `${window.shopUrl}${this.dataset.url}?variant=${this.currentVariant.id}`
       );
-    }
+    }*/
 
     //Update the current variant id value on all product forms that use it
     updateVariantInput() {

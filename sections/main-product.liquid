@@ -19,19 +19,12 @@
 {% comment %} 
   Get these variables:
    featured_media (object)
-   variant_images (array)
    media_count (int)
    first_3d_modal (object)
-
-   TODO: What is section.settings.hide_variants below. Create it in schema? Remove it here?
 {% endcomment %}
 {%- liquid
   assign featured_media = product.selected_or_first_available_variant.featured_media
-  assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src'
   assign media_count = product.media.size
-  if section.settings.hide_variants and media_count > 1
-    assign media_count = media_count | minus: variant_images.size | plus: 1
-  endif
   assign first_3d_model = product.media | where: "media_type", "model" | first
   assign product_form_id = 'Product-Form-' | append: section.id | append: product.id
 -%}
@@ -263,7 +256,6 @@
     {% endif %}
   </div>
 
-  {% comment %} TODO: IE purchase flow fix {% endcomment %}
   {%- if first_3d_model -%}
     <script type="application/json" id="Product-JSON-{{ product.id }}">
       {{ product.media | where: 'media_type', 'model' | json }}

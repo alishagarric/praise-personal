@@ -547,7 +547,7 @@ input[type="submit"] {
     transform: rotate(90deg);
   }
 
-  &.btn {
+  &.btn:not(.__style-secondary):not(.__style-underline) {
     &:before,
     &:after {
       background: RGB(var(--color-foreground-text));
