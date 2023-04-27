@@ -9,7 +9,7 @@
         "alignment": "center",
         "price": "bottom",
         "crop_shape": "rounded-square",
-        "assc_product_crop_shape": "default",
+        "assc_product_crop_shape": "circle",
         "theme": "2",
         "top_spacing": 50,
         "bottom_spacing": 50
