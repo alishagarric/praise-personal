@@ -209,17 +209,18 @@
         },
         "assc_product_crop_shape": {
           "options": {
-            "label_1": "No Crop",
-            "label_2": "Square",
-            "label_3": "Rounded Square",
-            "label_4": "Circle",
-            "label_5": "Portrait",
-            "label_6": "Rounded Portrait",
-            "label_7": "Semicircle Portrait",
-            "label_8": "Landscape",
-            "label_9": "Rounded Landscape",
-            "label_10": "Semicircle Landscape",
-            "label_11": "Semicircle Arch"
+            "label_1": "Not Visible",
+            "label_2": "No Crop",
+            "label_3": "Square",
+            "label_4": "Rounded Square",
+            "label_5": "Circle",
+            "label_6": "Portrait",
+            "label_7": "Rounded Portrait",
+            "label_8": "Semicircle Portrait",
+            "label_9": "Landscape",
+            "label_10": "Rounded Landscape",
+            "label_11": "Semicircle Landscape",
+            "label_12": "Arch"
           },
           "label": "Article Associated Product Image Crop Shape",
           "info": "Relies on the addition of article metafields. TODO: Add link with info, this is how starter did it: Add a <a href=https://praise-store-theme.myshopify.com/admin/metafields/product/create>article subtitle metafield to display.</a>"
@@ -1254,17 +1255,18 @@
         },
         "assc_product_crop_shape": {
           "options": {
-            "label_1": "No Crop",
-            "label_2": "Square",
-            "label_3": "Rounded Square",
-            "label_4": "Circle",
-            "label_5": "Portrait",
-            "label_6": "Rounded Portrait",
-            "label_7": "Semicircle Portrait",
-            "label_8": "Landscape",
-            "label_9": "Rounded Landscape",
-            "label_10": "Semicircle Landscape",
-            "label_11": "Semicircle Arch"
+            "label_1": "Not Visible",
+            "label_2": "No Crop",
+            "label_3": "Square",
+            "label_4": "Rounded Square",
+            "label_5": "Circle",
+            "label_6": "Portrait",
+            "label_7": "Rounded Portrait",
+            "label_8": "Semicircle Portrait",
+            "label_9": "Landscape",
+            "label_10": "Rounded Landscape",
+            "label_11": "Semicircle Landscape",
+            "label_12": "Arch"
           },
           "label": "Associated Product Image Crop Shape",
           "info": "Relies on the addition of article metafields. TODO: Add link with info, this is how starter did it: Add a <a href=https://praise-store-theme.myshopify.com/admin/metafields/product/create>article subtitle metafield to display.</a>"
@@ -1987,7 +1989,7 @@
             "label_9": "Landscape",
             "label_10": "Rounded Landscape",
             "label_11": "Semicircle Landscape",
-            "label_12": "Semicircle Arch"
+            "label_12": "Arch"
           },
           "label": "Associated Product Image Crop Shape",
           "info": "This feature relies on the addition of article metafields. TODO: Add link with info, this is how starter did it: Add a <a href=https://praise-store-theme.myshopify.com/admin/metafields/product/create>article subtitle metafield to display.</a>"
@@ -3526,7 +3528,7 @@
             "label_9": "Landscape",
             "label_10": "Rounded Landscape",
             "label_11": "Semicircle Landscape",
-            "label_12": "Semicircle Arch"
+            "label_12": "Arch"
           },
           "label": "Associated Product Image Crop Shape",
           "info": "Relies on the addition of article metafields. TODO: Add link with info, this is how starter did it: Add a <a href=https://praise-store-theme.myshopify.com/admin/metafields/product/create>article subTitle metafield to display.</a>"
