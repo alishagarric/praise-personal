@@ -13,7 +13,8 @@
         "599e2d68-7d31-4caf-baa2-43362684a30b": {
           "type": "text",
           "settings": {
-            "text": "<p>All our cookies use natural ingredients and are made in Williamsburg at our Brooklyn bakery.</p>"
+            "text": "<p>All our cookies use natural ingredients and are made in Williamsburg at our Brooklyn bakery.</p>",
+            "text_size": "p-sm"
           }
         }
       },
@@ -48,7 +49,8 @@
         "eb3534e5-bccc-4b1d-8995-da0c99665bba": {
           "type": "text",
           "settings": {
-            "text": "<p>Atypical cookies and treats that push the boundaries of indulgence. An ode to the well-balanced classic cookie. This season we are celebrating all the nostalgia and what pairs best with chocolate chips.</p>"
+            "text": "<p>Atypical cookies and treats that push the boundaries of indulgence. An ode to the well-balanced classic cookie. This season we are celebrating all the nostalgia and what pairs best with chocolate chips.</p>",
+            "text_size": "p-sm"
           }
         }
       },
@@ -169,6 +171,7 @@
             "heading_size": "h4",
             "alt_heading": false,
             "text": "<p><strong>Part of our story 1</strong></p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis ullamcorper donec at in tempor tortor facilisi egestas gravida. Porttitor sed amet mi elit eget blandit lacus, egestas laoreet. Magna mauris lobortis in laoreet venenatis tempus, non. Nisi suscipit tortor ornare eu, mattis. Velit sit elementum tristique aliquet viverra viverra ullamcorper sed. </p>",
+            "text_size": "p-sm",
             "button_label": "See Ingredients",
             "button_link": "shopify://collections"
           }
@@ -180,6 +183,7 @@
             "heading_size": "h6",
             "alt_heading": false,
             "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>",
+            "text_size": "p-sm",
             "button_label": "",
             "button_link": ""
           }
@@ -191,6 +195,7 @@
             "heading_size": "h6",
             "alt_heading": true,
             "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>",
+            "text_size": "p-sm",
             "button_label": "",
             "button_link": ""
           }
@@ -205,9 +210,10 @@
         "heading": "Lorem ipsum",
         "heading_size": "h4",
         "alt_heading": false,
-        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_bbf54c90-3c31-4e00-962c-f12d6b17cf77.jpg",
         "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>",
+        "text_size": "p-sm",
         "dot_color": "3",
+        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_bbf54c90-3c31-4e00-962c-f12d6b17cf77.jpg",
         "crop_shape": "rounded-square",
         "theme": "primary",
         "top_spacing": 50,
@@ -274,6 +280,7 @@
       "settings": {
         "collection": "cookie-collection",
         "theme_slideshow": false,
+        "include_border": true,
         "show_phrase": false,
         "show_description": true,
         "quick_add": false,
@@ -285,6 +292,7 @@
         "heading": "Shop Our Bestsellers",
         "alt_heading": true,
         "text": "<p>Functional handbags made of luxurious and honest materials to improve people's lives in small but mighty ways.</p>",
+        "text_size": "p",
         "collection_text_content": false,
         "theme": "primary",
         "top_spacing": 50,
@@ -374,6 +382,7 @@
         "heading_size": "h2",
         "alt_heading": false,
         "text": "",
+        "text_size": "p-sm",
         "alignment": "left",
         "columns_desktop": 3,
         "columns_mobile": 2,
@@ -390,6 +399,7 @@
           "type": "quote",
           "settings": {
             "quote": "<p>1 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.</p>",
+            "text_size": "p-sm",
             "quotations": true,
             "details": "",
             "logo": "shopify://shop_images/image_14.png",
@@ -401,6 +411,7 @@
           "type": "quote",
           "settings": {
             "quote": "<p>2 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.</p>",
+            "text_size": "p-sm",
             "quotations": true,
             "details": "",
             "logo": "shopify://shop_images/image_14.png",
@@ -412,6 +423,7 @@
           "type": "quote",
           "settings": {
             "quote": "<p>3 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.</p>",
+            "text_size": "p-sm",
             "quotations": true,
             "details": "",
             "logo": "shopify://shop_images/image_14.png",
@@ -423,6 +435,7 @@
           "type": "quote",
           "settings": {
             "quote": "<p>4 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.</p>",
+            "text_size": "p-sm",
             "quotations": true,
             "details": "",
             "logo": "shopify://shop_images/image_14.png",
@@ -434,6 +447,7 @@
           "type": "quote",
           "settings": {
             "quote": "<p>5 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.</p>",
+            "text_size": "p-sm",
             "quotations": true,
             "details": "",
             "logo": "shopify://shop_images/image_14.png",
