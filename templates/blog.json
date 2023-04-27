@@ -4,9 +4,13 @@
       "type": "split-slideshow",
       "settings": {
         "heading": "{{ blog.title }}",
-        "alt_heading": true,
         "heading_size": "h2",
+        "alt_heading": true,
+        "text_size": "p-sm",
         "hero": true,
+        "button_label": "Read More",
+        "button_color": "default",
+        "article_heading_size": "h5",
         "crop_shape": "rounded-portrait",
         "theme": "primary",
         "top_spacing": 50,
@@ -19,7 +23,8 @@
         "template--16398178582750__d7103852-b62b-4134-b110-fe5c5a985ce3-1678205203fb778cd2-1": {
           "type": "text",
           "settings": {
-            "text": "<p>At Ritual we celebrate the value of simple joys in the human experience</p>"
+            "text": "<p>At Ritual we celebrate the value of simple joys in the human experience<\/p>",
+            "text_size": "p-sm"
           }
         }
       },
@@ -44,7 +49,7 @@
         "show_date": true,
         "show_description": true,
         "show_author": false,
-        "assc_product_crop_shape": "not-visible",
+        "assc_product_crop_shape": "circle",
         "button_label": "",
         "crop_shape": "rounded-square",
         "alignment": "center",
@@ -54,5 +59,9 @@
       }
     }
   },
-  "order": ["split-slideshow", "d7103852-b62b-4134-b110-fe5c5a985ce3", "main"]
+  "order": [
+    "split-slideshow",
+    "d7103852-b62b-4134-b110-fe5c5a985ce3",
+    "main"
+  ]
 }
