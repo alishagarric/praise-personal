@@ -9,97 +9,113 @@
 {% endstyle %}
 
 <div id="Main-article-{{ section.id }}" class="main-article __theme-{{ section.settings.theme }}">
-  {%- for block in section.blocks -%}
-    {%- case block.type -%}
-      {%- when '@app' -%}
-        {% render block %}
-      {%- when 'featured_image' -%}
-        {%- if article.image -%}
-          <div
-            class="main-article__image image-container __crop-{{ block.settings.crop_shape }} __theme-{{ block.settings.overlay_theme }}"
-            style="--imageRatio: {{ article.image.height | divided_by: 1.00 | divided_by: article.image.width | times: 100 }}%; --overlayOpacity: calc( {{ block.settings.overlay }} / 100);"
-          >
-            {% assign image = article.image | image_url: width: article.image.width %}
-            {% render 'next-gen-img',
-              image: image,
-              width: 2620,
-              widths: '2620, 1900, 1400, 1000, 700',
-              sizes: '95vw',
-              preload: true
-            %}
+  <div class="main-article__main-content">
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when '@app' -%}
+          {% render block %}
+        {%- when 'featured_image' -%}
+          {% capture featured_image %}
+            {%- if article.image -%}
+              <div
+                class="main-article__image image-container __crop-{{ block.settings.crop_shape }} __theme-{{ block.settings.overlay_theme }}"
+                style="--imageRatio: {{ article.image.height | divided_by: 1.00 | divided_by: article.image.width | times: 100 }}%; --overlayOpacity: calc( {{ block.settings.overlay }} / 100);"
+              >
+                {% assign image = article.image | image_url: width: article.image.width %}
+                {% render 'next-gen-img',
+                  image: image,
+                  width: 2620,
+                  widths: '2620, 1900, 1400, 1000, 700',
+                  sizes: '95vw',
+                  preload: true
+                %}
+              </div>
+            {%- endif -%}
+          {% endcapture %}
+        {%- when 'title' -%}
+          {% assign heading_class = '__overlap-' | append: block.settings.overlap | append: ' main-article' %}
+          {% render 'heading',
+            heading: article.title,
+            class: heading_class,
+            heading_tag: 'h1',
+            heading_size: block.settings.heading_size,
+            alt_heading: block.settings.alt_heading
+          %}
+
+        {%- when 'details' -%}
+          <div class="main-article__details">
+            <p class="p-sm">{{ article.published_at | time_tag: format: 'date' }}</p>
+            <p class="p-sm">{{ article.author }}</p>
           </div>
-        {%- endif -%}
-      {%- when 'title' -%}
-        {% assign heading_class = '__overlap-' | append: block.settings.overlap | append: ' main-article' %}
-        {% render 'heading',
-          heading: article.title,
-          class: heading_class,
-          heading_tag: 'h1',
-          heading_size: block.settings.heading_size,
-          alt_heading: block.settings.alt_heading
-        %}
-
-      {%- when 'details' -%}
-        <div class="main-article__details">
-          <p class="p-sm">{{ article.published_at | time_tag: format: 'date' }}</p>
-          <p class="p-sm">{{ article.author }}</p>
-        </div>
-      {%- when 'content' -%}
-        <div class="main-article__content __article-txt p">
-          {% assign article_content = article.content | split: '<img' %}
-          {% assign join_string = '<img class="__crop-' | append: block.settings.image_corners | append: '"' %}
-          {% assign article_content = article_content | join: join_string %}
-          {{ article_content }}
-        </div>
-
-        {% comment %}
-          Not in design, but in starter, keeping just in case
-          {% assign button_label =  'blogs.article.back_to_blog' | t: title: blog.title %}
-          {% render 'button' button_link: blog.url, button_label: button_label, class: "main-article" %}
-        {% endcomment %}
-
-      {%- when 'side_bar' -%}
-        <div class="main-article__sidebar">
-          <div class="main-article__sidebar__inner">
-            {% if block.settings.label %}
-              <h6 class="p-sm">{{ block.settings.label }}</h6>
-            {% endif %}
-
-            {% if article.metafields.custom.sidebar_content != blank %}
-              <div class="__article-txt-sm">
-                {{ article.metafields.custom.sidebar_content }}
-              </div>
-            {% endif %}
-
-            {% if block.settings.content != blank %}
-              <div class="">
-                {{ block.settings.content }}
-              </div>
-            {% endif %}
-
-            {% if block.settings.associated_products == true and article.metafields.custom.associated_products %}
-              <div class="main-article__sidebar__products">
-                {% for product in article.metafields.custom.associated_products.value %}
-                  {% render 'quick-product',
-                    quick_product: product,
-                    class: 'main-article__sidebar__products__product',
-                    style: 'stacked',
-                    img_width: 600,
-                    img_widths: '600, 300',
-                    img_sizes: '(max-width: 676px) 50vw, (max-width: 1024px) 30vw, 20vw',
-                    preload: true
-                  %}
-                {% endfor %}
-              </div>
-            {% endif %}
-
-            <div class="p-sm">{{ 'general.social.share' | t }}</div>
-            {% render 'sharing-icons' %}
+        {%- when 'content' -%}
+          <div class="main-article__content __article-txt p">
+            {% assign article_content = article.content | split: '<img' %}
+            {% assign join_string = '<img class="__crop-' | append: block.settings.image_corners | append: '"' %}
+            {% assign article_content = article_content | join: join_string %}
+            {{ article_content }}
           </div>
-        </div>
-    {%- endcase -%}
-  {%- endfor -%}
 
+        {%- when 'side_bar' -%}
+          {% capture side_bar%}
+          <div class="main-article__sidebar">
+            <div class="main-article__sidebar__inner">
+              {% if block.settings.label %}
+                <h6 class="p-sm">{{ block.settings.label }}</h6>
+              {% endif %}
+
+              {% if article.metafields.custom.sidebar_content != blank %}
+                <div class="__article-txt-sm">
+                  {{ article.metafields.custom.sidebar_content }}
+                </div>
+              {% endif %}
+
+              {% if block.settings.content != blank %}
+                <div class="">
+                  {{ block.settings.content }}
+                </div>
+              {% endif %}
+
+              {% if block.settings.associated_products == true and article.metafields.custom.associated_products %}
+                <div class="main-article__sidebar__products">
+                  {{ 'product-card.css' | asset_url | stylesheet_tag }}
+                  {% render 'quick-add-dependencies' quick_add: true %}
+
+                  {% for product in article.metafields.custom.associated_products.value %}
+                    {% render 'product-card',
+                      this_product: product,
+                      show_bg_color: false,
+                      quick_add: false,
+                      alignment: "left",
+                      heading_size: "p"
+                      price_position: "not-visible",
+                      show_phrase: false,
+                      show_description: false,
+                      alt_heading: true,
+                      img_width: 600,
+                      img_widths: '600, 300',
+                      img_sizes: '(max-width: 676px) 50vw, (max-width: 1024px) 30vw, 20vw',
+                      preload: true
+                      class: 'main-article__sidebar__products__product'
+                    %}
+                  {% endfor %}
+                </div>
+              {% endif %}
+
+              <div class="p-sm">{{ 'general.social.share' | t }}</div>
+              {% render 'sharing-icons' %}
+            </div>
+          </div>
+          {% endcapture %}
+      {%- endcase -%}
+    {%- endfor -%}
+  </div>
+
+  {{ featured_image }}
+
+  {{ side_bar }}
+</div>
+
+<div id="Main-article-{{ section.id }}" class="main-article __theme-{{ section.settings.theme }}">
   {%- if blog.comments_enabled? -%}
     <div class="main-article__comments-wrapper">
       <div id="comments" class="main-article__comments-wrapper__comments">

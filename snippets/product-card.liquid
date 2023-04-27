@@ -6,6 +6,7 @@
   - class: {String} optional
   - crop: {String} optional. circle, rounded-square, square, portrait, landscape, default (adapt)
   - alt_heading: {Bool} optional bool
+  - heading_size {string} optional, default is "h6"
   - alignment: {String} optional. default, center, right
   - show_phrase: {Bool} optional.
   - show_bg_color: {Bool} optional.
@@ -28,6 +29,7 @@
 {% endcomment %}
 
 {% assign crop = crop | default: 'default' %}
+{% assign heading_size = heading_size | default: 'h6' %}
 {% assign alt_heading = alt_heading | default: false %}
 {% assign alignment = alignment | default: 'default' %}
 {% assign show_phrase = show_phrase | default: false %}
@@ -51,7 +53,7 @@
 
 {% capture title_and_price %}
   <div class="product-card__row">
-    <h3 class="product-card__title h6 {% if alt_heading == true %}alt{% endif %}">
+    <h3 class="product-card__title {{ heading_size }} {% if alt_heading == true %}alt{% endif %}">
       {{ product_title }}
     </h3>
     {% if price_position == 'default' %}

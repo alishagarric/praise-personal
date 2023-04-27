@@ -254,12 +254,16 @@
     "video": {
       "type": "video",
       "settings": {
-        "heading": "Lorem Ipsum",
+        "heading": "Video",
+        "text": "<p>All our cookies use natural ingredients and are made in Williamsburg at our Brooklyn bakery.</p>",
+        "fullwidth": true,
         "heading_size": "h4",
         "alt_heading": false,
-        "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>",
+        "text_placement": "space-between",
+        "overlay_theme": "4",
         "cover_image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_cd0b890c-b357-4857-9c0d-36126dbfab86.jpg",
-        "crop_shape": "video",
+        "crop_shape": "dome",
+        "video_url": "https://www.youtube.com/watch?v=B-ytMSuwbf8",
         "theme": "primary",
         "top_spacing": 50,
         "bottom_spacing": 50

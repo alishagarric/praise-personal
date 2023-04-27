@@ -1,0 +1,18 @@
+{% comment %}
+  Adds the additional css and js required to the section from quick_add functionality
+
+  Expects:
+  - quick_add: {bool}
+{% endcomment %}
+
+{% if quick_add %}
+  {{ 'product-form.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'variant-selects.js' | asset_url }}" defer="defer"></script>
+
+  {% if settings.quick_add_style == "dropdown" %}
+    <script src="{{ 'quick-add-dropdown.js' | asset_url }}" defer="defer"></script>
+  {% else %}
+    <script src="{{ 'quick-add-modal.js' | asset_url }}" defer="defer"></script>
+  {% endif %}
+{% endif %}

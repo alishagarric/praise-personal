@@ -47,13 +47,7 @@
   endif
 %}
 
-{% if quick_add %}
-  <script src="{{ 'quick-add-modal.js' | asset_url }}" defer="defer"></script>
-  <script src="{{ 'quick-add-dropdown.js' | asset_url }}" defer="defer"></script>
-  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
-  <script src="{{ 'variant-selects.js' | asset_url }}" defer="defer"></script>
-{% endif %}
-
+{% render 'quick-add-dependencies' quick_add: quick_add %}
 
 {% style %}
   #Featured-collection-{{ section.id }} {

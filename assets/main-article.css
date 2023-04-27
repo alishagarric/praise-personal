@@ -1,32 +1,37 @@
 .main-article {
   display: grid;
   grid-template-columns: 1fr auto 1fr; }
-  .main-article__content, .main-article__details, .main-article__btn, .main-article__heading, .main-article__comments-wrapper {
+  .main-article__main-content {
     grid-column: 2 / 3; }
+  .main-article__comments-wrapper {
+    grid-column: 1 / -1; }
   .main-article__sidebar {
     grid-column: 3 / 4;
-    grid-row: 2 / 3;
-    padding-left: calc(var(--pxSize) / 3);
-    position: sticky;
-    -webkit-position: sitcky;
-    top: calc(var(--navHeight) * 1.5);
-    height: 0px; }
+    grid-row: 1 / 2;
+    padding-left: calc(var(--pxSize) / 3); }
     .main-article__sidebar__inner {
       max-height: calc(100vh - calc(var(--navHeight) * 1.5));
       padding-bottom: var(--pxSize);
       padding-top: calc(var(--pxSize) / 2);
-      overflow-y: auto; }
+      position: sticky;
+      -webkit-position: sitcky;
+      top: calc(var(--navHeight)); }
     .main-article__sidebar__products {
       display: flex;
       flex-direction: column;
-      gap: var(--pxSize);
-      margin-bottom: var(--pxSize); }
-  .main-article__content, .main-article__content img, .main-article__heading, .main-article__details, .main-article__comments-wrapper {
+      gap: calc(var(--pxSize));
+      margin-bottom: calc(var(--pxSize)); }
+      .main-article__sidebar__products__product {
+        width: 150px; }
+  .main-article__content img, .main-article__main-content {
     max-width: var(--maxWidth);
     width: 100%; }
   .main-article__image {
+    grid-row: 1/2;
     grid-column: 1 / -1;
     position: relative; }
+    .main-article__image + .main-article__sidebar {
+      grid-row: 2 / 3; }
     .main-article__image:after {
       content: "";
       background: RGB(var(--color-background));
@@ -50,20 +55,22 @@
     margin-bottom: 0; }
   .main-article__content p {
     max-width: none; }
-  .main-article__comments-wrapper {
+  .main-article__comments-wrapper__disclaimer {
+    margin-top: 1rem; }
+  .main-article__comments-wrapper form-state:not(:first-child) form {
     margin-top: var(--sectionVerticalSpacing); }
-    .main-article__comments-wrapper__disclaimer {
-      margin-top: 1rem; }
-    .main-article__comments-wrapper form-state:not(:first-child) form {
-      margin-top: var(--sectionVerticalSpacing); }
   @media screen and (max-width: 1024px) {
     .main-article {
-      display: block; }
+      grid-column: 1fr; }
+      .main-article__image + .main-article__sidebar {
+        grid-row: auto; }
       .main-article__sidebar {
         height: auto;
         padding: 0;
         position: static;
-        top: 0px; }
+        top: 0px;
+        grid-column: 1 / -1;
+        grid-row: auto; }
         .main-article__sidebar__inner {
           max-height: none;
           overflow: unset;
@@ -77,5 +84,3 @@
   @media screen and (max-width: 676px) {
     .main-article__sidebar__products__product {
       flex: 1 1 40%; } }
-
-/*# sourceMappingURL=main-article.css.map */

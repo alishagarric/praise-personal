@@ -2,7 +2,6 @@
 {{ 'cmnc-flickity.css' | asset_url | stylesheet_tag }}
 {{ 'shop-the-look.css' | asset_url | stylesheet_tag }}
 {{ 'product-card.css' | asset_url | stylesheet_tag }}
-{{ 'product-form.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 
 <script src="{{ 'flickity.js' | asset_url }}" defer></script>
@@ -24,12 +23,7 @@
   }
 {% endstyle %}
 
-{% if section.settings.quick_add %}
-  <script src="{{ 'quick-add-modal.js' | asset_url }}" defer="defer"></script>
-  <script src="{{ 'quick-add-dropdown.js' | asset_url }}" defer="defer"></script>
-  <script src="{{ 'variant-selects.js' | asset_url }}" defer="defer"></script>
-  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
-{% endif %}
+{% render 'quick-add-dependencies' quick_add: section.settings.quick_add %}
 
 <div
   id="Shop-the-look-{{ section.id }}"

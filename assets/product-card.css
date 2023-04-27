@@ -1,63 +1,43 @@
-.variant-picker__fieldset {
-  margin: 0; }
-  .variant-picker__fieldset__label {
-    margin-bottom: 0.5rem; }
-    .variant-picker__fieldset__label span {
-      display: block; }
-  .variant-picker__fieldset__input {
-    display: none; }
-    .variant-picker__fieldset__input:checked + label {
-      background: RGB(var(--color-foreground));
-      color: RGB(var(--color-foreground-text)); }
-  .variant-picker__fieldset__value {
-    padding: calc(var(--pxSize) / 6) calc(var(--pxSize) / 4);
-    display: inline-block;
-    border-radius: 100%;
-    cursor: pointer; }
-    .variant-picker__fieldset__value:hover {
-      background: RGB(var(--color-foreground)/0.2); }
-.variant-picker__dropdown__label {
-  display: block;
-  margin-bottom: 0.5rem; }
-.variant-picker__dropdown__select {
-  width: 100%;
-  margin-bottom: 0.5rem;
-  border: 1px solid RGBA(var(--color-border)); }
+.product-card,
+.product-card-relocated-disclosure-content {
+  --spaceBeneathImage: 1.25rem;
+  --disclosureButtonHeight: 2rem; }
 
-.disclosure-styles, .product-card__quick-add-btn .disclosure, .product-card-relocated-dosclosure-content {
+.disclosure-styles, .product-card__quick-add-btn .disclosure, .product-card-relocated-disclosure-content {
   z-index: 4; }
-  .disclosure-styles[open], .product-card__quick-add-btn [open].disclosure, [open].product-card-relocated-dosclosure-content {
+  .disclosure-styles[open], .product-card__quick-add-btn [open].disclosure, [open].product-card-relocated-disclosure-content {
     box-shadow: 5px 5px 10px 0 RGBA(var(--color-text)/0.1);
     background: RGB(var(--color-background));
     padding: 1rem;
     margin: 0 -1rem;
     transform: translateY(-1rem); }
-    .disclosure-styles[open] .disclosure__summary .btn:after, .product-card__quick-add-btn [open].disclosure .disclosure__summary .btn:after, [open].product-card-relocated-dosclosure-content .disclosure__summary .btn:after {
+    .disclosure-styles[open] .disclosure__summary .btn:after, .product-card__quick-add-btn [open].disclosure .disclosure__summary .btn:after, [open].product-card-relocated-disclosure-content .disclosure__summary .btn:after {
       transform: rotate(180deg); }
-  .disclosure-styles.__align-center .disclosure__summary, .product-card__quick-add-btn .__align-center.disclosure .disclosure__summary, .__align-center.product-card-relocated-dosclosure-content .disclosure__summary {
+  .disclosure-styles.__align-center .disclosure__summary, .product-card__quick-add-btn .__align-center.disclosure .disclosure__summary, .__align-center.product-card-relocated-disclosure-content .disclosure__summary {
     flex-direction: column-reverse;
-    align-items: center; }
-  .disclosure-styles.__align-center form.product-form .product-form__row, .product-card__quick-add-btn .__align-center.disclosure form.product-form .product-form__row, .__align-center.product-card-relocated-dosclosure-content form.product-form .product-form__row {
+    align-items: center;
+    margin-top: calc( calc( var(--spaceBeneathImage) + calc(var(--disclosureButtonHeight) / 2) ) * -1 ); }
+  .disclosure-styles.__align-center form.product-form .product-form__row, .product-card__quick-add-btn .__align-center.disclosure form.product-form .product-form__row, .__align-center.product-card-relocated-disclosure-content form.product-form .product-form__row {
     justify-content: center; }
-  .disclosure-styles.__align-right .disclosure__summary, .product-card__quick-add-btn .__align-right.disclosure .disclosure__summary, .__align-right.product-card-relocated-dosclosure-content .disclosure__summary {
+  .disclosure-styles.__align-right .disclosure__summary, .product-card__quick-add-btn .__align-right.disclosure .disclosure__summary, .__align-right.product-card-relocated-disclosure-content .disclosure__summary {
     flex-direction: row-reverse; }
-  .disclosure-styles.__align-right form.product-form .product-form__row, .product-card__quick-add-btn .__align-right.disclosure form.product-form .product-form__row, .__align-right.product-card-relocated-dosclosure-content form.product-form .product-form__row {
+  .disclosure-styles.__align-right form.product-form .product-form__row, .product-card__quick-add-btn .__align-right.disclosure form.product-form .product-form__row, .__align-right.product-card-relocated-disclosure-content form.product-form .product-form__row {
     justify-content: flex-end; }
-  .disclosure-styles .disclosure__content form.product-form .product-form__row, .product-card__quick-add-btn .disclosure .disclosure__content form.product-form .product-form__row, .product-card-relocated-dosclosure-content .disclosure__content form.product-form .product-form__row {
+  .disclosure-styles .disclosure__content form.product-form .product-form__row, .product-card__quick-add-btn .disclosure .disclosure__content form.product-form .product-form__row, .product-card-relocated-disclosure-content .disclosure__content form.product-form .product-form__row {
     margin-bottom: 0; }
-  .disclosure-styles .disclosure__summary, .product-card__quick-add-btn .disclosure .disclosure__summary, .product-card-relocated-dosclosure-content .disclosure__summary {
+  .disclosure-styles .disclosure__summary, .product-card__quick-add-btn .disclosure .disclosure__summary, .product-card-relocated-disclosure-content .disclosure__summary {
     display: flex;
     justify-content: space-between;
     gap: 1rem;
     will-change: transform;
     transition: transform 0.25s ease; }
-    .disclosure-styles .disclosure__summary .btn, .product-card__quick-add-btn .disclosure .disclosure__summary .btn, .product-card-relocated-dosclosure-content .disclosure__summary .btn {
-      --btnHeight: 2rem;
+    .disclosure-styles .disclosure__summary .btn, .product-card__quick-add-btn .disclosure .disclosure__summary .btn, .product-card-relocated-disclosure-content .disclosure__summary .btn {
+      --btnHeight: var(--disclosureButtonHeight);
       --expandableContentIconWidth: calc(var(--btnHeight) / 4);
       margin: 0;
       padding-left: 0;
       padding-right: calc(var(--expandableContentIconWidth) * 4) !important; }
-      .disclosure-styles .disclosure__summary .btn::before, .product-card__quick-add-btn .disclosure .disclosure__summary .btn::before, .product-card-relocated-dosclosure-content .disclosure__summary .btn::before, .disclosure-styles .disclosure__summary .btn:after, .product-card__quick-add-btn .disclosure .disclosure__summary .btn:after, .product-card-relocated-dosclosure-content .disclosure__summary .btn:after {
+      .disclosure-styles .disclosure__summary .btn::before, .product-card__quick-add-btn .disclosure .disclosure__summary .btn::before, .product-card-relocated-disclosure-content .disclosure__summary .btn::before, .disclosure-styles .disclosure__summary .btn:after, .product-card__quick-add-btn .disclosure .disclosure__summary .btn:after, .product-card-relocated-disclosure-content .disclosure__summary .btn:after {
         right: calc(var(--expandableContentIconWidth) * 1.5) !important; }
 
 .product-card {
@@ -75,7 +55,7 @@
       position: static; }
   .product-card__image {
     z-index: 1;
-    margin-bottom: 1.25rem; }
+    margin-bottom: var(--spaceBeneathImage); }
     .product-card__image img,
     .product-card__image svg {
       transform: scale(1);
@@ -129,7 +109,5 @@
     .product-card:hover .product-card__image img:first-of-type {
       z-index: 2; }
 
-.product-card-relocated-dosclosure-content {
+.product-card-relocated-disclosure-content {
   position: absolute; }
-
-/*# sourceMappingURL=product-card.css.map */

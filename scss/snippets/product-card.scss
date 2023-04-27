@@ -1,4 +1,8 @@
-@import "../snippets/variant-picker";
+.product-card,
+.product-card-relocated-disclosure-content {
+  --spaceBeneathImage: 1.25rem;
+  --disclosureButtonHeight: 2rem;
+}
 
 .disclosure-styles {
   z-index: 4;
@@ -24,6 +28,11 @@
       .disclosure__summary {
         flex-direction: column-reverse;
         align-items: center;
+        margin-top: calc(
+          calc(
+              var(--spaceBeneathImage) + calc(var(--disclosureButtonHeight) / 2)
+            ) * -1
+        );
       }
 
       form.product-form .product-form__row {
@@ -57,7 +66,7 @@
       transition: transform 0.25s ease;
 
       .btn {
-        --btnHeight: 2rem;
+        --btnHeight: var(--disclosureButtonHeight);
         --expandableContentIconWidth: calc(var(--btnHeight) / 4);
         margin: 0;
         padding-left: 0;
@@ -95,7 +104,7 @@
 
   &__image {
     z-index: 1;
-    margin-bottom: 1.25rem;
+    margin-bottom: var(--spaceBeneathImage);
 
     img,
     svg {
@@ -183,7 +192,7 @@
   }
 }
 
-.product-card-relocated-dosclosure-content {
+.product-card-relocated-disclosure-content {
   @extend .disclosure-styles;
   position: absolute;
 }

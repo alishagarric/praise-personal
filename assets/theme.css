@@ -1340,7 +1340,7 @@ body > main > section {
 
 .__crop-default {
   padding-top: var(--imageRatio); }
-.__crop-video {
+.__crop-video, .__crop-dome {
   padding-top: 56.25%; }
 .__crop-circle, .__crop-square, .__crop-rounded-square {
   padding-top: 100%; }
@@ -1362,27 +1362,40 @@ body > main > section {
 .__crop-rounded, .__crop-rounded-square, .__crop-rounded-portrait, .__crop-rounded-landscape, .__crop-rounded-wide {
   border-radius: calc(var(--vwSize) * 2); }
   .__crop-rounded:after,
-  .__crop-rounded img, .__crop-rounded-square:after,
-  .__crop-rounded-square img, .__crop-rounded-portrait:after,
-  .__crop-rounded-portrait img, .__crop-rounded-landscape:after,
-  .__crop-rounded-landscape img, .__crop-rounded-wide:after,
-  .__crop-rounded-wide img {
+  .__crop-rounded img,
+  .__crop-rounded iframe, .__crop-rounded-square:after,
+  .__crop-rounded-square img,
+  .__crop-rounded-square iframe, .__crop-rounded-portrait:after,
+  .__crop-rounded-portrait img,
+  .__crop-rounded-portrait iframe, .__crop-rounded-landscape:after,
+  .__crop-rounded-landscape img,
+  .__crop-rounded-landscape iframe, .__crop-rounded-wide:after,
+  .__crop-rounded-wide img,
+  .__crop-rounded-wide iframe {
     border-radius: calc(var(--vwSize) * 2); }
   @media screen and (max-width: 676px) {
     .__crop-rounded, .__crop-rounded-square, .__crop-rounded-portrait, .__crop-rounded-landscape, .__crop-rounded-wide {
       border-radius: calc(var(--pxSize) * 2); }
       .__crop-rounded:after,
-      .__crop-rounded img, .__crop-rounded-square:after,
-      .__crop-rounded-square img, .__crop-rounded-portrait:after,
-      .__crop-rounded-portrait img, .__crop-rounded-landscape:after,
-      .__crop-rounded-landscape img, .__crop-rounded-wide:after,
-      .__crop-rounded-wide img {
+      .__crop-rounded img,
+      .__crop-rounded iframe, .__crop-rounded-square:after,
+      .__crop-rounded-square img,
+      .__crop-rounded-square iframe, .__crop-rounded-portrait:after,
+      .__crop-rounded-portrait img,
+      .__crop-rounded-portrait iframe, .__crop-rounded-landscape:after,
+      .__crop-rounded-landscape img,
+      .__crop-rounded-landscape iframe, .__crop-rounded-wide:after,
+      .__crop-rounded-wide img,
+      .__crop-rounded-wide iframe {
         border-radius: calc(var(--pxSize) * 2); } }
-.__crop-arch {
+.__crop-arch, .__crop-dome {
   border-top-left-radius: 4000px;
   border-top-right-radius: 4000px; }
   .__crop-arch:after,
-  .__crop-arch img {
+  .__crop-arch img,
+  .__crop-arch iframe, .__crop-dome:after,
+  .__crop-dome img,
+  .__crop-dome iframe {
     border-top-left-radius: 4000px;
     border-top-right-radius: 4000px; }
 
@@ -1519,5 +1532,3 @@ https://flickity.metafizzy.co
 
 .flickity-page-dots .dot.is-selected {
   opacity: 1; }
-
-/*# sourceMappingURL=theme.css.map */

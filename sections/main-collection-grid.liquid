@@ -3,6 +3,7 @@
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 {{ 'filter-and-sort.css' | asset_url | stylesheet_tag }}
 {{ 'custom-icons.css' | asset_url | stylesheet_tag }}
+{% render 'quick-add-dependencies' quick_add: section.settings.quick_add %}
 
 {% style %}
   #Main-collection-grid-{{ section.id }} {
@@ -12,14 +13,6 @@
     --gridItemWidth: 1;
   }
 {% endstyle %}
-
-{% if section.settings.quick_add %}
-  <script src="{{ 'quick-add-modal.js' | asset_url }}" defer="defer"></script>
-  <script src="{{ 'quick-add-dropdown.js' | asset_url }}" defer="defer"></script>
-  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
-  <script src="{{ 'variant-selects.js' | asset_url }}" defer="defer"></script>
-{% endif %}
-
 
 {%- paginate collection.products by section.settings.pagination_count -%}
   <div

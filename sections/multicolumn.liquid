@@ -117,12 +117,7 @@
                   {% if first_product == false %}
                     {% assign first_product = true %}
                     {{ 'product-card.css' | asset_url | stylesheet_tag }}
-                    {% if block.settings.quick_add %}
-                      <script src="{{ 'quick-add-modal.js' | asset_url }}" defer="defer"></script>
-                      <script src="{{ 'quick-add-dropdown.js' | asset_url }}" defer="defer"></script>
-                      <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
-                      <script src="{{ 'variant-selects.js' | asset_url }}" defer="defer"></script>
-                    {% endif %}
+                    {% render 'quick-add-dependencies' quick_add: block.settings.quick_add %}
                   {% endif %}
                   {% render 'product-card', this_product: product, class: 'multicolumn__item', show_bg_color: block.settings.show_bg_color, quick_add: block.settings.quick_add, crop: block.settings.crop_shape, show_phrase: block.settings.show_phrase, alignment: block.settings.product_text_alignment, show_description: block.settings.show_description, price_position: block.settings.price, alt_heading: block.settings.alt_title, img_width: width, img_widths: widths, img_sizes: sizes %}
                 {% endfor %}

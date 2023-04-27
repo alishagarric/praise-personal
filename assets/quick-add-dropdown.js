@@ -3,7 +3,7 @@ class QuickAddDropdown extends HTMLElement {
     super();
 
     this.disclosure = this.querySelector("details");
-    this.section = this.closest("section").querySelector("div");
+    this.section = this.closest("section, article").querySelector("div");
     this.closestOverflowParent = this.findClosestOverflowParent(
       this.disclosure
     );
@@ -12,6 +12,7 @@ class QuickAddDropdown extends HTMLElement {
   }
 
   openDisclosure() {
+    console.log("open");
     if (this.disclosure.getAttribute("open") == false) {
       // Get the top, left coordinates of two elements
       let sectionBounds = this.section.getBoundingClientRect();
@@ -21,6 +22,13 @@ class QuickAddDropdown extends HTMLElement {
       let top = quickAddBounds.top - sectionBounds.top;
       let left = quickAddBounds.left - sectionBounds.left;
       let right = sectionBounds.right - quickAddBounds.right;
+      console.log(quickAddBounds.right - quickAddBounds.left);
+      if (quickAddBounds.right - quickAddBounds.left < 200) {
+        let difference =
+          (200 - (quickAddBounds.right - quickAddBounds.left)) / 2;
+        left = left - difference;
+        right = right - difference;
+      }
       let height = this.disclosure.querySelector("summary").offsetHeight;
       this.disclosure.style.top = top + "px";
       this.disclosure.style.left = left + "px";
@@ -29,7 +37,7 @@ class QuickAddDropdown extends HTMLElement {
       this.style.height = height + "px";
       this.section.appendChild(this.disclosure);
       this.disclosure.classList.add(
-        "product-card-relocated-dosclosure-content"
+        "product-card-relocated-disclosure-content"
       );
 
       if (this.closestOverflowParent) {

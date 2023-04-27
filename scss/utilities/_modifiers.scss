@@ -53,7 +53,8 @@
     padding-top: var(--imageRatio);
   }
 
-  &-video {
+  &-video,
+  &-dome {
     padding-top: 56.25%;
   }
 
@@ -103,7 +104,8 @@
     border-radius: calc(var(--vwSize) * 2);
 
     &:after,
-    img {
+    img,
+    iframe {
       border-radius: calc(var(--vwSize) * 2);
     }
 
@@ -111,18 +113,21 @@
       border-radius: calc(var(--pxSize) * 2);
 
       &:after,
-      img {
+      img,
+      iframe {
         border-radius: calc(var(--pxSize) * 2);
       }
     }
   }
 
-  &-arch {
+  &-arch,
+  &-dome {
     border-top-left-radius: 4000px;
     border-top-right-radius: 4000px;
 
     &:after,
-    img {
+    img,
+    iframe {
       border-top-left-radius: 4000px;
       border-top-right-radius: 4000px;
     }
