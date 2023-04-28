@@ -1,8 +1,22 @@
 {
   "sections": {
     "main": {
-      "type": "main-search"
+      "type": "main-search",
+      "settings": {
+        "show_description": false,
+        "quick_add": false,
+        "alt_title": false,
+        "alignment": "default",
+        "price": "default",
+        "crop_shape": "default",
+        "assc_product_crop_shape": "not-visible",
+        "theme": "primary",
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
     }
   },
-  "order": ["main"]
+  "order": [
+    "main"
+  ]
 }
