@@ -1,14 +1,72 @@
 {
   "sections": {
     "image-banner": {
-      "type": "image-banner"
+      "type": "image-banner",
+      "settings": {
+        "overlay": 50,
+        "overlay_theme": "primary",
+        "crop_shape": "default",
+        "hero": false,
+        "alignment": "left",
+        "theme": "primary",
+        "top_internal_spacing": 100,
+        "bottom_internal_spacing": 100,
+        "top_spacing": 0,
+        "bottom_spacing": 0
+      }
     },
     "featured-product": {
-      "type": "featured-product"
+      "type": "featured-product",
+      "settings": {
+        "product": "",
+        "hero": false,
+        "alignment": "left",
+        "theme_section": "default",
+        "layout": "default",
+        "crop_shape": "default",
+        "show_phrase": false,
+        "mobile_layout": "default",
+        "theme": "primary",
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
     },
     "main": {
-      "type": "main-list-collections"
+      "type": "main-list-collections",
+      "settings": {
+        "collections_per_page": 4,
+        "products_per_collection": 2,
+        "heading_size": "h4",
+        "alt_heading": false,
+        "text_size": "p-sm",
+        "view_all_button_label": "View All",
+        "enable_sticky_details": true,
+        "display_collection_image": false,
+        "collection_image_crop_shape": "default",
+        "display_featured_icons": false,
+        "enable_icons_marquee": false,
+        "speed": 5,
+        "display_featured_stats": false,
+        "stats_color": "default",
+        "icon_height": 40,
+        "layout": "stacked",
+        "show_phrase": false,
+        "show_description": false,
+        "quick_add": false,
+        "show_bg_color": false,
+        "alt_title": false,
+        "product_text_alignment": "default",
+        "price": "default",
+        "crop_shape": "default",
+        "theme": "primary",
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
     }
   },
-  "order": ["image-banner", "featured-product", "main"]
+  "order": [
+    "image-banner",
+    "featured-product",
+    "main"
+  ]
 }
