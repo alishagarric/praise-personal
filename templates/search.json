@@ -1,22 +1,8 @@
 {
   "sections": {
-    "main-search": {
-      "type": "main-search",
-      "settings": {
-        "show_description": true,
-        "quick_add": true,
-        "alt_title": true,
-        "alignment": "center",
-        "price": "bottom",
-        "crop_shape": "rounded-square",
-        "assc_product_crop_shape": "circle",
-        "theme": "2",
-        "top_spacing": 50,
-        "bottom_spacing": 50
-      }
+    "main": {
+      "type": "main-search"
     }
   },
-  "order": [
-    "main-search"
-  ]
+  "order": ["main"]
 }
