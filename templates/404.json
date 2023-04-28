@@ -2,8 +2,21 @@
   "sections": {
     "main": {
       "type": "main-404",
-      "settings": {}
+      "settings": {
+        "image_width": 80,
+        "heading": "404",
+        "heading_size": "h4",
+        "alt_heading": false,
+        "button_label": "Return Home",
+        "button_link": "shopify:\/\/collections\/all",
+        "button_color": "default",
+        "theme": "primary",
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
     }
   },
-  "order": ["main"]
+  "order": [
+    "main"
+  ]
 }
