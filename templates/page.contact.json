@@ -1,11 +1,57 @@
 {
   "sections": {
     "image-with-text": {
-      "type": "image-with-text"
+      "type": "image-with-text",
+      "settings": {
+        "image_style": "default",
+        "hero": false,
+        "alignment": "default",
+        "layout": "default",
+        "mobile_layout": "default",
+        "mobile_image_height": 450,
+        "theme": "primary",
+        "top_internal_spacing": 100,
+        "bottom_internal_spacing": 100,
+        "mobile_top_internal_spacing": 50,
+        "mobile_bottom_internal_spacing": 0,
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
     },
     "contact-form": {
-      "type": "contact-form"
+      "type": "contact-form",
+      "settings": {
+        "heading": "Section Heading",
+        "heading_size": "h4",
+        "alt_heading": false,
+        "description": "<p>Add a descrition to be displayed below the heading here.<\/p>",
+        "text_size": "p-sm",
+        "disclaimer": "*indicates a required field",
+        "hide_labels": true,
+        "email_label": "Email",
+        "email_placeholder": "Email",
+        "name_label": "Name",
+        "name_placeholder": "Name",
+        "name_required": false,
+        "hide_name_field": false,
+        "contact_reason_label": "Contact Reason",
+        "contact_reason_placeholder": "Contact Reason",
+        "hide_reason_field": false,
+        "contact_reason_required": false,
+        "phone_label": "Phone",
+        "phone_placeholder": "123-456-7890",
+        "hide_phone_field": false,
+        "phone_required": false,
+        "message_label": "Leave a Message",
+        "message_placeholder": "What can we help you with?",
+        "theme": "primary",
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
     }
   },
-  "order": ["image-with-text", "contact-form"]
+  "order": [
+    "image-with-text",
+    "contact-form"
+  ]
 }
