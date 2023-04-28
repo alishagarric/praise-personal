@@ -1,11 +1,43 @@
 {
   "sections": {
     "main-banner": {
-      "type": "main-collection-banner"
+      "type": "main-collection-banner",
+      "settings": {
+        "heading_size": "h4",
+        "alt_heading": false,
+        "text_size": "p-sm",
+        "alignment": "center",
+        "show_image": false,
+        "overlay": 50,
+        "overlay_theme": "primary",
+        "crop_shape": "default",
+        "theme": "primary",
+        "top_internal_spacing": 100,
+        "bottom_internal_spacing": 100,
+        "top_spacing": 0,
+        "bottom_spacing": 0
+      }
     },
     "main-collection-grid": {
-      "type": "main-collection-grid"
+      "type": "main-collection-grid",
+      "settings": {
+        "pagination_count": 12,
+        "show_phrase": false,
+        "show_description": false,
+        "quick_add": false,
+        "show_bg_color": false,
+        "alt_title": false,
+        "product_text_alignment": "default",
+        "price": "default",
+        "crop_shape": "default",
+        "theme": "primary",
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
     }
   },
-  "order": ["main-banner", "main-collection-grid"]
+  "order": [
+    "main-banner",
+    "main-collection-grid"
+  ]
 }
