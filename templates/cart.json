@@ -1,8 +1,23 @@
 {
   "sections": {
     "main": {
-      "type": "main-cart"
+      "type": "main-cart",
+      "settings": {
+        "heading_size": "h4",
+        "alt_heading": false,
+        "crop_shape": "default",
+        "show_vendor": false,
+        "show_recommendations": true,
+        "recommendations_heading": "You may also like",
+        "recommendations_limit": 2,
+        "show_textarea": true,
+        "theme": "primary",
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
     }
   },
-  "order": ["main"]
+  "order": [
+    "main"
+  ]
 }
