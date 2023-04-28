@@ -193,8 +193,10 @@
   @media screen and (max-width: 1200px) {
     .site-header:not(.__style-password) {
       grid-template-columns: 1fr auto 1fr; }
-      .site-header:not(.__style-password) .site-header__main > *:not(.site-header__logo) {
-        display: none; }
+      .site-header:not(.__style-password) .site-header__main {
+        padding: 0; }
+        .site-header:not(.__style-password) .site-header__main > *:not(.site-header__logo) {
+          display: none; }
       .site-header:not(.__style-password) .site-header__plain-link, .site-header:not(.__style-password) .site-header__label {
         display: none; }
       .site-header:not(.__style-password) .site-header__hamburger.dialog {

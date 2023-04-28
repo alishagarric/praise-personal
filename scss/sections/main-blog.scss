@@ -1,23 +1,27 @@
 .main-blog {
   --mainBlogGridColumns: 3;
+  --mainBlogGap: 2rem;
 
   &__articles {
     display: grid;
     grid-template-columns: repeat(var(--mainBlogGridColumns), 1fr);
-    gap: calc(var(--pxSize) / 2);
+    gap: var(--mainBlogGap);
   }
 
   &__card {
     width: 100%;
   }
 
-  &__tags {
+  &__tags,
+  &__tags__container {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
     align-items: center;
     gap: calc(var(--pxSize) / 3);
     margin-bottom: calc(var(--sectionVerticalSpacing) / 2);
+
+    .p-sm {
+      white-space: nowrap;
+    }
 
     &__btn {
       margin-top: 0;
@@ -28,11 +32,24 @@
     }
   }
 
+  &__tags__container {
+    overflow: auto;
+    margin-right: calc(-1 * var(--sectionGuttersSpacing));
+
+    &:after {
+      content: "";
+      display: block;
+      width: var(--sectionGuttersSpacing);
+      min-width: var(--sectionGuttersSpacing);
+    }
+  }
+
   @media screen and (max-width: 1024px) {
     --mainBlogGridColumns: 2;
   }
 
   @media screen and (max-width: 676px) {
     --mainBlogGridColumns: 1;
+    --mainBlogGap: calc(var(--sectionVerticalSpacing));
   }
 }

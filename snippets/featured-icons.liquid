@@ -16,37 +16,37 @@
 {% assign layout = layout | default: 'stacked' %}
 {% assign array = product.metafields.custom.featured_icons.value | default: icons %}
 
-{% if icon_1 != 'none' %}
-  <ul class="featured-icons {{ class }} __layout-{{ layout }}" style="--customIconHeight:{{ icon_height }}px;">
-    <li class="featured-icons__icon custom-icon custom-icon-{{ icon | handleize }} user-added">
+
+<ul class="featured-icons {{ class }} __layout-{{ layout }}" style="--customIconHeight:{{ icon_height }}px;">
+  {% for icon in array %}
+    <li class="featured-icons__icon custom-icon custom-icon-{{ icon | handleize }}">
+      <span class="p-sm">{{ icon | capitalize }}</span>
+    </li>
+  {% endfor %}
+
+  {% if icon_1 != 'none' %}
+    <li class="featured-icons__icon">
       {% render 'icon', icon: icon_1 %}
-      {% if icon_1_title != '' %}
-        <span class="p-sm">{{ icon_1_title }}</span>
+      {% if icon_1_title != blank %}
+        <span class="p-sm">{{ icon_1_title | capitalize }}</span>
       {% endif %}
     </li>
-    {% if icon_2 != 'none' and icon_2_title != '' %}
-      <li class="featured-icons__icon custom-icon custom-icon-{{ icon | handleize }} user-added">
-        {% render 'icon', icon: icon_2 %}
-        {% if icon_2_title != '' %}
-          <span class="p-sm">{{ icon_2_title }}</span>
-        {% endif %}
-      </li>
-    {% endif %}
-    {% if icon_3 != 'none' and icon_3_title != '' %}
-      <li class="featured-icons__icon custom-icon custom-icon-{{ icon | handleize }} user-added">
-        {% render 'icon', icon: icon_3 %}
-        {% if icon_3_title != '' %}
-          <span class="p-sm">{{ icon_3_title }}</span>
-        {% endif %}
-      </li>
-    {% endif %}
-  </ul>
-{% else %}
-  <ul class="featured-icons {{ class }} __layout-{{ layout }}" style="--customIconHeight:{{ icon_height }}px;">
-    {% for icon in array %}
-      <li class="featured-icons__icon custom-icon custom-icon-{{ icon | handleize }}">
-        <span class="p-sm">{{ icon }}</span>
-      </li>
-    {% endfor %}
-  </ul>
-{% endif %}
+  {% endif %}
+  {% if icon_2 != 'none' %}
+    <li class="featured-icons__icon">
+      {% render 'icon', icon: icon_2 %}
+      {% if icon_2_title != blank %}
+        <span class="p-sm">{{ icon_2_title | capitalize }}</span>
+      {% endif %}
+    </li>
+  {% endif %}
+  {% if icon_3 != 'none' %}
+    <li class="featured-icons__icon">
+      {% render 'icon', icon: icon_3 %}
+      {% if icon_3_title != blank %}
+        <span class="p-sm">{{ icon_3_title | capitalize }}</span>
+      {% endif %}
+    </li>
+  {% endif %}
+</ul>
+

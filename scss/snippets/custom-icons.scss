@@ -31,14 +31,9 @@
       margin: 0;
     }
 
-    &.user-added {
-      &:before {
-        content: none !important;
-      }
-      svg {
-        width: var(--customIconHeight);
-        height: var(--customIconHeight);
-      }
+    svg {
+      width: var(--customIconHeight);
+      height: var(--customIconHeight);
     }
   }
 
@@ -61,9 +56,5 @@
         }
       }
     }
-  }
-
-  &.user-added {
-    display: none;
   }
 }

@@ -1,27 +1,35 @@
 .main-blog {
-  --mainBlogGridColumns: 3; }
+  --mainBlogGridColumns: 3;
+  --mainBlogGap: 2rem; }
   .main-blog__articles {
     display: grid;
     grid-template-columns: repeat(var(--mainBlogGridColumns), 1fr);
-    gap: calc(var(--pxSize) / 2); }
+    gap: var(--mainBlogGap); }
   .main-blog__card {
     width: 100%; }
-  .main-blog__tags {
+  .main-blog__tags, .main-blog__tags__container {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
     align-items: center;
     gap: calc(var(--pxSize) / 3);
     margin-bottom: calc(var(--sectionVerticalSpacing) / 2); }
-    .main-blog__tags__btn {
+    .main-blog__tags .p-sm, .main-blog__tags__container .p-sm {
+      white-space: nowrap; }
+    .main-blog__tags__btn, .main-blog__tags__container__btn {
       margin-top: 0; }
-    .main-blog__tags > * {
+    .main-blog__tags > *, .main-blog__tags__container > * {
       margin: 0; }
+  .main-blog__tags__container {
+    overflow: auto;
+    margin-right: calc(-1 * var(--sectionGuttersSpacing)); }
+    .main-blog__tags__container:after {
+      content: "";
+      display: block;
+      width: var(--sectionGuttersSpacing);
+      min-width: var(--sectionGuttersSpacing); }
   @media screen and (max-width: 1024px) {
     .main-blog {
       --mainBlogGridColumns: 2; } }
   @media screen and (max-width: 676px) {
     .main-blog {
-      --mainBlogGridColumns: 1; } }
-
-/*# sourceMappingURL=main-blog.css.map */
+      --mainBlogGridColumns: 1;
+      --mainBlogGap: calc(var(--sectionVerticalSpacing)); } }

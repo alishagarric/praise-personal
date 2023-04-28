@@ -348,6 +348,8 @@
 
       .site-header {
         &__main {
+          padding: 0;
+
           > *:not(.site-header__logo) {
             display: none;
           }

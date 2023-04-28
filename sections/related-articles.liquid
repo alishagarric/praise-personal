@@ -20,6 +20,7 @@
 {% endstyle %}
 
 {{ 'article-card.css' | asset_url | stylesheet_tag }}
+{{ 'main-blog.css' | asset_url | stylesheet_tag }}
 
 <div
   id="Related-articles-{{ section.id }}"
@@ -33,7 +34,7 @@
     %}
   </div>
 
-  <ul class="main-blog__articles list-unstyled grid" role="list">
+  <ul class="main-blog__articles list-unstyled" role="list">
     {% for article in blog.articles limit: 3 %}
       {% render 'article-card',
         class: 'main-blog__card',

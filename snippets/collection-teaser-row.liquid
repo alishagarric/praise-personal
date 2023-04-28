@@ -79,9 +79,11 @@
       {% assign icons = '' %}
       {% for product in collection.products %}
         {% for icon in product.metafields.custom.featured_icons.value %}
-          {% assign icons = icons | append: icon | append: '@#$' %}
+          {% assign icon_downcase = icon | downcase %}
+          {% assign icons = icons | append: icon_downcase | append: '@#$' %}
         {% endfor %}
       {% endfor %}
+
       {% assign icons = icons | split: '@#$' | compact | uniq %}
       {% assign multiple = 24.0 | divided_by: icons.size | ceil %}
 

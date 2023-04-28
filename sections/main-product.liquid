@@ -174,9 +174,21 @@
           {%- when 'expandable' %}
             {% render 'disclosure', title: block.settings.title, id: block.id, text: block.settings.text, page: block.settings.page, open: block.settings.open, article_text: true %}
 
-          {% comment %} Type featured icons {% endcomment %}
+          {% comment %} Type featured metafield icons {% endcomment %}
           {%- when 'icons' -%}
             {% if product.metafields.custom.featured_icons.value.size > 0 %}
+              <div class="main-product__block {% if block.settings.include_border %} __border-top {% endif %}">
+                {{ 'custom-icons.css' | asset_url | stylesheet_tag }}
+                {% if block.settings.title %}
+                  <div class="p-sm">{{ block.settings.title }}</div>
+                {% endif %}
+                {% render 'featured-icons' %}
+              </div>
+            {% endif %}
+
+          {% comment %} Type featured basic icons {% endcomment %}
+          {%- when 'icons' -%}
+            {% if block.settings.icon_1 or block.settings.icon_2 or block.settings.icon_3 %}
               <div class="main-product__block {% if block.settings.include_border %} __border-top {% endif %}">
                 {{ 'custom-icons.css' | asset_url | stylesheet_tag }}
                 {% if block.settings.title %}
@@ -526,441 +538,6 @@
           "content": "t:sections.main-product.blocks.icons.settings.paragraph.content"
         },
         {
-          "type": "select",
-          "id": "icon_1",
-          "options": [
-            {
-              "value": "none",
-              "label": "t:sections.main-product.blocks.icons.settings.icon_1.options.label_1"
-            },
-            {
-              "value": "box",
-              "label": "t:sections.main-product.blocks.icons.settings.icon_1.options.label_2"
-            },
-            {
-              "value": "briefcase",
-              "label": "t:sections.main-product.blocks.icons.settings.icon_1.options.label_3"
-            },
-            {
-              "value": "calendar",
-              "label": "t:sections.main-product.blocks.icons.settings.icon_1.options.label_4"
-            },
-            {
-              "value": "chat_bubble",
-              "label": "t:sections.main-product.blocks.icons.settings.icon_1.options.label_5"
-            },
-            {
-              "value": "check_mark",
-              "label": "t:sections.main-product.blocks.icons.settings.icon_1.options.label_6"
-            },
-            {
-              "value": "clock",
-              "label": "t:sections.main-product.blocks.icons.settings.icon_1.options.label_7"
-            },
-            {
-              "value": "credit_card",
-              "label": "t:sections.main-product.blocks.icons.settings.icon_1.options.label_8"
-            },
-            {
-              "value": "dollar_sign",
-              "label": "t:sections.main-product.blocks.icons.settings.icon_1.options.label_9"
-            },
-            {
-              "value": "dryer",
-              "label": "t:sections.main-product.blocks.icons.settings.icon_1.options.label_10"
-            },
-            {
-              "value": "eye",
-              "label": "t:sections.main-product.blocks.icons.settings.icon_1.options.label_11"
-            },
-            {
-              "value": "feather",
-              "label": "t:sections.main-product.blocks.icons.settings.icon_1.options.label_12"
-            },
-            {
-              "value": "gift",
-              "label": "t:sections.main-product.blocks.icons.settings.icon_1.options.label_13"
-            },
-            {
-              "value": "heart",
-              "label": "t:sections.main-product.blocks.icons.settings.icon_1.options.label_14"
-            },
-            {
-              "value": "iron",
-              "label": "t:sections.main-product.blocks.icons.settings.icon_1.options.label_15"
-            },
-            {
-              "value": "leaf",
-              "label": "t:sections.main-product.blocks.icons.settings.icon_1.options.label_16"
-            },
-            {
-              "value": "leather",
-              "label": "t:sections.main-product.blocks.icons.settings.icon_1.options.label_17"
-            },
-            {
-              "value": "lock",
-              "label": "t:sections.main-product.blocks.icons.settings.icon_1.options.label_18"
-            },
-            {
-              "value": "map_pin",
-              "label": "t:sections.main-product.blocks.icons.settings.icon_1.options.label_19"
-            },
-            {
-              "value": "pants",
-              "label": "t:sections.main-product.blocks.icons.settings.icon_1.options.label_20"
-            },
-            {
-              "value": "percent",
-              "label": "t:sections.main-product.blocks.icons.settings.icon_1.options.label_21"
-            },
-            {
-              "value": "plane",
-              "label": "t:sections.main-product.blocks.icons.settings.icon_1.options.label_22"
-            },
-            {
-              "value": "price_tag",
-              "label": "t:sections.main-product.blocks.icons.settings.icon_1.options.label_23"
-            },
-            {
-              "value": "question_mark",
-              "label": "t:sections.main-product.blocks.icons.settings.icon_1.options.label_24"
-            },
-            {
-              "value": "return",
-              "label": "t:sections.main-product.blocks.icons.settings.icon_1.options.label_25"
-            },
-            {
-              "value": "ruler",
-              "label": "t:sections.main-product.blocks.icons.settings.icon_1.options.label_26"
-            },
-            {
-              "value": "scissors",
-              "label": "t:sections.main-product.blocks.icons.settings.icon_1.options.label_27"
-            },
-            {
-              "value": "shirt",
-              "label": "t:sections.main-product.blocks.icons.settings.icon_1.options.label_28"
-            },
-            {
-              "value": "shoe",
-              "label": "t:sections.main-product.blocks.icons.settings.icon_1.options.label_29"
-            },
-            {
-              "value": "silhouette",
-              "label": "t:sections.main-product.blocks.icons.settings.icon_1.options.label_30"
-            },
-            {
-              "value": "star",
-              "label": "t:sections.main-product.blocks.icons.settings.icon_1.options.label_31"
-            },
-            {
-              "value": "truck",
-              "label": "t:sections.main-product.blocks.icons.settings.icon_1.options.label_32"
-            },
-            {
-              "value": "washing",
-              "label": "t:sections.main-product.blocks.icons.settings.icon_1.options.label_33"
-            }
-          ],
-          "default": "none",
-          "label": "t:sections.main-product.blocks.icons.settings.icon_1.label"
-        },
-        {
-          "type": "text",
-          "id": "icon_1_title",
-          "label": "t:sections.main-product.blocks.icons.settings.icon_1_title.label"
-        },
-        {
-          "type": "select",
-          "id": "icon_2",
-          "options": [
-            {
-            "value": "none",
-            "label": "t:sections.main-product.blocks.icons.settings.icon_2.options.label_1"
-            },
-            {
-            "value": "box",
-            "label": "t:sections.main-product.blocks.icons.settings.icon_2.options.label_2"
-            },
-            {
-            "value": "briefcase",
-            "label": "t:sections.main-product.blocks.icons.settings.icon_2.options.label_3"
-            },
-            {
-            "value": "calendar",
-            "label": "t:sections.main-product.blocks.icons.settings.icon_2.options.label_4"
-            },
-            {
-            "value": "chat_bubble",
-            "label": "t:sections.main-product.blocks.icons.settings.icon_2.options.label_5"
-            },
-            {
-            "value": "check_mark",
-            "label": "t:sections.main-product.blocks.icons.settings.icon_2.options.label_6"
-            },
-            {
-            "value": "clock",
-            "label": "t:sections.main-product.blocks.icons.settings.icon_2.options.label_7"
-            },
-            {
-            "value": "credit_card",
-            "label": "t:sections.main-product.blocks.icons.settings.icon_2.options.label_8"
-            },
-            {
-            "value": "dollar_sign",
-            "label": "t:sections.main-product.blocks.icons.settings.icon_2.options.label_9"
-            },
-            {
-            "value": "dryer",
-            "label": "t:sections.main-product.blocks.icons.settings.icon_2.options.label_10"
-            },
-            {
-            "value": "eye",
-            "label": "t:sections.main-product.blocks.icons.settings.icon_2.options.label_11"
-            },
-            {
-            "value": "feather",
-            "label": "t:sections.main-product.blocks.icons.settings.icon_2.options.label_12"
-            },
-            {
-            "value": "gift",
-            "label": "t:sections.main-product.blocks.icons.settings.icon_2.options.label_13"
-            },
-            {
-            "value": "heart",
-            "label": "t:sections.main-product.blocks.icons.settings.icon_2.options.label_14"
-            },
-            {
-            "value": "iron",
-            "label": "t:sections.main-product.blocks.icons.settings.icon_2.options.label_15"
-            },
-            {
-            "value": "leaf",
-            "label": "t:sections.main-product.blocks.icons.settings.icon_2.options.label_16"
-            },
-            {
-            "value": "leather",
-            "label": "t:sections.main-product.blocks.icons.settings.icon_2.options.label_17"
-            },
-            {
-            "value": "lock",
-            "label": "t:sections.main-product.blocks.icons.settings.icon_2.options.label_18"
-            },
-            {
-            "value": "map_pin",
-            "label": "t:sections.main-product.blocks.icons.settings.icon_2.options.label_19"
-            },
-            {
-            "value": "pants",
-            "label": "t:sections.main-product.blocks.icons.settings.icon_2.options.label_20"
-            },
-            {
-            "value": "percent",
-            "label": "t:sections.main-product.blocks.icons.settings.icon_2.options.label_21"
-            },
-            {
-            "value": "plane",
-            "label": "t:sections.main-product.blocks.icons.settings.icon_2.options.label_22"
-            },
-            {
-            "value": "price_tag",
-            "label": "t:sections.main-product.blocks.icons.settings.icon_2.options.label_23"
-            },
-            {
-            "value": "question_mark",
-            "label": "t:sections.main-product.blocks.icons.settings.icon_2.options.label_24"
-            },
-             {
-              "value": "return",
-              "label": "t:sections.main-product.blocks.icons.settings.icon_2.options.label_25"
-            },
-            {
-              "value": "ruler",
-              "label": "t:sections.main-product.blocks.icons.settings.icon_2.options.label_26"
-            },
-            {
-              "value": "scissors",
-              "label": "t:sections.main-product.blocks.icons.settings.icon_2.options.label_27"
-            },
-            {
-              "value": "shirt",
-              "label": "t:sections.main-product.blocks.icons.settings.icon_2.options.label_28"
-            },
-            {
-              "value": "shoe",
-              "label": "t:sections.main-product.blocks.icons.settings.icon_2.options.label_29"
-            },
-            {
-              "value": "silhouette",
-              "label": "t:sections.main-product.blocks.icons.settings.icon_2.options.label_30"
-            },
-            {
-              "value": "star",
-              "label": "t:sections.main-product.blocks.icons.settings.icon_2.options.label_31"
-            },
-            {
-              "value": "truck",
-              "label": "t:sections.main-product.blocks.icons.settings.icon_2.options.label_32"
-            },
-            {
-              "value": "washing",
-              "label": "t:sections.main-product.blocks.icons.settings.icon_2.options.label_33"
-            }
-          ],
-          "default": "none",
-          "label": "t:sections.main-product.blocks.icons.settings.icon_2.label"
-        },
-        {
-          "type": "text",
-          "id": "icon_2_title",
-          "label": "Icon 2 Title"
-        },
-        {
-          "type": "select",
-          "id": "icon_3",
-          "options": [
-            {
-            "value": "none",
-            "label": "t:sections.main-product.blocks.icons.settings.icon_3.options.label_1"
-            },
-            {
-            "value": "box",
-            "label": "t:sections.main-product.blocks.icons.settings.icon_3.options.label_2"
-            },
-            {
-            "value": "briefcase",
-            "label": "t:sections.main-product.blocks.icons.settings.icon_3.options.label_3"
-            },
-            {
-            "value": "calendar",
-            "label": "t:sections.main-product.blocks.icons.settings.icon_3.options.label_4"
-            },
-            {
-            "value": "chat_bubble",
-            "label": "t:sections.main-product.blocks.icons.settings.icon_3.options.label_5"
-            },
-            {
-            "value": "check_mark",
-            "label": "t:sections.main-product.blocks.icons.settings.icon_3.options.label_6"
-            },
-            {
-            "value": "clock",
-            "label": "t:sections.main-product.blocks.icons.settings.icon_3.options.label_7"
-            },
-            {
-            "value": "credit_card",
-            "label": "t:sections.main-product.blocks.icons.settings.icon_3.options.label_8"
-            },
-            {
-            "value": "dollar_sign",
-            "label": "t:sections.main-product.blocks.icons.settings.icon_3.options.label_9"
-            },
-            {
-            "value": "dryer",
-            "label": "t:sections.main-product.blocks.icons.settings.icon_3.options.label_10"
-            },
-            {
-            "value": "eye",
-            "label": "t:sections.main-product.blocks.icons.settings.icon_3.options.label_11"
-            },
-            {
-            "value": "feather",
-            "label": "t:sections.main-product.blocks.icons.settings.icon_3.options.label_12"
-            },
-            {
-            "value": "gift",
-            "label": "t:sections.main-product.blocks.icons.settings.icon_3.options.label_13"
-            },
-            {
-            "value": "heart",
-            "label": "t:sections.main-product.blocks.icons.settings.icon_3.options.label_14"
-            },
-            {
-            "value": "iron",
-            "label": "t:sections.main-product.blocks.icons.settings.icon_3.options.label_15"
-            },
-            {
-            "value": "leaf",
-            "label": "t:sections.main-product.blocks.icons.settings.icon_3.options.label_16"
-            },
-            {
-            "value": "leather",
-            "label": "t:sections.main-product.blocks.icons.settings.icon_3.options.label_17"
-            },
-            {
-            "value": "lock",
-            "label": "t:sections.main-product.blocks.icons.settings.icon_3.options.label_18"
-            },
-            {
-            "value": "map_pin",
-            "label": "t:sections.main-product.blocks.icons.settings.icon_3.options.label_19"
-            },
-            {
-            "value": "pants",
-            "label": "t:sections.main-product.blocks.icons.settings.icon_3.options.label_20"
-            },
-            {
-            "value": "percent",
-            "label": "t:sections.main-product.blocks.icons.settings.icon_3.options.label_21"
-            },
-            {
-            "value": "plane",
-            "label": "t:sections.main-product.blocks.icons.settings.icon_3.options.label_22"
-            },
-            {
-            "value": "price_tag",
-            "label": "t:sections.main-product.blocks.icons.settings.icon_3.options.label_23"
-            },
-            {
-            "value": "question_mark",
-            "label": "t:sections.main-product.blocks.icons.settings.icon_3.options.label_24"
-            },
-             {
-              "value": "return",
-              "label": "t:sections.main-product.blocks.icons.settings.icon_3.options.label_25"
-            },
-            {
-              "value": "ruler",
-              "label": "t:sections.main-product.blocks.icons.settings.icon_3.options.label_26"
-            },
-            {
-              "value": "scissors",
-              "label": "t:sections.main-product.blocks.icons.settings.icon_3.options.label_27"
-            },
-            {
-              "value": "shirt",
-              "label": "t:sections.main-product.blocks.icons.settings.icon_3.options.label_28"
-            },
-            {
-              "value": "shoe",
-              "label": "t:sections.main-product.blocks.icons.settings.icon_3.options.label_29"
-            },
-            {
-              "value": "silhouette",
-              "label": "t:sections.main-product.blocks.icons.settings.icon_3.options.label_30"
-            },
-            {
-              "value": "star",
-              "label": "t:sections.main-product.blocks.icons.settings.icon_3.options.label_31"
-            },
-            {
-              "value": "truck",
-              "label": "t:sections.main-product.blocks.icons.settings.icon_3.options.label_32"
-            },
-            {
-              "value": "washing",
-              "label": "t:sections.main-product.blocks.icons.settings.icon_3.options.label_33"
-            }
-          ],
-          "default": "none",
-          "label": "t:sections.main-product.blocks.icons.settings.icon_3.label"
-        },
-        {
-          "type": "text",
-          "id": "icon_3_title",
-          "label": "t:sections.main-product.blocks.icons.settings.icon_3_title.label"
-        },
-        {
           "type": "range",
           "id": "icon_height",
           "min": 20,
@@ -1004,7 +581,494 @@
         }
       ]
     },
-
+    {
+      "type": "basic_icons",
+      "limit": 1,
+      "name": "t:sections.main-product.blocks.basic_icons.name",
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "t:sections.main-product.blocks.basic_icons.settings.paragraph.content"
+        },
+        {
+          "type": "select",
+          "id": "icon_1",
+          "options": [
+            {
+              "value": "none",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_1"
+            },
+            {
+              "value": "box",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_2"
+            },
+            {
+              "value": "briefcase",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_3"
+            },
+            {
+              "value": "calendar",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_4"
+            },
+            {
+              "value": "chat_bubble",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_5"
+            },
+            {
+              "value": "check_mark",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_6"
+            },
+            {
+              "value": "clock",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_7"
+            },
+            {
+              "value": "credit_card",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_8"
+            },
+            {
+              "value": "dollar_sign",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_9"
+            },
+            {
+              "value": "dryer",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_10"
+            },
+            {
+              "value": "eye",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_11"
+            },
+            {
+              "value": "feather",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_12"
+            },
+            {
+              "value": "gift",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_13"
+            },
+            {
+              "value": "heart",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_14"
+            },
+            {
+              "value": "iron",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_15"
+            },
+            {
+              "value": "leaf",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_16"
+            },
+            {
+              "value": "leather",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_17"
+            },
+            {
+              "value": "lock",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_18"
+            },
+            {
+              "value": "map_pin",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_19"
+            },
+            {
+              "value": "pants",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_20"
+            },
+            {
+              "value": "percent",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_21"
+            },
+            {
+              "value": "plane",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_22"
+            },
+            {
+              "value": "price_tag",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_23"
+            },
+            {
+              "value": "question_mark",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_24"
+            },
+            {
+              "value": "return",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_25"
+            },
+            {
+              "value": "ruler",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_26"
+            },
+            {
+              "value": "scissors",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_27"
+            },
+            {
+              "value": "shirt",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_28"
+            },
+            {
+              "value": "shoe",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_29"
+            },
+            {
+              "value": "silhouette",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_30"
+            },
+            {
+              "value": "star",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_31"
+            },
+            {
+              "value": "truck",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_32"
+            },
+            {
+              "value": "washing",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_33"
+            }
+          ],
+          "default": "none",
+          "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.label"
+        },
+        {
+          "type": "text",
+          "id": "icon_1_title",
+          "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1_title.label"
+        },
+        {
+          "type": "select",
+          "id": "icon_2",
+          "options": [
+            {
+            "value": "none",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_1"
+            },
+            {
+            "value": "box",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_2"
+            },
+            {
+            "value": "briefcase",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_3"
+            },
+            {
+            "value": "calendar",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_4"
+            },
+            {
+            "value": "chat_bubble",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_5"
+            },
+            {
+            "value": "check_mark",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_6"
+            },
+            {
+            "value": "clock",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_7"
+            },
+            {
+            "value": "credit_card",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_8"
+            },
+            {
+            "value": "dollar_sign",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_9"
+            },
+            {
+            "value": "dryer",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_10"
+            },
+            {
+            "value": "eye",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_11"
+            },
+            {
+            "value": "feather",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_12"
+            },
+            {
+            "value": "gift",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_13"
+            },
+            {
+            "value": "heart",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_14"
+            },
+            {
+            "value": "iron",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_15"
+            },
+            {
+            "value": "leaf",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_16"
+            },
+            {
+            "value": "leather",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_17"
+            },
+            {
+            "value": "lock",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_18"
+            },
+            {
+            "value": "map_pin",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_19"
+            },
+            {
+            "value": "pants",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_20"
+            },
+            {
+            "value": "percent",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_21"
+            },
+            {
+            "value": "plane",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_22"
+            },
+            {
+            "value": "price_tag",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_23"
+            },
+            {
+            "value": "question_mark",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_24"
+            },
+             {
+              "value": "return",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_25"
+            },
+            {
+              "value": "ruler",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_26"
+            },
+            {
+              "value": "scissors",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_27"
+            },
+            {
+              "value": "shirt",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_28"
+            },
+            {
+              "value": "shoe",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_29"
+            },
+            {
+              "value": "silhouette",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_30"
+            },
+            {
+              "value": "star",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_31"
+            },
+            {
+              "value": "truck",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_32"
+            },
+            {
+              "value": "washing",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_33"
+            }
+          ],
+          "default": "none",
+          "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.label"
+        },
+        {
+          "type": "text",
+          "id": "icon_2_title",
+          "label": "Icon 2 Title"
+        },
+        {
+          "type": "select",
+          "id": "icon_3",
+          "options": [
+            {
+            "value": "none",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_1"
+            },
+            {
+            "value": "box",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_2"
+            },
+            {
+            "value": "briefcase",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_3"
+            },
+            {
+            "value": "calendar",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_4"
+            },
+            {
+            "value": "chat_bubble",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_5"
+            },
+            {
+            "value": "check_mark",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_6"
+            },
+            {
+            "value": "clock",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_7"
+            },
+            {
+            "value": "credit_card",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_8"
+            },
+            {
+            "value": "dollar_sign",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_9"
+            },
+            {
+            "value": "dryer",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_10"
+            },
+            {
+            "value": "eye",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_11"
+            },
+            {
+            "value": "feather",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_12"
+            },
+            {
+            "value": "gift",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_13"
+            },
+            {
+            "value": "heart",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_14"
+            },
+            {
+            "value": "iron",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_15"
+            },
+            {
+            "value": "leaf",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_16"
+            },
+            {
+            "value": "leather",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_17"
+            },
+            {
+            "value": "lock",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_18"
+            },
+            {
+            "value": "map_pin",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_19"
+            },
+            {
+            "value": "pants",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_20"
+            },
+            {
+            "value": "percent",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_21"
+            },
+            {
+            "value": "plane",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_22"
+            },
+            {
+            "value": "price_tag",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_23"
+            },
+            {
+            "value": "question_mark",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_24"
+            },
+             {
+              "value": "return",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_25"
+            },
+            {
+              "value": "ruler",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_26"
+            },
+            {
+              "value": "scissors",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_27"
+            },
+            {
+              "value": "shirt",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_28"
+            },
+            {
+              "value": "shoe",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_29"
+            },
+            {
+              "value": "silhouette",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_30"
+            },
+            {
+              "value": "star",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_31"
+            },
+            {
+              "value": "truck",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_32"
+            },
+            {
+              "value": "washing",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_33"
+            }
+          ],
+          "default": "none",
+          "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.label"
+        },
+        {
+          "type": "text",
+          "id": "icon_3_title",
+          "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3_title.label"
+        },
+        {
+          "type": "range",
+          "id": "icon_height",
+          "min": 20,
+          "max": 100,
+          "step": 10,
+          "unit": "px",
+          "label": "t:sections.main-product.blocks.basic_icons.settings.icon_height.label",
+          "default": 40
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Title",
+          "label": "t:sections.main-product.blocks.basic_icons.settings.title.label"
+        },
+        {
+          "type": "radio",
+          "id": "layout",
+          "label": "Layout",
+          "options": [
+            {
+              "value": "stacked",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.layout.options.label_1"
+            },
+            {
+              "value": "row",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.layout.options.label_2"
+            },
+            {
+              "value": "icon-only",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.layout.options.label_3"
+            }
+          ],
+          "default": "stacked"
+        },
+        {
+          "type": "checkbox",
+          "id": "include_border",
+          "label": "t:sections.main-product.blocks.basic_icons.settings.include_border.label",
+          "default": true
+        }
+      ]
+    },
     {
       "type": "title",
       "name": "t:sections.main-product.blocks.title.name",

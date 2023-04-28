@@ -106,6 +106,8 @@
         "mobile_image_height": 450,
         "theme": "2",
         "top_internal_spacing": 0,
+        "mobile_bottom_internal_spacing": 50,
+        "mobile_top_internal_spacing": 50,
         "bottom_internal_spacing": 0,
         "top_spacing": 50,
         "bottom_spacing": 50
@@ -152,6 +154,8 @@
         "theme": "primary",
         "top_internal_spacing": 100,
         "bottom_internal_spacing": 100,
+        "mobile_top_internal_spacing": 50,
+        "mobile_bottom_internal_spacing": 100,
         "top_spacing": 0,
         "bottom_spacing": 0
       }

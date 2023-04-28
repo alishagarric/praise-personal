@@ -61,3 +61,16 @@
     {% endif %}
   </li>
 {% endfor %}
+
+  <li>
+    {%- if customer -%}
+      <a class="{{ className }}__plain-link" href="{{ routes.account_url }}">
+        <span>{{ 'sections.header.account' | t }}</span>
+      </a>
+    {%- else -%}
+      <a class="{{ className }}__plain-link" href="{{ routes.account_login_url }}">
+        <span>{{- 'sections.header.login' | t -}}</span>
+      </a>
+    {%- endif -%}
+  </li>
+</ul>

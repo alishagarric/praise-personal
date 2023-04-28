@@ -25,11 +25,13 @@
 {%- paginate blog.articles by section.settings.posts_per_page -%}
   <div id="Main-blog-{{ section.id }}" class="main-blog __theme-{{ section_theme }}">
     {%- if section.settings.blog_show_tags -%}
-      <aside>
-        <ul class="main-blog__tags">
-          {% if section.settings.tags_label %}
-            <li class="p-sm">{{ section.settings.tags_label }}</li>
-          {% endif %}
+      <aside class="main-blog__tags">
+
+        {% if section.settings.tags_label %}
+          <div class="p-sm">{{ section.settings.tags_label }}</div>
+        {% endif %}
+
+        <ul class="main-blog__tags__container">
 
           {%- for tag in blog.all_tags -%}
             <li>
@@ -38,7 +40,7 @@
                 button_link: button_link,
                 button_label: tag,
                 button_color: section.settings.tag_color,
-                class: 'main-blog__tags'
+                class: 'main-blog__tags__container'
               %}
             </li>
           {%- endfor -%}

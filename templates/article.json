@@ -21,8 +21,7 @@
         },
         "details": {
           "type": "details",
-          "settings": {
-          }
+          "settings": {}
         },
         "content": {
           "type": "content",
@@ -59,7 +58,7 @@
         "heading_size": "h5",
         "alt_heading": true,
         "show_date": false,
-        "show_description": false,
+        "show_description": true,
         "show_author": false,
         "assc_product_crop_shape": "circle",
         "button_label": "",
@@ -71,8 +70,5 @@
       }
     }
   },
-  "order": [
-    "main",
-    "13d9d1e5-05b1-4eb6-9f74-3bc4fc92e26d"
-  ]
+  "order": ["main", "13d9d1e5-05b1-4eb6-9f74-3bc4fc92e26d"]
 }

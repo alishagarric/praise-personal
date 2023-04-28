@@ -9,7 +9,13 @@
   assign bottom_spacing = section.settings.bottom_spacing
   assign alignment = section.settings.alignment
   assign product_form_id = 'Product-Form-' | append: section.id | append: product.id
-  
+   if section.settings.theme_section == "half"
+      assign half_blocks_count = section.blocks.size | divided_by: 2.0 | ceil
+   elsif section.settings.theme_section == "most"
+      assign half_blocks_count = section.blocks.size | minus: 1
+   else
+      assign half_blocks_count = 0
+   endif
 %}
 
 {% style %}
@@ -60,7 +66,7 @@
 
             {% comment %} Type buy buttons {% endcomment %}
             {%- when 'buy_buttons' -%}
-              <div class="main-product__block {% if block.settings.include_border %} __border-top {% endif %}">
+              <div class="featured-product__block {% if block.settings.include_border %} __border-top {% endif %}">
                 {% render 'product-form' id: product_form_id, product: section.settings.product, show_quantity: block.settings.show_quantity, include_border: block.settings.include_border, hide_dynamic_buttons: block.settings.hide_dynamic_buttons %}
               </div>
 
@@ -99,14 +105,6 @@
 
           {%- endcase -%}
 
-          {% if section.settings.theme_section == "half" %}
-            {% assign half_blocks_count = section.blocks.size | divided_by: 2.0 | ceil  %}
-          {% elsif section.settings.theme_section == "most" %}
-            {% assign half_blocks_count = section.blocks.size | minus: 1 %}
-          {% else %}
-            {% assign half_blocks_count = 0 %}
-          {% endif %}
-
           {% if forloop.index == half_blocks_count %}
             </div>
             <div class="featured-product__text__last-half">
@@ -119,7 +117,10 @@
   </div>
 
   {% comment %} Image content column {% endcomment %}
-  <div class="featured-product__image">
+  <div 
+   class="featured-product__image"
+   style="{% if section.settings.product.metafields.custom.color %}--color-background: {{ section.settings.product.metafields.custom.color.value.rgb }};{% endif %}"
+   >
     <div class="image-container __crop-{{ section.settings.crop_shape }}" style="--imageRatio: {{ section.settings.product.featured_image.height | divided_by: 1.00 | divided_by: section.settings.product.featured_image.width | times: 100 }}%">
       {%- if section.settings.product.featured_image != blank -%}
         {% render 'next-gen-img', image: section.settings.product.featured_image, width: 1400, widths: "1400, 940, 700, 500" sizes: '(max-width: 676px) 100vw, (max-width: 1024px) 40vw, 30vw', preload: section.settings.hero %}
@@ -400,7 +401,7 @@
       },
       {
          "type":"text",
-         "name":"t:sections.main-product.blocks.text.name",
+         "name":"t:sections.featured-product.blocks.text.name",
          "settings":[
             {
                "type":"text",
@@ -465,7 +466,7 @@
       },
       {
          "type":"title",
-         "name":"t:sections.main-product.blocks.title.name",
+         "name":"t:sections.featured-product.blocks.title.name",
          "limit":1,
          "settings":[
             {
@@ -501,7 +502,7 @@
       },
       {
          "type":"price",
-         "name":"t:sections.main-product.blocks.price.name",
+         "name":"t:sections.featured-product.blocks.price.name",
          "limit":1,
          "settings":[
             {
@@ -532,7 +533,7 @@
       },
       {
          "type":"variant_picker",
-         "name":"t:sections.main-product.blocks.variant_picker.name",
+         "name":"t:sections.featured-product.blocks.variant_picker.name",
          "limit":1,
          "settings":[
             {
@@ -593,7 +594,7 @@
       },
       {
          "type":"description",
-         "name":"t:sections.main-product.blocks.description.name",
+         "name":"t:sections.featured-product.blocks.description.name",
          "limit":1,
          "settings":[
             {
@@ -620,12 +621,12 @@
       },
       {
          "type":"rating",
-         "name":"t:sections.main-product.blocks.rating.name",
+         "name":"t:sections.featured-product.blocks.rating.name",
          "limit":1,
          "settings":[
             {
                "type":"paragraph",
-               "content":"t:sections.main-product.blocks.rating.settings.paragraph.content"
+               "content":"t:sections.featured-product.blocks.rating.settings.paragraph.content"
             }
          ]
       },

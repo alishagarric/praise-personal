@@ -344,10 +344,34 @@
           }
         },
         "icons": {
-          "name": "Featured Icons",
+          "name": "Featured Metafield Icons",
           "settings": {
             "paragraph": {
-              "content": "These are generated from the featured icons product metafield. Learn More TODO: link this to a description. You can add additional featured icons below."
+              "content": "These are generated from the featured icons product metafield. Learn More TODO: link this to a description. If you'd rather use basic icons, choose the 'Featured Basic Icons' block instead."
+            },
+            "icon_height": {
+              "label": "Icons Height"
+            },
+            "title": {
+              "label": "Title"
+            },
+            "layout": {
+              "options": {
+                "label_1": "Stacked",
+                "label_2": "Row",
+                "label_3": "Icon Only"
+              }
+            },
+            "include_border": {
+              "label": "Include border"
+            }
+          }
+        },
+        "basic_icons": {
+          "name": "Featured Basic Icons",
+          "settings": {
+            "paragraph": {
+              "content": "If you'd rather use custom metafields icons, choose the 'Featured Metafields Icons' block instead."
             },
             "icon_1": {
               "options": {
@@ -490,6 +514,7 @@
             }
           }
         },
+
         "title": {
           "name": "Title",
           "settings": {
@@ -677,6 +702,12 @@
         },
         "bottom_internal_spacing": {
           "label": "Bottom Text Content Spacing"
+        },
+        "mobile_top_internal_spacing": {
+          "label": "Mobile Top Text Content Spacing"
+        },
+        "mobile_bottom_internal_spacing": {
+          "label": "Mobile Bottom Text Content Spacing"
         },
         "top_spacing": {
           "label": "Top Spacing"

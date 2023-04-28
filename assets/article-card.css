@@ -10,7 +10,7 @@
     transition: all 0.25s ease; }
   .article-card__top {
     width: 100%;
-    margin-bottom: calc(var(--btnHeight) / 2);
+    margin-bottom: 1rem;
     position: relative; }
   .article-card__assc-products {
     display: grid;
@@ -47,5 +47,3 @@
     .article-card:hover img,
     .article-card:hover svg {
       transform: scale(1.05); }
-
-/*# sourceMappingURL=article-card.css.map */

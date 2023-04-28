@@ -126,7 +126,7 @@
       {%- if customer -%}
         <a class="{{ className }}__plain-link p-sm" href="{{ routes.account_url }}">{{ 'sections.header.account' | t }}</a>
       {%- else -%}
-        <a class="{{ className }}__plain-link -psm" href="{{ routes.account_login_url }}">
+        <a class="{{ className }}__plain-link p-sm" href="{{ routes.account_login_url }}">
           {{- 'sections.header.login' | t -}}
         </a>
       {%- endif -%}
