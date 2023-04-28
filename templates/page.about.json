@@ -1,20 +1,86 @@
 {
   "sections": {
     "image-banner": {
-      "type": "image-banner"
+      "type": "image-banner",
+      "settings": {
+        "overlay": 50,
+        "overlay_theme": "primary",
+        "crop_shape": "default",
+        "hero": false,
+        "alignment": "left",
+        "theme": "primary",
+        "top_internal_spacing": 100,
+        "bottom_internal_spacing": 100,
+        "top_spacing": 0,
+        "bottom_spacing": 0
+      }
     },
     "rich-text": {
-      "type": "rich-text"
+      "type": "rich-text",
+      "settings": {
+        "alignment": "left",
+        "theme": "primary",
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
     },
     "timeline": {
-      "type": "timeline"
+      "type": "timeline",
+      "settings": {
+        "heading": "Section Heading",
+        "heading_size": "h4",
+        "alt_heading": false,
+        "text": "<p>Add additional text content here.<\/p>",
+        "text_size": "p-sm",
+        "dot_color": "default",
+        "crop_shape": "default",
+        "theme": "primary",
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
     },
     "video": {
-      "type": "video"
+      "type": "video",
+      "settings": {
+        "heading": "Section Heading",
+        "heading_size": "h4",
+        "alt_heading": false,
+        "text": "<p>Add additional text content here.<\/p>",
+        "text_size": "p-sm",
+        "text_placement": "start",
+        "video_url": "",
+        "overlay": 0,
+        "overlay_theme": "primary",
+        "crop_shape": "wide",
+        "fullwidth": false,
+        "theme": "primary",
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
     },
     "multicolumn": {
-      "type": "multicolumn"
+      "type": "multicolumn",
+      "settings": {
+        "heading": "Heading Content",
+        "heading_size": "h4",
+        "alt_heading": false,
+        "text": "<p>Write some content here that pairs with the headline or image to support your brand.<\/p>",
+        "text_size": "p-sm",
+        "alignment": "center",
+        "columns_desktop": 3,
+        "columns_mobile": 2,
+        "layout": "default",
+        "theme": "primary",
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
     }
   },
-  "order": ["image-banner", "rich-text", "timeline", "video", "multicolumn"]
+  "order": [
+    "image-banner",
+    "rich-text",
+    "timeline",
+    "video",
+    "multicolumn"
+  ]
 }
