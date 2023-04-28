@@ -1,31 +1,149 @@
 {
   "sections": {
     "image-with-text": {
-      "type": "image-with-text"
+      "type": "image-with-text",
+      "settings": {
+        "image_style": "default",
+        "hero": false,
+        "alignment": "default",
+        "layout": "default",
+        "mobile_layout": "default",
+        "mobile_image_height": 450,
+        "theme": "primary",
+        "top_internal_spacing": 100,
+        "bottom_internal_spacing": 100,
+        "mobile_top_internal_spacing": 50,
+        "mobile_bottom_internal_spacing": 0,
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
     },
     "text-marquee": {
-      "type": "text-marquee"
+      "type": "text-marquee",
+      "settings": {
+        "text": "Text content here.",
+        "text_size": "h6",
+        "alt_heading": false,
+        "speed": 5,
+        "theme": "2",
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
     },
     "featured-collection": {
-      "type": "featured-collection"
+      "type": "featured-collection",
+      "settings": {
+        "collection": "",
+        "theme_slideshow": false,
+        "include_border": true,
+        "show_phrase": false,
+        "show_description": false,
+        "quick_add": false,
+        "show_bg_color": false,
+        "alt_title": false,
+        "product_text_alignment": "default",
+        "price": "default",
+        "crop_shape": "default",
+        "heading": "Collection Heading",
+        "alt_heading": false,
+        "text": "<p>Add a description or additional information for your collection here.<\/p>",
+        "text_size": "p",
+        "collection_text_content": false,
+        "theme": "primary",
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
     },
     "icons-section": {
-      "type": "icons-section"
+      "type": "icons-section",
+      "settings": {
+        "heading": "Section Heading",
+        "heading_size": "h5",
+        "alt_heading": false,
+        "layout": "3",
+        "mobile_layout": "3",
+        "icon_height": 100,
+        "alignment": "center",
+        "theme": "primary",
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
     },
     "collections-list": {
-      "type": "collections-list"
+      "type": "collections-list",
+      "settings": {
+        "heading": "Collections Heading",
+        "heading_size": "h4",
+        "alt_heading": false,
+        "collections_text_alignment": "left",
+        "button_label": "",
+        "theme": "primary",
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
     },
     "shop-the-look": {
-      "type": "shop-the-look"
+      "type": "shop-the-look",
+      "settings": {
+        "image_crop_shape": "portrait",
+        "show_phrase": false,
+        "show_description": false,
+        "quick_add": false,
+        "show_bg_color": false,
+        "alt_title": false,
+        "product_text_alignment": "default",
+        "price": "default",
+        "crop_shape": "default",
+        "theme": "primary",
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
     },
     "image-banner": {
-      "type": "image-banner"
+      "type": "image-banner",
+      "settings": {
+        "overlay": 50,
+        "overlay_theme": "primary",
+        "crop_shape": "default",
+        "hero": false,
+        "alignment": "left",
+        "theme": "primary",
+        "top_internal_spacing": 100,
+        "bottom_internal_spacing": 100,
+        "top_spacing": 0,
+        "bottom_spacing": 0
+      }
     },
     "featured-blog": {
-      "type": "featured-blog"
+      "type": "featured-blog",
+      "settings": {
+        "heading": "Section Heading",
+        "heading_size": "h5",
+        "blog": "",
+        "alt_heading": false,
+        "show_date": false,
+        "show_description": false,
+        "show_author": false,
+        "assc_product_crop_shape": "not-visible",
+        "button_label": "",
+        "crop_shape": "default",
+        "alignment": "left",
+        "mobile_layout": "slideshow",
+        "view_all_button_label": "",
+        "theme": "primary",
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
     },
     "content-marquee": {
-      "type": "content-marquee"
+      "type": "content-marquee",
+      "settings": {
+        "alignment": "center",
+        "speed": 5,
+        "theme": "primary",
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
     }
   },
   "order": [
