@@ -1,36 +1,85 @@
 {
   "sections": {
-    "image-banner": {
+    "da290513-b55d-48dd-946e-407af91e6f58": {
       "type": "image-banner",
+      "blocks": {
+        "template--18773519892759__da290513-b55d-48dd-946e-407af91e6f58-168279166761741264-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "About Us",
+            "heading_size": "h2"
+          }
+        },
+        "template--18773519892759__da290513-b55d-48dd-946e-407af91e6f58-168279166761741264-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Add text that says something about your brand<\/p>",
+            "text_size": "p-sm"
+          }
+        },
+        "template--18773519892759__da290513-b55d-48dd-946e-407af91e6f58-168279166761741264-2": {
+          "type": "button",
+          "settings": {
+            "button_label": "Learn More",
+            "button_link": "",
+            "button_color": "default"
+          }
+        }
+      },
+      "block_order": [
+        "template--18773519892759__da290513-b55d-48dd-946e-407af91e6f58-168279166761741264-0",
+        "template--18773519892759__da290513-b55d-48dd-946e-407af91e6f58-168279166761741264-1",
+        "template--18773519892759__da290513-b55d-48dd-946e-407af91e6f58-168279166761741264-2"
+      ],
       "settings": {
         "overlay": 50,
         "overlay_theme": "primary",
         "crop_shape": "default",
-        "hero": false,
-        "alignment": "left",
-        "theme": "primary",
+        "hero": true,
+        "alignment": "center",
+        "theme": "2",
         "top_internal_spacing": 100,
         "bottom_internal_spacing": 100,
         "top_spacing": 0,
         "bottom_spacing": 0
       }
     },
-    "rich-text": {
+    "c5d45da2-307c-4bc8-bcfd-3ac25f7a679b": {
       "type": "rich-text",
+      "blocks": {
+        "template--18773519892759__c5d45da2-307c-4bc8-bcfd-3ac25f7a679b-1682791859b26188b2-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Use this section to dive deeper into your company",
+            "heading_size": "h5"
+          }
+        },
+        "template--18773519892759__c5d45da2-307c-4bc8-bcfd-3ac25f7a679b-1682791859b26188b2-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Utilize paragraphs to supply more detailed information without giving away too much at once!<\/p>",
+            "text_size": "p-sm"
+          }
+        }
+      },
+      "block_order": [
+        "template--18773519892759__c5d45da2-307c-4bc8-bcfd-3ac25f7a679b-1682791859b26188b2-0",
+        "template--18773519892759__c5d45da2-307c-4bc8-bcfd-3ac25f7a679b-1682791859b26188b2-1"
+      ],
       "settings": {
-        "alignment": "left",
+        "alignment": "center",
         "theme": "primary",
-        "top_spacing": 50,
+        "top_spacing": 100,
         "bottom_spacing": 50
       }
     },
     "timeline": {
       "type": "timeline",
       "settings": {
-        "heading": "Section Heading",
+        "heading": "Timeline Section",
         "heading_size": "h4",
         "alt_heading": false,
-        "text": "<p>Add additional text content here.<\/p>",
+        "text": "<p>Add a summary of the steps you'll outline below<\/p>",
         "text_size": "p-sm",
         "dot_color": "default",
         "crop_shape": "default",
@@ -42,10 +91,10 @@
     "video": {
       "type": "video",
       "settings": {
-        "heading": "Section Heading",
+        "heading": "Video Section",
         "heading_size": "h4",
         "alt_heading": false,
-        "text": "<p>Add additional text content here.<\/p>",
+        "text": "<p>Add some text that introduces the video they will watch<\/p>",
         "text_size": "p-sm",
         "text_placement": "start",
         "video_url": "",
@@ -61,10 +110,10 @@
     "multicolumn": {
       "type": "multicolumn",
       "settings": {
-        "heading": "Heading Content",
+        "heading": "Multicolumn Section",
         "heading_size": "h4",
         "alt_heading": false,
-        "text": "<p>Write some content here that pairs with the headline or image to support your brand.<\/p>",
+        "text": "<p>Write some content here that pairs with the headline or image to support your brand<\/p>",
         "text_size": "p-sm",
         "alignment": "center",
         "columns_desktop": 3,
@@ -77,8 +126,8 @@
     }
   },
   "order": [
-    "image-banner",
-    "rich-text",
+    "da290513-b55d-48dd-946e-407af91e6f58",
+    "c5d45da2-307c-4bc8-bcfd-3ac25f7a679b",
     "timeline",
     "video",
     "multicolumn"
