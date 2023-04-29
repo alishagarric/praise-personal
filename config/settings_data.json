@@ -2,6 +2,7 @@
   "current": {
     "announcement_bar_theme": "2",
     "announcement_bar_marquee": false,
+    "type_heading_font": "serif",
     "text_color": "#16130f",
     "border_color": "#16130f",
     "button_color": "#16130f",
