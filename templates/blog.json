@@ -1,5 +1,16 @@
 {
   "sections": {
+    "777276b9-3bd0-4ce4-bd4b-45155f6b3ef4": {
+      "type": "main-blog-banner",
+      "settings": {
+        "heading_size": "h4",
+        "alt_heading": false,
+        "alignment": "center",
+        "theme": "primary",
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
+    },
     "main": {
       "type": "main-blog",
       "settings": {
@@ -22,6 +33,7 @@
     }
   },
   "order": [
+    "777276b9-3bd0-4ce4-bd4b-45155f6b3ef4",
     "main"
   ]
 }
