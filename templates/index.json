@@ -81,9 +81,9 @@
         "product_text_alignment": "default",
         "price": "default",
         "crop_shape": "default",
-        "heading": "Collection Heading",
+        "heading": "Featured Collection",
         "alt_heading": false,
-        "text": "<p>Add a description or additional information for your collection here.<\/p>",
+        "text": "<p>Add a description or additional information for your collection here<\/p>",
         "text_size": "p",
         "collection_text_content": false,
         "theme": "primary",
@@ -97,22 +97,22 @@
         "template--18773519761687__b7a26e7b-8e71-41bf-ae9b-6f29cd64c971-16827898381022875e-0": {
           "type": "icon",
           "settings": {
-            "heading": "",
-            "text": "Icon Heading"
+            "heading": "Icon Heading",
+            "text": "Add a short blurb or company value"
           }
         },
         "template--18773519761687__b7a26e7b-8e71-41bf-ae9b-6f29cd64c971-16827898381022875e-1": {
           "type": "icon",
           "settings": {
-            "heading": "",
-            "text": "Icon Heading"
+            "heading": "Icon Heading",
+            "text": "Add a short blurb or company value"
           }
         },
         "template--18773519761687__b7a26e7b-8e71-41bf-ae9b-6f29cd64c971-16827898381022875e-2": {
           "type": "icon",
           "settings": {
-            "heading": "",
-            "text": "Icon Heading"
+            "heading": "Icon Heading",
+            "text": "Add a short blurb or company value"
           }
         }
       },
@@ -122,7 +122,7 @@
         "template--18773519761687__b7a26e7b-8e71-41bf-ae9b-6f29cd64c971-16827898381022875e-2"
       ],
       "settings": {
-        "heading": "Section Heading",
+        "heading": "Icons Section",
         "heading_size": "h5",
         "alt_heading": false,
         "layout": "3",
@@ -137,7 +137,7 @@
     "collections-list": {
       "type": "collections-list",
       "settings": {
-        "heading": "Collections Heading",
+        "heading": "Collections List",
         "heading_size": "h4",
         "alt_heading": false,
         "collections_text_alignment": "left",
@@ -204,7 +204,7 @@
     "featured-blog": {
       "type": "featured-blog",
       "settings": {
-        "heading": "Section Heading",
+        "heading": "Featured Blog",
         "heading_size": "h5",
         "blog": "",
         "alt_heading": false,
