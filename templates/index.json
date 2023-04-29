@@ -4,7 +4,7 @@
       "type": "image-with-text",
       "settings": {
         "image_style": "default",
-        "hero": false,
+        "hero": true,
         "alignment": "default",
         "layout": "default",
         "mobile_layout": "default",
