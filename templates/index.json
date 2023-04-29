@@ -6,21 +6,21 @@
         "template--18773519761687__767d046b-a15f-41ab-8efb-83b39fafa6bb-1682789605d7e52d1e-0": {
           "type": "heading",
           "settings": {
-            "heading": "Section Heading",
-            "heading_size": "h5"
+            "heading": "Image With Text",
+            "heading_size": "h4"
           }
         },
         "template--18773519761687__767d046b-a15f-41ab-8efb-83b39fafa6bb-1682789605d7e52d1e-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Add additonal text content here.<\/p>",
+            "text": "<p>Add text content about your brand that makes a statement<\/p>",
             "text_size": "p"
           }
         },
         "template--18773519761687__767d046b-a15f-41ab-8efb-83b39fafa6bb-1682789605d7e52d1e-2": {
           "type": "button",
           "settings": {
-            "button_label": "Click Here",
+            "button_label": "Learn More",
             "button_link": "",
             "button_color": "default"
           }
@@ -58,7 +58,7 @@
     "text-marquee": {
       "type": "text-marquee",
       "settings": {
-        "text": "Text content here.",
+        "text": "Text marquee",
         "text_size": "h6",
         "alt_heading": false,
         "speed": 5,
