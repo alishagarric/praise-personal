@@ -1,15 +1,44 @@
 {
   "sections": {
-    "image-with-text": {
+    "30ff8005-12de-4622-b948-4ebb9ec3c311": {
       "type": "image-with-text",
+      "blocks": {
+        "template--18773519859991__30ff8005-12de-4622-b948-4ebb9ec3c311-1682789605d7e52d1e-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Image With Text",
+            "heading_size": "h2"
+          }
+        },
+        "template--18773519859991__30ff8005-12de-4622-b948-4ebb9ec3c311-1682789605d7e52d1e-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Add text content about your brand that makes a statement<\/p>",
+            "text_size": "p"
+          }
+        },
+        "template--18773519859991__30ff8005-12de-4622-b948-4ebb9ec3c311-1682789605d7e52d1e-2": {
+          "type": "button",
+          "settings": {
+            "button_label": "Learn More",
+            "button_link": "",
+            "button_color": "default"
+          }
+        }
+      },
+      "block_order": [
+        "template--18773519859991__30ff8005-12de-4622-b948-4ebb9ec3c311-1682789605d7e52d1e-0",
+        "template--18773519859991__30ff8005-12de-4622-b948-4ebb9ec3c311-1682789605d7e52d1e-1",
+        "template--18773519859991__30ff8005-12de-4622-b948-4ebb9ec3c311-1682789605d7e52d1e-2"
+      ],
       "settings": {
         "image_style": "default",
-        "hero": false,
+        "hero": true,
         "alignment": "default",
         "layout": "default",
         "mobile_layout": "default",
         "mobile_image_height": 450,
-        "theme": "primary",
+        "theme": "2",
         "top_internal_spacing": 100,
         "bottom_internal_spacing": 100,
         "mobile_top_internal_spacing": 50,
@@ -21,10 +50,10 @@
     "contact-form": {
       "type": "contact-form",
       "settings": {
-        "heading": "Section Heading",
+        "heading": "Contact Form",
         "heading_size": "h4",
         "alt_heading": false,
-        "description": "<p>Add a descrition to be displayed below the heading here.<\/p>",
+        "description": "<p>Add a description that explains to your customers how to reach you<\/p>",
         "text_size": "p-sm",
         "disclaimer": "*indicates a required field",
         "hide_labels": true,
@@ -51,7 +80,7 @@
     }
   },
   "order": [
-    "image-with-text",
+    "30ff8005-12de-4622-b948-4ebb9ec3c311",
     "contact-form"
   ]
 }
