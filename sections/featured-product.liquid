@@ -29,13 +29,10 @@
 <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'variant-selects.js' | asset_url }}" defer="defer"></script>
 
-
-
 <div id="Featured-product-{{ section.id }}" class="featured-product __layout-{{ section.settings.layout }} __layout-mobile-{{ section.settings.mobile_layout }} __theme-{{ section_theme }}">
 
   {% comment %} Text content column {% endcomment %}
   <div class="featured-product__text">
-    {% if section.settings.product != blank %}
       <div 
         class="featured-product__text__first-half"
         style="{% if section.settings.theme_section != "default" %}{% if section.settings.product.metafields.custom.color %}--color-background: {{ section.settings.product.metafields.custom.color.value.rgb }}; --color-foreground-text: {{ section.settings.product.metafields.custom.color.value.rgb }};{% endif %} {% if section.settings.product.metafields.custom.text_color %} --color-text: {{ section.settings.product.metafields.custom.text_color.value.rgb }}; --color-foreground: {{ section.settings.product.metafields.custom.text_color.value.rgb }}; --color-border: {{ section.settings.product.metafields.custom.text_color.value.rgb }} / .3;{% endif %}{% endif %}"
@@ -62,13 +59,16 @@
               {% if section.settings.hero == true %}
                 {% assign heading_tag = "h1" %}
               {% endif %}
-              {% render 'heading', heading: section.settings.product.title, alt_heading: block.settings.alt_heading, heading_size: block.settings.heading_size, heading_tag: heading_tag, class: heading_class %}
+              {% assign title = section.settings.product.title | default: "Product Title"%}
+              {% render 'heading', heading: title, alt_heading: block.settings.alt_heading, heading_size: block.settings.heading_size, heading_tag: heading_tag, class: heading_class %}
 
             {% comment %} Type buy buttons {% endcomment %}
             {%- when 'buy_buttons' -%}
-              <div class="featured-product__block {% if block.settings.include_border %} __border-top {% endif %}">
-                {% render 'product-form' id: product_form_id, product: section.settings.product, show_quantity: block.settings.show_quantity, include_border: block.settings.include_border, hide_dynamic_buttons: block.settings.hide_dynamic_buttons %}
-              </div>
+               {% if section.settings.product != blank %}
+                  <div class="featured-product__block {% if block.settings.include_border %} __border-top {% endif %}">
+                     {% render 'product-form' id: product_form_id, product: section.settings.product, show_quantity: block.settings.show_quantity, include_border: block.settings.include_border, hide_dynamic_buttons: block.settings.hide_dynamic_buttons %}
+                  </div>
+               {% endif %}
 
             {% comment %} Type expandable content {% endcomment %}
             {%- when 'expandable' %}
@@ -84,8 +84,10 @@
 
             {% comment %} Type rating {% endcomment %}
             {%- when 'rating' -%}
-               {{ 'product-ratings.css' | asset_url | stylesheet_tag }}
-              {% render 'product-ratings' product: section.settings.product %}
+               {% if section.settings.product != blank %}
+                  {{ 'product-ratings.css' | asset_url | stylesheet_tag }}
+                  {% render 'product-ratings' product: section.settings.product %}
+               {% endif %}
 
             {% comment %} Type shop button {% endcomment %}
             {%- when 'shop_button' -%}
@@ -97,11 +99,14 @@
 
             {% comment %} Type variant picker {% endcomment %}
             {%- when 'variant_picker' -%}
-              {% render 'variant_picker' this_product: section.settings.product, product_form_id: product_form_id, layout: block.settings.layout, include_border: block.settings.include_border, show_option_labels: block.settings.show_option_labels, class: "featured-product__block" %}
-
+               {% if section.settings.product != blank %}
+                  {% render 'variant_picker' this_product: section.settings.product, product_form_id: product_form_id, layout: block.settings.layout, include_border: block.settings.include_border, show_option_labels: block.settings.show_option_labels, class: "featured-product__block" %}
+               {% endif %}
             {% comment %} Type price {% endcomment %}
             {%- when 'price' -%}
-              {% render 'form-price' product: section.settings.product, price_size: block.settings.heading_size, form_id: section.id %}
+               {% if section.settings.product != blank %}
+                  {% render 'form-price' product: section.settings.product, price_size: block.settings.heading_size, form_id: section.id %}
+               {% endif %}
 
           {%- endcase -%}
 
@@ -111,9 +116,6 @@
           {% endif %}
         {%- endfor -%}
       </div>
-    {% else %}
-      <div class="h2">Product Heading</div>
-    {% endif %}
   </div>
 
   {% comment %} Image content column {% endcomment %}
@@ -121,17 +123,19 @@
    class="featured-product__image"
    style="{% if section.settings.product.metafields.custom.color %}--color-background: {{ section.settings.product.metafields.custom.color.value.rgb }};{% endif %}"
    >
-    <div class="image-container __crop-{{ section.settings.crop_shape }}" style="--imageRatio: {{ section.settings.product.featured_image.height | divided_by: 1.00 | divided_by: section.settings.product.featured_image.width | times: 100 }}%">
       {%- if section.settings.product.featured_image != blank -%}
-        {% render 'next-gen-img', image: section.settings.product.featured_image, width: 1400, widths: "1400, 940, 700, 500" sizes: '(max-width: 676px) 100vw, (max-width: 1024px) 40vw, 30vw', preload: section.settings.hero %}
+         <div class="image-container __crop-{{ section.settings.crop_shape }}" style="--imageRatio: {{ section.settings.product.featured_image.height | divided_by: 1.00 | divided_by: section.settings.product.featured_image.width | times: 100 }}%">
+            {% render 'next-gen-img', image: section.settings.product.featured_image, width: 1400, widths: "1400, 940, 700, 500" sizes: '(max-width: 676px) 100vw, (max-width: 1024px) 40vw, 30vw', preload: section.settings.hero %}
+            {% if section.settings.show_phrase == true and section.settings.product.metafields.custom.phrase %}
+               {% render 'product-phrase' phrase: section.settings.product.metafields.custom.phrase, class: 'featured-product__image__phrase' %}
+            {% endif %}
+         </div>
       {%- else -%}
-        {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+         <div class="image-container __crop-{{ section.settings.crop_shape }}" style="--imageRatio: 100%">
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+         </div>
       {%- endif -%}
 
-      {% if section.settings.show_phrase == true and section.settings.product.metafields.custom.phrase %}
-         {% render 'product-phrase' phrase: section.settings.product.metafields.custom.phrase, class: 'featured-product__image__phrase' %}
-      {% endif %}
-    </div>
   </div>
 </div>
 
@@ -444,12 +448,13 @@
             {
                "type":"text",
                "id":"title",
-               "default":"Title",
+               "default": "Expandable Content",
                "label":"t:sections.featured-product.blocks.expandable.settings.title.label"
             },
             {
                "type":"richtext",
                "id":"text",
+               "default": "<p>Extra information your customers might find useful</p>",
                "label":"t:sections.featured-product.blocks.expandable.settings.text.label"
             },
             {
@@ -638,6 +643,7 @@
             {
                "type":"text",
                "id":"button_label",
+               "default": "View Details",
                "label":"t:sections.featured-product.blocks.shop_button.settings.label",
                "info":"t:sections.featured-product.blocks.shop_button.settings.info"
             }
@@ -678,10 +684,16 @@
    ],
    "presets":[
       {
-         "name":"Featured Product",
+         "name": "Featured Product",
          "blocks":[
             {
                "type":"title"
+            },
+            {
+               "type":"expandable"
+            },
+            {
+               "type":"expandable"
             },
             {
                "type":"description"

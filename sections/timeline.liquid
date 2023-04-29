@@ -31,7 +31,7 @@
             sizes: '(max-width: 676px) 100vw, 50vw'
           %}
         {% else %}
-          {{ 'collection-2' | placeholder_svg_tag: 'placeholder' }}
+          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
         {% endif %}
       </div>
     </div>
@@ -88,7 +88,7 @@
     {
       "type": "text",
       "id": "heading",
-      "default": "Section Heading",
+      "default": "Timeline Section",
       "label": "t:sections.timeline.settings.heading.label"
     },
     {
@@ -123,7 +123,7 @@
     {
       "type": "richtext",
       "id": "text",
-      "default": "<p>Add additional text content here.</p>",
+      "default": "<p>Add a summary of the steps you'll outline below</p>",
       "label": "t:sections.timeline.settings.description.label"
     },
     {
@@ -324,7 +324,7 @@
         {
           "type": "text",
           "id": "heading",
-          "default": "Part Heading",
+          "default": "Add a Heading for This Step",
           "label": "t:sections.timeline.blocks.heading.label"
         },
         {
@@ -359,7 +359,7 @@
         {
           "type": "richtext",
           "id": "text",
-          "default": "<p>Additional text content for part.</p>",
+          "default": "<p>Add text content about a certain step your company has taken to get here</p>",
           "label": "t:sections.timeline.blocks.rich_text.label"
         },
         {
@@ -389,7 +389,7 @@
         {
           "type": "text",
           "id": "button_label",
-          "default": "Click Here",
+          "default": "Learn More",
           "label": "t:sections.timeline.blocks.button_label.label"
         },
         {
@@ -402,7 +402,18 @@
   ],
   "presets": [
     {
-      "name": "t:sections.timeline.presets.name"
+      "name": "t:sections.timeline.presets.name",
+        "blocks":[
+          {
+              "type":"part"
+          },
+          {
+              "type":"part"
+          },
+          {
+              "type":"part"
+          }
+        ]
     }
   ]
 }
