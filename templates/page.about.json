@@ -70,25 +70,68 @@
         "alignment": "center",
         "theme": "primary",
         "top_spacing": 100,
-        "bottom_spacing": 50
+        "bottom_spacing": 100
       }
     },
-    "timeline": {
+    "1592608d-9500-44f7-8cf2-e5481eccaa45": {
       "type": "timeline",
+      "blocks": {
+        "template--18773519892759__1592608d-9500-44f7-8cf2-e5481eccaa45-16827947560d5b4b27-0": {
+          "type": "part",
+          "settings": {
+            "heading": "Add a Heading for This Step",
+            "heading_size": "h4",
+            "alt_heading": false,
+            "text": "<p>Add text content about a certain step your company has taken to get here<\/p>",
+            "text_size": "p-sm",
+            "button_label": "Learn More",
+            "button_link": ""
+          }
+        },
+        "template--18773519892759__1592608d-9500-44f7-8cf2-e5481eccaa45-16827947560d5b4b27-1": {
+          "type": "part",
+          "settings": {
+            "heading": "Add a Heading for This Step",
+            "heading_size": "h4",
+            "alt_heading": false,
+            "text": "<p>Add text content about a certain step your company has taken to get here<\/p>",
+            "text_size": "p-sm",
+            "button_label": "Learn More",
+            "button_link": ""
+          }
+        },
+        "template--18773519892759__1592608d-9500-44f7-8cf2-e5481eccaa45-16827947560d5b4b27-2": {
+          "type": "part",
+          "settings": {
+            "heading": "Add a Heading for This Step",
+            "heading_size": "h4",
+            "alt_heading": false,
+            "text": "<p>Add text content about a certain step your company has taken to get here<\/p>",
+            "text_size": "p-sm",
+            "button_label": "Learn More",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--18773519892759__1592608d-9500-44f7-8cf2-e5481eccaa45-16827947560d5b4b27-0",
+        "template--18773519892759__1592608d-9500-44f7-8cf2-e5481eccaa45-16827947560d5b4b27-1",
+        "template--18773519892759__1592608d-9500-44f7-8cf2-e5481eccaa45-16827947560d5b4b27-2"
+      ],
       "settings": {
         "heading": "Timeline Section",
         "heading_size": "h4",
         "alt_heading": false,
         "text": "<p>Add a summary of the steps you'll outline below<\/p>",
         "text_size": "p-sm",
-        "dot_color": "default",
+        "dot_color": "2",
         "crop_shape": "default",
         "theme": "primary",
         "top_spacing": 50,
-        "bottom_spacing": 50
+        "bottom_spacing": 10
       }
     },
-    "video": {
+    "ba28f6fc-5f04-460a-b041-9d38c07dbac4": {
       "type": "video",
       "settings": {
         "heading": "Video Section",
@@ -97,13 +140,13 @@
         "text": "<p>Add some text that introduces the video they will watch<\/p>",
         "text_size": "p-sm",
         "text_placement": "start",
-        "video_url": "",
+        "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
         "overlay": 0,
         "overlay_theme": "primary",
-        "crop_shape": "wide",
+        "crop_shape": "video",
         "fullwidth": false,
         "theme": "primary",
-        "top_spacing": 50,
+        "top_spacing": 0,
         "bottom_spacing": 50
       }
     },
@@ -128,8 +171,8 @@
   "order": [
     "da290513-b55d-48dd-946e-407af91e6f58",
     "c5d45da2-307c-4bc8-bcfd-3ac25f7a679b",
-    "timeline",
-    "video",
+    "1592608d-9500-44f7-8cf2-e5481eccaa45",
+    "ba28f6fc-5f04-460a-b041-9d38c07dbac4",
     "multicolumn"
   ]
 }
