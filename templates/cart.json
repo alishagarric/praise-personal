@@ -1,41 +1,23 @@
 {
   "sections": {
-    "main-cart": {
+    "main": {
       "type": "main-cart",
       "settings": {
-        "recommendations_limit": 6,
-        "top_spacing": 50
-      },
-      "blocks": {
-        "1bdd81eb-fea5-4259-8a4c-ae4b17255381": {
-          "type": "message",
-          "settings": {
-            "heading": "Shipping",
-            "text": "<p>Functional handbags made of luxurious and honest materials to improve people's lives in small but mighty ways.</p>"
-          }
-        },
-        "1bdd81eb-fea5-4259-8a4c-ae4b17255381-1": {
-          "type": "message",
-          "settings": {
-            "heading": "Returns",
-            "text": "<p>Functional handbags made of luxurious and honest materials to improve people's lives in small but mighty ways.</p>"
-          }
-        },
-        "1bdd81eb-fea5-4259-8a4c-ae4b17255381-3": {
-          "type": "message",
-          "settings": {
-            "heading": "Processing",
-            "text": "<p>Functional handbags made of luxurious and honest materials to improve people's lives in small but mighty ways.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "template--16398178320606__1f0676f2-7350-438a-8c08-755d0e96e91c-167036242761bb5f6f-0",
-        "1bdd81eb-fea5-4259-8a4c-ae4b17255381",
-        "1bdd81eb-fea5-4259-8a4c-ae4b17255381-1",
-        "1bdd81eb-fea5-4259-8a4c-ae4b17255381-3"
-      ]
+        "heading_size": "h4",
+        "alt_heading": false,
+        "crop_shape": "default",
+        "show_vendor": false,
+        "show_recommendations": true,
+        "recommendations_heading": "You may also like",
+        "recommendations_limit": 2,
+        "show_textarea": true,
+        "theme": "primary",
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
     }
   },
-  "order": ["main-cart"]
+  "order": [
+    "main"
+  ]
 }

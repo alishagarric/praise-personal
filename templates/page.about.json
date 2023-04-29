@@ -1,488 +1,135 @@
 {
   "sections": {
-    "166214275854e11719": {
+    "da290513-b55d-48dd-946e-407af91e6f58": {
       "type": "image-banner",
       "blocks": {
-        "b7e49cf4-a327-4afa-8bef-dc076022f79e": {
+        "template--18773519892759__da290513-b55d-48dd-946e-407af91e6f58-168279166761741264-0": {
           "type": "heading",
           "settings": {
             "heading": "About Us",
-            "heading_size": "h4"
-          }
-        },
-        "599e2d68-7d31-4caf-baa2-43362684a30b": {
-          "type": "text",
-          "settings": {
-            "text": "<p>All our cookies use natural ingredients and are made in Williamsburg at our Brooklyn bakery.</p>",
-            "text_size": "p-sm"
-          }
-        }
-      },
-      "block_order": [
-        "b7e49cf4-a327-4afa-8bef-dc076022f79e",
-        "599e2d68-7d31-4caf-baa2-43362684a30b"
-      ],
-      "settings": {
-        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_549b821c-6850-42f3-ae03-51e8af8116c6.jpg",
-        "overlay": 50,
-        "overlay_theme": "4",
-        "crop_shape": "default",
-        "hero": true,
-        "alignment": "center",
-        "theme": "primary",
-        "top_internal_spacing": 250,
-        "bottom_internal_spacing": 30,
-        "top_spacing": 0,
-        "bottom_spacing": 0
-      }
-    },
-    "9d904fcd-6812-4896-8f08-b91f0da96ef5": {
-      "type": "image-banner",
-      "blocks": {
-        "4f06eecd-6680-4fb2-b54f-f68ede63926d": {
-          "type": "heading",
-          "settings": {
-            "heading": "Our Mission",
             "heading_size": "h2"
           }
         },
-        "eb3534e5-bccc-4b1d-8995-da0c99665bba": {
+        "template--18773519892759__da290513-b55d-48dd-946e-407af91e6f58-168279166761741264-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Atypical cookies and treats that push the boundaries of indulgence. An ode to the well-balanced classic cookie. This season we are celebrating all the nostalgia and what pairs best with chocolate chips.</p>",
+            "text": "<p>Add text that says something about your brand<\/p>",
             "text_size": "p-sm"
           }
-        }
-      },
-      "block_order": [
-        "4f06eecd-6680-4fb2-b54f-f68ede63926d",
-        "eb3534e5-bccc-4b1d-8995-da0c99665bba"
-      ],
-      "settings": {
-        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_549b821c-6850-42f3-ae03-51e8af8116c6.jpg",
-        "overlay": 70,
-        "overlay_theme": "5",
-        "crop_shape": "rounded-wide",
-        "hero": false,
-        "alignment": "left",
-        "theme": "primary",
-        "top_internal_spacing": 300,
-        "bottom_internal_spacing": 100,
-        "top_spacing": 40,
-        "bottom_spacing": 0
-      }
-    },
-    "divider": {
-      "type": "divider",
-      "settings": {
-        "theme": "primary",
-        "top_spacing": 0,
-        "bottom_spacing": 0
-      }
-    },
-    "f2989769-c365-432b-8663-172dec4d23d5": {
-      "type": "icons-section",
-      "blocks": {
-        "template--16406887071966__f2989769-c365-432b-8663-172dec4d23d5-167036307199fd24ce-0": {
-          "type": "icon",
-          "settings": {
-            "icon": "shopify://shop_images/Group_100.png",
-            "heading": "",
-            "text": "Value"
-          }
         },
-        "template--16406887071966__f2989769-c365-432b-8663-172dec4d23d5-167036307199fd24ce-1": {
-          "type": "icon",
-          "settings": {
-            "icon": "shopify://shop_images/Vector.png",
-            "heading": "",
-            "text": "Value"
-          }
-        },
-        "template--16406887071966__f2989769-c365-432b-8663-172dec4d23d5-167036307199fd24ce-2": {
-          "type": "icon",
-          "settings": {
-            "icon": "shopify://shop_images/Group.png",
-            "heading": "",
-            "text": "Value"
-          }
-        },
-        "4b3a915a-bee5-49f9-9a78-d84f78290651": {
-          "type": "icon",
-          "settings": {
-            "icon": "shopify://shop_images/Group_100.png",
-            "heading": "",
-            "text": "Lorem ipsum"
-          }
-        },
-        "50db8156-e4c0-4c21-b289-6ccb2088a577": {
-          "type": "icon",
-          "settings": {
-            "icon": "shopify://shop_images/Vector.png",
-            "heading": "",
-            "text": "Lorem ipsum"
-          }
-        },
-        "445bc021-ee04-4b20-a595-7cc635211260": {
-          "type": "icon",
-          "settings": {
-            "icon": "shopify://shop_images/Group.png",
-            "heading": "",
-            "text": "Lorem ipsum"
-          }
-        }
-      },
-      "block_order": [
-        "template--16406887071966__f2989769-c365-432b-8663-172dec4d23d5-167036307199fd24ce-0",
-        "template--16406887071966__f2989769-c365-432b-8663-172dec4d23d5-167036307199fd24ce-1",
-        "template--16406887071966__f2989769-c365-432b-8663-172dec4d23d5-167036307199fd24ce-2",
-        "4b3a915a-bee5-49f9-9a78-d84f78290651",
-        "50db8156-e4c0-4c21-b289-6ccb2088a577",
-        "445bc021-ee04-4b20-a595-7cc635211260"
-      ],
-      "settings": {
-        "heading": "",
-        "heading_size": "h5",
-        "alt_heading": false,
-        "layout": "6",
-        "mobile_layout": "3",
-        "icon_height": 60,
-        "alignment": "center",
-        "theme": "primary",
-        "top_spacing": 50,
-        "bottom_spacing": 50
-      }
-    },
-    "divider-2": {
-      "type": "divider",
-      "settings": {
-        "theme": "primary",
-        "top_spacing": 0,
-        "bottom_spacing": 0
-      }
-    },
-    "timeline": {
-      "type": "timeline",
-      "blocks": {
-        "eb74b024-43e4-4343-8146-6c03e00cb3f1": {
-          "type": "part",
-          "settings": {
-            "heading": "",
-            "heading_size": "h4",
-            "alt_heading": false,
-            "text": "<p><strong>Part of our story 1</strong></p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis ullamcorper donec at in tempor tortor facilisi egestas gravida. Porttitor sed amet mi elit eget blandit lacus, egestas laoreet. Magna mauris lobortis in laoreet venenatis tempus, non. Nisi suscipit tortor ornare eu, mattis. Velit sit elementum tristique aliquet viverra viverra ullamcorper sed. </p>",
-            "text_size": "p-sm",
-            "button_label": "See Ingredients",
-            "button_link": "shopify://collections"
-          }
-        },
-        "464bda83-5714-4bff-bcd6-ee1d1bcb4582": {
-          "type": "part",
-          "settings": {
-            "heading": "Part of our story 2",
-            "heading_size": "h6",
-            "alt_heading": false,
-            "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>",
-            "text_size": "p-sm",
-            "button_label": "",
-            "button_link": ""
-          }
-        },
-        "c0b903c8-fc19-4ea1-a9c4-c82d8a64ab52": {
-          "type": "part",
-          "settings": {
-            "heading": "Part of our story 3",
-            "heading_size": "h6",
-            "alt_heading": true,
-            "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>",
-            "text_size": "p-sm",
-            "button_label": "",
-            "button_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "eb74b024-43e4-4343-8146-6c03e00cb3f1",
-        "464bda83-5714-4bff-bcd6-ee1d1bcb4582",
-        "c0b903c8-fc19-4ea1-a9c4-c82d8a64ab52"
-      ],
-      "settings": {
-        "heading": "Lorem ipsum",
-        "heading_size": "h4",
-        "alt_heading": false,
-        "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>",
-        "text_size": "p-sm",
-        "dot_color": "3",
-        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_bbf54c90-3c31-4e00-962c-f12d6b17cf77.jpg",
-        "crop_shape": "rounded-square",
-        "theme": "primary",
-        "top_spacing": 50,
-        "bottom_spacing": 50
-      }
-    },
-    "77926ee0-c4cd-4878-a4bf-192a1c0681ed": {
-      "type": "image-banner",
-      "blocks": {
-        "c993f2ef-94a4-4900-bf44-16be4b8cd605": {
-          "type": "heading",
-          "settings": {
-            "heading": "Our values drive our decisions: Sincerity, Equity, Compassion, and Commitment",
-            "heading_size": "h2"
-          }
-        },
-        "dfa21165-42de-44ad-b3ef-d70913dbfb50": {
+        "template--18773519892759__da290513-b55d-48dd-946e-407af91e6f58-168279166761741264-2": {
           "type": "button",
           "settings": {
-            "button_label": "Learn more",
-            "button_link": "shopify://collections/cookie-collection",
+            "button_label": "Learn More",
+            "button_link": "",
             "button_color": "default"
           }
         }
       },
       "block_order": [
-        "c993f2ef-94a4-4900-bf44-16be4b8cd605",
-        "dfa21165-42de-44ad-b3ef-d70913dbfb50"
+        "template--18773519892759__da290513-b55d-48dd-946e-407af91e6f58-168279166761741264-0",
+        "template--18773519892759__da290513-b55d-48dd-946e-407af91e6f58-168279166761741264-1",
+        "template--18773519892759__da290513-b55d-48dd-946e-407af91e6f58-168279166761741264-2"
       ],
       "settings": {
-        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_a6c4dcf8-a5c2-45ab-8711-f1aa9365378c.jpg",
-        "overlay": 40,
-        "overlay_theme": "3",
-        "crop_shape": "circle",
-        "hero": false,
-        "alignment": "left",
-        "theme": "primary",
+        "overlay": 50,
+        "overlay_theme": "primary",
+        "crop_shape": "default",
+        "hero": true,
+        "alignment": "center",
+        "theme": "2",
         "top_internal_spacing": 100,
         "bottom_internal_spacing": 100,
+        "top_spacing": 0,
+        "bottom_spacing": 0
+      }
+    },
+    "c5d45da2-307c-4bc8-bcfd-3ac25f7a679b": {
+      "type": "rich-text",
+      "blocks": {
+        "template--18773519892759__c5d45da2-307c-4bc8-bcfd-3ac25f7a679b-1682791859b26188b2-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Use this section to dive deeper into your company",
+            "heading_size": "h5"
+          }
+        },
+        "template--18773519892759__c5d45da2-307c-4bc8-bcfd-3ac25f7a679b-1682791859b26188b2-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Utilize paragraphs to supply more detailed information without giving away too much at once!<\/p>",
+            "text_size": "p-sm"
+          }
+        }
+      },
+      "block_order": [
+        "template--18773519892759__c5d45da2-307c-4bc8-bcfd-3ac25f7a679b-1682791859b26188b2-0",
+        "template--18773519892759__c5d45da2-307c-4bc8-bcfd-3ac25f7a679b-1682791859b26188b2-1"
+      ],
+      "settings": {
+        "alignment": "center",
+        "theme": "primary",
         "top_spacing": 100,
-        "bottom_spacing": 100
+        "bottom_spacing": 50
+      }
+    },
+    "timeline": {
+      "type": "timeline",
+      "settings": {
+        "heading": "Timeline Section",
+        "heading_size": "h4",
+        "alt_heading": false,
+        "text": "<p>Add a summary of the steps you'll outline below<\/p>",
+        "text_size": "p-sm",
+        "dot_color": "default",
+        "crop_shape": "default",
+        "theme": "primary",
+        "top_spacing": 50,
+        "bottom_spacing": 50
       }
     },
     "video": {
       "type": "video",
       "settings": {
-        "heading": "Video",
-        "text": "<p>All our cookies use natural ingredients and are made in Williamsburg at our Brooklyn bakery.</p>",
-        "fullwidth": true,
+        "heading": "Video Section",
         "heading_size": "h4",
         "alt_heading": false,
-        "text_placement": "space-between",
-        "overlay_theme": "4",
-        "cover_image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_cd0b890c-b357-4857-9c0d-36126dbfab86.jpg",
-        "crop_shape": "dome",
-        "video_url": "https://www.youtube.com/watch?v=B-ytMSuwbf8",
-        "theme": "primary",
-        "top_spacing": 50,
-        "bottom_spacing": 50
-      }
-    },
-    "1663294968d8440c8d": {
-      "type": "featured-collection",
-      "settings": {
-        "collection": "cookie-collection",
-        "theme_slideshow": false,
-        "include_border": true,
-        "show_phrase": false,
-        "show_description": true,
-        "quick_add": false,
-        "show_bg_color": false,
-        "alt_title": false,
-        "product_text_alignment": "default",
-        "price": "bottom",
-        "crop_shape": "square",
-        "heading": "Shop Our Bestsellers",
-        "alt_heading": true,
-        "text": "<p>Functional handbags made of luxurious and honest materials to improve people's lives in small but mighty ways.</p>",
-        "text_size": "p",
-        "collection_text_content": false,
-        "theme": "primary",
-        "top_spacing": 50,
-        "bottom_spacing": 50
-      }
-    },
-    "e5e39d6c-0c2d-4004-afca-0d6f713ac1cb": {
-      "type": "multicolumn",
-      "blocks": {
-        "470fd417-3f1a-44c7-8382-ae14c26554b8": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_a6c4dcf8-a5c2-45ab-8711-f1aa9365378c.jpg",
-            "overlay": 40,
-            "overlay_theme": "5",
-            "crop_shape": "semicircle-portrait",
-            "heading": "Alisha Garric",
-            "heading_size": "h2",
-            "overlap": true,
-            "text": "<p><strong>Head Chef</strong></p><p><strong>A little About Me<br/></strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mattis pellentesque velit convallis scelerisque. Ultrices quis aliquet nulla at magna imperdiet. Eu eget tristique ipsum malesuada convallis felis.</p>",
-            "alignment": "left",
-            "button_label": "",
-            "button_link": "",
-            "button_color": "default"
-          }
-        },
-        "61ff9c84-50f8-4831-8a55-c57073c1bcd2": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_a6c4dcf8-a5c2-45ab-8711-f1aa9365378c.jpg",
-            "overlay": 40,
-            "overlay_theme": "3",
-            "crop_shape": "semicircle-portrait",
-            "heading": "Daniel Day Clueless",
-            "heading_size": "h2",
-            "overlap": true,
-            "text": "<p><strong>Head Chef</strong></p><p><strong>A little About Me<br/></strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mattis pellentesque velit convallis scelerisque. Ultrices quis aliquet nulla at magna imperdiet. Eu eget tristique ipsum malesuada convallis felis.</p>",
-            "alignment": "left",
-            "button_label": "",
-            "button_link": "",
-            "button_color": "default"
-          }
-        },
-        "99b8531b-074b-4667-998e-bbe00d2e275e": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_a6c4dcf8-a5c2-45ab-8711-f1aa9365378c.jpg",
-            "overlay": 40,
-            "overlay_theme": "4",
-            "crop_shape": "semicircle-portrait",
-            "heading": "Danny “Thunder” McBride",
-            "heading_size": "h2",
-            "overlap": true,
-            "text": "<p><strong>Head Chef</strong></p><p><strong>A little About Me<br/></strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mattis pellentesque velit convallis scelerisque. Ultrices quis aliquet nulla at magna imperdiet. Eu eget tristique ipsum malesuada convallis felis.</p>",
-            "alignment": "left",
-            "button_label": "",
-            "button_link": "",
-            "button_color": "default"
-          }
-        },
-        "4387cb75-4bc2-4503-95b5-dd98f7f824ae": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_a6c4dcf8-a5c2-45ab-8711-f1aa9365378c.jpg",
-            "overlay": 40,
-            "overlay_theme": "5",
-            "crop_shape": "semicircle-portrait",
-            "heading": "Alisha Garric",
-            "heading_size": "h2",
-            "overlap": true,
-            "text": "<p><strong>Head Chef</strong></p><p><strong>A little About Me<br/></strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mattis pellentesque velit convallis scelerisque. Ultrices quis aliquet nulla at magna imperdiet. Eu eget tristique ipsum malesuada convallis felis.</p>",
-            "alignment": "left",
-            "button_label": "",
-            "button_link": "",
-            "button_color": "default"
-          }
-        }
-      },
-      "block_order": [
-        "470fd417-3f1a-44c7-8382-ae14c26554b8",
-        "61ff9c84-50f8-4831-8a55-c57073c1bcd2",
-        "99b8531b-074b-4667-998e-bbe00d2e275e",
-        "4387cb75-4bc2-4503-95b5-dd98f7f824ae"
-      ],
-      "settings": {
-        "heading": "Team",
-        "heading_size": "h2",
-        "alt_heading": false,
-        "text": "",
+        "text": "<p>Add some text that introduces the video they will watch<\/p>",
         "text_size": "p-sm",
-        "alignment": "left",
+        "text_placement": "start",
+        "video_url": "",
+        "overlay": 0,
+        "overlay_theme": "primary",
+        "crop_shape": "wide",
+        "fullwidth": false,
+        "theme": "primary",
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
+    },
+    "multicolumn": {
+      "type": "multicolumn",
+      "settings": {
+        "heading": "Multicolumn Section",
+        "heading_size": "h4",
+        "alt_heading": false,
+        "text": "<p>Write some content here that pairs with the headline or image to support your brand<\/p>",
+        "text_size": "p-sm",
+        "alignment": "center",
         "columns_desktop": 3,
         "columns_mobile": 2,
-        "layout": "slideshow",
+        "layout": "default",
         "theme": "primary",
-        "top_spacing": 50,
-        "bottom_spacing": 50
-      }
-    },
-    "bd10db7c-6fad-4554-8a11-8fb51fd79804": {
-      "type": "content-marquee",
-      "blocks": {
-        "830e5ff8-b1ac-469b-91e1-0a5d71ab525c": {
-          "type": "quote",
-          "settings": {
-            "quote": "<p>1 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.</p>",
-            "text_size": "p-sm",
-            "quotations": true,
-            "details": "",
-            "logo": "shopify://shop_images/image_14.png",
-            "background_theme": "3",
-            "card_corners": "rounded"
-          }
-        },
-        "5bfa76eb-f1fb-4649-8d9f-0771396e136f": {
-          "type": "quote",
-          "settings": {
-            "quote": "<p>2 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.</p>",
-            "text_size": "p-sm",
-            "quotations": true,
-            "details": "",
-            "logo": "shopify://shop_images/image_14.png",
-            "background_theme": "4",
-            "card_corners": "rounded"
-          }
-        },
-        "6ba997ed-491d-48f4-bad3-c9cb67930f72": {
-          "type": "quote",
-          "settings": {
-            "quote": "<p>3 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.</p>",
-            "text_size": "p-sm",
-            "quotations": true,
-            "details": "",
-            "logo": "shopify://shop_images/image_14.png",
-            "background_theme": "5",
-            "card_corners": "rounded"
-          }
-        },
-        "367cc0c5-6fad-45cb-aa18-67496c784724": {
-          "type": "quote",
-          "settings": {
-            "quote": "<p>4 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.</p>",
-            "text_size": "p-sm",
-            "quotations": true,
-            "details": "",
-            "logo": "shopify://shop_images/image_14.png",
-            "background_theme": "3",
-            "card_corners": "rounded"
-          }
-        },
-        "367cc0c5-6fad-45cb-aa18-67496c784724-1": {
-          "type": "quote",
-          "settings": {
-            "quote": "<p>5 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.</p>",
-            "text_size": "p-sm",
-            "quotations": true,
-            "details": "",
-            "logo": "shopify://shop_images/image_14.png",
-            "background_theme": "4",
-            "card_corners": "rounded"
-          }
-        }
-      },
-      "block_order": [
-        "830e5ff8-b1ac-469b-91e1-0a5d71ab525c",
-        "5bfa76eb-f1fb-4649-8d9f-0771396e136f",
-        "6ba997ed-491d-48f4-bad3-c9cb67930f72",
-        "367cc0c5-6fad-45cb-aa18-67496c784724",
-        "367cc0c5-6fad-45cb-aa18-67496c784724-1"
-      ],
-      "settings": {
-        "alignment": "center",
-        "speed": 6,
-        "theme": "2",
         "top_spacing": 50,
         "bottom_spacing": 50
       }
     }
   },
   "order": [
-    "166214275854e11719",
-    "9d904fcd-6812-4896-8f08-b91f0da96ef5",
-    "divider",
-    "f2989769-c365-432b-8663-172dec4d23d5",
-    "divider-2",
+    "da290513-b55d-48dd-946e-407af91e6f58",
+    "c5d45da2-307c-4bc8-bcfd-3ac25f7a679b",
     "timeline",
-    "77926ee0-c4cd-4878-a4bf-192a1c0681ed",
     "video",
-    "1663294968d8440c8d",
-    "e5e39d6c-0c2d-4004-afca-0d6f713ac1cb",
-    "bd10db7c-6fad-4554-8a11-8fb51fd79804"
+    "multicolumn"
   ]
 }
