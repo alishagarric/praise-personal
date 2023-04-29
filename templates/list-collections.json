@@ -13,7 +13,7 @@
         "template--16398178844894__e016bbbd-0856-455a-8d09-653c667e35b4-167581221261978a4c-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Atypical cookies and treats that push the boundaires of indulgence<\/p>",
+            "text": "<p>Atypical cookies and treats that push the boundaires of indulgence</p>",
             "text_size": "p-sm"
           }
         }
@@ -23,7 +23,7 @@
         "template--16398178844894__e016bbbd-0856-455a-8d09-653c667e35b4-167581221261978a4c-1"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_549b821c-6850-42f3-ae03-51e8af8116c6.jpg",
+        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_549b821c-6850-42f3-ae03-51e8af8116c6.jpg",
         "overlay": 70,
         "overlay_theme": "primary",
         "crop_shape": "default",
@@ -176,9 +176,7 @@
           }
         }
       },
-      "block_order": [
-        "9fed0646-618c-4d33-8279-11160ad8351b"
-      ],
+      "block_order": ["9fed0646-618c-4d33-8279-11160ad8351b"],
       "settings": {
         "heading": "",
         "heading_size": "h4",
@@ -197,9 +195,7 @@
     "0aedd12b-7b12-49e2-9817-c331fb847e55": {
       "type": "collection-teaser",
       "settings": {
-        "collections": [
-          "cookie-collection"
-        ],
+        "collections": ["cookie-collection"],
         "products_per_collection": 2,
         "heading_size": "h4",
         "alt_heading": true,
@@ -241,7 +237,7 @@
         "template--16398178844894__85c58e07-278d-42c1-b9f3-f6bab28fee7f-16703627747c9db086-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Atypical cookies and treats that push the boundaries of indulgence. An odea to the well-baanced classic cookie. This season we are celebrating all the nostalgia and what pairs best with chocolate chips.<\/p>",
+            "text": "<p>Atypical cookies and treats that push the boundaries of indulgence. An odea to the well-baanced classic cookie. This season we are celebrating all the nostalgia and what pairs best with chocolate chips.</p>",
             "text_size": "p"
           }
         },
@@ -249,7 +245,7 @@
           "type": "button",
           "settings": {
             "button_label": "Shop lemon cookies",
-            "button_link": "shopify:\/\/collections\/cookie-collection",
+            "button_link": "shopify://collections/cookie-collection",
             "button_color": "default"
           }
         }
@@ -260,7 +256,7 @@
         "template--16398178844894__85c58e07-278d-42c1-b9f3-f6bab28fee7f-16703627747c9db086-2"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/strvnge-films-vYOld7oc7Zo-unsplash_e7c90847-70c1-47f4-a82d-2369a2b4a718.jpg",
+        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_e7c90847-70c1-47f4-a82d-2369a2b4a718.jpg",
         "image_style": "wide",
         "hero": false,
         "alignment": "center",
@@ -300,9 +296,7 @@
           }
         }
       },
-      "block_order": [
-        "f59e2fe6-d3ba-4912-95b8-88c242212711"
-      ],
+      "block_order": ["f59e2fe6-d3ba-4912-95b8-88c242212711"],
       "settings": {
         "heading": "Stock your cabinet",
         "heading_size": "h4",
@@ -333,9 +327,7 @@
           }
         }
       },
-      "block_order": [
-        "c3916db9-2c34-4fdd-b61b-813545186f36"
-      ],
+      "block_order": ["c3916db9-2c34-4fdd-b61b-813545186f36"],
       "settings": {
         "alignment": "center",
         "speed": 5,
@@ -363,7 +355,7 @@
         "template--16398178844894__3f783cda-7cb7-460e-b9a9-fe131d2fe0e7-1682792757cb6d703d-3": {
           "type": "shop_button",
           "settings": {
-            "button_label": ""
+            "button_label": "View Details"
           }
         },
         "template--16398178844894__3f783cda-7cb7-460e-b9a9-fe131d2fe0e7-1682792757cb6d703d-2": {
