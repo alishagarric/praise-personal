@@ -105,6 +105,9 @@
         "bottom_spacing": 50
       }
     },
+    "e016bbbd-0856-455a-8d09-653c667e35b41-1": {
+      "type": "featured-product"
+    },
     "c134d071-5105-4f8b-9ef7-aa480c33a8b2": {
       "type": "divider",
       "settings": {
@@ -338,6 +341,7 @@
   "order": [
     "e016bbbd-0856-455a-8d09-653c667e35b4",
     "e016bbbd-0856-455a-8d09-653c667e35b41",
+    "e016bbbd-0856-455a-8d09-653c667e35b41-1",
     "c134d071-5105-4f8b-9ef7-aa480c33a8b2",
     "main",
     "fbac5ff6-332f-4a5e-9eb9-38330cc2ec29",
