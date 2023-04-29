@@ -58,7 +58,7 @@
     "text-marquee": {
       "type": "text-marquee",
       "settings": {
-        "text": "Text marquee",
+        "text": "Scrolling text marquee",
         "text_size": "h6",
         "alt_heading": false,
         "speed": 5,
