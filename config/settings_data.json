@@ -1,5 +1,18 @@
 {
   "current": {
+    "announcement_bar_theme": "2",
+    "announcement_bar_marquee": false,
+    "text_color": "#16130f",
+    "border_color": "#16130f",
+    "button_color": "#16130f",
+    "background_color_2": "#efece5",
+    "text_color_2": "#16130f",
+    "border_color_2": "#16130f",
+    "button_color_2": "#16130f",
+    "background_color_3": "#16130f",
+    "text_color_3": "#fff",
+    "border_color_3": "#16130f",
+    "button_color_3": "#16130f",
     "content_for_index": [
 
     ]
