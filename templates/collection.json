@@ -11,9 +11,9 @@
         "overlay": 50,
         "overlay_theme": "primary",
         "crop_shape": "default",
-        "theme": "primary",
+        "theme": "2",
         "top_internal_spacing": 100,
-        "bottom_internal_spacing": 100,
+        "bottom_internal_spacing": 30,
         "top_spacing": 0,
         "bottom_spacing": 0
       }
