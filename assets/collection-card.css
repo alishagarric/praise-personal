@@ -7,7 +7,10 @@
     overflow: hidden;
     padding-top: 125%;
     margin-bottom: 1rem;
-    width: 100%; }
+    width: 100%;
+    background: RGBA(var(--color-text)/0.1); }
+    .collection-card__image h3 {
+      padding: 1rem; }
     .collection-card__image img,
     .collection-card__image svg {
       transform: scale(1);
@@ -18,5 +21,3 @@
     .collection-card:hover img,
     .collection-card:hover svg {
       transform: scale(1.05); }
-
-/*# sourceMappingURL=collection-card.css.map */
