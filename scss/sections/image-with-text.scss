@@ -60,7 +60,8 @@
   &__image {
     position: relative;
 
-    img {
+    img,
+    svg {
       position: absolute;
       top: 0;
       height: 100%;
@@ -72,7 +73,8 @@
   &:not(.__layout-reversed) {
     .image-with-text {
       &__image {
-        img {
+        img,
+        svg {
           left: 0;
         }
       }
@@ -84,7 +86,8 @@
 
     .image-with-text {
       &__image {
-        img {
+        img,
+        svg {
           right: 0;
         }
       }
@@ -117,7 +120,8 @@
         flex: 0 0 calc(var(--vwSize) * 15);
         padding-top: calc(var(--vwSize) * 15);
 
-        img {
+        img,
+        svg {
           width: 100%;
         }
       }
@@ -141,7 +145,8 @@
 
       min-height: var(--mobileImageHeight) !important;
 
-      img {
+      img,
+      svg {
         width: 100%;
       }
     }
