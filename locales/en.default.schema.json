@@ -1077,7 +1077,7 @@
       }
     },
     "main-article": {
-      "name": "Blog post",
+      "name": "Main Article",
       "presets": {
         "name": "Main article"
       },
@@ -2014,7 +2014,7 @@
       "name": "Account"
     },
     "featured-blog": {
-      "name": "Blog posts",
+      "name": "Featured Blog",
       "settings": {
         "header": {
           "content": "Text Content"
