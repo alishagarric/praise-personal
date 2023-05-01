@@ -3,6 +3,19 @@
     "main": {
       "type": "main-product",
       "blocks": {
+        "media": {
+          "type": "media",
+          "settings": {
+            "layout": "slideshow"
+          }
+        },
+        "eedbfe43-d044-47db-85d2-aa3ca122f3ff": {
+          "type": "vendor",
+          "settings": {
+            "text_size": "p-sm",
+            "include_border": true
+          }
+        },
         "title": {
           "type": "title",
           "settings": {
@@ -10,15 +23,21 @@
             "alt_heading": true
           }
         },
-        "description": {
-          "type": "description",
+        "price": {
+          "type": "price",
           "settings": {
-            "text_size": "p-sm"
+            "heading_size": "h6"
           }
         },
         "rating": {
           "type": "rating",
           "settings": {
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "text_size": "p-sm"
           }
         },
         "featured-icons": {
@@ -57,22 +76,12 @@
             "open": false
           }
         },
-        "pickup-availability": {
-          "type": "pickup_availability",
+        "4828acd3-97af-4a0a-b838-4564e2ba508c": {
+          "type": "divider",
           "settings": {
-            "title": "Pickup Availability"
-          }
-        },
-        "media": {
-          "type": "media",
-          "settings": {
-            "layout": "slideshow"
-          }
-        },
-        "price": {
-          "type": "price",
-          "settings": {
-            "heading_size": "h6"
+            "top": 50,
+            "bottom": 50,
+            "hide_divider": false
           }
         },
         "buy_buttons": {
@@ -82,20 +91,37 @@
             "hide_dynamic_buttons": false,
             "include_border": true
           }
+        },
+        "pickup-availability": {
+          "type": "pickup_availability",
+          "settings": {
+            "title": "Pickup Availability"
+          }
+        },
+        "d8a7d326-a0a3-470d-adc4-60f860c02b34": {
+          "type": "divider",
+          "settings": {
+            "top": 50,
+            "bottom": 50,
+            "hide_divider": false
+          }
         }
       },
       "block_order": [
+        "media",
+        "eedbfe43-d044-47db-85d2-aa3ca122f3ff",
         "title",
-        "description",
+        "price",
         "rating",
+        "description",
         "featured-icons",
         "expandable",
         "expandable-2",
         "expandable-3",
+        "4828acd3-97af-4a0a-b838-4564e2ba508c",
+        "buy_buttons",
         "pickup-availability",
-        "media",
-        "price",
-        "buy_buttons"
+        "d8a7d326-a0a3-470d-adc4-60f860c02b34"
       ],
       "settings": {
         "theme": "primary"
