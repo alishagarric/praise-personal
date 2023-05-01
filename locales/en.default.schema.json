@@ -1174,11 +1174,11 @@
             "label": "Label",
             "content": {
               "label": "Content",
-              "info": "Add content here, or by utilizing the article metafield TODO: link"
+              "info": "Add content here, or by utilizing the article metafield. TODO: Link to documentation"
             },
             "associated_products": {
               "label": "Show associated products",
-              "info": "This feature is dependent on the article metafield TODO: link"
+              "info": "This feature is dependent on the article metafield. TODO: Link to documentation"
             }
           }
         },
@@ -1300,7 +1300,7 @@
             "label_12": "Arch"
           },
           "label": "Associated Product Image Crop Shape",
-          "info": "Relies on the addition of article metafields. TODO: Add link with info, this is how starter did it: Add a <a href=https://praise-store-theme.myshopify.com/admin/metafields/product/create>article subtitle metafield to display.</a>"
+          "info": "Relies on the addition of article metafields. TODO: Link to documentation"
         },
         "button_label": {
           "label": "Article Button Text",
@@ -2066,7 +2066,7 @@
             "label_12": "Arch"
           },
           "label": "Associated Product Image Crop Shape",
-          "info": "This feature relies on the addition of article metafields. TODO: Add link with info, this is how starter did it: Add a <a href=https://praise-store-theme.myshopify.com/admin/metafields/product/create>article subtitle metafield to display.</a>"
+          "info": "This feature relies on the addition of article metafields. TODO: Link to documentation"
         },
         "button_label": {
           "label": "Article Button Text",
@@ -2903,7 +2903,7 @@
         "info": "Only displays first 10 products within collection.",
         "theme_slideshow": {
           "label": "Theme collection slideshow with product colors",
-          "info": "The slideshow only applies when there's enough products in the collection. It relies on the addition of product metafields. TODO: Add link with info"
+          "info": "This relies on the addition of product metafields. In addition, the slideshow only appears when there's enough products in the collection. TODO: Link to documentation"
         },
         "include_border": {
           "label": "Include border"
@@ -3032,7 +3032,7 @@
             "label_2": "Theme First Half of Blocks",
             "label_3": "Theme All but Last Block"
           },
-          "info": "Only applies when there's enough products in the collection to initiate a slideshow. Relies on the addition of product metafields. TODO: Add link with info"
+          "info": "Only applies when there's enough products in the collection to initiate a slideshow. Relies on the addition of product metafields. TODO: Link to documentation"
         },
         "layout": {
           "options": {
@@ -3164,7 +3164,7 @@
             },
             "show_option_labels": {
               "label": "Show option labels and option descriptions",
-              "info": "Use metafields to add option descriptions TODO: link"
+              "info": "Use metafields to add option descriptions. TODO: Link to documentation"
             },
             "include_border": {
               "label": "Include border"
@@ -3618,7 +3618,7 @@
             "label_12": "Arch"
           },
           "label": "Associated Product Image Crop Shape",
-          "info": "Relies on the addition of article metafields. TODO: Add link with info, this is how starter did it: Add a <a href=https://praise-store-theme.myshopify.com/admin/metafields/product/create>article subTitle metafield to display.</a>"
+          "info": "Relies on the addition of article metafields. TODO: Link to documentation"
         },
         "button_label": {
           "label": "Article Button Text",
@@ -3761,7 +3761,7 @@
           "settings": {
             "label": "Product",
             "paragraph": {
-              "content": "Add product metafields in order to theme the slideshow with associated product colors. TODO: Add link with info"
+              "content": "Add product metafields in order to theme the slideshow with associated product colors. TODO: Link to documentation"
             },
             "horizontal_pos": {
               "label": "Dot Horizontal Position"

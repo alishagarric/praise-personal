@@ -102,10 +102,12 @@
         {{ title_and_price }}
         <div class="btn __with-plus"></div>
       {% endcapture %}
-      {%capture class %}__align-{{ alignment }}{% endcapture %}
+      {% capture class %}__align-{{ alignment }}{% endcapture %}
       {% render 'disclosure' html_title: html_title, id: quick_add_id, text: quick_add_content, style: "blank", aria_label: "Quick Add", class: class %}
     </quick-add-dropdown>
   {% elsif quick_add %}
+    {{ title_and_price }}
+
     <div class="product-card__quick-add-btn no-js-hidden">
       <quick-add-modal
         class="product-card__quick-add-btn__btn btn __with-plus"
