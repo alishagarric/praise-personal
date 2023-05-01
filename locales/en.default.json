@@ -68,6 +68,7 @@
     }
   },
   "blogs": {
+    "no_articles": "No articles in blog",
     "article": {
       "blog": "Blog",
       "all_tags": "All",

@@ -52,7 +52,7 @@
       >
         <a
           href="{{ section.settings.video_url }}"
-          class="video-section__poster {% if section.settings.cover_image == blank %} __with-svg {% endif %}"
+          class="video-section__poster"
         >
           {{ cover }}
         </a>
@@ -231,8 +231,8 @@
     {
       "type": "range",
       "id": "overlay",
-      "label": "t:sections.video_url.settings.overlay.label",
-      "info": "t:sections.video_url.settings.overlay.info",
+      "label": "t:sections.video.settings.overlay.label",
+      "info": "t:sections.video.settings.overlay.info",
       "min": 0,
       "max": 70,
       "step": 10,
@@ -245,27 +245,27 @@
       "options": [
         {
           "value": "primary",
-          "label": "t:sections.video_url.settings.overlay_theme.options.label_1"
+          "label": "t:sections.video.settings.overlay_theme.options.label_1"
         },
         {
           "value": "2",
-          "label": "t:sections.video_url.settings.overlay_theme.options.label_2"
+          "label": "t:sections.video.settings.overlay_theme.options.label_2"
         },
         {
           "value": "3",
-          "label": "t:sections.video_url.settings.overlay_theme.options.label_3"
+          "label": "t:sections.video.settings.overlay_theme.options.label_3"
         },
         {
           "value": "4",
-          "label": "t:sections.video_url.settings.overlay_theme.options.label_4"
+          "label": "t:sections.video.settings.overlay_theme.options.label_4"
         },
         {
           "value": "5",
-          "label": "t:sections.video_url.settings.overlay_theme.options.label_5"
+          "label": "t:sections.video.settings.overlay_theme.options.label_5"
         }
       ],
       "default": "primary",
-      "label": "t:sections.video_url.settings.overlay_theme.label"
+      "label": "t:sections.video.settings.overlay_theme.label"
     },
     {
       "type": "select",
