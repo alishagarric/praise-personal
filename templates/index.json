@@ -13,7 +13,8 @@
         "template--16686756069598__323b3333-96b4-431a-a57d-e3d733e5e06d-16767738964c0506d8-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Your wellness goals within reach<\/p>"
+            "text": "<p>Your wellness goals within reach<\/p>",
+            "text_size": "p-sm"
           }
         }
       },
@@ -41,7 +42,8 @@
         "1662063884b661ea2d-0": {
           "type": "text",
           "settings": {
-            "text": "<p>Rawbry juice is packed with the vitamins and minerals to give you peace of mind and harness beauty from the inside out<\/p>"
+            "text": "<p>Rawbry juice is packed with the vitamins and minerals to give you peace of mind and harness beauty from the inside out<\/p>",
+            "text_size": "p"
           }
         },
         "1662063884b661ea2d-1": {
@@ -68,6 +70,8 @@
         "theme": "3",
         "top_internal_spacing": 100,
         "bottom_internal_spacing": 100,
+        "mobile_top_internal_spacing": 50,
+        "mobile_bottom_internal_spacing": 0,
         "top_spacing": 60,
         "bottom_spacing": 60
       }
@@ -120,7 +124,7 @@
         "show_phrase": false,
         "show_description": false,
         "quick_add": false,
-        "show_bg_color": false,
+        "show_bg_color": true,
         "alt_title": false,
         "product_text_alignment": "default",
         "price": "default",
@@ -143,7 +147,8 @@
         "1662066517b59e31e0-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Introducing our adaptogen juice - the perfect blend of natural ingredients to help your body adapt to stress. Packed with powerful herbs and antioxidants, our juice promotes balance and boosts your immune system. <\/p>"
+            "text": "<p>Introducing our adaptogen juice - the perfect blend of natural ingredients to help your body adapt to stress. Packed with powerful herbs and antioxidants, our juice promotes balance and boosts your immune system. <\/p>",
+            "text_size": "p"
           }
         },
         "1662066517b59e31e0-2": {
@@ -171,6 +176,8 @@
         "theme": "3",
         "top_internal_spacing": 100,
         "bottom_internal_spacing": 100,
+        "mobile_top_internal_spacing": 50,
+        "mobile_bottom_internal_spacing": 0,
         "top_spacing": 60,
         "bottom_spacing": 60
       }
@@ -256,6 +263,7 @@
       "settings": {
         "collection": "skin-hair-care",
         "theme_slideshow": false,
+        "include_border": true,
         "show_phrase": true,
         "show_description": true,
         "quick_add": true,
@@ -267,6 +275,7 @@
         "heading": "Skin Boosting Vitamins and Minerals",
         "alt_heading": false,
         "text": "<p>Comprehensive nutrition and gut health support in delicious juices.<\/p>",
+        "text_size": "p",
         "collection_text_content": false,
         "theme": "primary",
         "top_spacing": 0,
