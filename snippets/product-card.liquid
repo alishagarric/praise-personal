@@ -88,7 +88,8 @@
     {% endif %}
   </div>
 
-  {% if quick_add and settings.quick_add_style == 'dropdown' %}
+  {% assign quick_add_style = 'dropdown' %}
+  {% if quick_add and quick_add_style == 'dropdown' %}
     {% assign quick_add_id = this_product.id | append: "-quick-add" %}
     {% assign quick_add_product_id = 'Product-Form-' | append: section.id | append: this_product.id %}
     {% capture quick_add_content %}
