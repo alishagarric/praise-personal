@@ -21,7 +21,8 @@
         },
         "details": {
           "type": "details",
-          "settings": {}
+          "settings": {
+          }
         },
         "content": {
           "type": "content",
@@ -69,5 +70,8 @@
       }
     }
   },
-  "order": ["main", "13d9d1e5-05b1-4eb6-9f74-3bc4fc92e26d"]
+  "order": [
+    "main",
+    "13d9d1e5-05b1-4eb6-9f74-3bc4fc92e26d"
+  ]
 }
