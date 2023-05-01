@@ -8,17 +8,19 @@
         "2ca0852f-aca4-4494-87a4-39323892bac2": {
           "type": "mega_menu",
           "settings": {
-            "label": "New",
-            "heading_0": "",
-            "text_0": "",
-            "button_label": "",
-            "button_link": "",
-            "heading_1": "Peanut Butter Collection",
-            "text_1": "Nutty rick, peanut butter cups and more",
-            "link_1": "shopify:\/\/pages\/contact-us",
-            "heading_2": "The King",
-            "text_2": "Banana caramel filled peanut butter cookie with chocolate covered candied bacon",
-            "link_2": "shopify:\/\/pages\/contact-us"
+            "label": "Shop",
+            "heading_0": "Rawbry Juice",
+            "text_0": "Revitalize your body and mind with our delicious and nutritious juices!\"",
+            "button_label": "Shop All",
+            "button_link": "shopify:\/\/collections",
+            "heading_1": "Greens",
+            "text_1": "Nutrient-dense powerhouse juices that can help boost your immune system",
+            "link_1": "shopify:\/\/collections\/green-drinks",
+            "image_1": "shopify:\/\/shop_images\/Rawbry_Bottle_-_Green_2.jpg",
+            "heading_2": "Bundles + Kits",
+            "text_2": "Try out different products, and stock up on essentials all at once",
+            "link_2": "shopify:\/\/collections\/bundles-kits",
+            "image_2": "shopify:\/\/shop_images\/angelica-echeverry-VjJr17GkX1M-unsplash.jpg"
           }
         },
         "aa838210-3e0c-4205-91cf-6bd3b96a73a1": {
@@ -42,7 +44,7 @@
           "settings": {
             "label": "Resources",
             "heading_0": "Text Block",
-            "text_0": "Text block on second level nesting - how do we make this not ugly?",
+            "text_0": "",
             "button_label": "Boom Sauce",
             "button_link": "shopify:\/\/pages\/contact-us",
             "heading_1": "Promotion",
