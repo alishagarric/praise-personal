@@ -7,6 +7,7 @@
         "products_per_collection": 2,
         "heading_size": "h4",
         "alt_heading": false,
+        "text_size": "p-sm",
         "view_all_button_label": "View All",
         "enable_sticky_details": true,
         "display_collection_image": false,
@@ -21,11 +22,11 @@
         "show_phrase": false,
         "show_description": false,
         "quick_add": false,
-        "show_bg_color": false,
+        "show_bg_color": true,
         "alt_title": false,
         "product_text_alignment": "default",
         "price": "default",
-        "crop_shape": "default",
+        "crop_shape": "arch",
         "theme": "primary",
         "top_spacing": 50,
         "bottom_spacing": 50
@@ -44,7 +45,8 @@
         "template--16398178844894__85c58e07-278d-42c1-b9f3-f6bab28fee7f-16703627747c9db086-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Indulge in our delicious and nutritious juices made from fresh fruits and vegetables that will energize your body and tantalize your taste buds<\/p>"
+            "text": "<p>Indulge in our delicious and nutritious juices made from fresh fruits and vegetables that will energize your body and tantalize your taste buds<\/p>",
+            "text_size": "p"
           }
         },
         "template--16398178844894__85c58e07-278d-42c1-b9f3-f6bab28fee7f-16703627747c9db086-2": {
@@ -72,6 +74,8 @@
         "theme": "primary",
         "top_internal_spacing": 100,
         "bottom_internal_spacing": 100,
+        "mobile_top_internal_spacing": 50,
+        "mobile_bottom_internal_spacing": 0,
         "top_spacing": 0,
         "bottom_spacing": 0
       }
@@ -81,6 +85,7 @@
       "settings": {
         "collection": "green-drinks",
         "theme_slideshow": false,
+        "include_border": true,
         "show_phrase": false,
         "show_description": false,
         "quick_add": true,
@@ -92,6 +97,7 @@
         "heading": "",
         "alt_heading": false,
         "text": "",
+        "text_size": "p",
         "collection_text_content": true,
         "theme": "2",
         "top_spacing": 0,
