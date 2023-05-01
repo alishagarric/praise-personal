@@ -10,7 +10,7 @@
           "settings": {
             "label": "Shop",
             "heading_0": "Rawbry Juice",
-            "text_0": "Revitalize your body and mind with our delicious and nutritious juices!\"",
+            "text_0": "Revitalize your body and mind with our delicious and nutritious juices!",
             "button_label": "Shop All",
             "button_link": "shopify:\/\/collections",
             "heading_1": "Greens",
@@ -40,28 +40,11 @@
             "link_2": "shopify:\/\/pages\/about",
             "image_2": "shopify:\/\/shop_images\/angelica-echeverry-oZ1u0l17lns-unsplash.jpg"
           }
-        },
-        "4bcead02-00f4-4d86-8020-30bd7dd0b9a4": {
-          "type": "mega_menu",
-          "settings": {
-            "label": "Resources",
-            "heading_0": "Text Block",
-            "text_0": "",
-            "button_label": "Boom Sauce",
-            "button_link": "shopify:\/\/pages\/contact-us",
-            "heading_1": "Promotion",
-            "text_1": "Promotion on second level nesting - how do we make this not ugly?",
-            "link_1": "shopify:\/\/pages\/contact-us",
-            "heading_2": "",
-            "text_2": "",
-            "link_2": ""
-          }
         }
       },
       "block_order": [
         "2ca0852f-aca4-4494-87a4-39323892bac2",
-        "aa838210-3e0c-4205-91cf-6bd3b96a73a1",
-        "4bcead02-00f4-4d86-8020-30bd7dd0b9a4"
+        "aa838210-3e0c-4205-91cf-6bd3b96a73a1"
       ],
       "settings": {
         "logo": "shopify:\/\/shop_images\/raw_logo_tag_black.png",
