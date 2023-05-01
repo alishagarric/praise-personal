@@ -183,5 +183,3 @@ product-model {
 @media screen and (max-width: 749px) {
   .active .xr-button:not([data-shopify-xr-hidden]) {
     display: block; } }
-
-/*# sourceMappingURL=main-product.css.map */

@@ -3,8 +3,8 @@
     "main-cart": {
       "type": "main-cart",
       "settings": {
-        "recommendations_limit": 6,
-        "top_spacing": 50
+        "alt_heading": true,
+        "crop_shape": "circle"
       },
       "blocks": {
         "1bdd81eb-fea5-4259-8a4c-ae4b17255381": {
@@ -35,7 +35,15 @@
         "1bdd81eb-fea5-4259-8a4c-ae4b17255381-1",
         "1bdd81eb-fea5-4259-8a4c-ae4b17255381-3"
       ]
+    },
+    "cart-recommendations": {
+      "type": "cart-recommendations",
+      "settings": {
+        "heading": "More treats",
+        "top_spacing": 0,
+        "bottom_spacing": 100
+      }
     }
   },
-  "order": ["main-cart"]
+  "order": ["main-cart", "cart-recommendations"]
 }

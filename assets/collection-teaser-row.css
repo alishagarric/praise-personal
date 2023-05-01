@@ -84,5 +84,3 @@
   @media screen and (max-width: 676px) {
     .collection-teaser-row {
       --collectionTeaserRowStatsHeight: var(--pxSize); } }
-
-/*# sourceMappingURL=collection-teaser-row.css.map */

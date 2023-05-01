@@ -1,4 +1,3 @@
-
 {
   "type": "footer",
   "name": "Footer Group",
@@ -23,20 +22,17 @@
         "5ca5bb4b-199c-4f4d-b86a-c18ed9b02856": {
           "type": "icon",
           "disabled": true,
-          "settings": {
-          }
+          "settings": {}
         },
         "7cc3256d-ce8b-4784-ab7f-fb4875a12546": {
           "type": "icon",
           "disabled": true,
-          "settings": {
-          }
+          "settings": {}
         },
         "abaaef85-4b2f-460e-8d2c-9d1098f5ab1f": {
           "type": "icon",
           "disabled": true,
-          "settings": {
-          }
+          "settings": {}
         }
       },
       "block_order": [
@@ -49,7 +45,7 @@
       "settings": {
         "heading": "Stay in the know",
         "description": "Be the first to receive new releases, special offers and more",
-        "logo": "shopify:\/\/shop_images\/raw_logo_light_763448e2-7d93-4842-b26a-ebb2cb459052.png",
+        "logo": "shopify://shop_images/raw_logo_light_763448e2-7d93-4842-b26a-ebb2cb459052.png",
         "logo_width": 110,
         "stack_logo": true,
         "show_social": true,
@@ -60,7 +56,5 @@
       }
     }
   },
-  "order": [
-    "footer"
-  ]
+  "order": ["footer"]
 }

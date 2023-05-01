@@ -20,8 +20,7 @@
         "template--16398178844894__85c58e07-278d-42c1-b9f3-f6bab28fee7f-16703627747c9db086-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Atypical cookies and treats that push the boundaries of indulgence. An odea to the well-baanced classic cookie. This season we are celebrating all the nostalgia and what pairs best with chocolate chips.</p>",
-            "text_size": "p"
+            "text": "<p>Atypical cookies and treats that push the boundaries of indulgence. An odea to the well-baanced classic cookie. This season we are celebrating all the nostalgia and what pairs best with chocolate chips.</p>"
           }
         },
         "template--16398178844894__85c58e07-278d-42c1-b9f3-f6bab28fee7f-16703627747c9db086-2": {
@@ -47,8 +46,6 @@
         "theme": "primary",
         "top_internal_spacing": 100,
         "bottom_internal_spacing": 100,
-        "mobile_top_internal_spacing": 50,
-        "mobile_bottom_internal_spacing": 0,
         "top_spacing": 0,
         "bottom_spacing": 0
       }
@@ -70,30 +67,6 @@
         "collection_text_content": false,
         "theme": "2",
         "top_spacing": 0,
-        "bottom_spacing": 50
-      }
-    },
-    "8dffe81d-f969-4183-989c-a6385ced689e": {
-      "type": "content-marquee",
-      "blocks": {
-        "c3916db9-2c34-4fdd-b61b-813545186f36": {
-          "type": "quote",
-          "settings": {
-            "quote": "",
-            "text_size": "p-sm",
-            "quotations": true,
-            "details": "",
-            "background_theme": "primary",
-            "card_corners": "default"
-          }
-        }
-      },
-      "block_order": ["c3916db9-2c34-4fdd-b61b-813545186f36"],
-      "settings": {
-        "alignment": "center",
-        "speed": 5,
-        "theme": "primary",
-        "top_spacing": 50,
         "bottom_spacing": 50
       }
     }
