@@ -88,7 +88,8 @@
     {% endif %}
   </div>
 
-  {% if quick_add and settings.quick_add_style == 'dropdown' %}
+  {% assign quick_add_style = 'dropdown' %}
+  {% if quick_add and quick_add_style == 'dropdown' %}
     {% assign quick_add_id = this_product.id | append: "-quick-add" %}
     {% assign quick_add_product_id = 'Product-Form-' | append: section.id | append: this_product.id %}
     {% capture quick_add_content %}
@@ -102,10 +103,12 @@
         {{ title_and_price }}
         <div class="btn __with-plus"></div>
       {% endcapture %}
-      {%capture class %}__align-{{ alignment }}{% endcapture %}
+      {% capture class %}__align-{{ alignment }}{% endcapture %}
       {% render 'disclosure' html_title: html_title, id: quick_add_id, text: quick_add_content, style: "blank", aria_label: "Quick Add", class: class %}
     </quick-add-dropdown>
   {% elsif quick_add %}
+    {{ title_and_price }}
+
     <div class="product-card__quick-add-btn no-js-hidden">
       <quick-add-modal
         class="product-card__quick-add-btn__btn btn __with-plus"

@@ -1,67 +1,39 @@
 {
   "sections": {
-    "split-slideshow": {
-      "type": "split-slideshow",
+    "777276b9-3bd0-4ce4-bd4b-45155f6b3ef4": {
+      "type": "main-blog-banner",
       "settings": {
-        "heading": "{{ blog.title }}",
-        "heading_size": "h2",
-        "alt_heading": true,
-        "text_size": "p-sm",
-        "hero": true,
-        "button_label": "Read More",
-        "button_color": "default",
-        "article_heading_size": "h5",
-        "crop_shape": "rounded-portrait",
+        "heading_size": "h4",
+        "alt_heading": false,
+        "alignment": "center",
         "theme": "primary",
         "top_spacing": 50,
         "bottom_spacing": 50
-      }
-    },
-    "d7103852-b62b-4134-b110-fe5c5a985ce3": {
-      "type": "rich-text",
-      "blocks": {
-        "template--16398178582750__d7103852-b62b-4134-b110-fe5c5a985ce3-1678205203fb778cd2-1": {
-          "type": "text",
-          "settings": {
-            "text": "<p>At Ritual we celebrate the value of simple joys in the human experience<\/p>",
-            "text_size": "p-sm"
-          }
-        }
-      },
-      "block_order": [
-        "template--16398178582750__d7103852-b62b-4134-b110-fe5c5a985ce3-1678205203fb778cd2-1"
-      ],
-      "settings": {
-        "alignment": "center",
-        "theme": "3",
-        "top_spacing": 70,
-        "bottom_spacing": 70
       }
     },
     "main": {
       "type": "main-blog",
       "settings": {
         "posts_per_page": 3,
-        "blog_show_tags": true,
+        "blog_show_tags": false,
         "tags_label": "Browse Tags",
-        "tag_color": "primary",
-        "alt_heading": true,
-        "show_date": true,
-        "show_description": true,
+        "tag_color": "default",
+        "alt_heading": false,
+        "show_date": false,
+        "show_description": false,
         "show_author": false,
-        "assc_product_crop_shape": "circle",
+        "assc_product_crop_shape": "not-visible",
         "button_label": "",
-        "crop_shape": "rounded-square",
-        "alignment": "center",
-        "theme": "2",
+        "crop_shape": "default",
+        "alignment": "left",
+        "theme": "primary",
         "top_spacing": 50,
-        "bottom_spacing": 100
+        "bottom_spacing": 50
       }
     }
   },
   "order": [
-    "split-slideshow",
-    "d7103852-b62b-4134-b110-fe5c5a985ce3",
+    "777276b9-3bd0-4ce4-bd4b-45155f6b3ef4",
     "main"
   ]
 }

@@ -33,7 +33,7 @@
             "label_8": "Landscape",
             "label_9": "Rounded Landscape",
             "label_10": "Semicircle Landscape",
-            "label_11": "Semicircle Arch"
+            "label_11": "Arch"
           },
           "label": "Item Image Crop Shape"
         },
@@ -203,7 +203,7 @@
             "label_8": "Landscape",
             "label_9": "Rounded Landscape",
             "label_10": "Semicircle Landscape",
-            "label_11": "Semicircle Arch"
+            "label_11": "Arch"
           },
           "label": "Main Image Crop Shape"
         },
@@ -325,7 +325,7 @@
                 "label_8": "Landscape",
                 "label_9": "Rounded Landscape",
                 "label_10": "Semicircle Landscape",
-                "label_11": "Semicircle Arch"
+                "label_11": "Arch"
               },
               "label": "Product Image Crop Shape"
             }
@@ -869,7 +869,7 @@
             "label_11": "Wide",
             "label_12": "Rounded Wide",
             "label_13": "Semicircle Wide",
-            "label_14": "Semicircle Arch"
+            "label_14": "Arch"
           },
           "label": "Collection Image Crop Shape"
         },
@@ -955,7 +955,7 @@
             "label_8": "Landscape",
             "label_9": "Rounded Landscape",
             "label_10": "Semicircle Landscape",
-            "label_11": "Semicircle Arch"
+            "label_11": "Arch"
           },
           "label": "Product Image Crop Shape"
         },
@@ -1174,11 +1174,11 @@
             "label": "Label",
             "content": {
               "label": "Content",
-              "info": "Add content here, or by utilizing the article metafield TODO: link"
+              "info": "Add content here, or by utilizing the article metafield. TODO: Link to documentation"
             },
             "associated_products": {
               "label": "Show associated products",
-              "info": "This feature is dependent on the article metafield TODO: link"
+              "info": "This feature is dependent on the article metafield. TODO: Link to documentation"
             }
           }
         },
@@ -1240,9 +1240,9 @@
       }
     },
     "main-blog": {
-      "name": "Blog posts",
+      "name": "Main blog",
       "presets": {
-        "name": "Blog posts"
+        "name": "Main Blog"
       },
       "settings": {
         "header": {
@@ -1300,7 +1300,7 @@
             "label_12": "Arch"
           },
           "label": "Associated Product Image Crop Shape",
-          "info": "Relies on the addition of article metafields. TODO: Add link with info, this is how starter did it: Add a <a href=https://praise-store-theme.myshopify.com/admin/metafields/product/create>article subtitle metafield to display.</a>"
+          "info": "Relies on the addition of article metafields. TODO: Link to documentation"
         },
         "button_label": {
           "label": "Article Button Text",
@@ -1318,7 +1318,7 @@
             "label_8": "Landscape",
             "label_9": "Rounded Landscape",
             "label_10": "Semicircle Landscape",
-            "label_11": "Semicircle Arch"
+            "label_11": "Arch"
           },
           "label": "Item Image Crop Shape"
         },
@@ -1465,7 +1465,7 @@
             "label_8": "Landscape",
             "label_9": "Rounded Landscape",
             "label_10": "Semicircle Landscape",
-            "label_11": "Semicircle Arch"
+            "label_11": "Arch"
           },
           "label": "Item Image Crop Shape"
         },
@@ -1599,7 +1599,7 @@
             "label_8": "Landscape",
             "label_9": "Rounded Landscape",
             "label_10": "Semicircle Landscape",
-            "label_11": "Semicircle Arch"
+            "label_11": "Arch"
           },
           "label": "Product Image Crop Shape"
         },
@@ -2066,7 +2066,7 @@
             "label_12": "Arch"
           },
           "label": "Associated Product Image Crop Shape",
-          "info": "This feature relies on the addition of article metafields. TODO: Add link with info, this is how starter did it: Add a <a href=https://praise-store-theme.myshopify.com/admin/metafields/product/create>article subtitle metafield to display.</a>"
+          "info": "This feature relies on the addition of article metafields. TODO: Link to documentation"
         },
         "button_label": {
           "label": "Article Button Text",
@@ -2084,7 +2084,7 @@
             "label_8": "Landscape",
             "label_9": "Rounded Landscape",
             "label_10": "Semicircle Landscape",
-            "label_11": "Semicircle Arch"
+            "label_11": "Arch"
           },
           "label": "Product Image Crop Shape"
         },
@@ -2132,7 +2132,7 @@
         }
       },
       "presets": {
-        "name": "Blog posts"
+        "name": "Featured Blog"
       }
     },
     "main-register": {
@@ -2502,7 +2502,7 @@
             "label_11": "Wide",
             "label_12": "Rounded Wide",
             "label_13": "Semicircle Wide",
-            "label_14": "Semicircle Arch"
+            "label_14": "Arch"
           },
           "label": "Image Crop Shape"
         },
@@ -2588,7 +2588,7 @@
             "label_8": "Landscape",
             "label_9": "Rounded Landscape",
             "label_10": "Semicircle Landscape",
-            "label_11": "Semicircle Arch"
+            "label_11": "Arch"
           },
           "label": "Image Crop Shape"
         },
@@ -2802,7 +2802,7 @@
                 "label_8": "Landscape",
                 "label_9": "Rounded Landscape",
                 "label_10": "Semicircle Landscape",
-                "label_11": "Semicircle Arch"
+                "label_11": "Arch"
               },
               "label": "Product Image Crop Shape"
             },
@@ -2903,7 +2903,7 @@
         "info": "Only displays first 10 products within collection.",
         "theme_slideshow": {
           "label": "Theme collection slideshow with product colors",
-          "info": "The slideshow only applies when there's enough products in the collection. It relies on the addition of product metafields. TODO: Add link with info"
+          "info": "This relies on the addition of product metafields. In addition, the slideshow only appears when there's enough products in the collection. TODO: Link to documentation"
         },
         "include_border": {
           "label": "Include border"
@@ -2954,7 +2954,7 @@
             "label_8": "Landscape",
             "label_9": "Rounded Landscape",
             "label_10": "Semicircle Landscape",
-            "label_11": "Semicircle Arch"
+            "label_11": "Arch"
           },
           "label": "Image Crop Shape"
         },
@@ -3032,7 +3032,7 @@
             "label_2": "Theme First Half of Blocks",
             "label_3": "Theme All but Last Block"
           },
-          "info": "Only applies when there's enough products in the collection to initiate a slideshow. Relies on the addition of product metafields. TODO: Add link with info"
+          "info": "Only applies when there's enough products in the collection to initiate a slideshow. Relies on the addition of product metafields. TODO: Link to documentation"
         },
         "layout": {
           "options": {
@@ -3056,7 +3056,7 @@
             "label_11": "Wide",
             "label_12": "Rounded Wide",
             "label_13": "Semicircle Wide",
-            "label_14": "Semicircle Arch"
+            "label_14": "Arch"
           },
           "label": "Image Crop Shape"
         },
@@ -3149,7 +3149,7 @@
               "label_3": "Medium",
               "label_4": "Small"
             },
-            "label": "Heading Size"
+            "label": "Price Size"
           }
         },
         "variant_picker": {
@@ -3164,7 +3164,7 @@
             },
             "show_option_labels": {
               "label": "Show option labels and option descriptions",
-              "info": "Use metafields to add option descriptions TODO: link"
+              "info": "Use metafields to add option descriptions. TODO: Link to documentation"
             },
             "include_border": {
               "label": "Include border"
@@ -3438,7 +3438,6 @@
           "info": "A value above 0% will add an overlay on top of the image to create contrast behind the text."
         },
         "overlay_theme": {
-          "info": "Only applies when the image crop shape is not set to default.",
           "options": {
             "label_1": "Primary Theme",
             "label_2": "2nd Theme",
@@ -3463,7 +3462,7 @@
             "label_11": "Wide",
             "label_12": "Rounded Wide",
             "label_13": "Semicircle Wide",
-            "label_14": "Semicircle Arch"
+            "label_14": "Arch"
           },
           "label": "Crop Shape"
         },
@@ -3618,7 +3617,7 @@
             "label_12": "Arch"
           },
           "label": "Associated Product Image Crop Shape",
-          "info": "Relies on the addition of article metafields. TODO: Add link with info, this is how starter did it: Add a <a href=https://praise-store-theme.myshopify.com/admin/metafields/product/create>article subTitle metafield to display.</a>"
+          "info": "Relies on the addition of article metafields. TODO: Link to documentation"
         },
         "button_label": {
           "label": "Article Button Text",
@@ -3636,7 +3635,7 @@
             "label_8": "Landscape",
             "label_9": "Rounded Landscape",
             "label_10": "Semicircle Landscape",
-            "label_11": "Semicircle Arch"
+            "label_11": "Arch"
           },
           "label": "Product Image Crop Shape"
         },
@@ -3731,7 +3730,7 @@
             "label_8": "Landscape",
             "label_9": "Rounded Landscape",
             "label_10": "Semicircle Landscape",
-            "label_11": "Semicircle Arch"
+            "label_11": "Arch"
           },
           "label": "Image Crop Shape"
         },
@@ -3761,7 +3760,7 @@
           "settings": {
             "label": "Product",
             "paragraph": {
-              "content": "Add product metafields in order to theme the slideshow with associated product colors. TODO: Add link with info"
+              "content": "Add product metafields in order to theme the slideshow with associated product colors. TODO: Link to documentation"
             },
             "horizontal_pos": {
               "label": "Dot Horizontal Position"
@@ -3852,7 +3851,7 @@
             "label_8": "Landscape",
             "label_9": "Rounded Landscape",
             "label_10": "Semicircle Landscape",
-            "label_11": "Semicircle Arch"
+            "label_11": "Arch"
           },
           "label": "Image Crop Shape"
         },
@@ -4043,7 +4042,7 @@
             "label_11": "Wide",
             "label_12": "Rounded Wide",
             "label_13": "Semicircle Wide",
-            "label_14": "Semicircle Arch"
+            "label_14": "Arch"
           },
           "label": "Crop Shape"
         },
@@ -4347,7 +4346,7 @@
                 "label_8": "Landscape",
                 "label_9": "Rounded Landscape",
                 "label_10": "Semicircle Landscape",
-                "label_11": "Semicircle Arch"
+                "label_11": "Arch"
               },
               "label": "Image Crop Shape"
             },
@@ -4493,7 +4492,7 @@
                 "label_8": "Landscape",
                 "label_9": "Rounded Landscape",
                 "label_10": "Semicircle Landscape",
-                "label_11": "Semicircle Arch"
+                "label_11": "Arch"
               },
               "label": "Image Crop Shape"
             }

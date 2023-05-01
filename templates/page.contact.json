@@ -1,51 +1,86 @@
 {
   "sections": {
-    "1662063884d9fa6284": {
+    "30ff8005-12de-4622-b948-4ebb9ec3c311": {
       "type": "image-with-text",
       "blocks": {
-        "20cf5bbf-ba1c-4586-bb93-3f7a3fe1b475": {
+        "template--18773519859991__30ff8005-12de-4622-b948-4ebb9ec3c311-1682789605d7e52d1e-0": {
           "type": "heading",
           "settings": {
-            "heading": "Contact Us",
+            "heading": "Image With Text",
             "heading_size": "h2"
           }
         },
-        "1662063884b661ea2d-0": {
+        "template--18773519859991__30ff8005-12de-4622-b948-4ebb9ec3c311-1682789605d7e52d1e-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Our customer service hours are Monday through Friday 9am to 6pm PST.</p><p>We can help answer any questions about our products, shippings, or anything else on your mind!</p><p><strong>Call Us</strong><br/>818-777-5577</p><p><strong>Visit Us</strong><br/>1557 S McCarran Blvd<br/>New York, NY 21212</p>"
+            "text": "<p>Add text content about your brand that makes a statement<\/p>",
+            "text_size": "p"
+          }
+        },
+        "template--18773519859991__30ff8005-12de-4622-b948-4ebb9ec3c311-1682789605d7e52d1e-2": {
+          "type": "button",
+          "settings": {
+            "button_label": "Learn More",
+            "button_link": "",
+            "button_color": "default"
           }
         }
       },
       "block_order": [
-        "20cf5bbf-ba1c-4586-bb93-3f7a3fe1b475",
-        "1662063884b661ea2d-0"
+        "template--18773519859991__30ff8005-12de-4622-b948-4ebb9ec3c311-1682789605d7e52d1e-0",
+        "template--18773519859991__30ff8005-12de-4622-b948-4ebb9ec3c311-1682789605d7e52d1e-1",
+        "template--18773519859991__30ff8005-12de-4622-b948-4ebb9ec3c311-1682789605d7e52d1e-2"
       ],
       "settings": {
-        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_549b821c-6850-42f3-ae03-51e8af8116c6.jpg",
-        "image_style": "wide",
+        "image_style": "default",
         "hero": true,
         "alignment": "default",
-        "layout": "reversed",
+        "layout": "default",
+        "mobile_layout": "default",
+        "mobile_image_height": 450,
         "theme": "2",
         "top_internal_spacing": 100,
         "bottom_internal_spacing": 100,
-        "top_spacing": 0,
-        "bottom_spacing": 0
+        "mobile_top_internal_spacing": 50,
+        "mobile_bottom_internal_spacing": 0,
+        "top_spacing": 50,
+        "bottom_spacing": 50
       }
     },
-    "form": {
+    "contact-form": {
       "type": "contact-form",
       "settings": {
-        "heading": "Email Us",
+        "heading": "Contact Form",
         "heading_size": "h4",
-        "alt_heading": true,
-        "description": "<p>Please contact us using the form below and allow 1-2 business days for your response.</p>",
+        "alt_heading": false,
+        "description": "<p>Add a description that explains to your customers how to reach you<\/p>",
+        "text_size": "p-sm",
         "disclaimer": "*indicates a required field",
         "hide_labels": true,
-        "name_required": true
+        "email_label": "Email",
+        "email_placeholder": "Email",
+        "name_label": "Name",
+        "name_placeholder": "Name",
+        "name_required": false,
+        "hide_name_field": false,
+        "contact_reason_label": "Contact Reason",
+        "contact_reason_placeholder": "Contact Reason",
+        "hide_reason_field": false,
+        "contact_reason_required": false,
+        "phone_label": "Phone",
+        "phone_placeholder": "123-456-7890",
+        "hide_phone_field": false,
+        "phone_required": false,
+        "message_label": "Leave a Message",
+        "message_placeholder": "What can we help you with?",
+        "theme": "primary",
+        "top_spacing": 50,
+        "bottom_spacing": 50
       }
     }
   },
-  "order": ["1662063884d9fa6284", "form"]
+  "order": [
+    "30ff8005-12de-4622-b948-4ebb9ec3c311",
+    "contact-form"
+  ]
 }

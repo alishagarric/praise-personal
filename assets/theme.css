@@ -90,7 +90,7 @@ h2,
     h2,
     .h2,
     .h2 > p {
-      font-size: calc(1.5rem * var(--font-heading-scale)); } }
+      font-size: calc(1.8rem * var(--font-heading-scale)); } }
 
 h3,
 .h3,
@@ -103,7 +103,7 @@ h3,
   letter-spacing: var(--font-heading-spacing);
   word-break: break-word;
   margin: 0 0 1rem 0;
-  font-size: calc(3rem * var(--font-heading-scale)); }
+  font-size: calc(2.8rem * var(--font-heading-scale)); }
   h3.alt,
   .h3.alt,
   .h3 > p.alt {
@@ -114,12 +114,12 @@ h3,
     h3,
     .h3,
     .h3 > p {
-      font-size: calc(2rem * var(--font-heading-scale)); } }
+      font-size: calc(1.8rem * var(--font-heading-scale)); } }
   @media (max-width: 676px) {
     h3,
     .h3,
     .h3 > p {
-      font-size: calc(1.5rem * var(--font-heading-scale)); } }
+      font-size: calc(1.65rem * var(--font-heading-scale)); } }
 
 h4,
 .h4,
@@ -143,12 +143,12 @@ h4,
     h4,
     .h4,
     .h4 > p {
-      font-size: calc(1.75rem * var(--font-heading-scale)); } }
+      font-size: calc(1.7rem * var(--font-heading-scale)); } }
   @media (max-width: 676px) {
     h4,
     .h4,
     .h4 > p {
-      font-size: calc(1.25rem * var(--font-heading-scale)); } }
+      font-size: calc(1.5rem * var(--font-heading-scale)); } }
 
 h5,
 .h5,
@@ -172,7 +172,7 @@ h5,
     h5,
     .h5,
     .h5 > p {
-      font-size: calc(1.65rem * var(--font-heading-scale)); } }
+      font-size: calc(1.45rem * var(--font-heading-scale)); } }
   @media (max-width: 676px) {
     h5,
     .h5,
