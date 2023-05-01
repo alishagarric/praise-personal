@@ -34,6 +34,7 @@
           "type": "side_bar",
           "settings": {
             "label": "Related Products",
+            "content": "",
             "associated_products": true
           }
         }
@@ -66,7 +67,7 @@
         "alignment": "center",
         "theme": "2",
         "top_spacing": 50,
-        "bottom_spacing": 50
+        "bottom_spacing": 100
       }
     }
   },
