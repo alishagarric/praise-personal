@@ -5,7 +5,8 @@
     "theme_version": "1.0.0",
     "theme_author": "Commence Studio",
     "theme_support_email": "hello@commence.studio",
-    "theme_documentation_url": "https://commence.studio"
+    "theme_documentation_url": "https://commence.studio",
+    "theme_support_url": "https://commence.studio"
   },
   {
     "name": "t:settings_schema.cart.name",
