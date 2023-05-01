@@ -43,8 +43,8 @@
         "featured-icons": {
           "type": "icons",
           "settings": {
-            "icon_height": 20,
-            "title": "Key Ingredients",
+            "icon_height": 40,
+            "title": "",
             "layout": "row",
             "include_border": true
           }
