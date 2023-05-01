@@ -223,7 +223,7 @@
             "label_12": "Arch"
           },
           "label": "Article Associated Product Image Crop Shape",
-          "info": "Relies on the addition of article metafields. TODO: Add link with info, this is how starter did it: Add a <a href=https://praise-store-theme.myshopify.com/admin/metafields/product/create>article subtitle metafield to display.</a>"
+          "info": "Relies on the addition of article metafields. TODO: Link to documentation"
         },
         "header_2": {
           "content": "Section"
@@ -305,7 +305,7 @@
           "name": "Expandable Content",
           "settings": {
             "paragraph": {
-              "content": "This is generated from the complementary products you specify inside the Search and Discovery app. TODO: link with more info"
+              "content": "This is generated from the complementary products you specify inside the Search and Discovery app. TODO: Link to documentation"
             },
             "title": {
               "label": "Title"
@@ -347,7 +347,7 @@
           "name": "Featured Metafield Icons",
           "settings": {
             "paragraph": {
-              "content": "These are generated from the featured icons product metafield. Learn More TODO: link this to a description. If you'd rather use basic icons, choose the 'Featured Basic Icons' block instead."
+              "content": "These are generated from the featured icons product metafield. If you'd rather use basic icons, choose the 'Featured Basic Icons' block instead. TODO: Link to documentation"
             },
             "icon_height": {
               "label": "Icons Height"
@@ -554,7 +554,7 @@
             },
             "show_option_labels": {
               "label": "Show option labels and option descriptions",
-              "info": "Option descriptions can be added using metafields TODO: link"
+              "info": "Option descriptions can be added using metafields TODO: Link to documentation"
             },
             "include_border": {
               "label": "Include Border"
@@ -875,7 +875,7 @@
         },
         "display_featured_icons": {
           "label": "Display featured icons",
-          "info": "This feature depends on the addition of the product featured icons metafield. //TODO: add link here"
+          "info": "This feature depends on the addition of the product featured icons metafield. TODO: Link to documentation"
         },
         "enable_icons_marquee": {
           "label": "Enable featured icons marquee"
@@ -885,7 +885,7 @@
         },
         "display_featured_stats": {
           "label": "Display featured stats",
-          "info": "This feature depends on the addition of the collection featured stats metafield. //TODO: add link here"
+          "info": "This feature depends on the addition of the collection featured stats metafield. TODO: Link to documentation"
         },
         "stats_color": {
           "label": "Stats Color",
@@ -2508,7 +2508,7 @@
         },
         "display_featured_icons": {
           "label": "Display featured icons",
-          "info": "This is dependent on the product featured icons metafield being added. //TODO: add link here"
+          "info": "This is dependent on the product featured icons metafield being added. TODO: Link to documentation"
         },
         "enable_icons_marquee": {
           "label": "Enable featured icons marquee"
@@ -2518,7 +2518,7 @@
         },
         "display_featured_stats": {
           "label": "Display featured stats",
-          "info": "This is dependent on the collection featured stats metafield being added . //TODO: add link here"
+          "info": "This is dependent on the collection featured stats metafield being added. TODO: Link to documentation"
         },
         "stats_color": {
           "label": "Theme",
