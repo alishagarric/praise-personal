@@ -26,17 +26,19 @@
         "aa838210-3e0c-4205-91cf-6bd3b96a73a1": {
           "type": "mega_menu",
           "settings": {
-            "label": "Collections",
-            "heading_0": "Our Collections",
-            "text_0": "Atypical cookies and treats that push the boundaries of indulgence",
-            "button_label": "Shop Treats",
-            "button_link": "shopify:\/\/collections",
-            "heading_1": "",
-            "text_1": "",
-            "link_1": "",
-            "heading_2": "",
-            "text_2": "",
-            "link_2": ""
+            "label": "Resources",
+            "heading_0": "Our Resources",
+            "text_0": "Learn more about our brand, our values, and our mission through our comprehensive online resources and discover why we're the perfect choice for you",
+            "button_label": "",
+            "button_link": "",
+            "heading_1": "Journal",
+            "text_1": "Discover the latest news, trends, and tips about all things juice",
+            "link_1": "shopify:\/\/blogs\/journal",
+            "image_1": "shopify:\/\/shop_images\/AdobeStock_517844496.jpg",
+            "heading_2": "About Us",
+            "text_2": "Experience our brand's unique story and exceptional quality",
+            "link_2": "shopify:\/\/pages\/about",
+            "image_2": "shopify:\/\/shop_images\/angelica-echeverry-oZ1u0l17lns-unsplash.jpg"
           }
         },
         "4bcead02-00f4-4d86-8020-30bd7dd0b9a4": {
