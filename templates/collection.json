@@ -1,40 +1,5 @@
 {
   "sections": {
-    "126cc255-b160-4164-b83c-6150d1a017f7": {
-      "type": "image-banner",
-      "blocks": {
-        "template--16686755512542__126cc255-b160-4164-b83c-6150d1a017f7-16784108291229b9bf-0": {
-          "type": "heading",
-          "settings": {
-            "heading": "Better Skin from within",
-            "heading_size": "h4"
-          }
-        },
-        "template--16686755512542__126cc255-b160-4164-b83c-6150d1a017f7-16784108291229b9bf-1": {
-          "type": "text",
-          "settings": {
-            "text": "<p>We don't make juices just to taste good. We make skin care drinks to build health. It's holistic, whole body approach.<\/p>"
-          }
-        }
-      },
-      "block_order": [
-        "template--16686755512542__126cc255-b160-4164-b83c-6150d1a017f7-16784108291229b9bf-0",
-        "template--16686755512542__126cc255-b160-4164-b83c-6150d1a017f7-16784108291229b9bf-1"
-      ],
-      "settings": {
-        "image": "shopify:\/\/shop_images\/SKin-Collection.jpg",
-        "overlay": 10,
-        "overlay_theme": "5",
-        "crop_shape": "default",
-        "hero": true,
-        "alignment": "left",
-        "theme": "2",
-        "top_internal_spacing": 150,
-        "bottom_internal_spacing": 190,
-        "top_spacing": 0,
-        "bottom_spacing": 0
-      }
-    },
     "main-banner": {
       "type": "main-collection-banner",
       "settings": {
@@ -49,7 +14,7 @@
         "top_internal_spacing": 100,
         "bottom_internal_spacing": 190,
         "top_spacing": 0,
-        "bottom_spacing": 0
+        "bottom_spacing": 40
       }
     },
     "main-product-grid": {
@@ -66,7 +31,7 @@
         "crop_shape": "default",
         "theme": "primary",
         "top_spacing": 50,
-        "bottom_spacing": 50
+        "bottom_spacing": 100
       }
     },
     "1f0676f2-7350-438a-8c08-755d0e96e91c": {
@@ -249,7 +214,6 @@
     }
   },
   "order": [
-    "126cc255-b160-4164-b83c-6150d1a017f7",
     "main-banner",
     "main-product-grid",
     "1f0676f2-7350-438a-8c08-755d0e96e91c",
