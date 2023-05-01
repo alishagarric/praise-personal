@@ -62,6 +62,7 @@
     <deferred-media
       class="video-section__media-background deferred-media no-js-hidden image-container __crop-{{ section.settings.crop_shape }} {% if section.settings.overlay_theme %}__theme-{{ section.settings.overlay_theme }}{% endif %}"
       data-media-id="{{ section.settings.video_url.id }}"
+      style="--overlayOpacity: calc({{ section.settings.overlay }} / 100);"
     >
 
     {%- if section.settings.video_url.type == 'youtube' -%}
