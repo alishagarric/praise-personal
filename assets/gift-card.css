@@ -36,24 +36,21 @@
       gap: 1rem; }
       .gift-card__text__value > *:first-child:not(:last-child) {
         opacity: 0.6; }
-  .gift-card__qr {
-    max-width: 450px; }
-    .gift-card__qr__container {
-      position: relative;
-      border: 1px solid RGB(var(--color-border));
+  .gift-card__qr__container {
+    max-width: 300px;
+    position: relative;
+    border: 1px solid RGB(var(--color-border));
+    width: 100%;
+    padding-top: min(100%, 300px);
+    margin: 0 auto; }
+    .gift-card__qr__container * {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
-      padding-top: 100%; }
-      .gift-card__qr__container * {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        transform: scale(0.9); }
-    .gift-card__qr__btn.__with-underline {
-      margin: calc(var(--pxSize) / 2) auto 0 auto; }
-  @media screen and (max-width: 1024px) {
-    .gift-card__qr {
-      max-width: 300px; } }
+      transform: scale(0.9); }
+  .gift-card__qr__btn.__with-underline {
+    margin: calc(var(--pxSize) / 2) auto 0 auto; }
   @media screen and (max-width: 676px) {
     .gift-card {
       display: flex;

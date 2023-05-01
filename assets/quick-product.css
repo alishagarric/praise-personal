@@ -1,6 +1,6 @@
 .quick-product {
   --color-foreground: var(--color-text);
-  --color-foreground-text: var(--color-text);
+  --color-foreground-text: var(--color-background);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: calc(var(--pxSize) / 6) calc(var(--pxSize) / 3); }
@@ -18,7 +18,8 @@
     grid-column: 2 / 4; }
   .quick-product__btn .btn {
     margin: 0;
-    background: RGBA(var(--color-foreground)/0.05); }
+    width: auto;
+    flex: unset !important; }
   .quick-product.__style-stacked {
     display: flex;
     flex-direction: column; }

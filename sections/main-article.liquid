@@ -1,4 +1,5 @@
 {{ 'main-article.css' | asset_url | stylesheet_tag }}
+{{ 'article-comment.css' | asset_url | stylesheet_tag }}
 
 {% style %}
   #Main-article-{{ section.id }} {
@@ -8,91 +9,122 @@
 {% endstyle %}
 
 <div id="Main-article-{{ section.id }}" class="main-article __theme-{{ section.settings.theme }}">
-  {%- for block in section.blocks -%}
-    {%- case block.type -%}
-      {%- when '@app' -%}  
-        {% render block %}
-      {%- when 'featured_image'-%}
-        {%- if article.image -%}
-          <div
-            class="main-article__image image-container __crop-{{ block.settings.crop_shape }} __theme-{{ block.settings.overlay_theme }}"
-            style="--imageRatio: {{ article.image.height | divided_by: 1.00 | divided_by: article.image.width | times: 100 }}%; --overlayOpacity: calc( {{ block.settings.overlay }} / 100);"
-          >
-            {% assign image = article.image | image_url: width: article.image.width %}
-            {% render 'next-gen-img', image: image, width: 2620, widths: '2620, 1900, 1400, 1000, 700', sizes: '95vw', preload: true %}
+  <div class="main-article__main-content">
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when '@app' -%}
+          {% render block %}
+        {%- when 'featured_image' -%}
+          {% capture featured_image %}
+            {%- if article.image -%}
+              <div
+                class="main-article__image image-container __crop-{{ block.settings.crop_shape }} __theme-{{ block.settings.overlay_theme }}"
+                style="--imageRatio: {{ article.image.height | divided_by: 1.00 | divided_by: article.image.width | times: 100 }}%; --overlayOpacity: calc( {{ block.settings.overlay }} / 100);"
+              >
+                {% assign image = article.image | image_url: width: article.image.width %}
+                {% render 'next-gen-img',
+                  image: image,
+                  width: 2620,
+                  widths: '2620, 1900, 1400, 1000, 700',
+                  sizes: '95vw',
+                  preload: true
+                %}
+              </div>
+            {%- endif -%}
+          {% endcapture %}
+        {%- when 'title' -%}
+          {% assign heading_class = '__overlap-' | append: block.settings.overlap | append: ' main-article' %}
+          {% render 'heading',
+            heading: article.title,
+            class: heading_class,
+            heading_tag: 'h1',
+            heading_size: block.settings.heading_size,
+            alt_heading: block.settings.alt_heading
+          %}
+
+        {%- when 'details' -%}
+          <div class="main-article__details">
+            <p class="p-sm">{{ article.published_at | time_tag: format: 'date' }}</p>
+            <p class="p-sm">{{ article.author }}</p>
           </div>
-        {%- endif -%}  
-      {%- when 'title'-%}
-        {% assign heading_class = "__overlap-" | append: block.settings.overlap | append: ' main-article' %}
-        {% render 'heading' heading: article.title, class: heading_class, heading_tag: "h1", heading_size: block.settings.heading_size, alt_heading: block.settings.alt_heading %}
-
-      {%- when 'details' -%}  
-        <div class="main-article__details">
-          <p class="p-sm">{{ article.published_at | time_tag: format: 'date' }}</p>
-          <p class="p-sm">{{ article.author }}</p> 
-        </div>          
-      {%- when 'content'-%}
-        <div class="main-article__content __article-txt p">
-          {% assign article_content = article.content | split: '<img' %}
-          {% assign join_string = '<img class="__crop-' | append: block.settings.image_corners | append: '"' %}
-          {% assign article_content = article_content | join: join_string %}
-          {{ article_content }}
-        </div>
-
-        {% comment %} Not in design, but in starter, keeping just in case
-          {% assign button_label =  'blogs.article.back_to_blog' | t: title: blog.title %}
-          {% render 'button' button_link: blog.url, button_label: button_label, class: "main-article" %}
-        {% endcomment %}
-
-      {%- when 'side_bar' -%}
-        <div class="main-article__sidebar">
-          <div class="main-article__sidebar__inner">
-            {% if block.settings.label %}
-              <h6 class="p-sm">{{ block.settings.label }}</h6>
-            {% endif %}
-
-            {% if article.metafields.custom.sidebar_content != blank %}
-              <div class="__article-txt-sm">
-                {{ article.metafields.custom.sidebar_content }}
-              </div>
-            {% endif %}
-            
-            {% if block.settings.content != blank %}
-              <div class="">
-                {{ block.settings.content }}
-              </div>
-            {% endif %}
-
-            {% if block.settings.associated_products == true and article.metafields.custom.associated_products %}
-              <div class="main-article__sidebar__products">
-                {% for product in article.metafields.custom.associated_products.value %}
-                  {% render 'quick-product' 
-                    quick_product: product, 
-                    class: "main-article__sidebar__products__product", 
-                    style: "stacked"
-                    img_width: 600,
-                    img_widths: '600, 300'
-                    img_sizes: '(max-width: 676px) 50vw, (max-width: 1024px) 30vw, 20vw',
-                    preload: true
-                  %}
-                {% endfor %}
-              </div>
-            {% endif %}
-
-            <div class="p-sm">{{ 'general.social.share' | t }}</div>
-            {% render 'sharing-icons' %}
+        {%- when 'content' -%}
+          <div class="main-article__content __article-txt p">
+            {% assign article_content = article.content | split: '<img' %}
+            {% assign join_string = '<img class="__crop-' | append: block.settings.image_corners | append: '"' %}
+            {% assign article_content = article_content | join: join_string %}
+            {{ article_content }}
           </div>
-        </div>
-    {%- endcase -%}
-  {%- endfor -%}
 
+        {%- when 'side_bar' -%}
+          {% capture side_bar%}
+          <div class="main-article__sidebar">
+            <div class="main-article__sidebar__inner">
+              {% if block.settings.label %}
+                <h6 class="p-sm">{{ block.settings.label }}</h6>
+              {% endif %}
+
+              {% if article.metafields.custom.sidebar_content != blank %}
+                <div class="__article-txt-sm">
+                  {{ article.metafields.custom.sidebar_content }}
+                </div>
+              {% endif %}
+
+              {% if block.settings.content != blank %}
+                <div class="">
+                  {{ block.settings.content }}
+                </div>
+              {% endif %}
+
+              {% if block.settings.associated_products == true and article.metafields.custom.associated_products %}
+                <div class="main-article__sidebar__products">
+                  {{ 'product-card.css' | asset_url | stylesheet_tag }}
+                  {% render 'quick-add-dependencies' quick_add: true %}
+
+                  {% for product in article.metafields.custom.associated_products.value %}
+                    {% render 'product-card',
+                      this_product: product,
+                      show_bg_color: false,
+                      quick_add: false,
+                      alignment: "left",
+                      heading_size: "p"
+                      price_position: "not-visible",
+                      show_phrase: false,
+                      show_description: false,
+                      alt_heading: true,
+                      img_width: 600,
+                      img_widths: '600, 300',
+                      img_sizes: '(max-width: 676px) 50vw, (max-width: 1024px) 30vw, 20vw',
+                      preload: true
+                      class: 'main-article__sidebar__products__product'
+                    %}
+                  {% endfor %}
+                </div>
+              {% endif %}
+
+              <div class="p-sm">{{ 'general.social.share' | t }}</div>
+              {% render 'sharing-icons' %}
+            </div>
+          </div>
+          {% endcapture %}
+      {%- endcase -%}
+    {%- endfor -%}
+  </div>
+
+  {{ featured_image }}
+
+  {{ side_bar }}
+</div>
+
+<div id="Main-article-{{ section.id }}" class="main-article __theme-{{ section.settings.theme }}">
   {%- if blog.comments_enabled? -%}
     <div class="main-article__comments-wrapper">
       <div id="comments" class="main-article__comments-wrapper__comments">
         {%- if article.comments_count > 0 -%}
           {%- assign anchorId = '#Comments-' | append: article.id -%}
 
-          <h2 id="Comments-{{ article.id }}" class="h6">{{ 'blogs.article.comments' | t: count: article.comments_count }}</h2>
+          <h2 id="Comments-{{ article.id }}" class="h6">
+            {{ 'blogs.article.comments' | t: count: article.comments_count }}
+          </h2>
           {% paginate article.comments by 2 %}
             <div>
               {%- liquid
@@ -106,7 +138,6 @@
               -%}
             </div>
             {% render 'pagination', paginate: paginate, anchor: anchorId %}
-
           {% endpaginate %}
         {%- endif -%}
 
@@ -129,7 +160,11 @@
               </h3>
             {%- endif -%}
 
-            <div {% if blog.moderated? == false %}class="main-article__comments-fields-wrapper"{% endif %}>
+            <div
+              {% if blog.moderated? == false %}
+                class="main-article__comments-fields-wrapper"
+              {% endif %}
+            >
               <div class="main-article__comments-fields-wrapper__fields">
                 <div class="main-article__comment-field">
                   <input
@@ -146,13 +181,14 @@
                       aria-invalid="true"
                       aria-describedby="CommentForm-author-error"
                     {% endif -%}
-                  />
+                  >
                   <label class="visually-hidden" for="CommentForm-author">{{ 'blogs.article.name' | t }}</label>
                   {%- if form.errors contains 'author' -%}
                     <small id="CommentForm-author-error">
                       <span class="form__message errors">
                         {% render 'icon', icon: 'error' %}
-                        {{ 'blogs.article.name' | t }} {{ form.errors.messages['author'] }}
+                        {{ 'blogs.article.name' | t }}
+                        {{ form.errors.messages.author }}
                       </span>
                     </small>
                   {%- endif -%}
@@ -174,13 +210,14 @@
                       aria-invalid="true"
                       aria-describedby="CommentForm-email-error"
                     {% endif -%}
-                  />
+                  >
                   <label class="visually-hidden" for="CommentForm-email">{{ 'blogs.article.email' | t }}</label>
                   {%- if form.errors contains 'email' -%}
                     <small id="CommentForm-email-error">
                       <span class="form__message errors">
                         {% render 'icon', icon: 'error' %}
-                        {{ 'blogs.article.email' | t }} {{ form.errors.messages['email'] }}
+                        {{ 'blogs.article.email' | t }}
+                        {{ form.errors.messages.email }}
                       </span>
                     </small>
                   {%- endif -%}
@@ -206,7 +243,8 @@
                 <small id="CommentForm-body-error">
                   <span class="">
                     {% render 'icon', icon: 'error' %}
-                    {{ 'blogs.article.message' | t }} {{ form.errors.messages['body'] }}
+                    {{ 'blogs.article.message' | t }}
+                    {{ form.errors.messages.body }}
                   </span>
                 </small>
               {%- endif -%}
@@ -214,7 +252,7 @@
             <div class="main-article__comment-button">
               <button type="submit">{{ 'blogs.article.post' | t }}</button>
             </div>
-            
+
             {% comment %}
               Remove the following three lines of code to remove the note
               about being protected by Google's reCAPTCHA service.
@@ -230,9 +268,6 @@
     </div>
   {%- endif -%}
 </div>
-
-
-
 
 <script type="application/ld+json">
   {
@@ -280,7 +315,7 @@
   "settings": [
     {
       "type": "header",
-      "content": "Section"
+      "content": "t:sections.main-article.settings.header.content"
     },
     {
       "type": "select",
@@ -288,27 +323,27 @@
       "options": [
         {
           "value": "primary",
-          "label": "Primary Theme"
+          "label": "t:sections.main-article.settings.theme.options.label_1"
         },
         {
           "value": "2",
-          "label": "2nd Theme"
+          "label": "t:sections.main-article.settings.theme.options.label_2"
         },
         {
           "value": "3",
-          "label": "3rd Theme"
+          "label": "t:sections.main-article.settings.theme.options.label_3"
         },
         {
           "value": "4",
-          "label": "4th Theme"
+          "label": "t:sections.main-article.settings.theme.options.label_4"
         },
         {
           "value": "5",
-          "label": "5th Theme"
+          "label": "t:sections.main-article.settings.theme.options.label_5"
         }
       ],
       "default": "primary",
-      "label": "Theme"
+      "label": "t:sections.main-article.settings.theme.label"
     },
     {
       "type": "range",
@@ -317,7 +352,7 @@
       "max": 100,
       "step": 10,
       "unit": "%",
-      "label": "Top Spacing",
+      "label": "t:sections.main-article.settings.top_spacing.label",
       "default": 50
     },
     {
@@ -327,7 +362,7 @@
       "max": 100,
       "step": 10,
       "unit": "%",
-      "label": "Bottom Spacing",
+      "label": "t:sections.main-article.settings.bottom_spacing.label",
       "default": 50
     }
   ],
@@ -343,8 +378,8 @@
         {
           "type": "range",
           "id": "overlay",
-          "label": "Overlay Opacity",
-          "info": "If above 0%, an overlay will be added on top of the image to create contrast behind the text.",
+          "label": "t:sections.main-article.blocks.featured_image.settings.overlay.label",
+          "info": "t:sections.main-article.blocks.featured_image.settings.overlay.info",
           "min": 0,
           "max": 70,
           "step": 10,
@@ -357,27 +392,27 @@
           "options": [
             {
               "value": "primary",
-              "label": "Primary Theme"
+              "label": "t:sections.main-article.blocks.featured_image.settings.overlay_theme.options.label_1"
             },
             {
               "value": "2",
-              "label": "2nd Theme"
+              "label": "t:sections.main-article.blocks.featured_image.settings.overlay_theme.options.label_2"
             },
             {
               "value": "3",
-              "label": "3rd Theme"
+              "label": "t:sections.main-article.blocks.featured_image.settings.overlay_theme.options.label_3"
             },
             {
               "value": "4",
-              "label": "4th Theme"
+              "label": "t:sections.main-article.blocks.featured_image.settings.overlay_theme.options.label_4"
             },
             {
               "value": "5",
-              "label": "5th Theme"
+              "label": "t:sections.main-article.blocks.featured_image.settings.overlay_theme.options.label_5"
             }
           ],
           "default": "primary",
-          "label": "Overlay Theme"
+          "label": "t:sections.main-article.blocks.featured_image.settings.overlay_theme.label"
         },
         {
           "type": "select",
@@ -385,35 +420,35 @@
           "options": [
             {
               "value": "default",
-              "label": "No Crop"
+              "label": "t:sections.main-article.blocks.featured_image.settings.crop_shape.options.label_1"
             },
             {
               "value": "landscape",
-              "label": "Landscape"
+              "label": "t:sections.main-article.blocks.featured_image.settings.crop_shape.options.label_2"
             },
             {
               "value": "rounded-landscape",
-              "label": "Rounded Landscape"
+              "label": "t:sections.main-article.blocks.featured_image.settings.crop_shape.options.label_3"
             },
             {
               "value": "semicircle-landscape",
-              "label": "Semicircle Landscape"
+              "label": "t:sections.main-article.blocks.featured_image.settings.crop_shape.options.label_4"
             },
             {
               "value": "wide",
-              "label": "Wide"
+              "label": "t:sections.main-article.blocks.featured_image.settings.crop_shape.options.label_5"
             },
             {
               "value": "rounded-wide",
-              "label": "Rounded Wide"
+              "label": "t:sections.main-article.blocks.featured_image.settings.crop_shape.options.label_6"
             },
             {
               "value": "semicircle-wide",
-              "label": "Semicircle Wide"
+              "label": "t:sections.main-article.blocks.featured_image.settings.crop_shape.options.label_7"
             }
           ],
           "default": "wide",
-          "label": "Image Crop Shape"
+          "label": "t:sections.main-article.blocks.featured_image.settings.crop_shape.label"
         }
       ]
     },
@@ -428,34 +463,34 @@
           "options": [
             {
               "value": "h1",
-              "label": "X-Large"
+              "label": "t:sections.main-article.blocks.title.settings.heading_size.options.label_1"
             },
             {
               "value": "h2",
-              "label": "Large"
+              "label": "t:sections.main-article.blocks.title.settings.heading_size.options.label_2"
             },
             {
               "value": "h3",
-              "label": "Medium"
+              "label": "t:sections.main-article.blocks.title.settings.heading_size.options.label_3"
             },
             {
               "value": "h4",
-              "label": "Small"
+              "label": "t:sections.main-article.blocks.title.settings.heading_size.options.label_4"
             }
           ],
           "default": "h4",
-          "label": "Heading Size"
+          "label": "t:sections.main-article.blocks.title.settings.heading_size.label"
         },
         {
           "type": "checkbox",
           "id": "alt_heading",
-          "label": "Use body font instead of heading font for heading"
+          "label": "t:sections.main-article.blocks.title.settings.alt_heading.label"
         },
         {
           "type": "checkbox",
           "id": "overlap",
-          "label": "Enable overlap",
-          "info": "Requires a featured image",
+          "label": "t:sections.main-article.blocks.title.settings.overlap.label",
+          "info": "t:sections.main-article.blocks.title.settings.overlap.info",
           "default": false
         }
       ]
@@ -465,48 +500,48 @@
       "name": "t:sections.main-article.blocks.content.name",
       "limit": 1,
       "settings": [
-         {
+        {
           "type": "select",
           "id": "image_corners",
           "options": [
             {
               "value": "default",
-              "label": "Square Corners"
+              "label": "t:sections.main-article.blocks.content.settings.image_corners.options.label_1"
             },
             {
               "value": "rounded",
-              "label": "Rounded Corners"
+              "label": "t:sections.main-article.blocks.content.settings.image_corners.options.label_2"
             },
             {
               "value": "semicircle",
-              "label": "Semicircle Corners"
+              "label": "t:sections.main-article.blocks.content.settings.image_corners.options.label_3"
             }
           ],
           "default": "default",
-          "label": "Image Corners"
+          "label": "t:sections.main-article.blocks.content.settings.image_corners.label"
         }
       ]
     },
     {
       "type": "side_bar",
-      "name": "Side Bar",
+      "name": "t:sections.main-article.blocks.side_bar.name",
       "settings": [
         {
           "type": "text",
           "id": "label",
-          "label": "Label"
+          "label": "t:sections.main-article.blocks.side_bar.settings.label"
         },
         {
           "type": "richtext",
           "id": "content",
-          "label": "Content",
-          "info": "Add content here, or by utilizing the article metafeild TODO: link"
+          "label": "t:sections.main-article.blocks.side_bar.settings.content.label",
+          "info": "t:sections.main-article.blocks.side_bar.settings.content.info"
         },
         {
           "type": "checkbox",
           "id": "associated_products",
-          "label": "Show associated products",
-          "info": "Dependent on article metafield TODO: link"
+          "label": "t:sections.main-article.blocks.side_bar.settings.associated_products.label",
+          "info": "t:sections.main-article.blocks.side_bar.settings.associated_products.info"
         }
       ]
     },
@@ -518,7 +553,7 @@
   ],
   "presets": [
     {
-      "name": "Main Article",
+      "name": "t:sections.main-article.presets.name",
       "blocks": [
         {
           "type": "featured_image"
@@ -531,7 +566,7 @@
         }
       ]
     }
-  ]
+  ],
+  "templates": ["article"]
 }
 {% endschema %}
-

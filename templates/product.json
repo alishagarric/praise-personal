@@ -174,7 +174,7 @@
         "heading_size": "h4",
         "alt_heading": false,
         "layout": "3",
-        "mobile_layout": "3",
+        "mobile_layout": "1",
         "icon_height": 80,
         "alignment": "center",
         "theme": "primary",

@@ -9,6 +9,7 @@
   - collection_image_crop_shape {string} optional, circle, rounded-square, square, portrait, landscape, default (adapt)
   - alt_heading {boolean} optional, section level
   - heading_size {string} optional, h2, h4, h5, h6
+  - description_size {string} optional, p-sm, p, p-lg
   - display_featured_icons {boolean} optional, section level
   - enable_icons_marquee {boolean} optional, section level
   - marquee_speed {int} optional, section level
@@ -39,10 +40,9 @@
 
 {% endcomment %}
 
-{{ 'collection-teaser-row.css' | asset_url | stylesheet_tag }}
-
 {% assign products_per_collection = products_per_collection | default: 2 %}
 {% assign marquee_speed = marquee_speed | default: 5 %}
+{% assign description_size = description_size | default: "p-sm" %}
 
 {% comment %} Collection row {% endcomment %}
 <div class="collection-teaser-row">
@@ -67,18 +67,23 @@
     %}
 
     {% comment %} Description {% endcomment %}
-    <div class="collection-teaser-row__description __article-txt-p-sm p-sm">
-      {{ collection.description }}
-    </div>
+    {% if collection.description != blank %}
+      <div class="collection-teaser-row__description __article-txt-{{ description_size }} {{ description_size }}">
+        {{ collection.description }}
+      </div>
+    {% endif %}
 
     {% comment %} Featured Icons {% endcomment %}
     {% if display_featured_icons %}
+      {{ 'custom-icons.css' | asset_url | stylesheet_tag }}
       {% assign icons = '' %}
       {% for product in collection.products %}
         {% for icon in product.metafields.custom.featured_icons.value %}
-          {% assign icons = icons | append: icon | append: '@#$' %}
+          {% assign icon_downcase = icon | downcase %}
+          {% assign icons = icons | append: icon_downcase | append: '@#$' %}
         {% endfor %}
       {% endfor %}
+
       {% assign icons = icons | split: '@#$' | compact | uniq %}
       {% assign multiple = 24.0 | divided_by: icons.size | ceil %}
 
@@ -90,7 +95,7 @@
               layout: layout,
               icon_height: icon_height
             %}
-          {% endfor%}
+          {% endfor %}
         {% else %}
           {% render 'featured-icons',
             icons: icons,
@@ -130,7 +135,7 @@
   {% comment %} Products Block {% endcomment %}
   <div class="collection-teaser-row__products">
     {% for product in collection.products limit: products_per_collection %}
-      {% render 'product-card' product: product, show_bg_color: show_bg_color, quick_add: quick_add, crop: crop_shape, show_phrase: show_phrase, alignment: product_text_alignment, show_description: show_description, price_position: price, alt_heading: alt_title, img_width: 900, img_widths: '900, 700, 400', img_sizes: '(max-width: 676px) 50vw, (max-width: 1024px) 45vw, 25vw', img_preload: img_preload %}
+      {% render 'product-card' this_product: product, show_bg_color: show_bg_color, quick_add: quick_add, crop: crop_shape, show_phrase: show_phrase, alignment: product_text_alignment, show_description: show_description, price_position: price, alt_heading: alt_title, img_width: 900, img_widths: '900, 700, 400', img_sizes: '(max-width: 676px) 50vw, (max-width: 1024px) 45vw, 25vw', img_preload: img_preload %}
     {% endfor %}
   </div>
 

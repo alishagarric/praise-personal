@@ -1,8 +1,10 @@
 @import "../utilities/mixins";
 
 .overlay-nav {
+  padding-top: var(--navHeight);
+
   &__plain-link,
-  &__disclosure.__style-default .disclosure__summary {
+  &__disclosure.disclosure.__style-default .disclosure__summary {
     display: block;
     padding-top: calc(var(--pxSize) / 2.5);
     padding-bottom: calc(var(--pxSize) / 2.5);
@@ -20,7 +22,7 @@
   }
 
   &__plain-link,
-  &__disclosure.__style-default {
+  &__disclosure.disclosure.__style-default {
     border-bottom: 1px solid RGB(var(--color-border));
     border-top: none;
   }
@@ -82,9 +84,5 @@
         }
       }
     }
-  }
-
-  > li:last-of-type {
-    margin-bottom: 50vh;
   }
 }

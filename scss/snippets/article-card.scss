@@ -2,10 +2,18 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  width: 100%;
+
+  img,
+  svg {
+    transform: scale(1);
+    will-change: transform;
+    transition: all 0.25s ease;
+  }
 
   &__top {
     width: 100%;
-    margin-bottom: calc(var(--btnHeight) / 2);
+    margin-bottom: 1rem;
     position: relative;
   }
 
@@ -48,6 +56,15 @@
 
     * {
       margin-bottom: 0;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    img,
+    svg {
+      transform: scale(1.05);
     }
   }
 }

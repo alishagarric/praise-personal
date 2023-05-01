@@ -43,7 +43,7 @@
           {%- endfor -%}
         </select>
 
-        <button class="btn __with-underline" type="submit">{{ 'general.localization.country.update' | t }}</button>
+        <button class="btn __style-underline" type="submit">{{ 'general.localization.country.update' | t }}</button>
       {%- endform -%}
     </noscript>
 
@@ -80,7 +80,7 @@
           </ul>
         {% endcapture %}
 
-        {% render 'disclosure', title: country_title, id: country_title, text: country_content, style: "dropdown-button", location: 'bottom-edge' %}
+        {% render 'disclosure', title: country_title, id: country_title, text: country_content, style: "dropdown-button __style-secondary", location: 'bottom-edge' %}
       {%- endform -%}
     </submit-on-change>
   {%- endif -%}
@@ -104,7 +104,7 @@
           {%- endfor -%}
         </select>
       
-        <button class="btn __with-underline" type="submit">{{ 'general.localization.language.update' | t }}</button>
+        <button class="btn __style-underline" type="submit">{{ 'general.localization.language.update' | t }}</button>
       {%- endform -%}
     </noscript>
 
@@ -136,7 +136,7 @@
             </ul>
           {% endcapture %}
 
-          {% render 'disclosure', title: language_title, id: language_title, text: language_content, style: "dropdown-button", location: 'bottom-edge' %}
+          {% render 'disclosure', title: language_title, id: language_title, text: language_content, style: "dropdown-button __style-secondary", location: 'bottom-edge' %}
         {%- endform -%}
      </submit-on-change>  
   {%- endif -%}

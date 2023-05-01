@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAAA,iBAAkB;EAChB,UAAU,EAAE,4BAA4B;EACxC,KAAK,EAAE,sBAAsB;EAC7B,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,MAAM;EACvB,WAAW,EAAE,MAAM;EACnB,MAAM,EAAE,0BAA0B;EAClC,IAAI,EAAE,QAAQ;EACd,QAAQ,EAAE,MAAM;EAChB,WAAW,EAAE,MAAM;EAEnB,uBAAQ;IACN,aAAa,EAAE,CAAC;IAChB,WAAW,EAAE,MAAM",
-"sources": ["../dev/scss/sections/announcement-bar.scss"],
-"names": [],
-"file": "announcement-bar.css"
-}

@@ -19,6 +19,9 @@
   }
 {% endstyle %}
 
+{{ 'article-card.css' | asset_url | stylesheet_tag }}
+{{ 'main-blog.css' | asset_url | stylesheet_tag }}
+
 <div
   id="Related-articles-{{ section.id }}"
   class="main-blog __theme-{{ section_theme }}"
@@ -31,7 +34,7 @@
     %}
   </div>
 
-  <ul class="main-blog__articles list-unstyled grid" role="list">
+  <ul class="main-blog__articles list-unstyled" role="list">
     {% for article in blog.articles limit: 3 %}
       {% render 'article-card',
         class: 'main-blog__card',
@@ -64,7 +67,7 @@
     {
       "type": "text",
       "id": "heading",
-      "default": "Lorem ipsum",
+      "default": "Related Articles",
       "label": "t:sections.related-articles.settings.heading.label"
     },
     {
@@ -308,6 +311,7 @@
     {
       "name": "t:sections.related-articles.presets.name"
     }
-  ]
+  ],
+  "templates": ["article"]
 }
 {% endschema %}

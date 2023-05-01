@@ -1,14 +1,11 @@
-{% comment %}
-  TODO: learn what the heck the benefits are of media and onload attributes below
-  <link rel="stylesheet" href="{{ 'component-card.css' | asset_url }}" media="print" onload="this.media='all'">
-{% endcomment %}
-
 {{ 'overflow-slider.css' | asset_url | stylesheet_tag }}
 {{ 'product-recommendations.css' | asset_url | stylesheet_tag }}
+{{ 'product-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
 
 <script src="{{ 'product-recommendations.js' | asset_url }}" defer="defer"></script>
 
-{% assign products_to_show = 4 %}
+{% assign products_to_show = 10 %}
 
 <div class="product-recommendations __align-{{ section.settings.alignment}}">
   <product-recommendations data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit={{ products_to_show }}">
@@ -22,12 +19,12 @@
       %}
 
       {% comment %} Product Recommendations {% endcomment %}
-      <overflow-slider class="overflow-slider {% if recommendations.products_count < 5 %}__hide-desktop-arrows{% endif %} {% if recommendations.products_count < 3 %}__hide-tablet-arrows{% endif%}">
+      <overflow-slider class="product-recommendations__inner overflow-slider {% if recommendations.products_count < 4 %}__hide-desktop-arrows{% endif %} {% if recommendations.products_count < 3 %}__hide-tablet-arrows{% endif %}">
         <ul class="product-recommendations__container overflow-slider__container" role="list">
           {% for recommendation in recommendations.products %}
             <li>
               {% render 'product-card',
-                product: recommendation,
+                this_product: recommendation,
                 img_width: 1000,
                 img_widths: '1000, 750, 500',
                 img_sizes: '(max-width: 676px) 75vw, (max-width: 1024px) 50vw, 25vw'

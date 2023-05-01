@@ -35,7 +35,7 @@
         </h2>
       {% endif %}
       {% if section.settings.description %}
-        <p class="p-sm">
+        <p class="{{ section.settings.text_size }}">
           {{ section.settings.description }}
         </p>
       {% endif %}
@@ -118,8 +118,8 @@
       {%- endif -%}
 
       {% comment %} Copywright {% endcomment %}
-      <span class="section-footer__copywright p-sm"
-        >&copy; {{ 'now' | date: '%Y' }}
+      <span class="section-footer__copywright p-sm">
+        &copy; {{ 'now' | date: '%Y' }}
         {{ shop.name | link_to: routes.root_url -}}
       </span>
     </div>
@@ -177,6 +177,26 @@
       "label": "t:sections.footer.settings.description.label"
     },
     {
+      "type": "select",
+      "id": "text_size",
+      "options": [
+        {
+          "value": "p-sm",
+          "label": "t:sections.footer.settings.description_text_size.options.label_1"
+        },
+        {
+          "value": "p",
+          "label": "t:sections.footer.settings.description_text_size.options.label_2"
+        },
+        {
+          "value": "p-lg",
+          "label": "t:sections.footer.settings.description_text_size.options.label_3"
+        }
+      ],
+      "default": "p-sm",
+      "label": "t:sections.footer.settings.description_text_size.label"
+    },
+    {
       "type": "header",
       "content": "t:sections.footer.settings.header_2.content"
     },
@@ -224,6 +244,7 @@
     },
     {
       "type": "link_list",
+      "default": "footer",
       "info": "t:sections.footer.settings.secondary_links.info",
       "id": "secondary_links",
       "label": "t:sections.footer.settings.secondary_links.label"

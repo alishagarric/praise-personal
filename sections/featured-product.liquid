@@ -1,12 +1,21 @@
 {{ 'featured-product.css' | asset_url | stylesheet_tag }}
+{{ 'number-input.css' | asset_url | stylesheet_tag }}
+{{ 'product-form.css' | asset_url | stylesheet_tag }}
+{{ 'variant-picker.css' | asset_url | stylesheet_tag }}
 
 {% liquid
   assign section_theme = section.settings.theme
   assign top_spacing = section.settings.top_spacing
   assign bottom_spacing = section.settings.bottom_spacing
   assign alignment = section.settings.alignment
-  assign product_form_id = 'Product-Form-' | append: section.id
-  
+  assign product_form_id = 'Product-Form-' | append: section.id | append: product.id
+   if section.settings.theme_section == "half"
+      assign half_blocks_count = section.blocks.size | divided_by: 2.0 | ceil
+   elsif section.settings.theme_section == "most"
+      assign half_blocks_count = section.blocks.size | minus: 1
+   else
+      assign half_blocks_count = 0
+   endif
 %}
 
 {% style %}
@@ -17,16 +26,13 @@
   }
 {% endstyle %}
 
-<script src="{{ 'variant-selects.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
-
-
+<script src="{{ 'variant-selects.js' | asset_url }}" defer="defer"></script>
 
 <div id="Featured-product-{{ section.id }}" class="featured-product __layout-{{ section.settings.layout }} __layout-mobile-{{ section.settings.mobile_layout }} __theme-{{ section_theme }}">
 
   {% comment %} Text content column {% endcomment %}
   <div class="featured-product__text">
-    {% if section.settings.product != blank %}
       <div 
         class="featured-product__text__first-half"
         style="{% if section.settings.theme_section != "default" %}{% if section.settings.product.metafields.custom.color %}--color-background: {{ section.settings.product.metafields.custom.color.value.rgb }}; --color-foreground-text: {{ section.settings.product.metafields.custom.color.value.rgb }};{% endif %} {% if section.settings.product.metafields.custom.text_color %} --color-text: {{ section.settings.product.metafields.custom.text_color.value.rgb }}; --color-foreground: {{ section.settings.product.metafields.custom.text_color.value.rgb }}; --color-border: {{ section.settings.product.metafields.custom.text_color.value.rgb }} / .3;{% endif %}{% endif %}"
@@ -53,13 +59,16 @@
               {% if section.settings.hero == true %}
                 {% assign heading_tag = "h1" %}
               {% endif %}
-              {% render 'heading', heading: section.settings.product.title, alt_heading: block.settings.alt_heading, heading_size: block.settings.heading_size, heading_tag: heading_tag, class: heading_class %}
+              {% assign title = section.settings.product.title | default: "Product Title"%}
+              {% render 'heading', heading: title, alt_heading: block.settings.alt_heading, heading_size: block.settings.heading_size, heading_tag: heading_tag, class: heading_class %}
 
             {% comment %} Type buy buttons {% endcomment %}
             {%- when 'buy_buttons' -%}
-              <div class="main-product__block {% if block.settings.include_border %} __border-top {% endif %}">
-                {% render 'product-form' id: product_form_id, product: section.settings.product, show_quantity: block.settings.show_quantity, include_border: block.settings.include_border, hide_dynamic_buttons: block.settings.hide_dynamic_buttons %}
-              </div>
+               {% if section.settings.product != blank %}
+                  <div class="featured-product__block {% if block.settings.include_border %} __border-top {% endif %}">
+                     {% render 'product-form' id: product_form_id, product: section.settings.product, show_quantity: block.settings.show_quantity, include_border: block.settings.include_border, hide_dynamic_buttons: block.settings.hide_dynamic_buttons %}
+                  </div>
+               {% endif %}
 
             {% comment %} Type expandable content {% endcomment %}
             {%- when 'expandable' %}
@@ -75,7 +84,10 @@
 
             {% comment %} Type rating {% endcomment %}
             {%- when 'rating' -%}
-              {% render 'product-ratings' product: section.settings.product %}
+               {% if section.settings.product != blank %}
+                  {{ 'product-ratings.css' | asset_url | stylesheet_tag }}
+                  {% render 'product-ratings' product: section.settings.product %}
+               {% endif %}
 
             {% comment %} Type shop button {% endcomment %}
             {%- when 'shop_button' -%}
@@ -87,21 +99,16 @@
 
             {% comment %} Type variant picker {% endcomment %}
             {%- when 'variant_picker' -%}
-              {% render 'variant_picker' product: section.settings.product, layout: block.settings.layout, include_border: block.settings.include_border, show_option_labels: block.settings.show_option_labels, class: "featured-product__block" %}
-
+               {% if section.settings.product != blank %}
+                  {% render 'variant_picker' this_product: section.settings.product, product_form_id: product_form_id, layout: block.settings.layout, include_border: block.settings.include_border, show_option_labels: block.settings.show_option_labels, class: "featured-product__block" %}
+               {% endif %}
             {% comment %} Type price {% endcomment %}
             {%- when 'price' -%}
-              {% render 'form-price' product: section.settings.product, price_size: block.settings.heading_size, form_id: section.id %}
+               {% if section.settings.product != blank %}
+                  {% render 'form-price' product: section.settings.product, price_size: block.settings.heading_size, form_id: section.id %}
+               {% endif %}
 
           {%- endcase -%}
-
-          {% if section.settings.theme_section == "half" %}
-            {% assign half_blocks_count = section.blocks.size | divided_by: 2.0 | ceil  %}
-          {% elsif section.settings.theme_section == "most" %}
-            {% assign half_blocks_count = section.blocks.size | minus: 1 %}
-          {% else %}
-            {% assign half_blocks_count = 0 %}
-          {% endif %}
 
           {% if forloop.index == half_blocks_count %}
             </div>
@@ -109,26 +116,26 @@
           {% endif %}
         {%- endfor -%}
       </div>
-    {% else %}
-      <div class="h2">Lorem ipsum dolor iset</div>
-    {% endif %}
   </div>
 
   {% comment %} Image content column {% endcomment %}
-  <div class="featured-product__image"
-   style="{% if section.settings.product.metafields.custom.color %}--color-background: {{ section.settings.product.metafields.custom.color.value.rgb }}; --color-foreground-text: {{ section.settings.product.metafields.custom.color.value.rgb }};{% endif %} {% if section.settings.product.metafields.custom.text_color %} --color-text: {{ section.settings.product.metafields.custom.text_color.value.rgb }}; --color-foreground: {{ section.settings.product.metafields.custom.text_color.value.rgb }}; --color-border: {{ section.settings.product.metafields.custom.text_color.value.rgb }} / .3;{% endif %}"
-  >
-    <div class="image-container __crop-{{ section.settings.crop_shape }}" style="--imageRatio: {{ section.settings.product.featured_image.height | divided_by: 1.00 | divided_by: section.settings.product.featured_image.width | times: 100 }}%">
+  <div 
+   class="featured-product__image"
+   style="{% if section.settings.product.metafields.custom.color %}--color-background: {{ section.settings.product.metafields.custom.color.value.rgb }};{% endif %}"
+   >
       {%- if section.settings.product.featured_image != blank -%}
-        {% render 'next-gen-img', image: section.settings.product.featured_image, width: 1400, widths: "1400, 940, 700, 500" sizes: '(max-width: 676px) 100vw, (max-width: 1024px) 40vw, 30vw', preload: section.settings.hero %}
+         <div class="image-container __crop-{{ section.settings.crop_shape }}" style="--imageRatio: {{ section.settings.product.featured_image.height | divided_by: 1.00 | divided_by: section.settings.product.featured_image.width | times: 100 }}%">
+            {% render 'next-gen-img', image: section.settings.product.featured_image, width: 1400, widths: "1400, 940, 700, 500" sizes: '(max-width: 676px) 100vw, (max-width: 1024px) 40vw, 30vw', preload: section.settings.hero %}
+            {% if section.settings.show_phrase == true and section.settings.product.metafields.custom.phrase %}
+               {% render 'product-phrase' phrase: section.settings.product.metafields.custom.phrase, class: 'featured-product__image__phrase' %}
+            {% endif %}
+         </div>
       {%- else -%}
-        {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+         <div class="image-container __crop-{{ section.settings.crop_shape }}" style="--imageRatio: 100%">
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+         </div>
       {%- endif -%}
 
-      {% if section.settings.show_phrase == true and section.settings.product.metafields.custom.phrase %}
-        <p class="featured-product__image__phrase h6">{{ section.settings.product.metafields.custom.phrase }}</p>
-      {% endif %}
-    </div>
   </div>
 </div>
 
@@ -398,13 +405,13 @@
       },
       {
          "type":"text",
-         "name":"t:sections.main-product.blocks.text.name",
+         "name":"t:sections.featured-product.blocks.text.name",
          "settings":[
             {
                "type":"text",
                "id":"text",
                "default":"Text",
-               "label":"t:sections.featured-product.blocks.text.label"
+               "label":"t:sections.featured-product.blocks.text.name"
             },
             {
                "type":"select",
@@ -441,12 +448,13 @@
             {
                "type":"text",
                "id":"title",
-               "default":"Title",
+               "default": "Expandable Content",
                "label":"t:sections.featured-product.blocks.expandable.settings.title.label"
             },
             {
                "type":"richtext",
                "id":"text",
+               "default": "<p>Extra information your customers might find useful</p>",
                "label":"t:sections.featured-product.blocks.expandable.settings.text.label"
             },
             {
@@ -463,7 +471,7 @@
       },
       {
          "type":"title",
-         "name":"t:sections.main-product.blocks.title.name",
+         "name":"t:sections.featured-product.blocks.title.name",
          "limit":1,
          "settings":[
             {
@@ -493,13 +501,13 @@
             {
                "type":"checkbox",
                "id":"alt_heading",
-               "label":"t:sections.featured-product.blocks.title.settings.alt_heading"
+               "label":"t:sections.featured-product.blocks.title.settings.alt_heading.label"
             }
          ]
       },
       {
          "type":"price",
-         "name":"t:sections.main-product.blocks.price.name",
+         "name":"t:sections.featured-product.blocks.price.name",
          "limit":1,
          "settings":[
             {
@@ -530,7 +538,7 @@
       },
       {
          "type":"variant_picker",
-         "name":"t:sections.main-product.blocks.variant_picker.name",
+         "name":"t:sections.featured-product.blocks.variant_picker.name",
          "limit":1,
          "settings":[
             {
@@ -540,11 +548,11 @@
                "options":[
                   {
                      "value":"dropdown",
-                     "label":"t:sections.featured-product.blocks.variant_picker.settings.layout.options.layout_1"
+                     "label":"t:sections.featured-product.blocks.variant_picker.settings.layout.options.label_1"
                   },
                   {
                      "value":"buttons",
-                     "label":"t:sections.featured-product.blocks.variant_picker.settings.layout.options.layout_2"
+                     "label":"t:sections.featured-product.blocks.variant_picker.settings.layout.options.label_2"
                   }
                ],
                "default":"buttons"
@@ -591,7 +599,7 @@
       },
       {
          "type":"description",
-         "name":"t:sections.main-product.blocks.description.name",
+         "name":"t:sections.featured-product.blocks.description.name",
          "limit":1,
          "settings":[
             {
@@ -618,12 +626,12 @@
       },
       {
          "type":"rating",
-         "name":"t:sections.main-product.blocks.rating.name",
+         "name":"t:sections.featured-product.blocks.rating.name",
          "limit":1,
          "settings":[
             {
                "type":"paragraph",
-               "content":"t:sections.main-product.blocks.rating.settings.paragraph.content"
+               "content":"t:sections.featured-product.blocks.rating.settings.paragraph.content"
             }
          ]
       },
@@ -635,6 +643,7 @@
             {
                "type":"text",
                "id":"button_label",
+               "default": "View Details",
                "label":"t:sections.featured-product.blocks.shop_button.settings.label",
                "info":"t:sections.featured-product.blocks.shop_button.settings.info"
             }
@@ -675,10 +684,16 @@
    ],
    "presets":[
       {
-         "name":"Featured Product",
+         "name": "Featured Product",
          "blocks":[
             {
                "type":"title"
+            },
+            {
+               "type":"expandable"
+            },
+            {
+               "type":"expandable"
             },
             {
                "type":"description"

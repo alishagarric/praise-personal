@@ -18,7 +18,6 @@
 @mixin h1() {
   @include basicHeading;
   font-size: calc(4rem * var(--font-heading-scale));
-  font-weight: 900;
 
   @media (max-width: 1024px) {
     font-size: calc(2.6rem * var(--font-heading-scale));
@@ -32,28 +31,26 @@
 @mixin h2() {
   @include basicHeading;
   font-size: calc(3rem * var(--font-heading-scale));
-  font-weight: 900;
 
   @media (max-width: 1024px) {
     font-size: calc(2rem * var(--font-heading-scale));
   }
 
   @media (max-width: 676px) {
-    font-size: calc(1.5rem * var(--font-heading-scale));
+    font-size: calc(1.8rem * var(--font-heading-scale));
   }
 }
 
 @mixin h3() {
   @include basicHeading;
-  font-size: calc(3rem * var(--font-heading-scale));
-  font-weight: 500;
+  font-size: calc(2.8rem * var(--font-heading-scale));
 
   @media (max-width: 1024px) {
-    font-size: calc(2rem * var(--font-heading-scale));
+    font-size: calc(1.8rem * var(--font-heading-scale));
   }
 
   @media (max-width: 676px) {
-    font-size: calc(1.5rem * var(--font-heading-scale));
+    font-size: calc(1.65rem * var(--font-heading-scale));
   }
 }
 
@@ -62,11 +59,11 @@
   font-size: calc(2.25rem * var(--font-heading-scale));
 
   @media (max-width: 1024px) {
-    font-size: calc(1.75rem * var(--font-heading-scale));
+    font-size: calc(1.7rem * var(--font-heading-scale));
   }
 
   @media (max-width: 676px) {
-    font-size: calc(1.25rem * var(--font-heading-scale));
+    font-size: calc(1.5rem * var(--font-heading-scale));
   }
 }
 
@@ -75,7 +72,7 @@
   font-size: calc(1.75rem * var(--font-heading-scale));
 
   @media (max-width: 1024px) {
-    font-size: calc(1.65rem * var(--font-heading-scale));
+    font-size: calc(1.45rem * var(--font-heading-scale));
   }
 
   @media (max-width: 676px) {
@@ -108,16 +105,29 @@
 @mixin p() {
   @include basicParagraph;
   font-size: calc(1.125rem * var(--font-body-scale));
+
+  &:is(p) {
+    max-width: 500px;
+  }
 }
 
 @mixin p-sm() {
   @include basicParagraph;
   font-size: calc(0.9rem * var(--font-body-scale));
+
+  &:is(p) {
+    max-width: 400px;
+  }
 }
 
 @mixin p-lg {
   @include basicParagraph;
+  max-width: 700px;
   font-size: calc(1.375rem * var(--font-body-scale));
+
+  &:is(p) {
+    max-width: 600px;
+  }
 
   @media (max-width: 1024px) {
     font-size: calc(1.2rem * var(--font-body-scale));

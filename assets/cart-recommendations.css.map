@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AACE,gCAAa;EACX,OAAO,EAAE,IAAI;EACb,GAAG,EAAE,uBAAuB;EAE5B,oCAAI;IACF,IAAI,EAAE,kBAAkB;AAI5B,8BAAW;EACT,aAAa,EAAE,kCAAkC;EACjD,aAAa,EAAE,uBAAuB;EACtC,cAAc,EAAE,IAAI;AAGtB,qCAAsC;EACpC,gCAAa;IACX,cAAc,EAAE,MAAM;IACtB,SAAS,EAAE,KAAK;IAChB,MAAM,EAAE,MAAM",
-"sources": ["../dev/scss/sections/cart-recommendations.scss"],
-"names": [],
-"file": "cart-recommendations.css"
-}

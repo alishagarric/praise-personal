@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAAA,eAAgB;EACd,QAAQ,EAAE,MAAM;AAEhB;;;;;;;;;;;;;;;;;IAiBE;EAGA,sCAAS;IACP,OAAO,EAAE,EAAE;EAIf,iDAAoC;IAClC,OAAO,EAAE,IAAI;EAGf,qBAAQ;IACN,cAAc,EAAE,OAAO",
-"sources": ["../dev/scss/snippets/deferred-media.scss"],
-"names": [],
-"file": "deferred-media.css"
-}

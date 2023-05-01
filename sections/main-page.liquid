@@ -6,17 +6,79 @@
 {% endstyle %}
 
 <div id="Main-page-{{ section.id }}" class="main-page __theme-{{ section.settings.theme }}">
-  {% render 'heading' heading: page.title, heading_tag: "h1" %}
+  {% render 'heading',
+    heading: page.title,
+    heading_size: section.settings.heading_size,
+    alt_heading: section.settings.alt_heading,
+    heading_tag: 'h1'
+  %}
   {% if page.content != blank %}
-    <div class="__article-txt">{{ page.content }}</div>
+    <div class="__article-txt-{{ section.settings.text_size }}">{{ page.content }}</div>
   {% endif %}
 </div>
-  
+
 {% schema %}
 {
   "name": "t:sections.main-page.name",
   "tag": "section",
   "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.main-page.settings.header_1.content"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.main-page.settings.heading_size.options.label_1"
+        },
+        {
+          "value": "h4",
+          "label": "t:sections.main-page.settings.heading_size.options.label_2"
+        },
+        {
+          "value": "h5",
+          "label": "t:sections.main-page.settings.heading_size.options.label_3"
+        },
+        {
+          "value": "h6",
+          "label": "t:sections.main-page.settings.heading_size.options.label_4"
+        }
+      ],
+      "default": "h2",
+      "label": "t:sections.main-page.settings.heading_size.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "alt_heading",
+      "label": "t:sections.main-page.settings.alt_heading.label"
+    },
+    {
+      "type": "select",
+      "id": "text_size",
+      "options": [
+        {
+          "value": "p-sm",
+          "label": "t:sections.main-page.settings.description_text_size.options.label_1"
+        },
+        {
+          "value": "p",
+          "label": "t:sections.main-page.settings.description_text_size.options.label_2"
+        },
+        {
+          "value": "p-lg",
+          "label": "t:sections.main-page.settings.description_text_size.options.label_3"
+        }
+      ],
+      "default": "p-sm",
+      "label": "t:sections.main-page.settings.description_text_size.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.main-page.settings.header_2.content"
+    },
     {
       "type": "range",
       "id": "top_spacing",
@@ -24,7 +86,7 @@
       "max": 100,
       "step": 10,
       "unit": "%",
-      "label": "Top Section Spacing",
+      "label": "t:sections.main-page.settings.top_spacing.label",
       "default": 50
     },
     {
@@ -34,7 +96,7 @@
       "max": 100,
       "step": 10,
       "unit": "%",
-      "label": "Bottom Section Spacing",
+      "label": "t:sections.main-page.settings.bottom_spacing.label",
       "default": 50
     },
     {
@@ -43,33 +105,34 @@
       "options": [
         {
           "value": "primary",
-          "label": "Primary Theme"
+          "label": "t:sections.main-page.settings.theme.options.label_1"
         },
         {
           "value": "2",
-          "label": "2nd Theme"
+          "label": "t:sections.main-page.settings.theme.options.label_2"
         },
         {
           "value": "3",
-          "label": "3rd Theme"
+          "label": "t:sections.main-page.settings.theme.options.label_3"
         },
         {
           "value": "4",
-          "label": "4th Theme"
+          "label": "t:sections.main-page.settings.theme.options.label_4"
         },
         {
           "value": "5",
-          "label": "5th Theme"
+          "label": "t:sections.main-page.settings.theme.options.label_5"
         }
       ],
       "default": "primary",
-      "label": "Theme"
+      "label": "t:sections.main-page.settings.theme.label"
     }
   ],
-    "presets": [
+  "presets": [
     {
-      "name": "Main Page"
+      "name": "t:sections.main-page.presets.name"
     }
-  ]
+  ],
+  "templates": ["page"]
 }
 {% endschema %}

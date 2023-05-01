@@ -1,4 +1,9 @@
 {{ 'content-marquee.css' | asset_url | stylesheet_tag }}
+{{ 'content-card.css' | asset_url | stylesheet_tag }}
+{{ 'quote-card.css' | asset_url | stylesheet_tag }}
+
+<script src="{{ 'content-marquee.js' | asset_url }}" defer></script>
+
 
 {% liquid
   assign card_width_divisor = 4
@@ -38,6 +43,7 @@
               {% when 'quote' %}
                 {% render 'quote-card',
                   quote: block.settings.quote,
+                  quote_size: block.settings.text_size,
                   alignment: section.settings.alignment,
                   background_theme: block.settings.background_theme,
                   card_corners: block.settings.card_corners,
@@ -61,9 +67,11 @@
                   overlay: section.settings.overlay,
                   heading: block.settings.heading,
                   heading_size: block.settings.heading_size,
+                  button_label: block.settings.button_label,
                   button_link: block.settings.button_link,
                   button_color: block.settings.button_color,
                   text: block.settings.text,
+                  text_size: block.settings.text_size,
                   img_width: 800,
                   img_widths: '800, 500, 300',
                   img_sizes: '(max-width: 1024px) 40vw, 25vw'
@@ -75,7 +83,7 @@
         {% else %}
           {% for i in (1..placeholder_card_count) %}
             {% render 'quote-card',
-              quote: '<p>Lorem ipsum dolor iset</p>',
+              quote: '<p>Display your quote here</p>',
               quotations: true,
               background_theme: '2',
               alignment: section.settings.alignment,
@@ -188,24 +196,45 @@
         {
           "type": "richtext",
           "id": "quote",
+          "default": "<p>Include your quote here</p>",
           "label": "t:sections.content-marquee.blocks.quote.settings.quote.label"
+        },
+        {
+          "type": "select",
+          "id": "text_size",
+          "options": [
+            {
+              "value": "p-sm",
+              "label": "t:sections.content-marquee.blocks.quote.settings.description_text_size.options.label_1"
+            },
+            {
+              "value": "p",
+              "label": "t:sections.content-marquee.blocks.quote.settings.description_text_size.options.label_2"
+            },
+            {
+              "value": "p-lg",
+              "label": "t:sections.content-marquee.blocks.quote.settings.description_text_size.options.label_3"
+            }
+          ],
+          "default": "p-sm",
+          "label": "t:sections.content-marquee.blocks.quote.settings.description_text_size.label"
         },
         {
           "type": "checkbox",
           "id": "quotations",
-          "label": "t:sections.content-marquee.blocks.quote.settings.quote.quotations.label",
-          "info": "t:sections.content-marquee.blocks.quote.settings.quote.quotations.info",
+          "label": "t:sections.content-marquee.blocks.quote.settings.quotations.label",
+          "info": "t:sections.content-marquee.blocks.quote.settings.quotations.info",
           "default": true
         },
         {
           "type": "richtext",
           "id": "details",
-          "label": "t:sections.content-marquee.blocks.quote.settings.quote.details.label"
+          "label": "t:sections.content-marquee.blocks.quote.settings.details.label"
         },
         {
           "type": "image_picker",
           "id": "logo",
-          "label": "t:sections.content-marquee.blocks.quote.settings.quote.logo.label"
+          "label": "t:sections.content-marquee.blocks.quote.settings.logo.label"
         },
         {
           "type": "select",
@@ -213,27 +242,27 @@
           "options": [
             {
               "value": "primary",
-              "label": "t:sections.content-marquee.blocks.quote.settings.quote.background_theme.options.label_1"
+              "label": "t:sections.content-marquee.blocks.quote.settings.background_theme.options.label_1"
             },
             {
               "value": "2",
-              "label": "t:sections.content-marquee.blocks.quote.settings.quote.background_theme.options.label_2"
+              "label": "t:sections.content-marquee.blocks.quote.settings.background_theme.options.label_2"
             },
             {
               "value": "3",
-              "label": "t:sections.content-marquee.blocks.quote.settings.quote.background_theme.options.label_3"
+              "label": "t:sections.content-marquee.blocks.quote.settings.background_theme.options.label_3"
             },
             {
               "value": "4",
-              "label": "t:sections.content-marquee.blocks.quote.settings.quote.background_theme.options.label_4"
+              "label": "t:sections.content-marquee.blocks.quote.settings.background_theme.options.label_4"
             },
             {
               "value": "5",
-              "label": "t:sections.content-marquee.blocks.quote.settings.quote.background_theme.options.label_5"
+              "label": "t:sections.content-marquee.blocks.quote.settings.background_theme.options.label_5"
             }
           ],
           "default": "primary",
-          "label": "t:sections.content-marquee.blocks.quote.settings.quote.background_theme.label"
+          "label": "t:sections.content-marquee.blocks.quote.settings.background_theme.label"
         },
         {
           "type": "select",
@@ -241,19 +270,19 @@
           "options": [
             {
               "value": "default",
-              "label": "t:sections.content-marquee.blocks.quote.settings.quote.card_corners.options.label_1"
+              "label": "t:sections.content-marquee.blocks.quote.settings.card_corners.options.label_1"
             },
             {
               "value": "rounded",
-              "label": "t:sections.content-marquee.blocks.quote.settings.quote.card_corners.options.label_2"
+              "label": "t:sections.content-marquee.blocks.quote.settings.card_corners.options.label_2"
             },
             {
               "value": "semicircle",
-              "label": "t:sections.content-marquee.blocks.quote.settings.quote.card_corners.options.label_3"
+              "label": "t:sections.content-marquee.blocks.quote.settings.card_corners.options.label_3"
             }
           ],
           "default": "default",
-          "label": "t:sections.content-marquee.blocks.quote.settings.quote.card_corners.label"
+          "label": "t:sections.content-marquee.blocks.quote.settings.card_corners.label"
         }
       ]
     },
@@ -368,7 +397,7 @@
         {
           "type": "text",
           "id": "heading",
-          "default": "Lorem ipsum",
+          "default": "Content Marquee",
           "label": "t:sections.content-marquee.blocks.image.settings.heading.label"
         },
         {
@@ -408,6 +437,26 @@
           "label": "t:sections.content-marquee.blocks.image.settings.text.label"
         },
         {
+          "type": "select",
+          "id": "text_size",
+          "options": [
+            {
+              "value": "p-sm",
+              "label": "t:sections.content-marquee.blocks.image.settings.description_text_size.options.label_1"
+            },
+            {
+              "value": "p",
+              "label": "t:sections.content-marquee.blocks.image.settings.description_text_size.options.label_2"
+            },
+            {
+              "value": "p-lg",
+              "label": "t:sections.content-marquee.blocks.image.settings.description_text_size.options.label_3"
+            }
+          ],
+          "default": "p-sm",
+          "label": "t:sections.content-marquee.blocks.image.settings.description_text_size.label"
+        },
+        {
           "type": "radio",
           "id": "alignment",
           "label": "t:sections.content-marquee.blocks.image.settings.alignment.label",
@@ -430,7 +479,6 @@
         {
           "type": "text",
           "id": "button_label",
-          "default": "Laboris Nisi",
           "label": "t:sections.content-marquee.blocks.image.settings.button_label.label"
         },
         {
@@ -475,7 +523,7 @@
   ],
   "presets": [
     {
-      "name": "Content Marquee"
+      "name": "t:sections.content-marquee.presets.name"
     }
   ]
 }

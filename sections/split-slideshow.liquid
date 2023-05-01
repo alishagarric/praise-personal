@@ -1,5 +1,6 @@
 {{ 'overflow-slider.css' | asset_url | stylesheet_tag }}
 {{ 'split-slideshow.css' | asset_url | stylesheet_tag }}
+{{ 'content-card.css' | asset_url | stylesheet_tag }}
 
 {% liquid
   if section.blocks.size > 0
@@ -72,6 +73,7 @@
             image: card_image,
             overlay_theme: overlay_theme,
             overlay: overlay,
+            text_size: section.settings.text_size,
             crop_shape: section.settings.crop_shape,
             heading_size: section.settings.article_heading_size,
             button_color: section.settings.button_color,
@@ -153,7 +155,7 @@
         {
           "type": "text",
           "id": "heading",
-          "default": "Lorem ipsum",
+          "default": "One of the Slides",
           "label": "t:sections.split-slideshow.blocks.image-with-text.settings.heading.label"
         },
         {
@@ -164,7 +166,7 @@
         {
           "type": "text",
           "id": "button_label",
-          "default": "Laboris Nisi",
+          "default": "Learn More",
           "label": "t:sections.split-slideshow.blocks.image-with-text.settings.button_label"
         },
         {
@@ -239,7 +241,7 @@
     {
       "type": "text",
       "id": "heading",
-      "default": "Lorem ipsum dolor sit",
+      "default": "Split Slideshow",
       "label": "t:sections.split-slideshow.settings.heading.label"
     },
     {
@@ -270,6 +272,26 @@
       "type": "checkbox",
       "id": "alt_heading",
       "label": "t:sections.split-slideshow.settings.alt_heading.label"
+    },
+    {
+      "type": "select",
+      "id": "text_size",
+      "options": [
+        {
+          "value": "p-sm",
+          "label": "t:sections.split-slideshow.settings.description_text_size.options.label_1"
+        },
+        {
+          "value": "p",
+          "label": "t:sections.split-slideshow.settings.description_text_size.options.label_2"
+        },
+        {
+          "value": "p-lg",
+          "label": "t:sections.split-slideshow.settings.description_text_size.options.label_3"
+        }
+      ],
+      "default": "p-sm",
+      "label": "t:sections.split-slideshow.settings.description_text_size.label"
     },
     {
       "type": "header",

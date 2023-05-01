@@ -1,0 +1,4 @@
+{% capture cart_button_label %}{{ 'sections.cart.view_cart' | t }}{% endcapture %}
+{% assign cart_aria_label = 'sections.cart.view_cart' | t %}
+{% render 'cart-drawer' button_link: routes.cart_url, button_label: cart_button_label, class: "__cart-drawer" %}
+

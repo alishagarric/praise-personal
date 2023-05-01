@@ -17,14 +17,13 @@
 <div id="Rich-text-{{ section.id }}" class="rich-text __theme-{{ section_theme }} __align-{{ alignment }}">
   {%- for block in section.blocks -%}
     {%- case block.type -%}
-
-      {% comment %} Type app {% endcomment %}
+        {% comment %} Type app {% endcomment %}
       {%- when '@app' -%}
         <div class="app">
           {% render block %}
         </div>
 
-      {% comment %} Type Heading {% endcomment %}
+        {% comment %} Type Heading {% endcomment %}
       {%- when 'heading' -%}
         {% render 'heading',
           class: 'rich-text',
@@ -34,7 +33,9 @@
 
         {% comment %} Type Text {% endcomment %}
       {%- when 'text' -%}
-        <div class="__article-txt" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
+        <div class="__article-txt-{{ block.settings.text_size }}" {{ block.shopify_attributes }}>
+          {{ block.settings.text }}
+        </div>
 
         {% comment %} Type Button {% endcomment %}
       {%- when 'button' -%}
@@ -56,31 +57,31 @@
   "settings": [
     {
       "type": "header",
-      "content": "General"
+      "content": "t:sections.rich-text.settings.header.content"
     },
     {
       "type": "radio",
       "id": "alignment",
-      "label": "Alignment",
+      "label": "t:sections.rich-text.settings.alignment.label",
       "options": [
         {
           "value": "left",
-          "label": "Left"
+          "label": "t:sections.rich-text.settings.alignment.options.label_1"
         },
         {
           "value": "center",
-          "label": "Center"
+          "label": "t:sections.rich-text.settings.alignment.options.label_2"
         },
         {
           "value": "right",
-          "label": "Right"
+          "label": "t:sections.rich-text.settings.alignment.options.label_3"
         }
       ],
       "default": "left"
     },
     {
       "type": "header",
-      "content": "Section"
+      "content": "t:sections.rich-text.settings.header_2.content"
     },
     {
       "type": "select",
@@ -88,27 +89,27 @@
       "options": [
         {
           "value": "primary",
-          "label": "Primary Theme"
+          "label": "t:sections.rich-text.settings.theme.options.label_1"
         },
         {
           "value": "2",
-          "label": "2nd Theme"
+          "label": "t:sections.rich-text.settings.theme.options.label_2"
         },
         {
           "value": "3",
-          "label": "3rd Theme"
+          "label": "t:sections.rich-text.settings.theme.options.label_3"
         },
         {
           "value": "4",
-          "label": "4th Theme"
+          "label": "t:sections.rich-text.settings.theme.options.label_4"
         },
         {
           "value": "5",
-          "label": "5th Theme"
+          "label": "t:sections.rich-text.settings.theme.options.label_5"
         }
       ],
       "default": "primary",
-      "label": "Theme"
+      "label": "t:sections.rich-text.settings.theme.label"
     },
     {
       "type": "range",
@@ -117,7 +118,7 @@
       "max": 100,
       "step": 10,
       "unit": "%",
-      "label": "Top Spacing",
+      "label": "t:sections.rich-text.settings.top_spacing.label",
       "default": 50
     },
     {
@@ -127,7 +128,7 @@
       "max": 100,
       "step": 10,
       "unit": "%",
-      "label": "Bottom Spacing",
+      "label": "t:sections.rich-text.settings.bottom_spacing.label",
       "default": 50
     }
   ],
@@ -143,8 +144,8 @@
         {
           "type": "text",
           "id": "heading",
-          "default": "Lorem ipsum",
-          "label": "Heading"
+          "default": "Rich Text",
+          "label": "t:sections.rich-text.blocks.heading.settings.heading.label"
         },
         {
           "type": "select",
@@ -152,23 +153,23 @@
           "options": [
             {
               "value": "h2",
-              "label": "X-Large"
+              "label": "t:sections.rich-text.blocks.heading.settings.heading_size.options.label_1"
             },
             {
               "value": "h4",
-              "label": "Large"
+              "label": "t:sections.rich-text.blocks.heading.settings.heading_size.options.label_2"
             },
             {
               "value": "h5",
-              "label": "Medium"
+              "label": "t:sections.rich-text.blocks.heading.settings.heading_size.options.label_3"
             },
             {
               "value": "h6",
-              "label": "Small"
+              "label": "t:sections.rich-text.blocks.heading.settings.heading_size.options.label_4"
             }
           ],
           "default": "h5",
-          "label": "Heading Size"
+          "label": "t:sections.rich-text.blocks.heading.settings.heading_size.label"
         }
       ]
     },
@@ -180,56 +181,77 @@
         {
           "type": "richtext",
           "id": "text",
-          "default": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>",
+          "default": "<p>Add a paragraph or two that supplies information</p>",
           "label": "t:sections.rich-text.blocks.text.settings.text.label"
+        },
+        {
+          "type": "select",
+          "id": "text_size",
+          "options": [
+            {
+              "value": "p-sm",
+              "label": "t:sections.main-page.settings.description_text_size.options.label_1"
+            },
+            {
+              "value": "p",
+              "label": "t:sections.main-page.settings.description_text_size.options.label_2"
+            },
+            {
+              "value": "p-lg",
+              "label": "t:sections.main-page.settings.description_text_size.options.label_3"
+            }
+          ],
+          "default": "p-sm",
+          "label": "t:sections.main-page.settings.description_text_size.label"
         }
       ]
     },
     {
       "type": "button",
-      "name": "Button",
+      "name": "t:sections.rich-text.blocks.button.name",
       "limit": 1,
       "settings": [
         {
           "type": "text",
           "id": "button_label",
-          "default": "Laboris Nisi",
-          "label": "Button Label"
+          "default": "Learn More",
+          "label": "t:sections.rich-text.blocks.button.settings.button_label.label",
+          "info": "t:sections.rich-text.blocks.button.settings.button_label.info"
         },
         {
           "type": "url",
           "id": "button_link",
-          "label": "Button Link"
+          "label": "t:sections.rich-text.blocks.button.settings.button_link.label"
         },
         {
           "type": "select",
           "id": "button_color",
-          "label": "Button Color",
+          "label": "t:sections.rich-text.blocks.button.settings.button_color.label",
           "default": "default",
           "options": [
             {
               "value": "default",
-              "label": "Default"
+              "label": "t:sections.rich-text.blocks.button.settings.button_color.options.label_1"
             },
             {
               "value": "primary",
-              "label": "Primary Theme"
+              "label": "t:sections.rich-text.blocks.button.settings.button_color.options.label_2"
             },
             {
               "value": "2",
-              "label": "2nd Theme"
+              "label": "t:sections.rich-text.blocks.button.settings.button_color.options.label_3"
             },
             {
               "value": "3",
-              "label": "3rd Theme"
+              "label": "t:sections.rich-text.blocks.button.settings.button_color.options.label_4"
             },
             {
               "value": "4",
-              "label": "4th Theme"
+              "label": "t:sections.rich-text.blocks.button.settings.button_color.options.label_5"
             },
             {
               "value": "5",
-              "label": "5th Theme"
+              "label": "t:sections.rich-text.blocks.button.settings.button_color.options.label_6"
             }
           ]
         }

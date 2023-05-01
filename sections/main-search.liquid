@@ -1,4 +1,11 @@
 {{ 'main-search.css' | asset_url | stylesheet_tag }}
+{{ 'article-card.css' | asset_url | stylesheet_tag }}
+{{ 'content-card.css' | asset_url | stylesheet_tag }}
+{{ 'product-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'product-form.css' | asset_url | stylesheet_tag }}
+{{ 'filter-and-sort.css' | asset_url | stylesheet_tag }}
+{{ 'custom-icons.css' | asset_url | stylesheet_tag }}
 
 {% liquid
   assign title = 'general.search.search' | t
@@ -8,7 +15,11 @@
   assign crop_shape = section.settings.crop_shape
   assign quick_add = section.settings.quick_add
   assign show_description = section.settings.show_description
+  assign assc_product_crop_shape = section.settings.assc_product_crop_shape
 %}
+
+{% render 'quick-add-dependencies' quick_add: quick_add %}
+
 
 {% style %}
   #Main-search-{{ section.id }} {
@@ -71,7 +82,7 @@
     {%- paginate search.results by 8 -%}
       <ul class="main-search__results list-unstyled" role="list">
         {%- for item in search.results -%}
-          <li>
+          <li style="--searchType:'{{ item.object_type | capitalize }}'">
             {% liquid
               assign preload = false
               if forloop.index0 < 3
@@ -80,12 +91,12 @@
 
               case item.object_type
                 when 'product'
-                  render 'product-card', product: item, price_position: price, crop: crop_shape, alignment: alignment, alt_heading: alt_title, show_description: show_description, quick_add: quick_add, img_width: 1280, img_widths: '1280, 900, 700, 500', img_sizes: '(max-width: 676px) 100vw, (max-width: 1024px) 45vw, 25vw', img_preload: preload
+                  render 'product-card', this_product: item, price_position: price, crop: crop_shape, alignment: alignment, alt_heading: alt_title, show_description: show_description, quick_add: quick_add, img_width: 1280, img_widths: '1280, 900, 700, 500', img_sizes: '(max-width: 676px) 100vw, (max-width: 1024px) 45vw, 25vw', img_preload: preload
                 when 'article'
-                  render 'article-card', article: item, crop: crop_shape, alignment: alignment, alt_heading: alt_title, show_description: show_description, img_width: 1280, img_widths: '1280, 900, 700, 500', img_sizes: '(max-width: 676px) 100vw, (max-width: 1024px) 45vw, 25vw', img_preload: preload
+                  render 'article-card', article: item, crop: crop_shape, assc_product_crop_shape: assc_product_crop_shape, alignment: alignment, alt_heading: alt_title, show_description: show_description, img_width: 1280, img_widths: '1280, 900, 700, 500', img_sizes: '(max-width: 676px) 100vw, (max-width: 1024px) 45vw, 25vw', img_preload: preload
                 when 'page'
-                  assign text = item.content | strip_html | truncatewords: 20
-                  render 'quote-card', quote: item.title, details: text, link: page.url, alignment: alignment, card_corners: crop_shape, img_width: 1280, img_widths: '1280, 900, 700, 500', img_sizes: '(max-width: 676px) 100vw, (max-width: 1024px) 45vw, 25vw', img_preload: preload
+                  assign text = item.content | strip_html | truncatewords: 20 | prepend: '</p><p class="p-sm">' | prepend: item.title | prepend: '<p class="p-lg">' | append: '</p>'
+                  render 'content-card', heading: item.title, heading_size: 'h2', text: text, overlap: true, crop_shape: crop_shape, alignment: alignment, button_link: item.url
               endcase
             %}
           </li>
@@ -99,32 +110,32 @@
 
 {% schema %}
 {
-  "name": "Main Search",
+  "name": "t:sections.main-search.name",
   "tag": "section",
   "settings": [
     {
       "type": "header",
-      "content": "Result Cards"
+      "content": "t:sections.main-search.settings.header.content"
     },
     {
       "type": "paragraph",
-      "content": "Results can be of type 'page', 'product' or 'article'. Each setting below can only applies to each as applicable"
+      "content": "t:sections.main-search.settings.paragraph.content"
     },
     {
       "type": "checkbox",
       "id": "show_description",
-      "label": "Show description"
+      "label": "t:sections.main-search.settings.show_description.label"
     },
     {
       "type": "checkbox",
       "id": "quick_add",
-      "label": "Enable quick add",
+      "label": "t:sections.main-search.settings.quick_add.label",
       "default": false
     },
     {
       "type": "checkbox",
       "id": "alt_title",
-      "label": "Use body font instead of heading font for card title"
+      "label": "t:sections.main-search.settings.alt_title.label"
     },
     {
       "type": "select",
@@ -132,19 +143,19 @@
       "options": [
         {
           "value": "default",
-          "label": "Left"
+          "label": "t:sections.main-search.settings.alignment.options.label_1"
         },
         {
           "value": "center",
-          "label": "Center"
+          "label": "t:sections.main-search.settings.alignment.options.label_2"
         },
         {
           "value": "right",
-          "label": "Right"
+          "label": "t:sections.main-search.settings.alignment.options.label_3"
         }
       ],
       "default": "default",
-      "label": "Card Text Alignment"
+      "label": "t:sections.main-search.settings.alignment.label"
     },
     {
       "type": "select",
@@ -152,19 +163,19 @@
       "options": [
         {
           "value": "default",
-          "label": "Right of Title"
+          "label": "t:sections.main-search.settings.price.options.label_1"
         },
         {
           "value": "bottom",
-          "label": "Bottom"
+          "label": "t:sections.main-search.settings.price.options.label_2"
         },
         {
           "value": "not-visible",
-          "label": "Not Visible"
+          "label": "t:sections.main-search.settings.price.options.label_3"
         }
       ],
       "default": "default",
-      "label": "Price Position"
+      "label": "t:sections.main-search.settings.price.label"
     },
     {
       "type": "select",
@@ -172,55 +183,112 @@
       "options": [
         {
           "value": "default",
-          "label": "No Crop"
+          "label": "t:sections.main-search.settings.crop_shape.options.label_1"
         },
         {
           "value": "square",
-          "label": "Square"
+          "label": "t:sections.main-search.settings.crop_shape.options.label_2"
         },
         {
           "value": "rounded-square",
-          "label": "Rounded Square"
+          "label": "t:sections.main-search.settings.crop_shape.options.label_3"
         },
         {
           "value": "circle",
-          "label": "Circle"
+          "label": "t:sections.main-search.settings.crop_shape.options.label_4"
         },
         {
           "value": "portrait",
-          "label": "Portrait"
+          "label": "t:sections.main-search.settings.crop_shape.options.label_5"
         },
         {
           "value": "rounded-portrait",
-          "label": "Rounded Portrait"
+          "label": "t:sections.main-search.settings.crop_shape.options.label_6"
         },
         {
           "value": "semicircle-portrait",
-          "label": "Semicircle Portrait"
+          "label": "t:sections.main-search.settings.crop_shape.options.label_7"
         },
         {
           "value": "landscape",
-          "label": "Landscape"
+          "label": "t:sections.main-search.settings.crop_shape.options.label_8"
         },
         {
           "value": "rounded-landscape",
-          "label": "Rounded Landscape"
+          "label": "t:sections.main-search.settings.crop_shape.options.label_9"
         },
         {
           "value": "semicircle-landscape",
-          "label": "Semicircle Landscape"
+          "label": "t:sections.main-search.settings.crop_shape.options.label_10"
         },
         {
           "value": "arch",
-          "label": "Semicircle Arch"
+          "label": "t:sections.main-search.settings.crop_shape.options.label_11"
         }
       ],
       "default": "default",
-      "label": "Product Image Crop Shape"
+      "label": "t:sections.main-search.settings.crop_shape.label"
+    },
+    {
+      "type": "select",
+      "id": "assc_product_crop_shape",
+      "options": [
+        {
+          "value": "not-visible",
+          "label": "t:sections.main-search.settings.assc_product_crop_shape.options.label_1"
+        },
+        {
+          "value": "default",
+          "label": "t:sections.main-search.settings.assc_product_crop_shape.options.label_2"
+        },
+        {
+          "value": "square",
+          "label": "t:sections.main-search.settings.assc_product_crop_shape.options.label_3"
+        },
+        {
+          "value": "rounded-square",
+          "label": "t:sections.main-search.settings.assc_product_crop_shape.options.label_4"
+        },
+        {
+          "value": "circle",
+          "label": "t:sections.main-search.settings.assc_product_crop_shape.options.label_5"
+        },
+        {
+          "value": "portrait",
+          "label": "t:sections.main-search.settings.assc_product_crop_shape.options.label_6"
+        },
+        {
+          "value": "rounded-portrait",
+          "label": "t:sections.main-search.settings.assc_product_crop_shape.options.label_7"
+        },
+        {
+          "value": "semicircle-portrait",
+          "label": "t:sections.main-search.settings.assc_product_crop_shape.options.label_8"
+        },
+        {
+          "value": "landscape",
+          "label": "t:sections.main-search.settings.assc_product_crop_shape.options.label_9"
+        },
+        {
+          "value": "rounded-landscape",
+          "label": "t:sections.main-search.settings.assc_product_crop_shape.options.label_10"
+        },
+        {
+          "value": "semicircle-landscape",
+          "label": "t:sections.main-search.settings.assc_product_crop_shape.options.label_11"
+        },
+        {
+          "value": "arch",
+          "label": "t:sections.main-search.settings.assc_product_crop_shape.options.label_12"
+        }
+      ],
+      "default": "not-visible",
+      "label": "t:sections.main-blog.settings.assc_product_crop_shape.label",
+      "info": "t:sections.main-blog.settings.assc_product_crop_shape.info"
     },
     {
       "type": "header",
-      "content": "Section"
+      "content": "t:sections.main-search.settings.header_2.content"
     },
     {
       "type": "select",
@@ -228,27 +296,27 @@
       "options": [
         {
           "value": "primary",
-          "label": "Primary Theme"
+          "label": "t:sections.main-search.settings.theme.options.label_1"
         },
         {
           "value": "2",
-          "label": "2nd Theme"
+          "label": "t:sections.main-search.settings.theme.options.label_2"
         },
         {
           "value": "3",
-          "label": "3rd Theme"
+          "label": "t:sections.main-search.settings.theme.options.label_3"
         },
         {
           "value": "4",
-          "label": "4th Theme"
+          "label": "t:sections.main-search.settings.theme.options.label_4"
         },
         {
           "value": "5",
-          "label": "5th Theme"
+          "label": "t:sections.main-search.settings.theme.options.label_5"
         }
       ],
       "default": "primary",
-      "label": "Theme"
+      "label": "t:sections.main-search.settings.theme.label"
     },
     {
       "type": "range",
@@ -257,7 +325,7 @@
       "max": 100,
       "step": 10,
       "unit": "%",
-      "label": "Top Spacing",
+      "label": "t:sections.main-search.settings.top_spacing.label",
       "default": 50
     },
     {
@@ -267,7 +335,7 @@
       "max": 100,
       "step": 10,
       "unit": "%",
-      "label": "Bottom Spacing",
+      "label": "t:sections.main-search.settings.bottom_spacing.label",
       "default": 50
     }
   ]

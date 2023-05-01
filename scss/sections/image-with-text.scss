@@ -3,6 +3,7 @@
   --imageWithTextRatio: 37%;
   display: flex;
   gap: var(--imageWithTextSpace);
+  align-items: center;
 
   &__text {
     display: flex;
@@ -59,7 +60,8 @@
   &__image {
     position: relative;
 
-    img {
+    img,
+    svg {
       position: absolute;
       top: 0;
       height: 100%;
@@ -71,7 +73,8 @@
   &:not(.__layout-reversed) {
     .image-with-text {
       &__image {
-        img {
+        img,
+        svg {
           left: 0;
         }
       }
@@ -83,7 +86,8 @@
 
     .image-with-text {
       &__image {
-        img {
+        img,
+        svg {
           right: 0;
         }
       }
@@ -110,14 +114,14 @@
 
   &.__image-style-square {
     --imageWithTextSpace: calc(var(--sectionGuttersSpacing) / 2);
-    align-items: center;
 
     .image-with-text {
       &__image {
         flex: 0 0 calc(var(--vwSize) * 15);
         padding-top: calc(var(--vwSize) * 15);
 
-        img {
+        img,
+        svg {
           width: 100%;
         }
       }
@@ -136,10 +140,13 @@
       width: calc(
         var(--sectionGuttersSpacing) + var(--sectionGuttersSpacing) + 100%
       );
-      left: calc(var(--sectionGuttersSpacing) * -1);
+      left: 0;
+      right: 0;
+
       min-height: var(--mobileImageHeight) !important;
 
-      img {
+      img,
+      svg {
         width: 100%;
       }
     }

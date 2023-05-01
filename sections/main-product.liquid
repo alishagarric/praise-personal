@@ -1,6 +1,9 @@
 {{ 'product.css' | asset_url | stylesheet_tag }}
 {{ 'cmnc-flickity.css' | asset_url | stylesheet_tag }}
 {{ 'main-product.css' | asset_url | stylesheet_tag }}
+{{ 'number-input.css' | asset_url | stylesheet_tag }}
+{{ 'product-form.css' | asset_url | stylesheet_tag }}
+{{ 'variant-picker.css' | asset_url | stylesheet_tag }}
 
 
 {% if template == "product.modal" %}
@@ -16,21 +19,14 @@
 {% comment %} 
   Get these variables:
    featured_media (object)
-   variant_images (array)
    media_count (int)
    first_3d_modal (object)
-
-   TODO: What is section.settings.hide_variants below. Create it in schema? Remove it here?
 {% endcomment %}
 {%- liquid
   assign featured_media = product.selected_or_first_available_variant.featured_media
-  assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src'
   assign media_count = product.media.size
-  if section.settings.hide_variants and media_count > 1
-    assign media_count = media_count | minus: variant_images.size | plus: 1
-  endif
   assign first_3d_model = product.media | where: "media_type", "model" | first
-  assign product_form_id = 'Product-Form-' | append: section.id
+  assign product_form_id = 'Product-Form-' | append: section.id | append: product.id
 -%}
 
 {% comment %} Add style sheet that'll apply to 3d model instances? {% endcomment %}
@@ -41,7 +37,7 @@
 <div class="main-product product {% if template == "product.modal" %}main-modal{% endif %} __theme-{{ section.settings.theme }}">
   
     {% comment %} Product info {% endcomment %}
-    <div id="Product-Info-{{ section.id }}" class="main-product__container __offset-{% if section.blocks.first.type == "media" %}left{% elsif section.blocks.last.type == "media" %}right{% else %}none{% endif %}">
+    <div id="Product-Info-{{ section.id }}{{ product.id }}" class="main-product__container __offset-{% if section.blocks.first.type == "media" %}left{% elsif section.blocks.last.type == "media" %}right{% else %}none{% endif %}">
       {% comment %} 
         Seems weird but we need to open this container without a closing tag. 
         Either the end of the loop of the media block within the loop will close 
@@ -66,10 +62,15 @@
             </div>
 
 
-            <media-gallery class="main-product__media __layout-{{ block.settings.layout }}" id="Product-MediaGallery-{{ section.id }}" data-section="{{ section.id }}">
+            <media-gallery 
+              class="main-product__media __layout-{{ block.settings.layout }}" 
+              id="Product-MediaGallery-{{ section.id }}{{ product.id }}" 
+              style="{% if product.metafields.custom.color %}--mobile-color-background: {{ product.metafields.custom.color.value.rgb }}; --mobile-color-foreground-text: {{ product.metafields.custom.color.value.rgb }};{% endif %} {% if product.metafields.custom.text_color %} --mobile-color-text: {{ product.metafields.custom.text_color.value.rgb }}; --mobile-color-foreground: {{ product.metafields.custom.text_color.value.rgb }}; --mobile-color-border: {{ product.metafields.custom.text_color.value.rgb }} / .3;{% endif %}"
+              data-section="{{ section.id }}"
+            >
 
               {% comment %} Skip to content anchor link {% endcomment %}
-              <a class="skip-to-content-link visually-hidden" href="#ProductInfo-{{ section.id }}">
+              <a class="skip-to-content-link visually-hidden" href="#Product-Info-{{ section.id }}{{ product.id }}">
                 {{ 'accessibility.skip_to_product_info' | t }}
               </a>
 
@@ -77,7 +78,7 @@
 
                 {% comment %} Output first image (not lzayloaded) (changes depengind on variant availability and assigned variant images) {% endcomment %}
                 {%- unless featured_media == null -%}
-                  <li class="main-product__media__item" data-media-id="{{ section.id }}-{{ featured_media.id }}">
+                  <li class="main-product__media__item" data-media-id="{{ section.id }}{{ product.id }}-{{ featured_media.id }}">
                     {% render 'product-thumbnail', media: featured_media, loading: 'eager' %}
                   </li>
                 {%- endunless -%}
@@ -86,7 +87,7 @@
                 {% comment %} What does the parent <media-gallery> component do, why do these li's have data-media-id attr on them? {% endcomment %}
                 {%- for media in product.media -%}
                   {%- unless media.id == featured_media.id -%}
-                    <li class="main-product__media__item" data-media-id="{{ section.id }}-{{ media.id }}">
+                    <li class="main-product__media__item" data-media-id="{{ section.id }}{{ product.id }}-{{ media.id }}">
                       {%- liquid
                         assign media_position = media_position | default: 0 | plus: 1
                         assign loading = 'eager'
@@ -103,7 +104,7 @@
               {% if block.settings.layout != "stacked" %}
                 <ul class="main-product__media__dots" style="--dotsColumns: {% if product.media.size > 5 %}5{% else %}{{ product.media.size }}{% endif %}; --dotsRows: {{ product.media.size | divided_by: 5.0 | ceil }}">
                   {%- for media in product.media -%}
-                    <li class="main-product__media__dots__dot standard-flickity-dot {% if media == product.selected_or_first_available_variant.featured_media %}__active{% endif %}" data-media-dot-id="{{ section.id }}-{{ media.id }}">
+                    <li class="main-product__media__dots__dot standard-flickity-dot {% if media == product.selected_or_first_available_variant.featured_media %}__active{% endif %}" data-media-dot-id="{{ section.id }}{{ product.id }}-{{ media.id }}">
                       <span class="visually-hidden">{{ forloop.index }}</span>
                     </li>
                   {%- endfor -%}
@@ -155,12 +156,13 @@
 
           {% comment %} Type price {% endcomment %}
           {%- when 'price' -%}
-            {% render 'form-price' product: product, price_size: block.settings.heading_size, form_id: section.id %}
+            {% assign form_id = section.id | append: product.id %}
+            {% render 'form-price' product: product, price_size: block.settings.heading_size, form_id: form_id %}
 
           
           {% comment %} Type variant picker {% endcomment %}
           {%- when 'variant_picker' -%}
-            {% render 'variant_picker' product: product, layout: block.settings.layout, include_border: block.settings.include_border, show_option_labels: block.settings.show_option_labels, class: "main-product__block" %}
+            {% render 'variant_picker' this_product: product, product_form_id: product_form_id, layout: block.settings.layout, include_border: block.settings.include_border, show_option_labels: block.settings.show_option_labels, class: "main-product__block" %}
 
           {% comment %} Type buy buttons {% endcomment %}
           {%- when 'buy_buttons' -%}
@@ -172,10 +174,23 @@
           {%- when 'expandable' %}
             {% render 'disclosure', title: block.settings.title, id: block.id, text: block.settings.text, page: block.settings.page, open: block.settings.open, article_text: true %}
 
-          {% comment %} Type featured icons {% endcomment %}
+          {% comment %} Type featured metafield icons {% endcomment %}
           {%- when 'icons' -%}
             {% if product.metafields.custom.featured_icons.value.size > 0 %}
               <div class="main-product__block {% if block.settings.include_border %} __border-top {% endif %}">
+                {{ 'custom-icons.css' | asset_url | stylesheet_tag }}
+                {% if block.settings.title %}
+                  <div class="p-sm">{{ block.settings.title }}</div>
+                {% endif %}
+                {% render 'featured-icons' %}
+              </div>
+            {% endif %}
+
+          {% comment %} Type featured basic icons {% endcomment %}
+          {%- when 'icons' -%}
+            {% if block.settings.icon_1 or block.settings.icon_2 or block.settings.icon_3 %}
+              <div class="main-product__block {% if block.settings.include_border %} __border-top {% endif %}">
+                {{ 'custom-icons.css' | asset_url | stylesheet_tag }}
                 {% if block.settings.title %}
                   <div class="p-sm">{{ block.settings.title }}</div>
                 {% endif %}
@@ -198,16 +213,13 @@
 
           {% comment %} Type rating {% endcomment %}
           {%- when 'rating' -%}
+            {{ 'product-ratings.css' | asset_url | stylesheet_tag }}
             {% render 'product-ratings' product: product %}
 
           {% comment %} Type pickup availability {% endcomment %}
           {%- when 'pickup_availability' -%}
 
             {% capture pickup_availability_content %}
-              {% comment %}
-                Pickup availability block's contents are rendered async to ensure faster Liquid render times, but this may cause a noticeable increase in cumulative layout shift (CLS) if rendered near the top of the page.
-                To mitigate CLS, the contents of `pickup-availability.liquid` could alternatively be rendered directly in this Liquid file.
-              {% endcomment %}
               <script src="{{ 'pickup-availability.js' | asset_url }}" defer="defer"></script>
               <pickup-availability data-product-variant="{{ product.selected_or_first_available_variant.id }}">
                 {% comment %}
@@ -218,7 +230,7 @@
                 </template>
               </pickup-availability>  
             {% endcapture %}
-            {% capture pickup_availability_id %}pickup-{{ section.id }}-{{ block.id }}{% endcapture %}
+            {% capture pickup_availability_id %}pickup-{{ section.id }}{{ product.id }}-{{ block.id }}{% endcapture %}
             {% render 'disclosure' title: block.settings.title, text: pickup_availability_content, id: pickup_availability_id, class: "main-product__block main-product__pickup-disclosure" %}
           
           {% comment %} Product Recommendations {% endcomment %}
@@ -256,8 +268,6 @@
     {% endif %}
   </div>
 
-  {% comment %} TODO: IE purchase flow fix {% endcomment %}
-  {% comment %} TODO: SEO JSON {% endcomment %}
   {%- if first_3d_model -%}
     <script type="application/json" id="Product-JSON-{{ product.id }}">
       {{ product.media | where: 'media_type', 'model' | json }}
@@ -267,8 +277,8 @@
 </div>
 
 <script src="{{ 'media-gallery.js' | asset_url }}" defer="defer"></script>
-<script src="{{ 'variant-selects.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'variant-selects.js' | asset_url }}" defer="defer"></script>
 
 {%- liquid
   if product.selected_or_first_available_variant.featured_media
@@ -330,8 +340,8 @@
         {
           "type": "text",
           "id": "text",
-          "default": "Text",
-          "label": "Text"
+          "default": "Text about the product",
+          "label": "t:sections.main-product.blocks.text.settings.text.label"
         },
         {
           "type": "select",
@@ -339,31 +349,31 @@
           "options": [
             {
               "value": "p-sm",
-              "label": "Small Text"
+              "label": "t:sections.main-product.blocks.text.settings.text_size.options.label_1"
             },
             {
               "value": "p",
-              "label": "Basic Text"
+              "label": "t:sections.main-product.blocks.text.settings.text_size.options.label_2"
             },
             {
               "value": "p-lg",
-              "label": "Large Text"
+              "label": "t:sections.main-product.blocks.text.settings.text_size.options.label_3"
             }
           ],
           "default": "p-sm",
-          "label": "Text Size"
+          "label": "t:sections.main-product.blocks.text.settings.text_size.label"
         },
         {
           "type": "checkbox",
           "id": "include_border",
-          "label": "Include border",
+          "label": "t:sections.main-product.blocks.text.settings.include_border.label",
           "default": true
         }
       ]
     },
     {
       "type": "vendor",
-      "name": "Vendor",
+      "name": "t:sections.main-product.blocks.vendor.name",
       "settings": [
         {
           "type": "select",
@@ -371,74 +381,75 @@
           "options": [
             {
               "value": "p-sm",
-              "label": "Small Text"
+              "label": "t:sections.main-product.blocks.vendor.settings.text_size.options.label_1"
             },
             {
               "value": "p",
-              "label": "Basic Text"
+              "label": "t:sections.main-product.blocks.vendor.settings.text_size.options.label_2"
             },
             {
               "value": "p-lg",
-              "label": "Large Text"
+              "label": "t:sections.main-product.blocks.vendor.settings.text_size.options.label_3"
             }
           ],
           "default": "p-sm",
-          "label": "Text Size"
+          "label": "t:sections.main-product.blocks.vendor.settings.text_size.label"
         },
         {
           "type": "checkbox",
           "id": "include_border",
-          "label": "Include border",
+          "label": "t:sections.main-product.blocks.vendor.settings.include_border.label",
           "default": true
         }
       ]
     },
     {
       "type": "expandable",
-      "name": "Expandable Content",
+      "name": "t:sections.main-product.blocks.expandable.name",
       "settings": [
         {
           "type": "text",
           "id": "title",
-          "default": "Title",
-          "label": "Title"
+          "default": "Expandable Content",
+          "label": "t:sections.main-product.blocks.expandable.settings.title.label"
         },
         {
           "type": "richtext",
+          "default": "<p>Extra information your customers might find useful</p>",
           "id": "text",
-          "label": "Text"
+          "label": "t:sections.main-product.blocks.expandable.settings.text.label"
         },
         {
           "type": "page",
           "id": "page",
-          "label": "Text from a page"
+          "label": "t:sections.main-product.blocks.expandable.settings.page.label"
         },
         {
           "type": "checkbox",
           "id": "open",
-          "label": "Open"
+          "label": "t:sections.main-product.blocks.expandable.settings.open.label"
         }
       ]
     },
     {
       "type": "complementary_products",
       "limit": 1,
-      "name": "Complementary Products",
+      "name": "t:sections.main-product.blocks.complementary_products.name",
       "settings": [
         {
           "type": "paragraph",
-          "content": "This is generated from the complementary products you specify inside the Search and Discovery app. TODO: link with more info"
+          "content": "t:sections.main-product.blocks.complementary_products.settings.paragraph.content"
         },
         {
           "type": "text",
           "id": "title",
           "default": "Title",
-          "label": "Title"
+          "label": "t:sections.main-product.blocks.complementary_products.settings.title.label"
         },
         {
           "type": "checkbox",
           "id": "include_border",
-          "label": "Include border",
+          "label": "t:sections.main-product.blocks.complementary_products.settings.include_border.label",
           "default": true
         },
         {
@@ -447,71 +458,71 @@
           "options": [
             {
               "value": "default",
-              "label": "No Crop"
+              "label": "t:sections.main-product.blocks.complementary_products.settings.crop_shape.options.label_1"
             },
             {
               "value": "square",
-              "label": "Square"
+              "label": "t:sections.main-product.blocks.complementary_products.settings.crop_shape.options.label_2"
             },
             {
               "value": "rounded-square",
-              "label": "Rounded Square"
+              "label": "t:sections.main-product.blocks.complementary_products.settings.crop_shape.options.label_3"
             },
             {
               "value": "circle",
-              "label": "Circle"
+              "label": "t:sections.main-product.blocks.complementary_products.settings.crop_shape.options.label_4"
             },
             {
               "value": "portrait",
-              "label": "Portrait"
+              "label": "t:sections.main-product.blocks.complementary_products.settings.crop_shape.options.label_4"
             },
             {
               "value": "rounded-portrait",
-              "label": "Rounded Portrait"
+              "label": "t:sections.main-product.blocks.complementary_products.settings.crop_shape.options.label_5"
             },
             {
               "value": "semicircle-portrait",
-              "label": "Semicircle Portrait"
+              "label": "t:sections.main-product.blocks.complementary_products.settings.crop_shape.options.label_6"
             },
             {
               "value": "landscape",
-              "label": "Landscape"
+              "label": "t:sections.main-product.blocks.complementary_products.settings.crop_shape.options.label_7"
             },
             {
               "value": "rounded-landscape",
-              "label": "Rounded Landscape"
+              "label": "t:sections.main-product.blocks.complementary_products.settings.crop_shape.options.label_8"
             },
             {
               "value": "semicircle-landscape",
-              "label": "Semicircle Landscape"
+              "label": "t:sections.main-product.blocks.complementary_products.settings.crop_shape.options.label_9"
             },
             {
               "value": "arch",
-              "label": "Semicircle Arch"
+              "label": "t:sections.main-product.blocks.complementary_products.settings.crop_shape.options.label_10"
             }
           ],
           "default": "square",
-          "label": "Product Image Crop Shape"
+              "label": "t:sections.main-product.blocks.complementary_products.settings.crop_shape.label"
         }
       ]
     },
     {
       "type": "media",
-      "name": "media",
+      "name": "t:sections.main-product.blocks.media.name",
       "limit": 1,
       "settings": [
         {
           "type": "radio",
           "id": "layout",
-          "label": "Layout",
+          "label": "t:sections.main-product.blocks.media.settings.layout.label",
           "options": [
             {
               "value": "stacked",
-              "label": "Stacked"
+              "label": "t:sections.main-product.blocks.media.settings.layout.options.label_1"
             },
             {
               "value": "slideshow",
-              "label": "Slideshow"
+              "label": "t:sections.main-product.blocks.media.settings.layout.options.label_2"
             }
           ],
           "default": "stacked"
@@ -521,446 +532,11 @@
     {
       "type": "icons",
       "limit": 1,
-      "name": "Featured Icons",
+      "name": "t:sections.main-product.blocks.icons.name",
       "settings": [
         {
           "type": "paragraph",
-          "content": "This are generated from the featured icons product metafield. Learn More TODO: link this to a description. You can add additional featured icons below."
-        },
-        {
-          "type": "select",
-          "id": "icon_1",
-          "options": [
-            {
-              "value": "none",
-              "label": "None"
-            },
-            {
-              "value": "box",
-              "label": "Box"
-            },
-            {
-              "value": "briefcase",
-              "label": "Briefcase"
-            },
-            {
-              "value": "calendar",
-              "label": "Calendar"
-            },
-            {
-              "value": "chat_bubble",
-              "label": "Chat bubble"
-            },
-            {
-              "value": "check_mark",
-              "label": "Check mark"
-            },
-            {
-              "value": "clock",
-              "label": "Clock"
-            },
-            {
-              "value": "credit_card",
-              "label": "Credit card"
-            },
-            {
-              "value": "dollar_sign",
-              "label": "Dollar sign"
-            },
-            {
-              "value": "dryer",
-              "label": "Dryer"
-            },
-            {
-              "value": "eye",
-              "label": "Eye"
-            },
-            {
-              "value": "feather",
-              "label": "Feather"
-            },
-            {
-              "value": "gift",
-              "label": "Gift"
-            },
-            {
-              "value": "heart",
-              "label": "Heart"
-            },
-            {
-              "value": "iron",
-              "label": "Iron"
-            },
-            {
-              "value": "leaf",
-              "label": "Leaf"
-            },
-            {
-              "value": "leather",
-              "label": "Leather"
-            },
-            {
-              "value": "lock",
-              "label": "Lock"
-            },
-            {
-              "value": "map_pin",
-              "label": "Map pin"
-            },
-            {
-              "value": "pants",
-              "label": "Pants"
-            },
-            {
-              "value": "percent",
-              "label": "Percent"
-            },
-            {
-              "value": "plane",
-              "label": "Plane"
-            },
-            {
-              "value": "price_tag",
-              "label": "Price tag"
-            },
-            {
-              "value": "question_mark",
-              "label": "Question mark"
-            },
-            {
-              "value": "return",
-              "label": "Return"
-            },
-            {
-              "value": "ruler",
-              "label": "Ruler"
-            },
-            {
-              "value": "scissors",
-              "label": "Scissors"
-            },
-            {
-              "value": "shirt",
-              "label": "Shirt"
-            },
-            {
-              "value": "shoe",
-              "label": "Shoe"
-            },
-            {
-              "value": "silhouette",
-              "label": "Silhouette"
-            },
-            {
-              "value": "star",
-              "label": "Star"
-            },
-            {
-              "value": "truck",
-              "label": "Truck"
-            },
-            {
-              "value": "washing",
-              "label": "Washing"
-            }
-          ],
-          "default": "none",
-          "label": "Icon 1"
-        },
-        {
-          "type": "text",
-          "id": "icon_1_title",
-          "label": "Icon 1 Title"
-        },
-        {
-          "type": "select",
-          "id": "icon_2",
-          "options": [
-            {
-              "value": "none",
-              "label": "None"
-            },
-            {
-              "value": "box",
-              "label": "Box"
-            },
-            {
-              "value": "briefcase",
-              "label": "Briefcase"
-            },
-            {
-              "value": "calendar",
-              "label": "Calendar"
-            },
-            {
-              "value": "chat_bubble",
-              "label": "Chat bubble"
-            },
-            {
-              "value": "check_mark",
-              "label": "Check mark"
-            },
-            {
-              "value": "clock",
-              "label": "Clock"
-            },
-            {
-              "value": "credit_card",
-              "label": "Credit card"
-            },
-            {
-              "value": "dollar_sign",
-              "label": "Dollar sign"
-            },
-            {
-              "value": "dryer",
-              "label": "Dryer"
-            },
-            {
-              "value": "eye",
-              "label": "Eye"
-            },
-            {
-              "value": "feather",
-              "label": "Feather"
-            },
-            {
-              "value": "gift",
-              "label": "Gift"
-            },
-            {
-              "value": "heart",
-              "label": "Heart"
-            },
-            {
-              "value": "iron",
-              "label": "Iron"
-            },
-            {
-              "value": "leaf",
-              "label": "Leaf"
-            },
-            {
-              "value": "leather",
-              "label": "Leather"
-            },
-            {
-              "value": "lock",
-              "label": "Lock"
-            },
-            {
-              "value": "map_pin",
-              "label": "Map pin"
-            },
-            {
-              "value": "pants",
-              "label": "Pants"
-            },
-            {
-              "value": "percent",
-              "label": "Percent"
-            },
-            {
-              "value": "plane",
-              "label": "Plane"
-            },
-            {
-              "value": "price_tag",
-              "label": "Price tag"
-            },
-            {
-              "value": "question_mark",
-              "label": "Question mark"
-            },
-            {
-              "value": "return",
-              "label": "Return"
-            },
-            {
-              "value": "ruler",
-              "label": "Ruler"
-            },
-            {
-              "value": "scissors",
-              "label": "Scissors"
-            },
-            {
-              "value": "shirt",
-              "label": "Shirt"
-            },
-            {
-              "value": "shoe",
-              "label": "Shoe"
-            },
-            {
-              "value": "silhouette",
-              "label": "Silhouette"
-            },
-            {
-              "value": "star",
-              "label": "Star"
-            },
-            {
-              "value": "truck",
-              "label": "Truck"
-            },
-            {
-              "value": "washing",
-              "label": "Washing"
-            }
-          ],
-          "default": "none",
-          "label": "Icon 2"
-        },
-        {
-          "type": "text",
-          "id": "icon_2_title",
-          "label": "Icon 3 Title"
-        },
-        {
-          "type": "select",
-          "id": "icon_3",
-          "options": [
-            {
-              "value": "none",
-              "label": "None"
-            },
-            {
-              "value": "box",
-              "label": "Box"
-            },
-            {
-              "value": "briefcase",
-              "label": "Briefcase"
-            },
-            {
-              "value": "calendar",
-              "label": "Calendar"
-            },
-            {
-              "value": "chat_bubble",
-              "label": "Chat bubble"
-            },
-            {
-              "value": "check_mark",
-              "label": "Check mark"
-            },
-            {
-              "value": "clock",
-              "label": "Clock"
-            },
-            {
-              "value": "credit_card",
-              "label": "Credit card"
-            },
-            {
-              "value": "dollar_sign",
-              "label": "Dollar sign"
-            },
-            {
-              "value": "dryer",
-              "label": "Dryer"
-            },
-            {
-              "value": "eye",
-              "label": "Eye"
-            },
-            {
-              "value": "feather",
-              "label": "Feather"
-            },
-            {
-              "value": "gift",
-              "label": "Gift"
-            },
-            {
-              "value": "heart",
-              "label": "Heart"
-            },
-            {
-              "value": "iron",
-              "label": "Iron"
-            },
-            {
-              "value": "leaf",
-              "label": "Leaf"
-            },
-            {
-              "value": "leather",
-              "label": "Leather"
-            },
-            {
-              "value": "lock",
-              "label": "Lock"
-            },
-            {
-              "value": "map_pin",
-              "label": "Map pin"
-            },
-            {
-              "value": "pants",
-              "label": "Pants"
-            },
-            {
-              "value": "percent",
-              "label": "Percent"
-            },
-            {
-              "value": "plane",
-              "label": "Plane"
-            },
-            {
-              "value": "price_tag",
-              "label": "Price tag"
-            },
-            {
-              "value": "question_mark",
-              "label": "Question mark"
-            },
-            {
-              "value": "return",
-              "label": "Return"
-            },
-            {
-              "value": "ruler",
-              "label": "Ruler"
-            },
-            {
-              "value": "scissors",
-              "label": "Scissors"
-            },
-            {
-              "value": "shirt",
-              "label": "Shirt"
-            },
-            {
-              "value": "shoe",
-              "label": "Shoe"
-            },
-            {
-              "value": "silhouette",
-              "label": "Silhouette"
-            },
-            {
-              "value": "star",
-              "label": "Star"
-            },
-            {
-              "value": "truck",
-              "label": "Truck"
-            },
-            {
-              "value": "washing",
-              "label": "Washing"
-            }
-          ],
-          "default": "none",
-          "label": "Icon 3"
-        },
-        {
-          "type": "text",
-          "id": "icon_3_title",
-          "label": "Icon 3 Title"
+          "content": "t:sections.main-product.blocks.icons.settings.paragraph.content"
         },
         {
           "type": "range",
@@ -969,14 +545,14 @@
           "max": 100,
           "step": 10,
           "unit": "px",
-          "label": "Icon Height",
+          "label": "t:sections.main-product.blocks.icons.settings.icon_height.label",
           "default": 40
         },
         {
           "type": "text",
           "id": "title",
           "default": "Title",
-          "label": "Title"
+          "label": "t:sections.main-product.blocks.icons.settings.title.label"
         },
         {
           "type": "radio",
@@ -985,15 +561,15 @@
           "options": [
             {
               "value": "stacked",
-              "label": "Stacked"
+              "label": "t:sections.main-product.blocks.icons.settings.layout.options.label_1"
             },
             {
               "value": "row",
-              "label": "Row"
+              "label": "t:sections.main-product.blocks.icons.settings.layout.options.label_2"
             },
             {
               "value": "icon-only",
-              "label": "Icon Only"
+              "label": "t:sections.main-product.blocks.icons.settings.layout.options.label_3"
             }
           ],
           "default": "stacked"
@@ -1001,12 +577,499 @@
         {
           "type": "checkbox",
           "id": "include_border",
-          "label": "Include border",
+          "label": "t:sections.main-product.blocks.icons.settings.include_border.label",
           "default": true
         }
       ]
     },
-
+    {
+      "type": "basic_icons",
+      "limit": 1,
+      "name": "t:sections.main-product.blocks.basic_icons.name",
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "t:sections.main-product.blocks.basic_icons.settings.paragraph.content"
+        },
+        {
+          "type": "select",
+          "id": "icon_1",
+          "options": [
+            {
+              "value": "none",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_1"
+            },
+            {
+              "value": "box",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_2"
+            },
+            {
+              "value": "briefcase",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_3"
+            },
+            {
+              "value": "calendar",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_4"
+            },
+            {
+              "value": "chat_bubble",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_5"
+            },
+            {
+              "value": "check_mark",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_6"
+            },
+            {
+              "value": "clock",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_7"
+            },
+            {
+              "value": "credit_card",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_8"
+            },
+            {
+              "value": "dollar_sign",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_9"
+            },
+            {
+              "value": "dryer",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_10"
+            },
+            {
+              "value": "eye",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_11"
+            },
+            {
+              "value": "feather",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_12"
+            },
+            {
+              "value": "gift",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_13"
+            },
+            {
+              "value": "heart",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_14"
+            },
+            {
+              "value": "iron",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_15"
+            },
+            {
+              "value": "leaf",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_16"
+            },
+            {
+              "value": "leather",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_17"
+            },
+            {
+              "value": "lock",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_18"
+            },
+            {
+              "value": "map_pin",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_19"
+            },
+            {
+              "value": "pants",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_20"
+            },
+            {
+              "value": "percent",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_21"
+            },
+            {
+              "value": "plane",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_22"
+            },
+            {
+              "value": "price_tag",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_23"
+            },
+            {
+              "value": "question_mark",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_24"
+            },
+            {
+              "value": "return",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_25"
+            },
+            {
+              "value": "ruler",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_26"
+            },
+            {
+              "value": "scissors",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_27"
+            },
+            {
+              "value": "shirt",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_28"
+            },
+            {
+              "value": "shoe",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_29"
+            },
+            {
+              "value": "silhouette",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_30"
+            },
+            {
+              "value": "star",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_31"
+            },
+            {
+              "value": "truck",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_32"
+            },
+            {
+              "value": "washing",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.options.label_33"
+            }
+          ],
+          "default": "none",
+          "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1.label"
+        },
+        {
+          "type": "text",
+          "id": "icon_1_title",
+          "label": "t:sections.main-product.blocks.basic_icons.settings.icon_1_title.label"
+        },
+        {
+          "type": "select",
+          "id": "icon_2",
+          "options": [
+            {
+            "value": "none",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_1"
+            },
+            {
+            "value": "box",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_2"
+            },
+            {
+            "value": "briefcase",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_3"
+            },
+            {
+            "value": "calendar",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_4"
+            },
+            {
+            "value": "chat_bubble",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_5"
+            },
+            {
+            "value": "check_mark",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_6"
+            },
+            {
+            "value": "clock",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_7"
+            },
+            {
+            "value": "credit_card",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_8"
+            },
+            {
+            "value": "dollar_sign",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_9"
+            },
+            {
+            "value": "dryer",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_10"
+            },
+            {
+            "value": "eye",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_11"
+            },
+            {
+            "value": "feather",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_12"
+            },
+            {
+            "value": "gift",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_13"
+            },
+            {
+            "value": "heart",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_14"
+            },
+            {
+            "value": "iron",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_15"
+            },
+            {
+            "value": "leaf",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_16"
+            },
+            {
+            "value": "leather",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_17"
+            },
+            {
+            "value": "lock",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_18"
+            },
+            {
+            "value": "map_pin",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_19"
+            },
+            {
+            "value": "pants",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_20"
+            },
+            {
+            "value": "percent",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_21"
+            },
+            {
+            "value": "plane",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_22"
+            },
+            {
+            "value": "price_tag",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_23"
+            },
+            {
+            "value": "question_mark",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_24"
+            },
+             {
+              "value": "return",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_25"
+            },
+            {
+              "value": "ruler",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_26"
+            },
+            {
+              "value": "scissors",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_27"
+            },
+            {
+              "value": "shirt",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_28"
+            },
+            {
+              "value": "shoe",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_29"
+            },
+            {
+              "value": "silhouette",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_30"
+            },
+            {
+              "value": "star",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_31"
+            },
+            {
+              "value": "truck",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_32"
+            },
+            {
+              "value": "washing",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.options.label_33"
+            }
+          ],
+          "default": "none",
+          "label": "t:sections.main-product.blocks.basic_icons.settings.icon_2.label"
+        },
+        {
+          "type": "text",
+          "id": "icon_2_title",
+          "label": "Icon 2 Title"
+        },
+        {
+          "type": "select",
+          "id": "icon_3",
+          "options": [
+            {
+            "value": "none",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_1"
+            },
+            {
+            "value": "box",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_2"
+            },
+            {
+            "value": "briefcase",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_3"
+            },
+            {
+            "value": "calendar",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_4"
+            },
+            {
+            "value": "chat_bubble",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_5"
+            },
+            {
+            "value": "check_mark",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_6"
+            },
+            {
+            "value": "clock",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_7"
+            },
+            {
+            "value": "credit_card",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_8"
+            },
+            {
+            "value": "dollar_sign",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_9"
+            },
+            {
+            "value": "dryer",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_10"
+            },
+            {
+            "value": "eye",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_11"
+            },
+            {
+            "value": "feather",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_12"
+            },
+            {
+            "value": "gift",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_13"
+            },
+            {
+            "value": "heart",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_14"
+            },
+            {
+            "value": "iron",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_15"
+            },
+            {
+            "value": "leaf",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_16"
+            },
+            {
+            "value": "leather",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_17"
+            },
+            {
+            "value": "lock",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_18"
+            },
+            {
+            "value": "map_pin",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_19"
+            },
+            {
+            "value": "pants",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_20"
+            },
+            {
+            "value": "percent",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_21"
+            },
+            {
+            "value": "plane",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_22"
+            },
+            {
+            "value": "price_tag",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_23"
+            },
+            {
+            "value": "question_mark",
+            "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_24"
+            },
+             {
+              "value": "return",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_25"
+            },
+            {
+              "value": "ruler",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_26"
+            },
+            {
+              "value": "scissors",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_27"
+            },
+            {
+              "value": "shirt",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_28"
+            },
+            {
+              "value": "shoe",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_29"
+            },
+            {
+              "value": "silhouette",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_30"
+            },
+            {
+              "value": "star",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_31"
+            },
+            {
+              "value": "truck",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_32"
+            },
+            {
+              "value": "washing",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.options.label_33"
+            }
+          ],
+          "default": "none",
+          "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3.label"
+        },
+        {
+          "type": "text",
+          "id": "icon_3_title",
+          "label": "t:sections.main-product.blocks.basic_icons.settings.icon_3_title.label"
+        },
+        {
+          "type": "range",
+          "id": "icon_height",
+          "min": 20,
+          "max": 100,
+          "step": 10,
+          "unit": "px",
+          "label": "t:sections.main-product.blocks.basic_icons.settings.icon_height.label",
+          "default": 40
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Title",
+          "label": "t:sections.main-product.blocks.basic_icons.settings.title.label"
+        },
+        {
+          "type": "radio",
+          "id": "layout",
+          "label": "Layout",
+          "options": [
+            {
+              "value": "stacked",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.layout.options.label_1"
+            },
+            {
+              "value": "row",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.layout.options.label_2"
+            },
+            {
+              "value": "icon-only",
+              "label": "t:sections.main-product.blocks.basic_icons.settings.layout.options.label_3"
+            }
+          ],
+          "default": "stacked"
+        },
+        {
+          "type": "checkbox",
+          "id": "include_border",
+          "label": "t:sections.main-product.blocks.basic_icons.settings.include_border.label",
+          "default": true
+        }
+      ]
+    },
     {
       "type": "title",
       "name": "t:sections.main-product.blocks.title.name",
@@ -1018,28 +1081,28 @@
           "options": [
             {
               "value": "h1",
-              "label": "X-Large"
+              "label": "t:sections.main-product.blocks.title.settings.options.label_1"
             },
             {
               "value": "h2",
-              "label": "Large"
+              "label": "t:sections.main-product.blocks.title.settings.options.label_2"
             },
             {
               "value": "h3",
-              "label": "Medium"
+              "label": "t:sections.main-product.blocks.title.settings.options.label_3"
             },
             {
               "value": "h4",
-              "label": "Small"
+              "label": "t:sections.main-product.blocks.title.settings.options.label_4"
             }
           ],
           "default": "h2",
-          "label": "Heading Size"
+          "label": "t:sections.main-product.blocks.title.settings.label"
         },
         {
           "type": "checkbox",
           "id": "alt_heading",
-          "label": "Use body font instead of heading font for heading"
+          "label": "t:sections.main-product.blocks.title.settings.alt_heading.label"
         }
       ]
     },
@@ -1054,23 +1117,23 @@
             "options": [
               {
                   "value": "h5",
-                  "label": "X-Large"
+                  "label": "t:sections.main-product.blocks.price.settings.heading_size.options.label_1"
               },
               {
                   "value": "h6",
-                  "label": "Large"
+                  "label": "t:sections.main-product.blocks.price.settings.heading_size.options.label_2"
               },
               {
                   "value": "p",
-                  "label": "Medium"
+                  "label": "t:sections.main-product.blocks.price.settings.heading_size.options.label_3"
               },
               {
                   "value": "p-sm",
-                  "label": "Small"
+                  "label": "t:sections.main-product.blocks.price.settings.heading_size.options.label_4"
               }
             ],
             "default": "h6",
-            "label": "Heading Size"
+            "label": "t:sections.main-product.blocks.price.settings.heading_size.label"
         }
       ]
     },
@@ -1082,15 +1145,15 @@
         {
           "type": "radio",
           "id": "layout",
-          "label": "Layout",
+          "label": "t:sections.main-product.blocks.variant_picker.settings.label",
           "options": [
             {
               "value": "dropdown",
-              "label": "Dropdown"
+              "label": "t:sections.main-product.blocks.variant_picker.settings.options.label_1"
             },
             {
               "value": "buttons",
-              "label": "Buttons"
+              "label": "t:sections.main-product.blocks.variant_picker.settings.options.label_2"
             }
           ],
           "default": "buttons"
@@ -1098,46 +1161,46 @@
         {
           "type": "checkbox",
           "id": "show_option_labels",
-          "label": "Show option labels and option descriptions",
-          "info": "Option descriptions can be added using metafields TODO: link",
+          "label": "t:sections.main-product.blocks.variant_picker.settings.show_option_labels.label",
+          "info": "t:sections.main-product.blocks.variant_picker.settings.show_option_labels.info",
           "default": true
         },
         {
           "type": "checkbox",
           "id": "include_border",
-          "label": "Include border",
+          "label": "t:sections.main-product.blocks.variant_picker.settings.include_border.label",
           "default": true
         }
       ]
     },
     {
       "type": "buy_buttons",
-      "name": "Buy buttons/quanity",
+      "name": "t:sections.main-product.blocks.buy_buttons.name",
       "limit": 1,
       "settings": [
         {
           "type": "checkbox",
           "id": "show_quantity",
-          "label": "Show quantity selector",
+          "label": "t:sections.main-product.blocks.buy_buttons.settings.show_quantity.label",
           "default": true
         },
         {
           "type": "checkbox",
           "id": "hide_dynamic_buttons",
-          "label": "Hide dynamic checkout buttons",
+          "label": "t:sections.main-product.blocks.buy_buttons.settings.hide_dynamic_buttons.label",
           "default": false
         },
         {
           "type": "checkbox",
           "id": "include_border",
-          "label": "Include border",
+          "label": "t:sections.main-product.blocks.buy_buttons.settings.include_border.label",
           "default": true
         }
       ]
     },
     {
       "type": "divider",
-      "name": "Divider/Space",
+      "name": "t:sections.main-product.blocks.divider.name",
       "settings": [
         {
           "type": "range",
@@ -1146,7 +1209,7 @@
           "max": 100,
           "step": 10,
           "unit": "px",
-          "label": "Top Spacing",
+          "label": "t:sections.main-product.blocks.divider.top_spacing.label",
           "default": 50
         },
         {
@@ -1156,13 +1219,13 @@
           "max": 100,
           "step": 10,
           "unit": "px",
-          "label": "Bottom Spacing",
+          "label": "t:sections.main-product.blocks.divider.bottom_spacing.label",
           "default": 50
         },
         {
           "type": "checkbox",
           "id": "hide_divider",
-          "label": "Hide divider",
+          "label": "t:sections.main-product.blocks.divider.hide_divider.label",
           "default": false
         }
       ]
@@ -1178,19 +1241,19 @@
           "options": [
             {
               "value": "p-sm",
-              "label": "Small Text"
+              "label": "t:sections.main-product.blocks.description.settings.text_size.options.label_1"
             },
             {
               "value": "p",
-              "label": "Basic Text"
+              "label": "t:sections.main-product.blocks.description.settings.text_size.options.label_2"
             },
             {
               "value": "p-lg",
-              "label": "Large Text"
+              "label": "t:sections.main-product.blocks.description.settings.text_size.options.label_3"
             }
           ],
           "default": "p-sm",
-          "label": "Text Size"
+          "label": "t:sections.main-product.blocks.description.settings.text_size.label"
         }
       ]
     },
@@ -1207,22 +1270,22 @@
     },
     {
       "type": "pickup_availability",
-      "name": "Pickup availability",
+      "name": "t:sections.main-product.blocks.pickup_availability.name",
       "limit": 1,
       "settings": [
         {
           "type": "text",
           "id": "title",
           "default": "Pickup Availability",
-          "label": "Title"
+          "label": "t:sections.main-product.blocks.pickup_availability.settings.title.label"
         }
       ]
     }
   ],
-  "settings": [
+    "settings": [
     {
       "type": "header",
-      "content": "Section"
+      "content": "t:sections.main-product.settings.header.content"
     },
     {
       "type": "select",
@@ -1230,28 +1293,28 @@
       "options": [
         {
           "value": "primary",
-          "label": "Primary Theme"
+          "label": "t:sections.main-product.settings.theme.options.label_1"
         },
         {
           "value": "2",
-          "label": "2nd Theme"
+          "label": "t:sections.main-product.settings.theme.options.label_2"
         },
         {
           "value": "3",
-          "label": "3rd Theme"
+          "label": "t:sections.main-product.settings.theme.options.label_3"
         },
         {
           "value": "4",
-          "label": "4th Theme"
+          "label": "t:sections.main-product.settings.theme.options.label_4"
         },
         {
           "value": "5",
-          "label": "5th Theme"
+          "label": "t:sections.main-product.settings.theme.options.label_5"
         }
       ],
       "default": "primary",
-      "label": "Theme",
-      "info": "Theme"
+      "label": "t:sections.main-product.settings.theme.label",
+      "info": "t:sections.main-product.settings.theme.info"
     }
   ]
 }

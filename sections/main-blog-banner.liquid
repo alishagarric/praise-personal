@@ -1,6 +1,7 @@
 {% comment %}
   This is a version of image banner that contains content specific to a blog page
 {% endcomment %}
+{{ 'image-banner.css' | asset_url | stylesheet_tag }}
 
 {% capture section_id %}Main-blog-banner-{{ section.id }}{% endcapture %}
 
@@ -14,8 +15,8 @@
   %}
 {% endcapture %}
 
-
-{% render 'image-banner' 
+{%
+  render 'image-banner'
   top_spacing: section.settings.top_spacing,
   bottom_spacing: section.settings.bottom_spacing,
   top_internal_spacing: 0,
@@ -27,14 +28,13 @@
   hero: true,
 %}
 
-
 {% schema %}
 {
   "tag": "section",
   "settings": [
     {
       "type": "header",
-      "content": "Text Content"
+      "content": "t:sections.main-blog-banner.settings.header.content"
     },
     {
       "type": "select",
@@ -42,52 +42,52 @@
       "options": [
         {
           "value": "h2",
-          "label": "X-Large"
+          "label": "t:sections.main-blog-banner.settings.heading_size.options.label_1"
         },
         {
           "value": "h4",
-          "label": "Large"
+          "label": "t:sections.main-blog-banner.settings.heading_size.options.label_2"
         },
         {
           "value": "h5",
-          "label": "Medium"
+          "label": "t:sections.main-blog-banner.settings.heading_size.options.label_3"
         },
         {
           "value": "h6",
-          "label": "Small"
+          "label": "t:sections.main-blog-banner.settings.heading_size.options.label_4"
         }
       ],
       "default": "h4",
-      "label": "Heading Size"
+      "label": "t:sections.main-blog-banner.settings.heading_size.label"
     },
     {
       "type": "checkbox",
       "id": "alt_heading",
-      "label": "Use body font instead of heading font for heading"
+      "label": "t:sections.main-blog-banner.settings.alt_heading.label"
     },
     {
       "type": "radio",
       "id": "alignment",
-      "label": "Text Alignment",
+      "label": "t:sections.main-blog-banner.settings.alignment.label",
       "options": [
         {
           "value": "left",
-          "label": "Left"
+          "label": "t:sections.main-blog-banner.settings.alignment.options.label_1"
         },
         {
           "value": "center",
-          "label": "Center"
+          "label": "t:sections.main-blog-banner.settings.alignment.options.label_2"
         },
         {
           "value": "right",
-          "label": "Right"
+          "label": "t:sections.main-blog-banner.settings.alignment.options.label_3"
         }
       ],
       "default": "center"
     },
     {
       "type": "header",
-      "content": "Section"
+      "content": "t:sections.main-blog-banner.settings.header_2.content"
     },
     {
       "type": "select",
@@ -95,27 +95,27 @@
       "options": [
         {
           "value": "primary",
-          "label": "Primary Theme"
+          "label": "t:sections.main-blog-banner.settings.theme.options.label_1"
         },
         {
           "value": "2",
-          "label": "2nd Theme"
+          "label": "t:sections.main-blog-banner.settings.theme.options.label_2"
         },
         {
           "value": "3",
-          "label": "3rd Theme"
+          "label": "t:sections.main-blog-banner.settings.theme.options.label_3"
         },
         {
           "value": "4",
-          "label": "4th Theme"
+          "label": "t:sections.main-blog-banner.settings.theme.options.label_4"
         },
         {
           "value": "5",
-          "label": "5th Theme"
+          "label": "t:sections.main-blog-banner.settings.theme.options.label_5"
         }
       ],
       "default": "primary",
-      "label": "Theme"
+      "label": "t:sections.main-blog-banner.settings.theme.label"
     },
     {
       "type": "range",
@@ -124,7 +124,7 @@
       "max": 100,
       "step": 10,
       "unit": "%",
-      "label": "Top Section Spacing",
+      "label": "t:sections.main-blog-banner.settings.top_spacing.label",
       "default": 50
     },
     {
@@ -134,14 +134,15 @@
       "max": 100,
       "step": 10,
       "unit": "%",
-      "label": "Bottom Section Spacing",
+      "label": "t:sections.main-blog-banner.settings.bottom_spacing.label",
       "default": 50
     }
   ],
   "presets": [
     {
-      "name": "Main Blog Banner"
+      "name": "t:sections.main-blog-banner.presets.name"
     }
-  ]
+  ],
+  "templates": ["blog"]
 }
 {% endschema %}

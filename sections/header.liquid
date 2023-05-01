@@ -1,9 +1,16 @@
 {{ 'header.css' | asset_url | stylesheet_tag }}
+{{ 'announcement-bar.css' | asset_url | stylesheet_tag }}
+{{ 'dialog.css' | asset_url | stylesheet_tag }}
+{{ 'main-cart.css' | asset_url | stylesheet_tag }}
+{{ 'quick-product.css' | asset_url | stylesheet_tag }} {% comment %}Must load here so that there isn't a flash of unstyled cards when the deffered recommendations section loads {% endcomment %}
+{{ 'number-input.css' | asset_url | stylesheet_tag }}
+{{ 'overlay-nav.css' | asset_url | stylesheet_tag }}
 
 {% assign className = 'site-header' %}
 
 {% comment %} Output navigation twice, one to display on scroll up and one that always exists at the top of the page content {% endcomment %}
 {% for i in (1..2) %}
+  {% assign nav_index = forloop.index %}
   {% assign style = 'on-scroll' %}
   {% if forloop.index0 == 1 %}
     {% assign style = 'relative' %}
@@ -17,10 +24,12 @@
     {% endif %}
     
     {% comment %} Mobile hamburger button {% endcomment %}
-    {% capture dialog_class %}<script>__with-overlay</script> {{ className }}__hamburger{% endcapture %}
-    {% capture dialog_id %}hamburger-{{ forloop.index }}{% endcapture %}
-    {% capture dialog_content %}{% render 'overlay-nav' %}{% endcapture %}
-    {% render 'dialog' style: "drawer", title: "<span></span>", content: dialog_content, class: dialog_class, id: dialog_id %}
+    {% capture hamburger_class %}{{ className }}__hamburger{% endcapture %}
+    {% capture hamburger_id %}hamburger-{{ forloop.index }}{% endcapture %}
+    {% capture hamburger_content %}{% render 'overlay-nav', nav_index: nav_index %}{% endcapture %}
+    {% capture hamburger_title %}{% render 'svg-hamburger' %}{% endcapture %}
+    {% assign hamburger_aria_label = 'sections.header.menu' | t %}
+    {% render 'dialog' style: "left-drawer", title: hamburger_title, aria_label: hamburger_aria_label, content: hamburger_content, class: hamburger_class, id: hamburger_id %}
 
     {% comment %} All the links {% endcomment %}
     <nav class="{{ className }}__main {% if section.settings.logo_placement == "center" %}__center-links{% endif%}">
@@ -33,10 +42,11 @@
       >
         <a href="{{ routes.root_url }}">
           {%- if section.settings.logo != blank -%}
+            {% assign logo_alt = section.settings.logo.alt | default: shop.name %}
             {{
               section.settings.logo
               | image_url: width: 250
-              | image_tag: width: 125, alt: section.settings.logo.alt
+              | image_tag: width: 125, alt: logo_alt
               | default: shop.name
               | escape
             }}
@@ -81,16 +91,16 @@
                     {% when 'mega_menu' %}
                       {% if block.settings.label == primary_link.title %}
                         {% comment %} Text Block {% endcomment %}
-                        {% render 'nav-dropdown-text-block' heading: block.settings.heading_0, text: block.settings.text_0, button_label: block.settings.button_label, button_link: block.settings.button_link, button_color: block.settings.button_color, className: blockClassName %}
+                        {% render 'nav-dropdown-text-block' heading: block.settings.heading_0, text: block.settings.text_0, text_size: block.settings.text_size_0, button_label: block.settings.button_label, button_link: block.settings.button_link, button_color: block.settings.button_color, className: blockClassName %}
 
                         {% comment %} Promotion 1 {% endcomment %}
                         {% if block.settings.heading_1 or block.settings.image_1 %}
-                          {% render 'nav-dropdown-promotion' heading: block.settings.heading_1, text: block.settings.text_1, link: block.settings.link_1, image: block.settings.image_1, className: blockClassName %}
+                          {% render 'nav-dropdown-promotion' heading: block.settings.heading_1, text: block.settings.text_1, text_size: block.settings.text_size_1, link: block.settings.link_1, image: block.settings.image_1, className: blockClassName %}
                         {% endif %}
 
                         {% comment %} Promotion 2 {% endcomment %}
                         {% if block.settings.heading_2 or block.settings.image_2 %}
-                          {% render 'nav-dropdown-promotion' heading: block.settings.heading_2, text: block.settings.text_2, link: block.settings.link_2, image: block.settings.image_2, className: blockClassName %}
+                          {% render 'nav-dropdown-promotion' heading: block.settings.heading_2, text: block.settings.text_2, text_size: block.settings.text_size_2, link: block.settings.link_2, image: block.settings.image_2, className: blockClassName %}
                         {% endif %}
                         {% break %}
                       {% endif %}
@@ -103,28 +113,39 @@
 
           {% capture disclosure_class %}__with-overlay {{ className }}__label p-sm {% if primary_link.levels == 1 %}__skinny{% endif %}{% endcapture %}
           {% capture css_vars %}--linkOrder: {{ forloop.index0 }};{% endcapture %}
+          {% capture disclosure_id %}{{ primary_link.title }}-{{ nav_index }}-{{ forloop.index }}{% endcapture %}
 
-          {% render 'disclosure' class: disclosure_class, title: primary_link.title, id: forloop.index, text: dropdown, style: "blank", css_vars: css_vars %}
+          {% render 'disclosure' class: disclosure_class, title: primary_link.title, id: disclosure_id, text: dropdown, style: "blank", css_vars: css_vars %}
         {% endif %}
       {% endfor %}
     </nav>
 
     {% comment %} Utility Links {% endcomment %}
     <div class="{{ className }}__utility-links">
-      <a href="{{ routes.search_url }}">{% render 'svg-search' %}</a>
+      <a href="{{ routes.search_url }}" aria-label="{{ 'general.search.search' | t }}">{% render 'svg-search' %}</a>
       {%- if customer -%}
-        <a class="{{ className }}__plain-link" href="{{ routes.account_url }}">{{ 'sections.header.account' | t }}</a>
+        <a class="{{ className }}__plain-link p-sm" href="{{ routes.account_url }}">{{ 'sections.header.account' | t }}</a>
       {%- else -%}
-        <a class="{{ className }}__plain-link" href="{{ routes.account_login_url }}">
+        <a class="{{ className }}__plain-link p-sm" href="{{ routes.account_login_url }}">
           {{- 'sections.header.login' | t -}}
         </a>
       {%- endif -%}
-      <a href="{{ routes.cart_url }}" class="{{ className }}__utility-links__cart">
+
+      {% comment %} Cart Drawer button {% endcomment %}
+      {% capture cart_class %}{{ className }}__utility-links__cart{% endcapture %}
+      {% capture cart_id %}cart-{{ forloop.index }}{% endcapture %}
+      {% capture cart_title %}
         {% render 'svg-cart' %}
         <span id="CartBubble-{{ forloop.index0 }}">
           {{ cart.item_count }}
         </span>
-      </a>
+      {% endcapture %}
+      {% capture cart_button_label %}{{ 'sections.cart.view_cart' | t }}{% endcapture %}
+      {% assign cart_aria_label = 'sections.cart.view_cart' | t %}
+      {% capture cart_content %}
+        {% render 'cart-drawer' button_link: routes.cart_url, button_label: cart_button_label, class: "__cart-drawer" %}
+      {% endcapture %}
+      {% render 'dialog' style: "right-drawer", title: cart_title, content: cart_content, class: cart_class, id: cart_id, aria_label: cart_aria_label %}
     </div>
   </{% if style == "on-scroll" %}sticky-header{% else %}header{% endif %}>
 {% endfor %}
@@ -136,7 +157,7 @@
       super();
 
       this.header = this;
-      this.hamburgerButton = this.querySelector(".site-header__hamburger");
+     // this.hamburgerButton = this.querySelector(".site-header__hamburger");
       this.dropdowns = this.querySelectorAll("details.site-header__label");
       this.setupListener();
 
@@ -148,7 +169,7 @@
       this.dropdowns.forEach((dropdown) => {
         dropdown.querySelector("summary").addEventListener('click', this.updateActiveDialog.bind(this));
       });
-      this.hamburgerButton.addEventListener('click', this.updateActiveDialog.bind(this));
+    //  this.hamburgerButton.addEventListener('click', this.updateActiveDialog.bind(this));
     }
 
     updateActiveDialog(e) {
@@ -239,6 +260,7 @@
     {
       "type": "link_list",
       "id": "menu",
+      "default": "main-menu",
       "label": "t:sections.header.settings.link_list.label"
     },
     {
@@ -273,6 +295,26 @@
           "label": "t:sections.header.blocks.mega_menu.description.label"
         },
         {
+          "type": "select",
+          "id": "text_size_0",
+          "options": [
+            {
+              "value": "p-sm",
+              "label": "t:sections.header.blocks.mega_menu.description_text_size.options.label_1"
+            },
+            {
+              "value": "p",
+              "label": "t:sections.header.blocks.mega_menu.description_text_size.options.label_2"
+            },
+            {
+              "value": "p-lg",
+              "label": "t:sections.header.blocks.mega_menu.description_text_size.options.label_3"
+            }
+          ],
+          "default": "p-sm",
+          "label": "t:sections.header.blocks.mega_menu.description_text_size.label"
+        },
+        {
           "type": "text",
           "id": "button_label",
           "label": "t:sections.header.blocks.mega_menu.button_label.label"
@@ -297,6 +339,26 @@
           "label": "t:sections.header.blocks.mega_menu.text_1.label"
         },
         {
+          "type": "select",
+          "id": "text_size_1",
+          "options": [
+            {
+              "value": "p-sm",
+              "label": "t:sections.header.blocks.mega_menu.description_text_size_1.options.label_1"
+            },
+            {
+              "value": "p",
+              "label": "t:sections.header.blocks.mega_menu.description_text_size_1.options.label_2"
+            },
+            {
+              "value": "p-lg",
+              "label": "t:sections.header.blocks.mega_menu.description_text_size_1.options.label_3"
+            }
+          ],
+          "default": "p-sm",
+          "label": "t:sections.header.blocks.mega_menu.description_text_size_1.label"
+        },
+        {
           "type": "url",
           "id": "link_1",
           "label": "t:sections.header.blocks.mega_menu.link_1.label"
@@ -319,6 +381,26 @@
           "type": "inline_richtext",
           "id": "text_2",
           "label": "t:sections.header.blocks.mega_menu.text_2.label"
+        },
+        {
+          "type": "select",
+          "id": "text_size_2",
+          "options": [
+            {
+              "value": "p-sm",
+              "label": "t:sections.header.blocks.mega_menu.description_text_size_2.options.label_1"
+            },
+            {
+              "value": "p",
+              "label": "t:sections.header.blocks.mega_menu.description_text_size_2.options.label_2"
+            },
+            {
+              "value": "p-lg",
+              "label": "t:sections.header.blocks.mega_menu.description_text_size_2.options.label_3"
+            }
+          ],
+          "default": "p-sm",
+          "label": "t:sections.header.blocks.mega_menu.description_text_size_2.label"
         },
         {
           "type": "url",

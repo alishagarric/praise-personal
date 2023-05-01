@@ -1,5 +1,9 @@
 {
   "general": {
+    "slideshow": {
+      "previous": "Previous Slide",
+      "next": "Next Slide"
+    },
     "continue_shopping": "Continue shopping",
     "newsletter": {
       "heading": "Stay in the know",
@@ -64,6 +68,7 @@
     }
   },
   "blogs": {
+    "no_articles": "No articles in blog",
     "article": {
       "blog": "Blog",
       "all_tags": "All",
@@ -307,9 +312,11 @@
     "cart": {
       "title": "Your cart",
       "total": "Total",
+      "view_cart": "View Bag",
       "note": "Order special instructions",
       "checkout": "Check out",
       "empty": "Your cart is empty",
+      "cart_recommendations_error": "There was an error fetching product recommendations.",
       "cart_error": "There was an error while updating your cart. Please try again.",
       "cart_quantity_error_html": "You can only add {{ quantity }} of this item to your cart.",
       "taxes_and_shipping_policy_at_checkout_html": "Taxes and <a href=\"{{ link }}\">shipping</a> calculated at checkout",

@@ -1,5 +1,4 @@
-{{ 'filter-and-sort.css' | asset_url | stylesheet_tag }}
-{{ 'custom-icons.css' | asset_url | stylesheet_tag }}
+
 
 <script src="{{ 'submit-on-change.js' | asset_url }}" defer="defer"></script>
 
@@ -11,6 +10,7 @@
 
   Accepts:
   - results: {Array objects}
+
 {% endcomment %}
 
 {%- assign sort_by = results.sort_by | default: results.default_sort_by -%}
@@ -47,7 +47,7 @@
                           <span class="visually-hidden">{{ 'accessibility.filter_active_values' | t }}</span>)
                         {% endunless %}
                       </div>
-                      <a href="{{ filter.url_to_remove }}" class="p-sm btn __with-underline">
+                      <a href="{{ filter.url_to_remove }}" class="p-sm btn __style-underline">
                         {{ 'products.facets.reset' | t }}
                       </a>
                     </div>
@@ -94,7 +94,7 @@
                         {{ filter.label | escape }}
                       </div>
 
-                      <a class="p-sm btn __with-underline" href="{{ filter.url_to_remove }}">
+                      <a class="p-sm btn __style-underline" href="{{ filter.url_to_remove }}">
                         {{ 'products.facets.reset' | t }}
                       </a>
                     </div>
@@ -163,14 +163,14 @@
           </ul>
         {% endcapture %}
 
-        {% render 'disclosure', title: sort_title, id: sort_title, text: sort_content, style: "dropdown-button", class: "filter-and-sort__sort__details" %}
+        {% render 'disclosure', title: sort_title, id: sort_title, text: sort_content, style: "dropdown-button __style-secondary", class: "filter-and-sort__sort__details" %}
       </div>
 
       {% comment %}
         Output submit button for users who disable javacript
       {% endcomment%}
       <noscript>
-        <button class="btn __with-underline button">{{ 'products.facets.sort_button' | t }}</button>
+        <button class="btn __style-underline button">{{ 'products.facets.sort_button' | t }}</button>
       </noscript>
     </form>
   </submit-on-change>

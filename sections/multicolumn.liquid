@@ -1,5 +1,9 @@
 {{ 'multicolumn.css' | asset_url | stylesheet_tag }}
 {{ 'overflow-slider.css' | asset_url | stylesheet_tag }}
+{{ 'collection-card.css' | asset_url | stylesheet_tag }}
+{{ 'content-card.css' | asset_url | stylesheet_tag }}
+{{ 'quote-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
 
 {% liquid
   assign hide_arrows_on_desktop = true
@@ -64,6 +68,7 @@
   endif
 %}
 
+
 {% style %}
   #Multicolumn-{{ section.id }} {
     --topSpacingRatio: {{ section.settings.top_spacing }} / 100;
@@ -75,49 +80,55 @@
 
 <div
   id="Multicolumn-{{ section.id }}"
-  class="multicolumn __theme-{{ section.settings.theme }} __layout-{{ section.settings.layout }} __align-{{section.settings.alignment}}"
+  class="multicolumn __theme-{{ section.settings.theme }} __layout-{{ section.settings.layout }}"
 >
   {% comment %} Text Content {% endcomment %}
-  {% render 'heading',
-    class: 'multicolumn',
-    heading: section.settings.heading,
-    alt_heading: section.settings.alt_heading,
-    heading_size: section.settings.heading_size
-  %}
+  <div class="multicolumn__text __align-{{section.settings.alignment}}">
+    {% render 'heading',
+      class: 'multicolumn__text',
+      heading: section.settings.heading,
+      alt_heading: section.settings.alt_heading,
+      heading_size: section.settings.heading_size
+    %}
 
-  {% if section.settings.text %}
-    <div class="multicolumn__text __article-txt">
-      {{ section.settings.text }}
-    </div>
-  {% endif %}
+    {% if section.settings.text %}
+      <div class="multicolumn__text__desc __article-txt-{{ section.settings.text_size }}">
+        {{ section.settings.text }}
+      </div>
+    {% endif %}
+  </div>
 
   {% comment %} Content Container (slider or stacked depending on layout) {% endcomment %}
   <overflow-slider class="multicolumn__inner overflow-slider {% if hide_arrows_on_desktop %}__hide-desktop-arrows{% endif %} {% if hide_arrows_on_tablet %}__hide-tablet-arrows{% endif%}">
     <div class="overflow-slider__container multicolumn__container">
       {% comment %} Real Content {% endcomment %}
-      {% liquid
-        if section.blocks.size > 0
-          for block in section.blocks
-            case block.type
-              when 'quote'
-                render 'quote-card', quote: block.settings.quote, alignment: block.settings.alignment, background_theme: block.settings.background_theme, card_corners: block.settings.card_corners, quotations: block.settings.quotations, details: block.settings.details, logo: block.settings.logo, class: 'multicolumn__item', img_width: width, img_widths: widths, img_sizes: sizes
+        {% assign first_product = false %}
+        {% if section.blocks.size > 0 %}
+          {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'quote' %}
+                {% render 'quote-card', quote: block.settings.quote, alignment: block.settings.alignment, background_theme: block.settings.background_theme, card_corners: block.settings.card_corners, quotations: block.settings.quotations, details: block.settings.details, logo: block.settings.logo, class: 'multicolumn__item', img_width: width, img_widths: widths, img_sizes: sizes %}
 
-              when 'image'
-                render 'content-card', class: 'multicolumn__item', image: block.settings.image, alignment: block.settings.alignment, crop_shape: block.settings.crop_shape, overlay_theme: block.settings.overlay_theme, overlay: block.settings.overlay, heading: block.settings.heading, overlap: block.settings.overlap, heading_size: block.settings.heading_size, button_label: block.settings.button_label, button_link: block.settings.button_link, button_color: block.settings.button_color, text: block.settings.text, img_width: width, img_widths: widths, img_sizes: sizes
+              {% when 'image' %}
+                {% render 'content-card', class: 'multicolumn__item', image: block.settings.image, alignment: block.settings.alignment, crop_shape: block.settings.crop_shape, overlay_theme: block.settings.overlay_theme, overlay: block.settings.overlay, heading: block.settings.heading, overlap: block.settings.overlap, heading_size: block.settings.heading_size, button_label: block.settings.button_label, button_link: block.settings.button_link, button_color: block.settings.button_color, text: block.settings.text, img_width: width, img_widths: widths, img_sizes: sizes %}
 
-              when 'products'
-                for product in block.settings.products
-                  render 'product-card', product: product, class: 'multicolumn__item', show_bg_color: block.settings.show_bg_color, quick_add: block.settings.quick_add, crop: block.settings.crop_shape, show_phrase: block.settings.show_phrase, alignment: block.settings.product_text_alignment, show_description: block.settings.show_description, price_position: block.settings.price, alt_heading: block.settings.alt_title, img_width: width, img_widths: widths, img_sizes: sizes
-                endfor
+              {% when 'products' %}
+                {% for product in block.settings.products %}
+                  {% if first_product == false %}
+                    {% assign first_product = true %}
+                    {{ 'product-card.css' | asset_url | stylesheet_tag }}
+                    {% render 'quick-add-dependencies' quick_add: block.settings.quick_add %}
+                  {% endif %}
+                  {% render 'product-card', this_product: product, class: 'multicolumn__item', show_bg_color: block.settings.show_bg_color, quick_add: block.settings.quick_add, crop: block.settings.crop_shape, show_phrase: block.settings.show_phrase, alignment: block.settings.product_text_alignment, show_description: block.settings.show_description, price_position: block.settings.price, alt_heading: block.settings.alt_title, img_width: width, img_widths: widths, img_sizes: sizes %}
+                {% endfor %}
 
-              when 'collections'
-                for collection in block.settings.collections
-                  render 'collection-card', collection: collection, class: 'multicolumn__item', alignment: block.settings.alignment, button_label: block.settings.button_label, img_width: width, img_widths: widths, img_sizes: sizes
-                endfor
-            endcase
-          endfor
-        endif
-      %}
+              {% when 'collections' %}
+                {% for collection in block.settings.collections %}
+                  {% render 'collection-card', collection: collection, class: 'multicolumn__item', alignment: block.settings.alignment, button_label: block.settings.button_label, img_width: width, img_widths: widths, img_sizes: sizes %}
+                {% endfor %}
+            {% endcase %}
+          {% endfor %}
+        {% endif %}
 
       {% comment %} Placeholder Content {% endcomment %}
       {% if section.blocks.size == 0 %}
@@ -141,13 +152,13 @@
   "settings": [
     {
       "type": "header",
-      "content": "t:sections.multicolumn.settings.header1.content"
+      "content": "t:sections.multicolumn.settings.header_1.content"
     },
     {
       "type": "text",
       "id": "heading",
-      "default": "Lorem ipsum dolor sit",
-      "label": "Heading"
+      "default": "Multicolumn Section",
+      "label": "t:sections.multicolumn.settings.heading.label"
     },
     {
       "type": "select",
@@ -155,58 +166,78 @@
       "options": [
         {
           "value": "h2",
-          "label": "X-Large"
+          "label": "t:sections.multicolumn.settings.heading_size.options.label_1"
         },
         {
           "value": "h4",
-          "label": "Large"
+          "label": "t:sections.multicolumn.settings.heading_size.options.label_2"
         },
         {
           "value": "h5",
-          "label": "Medium"
+          "label": "t:sections.multicolumn.settings.heading_size.options.label_3"
         },
         {
           "value": "h6",
-          "label": "Small"
+          "label": "t:sections.multicolumn.settings.heading_size.options.label_4"
         }
       ],
       "default": "h4",
-      "label": "Heading Size"
+      "label": "t:sections.multicolumn.settings.heading_size.label"
     },
     {
       "type": "checkbox",
       "id": "alt_heading",
-      "label": "Use body font instead of heading font for heading"
+      "label": "t:sections.multicolumn.settings.alt_heading.label"
     },
     {
       "type": "richtext",
       "id": "text",
-      "default": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>",
-      "label": "Description"
+      "default": "<p>Write some content here that pairs with the headline or image to support your brand</p>",
+      "label": "t:sections.multicolumn.settings.text.label"
+    },
+    {
+      "type": "select",
+      "id": "text_size",
+      "options": [
+        {
+          "value": "p-sm",
+          "label": "t:sections.multicolumn.settings.description_text_size.options.label_1"
+        },
+        {
+          "value": "p",
+          "label": "t:sections.multicolumn.settings.description_text_size.options.label_2"
+        },
+        {
+          "value": "p-lg",
+          "label": "t:sections.multicolumn.settings.description_text_size.options.label_3"
+        }
+      ],
+      "default": "p-sm",
+      "label": "t:sections.multicolumn.settings.description_text_size.label"
     },
     {
       "type": "radio",
       "id": "alignment",
-      "label": "Alignment",
+      "label": "t:sections.multicolumn.settings.alignment.label",
       "options": [
         {
           "value": "left",
-          "label": "Left"
+          "label": "t:sections.multicolumn.settings.alignment.options.label_1"
         },
         {
           "value": "center",
-          "label": "Center"
+          "label": "t:sections.multicolumn.settings.alignment.options.label_2"
         },
         {
           "value": "right",
-          "label": "Right"
+          "label": "t:sections.multicolumn.settings.alignment.options.label_3"
         }
       ],
       "default": "center"
     },
     {
       "type": "header",
-      "content": "t:sections.multicolumn.settings.header2.content"
+      "content": "t:sections.multicolumn.settings.header_2.content"
     },
     {
       "type": "range",
@@ -214,7 +245,7 @@
       "min": 2,
       "max": 5,
       "step": 1,
-      "label": "Desktop Columns Per Row",
+      "label": "t:sections.multicolumn.settings.columns_desktop.label",
       "default": 3
     },
     {
@@ -223,7 +254,7 @@
       "min": 1,
       "max": 3,
       "step": 1,
-      "label": "Mobile Columns Per Row",
+      "label": "t:sections.multicolumn.settings.columns_mobile.label",
       "default": 2
     },
     {
@@ -232,19 +263,19 @@
       "options": [
         {
           "value": "default",
-          "label": "Stacking Columns"
+          "label": "t:sections.multicolumn.settings.layout.options.label_1"
         },
         {
           "value": "slideshow",
-          "label": "Slideshow"
+          "label": "t:sections.multicolumn.settings.layout.options.label_2"
         }
       ],
       "default": "default",
-      "label": "Layout"
+      "label": "t:sections.multicolumn.settings.layout.label"
     },
     {
       "type": "header",
-      "content": "t:sections.multicolumn.settings.header3.content"
+      "content": "t:sections.multicolumn.settings.header_3.content"
     },
     {
       "type": "select",
@@ -252,27 +283,27 @@
       "options": [
         {
           "value": "primary",
-          "label": "Primary Theme"
+          "label": "t:sections.multicolumn.settings.theme.options.label_1"
         },
         {
           "value": "2",
-          "label": "2nd Theme"
+          "label": "t:sections.multicolumn.settings.theme.options.label_2"
         },
         {
           "value": "3",
-          "label": "3rd Theme"
+          "label": "t:sections.multicolumn.settings.theme.options.label_3"
         },
         {
           "value": "4",
-          "label": "4th Theme"
+          "label": "t:sections.multicolumn.settings.theme.options.label_4"
         },
         {
           "value": "5",
-          "label": "5th Theme"
+          "label": "t:sections.multicolumn.settings.theme.options.label_5"
         }
       ],
       "default": "primary",
-      "label": "Theme"
+      "label": "t:sections.multicolumn.settings.theme.label"
     },
     {
       "type": "range",
@@ -281,7 +312,7 @@
       "max": 100,
       "step": 10,
       "unit": "%",
-      "label": "Top Spacing",
+      "label": "t:sections.multicolumn.settings.top_spacing.label",
       "default": 50
     },
     {
@@ -291,7 +322,7 @@
       "max": 100,
       "step": 10,
       "unit": "%",
-      "label": "Bottom Spacing",
+      "label": "t:sections.multicolumn.settings.bottom_spacing.label",
       "default": 50
     }
   ],
@@ -302,18 +333,18 @@
       "settings": [
         {
           "type": "header",
-          "content": "t:sections.multicolumn.blocks.image-with-text.settings.header1.content"
+          "content": "t:sections.multicolumn.blocks.image-with-text.settings.header_1.content"
         },
         {
           "type": "image_picker",
           "id": "image",
-          "label": "Image"
+          "label": "t:sections.multicolumn.blocks.image-with-text.settings.image_picker.label"
         },
         {
           "type": "range",
           "id": "overlay",
-          "label": "Overlay Opacity",
-          "info": "If above 0%, an overlay will be added on top of the image",
+          "label": "t:sections.multicolumn.blocks.image-with-text.settings.overlay.label",
+          "info": "t:sections.multicolumn.blocks.image-with-text.settings.overlay.info",
           "min": 0,
           "max": 70,
           "step": 10,
@@ -326,27 +357,27 @@
           "options": [
             {
               "value": "primary",
-              "label": "Primary Theme"
+              "label": "t:sections.multicolumn.blocks.image-with-text.settings.overlay_theme.options.label_1"
             },
             {
               "value": "2",
-              "label": "2nd Theme"
+              "label": "t:sections.multicolumn.blocks.image-with-text.settings.overlay_theme.options.label_2"
             },
             {
               "value": "3",
-              "label": "3rd Theme"
+              "label": "t:sections.multicolumn.blocks.image-with-text.settings.overlay_theme.options.label_3"
             },
             {
               "value": "4",
-              "label": "4th Theme"
+              "label": "t:sections.multicolumn.blocks.image-with-text.settings.overlay_theme.options.label_4"
             },
             {
               "value": "5",
-              "label": "5th Theme"
+              "label": "t:sections.multicolumn.blocks.image-with-text.settings.overlay_theme.options.label_5"
             }
           ],
           "default": "primary",
-          "label": "Overlay Theme"
+          "label": "t:sections.multicolumn.blocks.image-with-text.settings.overlay_theme.label"
         },
         {
           "type": "select",
@@ -354,61 +385,61 @@
           "options": [
             {
               "value": "default",
-              "label": "No Crop"
+              "label": "t:sections.multicolumn.blocks.image-with-text.settings.crop_shape.options.label_1"
             },
             {
               "value": "square",
-              "label": "Square"
+              "label": "t:sections.multicolumn.blocks.image-with-text.settings.crop_shape.options.label_2"
             },
             {
               "value": "rounded-square",
-              "label": "Rounded Square"
+              "label": "t:sections.multicolumn.blocks.image-with-text.settings.crop_shape.options.label_3"
             },
             {
               "value": "circle",
-              "label": "Circle"
+              "label": "t:sections.multicolumn.blocks.image-with-text.settings.crop_shape.options.label_4"
             },
             {
               "value": "portrait",
-              "label": "Portrait"
+              "label": "t:sections.multicolumn.blocks.image-with-text.settings.crop_shape.options.label_5"
             },
             {
               "value": "rounded-portrait",
-              "label": "Rounded Portrait"
+              "label": "t:sections.multicolumn.blocks.image-with-text.settings.crop_shape.options.label_6"
             },
             {
               "value": "semicircle-portrait",
-              "label": "Semicircle Portrait"
+              "label": "t:sections.multicolumn.blocks.image-with-text.settings.crop_shape.options.label_7"
             },
             {
               "value": "landscape",
-              "label": "Landscape"
+              "label": "t:sections.multicolumn.blocks.image-with-text.settings.crop_shape.options.label_8"
             },
             {
               "value": "rounded-landscape",
-              "label": "Rounded Landscape"
+              "label": "t:sections.multicolumn.blocks.image-with-text.settings.crop_shape.options.label_9"
             },
             {
               "value": "semicircle-landscape",
-              "label": "Semicircle Landscape"
+              "label": "t:sections.multicolumn.blocks.image-with-text.settings.crop_shape.options.label_10"
             },
             {
               "value": "arch",
-              "label": "Semicircle Arch"
+              "label": "t:sections.multicolumn.blocks.image-with-text.settings.crop_shape.options.label_11"
             }
           ],
           "default": "default",
-          "label": "Image Crop Shape"
+          "label": "t:sections.multicolumn.blocks.image-with-text.settings.crop_shape.label"
         },
         {
           "type": "header",
-          "content": "t:sections.multicolumn.blocks.image-with-text.settings.header2.content"
+          "content": "t:sections.multicolumn.blocks.image-with-text.settings.header_2.content"
         },
         {
           "type": "text",
           "id": "heading",
-          "default": "Lorem ipsum",
-          "label": "Heading"
+          "default": "Heading Content",
+          "label": "t:sections.multicolumn.blocks.image-with-text.settings.heading.label"
         },
         {
           "type": "select",
@@ -416,35 +447,35 @@
           "options": [
             {
               "value": "h2",
-              "label": "X-Large"
+              "label": "t:sections.multicolumn.blocks.image-with-text.settings.heading_size.options.label_1"
             },
             {
               "value": "h4",
-              "label": "Large"
+              "label": "t:sections.multicolumn.blocks.image-with-text.settings.heading_size.options.label_2"
             },
             {
               "value": "h5",
-              "label": "Medium"
+              "label": "t:sections.multicolumn.blocks.image-with-text.settings.heading_size.options.label_3"
             },
             {
               "value": "h6",
-              "label": "Small"
+              "label": "t:sections.multicolumn.blocks.image-with-text.settings.heading_size.options.label_4"
             }
           ],
           "default": "h5",
-          "label": "Heading Size"
+          "label": "t:sections.multicolumn.blocks.image-with-text.settings.heading_size.label"
         },
         {
           "type": "checkbox",
           "id": "overlap",
-          "label": "Enable overlap",
-          "info": "Requires both heading and image field content.",
+          "label": "t:sections.multicolumn.blocks.image-with-text.settings.overlap.label",
+          "info": "t:sections.multicolumn.blocks.image-with-text.settings.overlap.info",
           "default": false
         },
         {
           "type": "richtext",
           "id": "text",
-          "label": "Description"
+          "label": "t:sections.multicolumn.blocks.image-with-text.settings.text.label"
         },
         {
           "type": "radio",
@@ -453,15 +484,15 @@
           "options": [
             {
               "value": "left",
-              "label": "Left"
+              "label": "t:sections.multicolumn.blocks.image-with-text.settings.alignment.options.label_1"
             },
             {
               "value": "center",
-              "label": "Center"
+              "label": "t:sections.multicolumn.blocks.image-with-text.settings.alignment.options.label_2"
             },
             {
               "value": "right",
-              "label": "Right"
+              "label": "t:sections.multicolumn.blocks.image-with-text.settings.alignment.options.label_3"
             }
           ],
           "default": "left"
@@ -469,42 +500,42 @@
         {
           "type": "text",
           "id": "button_label",
-          "label": "Button Label"
+          "label": "t:sections.multicolumn.blocks.image-with-text.settings.button_label.label"
         },
         {
           "type": "url",
           "id": "button_link",
-          "label": "Button Link"
+          "label": "t:sections.multicolumn.blocks.image-with-text.settings.button_link.label"
         },
         {
           "type": "select",
           "id": "button_color",
-          "label": "Button Color",
+          "label": "t:sections.multicolumn.blocks.image-with-text.settings.button_color.label",
           "default": "default",
           "options": [
             {
               "value": "default",
-              "label": "Default"
+              "label": "t:sections.multicolumn.blocks.image-with-text.settings.button_color.options.label_0"
             },
             {
               "value": "primary",
-              "label": "Primary Theme"
+              "label": "t:sections.multicolumn.blocks.image-with-text.settings.button_color.options.label_1"
             },
             {
               "value": "2",
-              "label": "2nd Theme"
+              "label": "t:sections.multicolumn.blocks.image-with-text.settings.button_color.options.label_2"
             },
             {
               "value": "3",
-              "label": "3rd Theme"
+              "label": "t:sections.multicolumn.blocks.image-with-text.settings.button_color.options.label_3"
             },
             {
               "value": "4",
-              "label": "4th Theme"
+              "label": "t:sections.multicolumn.blocks.image-with-text.settings.button_color.options.label_4"
             },
             {
               "value": "5",
-              "label": "5th Theme"
+              "label": "t:sections.multicolumn.blocks.image-with-text.settings.button_color.options.label_5"
             }
           ]
         }
@@ -517,36 +548,36 @@
         {
           "type": "richtext",
           "id": "quote",
-          "label": "Quote"
+          "label": "t:sections.multicolumn.blocks.quote.settings.quote.label"
         },
         {
           "type": "checkbox",
           "id": "quotations",
-          "label": "Show quotation marks",
-          "info": "Requires quote field to have content.",
+          "label": "t:sections.multicolumn.blocks.quote.settings.quotations.label",
+          "info": "t:sections.multicolumn.blocks.quote.settings.quotations.info",
           "default": true
         },
         {
           "type": "richtext",
           "id": "details",
-          "label": "Extra Details"
+          "label": "t:sections.multicolumn.blocks.quote.settings.details.label"
         },
         {
           "type": "radio",
           "id": "alignment",
-          "label": "Text Alignment",
+          "label": "t:sections.multicolumn.blocks.quote.settings.alignment.label",
           "options": [
             {
               "value": "left",
-              "label": "Left"
+              "label": "t:sections.multicolumn.blocks.quote.settings.alignment.options.label_1"
             },
             {
               "value": "center",
-              "label": "Center"
+              "label": "t:sections.multicolumn.blocks.quote.settings.alignment.options.label_2"
             },
             {
               "value": "right",
-              "label": "Right"
+              "label": "t:sections.multicolumn.blocks.quote.settings.alignment.options.label_3"
             }
           ],
           "default": "center"
@@ -554,7 +585,7 @@
         {
           "type": "image_picker",
           "id": "logo",
-          "label": "Logo"
+          "label": "t:sections.multicolumn.blocks.quote.settings.logo.label"
         },
         {
           "type": "select",
@@ -562,27 +593,27 @@
           "options": [
             {
               "value": "primary",
-              "label": "Primary Theme"
+              "label": "t:sections.multicolumn.blocks.quote.settings.background_theme.options.label_1"
             },
             {
               "value": "2",
-              "label": "2nd Theme"
+              "label": "t:sections.multicolumn.blocks.quote.settings.background_theme.options.label_2"
             },
             {
               "value": "3",
-              "label": "3rd Theme"
+              "label": "t:sections.multicolumn.blocks.quote.settings.background_theme.options.label_3"
             },
             {
               "value": "4",
-              "label": "4th Theme"
+              "label": "t:sections.multicolumn.blocks.quote.settings.background_theme.options.label_4"
             },
             {
               "value": "5",
-              "label": "5th Theme"
+              "label": "t:sections.multicolumn.blocks.quote.settings.background_theme.options.label_5"
             }
           ],
           "default": "primary",
-          "label": "Theme"
+          "label": "t:sections.multicolumn.blocks.quote.settings.background_theme.label"
         },
         {
           "type": "select",
@@ -590,57 +621,58 @@
           "options": [
             {
               "value": "default",
-              "label": "Square Corners"
+              "label": "t:sections.multicolumn.blocks.quote.settings.card_corners.options.label_1"
             },
             {
               "value": "rounded",
-              "label": "Rounded Corners"
+              "label": "t:sections.multicolumn.blocks.quote.settings.card_corners.options.label_2"
             },
             {
               "value": "semicircle",
-              "label": "Semicircle Corners"
+              "label": "t:sections.multicolumn.blocks.quote.settings.card_corners.options.label_3"
             }
           ],
           "default": "default",
-          "label": "Card Corners"
+          "label": "t:sections.multicolumn.blocks.quote.settings.card_corners.label"
         }
       ]
     },
     {
       "type": "products",
+      "limit": 1,
       "name": "t:sections.multicolumn.blocks.products.name",
       "settings": [
         {
           "type": "product_list",
           "id": "products",
-          "label": "Products"
+          "label": "t:sections.multicolumn.blocks.products.settings.products.label"
         },
         {
           "type": "checkbox",
           "id": "show_phrase",
-          "label": "Show product phrase"
+          "label": "t:sections.multicolumn.blocks.products.settings.show_phrase.label"
         },
         {
           "type": "checkbox",
           "id": "show_description",
-          "label": "Show product description"
+          "label": "t:sections.multicolumn.blocks.products.settings.show_description.label"
         },
         {
           "type": "checkbox",
           "id": "quick_add",
-          "label": "Enable quick add",
+          "label": "t:sections.multicolumn.blocks.products.settings.quick_add.label",
           "default": false
         },
         {
           "type": "checkbox",
           "id": "show_bg_color",
-          "label": "Show background color",
+          "label": "t:sections.multicolumn.blocks.products.settings.show_bg_color.label",
           "default": false
         },
         {
           "type": "checkbox",
           "id": "alt_title",
-          "label": "Use body font instead of heading font for product title"
+          "label": "t:sections.multicolumn.blocks.products.settings.alt_title.label"
         },
         {
           "type": "select",
@@ -648,19 +680,19 @@
           "options": [
             {
               "value": "default",
-              "label": "Left"
+              "label": "t:sections.multicolumn.blocks.products.settings.product_text_alignment.options.label_1"
             },
             {
               "value": "center",
-              "label": "Center"
+              "label": "t:sections.multicolumn.blocks.products.settings.product_text_alignment.options.label_2"
             },
             {
               "value": "right",
-              "label": "Right"
+              "label": "t:sections.multicolumn.blocks.products.settings.product_text_alignment.options.label_3"
             }
           ],
           "default": "default",
-          "label": "Product Text Alignment"
+          "label": "t:sections.multicolumn.blocks.products.settings.product_text_alignment.label"
         },
         {
           "type": "select",
@@ -668,19 +700,19 @@
           "options": [
             {
               "value": "default",
-              "label": "Right of Title"
+              "label": "t:sections.multicolumn.blocks.products.settings.price.label"
             },
             {
               "value": "bottom",
-              "label": "Bottom"
+              "label": "t:sections.multicolumn.blocks.products.settings.price.options.label_2"
             },
             {
               "value": "not-visible",
-              "label": "Not Visible"
+              "label": "t:sections.multicolumn.blocks.products.settings.price.options.label_3"
             }
           ],
           "default": "default",
-          "label": "Price Position"
+          "label": "t:sections.multicolumn.blocks.products.settings.price.label"
         },
         {
           "type": "select",
@@ -688,51 +720,51 @@
           "options": [
             {
               "value": "default",
-              "label": "No Crop"
+              "label": "t:sections.multicolumn.blocks.products.settings.crop_shape.options.label_1"
             },
             {
               "value": "square",
-              "label": "Square"
+              "label": "t:sections.multicolumn.blocks.products.settings.crop_shape.options.label_2"
             },
             {
               "value": "rounded-square",
-              "label": "Rounded Square"
+              "label": "t:sections.multicolumn.blocks.products.settings.crop_shape.options.label_3"
             },
             {
               "value": "circle",
-              "label": "Circle"
+              "label": "t:sections.multicolumn.blocks.products.settings.crop_shape.options.label_4"
             },
             {
               "value": "portrait",
-              "label": "Portrait"
+              "label": "t:sections.multicolumn.blocks.products.settings.crop_shape.options.label_5"
             },
             {
               "value": "rounded-portrait",
-              "label": "Rounded Portrait"
+              "label": "t:sections.multicolumn.blocks.products.settings.crop_shape.options.label_6"
             },
             {
               "value": "semicircle-portrait",
-              "label": "Semicircle Portrait"
+              "label": "t:sections.multicolumn.blocks.products.settings.crop_shape.options.label_7"
             },
             {
               "value": "landscape",
-              "label": "Landscape"
+              "label": "t:sections.multicolumn.blocks.products.settings.crop_shape.options.label_8"
             },
             {
               "value": "rounded-landscape",
-              "label": "Rounded Landscape"
+              "label": "t:sections.multicolumn.blocks.products.settings.crop_shape.options.label_9"
             },
             {
               "value": "semicircle-landscape",
-              "label": "Semicircle Landscape"
+              "label": "t:sections.multicolumn.blocks.products.settings.crop_shape.options.label_10"
             },
             {
               "value": "arch",
-              "label": "Semicircle Arch"
+              "label": "t:sections.multicolumn.blocks.products.settings.crop_shape.options.label_11"
             }
           ],
           "default": "default",
-          "label": "Product Image Crop Shape"
+          "label": "t:sections.multicolumn.blocks.products.settings.crop_shape.label"
         }
       ]
     },
@@ -743,24 +775,24 @@
         {
           "type": "collection_list",
           "id": "collections",
-          "label": "Collections"
+          "label": "t:sections.multicolumn.blocks.collections.settings.collections.label"
         },
         {
           "type": "radio",
           "id": "alignment",
-          "label": "Text Alignment",
+          "label": "t:sections.multicolumn.blocks.collections.settings.alignment.label",
           "options": [
             {
               "value": "left",
-              "label": "Left"
+              "label": "t:sections.multicolumn.blocks.collections.settings.alignment.options.label_1"
             },
             {
               "value": "center",
-              "label": "Center"
+              "label": "t:sections.multicolumn.blocks.collections.settings.alignment.options.label_2"
             },
             {
               "value": "right",
-              "label": "Right"
+              "label": "t:sections.multicolumn.blocks.collections.settings.alignment.options.label_3"
             }
           ],
           "default": "left"
@@ -768,8 +800,8 @@
         {
           "type": "text",
           "id": "button_label",
-          "label": "Button Label",
-          "info": "If excluded, no button will display on each collection card"
+          "label": "t:sections.multicolumn.blocks.collections.settings.button_label.label",
+          "info": "t:sections.multicolumn.blocks.collections.settings.button_label.info"
         }
       ]
     }

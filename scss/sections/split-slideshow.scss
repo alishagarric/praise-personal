@@ -1,11 +1,12 @@
 .split-slideshow {
+  --splitSlideshowGap: var(--splitSlideshowGap);
   padding-right: 0;
 
   &__inner {
     --overflowSliderArrowRightOffset: calc(
       100% - calc(var(--arrowBtnHeight) * 2.5)
     ) !important;
-    --overflowSliderItemGap: var(--pxSize) !important;
+    --overflowSliderItemGap: var(--splitSlideshowGap) !important;
     --overflowSliderItemSizeDesktop: 80% !important;
     --overflowSliderItemSizeTablet: 80% !important;
     --overflowSliderItemSizeMobile: 90% !important;
@@ -15,8 +16,8 @@
   &__slides {
     &:after {
       content: "";
-      width: var(--pxSize);
-      min-width: var(--pxSize);
+      width: var(--splitSlideshowGap);
+      min-width: var(--splitSlideshowGap);
       display: block;
     }
   }

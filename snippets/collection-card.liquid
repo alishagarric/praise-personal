@@ -23,7 +23,6 @@
     </ul>
 {% endcomment %}
 
-{{ 'collection-card.css' | asset_url | stylesheet_tag }}
 
 {% liquid
   assign collection_title = collection.title 
@@ -31,12 +30,12 @@
 
   unless collection != blank 
     assign collection_url = "/" 
-    assign collection_title = "Enim ad minim veniam" 
+    assign collection_title = "Collection Title" 
   endunless 
 %}
 
 <a class="collection-card {{ class }} __align-{{ alignment }}" href="{{ collection_url }}">
-  <div class="collection-card__image">
+  <div class="collection-card__image image-container">
     {% if collection and collection.image %}
       {% render 'next-gen-img', image: collection.image, width: img_width: widths: img_widths, sizes: img_sizes, preload: img_preload %}
     {% elsif collection == blank %}

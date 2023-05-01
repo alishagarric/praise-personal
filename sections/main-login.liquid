@@ -17,8 +17,8 @@
 <div id="Main-login-{{ section.id }}" class="customer-forms __theme-{{ section_theme }}">
   <div class="customer-forms__container" id="recover">
     <div class="customer-forms__text __align-center">
-      {% render 'heading', heading: section.settings.reset_heading, heading_size: 'h5', heading_tag: 'h1' %}
-      <p class="p-sm">
+      {% render 'heading', heading: section.settings.reset_heading, heading_size: section.settings.heading_size, alt_heading: section.settings.alt_heading,  heading_tag: 'h1' %}
+      <p class="{{ section.settings.text_size }}">
         {{- 'customer.recover_password.subtext' | t -}}
       </p>
     </div>
@@ -76,11 +76,12 @@
     <div class="customer-forms__text __align-center">
       {% render 'heading',
         heading: section.settings.heading,
-        heading_size: 'h5',
+        heading_size: section.settings.heading_size, 
+        alt_heading: section.settings.alt_heading,
         heading_tag: 'h1',
         class: 'customer-forms__text'
       %}
-      <div class="customer-forms__text__description __article-txt-p-sm" {{ block.shopify_attributes }}>
+      <div class="customer-forms__text__description __article-txt-{{ section.settings.text_size }}" {{ block.shopify_attributes }}>
         {{ section.settings.description }}
       </div>
     </div>
@@ -178,10 +179,59 @@
       "label": "t:sections.main-login.settings.heading.label"
     },
     {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.main-login.settings.heading_size.options.label_1"
+        },
+        {
+          "value": "h4",
+          "label": "t:sections.main-login.settings.heading_size.options.label_2"
+        },
+        {
+          "value": "h5",
+          "label": "t:sections.main-login.settings.heading_size.options.label_3"
+        },
+        {
+          "value": "h6",
+          "label": "t:sections.main-login.settings.heading_size.options.label_4"
+        }
+      ],
+      "default": "h5",
+      "label": "t:sections.main-login.settings.heading_size.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "alt_heading",
+      "label": "t:sections.main-login.settings.alt_heading.label"
+    },
+    {
       "type": "richtext",
       "id": "description",
       "default": "<p>Log in to Your Account<\/p><p>Don't have an account? <a href=\"\/account\/register\" title=\"\/account\/register\">Register<\/a><\/p>",
       "label": "t:sections.main-login.settings.description.label"
+    },
+    {
+      "type": "select",
+      "id": "text_size",
+      "options": [
+        {
+          "value": "p-sm",
+          "label": "t:sections.main-login.settings.description_text_size.options.label_1"
+        },
+        {
+          "value": "p",
+          "label": "t:sections.main-login.settings.description_text_size.options.label_2"
+        },
+        {
+          "value": "p-lg",
+          "label": "t:sections.main-login.settings.description_text_size.options.label_3"
+        }
+      ],
+      "default": "p-sm",
+      "label": "t:sections.main-login.settings.description_text_size.label"
     },
     {
       "type": "header",

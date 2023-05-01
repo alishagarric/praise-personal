@@ -1,8 +1,11 @@
 {{ 'flickity.css' | asset_url | stylesheet_tag }}
 {{ 'cmnc-flickity.css' | asset_url | stylesheet_tag }}
 {{ 'featured-collection.css' | asset_url | stylesheet_tag }}
+{{ 'product-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
 
 <script src="{{ 'flickity.js' | asset_url }}" defer></script>
+<script src="{{ 'featured-collection.js' | asset_url }}" defer></script>
 
 {% liquid
   assign featured_collection = section.settings.collection
@@ -22,6 +25,7 @@
   assign show_description = section.settings.show_description
   assign quick_add = section.settings.quick_add
   assign show_bg_color = section.settings.show_bg_color
+  assign include_border = section.settings.include_border
 
   assign products_count = featured_collection.products | size
   assign initiate_flickity = false
@@ -43,6 +47,8 @@
   endif
 %}
 
+{% render 'quick-add-dependencies' quick_add: quick_add %}
+
 {% style %}
   #Featured-collection-{{ section.id }} {
     --topSpacingRatio: {{ top_spacing }} / 100;
@@ -52,7 +58,7 @@
 
 <div
   id="Featured-collection-{{ section.id }}"
-  class="featured-collection __theme-{{section_theme}} {% if theme_slideshow %}__theme-slider {% endif %} {% if initiate_flickity == false %}__no-slider {% endif %}"
+  class="featured-collection __theme-{{section_theme}} {% if theme_slideshow %}__theme-slider {% endif %} {% if initiate_flickity == false %}__no-slider {% endif %} {% if include_border %}__include-border{% endif %}"
 >
   {% comment %} Text Content {% endcomment %}
   {% if section_heading != blank or section_text != blank %}
@@ -61,7 +67,7 @@
         <h2 class="featured-collection__text__heading h4 {% if alt_heading %}alt{% endif %}">{{ section_heading }}</h2>
       {% endif %}
       {% if section_text %}
-        <div class="featured-collection__text__desc __article-txt p">
+        <div class="featured-collection__text__desc __article-txt-{{ section.settings.text_size }} {{ section.settings.text_size }}">
           {{ section_text }}
         </div>
       {% endif %}
@@ -84,9 +90,9 @@
         class="featured-collection__cards"
         style="--featuredCollectionThemedTextColor: {{ featured_collection.products[0].metafields.custom.text_color }}"
       >
-        {% for product in featured_collection.products %}
+        {% for product in featured_collection.products limit: 10 %}
           {% render 'product-card',
-            product: product,
+            this_product: product,
             show_bg_color: show_bg_color,
             quick_add: quick_add,
             crop: crop_shape,
@@ -158,13 +164,20 @@
     {
       "type": "collection",
       "id": "collection",
-      "label": "t:sections.featured-collection.settings.label"
+      "label": "t:sections.featured-collection.settings.label",
+      "info": "t:sections.featured-collection.settings.info"
     },
     {
       "type": "checkbox",
       "id": "theme_slideshow",
       "label": "t:sections.featured-collection.settings.theme_slideshow.label",
       "info": "t:sections.featured-collection.settings.theme_slideshow.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "include_border",
+      "label": "t:sections.featured-collection.settings.include_border.label",
+      "default": true
     },
     {
       "type": "header",
@@ -297,7 +310,7 @@
       "type": "text",
       "id": "heading",
       "label": "t:sections.featured-collection.settings.heading",
-      "default": "Lorem Ipsum"
+      "default": "Featured Collection"
     },
     {
       "type": "checkbox",
@@ -307,8 +320,28 @@
     {
       "type": "richtext",
       "id": "text",
-      "default": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>",
+      "default": "<p>Add a description or additional information for your collection here</p>",
       "label": "t:sections.featured-collection.settings.text.label"
+    },
+    {
+      "type": "select",
+      "id": "text_size",
+      "options": [
+        {
+          "value": "p-sm",
+          "label": "t:sections.featured-collection.settings.description_text_size.options.label_1"
+        },
+        {
+          "value": "p",
+          "label": "t:sections.featured-collection.settings.description_text_size.options.label_2"
+        },
+        {
+          "value": "p-lg",
+          "label": "t:sections.featured-collection.settings.description_text_size.options.label_3"
+        }
+      ],
+      "default": "p",
+      "label": "t:sections.featured-collection.settings.description_text_size.label"
     },
     {
       "type": "checkbox",

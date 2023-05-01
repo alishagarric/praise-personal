@@ -26,7 +26,6 @@
         word-break: break-word;
         margin: 0 0 1rem 0;
         font-size: calc(3rem * var(--font-heading-scale));
-        font-weight: 900;
         letter-spacing: var(--font-body-spacing);
         font-family: var(--font-body-family);
         font-style: var(--font-body-style);
@@ -45,7 +44,9 @@
             font-size: calc(2rem * var(--font-heading-scale)); } }
         @media (max-width: 676px) {
           .main-order-main-account__nav > ul a {
-            font-size: calc(1.5rem * var(--font-heading-scale)); } }
+            font-size: calc(1.8rem * var(--font-heading-scale)); } }
+        .main-order-main-account__nav > ul a:is(p) {
+          max-width: 500px; }
   .main-order-main-account__sidebar {
     flex: 1; }
     .main-order-main-account__sidebar a {
@@ -76,7 +77,10 @@
       font-weight: var(--font-body-weight);
       line-height: 1.4;
       margin: 0 0 1rem 0;
+      max-width: 700px;
       font-size: calc(1.375rem * var(--font-body-scale)); }
+      .main-order-main-account__sidebar h1:is(p) {
+        max-width: 600px; }
       @media (max-width: 1024px) {
         .main-order-main-account__sidebar h1 {
           font-size: calc(1.2rem * var(--font-body-scale)); } }
@@ -89,6 +93,8 @@
       line-height: 1.4;
       margin: 0 0 1rem 0;
       font-size: calc(1.125rem * var(--font-body-scale)); }
+      .main-order-main-account__sidebar h2:is(p) {
+        max-width: 500px; }
     .main-order-main-account__sidebar a,
     .main-order-main-account__sidebar p {
       letter-spacing: var(--font-body-spacing);
@@ -98,6 +104,9 @@
       line-height: 1.4;
       margin: 0 0 1rem 0;
       font-size: calc(0.9rem * var(--font-body-scale)); }
+      .main-order-main-account__sidebar a:is(p),
+      .main-order-main-account__sidebar p:is(p) {
+        max-width: 400px; }
   .main-order-main-account__orders {
     flex: 3; }
     .main-order-main-account__orders__order:not(:last-child) {
@@ -140,6 +149,8 @@
       line-height: 1.4;
       margin: 0 0 1rem 0;
       font-size: calc(0.9rem * var(--font-body-scale)); }
+      .main-order-main-account__orders__list p:is(p) {
+        max-width: 400px; }
     .main-order-main-account__orders__list li {
       margin-top: var(--sectionVerticalSpacing); }
   .main-order-main-account__table__hidden-head {
@@ -155,6 +166,8 @@
       margin: 0 0 1rem 0;
       font-size: calc(0.9rem * var(--font-body-scale));
       border: none; }
+      .main-order-main-account__table__styled-head th:is(p) {
+        max-width: 400px; }
   .main-order-main-account__table__list-body td {
     all: unset;
     padding-bottom: 1rem; }
@@ -179,5 +192,3 @@
       gap: var(--sectionVerticalSpacing); }
       .main-order-main-account .pagination__list {
         justify-content: center; } }
-
-/*# sourceMappingURL=main-order-main-account.css.map */

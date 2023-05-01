@@ -9,10 +9,14 @@
 {% assign page_title = section.settings.page.title | default: default_title %}
 
 <div id="Page-output-{{ section.id }}" class="page-output __theme-{{ section.settings.theme }}">
-  {% render 'heading', heading: page_title %}
+  {% render 'heading',
+    heading: page_title,
+    heading_size: section.settings.heading_size,
+    alt_heading: section.settings.alt_heading
+  %}
 
-  <div class="__article-text">
-    {%- if section.settings.page.content != blank -%}
+  <div class="__article-txt-{{ section.settings.text_size }}">
+    {%- if section.settings.page != blank -%}
       {{ section.settings.page.content }}
     {%- else -%}
       <div class="page-output__image image-container" style="padding-top: 50%;">
@@ -24,14 +28,75 @@
 
 {% schema %}
 {
-  "name": "t:sections.main-page.name",
+  "name": "t:sections.page.name",
   "tag": "section",
   "class": "section",
   "settings": [
     {
+      "type": "header",
+      "content": "t:sections.page.settings.header.content"
+    },
+    {
       "type": "page",
       "id": "page",
       "label": "t:sections.page.settings.page.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.page.settings.header_1.content"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.page.settings.heading_size.options.label_1"
+        },
+        {
+          "value": "h4",
+          "label": "t:sections.page.settings.heading_size.options.label_2"
+        },
+        {
+          "value": "h5",
+          "label": "t:sections.page.settings.heading_size.options.label_3"
+        },
+        {
+          "value": "h6",
+          "label": "t:sections.page.settings.heading_size.options.label_4"
+        }
+      ],
+      "default": "h2",
+      "label": "t:sections.page.settings.heading_size.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "alt_heading",
+      "label": "t:sections.page.settings.alt_heading.label"
+    },
+    {
+      "type": "select",
+      "id": "text_size",
+      "options": [
+        {
+          "value": "p-sm",
+          "label": "t:sections.page.settings.description_text_size.options.label_1"
+        },
+        {
+          "value": "p",
+          "label": "t:sections.page.settings.description_text_size.options.label_2"
+        },
+        {
+          "value": "p-lg",
+          "label": "t:sections.page.settings.description_text_size.options.label_3"
+        }
+      ],
+      "default": "p-sm",
+      "label": "t:sections.page.settings.description_text_size.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.page.settings.header_2.content"
     },
     {
       "type": "range",

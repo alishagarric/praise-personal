@@ -1,6 +1,8 @@
 {% comment %}
   This is a version of image banner that contains content specific to a collection page
 {% endcomment %}
+{{ 'breadcrumbs.css' | asset_url | stylesheet_tag }}
+{{ 'image-banner.css' | asset_url | stylesheet_tag }}
 
 {% capture section_id %}Main-collection-banner-{{ section.id }}{% endcapture %}
 
@@ -13,7 +15,7 @@
     heading_size: section.settings.heading_size,
     alt_heading: section.settings.alt_heading
   %}
-  <div class="image-banner__description __article-txt p">{{ collection.description }}</div>
+  <div class="image-banner__description __article-txt-{{ section.settings.text_size }} {{ section.settings.text_size }}">{{ collection.description }}</div>
 {% endcapture %}
 
 {% unless section.settings.show_image == false %}
@@ -81,6 +83,26 @@
       "type": "checkbox",
       "id": "alt_heading",
       "label": "Use body font instead of heading font for heading"
+    },
+    {
+      "type": "select",
+      "id": "text_size",
+      "options": [
+        {
+          "value": "p-sm",
+          "label": "Small Text"
+        },
+        {
+          "value": "p",
+          "label": "Basic Text"
+        },
+        {
+          "value": "p-lg",
+          "label": "Large Text"
+        }
+      ],
+      "default": "p-sm",
+      "label": "Description Size"
     },
     {
       "type": "radio",

@@ -1,6 +1,3 @@
-{{ 'number-input.css' | asset_url | stylesheet_tag }}
-{{ 'product-form.css' | asset_url | stylesheet_tag }}
-
 {% comment %}
   Renders a the product form used in main product
 
@@ -11,6 +8,7 @@
   - hide_dynamic_buttons: {bool} optional
   - show_quantity { bool } optional
   - include_border { bool } optional
+  - button_style {string} optional, seconadry, underline
 
   Usage:
     {% render 'product-form' class: "class" %}
@@ -25,16 +23,15 @@
       <label for="Quantity-{{ section.id }}" class="visually-hidden">
         {{ 'products.product.quantity.label' | t }}
       </label>
-      <button class="decrement" type="button">-</button>
+      <button class="decrement __style-secondary" type="button">-</button>
       <input
         type="number"
         name="quantity"
-        id="Quantity-{{ section.id }}"
         min="1"
         value="1"
-        form="{{ product_form_id }}"
+        aria-label="{{ 'products.product.quantity.label' | t }}"
       >
-      <button class="increment" type="button">+</button>
+      <button class="increment __style-secondary" type="button">+</button>
     </number-input>
   {% endif %}
 {% endcapture %}
@@ -43,7 +40,7 @@
   <button
     type="submit"
     name="add"
-    class="button btn product-form__add-to-cart"
+    class="button btn product-form__add-to-cart {% if button_style %}__style-{{ button_style }}{% endif %}"
     {% if product.selected_or_first_available_variant.available == false %}
       disabled
     {% endif %}
@@ -55,7 +52,6 @@
         {{ 'products.product.sold_out' | t }}
       {%- endif -%}
     </span>
-    {% comment %} TODO: loading spinner {% endcomment %}
   </button>
 {% endcapture%}
 
@@ -74,7 +70,6 @@
       type="hidden"
       name="id"
       value="{{ product.selected_or_first_available_variant.id }}"
-      disabled
     >
       {% if hide_dynamic_buttons == true %}
         <div class="product-form__row">

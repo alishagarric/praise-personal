@@ -1,8 +1,12 @@
 {{ 'flickity.css' | asset_url | stylesheet_tag }}
 {{ 'cmnc-flickity.css' | asset_url | stylesheet_tag }}
 {{ 'shop-the-look.css' | asset_url | stylesheet_tag }}
+{{ 'product-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
 
 <script src="{{ 'flickity.js' | asset_url }}" defer></script>
+<script src="{{ 'shop-the-look.js' | asset_url }}" defer></script>
+
 
 {% liquid
   assign products_count = section.blocks | size
@@ -19,9 +23,7 @@
   }
 {% endstyle %}
 
-{% if section.settings.quick_add %}
-  <script src="{{ 'quick-add-modal.js' | asset_url }}" defer="defer"></script>
-{% endif %}
+{% render 'quick-add-dependencies' quick_add: section.settings.quick_add %}
 
 <div
   id="Shop-the-look-{{ section.id }}"
@@ -47,11 +49,11 @@
           {% for block in section.blocks %}
             {% case block.type %}
               {% when 'product' %}
-                  {% assign border_color = '0,0,0' %}
+                {% assign border_color = '0,0,0' %}
                 {% if block.settings.product == blank %}
                   {% assign horizontal_pos = 50 %}
                   {% assign vertical_pos = 50 %}
-                  
+
                 {% else %}
                   {% assign horizontal_pos = block.settings.horizontal_pos %}
                   {% assign vertical_pos = block.settings.vertical_pos %}
@@ -88,8 +90,10 @@
         {% for block in section.blocks %}
           {% case block.type %}
             {% when 'product' %}
-              {% render 'product-card' product: block.settings.product, class: "shop-the-look__products__product", show_bg_color: section.settings.show_bg_color, quick_add: section.settings.quick_add, crop: section.settings.crop_shape, show_phrase: section.settings.show_phrase, alignment: section.settings.product_text_alignment, section.settings.show_description: section.settings.show_description, price_position: section.settings.price, alt_heading: section.settings.alt_title, img_width: 1100, img_widths: "1100, 600, 300", img_sizes: "(max-width: 676px) 85vw, (max-width: 1024px) 30vw" %}
-          {% endcase %}
+              <div class="shop-the-look__products__product">
+                {% render 'product-card' this_product: block.settings.product, show_bg_color: section.settings.show_bg_color, quick_add: section.settings.quick_add, crop: section.settings.crop_shape, show_phrase: section.settings.show_phrase, alignment: section.settings.product_text_alignment, section.settings.show_description: section.settings.show_description, price_position: section.settings.price, alt_heading: section.settings.alt_title, img_width: 1100, img_widths: "1100, 600, 300", img_sizes: "(max-width: 676px) 85vw, (max-width: 1024px) 30vw" %}
+              </div>
+            {% endcase %}
         {% endfor %}
       </div>
     </div>
@@ -319,10 +323,11 @@
     {
       "type": "product",
       "name": "t:sections.shop-the-look.blocks.product.name",
+      "limit": 10,
       "settings": [
         {
           "type": "paragraph",
-          "content": "Add product metafields in order to theme the slideshow with associated product colors. TODO: Add link with info"
+          "content": "t:sections.shop-the-look.blocks.product.settings.paragraph.content"
         },
         {
           "type": "product",

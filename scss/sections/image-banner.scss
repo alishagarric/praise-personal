@@ -22,7 +22,7 @@
       var(--sectionVerticalSpacing) * var(--bottomInternalSpacingRatio)
     );
 
-    > * {
+    .image-banner__heading {
       max-width: 600px;
     }
   }
@@ -57,7 +57,7 @@
   }
 
   &__text {
-    * {
+    .image-banner__heading {
       max-width: var(--maxWidth);
     }
   }

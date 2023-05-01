@@ -1,0 +1,198 @@
+.disclosure {
+  //Styles used on all types of disclosures
+  &__summary {
+    position: relative;
+    cursor: pointer;
+
+    span {
+      pointer-events: none;
+    }
+  }
+
+  // Include this modifier when we want a clickable overlay to display when its open
+  &.__with-overlay {
+    &[open] > summary:before {
+      content: "";
+      position: fixed;
+      top: 0;
+      right: 0;
+      height: 100vh;
+      width: 100vw;
+      cursor: default;
+    }
+  }
+
+  &.__style {
+    // The style where the height doesn't change and the content is absolute
+    &-dropdown-traditional,
+    &-dropdown-button {
+      position: relative; // from sarter styles
+
+      .disclosure {
+        &__content {
+          //from starter
+          background-color: RGBA(var(--color-background));
+          border: 1px solid RGBA(var(--color-border));
+          box-shadow: 5px 5px 10px 0 RGB(var(--color-text) / 0.1);
+          position: absolute;
+          left: 0;
+          z-index: 500;
+
+          input {
+            display: none;
+          }
+
+          &.__content-top {
+            bottom: 100%;
+          }
+        }
+      }
+    }
+
+    &-dropdown-traditional,
+    &-dropdown-button {
+      .disclosure {
+        &__content {
+          min-width: 200px;
+          max-height: 350px;
+          overflow-y: auto;
+
+          ul {
+            margin: 0;
+
+            li {
+              display: block;
+
+              &:not(:first-child) {
+                border-top: 1px solid RGB(var(--color-border));
+              }
+
+              a,
+              label {
+                display: block;
+                padding: var(--expandableContentIconWidth);
+                width: 100%;
+                height: auto;
+                cursor: pointer;
+                position: relative;
+
+                &:after {
+                  content: none;
+                }
+
+                &:hover {
+                  &::after {
+                    content: "";
+                    inset: 0;
+                    position: absolute;
+                    display: block;
+                    background-color: RGBA(var(--color-text) / 0.05);
+                  }
+                }
+              }
+
+              a.current,
+              input:checked + label {
+                font-weight: 600;
+
+                &:before {
+                  content: "- ";
+                }
+
+                &::after {
+                  content: "";
+                  inset: 0;
+                  position: absolute;
+                  display: block;
+                  background-color: RGBA(var(--color-text) / 0.05);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &-dropdown-button,
+    &-default,
+    &-blank-button {
+      //close plus sign
+      &[open] {
+        .disclosure {
+          &__summary {
+            &:after {
+              transform: none;
+            }
+          }
+        }
+      }
+    }
+
+    &-dropdown-traditional {
+      border: 1px solid RGB(var(--color-border));
+
+      .disclosure {
+        &__summary {
+          padding: 0 var(--expandableContentIconWidth);
+          height: var(--inputHeight);
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          span {
+            margin: 0;
+          }
+
+          &:after {
+            content: "\25BE";
+          }
+        }
+
+        &__content {
+          width: 100%;
+        }
+      }
+
+      &[open] {
+        .disclosure {
+          &__summary {
+            &:after {
+              transform: rotate(180deg);
+            }
+          }
+        }
+      }
+    }
+
+    // The style where the height grows when open
+    &-default {
+      border-top: 1px solid RGB(var(--color-border));
+      border-bottom: 1px solid RGB(var(--color-border));
+
+      //only show top border on first one, so they don't double up
+      + .disclosure {
+        border-top: none;
+      }
+
+      .disclosure {
+        &__summary,
+        &__content {
+          padding: calc(var(--pxSize) / 4) 0;
+        }
+      }
+    }
+
+    &-dropdown-button,
+    &-blank-button {
+      .disclosure {
+        &__summary {
+          margin-top: 0;
+
+          span {
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+}

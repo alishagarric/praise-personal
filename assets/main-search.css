@@ -8,8 +8,8 @@
     display: flex;
     margin-bottom: var(--sectionVerticalSpacing); }
     .main-search__form > input[type="search"]:first-of-type {
-      border-bottom-right-radius: 0px;
-      border-top-right-radius: 0px;
+      border-bottom-right-radius: 0px !important;
+      border-top-right-radius: 0px !important;
       flex: 1; }
     .main-search__form button {
       border-bottom-left-radius: 0px;
@@ -31,14 +31,38 @@
     display: grid;
     grid-template-columns: repeat(var(--mainSearchColumns), 1fr);
     gap: var(--pxSize) calc(var(--pxSize) / 3); }
-    .main-search__results li > .quote-card {
-      --color-background: var(--color-foreground);
-      --color-text: var(--color-foreground-text); }
+    .main-search__results li {
+      position: relative; }
+      .main-search__results li:after {
+        --sideSpace: calc(var(--btnHeight) * var(--btnSidesSpace));
+        content: var(--searchType);
+        letter-spacing: var(--font-body-spacing);
+        font-family: var(--font-body-family);
+        font-style: var(--font-body-style);
+        font-weight: var(--font-body-weight);
+        line-height: 1.4;
+        margin: 0 0 1rem 0;
+        font-size: calc(0.9rem * var(--font-body-scale));
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 50%;
+        max-width: 100%;
+        transform: translate(-50%, -50%);
+        border: 1px solid RGB(var(--color-text));
+        background: RGB(var(--color-background));
+        color: RGB(var(--color-text));
+        margin: 0;
+        z-index: 2;
+        border-radius: var(--btnBorderRadius);
+        padding: calc(var(--sideSpace) / 4) var(--sideSpace); }
+        .main-search__results li:after:is(p) {
+          max-width: 400px; }
+      .main-search__results li > .content-card {
+        --color-background: var(--color-foreground); }
   @media screen and (max-width: 1024px) {
     .main-search {
       --mainSearchColumns: 2; } }
   @media screen and (max-width: 676px) {
     .main-search {
       --mainSearchColumns: 1; } }
-
-/*# sourceMappingURL=main-search.css.map */

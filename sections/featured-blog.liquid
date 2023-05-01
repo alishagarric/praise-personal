@@ -1,5 +1,6 @@
 {{ 'featured-blog.css' | asset_url | stylesheet_tag }}
 {{ 'overflow-slider.css' | asset_url | stylesheet_tag }}
+{{ 'article-card.css' | asset_url | stylesheet_tag }}
 
 {% liquid
   assign section_theme = section.settings.theme
@@ -101,7 +102,7 @@
     {
       "type": "text",
       "id": "heading",
-      "default": "Lorem ipsum",
+      "default": "Featured Blog",
       "label": "t:sections.featured-blog.settings.heading.label"
     },
     {
@@ -380,7 +381,7 @@
     {
       "name": "t:sections.featured-blog.presets.name",
       "settings": {
-        "heading": "Lorem ipsum dolor sit"
+        "heading": "Heading Content"
       }
     }
   ]

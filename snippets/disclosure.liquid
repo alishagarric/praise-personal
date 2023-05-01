@@ -2,7 +2,9 @@
   Renders an accordion, that shows exapandable content when clicked or set to open
 
   Expects: 
-  - title: {String} required
+  - title: {String} this or html_title below required
+  - html_title: {Html} this or title above required
+  - aria_label: {string} required if the title above is html
   - id: {String or Int} required, makes aria controls unique to this instance
   - text: {Richtext} optional, required if page isn't included below
   - page: {Object} optional, required if text isn't included above
@@ -11,23 +13,31 @@
   - article_text: {Boolen}, whether to apply article styles to content
   - class: {string} optional
   - css_vars: {string} optional
-  - location: {string} optional 'bottom-edge' will cause absolutely possitioned content to display on top instead of bottom
+  - location: {string} optional 'bottom-edge' will cause absolutely positioned content to display on top instead of bottom
 
   Usage:
     {% render 'explandable-content', title: block.settings.title, text: block.settings.text, open: false %}
 
 {% endcomment %}   
 
-{{ 'disclosure.css' | asset_url | stylesheet_tag }}
+{% assign style = style | default: 'default' %}
+{% assign style_escaped = style | split: ' ' | first %}
+{% assign style_prepends = style | remove: style_escaped %}
 
 {% assign open = open | default: false %}
 {% assign article_text = article_text | default: false %}
-{% assign style = style | default: 'default' %}
+{% assign aria_label = aria_label | default: title %}
+
+{% if title %}
+    {% capture title %}<span class="p-sm">{{ title }}</span>{% endcapture %}
+{% else %}
+  {% assign title = html_title %}
+{% endif %}
 
 {% if title and id and text or page %}
   <details class="disclosure {{ class }} __style-{{ style }}" {% if open %}open{% endif %} style="{{ css_vars }}">
-    <summary class="disclosure__summary {% if style == "dropdown-button" or style == "blank-button" %}btn noselect{% endif %}" aria-label="{{ title }}" role="button" aria-expanded="true" aria-controls="dropdown-{{ id }}">
-      <span class="p-sm">{{ title }}</span>
+    <summary class="disclosure__summary {{ style_prepends }} {% if style_escaped == "dropdown-button" or style_escaped == "blank-button" %}btn noselect{% endif %} {% if style_escaped == "dropdown-button" or style_escaped == "blank-button" or style_escaped == "default" %}__with-plus{% endif %}" aria-label="{{ aria_label }}" role="button" aria-expanded="true" aria-controls="dropdown-{{ id }}">
+      {{ title }}
     </summary>
     <div id="dropdown-{{ id }}" class="disclosure__content {% if article_text %}__article-txt-p-sm{% endif %} {% if location == 'bottom-edge' %}__content-top{% endif %}">
       {{ text }}

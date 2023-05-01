@@ -4,6 +4,9 @@
       "type": "main-page",
       "disabled": true,
       "settings": {
+        "heading_size": "h2",
+        "alt_heading": false,
+        "text_size": "p-sm",
         "top_spacing": 50,
         "bottom_spacing": 50,
         "theme": "primary"
@@ -23,7 +26,8 @@
         "template--16667010040030__0978cd8e-e514-47cf-ac5e-00b5a4841ee4-16744357773c9b5e8e-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>"
+            "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>",
+            "text_size": "p"
           }
         },
         "template--16667010040030__0978cd8e-e514-47cf-ac5e-00b5a4841ee4-16744357773c9b5e8e-2": {
@@ -84,6 +88,7 @@
       "settings": {
         "collection": "",
         "theme_slideshow": false,
+        "include_border": true,
         "show_phrase": false,
         "show_description": false,
         "quick_add": false,
@@ -95,6 +100,7 @@
         "heading": "Lorem Ipsum",
         "alt_heading": false,
         "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>",
+        "text_size": "p",
         "collection_text_content": false,
         "theme": "primary",
         "top_spacing": 50,
@@ -103,11 +109,11 @@
     },
     "26436845-ef08-408c-b334-f56747ca7916": {
       "type": "icons-section",
-      "disabled": true,
       "blocks": {
         "template--16667010040030__26436845-ef08-408c-b334-f56747ca7916-1674435829b28255b0-0": {
           "type": "icon",
           "settings": {
+            "icon": "shopify://shop_images/ha-nguy-n-OFSQ6bHjFjs-unsplash_1.jpg",
             "heading": "",
             "text": "Nostrud exercitation"
           }
@@ -138,7 +144,7 @@
         "alt_heading": false,
         "layout": "3",
         "mobile_layout": "3",
-        "icon_height": 100,
+        "icon_height": 500,
         "alignment": "center",
         "theme": "primary",
         "top_spacing": 50,
@@ -213,7 +219,8 @@
         "template--16667010040030__56b949e4-d083-4bc7-95ab-a990c1575f1d-1674435855d662b82a-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>"
+            "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>",
+            "text_size": "p-sm"
           }
         },
         "template--16667010040030__56b949e4-d083-4bc7-95ab-a990c1575f1d-1674435855d662b82a-2": {
@@ -273,6 +280,7 @@
         "heading_size": "h4",
         "alt_heading": false,
         "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>",
+        "text_size": "p-sm",
         "alignment": "center",
         "columns_desktop": 3,
         "columns_mobile": 2,
@@ -296,7 +304,8 @@
         "template--16667010040030__92c30198-8f2c-4493-97a9-49556b7ebbcb-167443595750c84ff0-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>"
+            "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>",
+            "text_size": "p-sm"
           }
         },
         "template--16667010040030__92c30198-8f2c-4493-97a9-49556b7ebbcb-167443595750c84ff0-2": {
@@ -322,7 +331,6 @@
     },
     "5342c31a-ae8a-4791-860a-cfa6c59360d6": {
       "type": "content-marquee",
-      "disabled": true,
       "blocks": {
         "3c77e5e9-a264-4c7b-b3d9-1aa0b59ad4a9": {
           "type": "image",
@@ -334,10 +342,11 @@
             "heading": "Lorem ipsum",
             "heading_size": "h5",
             "overlap": false,
-            "text": "",
+            "text": "<p>Tes description</p>",
+            "text_size": "p-sm",
             "alignment": "left",
             "button_label": "Laboris Nisi",
-            "button_link": "",
+            "button_link": "shopify://pages/about",
             "button_color": "default"
           }
         },
@@ -352,8 +361,9 @@
             "heading_size": "h5",
             "overlap": false,
             "text": "",
+            "text_size": "p-sm",
             "alignment": "left",
-            "button_label": "Laboris Nisi",
+            "button_label": "",
             "button_link": "shopify://collections/cookie-collection",
             "button_color": "default"
           }
@@ -379,6 +389,7 @@
         "products_per_collection": 2,
         "heading_size": "h4",
         "alt_heading": false,
+        "text_size": "p-sm",
         "view_all_button_label": "",
         "enable_sticky_details": true,
         "display_collection_image": false,
@@ -405,7 +416,6 @@
     },
     "0d10def1-9b62-43cd-95b0-4ff44cc3bc7b": {
       "type": "multicolumn",
-      "disabled": true,
       "blocks": {
         "42faed85-fa8a-42f4-a030-9646019d1278": {
           "type": "image",
@@ -485,6 +495,7 @@
         "heading_size": "h2",
         "alt_heading": false,
         "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip</p>",
+        "text_size": "p-sm",
         "alignment": "center",
         "columns_desktop": 3,
         "columns_mobile": 2,

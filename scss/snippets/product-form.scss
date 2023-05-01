@@ -1,4 +1,5 @@
 @import "../utilities/mixins";
+@import "../snippets/variant-picker";
 
 form.product-form {
   > *:last-child {
@@ -19,6 +20,7 @@ form.product-form {
 
     &__row {
       margin-bottom: calc(var(--pxSize) / 4);
+      flex-wrap: wrap;
 
       &.__include-border {
         padding-bottom: calc(var(--pxSize) / 4);

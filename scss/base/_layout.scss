@@ -5,25 +5,15 @@ html {
   height: 100%;
   background: RGB(var(--color-background));
   color: RGB(var(--color-text));
-
-  * {
-    font-family: var(--font-body-family);
-    font-style: var(--font-body-style);
-    font-weight: var(--font-body-weight);
-  }
+  font-family: var(--font-body-family);
+  font-style: var(--font-body-style);
+  font-weight: var(--font-body-weight);
 }
 
 body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   min-height: calc(100% - var(--navWithAnnouncementHeight));
-
-  ::selection {
-    background: RGB(var(--color-foreground)); /* WebKit/Blink Browsers */
-  }
-  ::-moz-selection {
-    background: RGB(var(--color-foreground)); /* Gecko Browsers */
-  }
 
   &.__mobile-overflow-none {
     overflow: hidden;
@@ -41,7 +31,8 @@ body {
 body > main > section > div,
 body > main > article > div,
 body > div > footer,
-body > main > .shopify-challenge__container {
+body > main > .shopify-challenge__container,
+body > main > .shopify-policy__container {
   padding: calc(var(--sectionVerticalSpacing) * var(--topSpacingRatio))
     var(--sectionGuttersSpacing)
     calc(var(--sectionVerticalSpacing) * var(--bottomSpacingRatio))

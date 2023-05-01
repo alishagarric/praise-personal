@@ -24,6 +24,7 @@
   &__products {
     position: relative;
     z-index: 1;
+    max-width: 50vw; //TODO x-large screens
   }
 
   &__image {
@@ -82,10 +83,16 @@
     &__product {
       width: 60%;
       padding-left: var(--pxSize);
+      flex: 0 0 60%; // For when Flickity is not applied
+    }
+
+    // For when Flickity is not applied
+    &:not(.flickity-enabled) {
+      display: flex;
+      overflow: auto;
     }
   }
 
-  //TODO: Shoudl we extract this into a global class with the only variable being height?
   &__background-color {
     z-index: 0;
     pointer-events: none;
@@ -111,9 +118,6 @@
         opacity: 1;
       }
     }
-  }
-
-  @media screen and (max-width: 1024px) {
   }
 
   @media screen and (max-width: 676px) {

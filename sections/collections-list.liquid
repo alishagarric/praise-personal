@@ -1,5 +1,6 @@
 {{ 'collections-list.css' | asset_url | stylesheet_tag }}
 {{ 'overflow-slider.css' | asset_url | stylesheet_tag }}
+{{ 'collection-card.css' | asset_url | stylesheet_tag }}
 
 {% liquid
   if section.blocks.size < 5
@@ -72,7 +73,7 @@
     {
       "type": "text",
       "id": "heading",
-      "default": "Lorem ipsum dolor sit",
+      "default": "Collections List",
       "label": "t:sections.collections-list.settings.heading.label"
     },
     {

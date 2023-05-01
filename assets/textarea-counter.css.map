@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AACE,0BAAS;EACP,aAAa,EAAE,CAAC;AAGlB,wBAAS;EACP,UAAU,EAAE,GAAG;EACf,WAAW,EAAE,uBAAuB;EACpC,KAAK,EAAE,4BAA8B;EACrC,MAAM,EAAE,CAAC",
-"sources": ["../dev/scss/snippets/textarea-counter.scss"],
-"names": [],
-"file": "textarea-counter.css"
-}

@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAAA,gBAAiB;EACf,YAAY,EAAE,CAAC;EACf,aAAa,EAAE,CAAC;EAEhB,uBAAS;IACP,OAAO,EAAE,EAAE;IACX,OAAO,EAAE,KAAK;IACd,aAAa,EAAE,kCAAkC;IACjD,WAAW,EAAE,gCAAgC;IAC7C,aAAa,EAAE,mCAAmC;EAIlD,sCAAS;IACP,MAAM,EAAE,IAAI",
-"sources": ["../dev/scss/sections/divider.scss"],
-"names": [],
-"file": "divider.css"
-}

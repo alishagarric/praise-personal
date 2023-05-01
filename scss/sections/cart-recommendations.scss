@@ -1,10 +1,12 @@
 .cart-recommendations {
   &__container {
     display: flex;
-    gap: calc(var(--pxSize) / 3);
+    flex-wrap: wrap;
+    gap: var(--pxSize) calc(var(--pxSize) / 3);
 
     > * {
-      flex: 0 1 calc(100% / 3);
+      width: 100%;
+      flex: 0 0 calc(50% - calc(var(--pxSize) / 6));
     }
   }
 
@@ -15,10 +17,22 @@
   }
 
   @media screen and (max-width: 1024px) {
+    &__container,
+    &__heading {
+      max-width: var(--maxWidth);
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  @media screen and (max-width: 676px) {
     &__container {
-      flex-direction: column;
-      max-width: 400px;
-      margin: 0 auto;
+      flex-wrap: nowrap;
+      overflow: auto;
+
+      > * {
+        flex: 1 0 300px;
+      }
     }
   }
 }

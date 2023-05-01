@@ -1,10 +1,16 @@
 .article-card {
   position: relative;
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  width: 100%; }
+  .article-card img,
+  .article-card svg {
+    transform: scale(1);
+    will-change: transform;
+    transition: all 0.25s ease; }
   .article-card__top {
     width: 100%;
-    margin-bottom: calc(var(--btnHeight) / 2);
+    margin-bottom: 1rem;
     position: relative; }
   .article-card__assc-products {
     display: grid;
@@ -36,5 +42,8 @@
     margin-bottom: 0; }
     .article-card *:last-child * {
       margin-bottom: 0; }
-
-/*# sourceMappingURL=article-card.css.map */
+  .article-card:hover {
+    cursor: pointer; }
+    .article-card:hover img,
+    .article-card:hover svg {
+      transform: scale(1.05); }

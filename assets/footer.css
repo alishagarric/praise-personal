@@ -41,7 +41,11 @@
     flex-wrap: wrap;
     gap: calc(var(--pxSize) / 3);
     margin-top: calc(var(--pxSize) / 2);
-    align-items: flex-end; }
+    align-items: flex-end;
+    max-width: var(--maxWidth);
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%; }
     .section-footer__localization > * {
       flex-grow: 1; }
       .section-footer__localization > * summary {
@@ -112,5 +116,3 @@
       margin-top: var(--pxSize); }
     .section-footer__blocks__block {
       flex: 1 0 40%; } }
-
-/*# sourceMappingURL=footer.css.map */

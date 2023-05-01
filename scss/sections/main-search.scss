@@ -1,3 +1,5 @@
+@import "../utilities/mixins";
+
 .main-search {
   --mainSearchColumns: 3;
 
@@ -12,8 +14,8 @@
     margin-bottom: var(--sectionVerticalSpacing);
 
     > input[type="search"]:first-of-type {
-      border-bottom-right-radius: 0px;
-      border-top-right-radius: 0px;
+      border-bottom-right-radius: 0px !important;
+      border-top-right-radius: 0px !important;
       flex: 1;
     }
 
@@ -51,9 +53,31 @@
     grid-template-columns: repeat(var(--mainSearchColumns), 1fr);
     gap: var(--pxSize) calc(var(--pxSize) / 3);
 
-    li > .quote-card {
-      --color-background: var(--color-foreground);
-      --color-text: var(--color-foreground-text);
+    li {
+      position: relative;
+
+      &:after {
+        --sideSpace: calc(var(--btnHeight) * var(--btnSidesSpace));
+        content: var(--searchType);
+        @include p-sm;
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 50%;
+        max-width: 100%;
+        transform: translate(-50%, -50%);
+        border: 1px solid RGB(var(--color-text));
+        background: RGB(var(--color-background));
+        color: RGB(var(--color-text));
+        margin: 0;
+        z-index: 2;
+        border-radius: var(--btnBorderRadius);
+        padding: calc(var(--sideSpace) / 4) var(--sideSpace);
+      }
+
+      > .content-card {
+        --color-background: var(--color-foreground);
+      }
     }
   }
 

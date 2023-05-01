@@ -10,12 +10,14 @@ class DeferredMedia extends HTMLElement {
   loadContent(focus = true) {
     window.pauseAllMedia();
     if (!this.getAttribute("loaded")) {
+      console.log("not loaded yet");
       const content = document.createElement("div");
       content.appendChild(
         this.querySelector("template").content.firstElementChild.cloneNode(true)
       );
 
       if (content.querySelector("video-section")) {
+        console.log(content);
         const deferredElement = this.appendChild(content);
         if (focus) deferredElement.focus();
       } else {

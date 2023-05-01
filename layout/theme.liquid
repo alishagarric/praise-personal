@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js __theme-primary __btn-hover-{{ settings.button_hover }}" lang="{{ request.locale.iso_code }}">
+<html class="no-js __theme-primary" lang="{{ request.locale.iso_code }}">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,6 +19,7 @@
     {% render 'social-media-tags' %}
 
     <script src="{{ 'theme.js' | asset_url }}" defer></script>
+    <script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'deferred-media.js' | asset_url }}" defer></script>
 
     {{ content_for_header }}
@@ -36,9 +37,9 @@
     {% render 'other-variables' %}
 
     {%- if settings.favicon != blank and settings.favicon contains '.png' -%}
-      <link rel="shortcut icon" href="{{ settings.favicon | img_url: 'master' }}" type="image/png">
+      <link rel="icon" href="{{ settings.favicon | image_url: width: 32, height: 32 }}" type="image/png">
     {%- elsif settings.favicon != blank and settings.favicon contains '.ico' -%}
-      <link rel="shortcut icon" href="{{ settings.favicon | img_url: 'master' }}" type="image/x-icon">
+      <link rel="icon" href="{{ settings.favicon | image_url: width: 32, height: 32 }}" type="image/x-icon">
     {%- endif -%}
   </head>
   <body>

@@ -26,6 +26,8 @@
   height: var(--arrowBtnHeight);
   width: var(--arrowBtnHeight);
   padding: 0; }
+  .flickity-button:hover:after {
+    content: none; }
   .flickity-button svg * {
     fill: RGB(var(--color-foreground-text)); }
 
