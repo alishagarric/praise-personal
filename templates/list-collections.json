@@ -3,8 +3,32 @@
     "main": {
       "type": "main-list-collections",
       "settings": {
-        "title": "Collections",
-        "collections_per_page": 4
+        "collections_per_page": 4,
+        "products_per_collection": 2,
+        "heading_size": "h4",
+        "alt_heading": false,
+        "view_all_button_label": "View All",
+        "enable_sticky_details": true,
+        "display_collection_image": false,
+        "collection_image_crop_shape": "default",
+        "display_featured_icons": false,
+        "enable_icons_marquee": false,
+        "speed": 5,
+        "display_featured_stats": false,
+        "stats_color": "default",
+        "icon_height": 40,
+        "layout": "stacked",
+        "show_phrase": false,
+        "show_description": false,
+        "quick_add": false,
+        "show_bg_color": false,
+        "alt_title": false,
+        "product_text_alignment": "default",
+        "price": "default",
+        "crop_shape": "default",
+        "theme": "primary",
+        "top_spacing": 50,
+        "bottom_spacing": 50
       }
     },
     "85c58e07-278d-42c1-b9f3-f6bab28fee7f": {
@@ -13,22 +37,22 @@
         "template--16398178844894__85c58e07-278d-42c1-b9f3-f6bab28fee7f-16703627747c9db086-0": {
           "type": "heading",
           "settings": {
-            "heading": "We dreamt of this (a lot)",
-            "heading_size": "h2"
+            "heading": "Refresh Your Senses with Our Vibrant Juices",
+            "heading_size": "h4"
           }
         },
         "template--16398178844894__85c58e07-278d-42c1-b9f3-f6bab28fee7f-16703627747c9db086-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Atypical cookies and treats that push the boundaries of indulgence. An odea to the well-baanced classic cookie. This season we are celebrating all the nostalgia and what pairs best with chocolate chips.</p>"
+            "text": "<p>Indulge in our delicious and nutritious juices made from fresh fruits and vegetables that will energize your body and tantalize your taste buds<\/p>"
           }
         },
         "template--16398178844894__85c58e07-278d-42c1-b9f3-f6bab28fee7f-16703627747c9db086-2": {
           "type": "button",
           "settings": {
-            "button_label": "Shop lemon cookies",
-            "button_link": "shopify://collections/cookie-collection",
-            "button_color": "default"
+            "button_label": "Shop Tropical",
+            "button_link": "shopify:\/\/collections\/tropical",
+            "button_color": "2"
           }
         }
       },
@@ -38,11 +62,13 @@
         "template--16398178844894__85c58e07-278d-42c1-b9f3-f6bab28fee7f-16703627747c9db086-2"
       ],
       "settings": {
-        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_e7c90847-70c1-47f4-a82d-2369a2b4a718.jpg",
+        "image": "shopify:\/\/shop_images\/AdobeStock_97733626.jpg",
         "image_style": "wide",
         "hero": false,
         "alignment": "center",
         "layout": "reversed",
+        "mobile_layout": "default",
+        "mobile_image_height": 450,
         "theme": "primary",
         "top_internal_spacing": 100,
         "bottom_internal_spacing": 100,
@@ -53,21 +79,23 @@
     "7691bbe1-f26e-4754-a188-f70a1bca5076": {
       "type": "featured-collection",
       "settings": {
-        "collection": "cookie-collection",
-        "theme_slider": false,
+        "collection": "green-drinks",
+        "theme_slideshow": false,
         "show_phrase": false,
         "show_description": false,
         "quick_add": true,
+        "show_bg_color": false,
+        "alt_title": false,
         "product_text_alignment": "default",
         "price": "default",
         "crop_shape": "rounded-square",
-        "heading": "Stock your cabinet",
-        "alt_heading": true,
+        "heading": "",
+        "alt_heading": false,
         "text": "",
-        "collection_text_content": false,
+        "collection_text_content": true,
         "theme": "2",
         "top_spacing": 0,
-        "bottom_spacing": 50
+        "bottom_spacing": 0
       }
     }
   },
