@@ -5,6 +5,46 @@
       "settings": {
         "header": {
           "content": "Text Content"
+        },
+        "heading_size": {
+          "options": {
+            "label_1": "X-Large",
+            "label_2": "Large",
+            "label_3": "Medium",
+            "label_4": "Small"
+          },
+          "label": "Heading Size"
+        },
+        "alt_heading": {
+          "label": "Use body font instead of heading font for heading"
+        },
+        "header_2": {
+          "content": "Cart Item Settings"
+        },
+        "crop_shape": {
+          "options": {
+            "label_1": "No Crop",
+            "label_2": "Square",
+            "label_3": "Rounded Square",
+            "label_4": "Circle",
+            "label_5": "Portrait",
+            "label_6": "Rounded Portrait",
+            "label_7": "Semicircle Portrait",
+            "label_8": "Landscape",
+            "label_9": "Rounded Landscape",
+            "label_10": "Semicircle Landscape",
+            "label_11": "Semicircle Arch"
+          },
+          "label": "Item Image Crop Shape"
+        },
+        "show_vendor": {
+          "label": "Show vendor"
+        },
+        "header_4": {
+          "content": "General"
+        },
+        "show_textarea": {
+          "label": "Show special instructions"
         }
       }
     },
@@ -1394,6 +1434,9 @@
       "settings": {
         "header_3": {
           "content": "Cart Recommendations"
+        },
+        "header": {
+          "content": "Text Content"
         },
         "heading_size": {
           "options": {
@@ -3171,6 +3214,14 @@
             },
             "hide_divider": {
               "label": "Hide divider"
+            }
+          }
+        },
+        "rating": {
+          "name": "Product rating",
+          "settings": {
+            "paragraph": {
+              "content": "To display a rating, add a product rating app. [Learn more](https://help.shopify.com/manual/online-store/themes/theme-structure/theme-features#featured-product-rating)"
             }
           }
         }
