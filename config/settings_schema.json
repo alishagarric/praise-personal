@@ -212,34 +212,6 @@
     ]
   },
   {
-    "name": "Quick add modal",
-    "settings": [
-      {
-        "type": "select",
-        "id": "quick_add_style",
-        "options": [
-          {
-            "value": "modal",
-            "label": "Modal"
-          },
-          {
-            "value": "dropdown",
-            "label": "Dropdown"
-          }
-        ],
-        "default": "dropdown",
-        "label": "Style"
-      },
-      {
-        "type": "text",
-        "id": "quick_add_modal_button_text",
-        "default": "View All Details",
-        "label": "View Product Button Label",
-        "info": "Only applies to the modal style. By default a 'View Product' button displays within the quick add modal. Leave blank to hide this button."
-      }
-    ]
-  },
-  {
     "name": "t:settings_schema.social_media.name",
     "settings": [
       {
