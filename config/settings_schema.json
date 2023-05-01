@@ -41,11 +41,11 @@
       {
         "type": "checkbox",
         "id": "cart_alt_heading",
-        "label": "t:sections.main-cart.settings.alt_heading.label"
+        "label": "t:settings_schema.cart.settings.alt_heading.label"
       },
       {
         "type": "header",
-        "content": "t:sections.main-cart.settings.header_2.content"
+        "content": "t:settings_schema.cart.settings.header_2.content"
       },
       {
         "type": "select",
@@ -53,78 +53,78 @@
         "options": [
           {
             "value": "default",
-            "label": "t:sections.main-cart.settings.crop_shape.options.label_1"
+            "label": "t:settings_schema.cart.settings.crop_shape.options.label_1"
           },
           {
             "value": "square",
-            "label": "t:sections.main-cart.settings.crop_shape.options.label_2"
+            "label": "t:settings_schema.cart.settings.crop_shape.options.label_2"
           },
           {
             "value": "rounded-square",
-            "label": "t:sections.main-cart.settings.crop_shape.options.label_3"
+            "label": "t:settings_schema.cart.settings.crop_shape.options.label_3"
           },
           {
             "value": "circle",
-            "label": "t:sections.main-cart.settings.crop_shape.options.label_4"
+            "label": "t:settings_schema.cart.settings.crop_shape.options.label_4"
           },
           {
             "value": "portrait",
-            "label": "t:sections.main-cart.settings.crop_shape.options.label_5"
+            "label": "t:settings_schema.cart.settings.crop_shape.options.label_5"
           },
           {
             "value": "rounded-portrait",
-            "label": "t:sections.main-cart.settings.crop_shape.options.label_6"
+            "label": "t:settings_schema.cart.settings.crop_shape.options.label_6"
           },
           {
             "value": "semicircle-portrait",
-            "label": "t:sections.main-cart.settings.crop_shape.options.label_7"
+            "label": "t:settings_schema.cart.settings.crop_shape.options.label_7"
           },
           {
             "value": "landscape",
-            "label": "t:sections.main-cart.settings.crop_shape.options.label_8"
+            "label": "t:settings_schema.cart.settings.crop_shape.options.label_8"
           },
           {
             "value": "rounded-landscape",
-            "label": "t:sections.main-cart.settings.crop_shape.options.label_9"
+            "label": "t:settings_schema.cart.settings.crop_shape.options.label_9"
           },
           {
             "value": "semicircle-landscape",
-            "label": "t:sections.main-cart.settings.crop_shape.options.label_10"
+            "label": "t:settings_schema.cart.settings.crop_shape.options.label_10"
           },
           {
             "value": "wide",
-            "label": "t:sections.main-cart.settings.crop_shape.options.label_11"
+            "label": "t:settings_schema.cart.settings.crop_shape.options.label_11"
           },
           {
             "value": "rounded-wide",
-            "label": "t:sections.main-cart.settings.crop_shape.options.label_12"
+            "label": "t:settings_schema.cart.settings.crop_shape.options.label_12"
           },
           {
             "value": "semicircle-wide",
-            "label": "t:sections.main-cart.settings.crop_shape.options.label_13"
+            "label": "t:settings_schema.cart.settings.crop_shape.options.label_13"
           },
           {
             "value": "arch",
-            "label": "t:sections.main-cart.settings.crop_shape.options.label_14"
+            "label": "t:settings_schema.cart.settings.crop_shape.options.label_14"
           }
         ],
         "default": "default",
-        "label": "t:sections.main-cart.settings.crop_shape.label"
+        "label": "t:settings_schema.cart.settings.crop_shape.label"
       },
       {
         "type": "checkbox",
         "id": "cart_show_vendor",
-        "label": "t:sections.main-cart.settings.show_vendor.label",
+        "label": "t:settings_schema.cart.settings.show_vendor.label",
         "default": false
       },
       {
         "type": "header",
-        "content": "t:sections.main-cart.settings.header_4.content"
+        "content": "t:settings_schema.cart.settings.header_4.content"
       },
       {
         "type": "checkbox",
         "id": "cart_show_textarea",
-        "label": "t:sections.main-cart.settings.show_textarea.label",
+        "label": "t:settings_schema.cart.settings.show_textarea.label",
         "default": true
       }
     ]

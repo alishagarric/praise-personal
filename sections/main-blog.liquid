@@ -48,27 +48,32 @@
       </aside>
     {%- endif -%}
 
-    <ul class="main-blog__articles list-unstyled grid" role="list">
-      {%- for article in blog.articles -%}
-        <li class="main-blog__articles__article-container">
-          {% render 'article-card',
-            class: 'main-blog__card',
-            crop: crop_shape,
-            assc_product_crop_shape: assc_product_crop_shape,
-            button_label: button_label,
-            alignment: alignment,
-            show_description: show_description,
-            show_author: show_author,
-            show_date: show_date,
-            alt_heading: alt_heading,
-            article: article,
-            img_width: 1280,
-            img_widths: '1280, 900, 700, 500',
-            img_sizes: '(max-width: 676px) 100vw, (max-width: 1024px) 45vw, 25vw'
-          %}
-        </li>
-      {%- endfor -%}
-    </ul>
+    {% if blog.articles.size > 0 %}
+      <ul class="main-blog__articles list-unstyled grid" role="list">
+        {%- for article in blog.articles -%}
+          <li class="main-blog__articles__article-container">
+            {% render 'article-card',
+              class: 'main-blog__card',
+              crop: crop_shape,
+              assc_product_crop_shape: assc_product_crop_shape,
+              button_label: button_label,
+              alignment: alignment,
+              show_description: show_description,
+              show_author: show_author,
+              show_date: show_date,
+              alt_heading: alt_heading,
+              article: article,
+              img_width: 1280,
+              img_widths: '1280, 900, 700, 500',
+              img_sizes: '(max-width: 676px) 100vw, (max-width: 1024px) 45vw, 25vw'
+            %}
+          </li>
+        {%- endfor -%}
+      </ul>
+    {% else %}
+      <p class="__align-center">{{ 'blogs.no_articles' | t }}</p>
+    {% endif %}
+
     {%- if paginate.pages > 1 -%}
       {%- render 'pagination', paginate: paginate -%}
     {%- endif -%}
