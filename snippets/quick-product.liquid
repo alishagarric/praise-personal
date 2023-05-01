@@ -41,7 +41,7 @@
       {{ quick_product.title }}
     </h3>
 
-    {% if quick_product.selected_or_first_available_variant.options %}
+    {% if quick_product.selected_or_first_available_variant.options and quick_product.has_only_default_variant != true %}
       <p class="quick-product__variants p-sm">{{ quick_product.selected_or_first_available_variant.options | join: " - "}}</p>
     {% endif %}
 
