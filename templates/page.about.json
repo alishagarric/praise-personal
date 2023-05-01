@@ -13,14 +13,14 @@
         "3d5ac82e-833b-4bc1-8002-fd096556e404": {
           "type": "text",
           "settings": {
-            "text": "<p>Each juice is carefully crafted to provide a unique blend of nutrients and health benefits. We believe that natural, whole-food ingredients are the key to optimal health and wellbeing, and we're committed to bringing you the best quality products possible</p>"
+            "text": "<p>Each juice is carefully crafted to provide a unique blend of nutrients and health benefits. We believe that natural, whole-food ingredients are the key to optimal health and wellbeing, and we're committed to bringing you the best quality products possible<\/p>"
           }
         },
         "9f3f4d9f-29e2-4eea-9932-9b24ca5d97f4": {
           "type": "button",
           "settings": {
             "button_label": "All juices",
-            "button_link": "shopify://collections/all-juices",
+            "button_link": "shopify:\/\/collections\/all-juices",
             "button_color": "default"
           }
         }
@@ -31,7 +31,7 @@
         "9f3f4d9f-29e2-4eea-9932-9b24ca5d97f4"
       ],
       "settings": {
-        "image": "shopify://shop_images/angelica-echeverry-oZ1u0l17lns-unsplash.jpg",
+        "image": "shopify:\/\/shop_images\/angelica-echeverry-oZ1u0l17lns-unsplash.jpg",
         "overlay": 20,
         "overlay_theme": "4",
         "crop_shape": "arch",
@@ -50,7 +50,7 @@
         "template--16406887071966__f2989769-c365-432b-8663-172dec4d23d5-167036307199fd24ce-0": {
           "type": "icon",
           "settings": {
-            "icon": "shopify://shop_images/noun-plant-3309113.png",
+            "icon": "shopify:\/\/shop_images\/noun-plant-3309113.png",
             "heading": "Organic fruits",
             "text": ""
           }
@@ -58,7 +58,7 @@
         "template--16406887071966__f2989769-c365-432b-8663-172dec4d23d5-167036307199fd24ce-1": {
           "type": "icon",
           "settings": {
-            "icon": "shopify://shop_images/noun-berries-2418110.png",
+            "icon": "shopify:\/\/shop_images\/noun-berries-2418110.png",
             "heading": "Nutrient Dense",
             "text": ""
           }
@@ -66,7 +66,7 @@
         "template--16406887071966__f2989769-c365-432b-8663-172dec4d23d5-167036307199fd24ce-2": {
           "type": "icon",
           "settings": {
-            "icon": "shopify://shop_images/noun-flowers-2418113.png",
+            "icon": "shopify:\/\/shop_images\/noun-flowers-2418113.png",
             "heading": "Adaptogenic Benefits",
             "text": ""
           }
@@ -74,7 +74,7 @@
         "4b3a915a-bee5-49f9-9a78-d84f78290651": {
           "type": "icon",
           "settings": {
-            "icon": "shopify://shop_images/noun-plant-2229880_245f09f6-0298-4c28-9ad3-f1af0c512b96.png",
+            "icon": "shopify:\/\/shop_images\/noun-plant-2229880_245f09f6-0298-4c28-9ad3-f1af0c512b96.png",
             "heading": "Minerals & Herbs",
             "text": ""
           }
@@ -82,7 +82,7 @@
         "50db8156-e4c0-4c21-b289-6ccb2088a577": {
           "type": "icon",
           "settings": {
-            "icon": "shopify://shop_images/RAWBRY_badge.png",
+            "icon": "shopify:\/\/shop_images\/RAWBRY_badge.png",
             "heading": "Cold Pressed",
             "text": ""
           }
@@ -91,7 +91,6 @@
           "type": "icon",
           "disabled": true,
           "settings": {
-            "icon": "shopify://shop_images/Group.png",
             "heading": "",
             "text": "Lorem ipsum"
           }
@@ -114,7 +113,7 @@
         "icon_height": 60,
         "alignment": "center",
         "theme": "primary",
-        "top_spacing": 50,
+        "top_spacing": 100,
         "bottom_spacing": 50
       }
     },
@@ -124,13 +123,14 @@
         "template--16686755447006__c2746397-ffb7-4162-bca9-dc03520282d6-1678750637b5ca67c2-0": {
           "type": "heading",
           "settings": {
-            "heading": "Ingredients + Benefits"
+            "heading": "Ingredients + Benefits",
+            "heading_size": "h4"
           }
         },
         "template--16686755447006__c2746397-ffb7-4162-bca9-dc03520282d6-1678750637b5ca67c2-1": {
           "type": "text",
           "settings": {
-            "text": "<h6>Our adaptogenic juices are designed to support your body's natural ability to adapt to stress and promote overall health and well-being. </h6><p></p><ol><li><strong>Ashwagandha</strong> This herb has been used for centuries in Ayurvedic medicine to reduce stress and anxiety, improve brain function, and boost immunity.</li></ol><p></p><ol><li><strong>Reishi Mushroom</strong> Known as the \"mushroom of immortality,\" reishi is a powerful adaptogen that supports the immune system, reduces inflammation, and promotes overall wellbeing.</li></ol><p></p><ol><li><strong>Turmeric</strong> This spice is a potent anti-inflammatory and antioxidant that helps to protect against chronic disease and supports brain function.</li></ol><p></p><ol><li><strong>Ginger</strong> A natural anti-inflammatory, ginger can help to reduce pain and inflammation in the body, support digestion, and boost immunity.</li></ol>"
+            "text": "<p><strong>Our adaptogenic juices are designed to support your body's natural ability to adapt to stress and promote overall health and well-being. <\/strong><\/p><p><\/p><ol><li><strong>Ashwagandha<\/strong> This herb has been used for centuries in Ayurvedic medicine to reduce stress and anxiety, improve brain function, and boost immunity.<br\/> ‎ <\/li><li><strong>Reishi Mushroom<\/strong> Known as the \"mushroom of immortality,\" reishi is a powerful adaptogen that supports the immune system, reduces inflammation, and promotes overall wellbeing.<br\/>‎ <\/li><li><strong>Turmeric<\/strong> This spice is a potent anti-inflammatory and antioxidant that helps to protect against chronic disease and supports brain function.<br\/>‎ <\/li><li><strong>Ginger<\/strong> A natural anti-inflammatory, ginger can help to reduce pain and inflammation in the body, support digestion, and boost immunity.<\/li><\/ol>"
           }
         }
       },
@@ -139,7 +139,18 @@
         "template--16686755447006__c2746397-ffb7-4162-bca9-dc03520282d6-1678750637b5ca67c2-1"
       ],
       "settings": {
-        "image": "shopify://shop_images/Rawbry_Bottle_-_Strawberry2.jpg"
+        "image": "shopify:\/\/shop_images\/Rawbry_Bottle_-_Strawberry2.jpg",
+        "image_style": "default",
+        "hero": false,
+        "alignment": "default",
+        "layout": "default",
+        "mobile_layout": "default",
+        "mobile_image_height": 450,
+        "theme": "primary",
+        "top_internal_spacing": 100,
+        "bottom_internal_spacing": 100,
+        "top_spacing": 50,
+        "bottom_spacing": 50
       }
     },
     "787b9923-6dd5-4810-8c36-f947e2ddb220": {
@@ -159,12 +170,14 @@
           }
         }
       },
-      "block_order": ["4326d0fe-765a-49db-b9ac-499d88cc4bf6"],
+      "block_order": [
+        "4326d0fe-765a-49db-b9ac-499d88cc4bf6"
+      ],
       "settings": {
         "heading": "Juice Collections",
         "heading_size": "h4",
         "alt_heading": false,
-        "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>",
+        "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.<\/p>",
         "alignment": "center",
         "columns_desktop": 4,
         "columns_mobile": 2,
@@ -178,6 +191,12 @@
       "type": "timeline",
       "disabled": true,
       "settings": {
+        "heading": "Timeline Section",
+        "heading_size": "h4",
+        "alt_heading": false,
+        "text": "<p>Add a summary of the steps you'll outline below<\/p>",
+        "dot_color": "default",
+        "crop_shape": "default",
         "theme": "primary",
         "top_spacing": 50,
         "bottom_spacing": 50
@@ -187,6 +206,12 @@
       "type": "video",
       "disabled": true,
       "settings": {
+        "heading": "Video Section",
+        "heading_size": "h4",
+        "alt_heading": false,
+        "text": "<p>Add some text that introduces the video they will watch<\/p>",
+        "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+        "crop_shape": "video",
         "theme": "primary",
         "top_spacing": 50,
         "bottom_spacing": 50
@@ -198,14 +223,14 @@
         "470fd417-3f1a-44c7-8382-ae14c26554b8": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/jasmin-chew-aDIV3azXhv4-unsplash_1.jpg",
+            "image": "shopify:\/\/shop_images\/jasmin-chew-aDIV3azXhv4-unsplash_1.jpg",
             "overlay": 0,
             "overlay_theme": "5",
             "crop_shape": "arch",
             "heading": "Grace Jang",
             "heading_size": "h5",
             "overlap": true,
-            "text": "<p>Co-Founder</p>",
+            "text": "<p>Co-Founder<\/p>",
             "alignment": "center",
             "button_label": "",
             "button_link": "",
@@ -215,14 +240,14 @@
         "61ff9c84-50f8-4831-8a55-c57073c1bcd2": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/stephan-louis-RSNMCJ9QcPI-unsplash_1.jpg",
+            "image": "shopify:\/\/shop_images\/stephan-louis-RSNMCJ9QcPI-unsplash_1.jpg",
             "overlay": 0,
             "overlay_theme": "primary",
             "crop_shape": "arch",
             "heading": "Dr. Jeanette Meyer",
             "heading_size": "h5",
             "overlap": true,
-            "text": "<p>Co-Founder</p>",
+            "text": "<p>Co-Founder<\/p>",
             "alignment": "center",
             "button_label": "",
             "button_link": "",
@@ -232,14 +257,14 @@
         "99b8531b-074b-4667-998e-bbe00d2e275e": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/ha-nguy-n-OFSQ6bHjFjs-unsplash_1.jpg",
+            "image": "shopify:\/\/shop_images\/ha-nguy-n-OFSQ6bHjFjs-unsplash_1.jpg",
             "overlay": 0,
             "overlay_theme": "4",
             "crop_shape": "arch",
             "heading": "Bryce Howard Jr.",
             "heading_size": "h5",
             "overlap": true,
-            "text": "<p>Herbalist</p>",
+            "text": "<p>Herbalist<\/p>",
             "alignment": "center",
             "button_label": "",
             "button_link": "",
@@ -249,14 +274,14 @@
         "4387cb75-4bc2-4503-95b5-dd98f7f824ae": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/jason-moyer-A73ah5JKtVA-unsplash_1.jpg",
+            "image": "shopify:\/\/shop_images\/jason-moyer-A73ah5JKtVA-unsplash_1.jpg",
             "overlay": 0,
             "overlay_theme": "5",
             "crop_shape": "arch",
             "heading": "Amanda Parks",
             "heading_size": "h5",
             "overlap": true,
-            "text": "<p>COO</p>",
+            "text": "<p>COO<\/p>",
             "alignment": "center",
             "button_label": "",
             "button_link": "",
@@ -274,7 +299,7 @@
         "heading": "Our team",
         "heading_size": "h4",
         "alt_heading": false,
-        "text": "<p>Founders Jang and Meyer wanted to share their love for nourishing foods and encourage other to steal back their health.</p>",
+        "text": "<p>Founders Jang and Meyer wanted to share their love for nourishing foods and encourage other to steal back their health.<\/p>",
         "alignment": "center",
         "columns_desktop": 4,
         "columns_mobile": 2,
@@ -290,7 +315,7 @@
         "5167a2e6-6089-4dcb-9865-a6f40969cf4b": {
           "type": "quote",
           "settings": {
-            "quote": "<p>I'm in love with Rawbry juices. Truly the best part of my morning.</p>",
+            "quote": "<p>I'm in love with Rawbry juices. Truly the best part of my morning.<\/p>",
             "quotations": true,
             "details": "",
             "alignment": "center",
@@ -301,7 +326,7 @@
         "4269bb9c-4039-4d0f-8032-96eed0f2bec3": {
           "type": "quote",
           "settings": {
-            "quote": "<p>Nana Knows Best is the banana and maca pick me up that makes me feel eneergized and keeps my skin glowing!</p>",
+            "quote": "<p>Nana Knows Best is the banana and maca pick me up that makes me feel eneergized and keeps my skin glowing!<\/p>",
             "quotations": true,
             "details": "",
             "alignment": "center",
@@ -318,7 +343,7 @@
         "heading": "From Rawbry customers",
         "heading_size": "h4",
         "alt_heading": false,
-        "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>",
+        "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.<\/p>",
         "alignment": "center",
         "columns_desktop": 2,
         "columns_mobile": 2,
