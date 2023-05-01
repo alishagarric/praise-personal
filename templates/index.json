@@ -13,26 +13,16 @@
         "template--16686756069598__323b3333-96b4-431a-a57d-e3d733e5e06d-16767738964c0506d8-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Your wellness goals within reach</p>"
-          }
-        },
-        "template--16686756069598__323b3333-96b4-431a-a57d-e3d733e5e06d-16767738964c0506d8-2": {
-          "type": "button",
-          "disabled": true,
-          "settings": {
-            "button_label": "explore all",
-            "button_link": "shopify://collections/all-juices",
-            "button_color": "default"
+            "text": "<p>Your wellness goals within reach<\/p>"
           }
         }
       },
       "block_order": [
         "template--16686756069598__323b3333-96b4-431a-a57d-e3d733e5e06d-16767738964c0506d8-0",
-        "template--16686756069598__323b3333-96b4-431a-a57d-e3d733e5e06d-16767738964c0506d8-1",
-        "template--16686756069598__323b3333-96b4-431a-a57d-e3d733e5e06d-16767738964c0506d8-2"
+        "template--16686756069598__323b3333-96b4-431a-a57d-e3d733e5e06d-16767738964c0506d8-1"
       ],
       "settings": {
-        "image": "shopify://shop_images/Rawbry_Bottle_-_Green_2.jpg",
+        "image": "shopify:\/\/shop_images\/Rawbry_Bottle_-_Green_2.jpg",
         "overlay": 0,
         "overlay_theme": "3",
         "crop_shape": "default",
@@ -48,36 +38,27 @@
     "1662063884d9fa6284": {
       "type": "image-with-text",
       "blocks": {
-        "20cf5bbf-ba1c-4586-bb93-3f7a3fe1b475": {
-          "type": "heading",
-          "disabled": true,
-          "settings": {
-            "heading": "More treats to beat this heat",
-            "heading_size": "h6"
-          }
-        },
         "1662063884b661ea2d-0": {
           "type": "text",
           "settings": {
-            "text": "<p>Rawbry juice is packed with the vitamins and minerals to give you peace of mind and harness beauty from the inside out</p>"
+            "text": "<p>Rawbry juice is packed with the vitamins and minerals to give you peace of mind and harness beauty from the inside out<\/p>"
           }
         },
         "1662063884b661ea2d-1": {
           "type": "button",
           "settings": {
             "button_label": "Ingredients and Benefits",
-            "button_link": "shopify://pages/about",
+            "button_link": "shopify:\/\/pages\/about",
             "button_color": "default"
           }
         }
       },
       "block_order": [
-        "20cf5bbf-ba1c-4586-bb93-3f7a3fe1b475",
         "1662063884b661ea2d-0",
         "1662063884b661ea2d-1"
       ],
       "settings": {
-        "image": "shopify://shop_images/AdobeStock_97733626.jpg",
+        "image": "shopify:\/\/shop_images\/AdobeStock_97733626.jpg",
         "image_style": "square",
         "hero": false,
         "alignment": "default",
@@ -89,19 +70,6 @@
         "bottom_internal_spacing": 100,
         "top_spacing": 60,
         "bottom_spacing": 60
-      }
-    },
-    "text-marquee": {
-      "type": "text-marquee",
-      "disabled": true,
-      "settings": {
-        "text": "Yeah, we heard you’re vegan, but our cookies aren’t",
-        "text_size": "h6",
-        "alt_heading": false,
-        "speed": 6,
-        "theme": "2",
-        "top_spacing": 20,
-        "bottom_spacing": 20
       }
     },
     "16632903088cf5de6e": {
@@ -147,7 +115,7 @@
         "c43b043b-4390-4b24-b873-73cf7f0c96af"
       ],
       "settings": {
-        "image": "shopify://shop_images/AdobeStock_plant_and_juice.jpg",
+        "image": "shopify:\/\/shop_images\/AdobeStock_plant_and_juice.jpg",
         "image_crop_shape": "portrait",
         "show_phrase": false,
         "show_description": false,
@@ -175,14 +143,14 @@
         "1662066517b59e31e0-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Introducing our adaptogen juice - the perfect blend of natural ingredients to help your body adapt to stress. Packed with powerful herbs and antioxidants, our juice promotes balance and boosts your immune system. </p>"
+            "text": "<p>Introducing our adaptogen juice - the perfect blend of natural ingredients to help your body adapt to stress. Packed with powerful herbs and antioxidants, our juice promotes balance and boosts your immune system. <\/p>"
           }
         },
         "1662066517b59e31e0-2": {
           "type": "button",
           "settings": {
             "button_label": "Shop juice",
-            "button_link": "shopify://collections",
+            "button_link": "shopify:\/\/collections",
             "button_color": "default"
           }
         }
@@ -193,7 +161,7 @@
         "1662066517b59e31e0-2"
       ],
       "settings": {
-        "image": "shopify://shop_images/AdobeStock_517844496.jpg",
+        "image": "shopify:\/\/shop_images\/AdobeStock_517844496.jpg",
         "image_style": "square",
         "hero": false,
         "alignment": "default",
@@ -213,7 +181,7 @@
         "1662067471e878020c-0": {
           "type": "icon",
           "settings": {
-            "icon": "shopify://shop_images/noun-flowers-2418113.png",
+            "icon": "shopify:\/\/shop_images\/noun-flowers-2418113.png",
             "heading": "Fresh Taste",
             "text": "We make our juices with fresh and diverse fruits"
           }
@@ -221,7 +189,7 @@
         "1662067471e878020c-1": {
           "type": "icon",
           "settings": {
-            "icon": "shopify://shop_images/noun-plant-3309113.png",
+            "icon": "shopify:\/\/shop_images\/noun-plant-3309113.png",
             "heading": "Nutrient Dense",
             "text": "Packed with essential vitamins, minerals, and antioxidants"
           }
@@ -229,7 +197,7 @@
         "1662067471e878020c-2": {
           "type": "icon",
           "settings": {
-            "icon": "shopify://shop_images/noun-berries-2418110.png",
+            "icon": "shopify:\/\/shop_images\/noun-berries-2418110.png",
             "heading": "Vibrant Flavors",
             "text": "Don't get bored. Stir up your routine with different juice blends"
           }
@@ -237,7 +205,7 @@
         "297d0f2d-b54a-4dc7-a4be-5e088d6a2005": {
           "type": "icon",
           "settings": {
-            "icon": "shopify://shop_images/noun-plant-2229880_245f09f6-0298-4c28-9ad3-f1af0c512b96.png",
+            "icon": "shopify:\/\/shop_images\/noun-plant-2229880_245f09f6-0298-4c28-9ad3-f1af0c512b96.png",
             "heading": "Skin Care",
             "text": "Hydrate your skin from the inside out to promote a glowing complexion"
           }
@@ -250,7 +218,7 @@
         "297d0f2d-b54a-4dc7-a4be-5e088d6a2005"
       ],
       "settings": {
-        "heading": "The magic to Ritual Baking",
+        "heading": "Juice Benefits",
         "heading_size": "h5",
         "alt_heading": false,
         "layout": "4",
@@ -259,7 +227,7 @@
         "alignment": "center",
         "theme": "5",
         "top_spacing": 80,
-        "bottom_spacing": 0
+        "bottom_spacing": 100
       }
     },
     "rich-text": {
@@ -273,7 +241,9 @@
           }
         }
       },
-      "block_order": ["heading"],
+      "block_order": [
+        "heading"
+      ],
       "settings": {
         "alignment": "center",
         "theme": "5",
@@ -296,226 +266,17 @@
         "crop_shape": "arch",
         "heading": "Skin Boosting Vitamins and Minerals",
         "alt_heading": false,
-        "text": "<p>Comprehensive nutrition and gut health support in delicious juices.</p>",
+        "text": "<p>Comprehensive nutrition and gut health support in delicious juices.<\/p>",
         "collection_text_content": false,
         "theme": "primary",
         "top_spacing": 0,
         "bottom_spacing": 0
-      }
-    },
-    "1662139175fd63525b": {
-      "type": "collections-list",
-      "disabled": true,
-      "blocks": {
-        "6af62a59-1371-402d-9358-0952eb95e4e1": {
-          "type": "collection",
-          "settings": {
-            "collection": "cookie-collection"
-          }
-        },
-        "f41d8b21-e8df-460a-b643-8733ef9768e7": {
-          "type": "collection",
-          "settings": {
-            "collection": "cookie-collection"
-          }
-        },
-        "40c983e2-9c33-4301-8309-fda2a7644c0b": {
-          "type": "collection",
-          "settings": {
-            "collection": "cookie-collection"
-          }
-        },
-        "52a34cf0-68cc-4d0f-8550-c3e2b73c22f1": {
-          "type": "collection",
-          "settings": {
-            "collection": "cookie-collection"
-          }
-        }
-      },
-      "block_order": [
-        "6af62a59-1371-402d-9358-0952eb95e4e1",
-        "f41d8b21-e8df-460a-b643-8733ef9768e7",
-        "40c983e2-9c33-4301-8309-fda2a7644c0b",
-        "52a34cf0-68cc-4d0f-8550-c3e2b73c22f1"
-      ],
-      "settings": {
-        "heading": "Featured Collections",
-        "heading_size": "h6",
-        "alt_heading": true,
-        "collections_text_alignment": "left",
-        "button_label": "Shop Collection",
-        "theme": "primary",
-        "top_spacing": 50,
-        "bottom_spacing": 50
       }
     },
     "example": {
       "type": "example",
       "disabled": true,
-      "settings": {}
-    },
-    "77926ee0-c4cd-4878-a4bf-192a1c0681ed": {
-      "type": "image-banner",
-      "disabled": true,
-      "blocks": {
-        "c993f2ef-94a4-4900-bf44-16be4b8cd605": {
-          "type": "heading",
-          "settings": {
-            "heading": "Our values drive our decisions: Sincerity, Equity, Compassion, and Commitment",
-            "heading_size": "h2"
-          }
-        },
-        "dfa21165-42de-44ad-b3ef-d70913dbfb50": {
-          "type": "button",
-          "settings": {
-            "button_label": "Learn more",
-            "button_link": "shopify://collections/cookie-collection",
-            "button_color": "default"
-          }
-        }
-      },
-      "block_order": [
-        "c993f2ef-94a4-4900-bf44-16be4b8cd605",
-        "dfa21165-42de-44ad-b3ef-d70913dbfb50"
-      ],
       "settings": {
-        "overlay": 40,
-        "overlay_theme": "3",
-        "crop_shape": "circle",
-        "hero": false,
-        "alignment": "left",
-        "theme": "primary",
-        "top_internal_spacing": 100,
-        "bottom_internal_spacing": 0,
-        "top_spacing": 100,
-        "bottom_spacing": 100
-      }
-    },
-    "166329465577f05b4c": {
-      "type": "image-banner",
-      "disabled": true,
-      "blocks": {
-        "9086ae07-4bd6-42c0-8cbe-399aba1aba25": {
-          "type": "heading",
-          "settings": {
-            "heading": "Peanut Butter",
-            "heading_size": "h2"
-          }
-        },
-        "831626aa-2a7e-4c72-a237-2377291357ad": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Atypical cookies and treats that push the boundaires of indulgence</p>"
-          }
-        },
-        "66fa0e52-e179-47ed-951d-4756ccecc86c": {
-          "type": "button",
-          "settings": {
-            "button_label": "Shop the Collection",
-            "button_link": "shopify://collections/cookie-collection",
-            "button_color": "3"
-          }
-        }
-      },
-      "block_order": [
-        "9086ae07-4bd6-42c0-8cbe-399aba1aba25",
-        "831626aa-2a7e-4c72-a237-2377291357ad",
-        "66fa0e52-e179-47ed-951d-4756ccecc86c"
-      ],
-      "settings": {
-        "overlay": 20,
-        "overlay_theme": "4",
-        "crop_shape": "default",
-        "hero": false,
-        "alignment": "left",
-        "theme": "primary",
-        "top_internal_spacing": 200,
-        "bottom_internal_spacing": 300,
-        "top_spacing": 0,
-        "bottom_spacing": 0
-      }
-    },
-    "1663294968d8440c8d": {
-      "type": "featured-collection",
-      "disabled": true,
-      "settings": {
-        "collection": "cookie-collection",
-        "theme_slideshow": false,
-        "show_phrase": false,
-        "show_description": true,
-        "quick_add": false,
-        "show_bg_color": false,
-        "alt_title": false,
-        "product_text_alignment": "default",
-        "price": "bottom",
-        "crop_shape": "square",
-        "heading": "Shop Our Bestsellers",
-        "alt_heading": true,
-        "text": "<p>Functional handbags made of luxurious and honest materials to improve people's lives in small but mighty ways.</p>",
-        "collection_text_content": false,
-        "theme": "primary",
-        "top_spacing": 50,
-        "bottom_spacing": 50
-      }
-    },
-    "ff755975-bca6-4b0c-b183-f92584c32baa": {
-      "type": "multicolumn",
-      "disabled": true,
-      "blocks": {
-        "318e36c7-3055-4cbf-b625-939c1028416e": {
-          "type": "products",
-          "settings": {
-            "products": [
-              "all-hail-sugar-baby",
-              "moose-munchers-snap",
-              "the-king-otto"
-            ],
-            "show_phrase": false,
-            "show_description": false,
-            "quick_add": false,
-            "show_bg_color": false,
-            "alt_title": false,
-            "product_text_alignment": "default",
-            "price": "default",
-            "crop_shape": "default"
-          }
-        },
-        "318e36c7-3055-4cbf-b625-939c1028416e2": {
-          "type": "products",
-          "settings": {
-            "products": [
-              "all-hail-sugar-baby",
-              "peanut-cravings-beware",
-              "moose-munchers-snap",
-              "the-king-otto"
-            ],
-            "show_phrase": false,
-            "show_description": false,
-            "quick_add": false,
-            "show_bg_color": false,
-            "alt_title": false,
-            "product_text_alignment": "default",
-            "price": "default",
-            "crop_shape": "default"
-          }
-        }
-      },
-      "block_order": [
-        "318e36c7-3055-4cbf-b625-939c1028416e",
-        "318e36c7-3055-4cbf-b625-939c1028416e2"
-      ],
-      "settings": {
-        "heading": "Lorem ipsum dolor sit",
-        "heading_size": "h4",
-        "alt_heading": false,
-        "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>",
-        "alignment": "center",
-        "columns_desktop": 4,
-        "columns_mobile": 2,
-        "layout": "slider",
-        "theme": "primary",
-        "top_spacing": 50,
-        "bottom_spacing": 50
       }
     },
     "9b7e1c54-0b63-432c-bf6b-6416486399ff": {
@@ -538,94 +299,17 @@
         "top_spacing": 50,
         "bottom_spacing": 50
       }
-    },
-    "bd10db7c-6fad-4554-8a11-8fb51fd79804": {
-      "type": "content-marquee",
-      "disabled": true,
-      "blocks": {
-        "830e5ff8-b1ac-469b-91e1-0a5d71ab525c": {
-          "type": "quote",
-          "settings": {
-            "quote": "<p>1 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.</p>",
-            "quotations": true,
-            "details": "",
-            "background_theme": "3",
-            "card_corners": "rounded"
-          }
-        },
-        "5bfa76eb-f1fb-4649-8d9f-0771396e136f": {
-          "type": "quote",
-          "settings": {
-            "quote": "<p>2 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.</p>",
-            "quotations": true,
-            "details": "",
-            "background_theme": "4",
-            "card_corners": "rounded"
-          }
-        },
-        "6ba997ed-491d-48f4-bad3-c9cb67930f72": {
-          "type": "quote",
-          "settings": {
-            "quote": "<p>3 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.</p>",
-            "quotations": true,
-            "details": "",
-            "background_theme": "5",
-            "card_corners": "rounded"
-          }
-        },
-        "367cc0c5-6fad-45cb-aa18-67496c784724": {
-          "type": "quote",
-          "settings": {
-            "quote": "<p>4 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.</p>",
-            "quotations": true,
-            "details": "",
-            "background_theme": "3",
-            "card_corners": "rounded"
-          }
-        },
-        "367cc0c5-6fad-45cb-aa18-67496c784724-1": {
-          "type": "quote",
-          "settings": {
-            "quote": "<p>5 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.</p>",
-            "quotations": true,
-            "details": "",
-            "background_theme": "4",
-            "card_corners": "rounded"
-          }
-        }
-      },
-      "block_order": [
-        "830e5ff8-b1ac-469b-91e1-0a5d71ab525c",
-        "5bfa76eb-f1fb-4649-8d9f-0771396e136f",
-        "6ba997ed-491d-48f4-bad3-c9cb67930f72",
-        "367cc0c5-6fad-45cb-aa18-67496c784724",
-        "367cc0c5-6fad-45cb-aa18-67496c784724-1"
-      ],
-      "settings": {
-        "alignment": "center",
-        "speed": 6,
-        "theme": "2",
-        "top_spacing": 50,
-        "bottom_spacing": 50
-      }
     }
   },
   "order": [
     "323b3333-96b4-431a-a57d-e3d733e5e06d",
     "1662063884d9fa6284",
-    "text-marquee",
     "16632903088cf5de6e",
     "1662066517d31dd7ec",
     "1662067471929f7e31",
     "rich-text",
     "1663189358d1a4ecd6",
-    "1662139175fd63525b",
     "example",
-    "77926ee0-c4cd-4878-a4bf-192a1c0681ed",
-    "166329465577f05b4c",
-    "1663294968d8440c8d",
-    "ff755975-bca6-4b0c-b183-f92584c32baa",
-    "9b7e1c54-0b63-432c-bf6b-6416486399ff",
-    "bd10db7c-6fad-4554-8a11-8fb51fd79804"
+    "9b7e1c54-0b63-432c-bf6b-6416486399ff"
   ]
 }
