@@ -13,7 +13,7 @@
           "type": "vendor",
           "settings": {
             "text_size": "p-sm",
-            "include_border": true
+            "include_border": false
           }
         },
         "title": {
@@ -67,35 +67,12 @@
             "open": false
           }
         },
-        "expandable-3": {
-          "type": "expandable",
-          "settings": {
-            "title": "Nutritional Label",
-            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gravida diam integer suspendisse magna tempus ut praesent amet venenatis. <\/p><ul><li>Full of Gluten<\/li><li>Vegan<\/li><li>500 calories per cookie<\/li><li>No artificial colors of flavors<\/li><\/ul>",
-            "page": "",
-            "open": false
-          }
-        },
-        "4828acd3-97af-4a0a-b838-4564e2ba508c": {
-          "type": "divider",
-          "settings": {
-            "top": 50,
-            "bottom": 50,
-            "hide_divider": false
-          }
-        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
             "show_quantity": true,
-            "hide_dynamic_buttons": false,
+            "hide_dynamic_buttons": true,
             "include_border": true
-          }
-        },
-        "pickup-availability": {
-          "type": "pickup_availability",
-          "settings": {
-            "title": "Pickup Availability"
           }
         },
         "d8a7d326-a0a3-470d-adc4-60f860c02b34": {
@@ -104,6 +81,12 @@
             "top": 50,
             "bottom": 50,
             "hide_divider": false
+          }
+        },
+        "pickup-availability": {
+          "type": "pickup_availability",
+          "settings": {
+            "title": "Pickup Availability"
           }
         }
       },
@@ -117,11 +100,9 @@
         "featured-icons",
         "expandable",
         "expandable-2",
-        "expandable-3",
-        "4828acd3-97af-4a0a-b838-4564e2ba508c",
         "buy_buttons",
-        "pickup-availability",
-        "d8a7d326-a0a3-470d-adc4-60f860c02b34"
+        "d8a7d326-a0a3-470d-adc4-60f860c02b34",
+        "pickup-availability"
       ],
       "settings": {
         "theme": "primary"
@@ -134,7 +115,7 @@
         "text_size": "h6",
         "alt_heading": true,
         "speed": 5,
-        "theme": "4",
+        "theme": "3",
         "top_spacing": 30,
         "bottom_spacing": 30
       }
