@@ -14,13 +14,11 @@
             "button_label": "",
             "button_link": "",
             "heading_1": "Peanut Butter Collection",
-            "text_1": "Nutty rich, peanut butter cups and more",
-            "link_1": "shopify://collections/peanut-butter-collection",
-            "image_1": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_bbf54c90-3c31-4e00-962c-f12d6b17cf77.jpg",
-            "heading_2": "Chocolate Essentials",
+            "text_1": "Nutty rick, peanut butter cups and more",
+            "link_1": "shopify:\/\/pages\/contact-us",
+            "heading_2": "The King",
             "text_2": "Banana caramel filled peanut butter cookie with chocolate covered candied bacon",
-            "link_2": "shopify://collections/chocolate-essentials",
-            "image_2": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_cd0b890c-b357-4857-9c0d-36126dbfab86.jpg"
+            "link_2": "shopify:\/\/pages\/contact-us"
           }
         },
         "aa838210-3e0c-4205-91cf-6bd3b96a73a1": {
@@ -30,10 +28,26 @@
             "heading_0": "Our Collections",
             "text_0": "Atypical cookies and treats that push the boundaries of indulgence",
             "button_label": "Shop Treats",
-            "button_link": "shopify://collections",
+            "button_link": "shopify:\/\/collections",
             "heading_1": "",
             "text_1": "",
             "link_1": "",
+            "heading_2": "",
+            "text_2": "",
+            "link_2": ""
+          }
+        },
+        "4bcead02-00f4-4d86-8020-30bd7dd0b9a4": {
+          "type": "mega_menu",
+          "settings": {
+            "label": "Resources",
+            "heading_0": "Text Block",
+            "text_0": "Text block on second level nesting - how do we make this not ugly?",
+            "button_label": "Boom Sauce",
+            "button_link": "shopify:\/\/pages\/contact-us",
+            "heading_1": "Promotion",
+            "text_1": "Promotion on second level nesting - how do we make this not ugly?",
+            "link_1": "shopify:\/\/pages\/contact-us",
             "heading_2": "",
             "text_2": "",
             "link_2": ""
@@ -42,18 +56,18 @@
       },
       "block_order": [
         "2ca0852f-aca4-4494-87a4-39323892bac2",
-        "aa838210-3e0c-4205-91cf-6bd3b96a73a1"
+        "aa838210-3e0c-4205-91cf-6bd3b96a73a1",
+        "4bcead02-00f4-4d86-8020-30bd7dd0b9a4"
       ],
       "settings": {
-        "logo": "shopify://shop_images/logo_black.png",
-        "logo_placement": "center",
-        "menu": "mega-menu-ritual",
-        "button_label": "Button label",
-        "button_link": "#",
-        "button_color": "default",
+        "logo": "shopify:\/\/shop_images\/raw_logo_tag_black.png",
+        "logo_placement": "left",
+        "menu": "main-menu",
         "always_show_nav": false
       }
     }
   },
-  "order": ["header"]
+  "order": [
+    "header"
+  ]
 }

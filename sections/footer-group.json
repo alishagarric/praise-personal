@@ -1,15 +1,8 @@
+
 {
   "type": "footer",
   "name": "Footer Group",
   "sections": {
-    "564f62ce-b1bb-4877-a0d3-31ee2de65380": {
-      "type": "divider",
-      "settings": {
-        "theme": "primary",
-        "top_spacing": 50,
-        "bottom_spacing": 50
-      }
-    },
     "footer": {
       "type": "footer",
       "blocks": {
@@ -17,28 +10,31 @@
           "type": "link_list",
           "settings": {
             "heading": "Learn",
-            "menu": ""
+            "menu": "learn"
           }
         },
         "37906664-9d83-4b35-9c9a-46dda71f0699": {
           "type": "link_list",
           "settings": {
             "heading": "Shop",
-            "menu": ""
+            "menu": "shop"
           }
         },
         "5ca5bb4b-199c-4f4d-b86a-c18ed9b02856": {
           "type": "icon",
+          "disabled": true,
           "settings": {
           }
         },
         "7cc3256d-ce8b-4784-ab7f-fb4875a12546": {
           "type": "icon",
+          "disabled": true,
           "settings": {
           }
         },
         "abaaef85-4b2f-460e-8d2c-9d1098f5ab1f": {
           "type": "icon",
+          "disabled": true,
           "settings": {
           }
         }
@@ -53,19 +49,18 @@
       "settings": {
         "heading": "Stay in the know",
         "description": "Be the first to receive new releases, special offers and more",
-        "text_size": "p-sm",
-        "logo_width": 80,
-        "stack_logo": false,
+        "logo": "shopify:\/\/shop_images\/raw_logo_light_763448e2-7d93-4842-b26a-ebb2cb459052.png",
+        "logo_width": 110,
+        "stack_logo": true,
         "show_social": true,
         "newsletter_enable": true,
         "secondary_links": "footer",
-        "theme": "2",
+        "theme": "5",
         "accent_theme": "3"
       }
     }
   },
   "order": [
-    "564f62ce-b1bb-4877-a0d3-31ee2de65380",
     "footer"
   ]
 }

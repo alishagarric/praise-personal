@@ -1,63 +1,39 @@
+
 {
   "sections": {
-    "split-slideshow": {
-      "type": "split-slideshow",
+    "rich-text": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Rawbry Journal",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": ["heading"],
       "settings": {
-        "heading": "{{ blog.title }}",
-        "heading_size": "h2",
-        "alt_heading": true,
-        "text_size": "p-sm",
-        "hero": true,
-        "button_label": "Read More",
-        "button_color": "default",
-        "article_heading_size": "h5",
-        "crop_shape": "rounded-portrait",
+        "alignment": "center",
         "theme": "primary",
         "top_spacing": 50,
         "bottom_spacing": 50
       }
     },
-    "d7103852-b62b-4134-b110-fe5c5a985ce3": {
-      "type": "rich-text",
-      "blocks": {
-        "template--16398178582750__d7103852-b62b-4134-b110-fe5c5a985ce3-1678205203fb778cd2-1": {
-          "type": "text",
-          "settings": {
-            "text": "<p>At Ritual we celebrate the value of simple joys in the human experience</p>",
-            "text_size": "p-sm"
-          }
-        }
-      },
-      "block_order": [
-        "template--16398178582750__d7103852-b62b-4134-b110-fe5c5a985ce3-1678205203fb778cd2-1"
-      ],
+    "split-slider": {
+      "type": "split-slideshow",
       "settings": {
-        "alignment": "center",
-        "theme": "3",
-        "top_spacing": 70,
-        "bottom_spacing": 70
+        "theme": "primary",
+        "top_spacing": 50,
+        "bottom_spacing": 50
       }
     },
     "main": {
       "type": "main-blog",
       "settings": {
-        "posts_per_page": 3,
-        "blog_show_tags": true,
-        "tags_label": "Browse Tags",
-        "tag_color": "primary",
-        "alt_heading": true,
-        "show_date": true,
-        "show_description": true,
-        "show_author": false,
-        "assc_product_crop_shape": "circle",
-        "button_label": "",
-        "crop_shape": "rounded-square",
-        "alignment": "center",
-        "theme": "2",
-        "top_spacing": 50,
-        "bottom_spacing": 100
+        "posts_per_page": 4
       }
     }
   },
-  "order": ["split-slideshow", "d7103852-b62b-4134-b110-fe5c5a985ce3", "main"]
+  "order": ["rich-text", "split-slider", "main"]
 }
