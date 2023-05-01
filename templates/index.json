@@ -262,7 +262,7 @@
       "type": "featured-collection",
       "settings": {
         "collection": "skin-hair-care",
-        "theme_slideshow": false,
+        "theme_slideshow": true,
         "include_border": true,
         "show_phrase": true,
         "show_description": true,
