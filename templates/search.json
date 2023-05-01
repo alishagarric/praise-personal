@@ -1,22 +1,20 @@
 {
   "sections": {
-    "main": {
+    "main-search": {
       "type": "main-search",
       "settings": {
-        "show_description": false,
-        "quick_add": false,
-        "alt_title": false,
-        "alignment": "default",
-        "price": "default",
-        "crop_shape": "default",
-        "assc_product_crop_shape": "not-visible",
-        "theme": "primary",
+        "show_description": true,
+        "quick_add": true,
+        "alt_title": true,
+        "alignment": "center",
+        "price": "bottom",
+        "crop_shape": "rounded-square",
+        "assc_product_crop_shape": "circle",
+        "theme": "2",
         "top_spacing": 50,
         "bottom_spacing": 50
       }
     }
   },
-  "order": [
-    "main"
-  ]
+  "order": ["main-search"]
 }

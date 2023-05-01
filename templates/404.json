@@ -3,20 +3,18 @@
     "main": {
       "type": "main-404",
       "settings": {
-        "image_width": 80,
-        "heading": "404",
-        "heading_size": "h2",
+        "image": "shopify://shop_images/Praise_Logo.png",
+        "image_width": 200,
+        "heading": "Oops... like some eggs when baking, this link is broken.",
+        "heading_size": "h4",
         "alt_heading": false,
-        "button_label": "Return Home",
-        "button_link": "shopify:\/\/collections\/all",
+        "button_label": "Continue Shopping",
+        "button_link": "shopify://collections/all",
         "button_color": "default",
-        "theme": "primary",
         "top_spacing": 100,
         "bottom_spacing": 100
       }
     }
   },
-  "order": [
-    "main"
-  ]
+  "order": ["main"]
 }

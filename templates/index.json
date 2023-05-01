@@ -1,199 +1,44 @@
 {
   "sections": {
-    "767d046b-a15f-41ab-8efb-83b39fafa6bb": {
+    "1662063884d9fa6284": {
       "type": "image-with-text",
       "blocks": {
-        "template--18773519761687__767d046b-a15f-41ab-8efb-83b39fafa6bb-1682789605d7e52d1e-0": {
+        "20cf5bbf-ba1c-4586-bb93-3f7a3fe1b475": {
           "type": "heading",
           "settings": {
-            "heading": "Image With Text",
-            "heading_size": "h4"
+            "heading": "More treats to beat this heat",
+            "heading_size": "h2"
           }
         },
-        "template--18773519761687__767d046b-a15f-41ab-8efb-83b39fafa6bb-1682789605d7e52d1e-1": {
+        "1662063884b661ea2d-0": {
           "type": "text",
           "settings": {
-            "text": "<p>Add text content about your brand that makes a statement<\/p>",
+            "text": "<p>Atypical <a href=\"/blogs/news-rawbry\" target=\"_blank\" title=\"News Rawbry\">cookies</a> and treats that push the boundaires of indulgence</p>",
             "text_size": "p"
           }
         },
-        "template--18773519761687__767d046b-a15f-41ab-8efb-83b39fafa6bb-1682789605d7e52d1e-2": {
+        "1662063884b661ea2d-1": {
           "type": "button",
           "settings": {
-            "button_label": "Learn More",
-            "button_link": "",
+            "button_label": "Shop treats",
+            "button_link": "shopify://collections",
             "button_color": "default"
           }
         }
       },
       "block_order": [
-        "template--18773519761687__767d046b-a15f-41ab-8efb-83b39fafa6bb-1682789605d7e52d1e-0",
-        "template--18773519761687__767d046b-a15f-41ab-8efb-83b39fafa6bb-1682789605d7e52d1e-1",
-        "template--18773519761687__767d046b-a15f-41ab-8efb-83b39fafa6bb-1682789605d7e52d1e-2"
+        "20cf5bbf-ba1c-4586-bb93-3f7a3fe1b475",
+        "1662063884b661ea2d-0",
+        "1662063884b661ea2d-1"
       ],
       "settings": {
+        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash.jpg",
         "image_style": "wide",
         "hero": true,
         "alignment": "center",
-        "layout": "default",
+        "layout": "reversed",
         "mobile_layout": "default",
-        "mobile_image_height": 450,
-        "theme": "primary",
-        "top_internal_spacing": 60,
-        "bottom_internal_spacing": 60,
-        "mobile_top_internal_spacing": 50,
-        "mobile_bottom_internal_spacing": 0,
-        "top_spacing": 0,
-        "bottom_spacing": 0
-      }
-    },
-    "75ad8cfc-372d-44f0-b234-21ff0aaefa68": {
-      "type": "divider",
-      "settings": {
-        "theme": "primary",
-        "top_spacing": 50,
-        "bottom_spacing": 0
-      }
-    },
-    "text-marquee": {
-      "type": "text-marquee",
-      "settings": {
-        "text": "Scrolling text marquee",
-        "text_size": "h6",
-        "alt_heading": false,
-        "speed": 5,
-        "theme": "2",
-        "top_spacing": 50,
-        "bottom_spacing": 50
-      }
-    },
-    "featured-collection": {
-      "type": "featured-collection",
-      "settings": {
-        "collection": "",
-        "theme_slideshow": false,
-        "include_border": true,
-        "show_phrase": false,
-        "show_description": false,
-        "quick_add": false,
-        "show_bg_color": false,
-        "alt_title": false,
-        "product_text_alignment": "default",
-        "price": "default",
-        "crop_shape": "default",
-        "heading": "Featured Collection",
-        "alt_heading": false,
-        "text": "<p>Add a description or additional information for your collection here<\/p>",
-        "text_size": "p",
-        "collection_text_content": false,
-        "theme": "primary",
-        "top_spacing": 0,
-        "bottom_spacing": 50
-      }
-    },
-    "b7a26e7b-8e71-41bf-ae9b-6f29cd64c971": {
-      "type": "icons-section",
-      "blocks": {
-        "template--18773519761687__b7a26e7b-8e71-41bf-ae9b-6f29cd64c971-16827898381022875e-0": {
-          "type": "icon",
-          "settings": {
-            "heading": "Icon Heading",
-            "text": "Add a short blurb or company value"
-          }
-        },
-        "template--18773519761687__b7a26e7b-8e71-41bf-ae9b-6f29cd64c971-16827898381022875e-1": {
-          "type": "icon",
-          "settings": {
-            "heading": "Icon Heading",
-            "text": "Add a short blurb or company value"
-          }
-        },
-        "template--18773519761687__b7a26e7b-8e71-41bf-ae9b-6f29cd64c971-16827898381022875e-2": {
-          "type": "icon",
-          "settings": {
-            "heading": "Icon Heading",
-            "text": "Add a short blurb or company value"
-          }
-        }
-      },
-      "block_order": [
-        "template--18773519761687__b7a26e7b-8e71-41bf-ae9b-6f29cd64c971-16827898381022875e-0",
-        "template--18773519761687__b7a26e7b-8e71-41bf-ae9b-6f29cd64c971-16827898381022875e-1",
-        "template--18773519761687__b7a26e7b-8e71-41bf-ae9b-6f29cd64c971-16827898381022875e-2"
-      ],
-      "settings": {
-        "heading": "Icons Section",
-        "heading_size": "h5",
-        "alt_heading": false,
-        "layout": "3",
-        "mobile_layout": "3",
-        "icon_height": 100,
-        "alignment": "center",
-        "theme": "primary",
-        "top_spacing": 0,
-        "bottom_spacing": 50
-      }
-    },
-    "collections-list": {
-      "type": "collections-list",
-      "settings": {
-        "heading": "Collections List",
-        "heading_size": "h4",
-        "alt_heading": false,
-        "collections_text_alignment": "left",
-        "button_label": "",
-        "theme": "2",
-        "top_spacing": 50,
-        "bottom_spacing": 50
-      }
-    },
-    "96724b76-495d-47be-8784-9b0a855ed4e2": {
-      "type": "shop-the-look",
-      "blocks": {
-        "template--18773519761687__96724b76-495d-47be-8784-9b0a855ed4e2-16827900086f86594a-0": {
-          "type": "product",
-          "settings": {
-            "product": "",
-            "horizontal_pos": 50,
-            "vertical_pos": 50
-          }
-        },
-        "template--18773519761687__96724b76-495d-47be-8784-9b0a855ed4e2-16827900086f86594a-1": {
-          "type": "product",
-          "settings": {
-            "product": "",
-            "horizontal_pos": 50,
-            "vertical_pos": 50
-          }
-        }
-      },
-      "block_order": [
-        "template--18773519761687__96724b76-495d-47be-8784-9b0a855ed4e2-16827900086f86594a-0",
-        "template--18773519761687__96724b76-495d-47be-8784-9b0a855ed4e2-16827900086f86594a-1"
-      ],
-      "settings": {
-        "image_crop_shape": "portrait",
-        "show_phrase": false,
-        "show_description": false,
-        "quick_add": false,
-        "show_bg_color": false,
-        "alt_title": false,
-        "product_text_alignment": "default",
-        "price": "default",
-        "crop_shape": "default",
-        "theme": "primary",
-        "top_spacing": 50,
-        "bottom_spacing": 50
-      }
-    },
-    "image-banner": {
-      "type": "image-banner",
-      "settings": {
-        "overlay": 50,
-        "overlay_theme": "primary",
-        "crop_shape": "default",
-        "hero": false,
-        "alignment": "left",
+        "mobile_image_height": 400,
         "theme": "primary",
         "top_internal_spacing": 100,
         "bottom_internal_spacing": 100,
@@ -201,32 +46,476 @@
         "bottom_spacing": 0
       }
     },
-    "featured-blog": {
-      "type": "featured-blog",
+    "text-marquee": {
+      "type": "text-marquee",
       "settings": {
-        "heading": "Featured Blog",
-        "heading_size": "h5",
-        "blog": "",
+        "text": "Yeah, we heard you’re vegan, but our cookies aren’t",
+        "text_size": "h6",
         "alt_heading": false,
-        "show_date": false,
-        "show_description": false,
-        "show_author": false,
-        "assc_product_crop_shape": "not-visible",
-        "button_label": "",
-        "crop_shape": "default",
-        "alignment": "left",
-        "mobile_layout": "slideshow",
-        "view_all_button_label": "",
-        "theme": "primary",
+        "speed": 6,
+        "theme": "2",
         "top_spacing": 20,
+        "bottom_spacing": 20
+      }
+    },
+    "1663189358d1a4ecd6": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "back-in-stock",
+        "theme_slideshow": true,
+        "include_border": true,
+        "show_phrase": true,
+        "show_description": false,
+        "quick_add": false,
+        "show_bg_color": false,
+        "alt_title": true,
+        "product_text_alignment": "center",
+        "price": "not-visible",
+        "crop_shape": "circle",
+        "heading": "Shop Our Bestsellers",
+        "alt_heading": true,
+        "text": "<p>Functional handbags made of luxurious and honest materials to improve people's lives in small but mighty ways.</p>",
+        "text_size": "p",
+        "collection_text_content": false,
+        "theme": "primary",
+        "top_spacing": 0,
+        "bottom_spacing": 0
+      }
+    },
+    "1662066517d31dd7ec": {
+      "type": "image-with-text",
+      "blocks": {
+        "1662066517b59e31e0-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "A chunky take on chocolate chip",
+            "heading_size": "h4"
+          }
+        },
+        "1662066517b59e31e0-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Atypical cookies and treats that push the boundaries of indulgence. An odea to the well-baanced classic cookie. This season we are celebrating all the nostalgia and what pairs best with chocolate chips.</p>",
+            "text_size": "p"
+          }
+        },
+        "1662066517b59e31e0-2": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop treats",
+            "button_link": "shopify://collections/cookie-collection",
+            "button_color": "default"
+          }
+        }
+      },
+      "block_order": [
+        "1662066517b59e31e0-0",
+        "1662066517b59e31e0-1",
+        "1662066517b59e31e0-2"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_cd0b890c-b357-4857-9c0d-36126dbfab86.jpg",
+        "image_style": "wide",
+        "hero": false,
+        "alignment": "center",
+        "layout": "default",
+        "mobile_layout": "reversed",
+        "mobile_image_height": 450,
+        "theme": "primary",
+        "top_internal_spacing": 100,
+        "bottom_internal_spacing": 100,
+        "top_spacing": 0,
+        "bottom_spacing": 0
+      }
+    },
+    "1662067471929f7e31": {
+      "type": "icons-section",
+      "blocks": {
+        "1662067471e878020c-0": {
+          "type": "icon",
+          "settings": {
+            "icon": "shopify://shop_images/Frame.png",
+            "heading": "One-of-a-kind treats",
+            "text": "We make your treats fresh and full of fresh homemade ingredients"
+          }
+        },
+        "1662067471e878020c-1": {
+          "type": "icon",
+          "settings": {
+            "icon": "shopify://shop_images/Frame.png",
+            "heading": "One-of-a-kind treats",
+            "text": "We make your treats fresh and full of fresh homemade ingredients"
+          }
+        },
+        "1662067471e878020c-2": {
+          "type": "icon",
+          "settings": {
+            "icon": "shopify://shop_images/Frame.png",
+            "heading": "One-of-a-kind treats",
+            "text": "We make your treats fresh and full of fresh homemade ingredients"
+          }
+        }
+      },
+      "block_order": [
+        "1662067471e878020c-0",
+        "1662067471e878020c-1",
+        "1662067471e878020c-2"
+      ],
+      "settings": {
+        "heading": "The magic to Ritual Baking",
+        "heading_size": "h5",
+        "alt_heading": true,
+        "layout": "3",
+        "mobile_layout": "1",
+        "icon_height": 50,
+        "alignment": "center",
+        "theme": "2",
+        "top_spacing": 70,
         "bottom_spacing": 50
       }
     },
-    "9dec3854-d1be-4cd0-a672-03a3fb8495af": {
-      "type": "content-marquee",
+    "1662139175fd63525b": {
+      "type": "collections-list",
+      "blocks": {
+        "6af62a59-1371-402d-9358-0952eb95e4e1": {
+          "type": "collection",
+          "settings": {
+            "collection": "back-in-stock"
+          }
+        },
+        "cf0173b9-e3ba-4dd2-89fc-bd96a37734db": {
+          "type": "collection",
+          "settings": {
+            "collection": "chocolate-essentials"
+          }
+        },
+        "0934e19c-227e-4326-9dcf-94cfe2558d9c": {
+          "type": "collection",
+          "settings": {
+            "collection": "peanut-butter-collection"
+          }
+        },
+        "fc477b12-14c3-4609-98d0-a8cbeb31fcae": {
+          "type": "collection",
+          "settings": {
+            "collection": "the-kind-cookies"
+          }
+        }
+      },
+      "block_order": [
+        "6af62a59-1371-402d-9358-0952eb95e4e1",
+        "cf0173b9-e3ba-4dd2-89fc-bd96a37734db",
+        "0934e19c-227e-4326-9dcf-94cfe2558d9c",
+        "fc477b12-14c3-4609-98d0-a8cbeb31fcae"
+      ],
+      "settings": {
+        "heading": "Featured Collections",
+        "heading_size": "h6",
+        "alt_heading": true,
+        "collections_text_alignment": "left",
+        "button_label": "Shop Collection",
+        "theme": "primary",
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
+    },
+    "16632903088cf5de6e": {
+      "type": "shop-the-look",
+      "blocks": {
+        "1663290308334a8c59-0": {
+          "type": "product",
+          "settings": {
+            "product": "the-king-otto",
+            "horizontal_pos": 50,
+            "vertical_pos": 50
+          }
+        },
+        "1663290308334a8c59-1": {
+          "type": "product",
+          "settings": {
+            "product": "all-hail-sugar-baby",
+            "horizontal_pos": 80,
+            "vertical_pos": 19
+          }
+        },
+        "1663290308334a8c59-2": {
+          "type": "product",
+          "settings": {
+            "product": "jelly-cravings-beware",
+            "horizontal_pos": 70,
+            "vertical_pos": 82
+          }
+        },
+        "ba22128a-7bef-4e8c-9156-243b55f0136f": {
+          "type": "product",
+          "settings": {
+            "product": "moose-munchsters-crackle",
+            "horizontal_pos": 16,
+            "vertical_pos": 28
+          }
+        }
+      },
+      "block_order": [
+        "1663290308334a8c59-0",
+        "1663290308334a8c59-1",
+        "1663290308334a8c59-2",
+        "ba22128a-7bef-4e8c-9156-243b55f0136f"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_bbf54c90-3c31-4e00-962c-f12d6b17cf77.jpg",
+        "image_crop_shape": "square",
+        "show_phrase": false,
+        "show_description": false,
+        "quick_add": true,
+        "show_bg_color": false,
+        "alt_title": false,
+        "product_text_alignment": "default",
+        "price": "default",
+        "crop_shape": "rounded-square",
+        "theme": "primary",
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
+    },
+    "77926ee0-c4cd-4878-a4bf-192a1c0681ed": {
+      "type": "image-banner",
+      "blocks": {
+        "c993f2ef-94a4-4900-bf44-16be4b8cd605": {
+          "type": "heading",
+          "settings": {
+            "heading": "Our values drive our decisions: Sincerity, Equity, Compassion, and Commitment",
+            "heading_size": "h2"
+          }
+        },
+        "dfa21165-42de-44ad-b3ef-d70913dbfb50": {
+          "type": "button",
+          "settings": {
+            "button_label": "Learn more",
+            "button_link": "shopify://pages/about",
+            "button_color": "default"
+          }
+        }
+      },
+      "block_order": [
+        "c993f2ef-94a4-4900-bf44-16be4b8cd605",
+        "dfa21165-42de-44ad-b3ef-d70913dbfb50"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_a6c4dcf8-a5c2-45ab-8711-f1aa9365378c.jpg",
+        "overlay": 40,
+        "overlay_theme": "3",
+        "crop_shape": "circle",
+        "hero": false,
+        "alignment": "left",
+        "theme": "primary",
+        "top_internal_spacing": 100,
+        "bottom_internal_spacing": 0,
+        "top_spacing": 100,
+        "bottom_spacing": 100
+      }
+    },
+    "166329465577f05b4c": {
+      "type": "image-banner",
+      "blocks": {
+        "9086ae07-4bd6-42c0-8cbe-399aba1aba25": {
+          "type": "heading",
+          "settings": {
+            "heading": "Peanut Butter",
+            "heading_size": "h2"
+          }
+        },
+        "831626aa-2a7e-4c72-a237-2377291357ad": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Atypical cookies and treats that push the boundaires of indulgence</p>",
+            "text_size": "p-sm"
+          }
+        },
+        "66fa0e52-e179-47ed-951d-4756ccecc86c": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop the Collection",
+            "button_link": "shopify://collections/peanut-butter-collection",
+            "button_color": "3"
+          }
+        }
+      },
+      "block_order": [
+        "9086ae07-4bd6-42c0-8cbe-399aba1aba25",
+        "831626aa-2a7e-4c72-a237-2377291357ad",
+        "66fa0e52-e179-47ed-951d-4756ccecc86c"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_e7c90847-70c1-47f4-a82d-2369a2b4a718.jpg",
+        "overlay": 20,
+        "overlay_theme": "4",
+        "crop_shape": "default",
+        "hero": false,
+        "alignment": "left",
+        "theme": "primary",
+        "top_internal_spacing": 200,
+        "bottom_internal_spacing": 300,
+        "top_spacing": 0,
+        "bottom_spacing": 0
+      }
+    },
+    "ff755975-bca6-4b0c-b183-f92584c32baa": {
+      "type": "multicolumn",
+      "blocks": {
+        "318e36c7-3055-4cbf-b625-939c1028416e": {
+          "type": "products",
+          "settings": {
+            "products": [
+              "all-hail-sugar-baby",
+              "moose-munchers-snap",
+              "the-king-otto",
+              "chocolate-cravings-beware",
+              "all-hail-sugar-boo",
+              "moose-munchsters-crackle",
+              "the-king-edmund",
+              "peanut-cravings-beware"
+            ],
+            "show_phrase": false,
+            "show_description": false,
+            "quick_add": false,
+            "show_bg_color": false,
+            "alt_title": false,
+            "product_text_alignment": "default",
+            "price": "default",
+            "crop_shape": "rounded-square"
+          }
+        }
+      },
+      "block_order": ["318e36c7-3055-4cbf-b625-939c1028416e"],
+      "settings": {
+        "heading": "Shop Our Bestsellers",
+        "heading_size": "h5",
+        "alt_heading": true,
+        "text": "<p>Functional handbags made of luxurious and honest materials to improve people's lives in small but mighty ways.</p>",
+        "text_size": "p-sm",
+        "alignment": "center",
+        "columns_desktop": 4,
+        "columns_mobile": 2,
+        "layout": "slideshow",
+        "theme": "primary",
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
+    },
+    "rich-text": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Ritual baking is a place for indulgence",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": ["heading"],
       "settings": {
         "alignment": "center",
-        "speed": 5,
+        "theme": "primary",
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
+    },
+    "9b7e1c54-0b63-432c-bf6b-6416486399ff": {
+      "type": "featured-blog",
+      "settings": {
+        "heading": "From the blog",
+        "heading_size": "h5",
+        "blog": "news",
+        "alt_heading": true,
+        "show_date": true,
+        "show_description": true,
+        "show_author": false,
+        "assc_product_crop_shape": "circle",
+        "button_label": "",
+        "crop_shape": "rounded-square",
+        "alignment": "center",
+        "mobile_layout": "stacked-4",
+        "view_all_button_label": "View All",
+        "theme": "2",
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
+    },
+    "bd10db7c-6fad-4554-8a11-8fb51fd79804": {
+      "type": "content-marquee",
+      "blocks": {
+        "830e5ff8-b1ac-469b-91e1-0a5d71ab525c": {
+          "type": "quote",
+          "settings": {
+            "quote": "<p>1 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.</p>",
+            "text_size": "p-sm",
+            "quotations": true,
+            "details": "",
+            "logo": "shopify://shop_images/image_14.png",
+            "background_theme": "3",
+            "card_corners": "rounded"
+          }
+        },
+        "5bfa76eb-f1fb-4649-8d9f-0771396e136f": {
+          "type": "quote",
+          "settings": {
+            "quote": "<p>2 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.</p>",
+            "text_size": "p-sm",
+            "quotations": true,
+            "details": "",
+            "logo": "shopify://shop_images/image_14.png",
+            "background_theme": "4",
+            "card_corners": "rounded"
+          }
+        },
+        "6ba997ed-491d-48f4-bad3-c9cb67930f72": {
+          "type": "quote",
+          "settings": {
+            "quote": "<p>3 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.</p>",
+            "text_size": "p-sm",
+            "quotations": true,
+            "details": "",
+            "logo": "shopify://shop_images/image_14.png",
+            "background_theme": "5",
+            "card_corners": "rounded"
+          }
+        },
+        "367cc0c5-6fad-45cb-aa18-67496c784724": {
+          "type": "quote",
+          "settings": {
+            "quote": "<p>4 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.</p>",
+            "text_size": "p-sm",
+            "quotations": true,
+            "details": "",
+            "logo": "shopify://shop_images/image_14.png",
+            "background_theme": "3",
+            "card_corners": "rounded"
+          }
+        },
+        "367cc0c5-6fad-45cb-aa18-67496c784724-1": {
+          "type": "quote",
+          "settings": {
+            "quote": "<p>5 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.</p>",
+            "text_size": "p-sm",
+            "quotations": true,
+            "details": "",
+            "logo": "shopify://shop_images/image_14.png",
+            "background_theme": "4",
+            "card_corners": "rounded"
+          }
+        }
+      },
+      "block_order": [
+        "830e5ff8-b1ac-469b-91e1-0a5d71ab525c",
+        "5bfa76eb-f1fb-4649-8d9f-0771396e136f",
+        "6ba997ed-491d-48f4-bad3-c9cb67930f72",
+        "367cc0c5-6fad-45cb-aa18-67496c784724",
+        "367cc0c5-6fad-45cb-aa18-67496c784724-1"
+      ],
+      "settings": {
+        "alignment": "center",
+        "speed": 6,
         "theme": "primary",
         "top_spacing": 50,
         "bottom_spacing": 50
@@ -234,15 +523,18 @@
     }
   },
   "order": [
-    "767d046b-a15f-41ab-8efb-83b39fafa6bb",
-    "75ad8cfc-372d-44f0-b234-21ff0aaefa68",
+    "1662063884d9fa6284",
     "text-marquee",
-    "featured-collection",
-    "b7a26e7b-8e71-41bf-ae9b-6f29cd64c971",
-    "collections-list",
-    "96724b76-495d-47be-8784-9b0a855ed4e2",
-    "image-banner",
-    "featured-blog",
-    "9dec3854-d1be-4cd0-a672-03a3fb8495af"
+    "1663189358d1a4ecd6",
+    "1662066517d31dd7ec",
+    "1662067471929f7e31",
+    "1662139175fd63525b",
+    "16632903088cf5de6e",
+    "77926ee0-c4cd-4878-a4bf-192a1c0681ed",
+    "166329465577f05b4c",
+    "ff755975-bca6-4b0c-b183-f92584c32baa",
+    "rich-text",
+    "9b7e1c54-0b63-432c-bf6b-6416486399ff",
+    "bd10db7c-6fad-4554-8a11-8fb51fd79804"
   ]
 }

@@ -1,8 +1,95 @@
 {
   "sections": {
     "main": {
-      "type": "main-page"
+      "type": "main-page",
+      "settings": {
+        "output_section": true,
+        "top_spacing": 80,
+        "bottom_spacing": 50,
+        "theme": "3"
+      }
+    },
+    "617f3fea-1c3d-4b13-a803-e0384ab2531e": {
+      "type": "divider",
+      "settings": {
+        "theme": "primary",
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
+    },
+    "87bba380-fc1e-4a89-860d-f2229b309a11": {
+      "type": "text-marquee",
+      "settings": {
+        "text": "Lorem ipsum dolor enim ad minim veniam",
+        "text_size": "h5",
+        "alt_heading": false,
+        "speed": 5,
+        "theme": "2",
+        "top_spacing": 30,
+        "bottom_spacing": 30
+      }
+    },
+    "c2f734ec-7eeb-4b54-840f-cdf2c0c83c10": {
+      "type": "featured-blog",
+      "settings": {
+        "heading": "Lorem ipsum dolor sit",
+        "heading_size": "h5",
+        "blog": "news",
+        "alt_heading": false,
+        "show_date": true,
+        "show_description": true,
+        "show_author": true,
+        "assc_product_crop_shape": "square",
+        "button_label": "Button Here",
+        "crop_shape": "arch",
+        "alignment": "left",
+        "mobile_layout": "stacked",
+        "view_all_button_label": "",
+        "theme": "4",
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
+    },
+    "ce384cdd-b039-430b-88cc-cfab78e48dd8": {
+      "type": "content-marquee",
+      "blocks": {
+        "4bba4ed4-4a35-4e8a-afab-0e76fa088d32": {
+          "type": "quote",
+          "settings": {
+            "quote": "<ul><li>testing marquee</li><li>dsfsdf</li></ul><p></p>",
+            "quotations": true,
+            "details": "<ul><li>asdfasdf</li><li>Details </li><li>go here</li></ul>",
+            "logo": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash.jpg",
+            "background_theme": "3",
+            "card_corners": "semicircle"
+          }
+        }
+      },
+      "block_order": ["4bba4ed4-4a35-4e8a-afab-0e76fa088d32"],
+      "settings": {
+        "alignment": "center",
+        "speed": 1,
+        "theme": "primary",
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
+    },
+    "00c3f0b2-d69e-4a06-8c1d-b427abfa17a5": {
+      "type": "page",
+      "settings": {
+        "page": "",
+        "top_spacing": 70,
+        "bottom_spacing": 50,
+        "theme": "2"
+      }
     }
   },
-  "order": ["main"]
+  "order": [
+    "main",
+    "617f3fea-1c3d-4b13-a803-e0384ab2531e",
+    "87bba380-fc1e-4a89-860d-f2229b309a11",
+    "c2f734ec-7eeb-4b54-840f-cdf2c0c83c10",
+    "ce384cdd-b039-430b-88cc-cfab78e48dd8",
+    "00c3f0b2-d69e-4a06-8c1d-b427abfa17a5"
+  ]
 }
