@@ -95,6 +95,7 @@
 
             {% comment %} Divider / Space {% endcomment %}
             {%- when 'divider' -%}
+              {{ 'divider.css' | asset_url | stylesheet_tag }}
               <div class="featured-product__text__divider divider-section {% if block.settings.hide_divider %}__hide-divider{% endif %}" style="--dividerSnippetUseTopSpace: {{ block.settings.bottom }}px; --dividerSnippetUseBottomSpace: {{ block.settings.top }}px;"></div>
 
             {% comment %} Type variant picker {% endcomment %}

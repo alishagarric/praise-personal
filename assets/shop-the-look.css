@@ -23,7 +23,7 @@
       height: 100%;
       object-fit: cover; }
   .shop-the-look__dots {
-    position: absolute;
+    position: absolute !important;
     inset: 0; }
     .shop-the-look__dots .flickity-viewport {
       height: 100% !important; }
@@ -59,7 +59,7 @@
   .shop-the-look__background-color {
     z-index: 0;
     pointer-events: none;
-    position: absolute;
+    position: absolute !important;
     inset: 0; }
     .shop-the-look__background-color .flickity-viewport {
       height: 100% !important; }

@@ -41,7 +41,7 @@
   }
 
   &__dots {
-    position: absolute;
+    position: absolute !important;
     inset: 0;
 
     .flickity-viewport {
@@ -96,7 +96,7 @@
   &__background-color {
     z-index: 0;
     pointer-events: none;
-    position: absolute;
+    position: absolute !important;
     inset: 0;
 
     .flickity-viewport {
