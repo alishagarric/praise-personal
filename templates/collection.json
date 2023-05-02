@@ -5,6 +5,7 @@
       "settings": {
         "heading_size": "h4",
         "alt_heading": false,
+        "text_size": "p-sm",
         "alignment": "left",
         "show_image": true,
         "overlay": 10,
@@ -28,7 +29,7 @@
         "alt_title": false,
         "product_text_alignment": "default",
         "price": "default",
-        "crop_shape": "default",
+        "crop_shape": "square",
         "theme": "primary",
         "top_spacing": 50,
         "bottom_spacing": 100
@@ -50,6 +51,7 @@
             "icon": "shopify:\/\/shop_images\/noun-flowers-2418113.png",
             "heading": "A Nutrient Powerhouse",
             "text": "Juices are packed with nutrients, including vitamins, minerals, and antioxidants, making them an excellent addition to a healthy diet",
+            "text_size": "p-sm",
             "layout": "row"
           }
         },
@@ -59,6 +61,7 @@
             "icon": "shopify:\/\/shop_images\/noun-berries-2418110.png",
             "heading": "Digestion Made Easy",
             "text": "Juices are a great source of dietary fiber, which can help to promote healthy digestion and prevent constipation",
+            "text_size": "p-sm",
             "layout": "row"
           }
         },
@@ -68,6 +71,7 @@
             "icon": "shopify:\/\/shop_images\/noun-plant-2229880_245f09f6-0298-4c28-9ad3-f1af0c512b96.png",
             "heading": "Hydration Station",
             "text": "Juices are an easy and delicious way to stay hydrated, as they are made from water-rich fruits and vegetables that can help you meet your daily fluid intake needs",
+            "text_size": "p-sm",
             "layout": "row"
           }
         }
@@ -89,6 +93,8 @@
         "theme": "2",
         "top_internal_spacing": 0,
         "bottom_internal_spacing": 0,
+        "mobile_top_internal_spacing": 50,
+        "mobile_bottom_internal_spacing": 0,
         "top_spacing": 60,
         "bottom_spacing": 60
       }
@@ -107,7 +113,8 @@
         "template--16398178320606__d7ab5552-b9ce-4e1e-89aa-af7c046263d2-167036242761bb5f6f-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Atypical cookies and treats that push the boundaries of indulgence. An odea to the well-baanced classic cookie. This season we are celebrating all the nostalgia and what pairs best with chocolate chips.<\/p>"
+            "text": "<p>Atypical cookies and treats that push the boundaries of indulgence. An odea to the well-baanced classic cookie. This season we are celebrating all the nostalgia and what pairs best with chocolate chips.<\/p>",
+            "text_size": "p"
           }
         },
         "template--16398178320606__d7ab5552-b9ce-4e1e-89aa-af7c046263d2-167036242761bb5f6f-2": {
@@ -134,6 +141,8 @@
         "theme": "primary",
         "top_internal_spacing": 100,
         "bottom_internal_spacing": 100,
+        "mobile_top_internal_spacing": 50,
+        "mobile_bottom_internal_spacing": 0,
         "top_spacing": 0,
         "bottom_spacing": 0
       }
@@ -143,17 +152,19 @@
       "settings": {
         "collection": "skin-hair-care",
         "theme_slideshow": false,
-        "show_phrase": false,
+        "include_border": true,
+        "show_phrase": true,
         "show_description": false,
         "quick_add": false,
-        "show_bg_color": false,
+        "show_bg_color": true,
         "alt_title": true,
         "product_text_alignment": "default",
-        "price": "not-visible",
-        "crop_shape": "default",
+        "price": "default",
+        "crop_shape": "arch",
         "heading": "Skin loving juices",
         "alt_heading": false,
         "text": "",
+        "text_size": "p",
         "collection_text_content": false,
         "theme": "primary",
         "top_spacing": 50,
