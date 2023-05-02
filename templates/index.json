@@ -123,7 +123,7 @@
         "image_crop_shape": "portrait",
         "show_phrase": false,
         "show_description": false,
-        "quick_add": false,
+        "quick_add": true,
         "show_bg_color": false,
         "alt_title": false,
         "product_text_alignment": "default",
