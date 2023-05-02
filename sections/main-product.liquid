@@ -104,7 +104,12 @@
               {% if block.settings.layout != "stacked" and product.media.size > 1 %}
                 <ul class="main-product__media__dots" style="--dotsColumns: {% if product.media.size > 5 %}5{% else %}{{ product.media.size }}{% endif %}; --dotsRows: {{ product.media.size | divided_by: 5.0 | ceil }}">
                   {%- for media in product.media -%}
-                    <li class="main-product__media__dots__dot standard-flickity-dot {% if media == product.selected_or_first_available_variant.featured_media %}__active{% endif %}" data-media-dot-id="{{ section.id }}{{ product.id }}-{{ media.id }}">
+                    {% if product.has_only_default_variant and forloop.index == 1 %}
+                      {% assign default_and_first = true %}
+                    {% else %}
+                      {% assign default_and_first = false %}
+                    {% endif %}
+                    <li class="main-product__media__dots__dot standard-flickity-dot {% if media == product.selected_or_first_available_variant.featured_media or  default_and_first %}__active{% endif %}" data-media-dot-id="{{ section.id }}{{ product.id }}-{{ media.id }}">
                       <span class="visually-hidden">{{ forloop.index }}</span>
                     </li>
                   {%- endfor -%}
@@ -180,7 +185,7 @@
                 {% if block.settings.title %}
                   <div class="p-sm">{{ block.settings.title }}</div>
                 {% endif %}
-                {% render 'featured-icons', product: product, class: "main-product__icons", layout: block.settings.layout, icon_height: block.settings.icon_height %}
+                {% render 'featured-icons', this_product: product, class: "main-product__icons", layout: block.settings.layout, icon_height: block.settings.icon_height %}
               </div>
             {% endif %}
 
@@ -192,7 +197,7 @@
                 {% if block.settings.title %}
                   <div class="p-sm">{{ block.settings.title }}</div>
                 {% endif %}
-                {% render 'featured-icons'  icon_1: block.settings.icon_1, icon_1_title: block.settings.icon_1_title, icon_2: block.settings.icon_2, icon_2_title: block.settings.icon_2_title, icon_3: block.settings.icon_3, icon_3_title: block.settings.icon_3_title, product: product, class: "main-product__icons", layout: block.settings.layout, icon_height: block.settings.icon_height %}
+                {% render 'featured-icons'  icon_1: block.settings.icon_1, icon_1_title: block.settings.icon_1_title, icon_2: block.settings.icon_2, icon_2_title: block.settings.icon_2_title, icon_3: block.settings.icon_3, icon_3_title: block.settings.icon_3_title, class: "main-product__icons", layout: block.settings.layout, icon_height: block.settings.icon_height %}
               </div>
             {% endif %}
 

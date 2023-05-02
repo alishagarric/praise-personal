@@ -4,6 +4,9 @@
 {{ 'main-cart.css' | asset_url | stylesheet_tag }}
 {{ 'number-input.css' | asset_url | stylesheet_tag }}
 
+<script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+
+
 {% style %}
   #Main-cart-{{ section.id }} {
     --topSpacingRatio: {{ section.settings.top_spacing }} / 100;
