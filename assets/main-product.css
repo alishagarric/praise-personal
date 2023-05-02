@@ -32,7 +32,8 @@
     grid-column: 1 / 2;
     grid-row: 1 / 2;
     padding-left: calc(var(--sectionGuttersSpacing) / 2);
-    color: RGB(var(--color-text)); }
+    color: RGB(var(--color-text));
+    min-height: calc(100vh - var(--navHeight)); }
     .main-product__blocks-before-media > * {
       position: relative; }
     .main-product__blocks-before-media:before {

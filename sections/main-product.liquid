@@ -101,23 +101,21 @@
                 {%- endfor -%}
               </ul>
 
-              {% if block.settings.layout != "stacked" %}
+              {% if block.settings.layout != "stacked" and product.media.size > 1 %}
                 <ul class="main-product__media__dots" style="--dotsColumns: {% if product.media.size > 5 %}5{% else %}{{ product.media.size }}{% endif %}; --dotsRows: {{ product.media.size | divided_by: 5.0 | ceil }}">
                   {%- for media in product.media -%}
                     <li class="main-product__media__dots__dot standard-flickity-dot {% if media == product.selected_or_first_available_variant.featured_media %}__active{% endif %}" data-media-dot-id="{{ section.id }}{{ product.id }}-{{ media.id }}">
                       <span class="visually-hidden">{{ forloop.index }}</span>
                     </li>
                   {%- endfor -%}
-                  {% if product.media.size > 1 %}
-                    <li class="main-product__media__dots__prev btn classic-arrow prev">
-                      <span class="visually-hidden">Previous Slide</span>
-                      {% render 'svg-slider-arrow' %}
-                    </li>
-                    <li class="main-product__media__dots__next btn classic-arrow next">
-                      <span class="visually-hidden">Next Slide</span>
-                      {% render 'svg-slider-arrow' %}
-                    </li>
-                  {% endif %}
+                  <li class="main-product__media__dots__prev btn classic-arrow prev">
+                    <span class="visually-hidden">Previous Slide</span>
+                    {% render 'svg-slider-arrow' %}
+                  </li>
+                  <li class="main-product__media__dots__next btn classic-arrow next">
+                    <span class="visually-hidden">Next Slide</span>
+                    {% render 'svg-slider-arrow' %}
+                  </li>
                 </ul>
               {% endif %}
               
@@ -182,12 +180,12 @@
                 {% if block.settings.title %}
                   <div class="p-sm">{{ block.settings.title }}</div>
                 {% endif %}
-                {% render 'featured-icons' %}
+                {% render 'featured-icons', product: product, class: "main-product__icons", layout: block.settings.layout, icon_height: block.settings.icon_height %}
               </div>
             {% endif %}
 
           {% comment %} Type featured basic icons {% endcomment %}
-          {%- when 'icons' -%}
+          {%- when 'basic_icons' -%}
             {% if block.settings.icon_1 or block.settings.icon_2 or block.settings.icon_3 %}
               <div class="main-product__block {% if block.settings.include_border %} __border-top {% endif %}">
                 {{ 'custom-icons.css' | asset_url | stylesheet_tag }}
@@ -208,6 +206,7 @@
 
           {% comment %} Divider / Space {% endcomment %}
           {%- when 'divider' -%}
+            {{ 'divider.css' | asset_url | stylesheet_tag }}
             <div class="main-product__divider divider-section {% if block.settings.hide_divider %}__hide-divider{% endif %}" style="--dividerSnippetUseTopSpace: {{ block.settings.bottom }}px; --dividerSnippetUseBottomSpace: {{ block.settings.top }}px;"></div>
 
 
