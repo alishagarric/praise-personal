@@ -83,15 +83,15 @@
           "type": "product",
           "settings": {
             "product": "green-dream",
-            "horizontal_pos": 50,
-            "vertical_pos": 50
+            "horizontal_pos": 27,
+            "vertical_pos": 73
           }
         },
         "c82692c8-3618-410b-9010-1431d23cceca": {
           "type": "product",
           "settings": {
             "product": "orange-remedy",
-            "horizontal_pos": 50,
+            "horizontal_pos": 67,
             "vertical_pos": 50
           }
         },
@@ -100,15 +100,15 @@
           "settings": {
             "product": "im-in-love-with-the-coco",
             "horizontal_pos": 50,
-            "vertical_pos": 50
+            "vertical_pos": 66
           }
         },
         "c43b043b-4390-4b24-b873-73cf7f0c96af": {
           "type": "product",
           "settings": {
             "product": "lets-not-talk-about-last-night",
-            "horizontal_pos": 50,
-            "vertical_pos": 50
+            "horizontal_pos": 78,
+            "vertical_pos": 23
           }
         }
       },
@@ -124,7 +124,7 @@
         "show_phrase": false,
         "show_description": false,
         "quick_add": false,
-        "show_bg_color": true,
+        "show_bg_color": false,
         "alt_title": false,
         "product_text_alignment": "default",
         "price": "default",
