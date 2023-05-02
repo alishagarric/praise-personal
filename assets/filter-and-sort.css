@@ -49,5 +49,3 @@
       flex-wrap: wrap; }
       .filter-and-sort__filters__checkboxes > * {
         flex-basis: calc(50% - calc(var(--pxSize) / 6)); } }
-
-/*# sourceMappingURL=filter-and-sort.css.map */

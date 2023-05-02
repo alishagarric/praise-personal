@@ -3,75 +3,24 @@
     "main": {
       "type": "main-product",
       "blocks": {
+        "media": {
+          "type": "media",
+          "settings": {
+            "layout": "slideshow"
+          }
+        },
+        "eedbfe43-d044-47db-85d2-aa3ca122f3ff": {
+          "type": "vendor",
+          "settings": {
+            "text_size": "p-sm",
+            "include_border": false
+          }
+        },
         "title": {
           "type": "title",
           "settings": {
             "heading_size": "h4",
             "alt_heading": true
-          }
-        },
-        "description": {
-          "type": "description",
-          "settings": {
-            "text_size": "p-sm"
-          }
-        },
-        "rating": {
-          "type": "rating",
-          "settings": {}
-        },
-        "featured-icons": {
-          "type": "icons",
-          "settings": {
-            "icon_1": "none",
-            "icon_1_title": "",
-            "icon_2": "none",
-            "icon_2_title": "",
-            "icon_3": "none",
-            "icon_3_title": "",
-            "icon_height": 20,
-            "title": "Key Ingredients",
-            "layout": "row",
-            "include_border": true
-          }
-        },
-        "expandable": {
-          "type": "expandable",
-          "settings": {
-            "title": "Details",
-            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gravida diam integer suspendisse magna tempus ut praesent amet venenatis. </p><ul><li>Full of Gluten</li><li>Vegan</li><li>500 calories per cookie</li><li>No artificial colors of flavors</li></ul>",
-            "page": "",
-            "open": false
-          }
-        },
-        "expandable-2": {
-          "type": "expandable",
-          "settings": {
-            "title": "Full List of Ingredients",
-            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gravida diam integer suspendisse magna tempus ut praesent amet venenatis. </p><ul><li>Full of Gluten</li><li>Vegan</li><li>500 calories per cookie</li><li>No artificial colors of flavors</li></ul>",
-            "page": "",
-            "open": false
-          }
-        },
-        "expandable-3": {
-          "type": "expandable",
-          "settings": {
-            "title": "Nutritional Label",
-            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gravida diam integer suspendisse magna tempus ut praesent amet venenatis. </p><ul><li>Full of Gluten</li><li>Vegan</li><li>500 calories per cookie</li><li>No artificial colors of flavors</li></ul>",
-            "page": "",
-            "open": false
-          }
-        },
-        "pickup-availability": {
-          "type": "pickup_availability",
-          "settings": {
-            "title": "Pickup Availability"
-          }
-        },
-        "media": {
-          "type": "media",
-          "settings": {
-            "layout": "slideshow"
           }
         },
         "price": {
@@ -80,45 +29,89 @@
             "heading_size": "h6"
           }
         },
-        "variant_picker": {
-          "type": "variant_picker",
+        "rating": {
+          "type": "rating",
           "settings": {
-            "layout": "buttons",
-            "show_option_labels": true,
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "text_size": "p-sm"
+          }
+        },
+        "featured-icons": {
+          "type": "icons",
+          "settings": {
+            "icon_height": 40,
+            "title": "",
+            "layout": "row",
             "include_border": true
+          }
+        },
+        "expandable": {
+          "type": "expandable",
+          "settings": {
+            "title": "Details",
+            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gravida diam integer suspendisse magna tempus ut praesent amet venenatis. <\/p><ul><li>Full of Gluten<\/li><li>Vegan<\/li><li>500 calories per cookie<\/li><li>No artificial colors of flavors<\/li><\/ul>",
+            "page": "",
+            "open": false
+          }
+        },
+        "expandable-2": {
+          "type": "expandable",
+          "settings": {
+            "title": "Full List of Ingredients",
+            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gravida diam integer suspendisse magna tempus ut praesent amet venenatis. <\/p><ul><li>Full of Gluten<\/li><li>Vegan<\/li><li>500 calories per cookie<\/li><li>No artificial colors of flavors<\/li><\/ul>",
+            "page": "",
+            "open": false
+          }
+        },
+        "88e2925f-4ec2-4dba-bb3f-5d98cbcf9ca9": {
+          "type": "divider",
+          "settings": {
+            "top": 10,
+            "bottom": 0,
+            "hide_divider": true
           }
         },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
             "show_quantity": true,
-            "hide_dynamic_buttons": false,
-            "include_border": true
+            "hide_dynamic_buttons": true,
+            "include_border": false
           }
         },
-        "comp-products": {
-          "type": "complementary_products",
+        "d8a7d326-a0a3-470d-adc4-60f860c02b34": {
+          "type": "divider",
           "settings": {
-            "title": "Complete your cart",
-            "include_border": true,
-            "crop_shape": "circle"
+            "top": 50,
+            "bottom": 10,
+            "hide_divider": true
+          }
+        },
+        "pickup-availability": {
+          "type": "pickup_availability",
+          "settings": {
+            "title": "Pickup Availability"
           }
         }
       },
       "block_order": [
+        "media",
+        "eedbfe43-d044-47db-85d2-aa3ca122f3ff",
         "title",
-        "description",
+        "price",
         "rating",
+        "description",
         "featured-icons",
         "expandable",
         "expandable-2",
-        "expandable-3",
-        "pickup-availability",
-        "media",
-        "price",
-        "variant_picker",
+        "88e2925f-4ec2-4dba-bb3f-5d98cbcf9ca9",
         "buy_buttons",
-        "comp-products"
+        "d8a7d326-a0a3-470d-adc4-60f860c02b34",
+        "pickup-availability"
       ],
       "settings": {
         "theme": "primary"
@@ -127,11 +120,11 @@
     "787ead21-d010-4107-9b59-4a0cf7ea91f3": {
       "type": "text-marquee",
       "settings": {
-        "text": "Spend $30+ Get a free 🥜 peanut butter cookie",
+        "text": "Revitalize Your Body and Mind",
         "text_size": "h6",
         "alt_heading": true,
         "speed": 5,
-        "theme": "4",
+        "theme": "3",
         "top_spacing": 30,
         "bottom_spacing": 30
       }
@@ -142,25 +135,25 @@
         "template--16398178779358__358e3a37-ea37-4371-af0a-4b81d29478cb-1678920937a9e025f0-0": {
           "type": "icon",
           "settings": {
-            "icon": "shopify://shop_images/Group.png",
-            "heading": "Sugar",
-            "text": "At Ritual we use fresh lemons sourced within 50 miled of our bakign facility"
+            "icon": "shopify:\/\/shop_images\/noun-plant-3309113.png",
+            "heading": "A Nutrient Powerhouse",
+            "text": "Juices are packed with nutrients, including vitamins, minerals, and antioxidants, making them an excellent addition to a healthy diet"
           }
         },
         "template--16398178779358__358e3a37-ea37-4371-af0a-4b81d29478cb-1678920937a9e025f0-1": {
           "type": "icon",
           "settings": {
-            "icon": "shopify://shop_images/Group_100.png",
-            "heading": "Lemon",
-            "text": "At Ritual we use fresh lemons sourced within 50 miled of our bakign facility"
+            "icon": "shopify:\/\/shop_images\/noun-flowers-2418113.png",
+            "heading": "Digestion Made Easy",
+            "text": "Juices are a great source of dietary fiber, which can help to promote healthy digestion and prevent constipation"
           }
         },
         "template--16398178779358__358e3a37-ea37-4371-af0a-4b81d29478cb-1678920937a9e025f0-2": {
           "type": "icon",
           "settings": {
-            "icon": "shopify://shop_images/Group.png",
-            "heading": "Sugar",
-            "text": "At Ritual we use fresh lemons sourced within 50 miled of our bakign facility"
+            "icon": "shopify:\/\/shop_images\/noun-berries-2418110.png",
+            "heading": "Hydration Station",
+            "text": "Juices are an easy and delicious way to stay hydrated, as they are made from water-rich fruits and vegetables that can help you meet your daily fluid intake needs"
           }
         }
       },
@@ -170,11 +163,11 @@
         "template--16398178779358__358e3a37-ea37-4371-af0a-4b81d29478cb-1678920937a9e025f0-2"
       ],
       "settings": {
-        "heading": "Cookie Benefits",
+        "heading": "Juice Benefits",
         "heading_size": "h4",
         "alt_heading": false,
         "layout": "3",
-        "mobile_layout": "1",
+        "mobile_layout": "3",
         "icon_height": 80,
         "alignment": "center",
         "theme": "primary",
@@ -185,9 +178,9 @@
     "4b830209-3799-4cb8-a769-e9d60515b093": {
       "type": "featured-blog",
       "settings": {
-        "heading": "Try Ritual Recipes",
+        "heading": "Try Rawbry Recipes",
         "heading_size": "h5",
-        "blog": "news",
+        "blog": "journal",
         "alt_heading": true,
         "show_date": false,
         "show_description": true,
@@ -214,13 +207,6 @@
     },
     "167529836888bf5a4a": {
       "type": "apps",
-      "blocks": {
-        "478a31ad-f5cb-431a-b030-744dba03a8c7": {
-          "type": "shopify://apps/product-reviews/blocks/reviews/bae150af-8da8-48b2-9867-398188115e5f",
-          "settings": {}
-        }
-      },
-      "block_order": ["478a31ad-f5cb-431a-b030-744dba03a8c7"],
       "settings": {
         "top_spacing": 50,
         "bottom_spacing": 50,
