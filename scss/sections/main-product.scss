@@ -253,6 +253,8 @@
     }
 
     &__blocks-before-media {
+      min-height: auto;
+
       &:before {
         width: 100%;
         right: 0;

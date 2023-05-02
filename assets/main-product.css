@@ -136,11 +136,13 @@
             margin-left: var(--container-padding); }
     .main-product__block.__border-top {
       padding-top: calc(var(--pxSize) / 1.5); }
-    .main-product__blocks-before-media:before {
-      width: 100%;
-      right: 0;
-      bottom: 0;
-      top: 0; }
+    .main-product__blocks-before-media {
+      min-height: auto; }
+      .main-product__blocks-before-media:before {
+        width: 100%;
+        right: 0;
+        bottom: 0;
+        top: 0; }
     .main-product__blocks-after-media, .main-product__blocks-before-media, .main-product__media {
       padding-left: var(--sectionGuttersSpacing);
       padding-right: var(--sectionGuttersSpacing); }

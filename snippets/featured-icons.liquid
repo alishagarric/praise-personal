@@ -2,19 +2,19 @@
   Renders a featured icons
 
   Expects:
-  - product: {Object} Product object
-  - icons: {array of strings} optional, Used to loop through if product is provided
+  - this_product: {Object} Product object
+  - icons: {array of strings} optional, Used to loop through if product isn't provided
   - class: {String} optional
   - layout: {string} optional stacked (default), row, icon-only
   - icon_height: {int} optional
 
   Usage:
-    {% render 'featured-icons' product: product, class:"class" %}
+    {% render 'featured-icons' this_product: product, class:"class" %}
 {% endcomment %}
 
 {% assign icon_height = icon_height | default: '20' %}
 {% assign layout = layout | default: 'stacked' %}
-{% assign array = product.metafields.custom.featured_icons.value | default: icons %}
+{% assign array = this_product.metafields.custom.featured_icons.value | default: icons %}
 
 
 <ul class="featured-icons {{ class }} __layout-{{ layout }}" style="--customIconHeight:{{ icon_height }}px;">

@@ -25,14 +25,16 @@ if (!customElements.get("media-gallery")) {
           const activeDot = this.querySelector(
             `.main-product__media__dots__dot.__active`
           );
-          this.setActiveMedia(activeDot.previousSibling.dataset.mediaDotId);
+          this.setActiveMedia(
+            activeDot.previousElementSibling.dataset.mediaDotId
+          );
         });
 
         this.next.addEventListener("click", () => {
           const activeDot = this.querySelector(
             `.main-product__media__dots__dot.__active`
           );
-          this.setActiveMedia(activeDot.nextSibling.dataset.mediaDotId);
+          this.setActiveMedia(activeDot.nextElementSibling.dataset.mediaDotId);
         });
       }
 
