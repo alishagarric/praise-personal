@@ -4030,7 +4030,7 @@
         "crop_shape": {
           "options": {
             "label_1": "No Crop",
-            "label_2": "Primary Theme",
+            "label_2": "Square",
             "label_3": "Rounded Square",
             "label_4": "Circle",
             "label_5": "Portrait",

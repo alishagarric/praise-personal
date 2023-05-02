@@ -366,6 +366,13 @@
         }
       }
     }
+
+    // Logo
+    &__logo {
+      &__text {
+        font-size: calc(0.9rem * var(--font-heading-scale));
+      }
+    }
   }
 
   @media screen and (max-width: 676px) {

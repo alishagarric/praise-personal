@@ -152,7 +152,6 @@
       padding-bottom: var(--pxSize); } }
 
 /* Product model UI */
-/* TODO What is all of this */
 product-model {
   display: block;
   position: relative; }
