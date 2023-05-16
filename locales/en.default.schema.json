@@ -247,7 +247,7 @@
       }
     },
     "main-product": {
-      "name": "Product information",
+      "name": "Main Product",
       "blocks": {
         "text": {
           "name": "Text",
@@ -297,12 +297,13 @@
               "label": "Text from a page"
             },
             "open": {
-              "label": "Open"
+              "label": "Open",
+              "description": "Initially display as open"
             }
           }
         },
         "complementary_products": {
-          "name": "Expandable Content",
+          "name": "Complementary Products",
           "settings": {
             "paragraph": {
               "content": "This is generated from the complementary products you specify inside the Search and Discovery app. TODO: Link to documentation"
@@ -500,7 +501,8 @@
               "label": "Icons Height"
             },
             "title": {
-              "label": "Title"
+              "label": "Icons Title",
+              "description": "Optionally, provide a label that will display above all icons"
             },
             "layout": {
               "options": {
@@ -638,7 +640,7 @@
       "name": "Image with text",
       "settings": {
         "header": {
-          "content": "Content"
+          "content": "Image Content"
         },
         "image": {
           "label": "Image",
@@ -657,7 +659,7 @@
         },
         "hero": {
           "label": "Use as hero",
-          "info": "Select this setting if this section is the first or second on a page and contains the page title. There should only be one page title/hero used per page."
+          "info": "Select this setting if this section contains the page title. Try to include one page title/hero section per page. Learn More TODO: Link to documentation."
         },
         "alignment": {
           "options": {
@@ -808,7 +810,7 @@
       }
     },
     "main-list-collections": {
-      "name": "Collections list page",
+      "name": "Main List Collections",
       "settings": {
         "header": {
           "content": "General"
@@ -1118,7 +1120,7 @@
                 "label_4": "4th Theme",
                 "label_5": "5th Theme"
               },
-              "label": "Theme"
+              "label": "Overlay Theme"
             },
             "crop_shape": {
               "options": {
@@ -1303,7 +1305,7 @@
           "info": "Relies on the addition of article metafields. TODO: Link to documentation"
         },
         "button_label": {
-          "label": "Article Button Text",
+          "label": "Article Button Label",
           "info": "Displays an underlined button if included, no button if not."
         },
         "crop_shape": {
@@ -1320,10 +1322,10 @@
             "label_10": "Semicircle Landscape",
             "label_11": "Arch"
           },
-          "label": "Item Image Crop Shape"
+          "label": "Article Image Crop Shape"
         },
         "alignment": {
-          "label": "Alignment",
+          "label": "Text Alignment",
           "options": {
             "label_1": "Left",
             "label_2": "Center",
@@ -1414,7 +1416,7 @@
             "label_5": "5th Theme"
           },
           "label": "Theme",
-          "info": "Theme used for the right side of the footer."
+          "info": "Theme used for the main portion of this section."
         },
         "accent_theme": {
           "options": {
@@ -1425,7 +1427,7 @@
             "label_5": "5th Theme"
           },
           "label": "Accent Theme",
-          "info": "Theme used for the left side of the footer."
+          "info": "Theme used for the footer portion of this section."
         }
       }
     },
@@ -1512,7 +1514,7 @@
           "name": "Message",
           "settings": {
             "heading": {
-              "label": "Label"
+              "label": "Heading"
             },
             "heading_size": {
               "options": {
@@ -1714,9 +1716,9 @@
       "name": "Main order"
     },
     "main-page": {
-      "name": "Page",
+      "name": "Main Page",
       "presets": {
-        "name": "Main page"
+        "name": "Main Page"
       },
       "settings": {
         "header_1": {
@@ -2069,7 +2071,7 @@
           "info": "This feature relies on the addition of article metafields. TODO: Link to documentation"
         },
         "button_label": {
-          "label": "Article Button Text",
+          "label": "Article Button Label",
           "info": "If this is included, it will display an underlined button, otherwise no button will be displayed"
         },
         "crop_shape": {
@@ -2086,7 +2088,7 @@
             "label_10": "Semicircle Landscape",
             "label_11": "Arch"
           },
-          "label": "Product Image Crop Shape"
+          "label": "Article Image Crop Shape"
         },
         "alignment": {
           "options": {
@@ -2094,7 +2096,7 @@
             "label_2": "Center",
             "label_3": "Right"
           },
-          "label": "Alignment"
+          "label": "Text Alignment"
         },
         "header_3": {
           "content": "General"
@@ -2243,7 +2245,7 @@
           "content": "Logo"
         },
         "image_picker": {
-          "label": "logo"
+          "label": "Logo"
         },
         "logo_width": {
           "label": "Max Width"
@@ -2337,7 +2339,7 @@
           "label": "Description Size"
         },
         "header_3": {
-          "content": "Reset Form"
+          "content": "Forgot Password Form"
         },
         "reset_heading": {
           "label": "Heading"
@@ -2429,7 +2431,7 @@
           "label": "Logo"
         },
         "logo_placement": {
-          "label": "Label Placement",
+          "label": "Logo Placement",
           "options": {
             "label_1": "Left",
             "label_2": "Center"
@@ -2480,7 +2482,7 @@
           "info": "Excluding this will hide the view all button"
         },
         "enable_sticky_details": {
-          "label": "Enable details to 'stick",
+          "label": "Enable details to 'stick'",
           "info": "This causes details to 'stick' within view while user scrolls through product cards. This setting requires the product cards to be taller than collection details per collection row."
         },
         "display_collection_image": {
@@ -2521,7 +2523,7 @@
           "info": "This is dependent on the collection featured stats metafield being added. TODO: Link to documentation"
         },
         "stats_color": {
-          "label": "Theme",
+          "label": "Featured Stats Theme",
           "options": {
             "label_1": "Default",
             "label_2": "Primary Theme",
@@ -2638,7 +2640,7 @@
           "label": "Use body font instead of heading font for heading"
         },
         "header_2": {
-          "content": "Settings"
+          "content": "General"
         },
         "collections_text_alignment": {
           "label": "Text Alignment",
@@ -2804,7 +2806,7 @@
                 "label_10": "Semicircle Landscape",
                 "label_11": "Arch"
               },
-              "label": "Product Image Crop Shape"
+              "label": "Image Crop Shape"
             },
             "header_2": {
               "content": "Text Content"
@@ -2921,7 +2923,7 @@
           "label": "Enable quick add"
         },
         "show_bg_color": {
-          "label": "Background Color"
+          "label": "Show background color"
         },
         "alt_title": {
           "label": "Use body font instead of heading font for product title"
@@ -3015,7 +3017,7 @@
         },
         "hero": {
           "label": "Use as hero",
-          "info": "Select this setting if this section is the first or second on a page and contains the page title. There should only be one page title/hero used per page."
+          "info": "Select this setting if this section contains the page title. Try to include one page title/hero section per page. Learn More TODO: Link to documentation."
         },
         "alignment": {
           "label": "Alignment",
@@ -3026,13 +3028,13 @@
           }
         },
         "theme_section": {
-          "label": "Theme section with product colors",
+          "label": "Theme section with the product color",
           "options": {
             "label_1": "Don't Theme",
             "label_2": "Theme First Half of Blocks",
             "label_3": "Theme All but Last Block"
           },
-          "info": "Only applies when there's enough products in the collection to initiate a slideshow. Relies on the addition of product metafields. TODO: Link to documentation"
+          "info": "Relies on the addition of product metafields. TODO: Link to documentation"
         },
         "layout": {
           "options": {
@@ -3121,7 +3123,8 @@
               "label": "Text from a page"
             },
             "open": {
-              "label": "Open"
+              "label": "Open",
+              "description": "Initially display as open"
             }
           }
         },
@@ -3197,9 +3200,9 @@
           }
         },
         "shop_button": {
-          "name": "Shop Button",
+          "name": "View Details Button",
           "settings": {
-            "label": "Shop Now",
+            "label": "Button Label",
             "info": "Links to the product's page"
           }
         },
@@ -3377,7 +3380,7 @@
           "label": "Icon Height"
         },
         "alignment": {
-          "label": "Alignment",
+          "label": "Text Alignment",
           "options": {
             "label_1": "Left",
             "label_2": "Center",
@@ -3589,7 +3592,7 @@
           "content": "Section"
         },
         "alt_heading": {
-          "label": "Use body font instead of heading font for article Title"
+          "label": "Use body font instead of heading font for article title"
         },
         "show_date": {
           "label": "Show date"
@@ -3620,7 +3623,7 @@
           "info": "Relies on the addition of article metafields. TODO: Link to documentation"
         },
         "button_label": {
-          "label": "Article Button Text",
+          "label": "Article Button Label",
           "info": "Displays an underlined button if included, no button if not."
         },
         "crop_shape": {
@@ -3637,10 +3640,10 @@
             "label_10": "Semicircle Landscape",
             "label_11": "Arch"
           },
-          "label": "Product Image Crop Shape"
+          "label": "Article Image Crop Shape"
         },
         "alignment": {
-          "label": "Alignment",
+          "label": "Text Alignment",
           "options": {
             "label_1": "Left",
             "label_2": "Center",
@@ -3810,7 +3813,7 @@
         },
         "hero": {
           "label": "Use as hero",
-          "info": "Select this setting if this section is the first or second on a page and contains the page Title. There should only be one page Title/hero used per page."
+          "info": "Select this setting if this section contains the page title. Try to include one page title/hero section per page. Learn More TODO: Link to documentation."
         },
         "header_3": {
           "content": "Article Cards"
@@ -4059,9 +4062,6 @@
           },
           "label": "Theme"
         },
-        "header_3": {
-          "content": "Spacing"
-        },
         "top_spacing": {
           "label": "Top Spacing"
         },
@@ -4165,7 +4165,7 @@
             "label_3": "Center",
             "label_4": "Space Between"
           },
-          "label": "Text Size"
+          "label": "Text Placement"
         },
         "text": {
           "label": "Description"
@@ -4182,7 +4182,7 @@
         },
         "label": "Theme",
         "header_2": {
-          "content": "Text Content"
+          "content": "Image Content"
         },
         "cover_image": {
           "label": "Cover Image"
@@ -4215,13 +4215,10 @@
             "label_4": "Wide",
             "label_5": "Dome"
           },
-          "label": "Image Crop Shape"
+          "label": "Video Crop Shape"
         },
         "header_4": {
           "content": "Section"
-        },
-        "header_3": {
-          "content": "Spacing"
         },
         "range1": {
           "label": "Top Spacing"
@@ -4267,7 +4264,7 @@
           "label": "Description Size"
         },
         "alignment": {
-          "label": "Alignment",
+          "label": "Text Alignment",
           "options": {
             "label_1": "Left",
             "label_2": "Center",

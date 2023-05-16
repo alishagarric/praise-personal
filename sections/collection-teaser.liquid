@@ -187,6 +187,37 @@
       "default": false
     },
     {
+      "type": "range",
+      "id": "icon_height",
+      "min": 20,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "label": "t:sections.collection-teaser.settings.icon_height.label",
+      "default": 40
+    },
+    {
+      "type": "radio",
+      "id": "layout",
+      "label": "t:sections.collection-teaser.settings.layout.label",
+      "options": [
+        {
+          "value": "stacked",
+          "label": "t:sections.collection-teaser.settings.layout.options.label_1"
+        },
+        {
+          "value": "row",
+          "label": "t:sections.collection-teaser.settings.layout.options.label_2"
+        },
+        {
+          "value": "icon-only",
+          "label": "t:sections.collection-teaser.settings.layout.options.label_3"
+        }
+      ],
+      "default": "stacked"
+    },
+
+    {
       "type": "checkbox",
       "id": "enable_icons_marquee",
       "label": "t:sections.collection-teaser.settings.enable_icons_marquee.label",
@@ -240,36 +271,6 @@
           "label": "t:sections.collection-teaser.settings.stats_color.options.label_6"
         }
       ]
-    },
-    {
-      "type": "range",
-      "id": "icon_height",
-      "min": 20,
-      "max": 100,
-      "step": 10,
-      "unit": "px",
-      "label": "t:sections.collection-teaser.settings.icon_height.label",
-      "default": 40
-    },
-    {
-      "type": "radio",
-      "id": "layout",
-      "label": "t:sections.collection-teaser.settings.layout.label",
-      "options": [
-        {
-          "value": "stacked",
-          "label": "t:sections.collection-teaser.settings.layout.options.label_1"
-        },
-        {
-          "value": "row",
-          "label": "t:sections.collection-teaser.settings.layout.options.label_2"
-        },
-        {
-          "value": "icon-only",
-          "label": "t:sections.collection-teaser.settings.layout.options.label_3"
-        }
-      ],
-      "default": "stacked"
     },
     {
       "type": "header",

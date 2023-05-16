@@ -248,22 +248,6 @@
       },
       {
          "type":"select",
-         "id":"layout",
-         "options":[
-            {
-               "value":"default",
-               "label":"t:sections.featured-product.settings.layout.options.label_1"
-            },
-            {
-               "value":"reversed",
-               "label":"t:sections.featured-product.settings.layout.options.label_2"
-            }
-         ],
-         "default":"default",
-         "label":"t:sections.featured-product.settings.layout.label"
-      },
-      {
-         "type":"select",
          "id":"crop_shape",
          "options":[
             {
@@ -330,6 +314,22 @@
          "type":"checkbox",
          "id":"show_phrase",
          "label":"t:sections.featured-product.settings.show_phrase.label"
+      },
+      {
+         "type":"select",
+         "id":"layout",
+         "options":[
+            {
+               "value":"default",
+               "label":"t:sections.featured-product.settings.layout.options.label_1"
+            },
+            {
+               "value":"reversed",
+               "label":"t:sections.featured-product.settings.layout.options.label_2"
+            }
+         ],
+         "default":"default",
+         "label":"t:sections.featured-product.settings.layout.label"
       },
       {
          "type":"select",
@@ -466,7 +466,8 @@
             {
                "type":"checkbox",
                "id":"open",
-               "label":"t:sections.featured-product.blocks.expandable.settings.open.label"
+               "label":"t:sections.featured-product.blocks.expandable.settings.open.label",
+               "info":"t:sections.featured-product.blocks.expandable.settings.open.description"
             }
          ]
       },

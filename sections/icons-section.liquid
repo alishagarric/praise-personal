@@ -20,7 +20,7 @@
 
 <div
   id="Icons-section-{{ section.id }}"
-  class="icons-section __theme-{{ section.settings.theme }} __align-{{section.settings.alignment}}"
+  class="icons-section __theme-{{ section.settings.theme }} __align-{{ section.settings.alignment }}"
 >
   {% comment %} Text Content {% endcomment %}
   {% render 'heading',
@@ -38,7 +38,7 @@
     {%- for block in section.blocks -%}
       {%- case block.type -%}
         {%- when 'icon' -%}
-          <div class="icons-section__icons__icon">
+          <div class="icons-section__icons__icon __align-{{ section.settings.alignment }}">
             {%- if block.settings.icon != blank -%}
               {% render 'next-gen-img', image: block.settings.icon, height: img_height %}
             {%- else -%}
