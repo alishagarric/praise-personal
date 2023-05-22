@@ -23,9 +23,9 @@
   {%- render 'price', product: product, use_variant: true, show_badges: true -%}
 </div>
 
-{%- if shop.taxes_included or shop.shipping_policy.body != blank -%}
+{%- if cart.taxes_included or shop.shipping_policy.body != blank -%}
   <div class="__article-txt-p-sm">
-    {%- if shop.taxes_included -%}
+    {%- if cart.taxes_included -%}
       {{ 'products.product.include_taxes' | t }}
     {%- endif -%}
     {%- if shop.shipping_policy.body != blank -%}
