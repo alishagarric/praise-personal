@@ -113,7 +113,7 @@
       padding: 0 calc(var(--cartBubbleSize) / 2) calc(var(--cartBubbleSize) / 5)
         0;
 
-      span {
+      > summary > span {
         position: absolute;
         bottom: 0;
         right: 0;

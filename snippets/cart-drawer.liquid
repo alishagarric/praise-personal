@@ -81,6 +81,29 @@
                     </div>
                   {%- endif -%}
 
+                  {% unless item.unit_price_measurement == nil %}
+                    {% comment %} Unit price (Only available for stores in Germany and France at time of build) {% endcomment %}
+                    <small class="main-cart__line-item__text__unit-price p-sm">
+                      <span class="visually-hidden">
+                        {{ 'products.product.price.unit_price' | t }}
+                      </span>
+                      <span>
+                        {% comment %} Price {% endcomment %}
+                        <span>{{- item.unit_price | money -}}</span>
+                        {% comment %} Separator {% endcomment %}
+                        <span aria-hidden="true">/</span>
+                        <span class="visually-hidden">&nbsp;{{ 'accessibility.unit_price_separator' | t }}&nbsp;</span>
+                        {% comment %} Unit {% endcomment %}
+                        <span>
+                          {%- if item.unit_price_measurement.reference_value != 1 -%}
+                            {{- item.unit_price_measurement.reference_value -}}
+                          {%- endif -%}
+                          {{ item.unit_price_measurement.reference_unit }}
+                        </span>
+                      </span>
+                    </small>
+                  {%- endunless -%}
+
                   {%- comment -%} variants, custom information, or selling plans {%- endcomment -%}
                   {%- if item.product.has_only_default_variant == false or item.properties.size != 0 -%}
                     <dl class="main-cart__line-item__text__list">

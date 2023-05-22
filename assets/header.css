@@ -68,7 +68,7 @@
       --cartBubbleSize: 17px;
       position: relative;
       padding: 0 calc(var(--cartBubbleSize) / 2) calc(var(--cartBubbleSize) / 5) 0; }
-      .site-header__utility-links__cart span {
+      .site-header__utility-links__cart > summary > span {
         position: absolute;
         bottom: 0;
         right: 0;

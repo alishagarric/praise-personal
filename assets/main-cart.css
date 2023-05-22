@@ -40,6 +40,10 @@
       opacity: 0.6;
       flex-wrap: wrap;
       margin-right: calc(var(--pxSize) / 12); }
+  .main-cart__line-item__text__unit-price {
+    display: block;
+    margin-top: 0.25rem;
+    opacity: 0.8; }
   .main-cart__line-item__text__list {
     display: flex;
     flex-wrap: wrap;
