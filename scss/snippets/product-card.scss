@@ -110,7 +110,11 @@
     svg {
       transform: scale(1);
       will-change: transform;
-      transition: all 0.25s ease;
+      transition: transform 0.25s ease;
+
+      &:first-child:not(:last-child) {
+        opacity: 0;
+      }
     }
   }
 
@@ -184,6 +188,10 @@
     img,
     svg {
       transform: scale(1.05);
+
+      &:first-child:not(:last-child) {
+        opacity: 1;
+      }
     }
 
     .product-card__image img:first-of-type {

@@ -60,7 +60,10 @@
     .product-card__image svg {
       transform: scale(1);
       will-change: transform;
-      transition: all 0.25s ease; }
+      transition: transform 0.25s ease; }
+      .product-card__image img:first-child:not(:last-child),
+      .product-card__image svg:first-child:not(:last-child) {
+        opacity: 0; }
   .product-card__phrase {
     right: 10%;
     top: 0;
@@ -106,6 +109,9 @@
     .product-card:hover img,
     .product-card:hover svg {
       transform: scale(1.05); }
+      .product-card:hover img:first-child:not(:last-child),
+      .product-card:hover svg:first-child:not(:last-child) {
+        opacity: 1; }
     .product-card:hover .product-card__image img:first-of-type {
       z-index: 2; }
 
