@@ -249,6 +249,9 @@
     "main-product": {
       "name": "Main Product",
       "blocks": {
+        "custom_liquid": {
+          "name": "Custom Liquid"
+        },
         "text": {
           "name": "Text",
           "settings": {
@@ -1017,6 +1020,9 @@
         }
       },
       "blocks": {
+        "custom_liquid": {
+          "name": "Custom Liquid"
+        },
         "heading": {
           "name": "Heading",
           "settings": {
@@ -1105,6 +1111,9 @@
         }
       },
       "blocks": {
+        "custom_liquid": {
+          "name": "Custom Liquid"
+        },
         "featured_image": {
           "name": "Featured image",
           "settings": {
@@ -3093,6 +3102,9 @@
         }
       },
       "blocks": {
+        "custom_liquid": {
+          "name": "Custom Liquid"
+        },
         "text": {
           "name": "Text",
           "settings": {

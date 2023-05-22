@@ -141,6 +141,10 @@
               {% render block %}
             </div>
 
+          {% comment %} Type custom liquid {% endcomment %}
+          {%- when 'custom_liquid' -%}
+            {{ block.settings.custom_liquid }}
+
           {% comment %} Type text {% endcomment %}
           {%- when 'text' or 'vendor' -%}
             <div class="main-product__block {% if block.settings.include_border %} __border-top {% endif %}">
@@ -1284,6 +1288,18 @@
           "id": "title",
           "default": "Pickup Availability",
           "label": "t:sections.main-product.blocks.pickup_availability.settings.title.label"
+        }
+      ]
+    },
+    {
+      "type": "custom_liquid",
+      "name": "t:sections.main-product.blocks.custom_liquid.name",
+      "settings": [
+        {
+          "type": "liquid",
+          "id": "custom_liquid",
+          "label": "t:sections.main-product.blocks.custom_liquid.settings.custom_liquid.label",
+          "info": "t:sections.main-product.blocks.custom_liquid.settings.custom_liquid.info"
         }
       ]
     }

@@ -45,6 +45,10 @@
                 {% render block %}
               </div>
 
+            {% comment %} Type custom liquid {% endcomment %}
+            {%- when 'custom_liquid' -%}
+               {{ block.settings.custom_liquid }}
+
             {% comment %} Type text {% endcomment %}
             {%- when 'text' -%}
               <div class="featured-product__block {% if block.settings.include_border %} __border-top {% endif %}">
@@ -402,7 +406,7 @@
    ],
    "blocks":[
       {
-         "type":"@app"
+         "type": "@app"
       },
       {
          "type":"text",
@@ -681,6 +685,18 @@
                "label":"t:sections.featured-product.blocks.divider.settings.hide_divider.label",
                "default":false
             }
+         ]
+      },
+      {
+         "type": "custom_liquid",
+         "name": "t:sections.featured-product.blocks.custom_liquid.name",
+         "settings": [
+         {
+            "type": "liquid",
+            "id": "custom_liquid",
+            "label": "t:sections.featured-product.blocks.custom_liquid.settings.custom_liquid.label",
+            "info": "t:sections.featured-product.blocks.custom_liquid.settings.custom_liquid.info"
+         }
          ]
       }
    ],

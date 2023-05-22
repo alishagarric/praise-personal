@@ -22,6 +22,10 @@
         <div class="app">
           {% render block %}
         </div>
+      
+        {% comment %} Type custom liquid {% endcomment %}%}
+      {%- when 'custom_liquid' -%}
+        {{ block.settings.custom_liquid }}
 
         {% comment %} Type Heading {% endcomment %}
       {%- when 'heading' -%}
@@ -252,6 +256,18 @@
               "label": "t:sections.rich-text.blocks.button.settings.button_color.options.label_6"
             }
           ]
+        }
+      ]
+    },
+    {
+      "type": "custom_liquid",
+      "name": "t:sections.rich-text.blocks.custom_liquid.name",
+      "settings": [
+        {
+          "type": "liquid",
+          "id": "custom_liquid",
+          "label": "t:sections.rich-text.blocks.custom_liquid.settings.custom_liquid.label",
+          "info": "t:sections.rich-text.blocks.custom_liquid.settings.custom_liquid.info"
         }
       ]
     }
