@@ -53,6 +53,23 @@
     .main-cart__line-item__text__list dd:not(:last-child):after {
       content: "/";
       margin-left: 0.25rem; }
+  .main-cart__line-item__text__discounts ul {
+    margin-left: 0; }
+    .main-cart__line-item__text__discounts ul li {
+      list-style-type: none;
+      display: flex;
+      align-items: center;
+      gap: calc(var(--pxSize) / 6); }
+      .main-cart__line-item__text__discounts ul li svg {
+        height: calc(var(--pxSize) / 2);
+        width: calc(var(--pxSize) / 2);
+        border: 1px solid RGB(var(--color-foreground));
+        border-radius: 100%;
+        background: RGB(var(--color-foreground)); }
+        .main-cart__line-item__text__discounts ul li svg path {
+          transform: scale(0.6);
+          transform-origin: center center;
+          fill: RGB(var(--color-foreground-text)); }
   .main-cart__line-item__text > * {
     margin: 0 0 0.75rem 0; }
     .main-cart__line-item__text > * * {

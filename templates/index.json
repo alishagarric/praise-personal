@@ -13,7 +13,7 @@
         "template--16686756069598__323b3333-96b4-431a-a57d-e3d733e5e06d-16767738964c0506d8-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Your wellness goals within reach<\/p>",
+            "text": "<p>Your wellness goals within reach</p>",
             "text_size": "p-sm"
           }
         }
@@ -23,7 +23,7 @@
         "template--16686756069598__323b3333-96b4-431a-a57d-e3d733e5e06d-16767738964c0506d8-1"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/Rawbry_Bottle_-_Green_2.jpg",
+        "image": "shopify://shop_images/Rawbry_Bottle_-_Green_2.jpg",
         "overlay": 0,
         "overlay_theme": "3",
         "crop_shape": "default",
@@ -42,7 +42,7 @@
         "1662063884b661ea2d-0": {
           "type": "text",
           "settings": {
-            "text": "<p>Rawbry juice is packed with the vitamins and minerals to give you peace of mind and harness beauty from the inside out<\/p>",
+            "text": "<p>Rawbry juice is packed with the vitamins and minerals to give you peace of mind and harness beauty from the inside out</p>",
             "text_size": "p"
           }
         },
@@ -50,17 +50,14 @@
           "type": "button",
           "settings": {
             "button_label": "Ingredients and Benefits",
-            "button_link": "shopify:\/\/pages\/about",
+            "button_link": "shopify://pages/about",
             "button_color": "default"
           }
         }
       },
-      "block_order": [
-        "1662063884b661ea2d-0",
-        "1662063884b661ea2d-1"
-      ],
+      "block_order": ["1662063884b661ea2d-0", "1662063884b661ea2d-1"],
       "settings": {
-        "image": "shopify:\/\/shop_images\/AdobeStock_97733626.jpg",
+        "image": "shopify://shop_images/AdobeStock_97733626.jpg",
         "image_style": "square",
         "hero": false,
         "alignment": "default",
@@ -119,7 +116,7 @@
         "c43b043b-4390-4b24-b873-73cf7f0c96af"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/AdobeStock_plant_and_juice.jpg",
+        "image": "shopify://shop_images/AdobeStock_plant_and_juice.jpg",
         "image_crop_shape": "portrait",
         "show_phrase": false,
         "show_description": false,
@@ -147,7 +144,7 @@
         "1662066517b59e31e0-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Introducing our adaptogen juice - the perfect blend of natural ingredients to help your body adapt to stress. Packed with powerful herbs and antioxidants, our juice promotes balance and boosts your immune system. <\/p>",
+            "text": "<p>Introducing our adaptogen juice - the perfect blend of natural ingredients to help your body adapt to stress. Packed with powerful herbs and antioxidants, our juice promotes balance and boosts your immune system. </p>",
             "text_size": "p"
           }
         },
@@ -155,7 +152,7 @@
           "type": "button",
           "settings": {
             "button_label": "Shop juice",
-            "button_link": "shopify:\/\/collections",
+            "button_link": "shopify://collections",
             "button_color": "default"
           }
         }
@@ -166,7 +163,7 @@
         "1662066517b59e31e0-2"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/AdobeStock_517844496.jpg",
+        "image": "shopify://shop_images/AdobeStock_517844496.jpg",
         "image_style": "square",
         "hero": false,
         "alignment": "default",
@@ -188,7 +185,7 @@
         "1662067471e878020c-0": {
           "type": "icon",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/noun-flowers-2418113.png",
+            "icon": "shopify://shop_images/noun-flowers-2418113.png",
             "heading": "Fresh Taste",
             "text": "We make our juices with fresh and diverse fruits"
           }
@@ -196,7 +193,7 @@
         "1662067471e878020c-1": {
           "type": "icon",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/noun-plant-3309113.png",
+            "icon": "shopify://shop_images/noun-plant-3309113.png",
             "heading": "Nutrient Dense",
             "text": "Packed with essential vitamins, minerals, and antioxidants"
           }
@@ -204,7 +201,7 @@
         "1662067471e878020c-2": {
           "type": "icon",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/noun-berries-2418110.png",
+            "icon": "shopify://shop_images/noun-berries-2418110.png",
             "heading": "Vibrant Flavors",
             "text": "Don't get bored. Stir up your routine with different juice blends"
           }
@@ -212,7 +209,7 @@
         "297d0f2d-b54a-4dc7-a4be-5e088d6a2005": {
           "type": "icon",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/noun-plant-2229880_245f09f6-0298-4c28-9ad3-f1af0c512b96.png",
+            "icon": "shopify://shop_images/noun-plant-2229880_245f09f6-0298-4c28-9ad3-f1af0c512b96.png",
             "heading": "Skin Care",
             "text": "Hydrate your skin from the inside out to promote a glowing complexion"
           }
@@ -248,9 +245,7 @@
           }
         }
       },
-      "block_order": [
-        "heading"
-      ],
+      "block_order": ["heading"],
       "settings": {
         "alignment": "center",
         "theme": "5",
@@ -274,18 +269,12 @@
         "crop_shape": "arch",
         "heading": "Skin Boosting Vitamins and Minerals",
         "alt_heading": false,
-        "text": "<p>Comprehensive nutrition and gut health support in delicious juices.<\/p>",
+        "text": "<p>Comprehensive nutrition and gut health support in delicious juices.</p>",
         "text_size": "p",
         "collection_text_content": false,
         "theme": "primary",
         "top_spacing": 0,
         "bottom_spacing": 0
-      }
-    },
-    "example": {
-      "type": "example",
-      "disabled": true,
-      "settings": {
       }
     },
     "9b7e1c54-0b63-432c-bf6b-6416486399ff": {
@@ -318,7 +307,6 @@
     "1662067471929f7e31",
     "rich-text",
     "1663189358d1a4ecd6",
-    "example",
     "9b7e1c54-0b63-432c-bf6b-6416486399ff"
   ]
 }

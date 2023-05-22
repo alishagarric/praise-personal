@@ -154,6 +154,33 @@
         }
       }
 
+      &__discounts {
+        ul {
+          margin-left: 0;
+
+          li {
+            list-style-type: none;
+            display: flex;
+            align-items: center;
+            gap: calc(var(--pxSize) / 6);
+
+            svg {
+              height: calc(var(--pxSize) / 2);
+              width: calc(var(--pxSize) / 2);
+              border: 1px solid RGB(var(--color-foreground));
+              border-radius: 100%;
+              background: RGB(var(--color-foreground));
+
+              path {
+                transform: scale(0.6);
+                transform-origin: center center;
+                fill: RGB(var(--color-foreground-text));
+              }
+            }
+          }
+        }
+      }
+
       > * {
         margin: 0 0 0.75rem 0;
 

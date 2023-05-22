@@ -146,10 +146,11 @@
 
                   {%- comment -%} Item level discounts can be applied by merchants, and must be shown to the buyer {%- endcomment -%}
                   {% if item.discounts.size > 0 %}
-                    <div class="__article-txt-p-sm">
+                    <div class="main-cart__line-item__text__discounts __article-txt-p-sm">
                       <ul aria-label="{{ 'customer.order.discount' | t }}">
                         {%- for discount in item.discounts -%}
                           <li>
+                            {% render 'svg-sale' %}
                             <p>{{ discount.title }}</p>
                           </li>
                         {%- endfor -%}
