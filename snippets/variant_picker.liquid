@@ -49,7 +49,8 @@
                 class="variant-picker__fieldset__input"
               />
                 <label for="{{ section.id }}-{{ this_product.id }}-{{ option.name }}-{{ forloop.index0 }}" class="p-sm variant-picker__fieldset__value">
-                  {{ value }}
+                  <span class="p-sm variant-picker__fieldset__value__text">{{ value }}</span>
+                  <span></span>
                 </label>
             {%- endfor -%}
           </fieldset>
