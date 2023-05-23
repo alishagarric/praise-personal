@@ -356,5 +356,18 @@
       "qr_image_alt": "QR code — scan to redeem gift card",
       "add_to_apple_wallet": "Add to Apple Wallet"
     }
+  },
+  "recipient": {
+    "form": {
+      "checkbox": "I want to send this as a gift",
+      "email_label": "Recipient email",
+      "email_label_optional": "Recipient email (optional)",
+      "email": "Email",
+      "name_label": "Recipient name (optional)",
+      "name": "Name",
+      "message_label": "Message (optional)",
+      "message": "Message",
+      "max_characters": "{{ max_chars }} characters max"
+    }
   }
 }

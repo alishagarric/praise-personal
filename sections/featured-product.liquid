@@ -69,8 +69,9 @@
             {% comment %} Type buy buttons {% endcomment %}
             {%- when 'buy_buttons' -%}
                {% if section.settings.product != blank %}
+                  {% if block.settings.show_gift_card_recipient %}{{ 'customer-forms.css' | asset_url | stylesheet_tag }}{% endif %}
                   <div class="featured-product__block {% if block.settings.include_border %} __border-top {% endif %}">
-                     {% render 'product-form' id: product_form_id, product: section.settings.product, show_quantity: block.settings.show_quantity, include_border: block.settings.include_border, hide_dynamic_buttons: block.settings.hide_dynamic_buttons %}
+                     {% render 'product-form' id: product_form_id, product: section.settings.product, show_quantity: block.settings.show_quantity, include_border: block.settings.include_border, hide_dynamic_buttons: block.settings.hide_dynamic_buttons, show_gift_card_recipient: block.settings.show_gift_card_recipient %}
                   </div>
                {% endif %}
 
@@ -594,6 +595,13 @@
                "id":"hide_dynamic_buttons",
                "label":"t:sections.featured-product.blocks.buy_buttons.settings.hide_dynamic_buttons.label",
                "default":true
+            },
+            {
+               "type": "checkbox",
+               "id": "show_gift_card_recipient",
+               "default": false,
+               "label": "t:sections.featured-product.blocks.buy_buttons.settings.show_gift_card_recipient.label",
+               "info": "t:sections.featured-product.blocks.buy_buttons.settings.show_gift_card_recipient.info"
             },
             {
                "type":"checkbox",

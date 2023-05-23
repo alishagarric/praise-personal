@@ -575,6 +575,10 @@
             "hide_dynamic_buttons": {
               "label": "Hide dynamic checkout buttons"
             },
+            "show_gift_card_recipient": {
+              "label": "Show recipient form for gift card products",
+              "info": "When enabled, gift card products can optionally be sent to a recipient with a personal message."
+            },
             "include_border": {
               "label": "Include border"
             }
@@ -3194,6 +3198,10 @@
             },
             "hide_dynamic_buttons": {
               "label": "Hide dynamic checkout buttons"
+            },
+            "show_gift_card_recipient": {
+              "label": "Show recipient form for gift card products",
+              "info": "When enabled, gift card products can optionally be sent to a recipient with a personal message."
             },
             "include_border": {
               "label": "Include border"

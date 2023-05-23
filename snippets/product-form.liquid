@@ -6,6 +6,7 @@
   - id: {string} required
   - class: {String} optional
   - hide_dynamic_buttons: {bool} optional
+  - show_gift_card_recipient: {bool} optional
   - show_quantity { bool } optional
   - include_border { bool } optional
   - button_style {string} optional, seconadry, underline
@@ -15,7 +16,21 @@
 
 {% endcomment %}
 
-{% assign hide_dynamic_buttons = hide_dynamic_buttons | default: false %}
+{%- liquid
+  assign gift_card_recipient_feature_active = false
+  if show_gift_card_recipient and product.gift_card?
+    assign gift_card_recipient_feature_active = true
+  endif
+
+  assign hide_dynamic_buttons = false
+  if hide_dynamic_buttons and gift_card_recipient_feature_active == true
+    assign hide_dynamic_buttons = true
+  endif
+-%}
+
+{%- if gift_card_recipient_feature_active -%}
+  {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
+{%- endif -%}
 
 {% capture quantity %}
   {% if show_quantity == true %}
@@ -55,7 +70,7 @@
   </button>
 {% endcapture%}
 
-<product-form class="{{ class }}" {{ block.shopify_attributes }}>
+<product-form class="{{ class }}" {{ block.shopify_attributes }} data-hide-errors="{{ gift_card_recipient_feature_active }}">
   <div class="message-error" role="alert" hidden></div>
 
   {%-

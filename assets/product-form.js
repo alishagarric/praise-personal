@@ -9,6 +9,8 @@ if (!customElements.get("product-form")) {
         this.form.querySelector("[name=id]").disabled = false;
         this.form.addEventListener("submit", this.onSubmitHandler.bind(this));
         this.submitButton = this.querySelector('[type="submit"]');
+
+        this.hideErrors = this.dataset.hideErrors === "true";
       }
 
       onSubmitHandler(evt) {
@@ -89,6 +91,8 @@ if (!customElements.get("product-form")) {
       }
 
       handleErrorMessage(errorText = false) {
+        if (this.hideErrors) return;
+
         this.errorMessage =
           this.errorMessage || this.querySelector(".message-error");
         if (!this.errorMessage) return;
