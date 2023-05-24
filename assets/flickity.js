@@ -816,10 +816,9 @@
     freeScrollFriction: 0.075,
     friction: 0.28,
     namespaceJQueryEvents: true,
-    percentPosition: false,
+    percentPosition: true,
     resize: true,
     selectedAttraction: 0.025,
-    imagesLoaded: true,
     setGallerySize: true,
   };
   p.createMethods = [];
