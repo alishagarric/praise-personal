@@ -309,6 +309,9 @@
       "login": "Login",
       "menu": "Menu"
     },
+    "footer": {
+      "payment": "Payment methods"
+    },
     "cart": {
       "title": "Your cart",
       "total": "Total",

@@ -33,6 +33,11 @@
       flex-direction: column; }
   .section-footer__social {
     margin-top: calc(var(--pxSize) / 2); }
+  .section-footer__payment__payment-types {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between; }
   .section-footer__newsletter {
     margin-top: calc(var(--pxSize) / 2); }
   .section-footer__localization {
