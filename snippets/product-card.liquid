@@ -79,11 +79,9 @@
       {% if settings.product_card_hover and this_product.images[2] %}
         {% render 'next-gen-img', image: this_product.images[2], width: img_width: widths: img_widths, sizes: img_sizes %}
       {% endif %}
-
-      {% render 'next-gen-img', image: this_product.featured_image, width: img_width: widths: img_widths, sizes: img_sizes, preload: img_preload %}
+      {% render 'next-gen-img', image: this_product.featured_image, width: img_width, widths: img_widths, sizes: img_sizes, preload: img_preload %}
     {% elsif this_product == blank %}
-      {% assign placeholder_url = 'svg-placeholder.liquid' | asset_url %}
-      {% render 'next-gen-img', image: placeholder_url, width: img_width: widths: img_widths, sizes: img_sizes, preload: img_preload %}
+      <img src="{{ 'svg-placeholder.svg' | asset_url }}" width="{{ img_width }}" height="{{ img_width }}"/>
     {% else %}
       <h3 class="p-lg">{{ product_title }}</h3>
     {% endif %}
