@@ -123,6 +123,19 @@
         {{ shop.name | link_to: routes.root_url -}}
       </span>
     </div>
+
+    {%- if section.settings.payment_enable -%}
+      <div class="section-footer__payment">
+        <span class="visually-hidden">{{ 'sections.footer.payment' | t }}</span>
+        <ul class="section-footer__payment__payment-types" role="list">
+          {%- for type in shop.enabled_payment_types -%}
+            <li class="section-footer__payment__payment-types__single">
+              {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+    {%- endif -%}
   </div>
 </footer>
 
@@ -244,6 +257,16 @@
       "info": "t:sections.footer.settings.secondary_links.info",
       "id": "secondary_links",
       "label": "t:sections.footer.settings.secondary_links.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.footer.settings.header_6.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "payment_enable",
+      "default": true,
+      "label": "t:sections.footer.settings.payment_enable.label"
     },
     {
       "type": "header",

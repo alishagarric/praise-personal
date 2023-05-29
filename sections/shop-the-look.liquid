@@ -7,7 +7,6 @@
 <script src="{{ 'flickity.js' | asset_url }}" defer></script>
 <script src="{{ 'shop-the-look.js' | asset_url }}" defer></script>
 
-
 {% liquid
   assign products_count = section.blocks | size
   assign section_theme = section.settings.theme
@@ -23,7 +22,7 @@
   }
 {% endstyle %}
 
-{% render 'quick-add-dependencies' quick_add: section.settings.quick_add %}
+{% render 'quick-add-dependencies', quick_add: section.settings.quick_add %}
 
 <div
   id="Shop-the-look-{{ section.id }}"
@@ -75,6 +74,7 @@
                     background-color: rgb({{ border_color }});
                     border-color:rgba({{ border_color }}, .5);
                   "
+                  {{ block.shopify_attributes }}
                 >
                   <span class="visually-hidden">{{ block.settings.product.title }}</span>
                 </div>
@@ -90,10 +90,10 @@
         {% for block in section.blocks %}
           {% case block.type %}
             {% when 'product' %}
-              <div class="shop-the-look__products__product">
+              <div class="shop-the-look__products__product" {{ block.shopify_attributes }}>
                 {% render 'product-card' this_product: block.settings.product, show_bg_color: section.settings.show_bg_color, quick_add: section.settings.quick_add, crop: section.settings.crop_shape, show_phrase: section.settings.show_phrase, alignment: section.settings.product_text_alignment, section.settings.show_description: section.settings.show_description, price_position: section.settings.price, alt_heading: section.settings.alt_title, img_width: 1100, img_widths: "1100, 600, 300", img_sizes: "(max-width: 676px) 85vw, (max-width: 1024px) 30vw" %}
               </div>
-            {% endcase %}
+          {% endcase %}
         {% endfor %}
       </div>
     </div>
@@ -105,6 +105,7 @@
           {% when 'product' %}
             <div
               class="shop-the-look__background-color__item"
+              {{ block.shopify_attributes }}
               style="background-color: {{ block.settings.product.metafields.custom.color }};"
             ></div>
         {% endcase %}

@@ -2283,6 +2283,12 @@
           "info": "Displays only top-level menu items.",
           "label": "Secondary Links"
         },
+        "header_6": {
+          "content": "Payment Icons"
+        },
+        "payment_enable": {
+          "label": "Show payment icons"
+        },
         "header_5": {
           "content": "Footer Theme"
         },
