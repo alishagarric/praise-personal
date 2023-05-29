@@ -16,12 +16,14 @@
     padding-left: calc(var(--pxSize) / 3);
 
     &__inner {
-      max-height: calc(100vh - calc(var(--navHeight) * 1.5));
+      --sidebarTopSpace: calc(var(--pxSize) / 2);
+      max-height: calc(100vh - calc(var(--navHeight) * 2));
       padding-bottom: var(--pxSize);
-      padding-top: calc(var(--pxSize) / 2);
+      padding-top: var(--sidebarTopSpace);
+      overflow: auto;
       position: sticky;
       -webkit-position: sitcky;
-      top: calc(var(--navHeight));
+      top: calc(calc(var(--navHeight) * 2) - var(--sidebarTopSpace));
       display: flex;
       flex-direction: column;
       align-items: flex-start;

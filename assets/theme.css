@@ -10,7 +10,6 @@
   --inputHeight: 48px;
   --customIconHeight: var(var(--pxSize));
   --expandableContentIconWidth: 0.75rem;
-  --stickyElementTransition: transformY(0);
   --maxWidth: 750px;
   --siteMaxWidth: 1680px;
   --navHeight: 75px; }
@@ -1289,12 +1288,9 @@ html {
 
 body {
   -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  min-height: calc(100% - var(--navWithAnnouncementHeight)); }
+  -webkit-font-smoothing: antialiased; }
   body.__mobile-overflow-none {
     overflow: hidden; }
-  body main > *:first-child {
-    margin-top: var(--navWithAnnouncementHeight); }
 
 body > main > section > div,
 body > main > article > div,
@@ -1323,9 +1319,6 @@ body > main > .shopify-policy__container {
 body > main > section {
   max-width: var(--siteMaxWidth);
   margin: 0 auto; }
-
-.__visible-nav + main {
-  --stickyElementTransition: translateY(var(--navHeight)); }
 
 .__align-center {
   text-align: center;

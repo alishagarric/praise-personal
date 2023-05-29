@@ -1,10 +1,5 @@
 {
   "current": {
-    "announcement_bar_text": "Exciting news! Enjoy free shipping on all orders over $50 - Limited time offer, shop now!",
-    "announcement_bar_theme": "2",
-    "announcement_bar_home_only": true,
-    "announcement_bar_marquee": true,
-    "announcement_bar_speed": 7,
     "social_twitter_link": "https://twitter.com/shopify",
     "social_facebook_link": "https://facebook.com/shopify",
     "social_pinterest_link": "",
@@ -62,12 +57,6 @@
         "cart_heading_size": "h6",
         "cart_alt_heading": true,
         "cart_crop_shape": "circle",
-        "announcement_bar_text": "Testing the announcement bar",
-        "announcement_bar_text_size": "p-sm",
-        "announcement_bar_theme": "2",
-        "announcement_bar_home_only": true,
-        "announcement_bar_marquee": false,
-        "announcement_bar_speed": 5,
         "social_twitter_link": "https://twitter.com/shopify",
         "social_facebook_link": "https://facebook.com/shopify",
         "social_pinterest_link": "",
@@ -113,11 +102,6 @@
         "favicon": "shopify://shop_images/icons8-star-32.png"
       },
       "Calm": {
-        "announcement_bar_text": "Exciting news! Enjoy free shipping on all orders over $50 - Limited time offer, shop now!",
-        "announcement_bar_theme": "2",
-        "announcement_bar_home_only": true,
-        "announcement_bar_marquee": true,
-        "announcement_bar_speed": 7,
         "social_twitter_link": "https://twitter.com/shopify",
         "social_facebook_link": "https://facebook.com/shopify",
         "social_pinterest_link": "",

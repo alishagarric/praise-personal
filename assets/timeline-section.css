@@ -12,7 +12,7 @@
     .timeline-section__parts__part {
       padding-bottom: var(--timelineSectionGap);
       position: relative;
-      min-height: min(calc(100vh - calc(var(--navWithAnnouncementHeight) * 2)), 50vh); }
+      min-height: 50vh; }
       .timeline-section__parts__part__text {
         padding-left: calc(var(--timelineSectionDotSize) * 1.5); }
       .timeline-section__parts__part:after {
@@ -35,9 +35,9 @@
         height: 100%; }
   .timeline-section__container {
     position: sticky;
-    min-height: calc(100vh - calc(var(--navWithAnnouncementHeight) * 2));
+    min-height: calc(100vh - calc(var(--navHeight) * 2));
     -webkit-position: sticky;
-    top: calc(var(--navWithAnnouncementHeight) * 2);
+    top: calc(var(--navHeight) * 2);
     z-index: 2; }
     .timeline-section__container:before {
       content: "";

@@ -13,16 +13,9 @@ html {
 body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  min-height: calc(100% - var(--navWithAnnouncementHeight));
 
   &.__mobile-overflow-none {
     overflow: hidden;
-  }
-
-  main {
-    > *:first-child {
-      margin-top: var(--navWithAnnouncementHeight);
-    }
   }
 }
 
@@ -57,9 +50,4 @@ body > main > .shopify-policy__container {
 body > main > section {
   max-width: var(--siteMaxWidth);
   margin: 0 auto;
-}
-
-//How the nav position effects sticky elements
-.__visible-nav + main {
-  --stickyElementTransition: translateY(var(--navHeight));
 }

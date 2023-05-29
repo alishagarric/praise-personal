@@ -1,8 +1,7 @@
 .gift-card {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 1fr auto 1fr;
-  min-height: calc(100vh - var(--navWithAnnouncementHeight)); }
+  grid-template-rows: 1fr auto 1fr; }
   .gift-card__text, .gift-card__qr {
     padding: calc(var(--sectionVerticalSpacing) / 2) calc(var(--sectionGuttersSpacing) / 2);
     display: flex;

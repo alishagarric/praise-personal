@@ -9,19 +9,25 @@
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto auto;
 
+    //themed background
+    &:before {
+      content: "";
+      width: 150%;
+      background: RGB(var(--metafield-color-background));
+    }
+
     &.__offset {
       &-left {
         grid-template-columns: 0px repeat(2, 1fr);
 
+        //themed background
+        &:before {
+          width: 25vw;
+        }
+
         .main-product {
           &__blocks-before-media {
             padding: 0;
-
-            &:before {
-              width: 25vw;
-              right: unset;
-              left: 0;
-            }
           }
         }
       }
@@ -34,12 +40,9 @@
             padding: 0;
           }
 
-          &__blocks-before-media {
-            &:before {
-              width: 75vw;
-              right: unset;
-              left: 0;
-            }
+          //themed background
+          &__container:before {
+            width: 75vw;
           }
         }
       }
@@ -56,26 +59,16 @@
     }
   }
 
-  //blocks before media column position and space
-  &__blocks-before-media {
+  //blocks before media column position and space, and themed background
+  &__blocks-before-media,
+  &__container:before {
     grid-column: 1 / 2;
     grid-row: 1 / 2;
     padding-left: calc(var(--sectionGuttersSpacing) / 2);
     color: RGB(var(--color-text));
-    min-height: calc(100vh - var(--navHeight));
 
     > * {
       position: relative;
-    }
-
-    &:before {
-      content: "";
-      position: absolute;
-      width: 50vw;
-      right: -50%;
-      top: 0;
-      bottom: 0;
-      background: RGB(var(--color-background));
     }
   }
 
@@ -217,6 +210,11 @@
       padding-top: var(--sectionGuttersSpacing);
       padding-bottom: 0;
       background-color: RGB(var(--color-background));
+
+      //themed background
+      &__container {
+        content: none;
+      }
 
       // All from shopify starter
       &__container {

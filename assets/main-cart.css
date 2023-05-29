@@ -154,8 +154,9 @@
     margin-right: auto; }
 .main-cart.__cart-drawer .main-cart__heading {
   min-height: var(--navHeight);
-  line-height: var(--navHeight);
-  padding: 0; }
+  padding: 0;
+  display: grid;
+  place-content: center; }
 @media screen and (max-width: 1024px) {
   .main-cart .main-cart__form > .js-contents {
     display: flex;

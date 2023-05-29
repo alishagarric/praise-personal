@@ -4,62 +4,72 @@
   - nav_index: {int} used to make ids unique since we output the nav twice
 
 {% endcomment %}   
+{% assign menu_count = 1 %}
+{% if section.settings.menu_second != blank %}
+  {% assign menu_count = 2 %}
+{% endif %}
 
 <ul class="overlay-nav">
 {% assign className = "overlay-nav" %}
-{% for primary_link in section.settings.menu.links %}
-  <li>
-    {% if primary_link.levels == 0 %}
-      <a
-        class="{{ className }}__plain-link"
-        href="{{ primary_link.url }}"
-        {% if link.current %}
-          aria-current="page"
-        {% endif %}
-      >
-        <span>{{ primary_link.title | escape }}</span>
-      </a>
-    {% else %}
-       {% assign blockClassName = className | append: "__disclosure__block" %}
-      {% capture disclosure_content %}
-        {% if primary_link.levels == 1 %}
-          {% render 'nav-dropdown-submenu' menu: primary_link.links, className: blockClassName %}
-        {% else %}
-          {% for secondary_link in primary_link.links %}
-            {% render 'nav-dropdown-submenu' label: secondary_link.title, label_link: secondary_link.url, menu: secondary_link.links, className: blockClassName %}
+{% for i in (1..menu_count) %}
+  {% assign this_menu = section.settings.menu %}
+  {% if i == 2 %}
+    {% assign this_menu = section.settings.menu_second %}
+  {% endif %}
+  {% for primary_link in this_menu.links %}
+    <li>
+      {% if primary_link.levels == 0 %}
+        <a
+          class="{{ className }}__plain-link"
+          href="{{ primary_link.url }}"
+          {% if link.current %}
+            aria-current="page"
+          {% endif %}
+        >
+          <span>{{ primary_link.title | escape }}</span>
+        </a>
+      {% else %}
+        {% assign blockClassName = className | append: "__disclosure__block" %}
+        {% capture disclosure_content %}
+          {% if primary_link.levels == 1 %}
+            {% render 'nav-dropdown-submenu' menu: primary_link.links, className: blockClassName %}
+          {% else %}
+            {% for secondary_link in primary_link.links %}
+              {% render 'nav-dropdown-submenu' label: secondary_link.title, label_link: secondary_link.url, menu: secondary_link.links, className: blockClassName %}
+            {% endfor %}
+          {% endif %}
+
+          {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'mega_menu' %}
+                {% if block.settings.label == primary_link.title %}
+                  {% comment %} Text Block {% endcomment %}
+                  {% render 'nav-dropdown-text-block' heading: block.settings.heading_0, text: block.settings.text_0, button_label: block.settings.button_label, button_link: block.settings.button_link, button_color: block.settings.button_color, className: blockClassName %}
+
+                  {% comment %} Promotion 1 {% endcomment %}
+                  {% if block.settings.heading_1 or block.settings.image_1 %}
+                    {% render 'nav-dropdown-promotion' heading: block.settings.heading_1, text: block.settings.text_1, link: block.settings.link_1, image: block.settings.image_1, className: blockClassName %}
+                  {% endif %}
+
+                  {% comment %} Promotion 2 {% endcomment %}
+                  {% if block.settings.heading_2 or block.settings.image_2 %}
+                    {% render 'nav-dropdown-promotion' heading: block.settings.heading_2, text: block.settings.text_2, link: block.settings.link_2, image: block.settings.image_2, className: blockClassName %}
+                  {% endif %}
+                  {% break %}
+                {% endif %}
+
+            {% endcase %}
           {% endfor %}
-        {% endif %}
+        {% endcapture %}
 
-        {% for block in section.blocks %}
-          {% case block.type %}
-            {% when 'mega_menu' %}
-              {% if block.settings.label == primary_link.title %}
-                {% comment %} Text Block {% endcomment %}
-                {% render 'nav-dropdown-text-block' heading: block.settings.heading_0, text: block.settings.text_0, button_label: block.settings.button_label, button_link: block.settings.button_link, button_color: block.settings.button_color, className: blockClassName %}
+        {% capture disclosure_id %}{{ className }}-{{ nav_index }}-{{ forloop.index }}{% endcapture %}
+        {% capture disclosure_class %}{{ className }}__disclosure {% endcapture %}
 
-                {% comment %} Promotion 1 {% endcomment %}
-                {% if block.settings.heading_1 or block.settings.image_1 %}
-                  {% render 'nav-dropdown-promotion' heading: block.settings.heading_1, text: block.settings.text_1, link: block.settings.link_1, image: block.settings.image_1, className: blockClassName %}
-                {% endif %}
+        {% render 'disclosure' title: primary_link.title, text: disclosure_content, id: disclosure_id, class: disclosure_class %}
 
-                {% comment %} Promotion 2 {% endcomment %}
-                {% if block.settings.heading_2 or block.settings.image_2 %}
-                  {% render 'nav-dropdown-promotion' heading: block.settings.heading_2, text: block.settings.text_2, link: block.settings.link_2, image: block.settings.image_2, className: blockClassName %}
-                {% endif %}
-                {% break %}
-              {% endif %}
-
-          {% endcase %}
-        {% endfor %}
-      {% endcapture %}
-
-      {% capture disclosure_id %}{{ className }}-{{ nav_index }}-{{ forloop.index }}{% endcapture %}
-      {% capture disclosure_class %}{{ className }}__disclosure {% endcapture %}
-
-      {% render 'disclosure' title: primary_link.title, text: disclosure_content, id: disclosure_id, class: disclosure_class %}
-
-    {% endif %}
-  </li>
+      {% endif %}
+    </li>
+  {% endfor %}
 {% endfor %}
 
   <li>

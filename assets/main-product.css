@@ -6,44 +6,35 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto auto; }
+    .main-product__container:before {
+      content: "";
+      width: 150%;
+      background: RGB(var(--metafield-color-background)); }
     .main-product__container.__offset-left {
       grid-template-columns: 0px repeat(2, 1fr); }
+      .main-product__container.__offset-left:before {
+        width: 25vw; }
       .main-product__container.__offset-left .main-product__blocks-before-media {
         padding: 0; }
-        .main-product__container.__offset-left .main-product__blocks-before-media:before {
-          width: 25vw;
-          right: unset;
-          left: 0; }
     .main-product__container.__offset-right {
       grid-template-columns: repeat(2, 1fr) 0px; }
       .main-product__container.__offset-right .main-product__blocks-after-media {
         padding: 0; }
-      .main-product__container.__offset-right .main-product__blocks-before-media:before {
-        width: 75vw;
-        right: unset;
-        left: 0; }
+      .main-product__container.__offset-right .main-product__container:before {
+        width: 75vw; }
     .main-product__container > * {
       padding-top: calc(var(--sectionVerticalSpacing) * var(--topSpacingRatio));
       padding-bottom: calc( var(--sectionVerticalSpacing) * var(--bottomSpacingRatio) );
       position: sticky;
       -webkit-position: sticky;
       top: 0; }
-  .main-product__blocks-before-media {
+  .main-product__blocks-before-media, .main-product__container:before {
     grid-column: 1 / 2;
     grid-row: 1 / 2;
     padding-left: calc(var(--sectionGuttersSpacing) / 2);
-    color: RGB(var(--color-text));
-    min-height: calc(100vh - var(--navHeight)); }
-    .main-product__blocks-before-media > * {
+    color: RGB(var(--color-text)); }
+    .main-product__blocks-before-media > *, .main-product__container:before > * {
       position: relative; }
-    .main-product__blocks-before-media:before {
-      content: "";
-      position: absolute;
-      width: 50vw;
-      right: -50%;
-      top: 0;
-      bottom: 0;
-      background: RGB(var(--color-background)); }
   .main-product__media {
     grid-column: 2 / 3;
     grid-row: 1 / 3;
@@ -115,6 +106,8 @@
       padding-top: var(--sectionGuttersSpacing);
       padding-bottom: 0;
       background-color: RGB(var(--color-background)); }
+      .main-product__media__container {
+        content: none; }
       .main-product__media__container {
         display: flex;
         overflow-x: auto;

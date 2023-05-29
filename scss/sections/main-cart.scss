@@ -278,8 +278,9 @@
     .main-cart {
       &__heading {
         min-height: var(--navHeight);
-        line-height: var(--navHeight);
         padding: 0;
+        display: grid;
+        place-content: center;
       }
     }
   }

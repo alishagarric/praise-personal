@@ -12,15 +12,15 @@
             "heading_0": "Rawbry Juice",
             "text_0": "Revitalize your body and mind with our delicious and nutritious juices!",
             "button_label": "Shop All",
-            "button_link": "shopify:\/\/collections",
+            "button_link": "shopify://collections",
             "heading_1": "Greens",
             "text_1": "Nutrient-dense powerhouse juices that can help boost your immune system",
-            "link_1": "shopify:\/\/collections\/green-drinks",
-            "image_1": "shopify:\/\/shop_images\/Rawbry_Bottle_-_Green_2.jpg",
+            "link_1": "shopify://collections/green-drinks",
+            "image_1": "shopify://shop_images/Rawbry_Bottle_-_Green_2.jpg",
             "heading_2": "Bundles + Kits",
             "text_2": "Try out different products, and stock up on essentials all at once",
-            "link_2": "shopify:\/\/collections\/bundles-kits",
-            "image_2": "shopify:\/\/shop_images\/angelica-echeverry-VjJr17GkX1M-unsplash.jpg"
+            "link_2": "shopify://collections/bundles-kits",
+            "image_2": "shopify://shop_images/angelica-echeverry-VjJr17GkX1M-unsplash.jpg"
           }
         },
         "aa838210-3e0c-4205-91cf-6bd3b96a73a1": {
@@ -33,12 +33,12 @@
             "button_link": "",
             "heading_1": "Journal",
             "text_1": "Discover the latest news, trends, and tips about all things juice",
-            "link_1": "shopify:\/\/blogs\/journal",
-            "image_1": "shopify:\/\/shop_images\/AdobeStock_517844496.jpg",
+            "link_1": "shopify://blogs/journal",
+            "image_1": "shopify://shop_images/AdobeStock_517844496.jpg",
             "heading_2": "About Us",
             "text_2": "Experience our brand's unique story and exceptional quality",
-            "link_2": "shopify:\/\/pages\/about",
-            "image_2": "shopify:\/\/shop_images\/angelica-echeverry-oZ1u0l17lns-unsplash.jpg"
+            "link_2": "shopify://pages/about",
+            "image_2": "shopify://shop_images/angelica-echeverry-oZ1u0l17lns-unsplash.jpg"
           }
         }
       },
@@ -47,14 +47,11 @@
         "aa838210-3e0c-4205-91cf-6bd3b96a73a1"
       ],
       "settings": {
-        "logo": "shopify:\/\/shop_images\/raw_logo_tag_black.png",
-        "logo_placement": "left",
-        "menu": "main-menu",
+        "logo": "shopify://shop_images/raw_logo_tag_black.png",
+        "menu": "mega-menu-ritual",
         "always_show_nav": false
       }
     }
   },
-  "order": [
-    "header"
-  ]
+  "order": ["header"]
 }

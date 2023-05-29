@@ -1,46 +1,82 @@
 {
   "sections": {
-    "77926ee0-c4cd-4878-a4bf-192a1c0681ed": {
+    "166214275854e11719": {
       "type": "image-banner",
       "blocks": {
-        "c993f2ef-94a4-4900-bf44-16be4b8cd605": {
+        "b7e49cf4-a327-4afa-8bef-dc076022f79e": {
           "type": "heading",
           "settings": {
-            "heading": "Boost Your Wellness with our Adaptogenic Juices",
-            "heading_size": "h2"
+            "heading": "About Us",
+            "heading_size": "h4"
           }
         },
-        "3d5ac82e-833b-4bc1-8002-fd096556e404": {
+        "599e2d68-7d31-4caf-baa2-43362684a30b": {
           "type": "text",
           "settings": {
-            "text": "<p>Each juice is carefully crafted to provide a unique blend of nutrients and health benefits. We believe that natural, whole-food ingredients are the key to optimal health and wellbeing, and we're committed to bringing you the best quality products possible<\/p>"
-          }
-        },
-        "9f3f4d9f-29e2-4eea-9932-9b24ca5d97f4": {
-          "type": "button",
-          "settings": {
-            "button_label": "All juices",
-            "button_link": "shopify:\/\/collections\/all-juices",
-            "button_color": "default"
+            "text": "<p>All our cookies use natural ingredients and are made in Williamsburg at our Brooklyn bakery.</p>",
+            "text_size": "p-sm"
           }
         }
       },
       "block_order": [
-        "c993f2ef-94a4-4900-bf44-16be4b8cd605",
-        "3d5ac82e-833b-4bc1-8002-fd096556e404",
-        "9f3f4d9f-29e2-4eea-9932-9b24ca5d97f4"
+        "b7e49cf4-a327-4afa-8bef-dc076022f79e",
+        "599e2d68-7d31-4caf-baa2-43362684a30b"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/angelica-echeverry-oZ1u0l17lns-unsplash.jpg",
-        "overlay": 20,
+        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_549b821c-6850-42f3-ae03-51e8af8116c6.jpg",
+        "overlay": 50,
         "overlay_theme": "4",
-        "crop_shape": "arch",
+        "crop_shape": "default",
         "hero": true,
+        "alignment": "center",
+        "theme": "primary",
+        "top_internal_spacing": 250,
+        "bottom_internal_spacing": 30,
+        "top_spacing": 0,
+        "bottom_spacing": 0
+      }
+    },
+    "9d904fcd-6812-4896-8f08-b91f0da96ef5": {
+      "type": "image-banner",
+      "blocks": {
+        "4f06eecd-6680-4fb2-b54f-f68ede63926d": {
+          "type": "heading",
+          "settings": {
+            "heading": "Our Mission",
+            "heading_size": "h2"
+          }
+        },
+        "eb3534e5-bccc-4b1d-8995-da0c99665bba": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Atypical cookies and treats that push the boundaries of indulgence. An ode to the well-balanced classic cookie. This season we are celebrating all the nostalgia and what pairs best with chocolate chips.</p>",
+            "text_size": "p-sm"
+          }
+        }
+      },
+      "block_order": [
+        "4f06eecd-6680-4fb2-b54f-f68ede63926d",
+        "eb3534e5-bccc-4b1d-8995-da0c99665bba"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_a55ebc00-1c52-4d28-8d9c-2244725919f5.jpg",
+        "overlay": 60,
+        "overlay_theme": "5",
+        "crop_shape": "rounded-wide",
+        "hero": false,
         "alignment": "left",
-        "theme": "4",
-        "top_internal_spacing": 130,
-        "bottom_internal_spacing": 0,
-        "top_spacing": 20,
+        "theme": "primary",
+        "top_internal_spacing": 250,
+        "bottom_internal_spacing": 100,
+        "top_spacing": 40,
+        "bottom_spacing": 0
+      }
+    },
+    "divider": {
+      "type": "divider",
+      "settings": {
+        "theme": "primary",
+        "top_spacing": 0,
         "bottom_spacing": 0
       }
     },
@@ -50,47 +86,47 @@
         "template--16406887071966__f2989769-c365-432b-8663-172dec4d23d5-167036307199fd24ce-0": {
           "type": "icon",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/noun-plant-3309113.png",
-            "heading": "Organic fruits",
-            "text": ""
+            "icon": "shopify://shop_images/Group_100.png",
+            "heading": "",
+            "text": "Value"
           }
         },
         "template--16406887071966__f2989769-c365-432b-8663-172dec4d23d5-167036307199fd24ce-1": {
           "type": "icon",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/noun-berries-2418110.png",
-            "heading": "Nutrient Dense",
-            "text": ""
+            "icon": "shopify://shop_images/Vector.png",
+            "heading": "",
+            "text": "Value"
           }
         },
         "template--16406887071966__f2989769-c365-432b-8663-172dec4d23d5-167036307199fd24ce-2": {
           "type": "icon",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/noun-flowers-2418113.png",
-            "heading": "Adaptogenic Benefits",
-            "text": ""
+            "icon": "shopify://shop_images/Group.png",
+            "heading": "",
+            "text": "Value"
           }
         },
         "4b3a915a-bee5-49f9-9a78-d84f78290651": {
           "type": "icon",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/noun-plant-2229880_245f09f6-0298-4c28-9ad3-f1af0c512b96.png",
-            "heading": "Minerals & Herbs",
-            "text": ""
+            "icon": "shopify://shop_images/Group_100.png",
+            "heading": "",
+            "text": "Lorem ipsum"
           }
         },
         "50db8156-e4c0-4c21-b289-6ccb2088a577": {
           "type": "icon",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/RAWBRY_badge.png",
-            "heading": "Cold Pressed",
-            "text": ""
+            "icon": "shopify://shop_images/Vector.png",
+            "heading": "",
+            "text": "Lorem ipsum"
           }
         },
         "445bc021-ee04-4b20-a595-7cc635211260": {
           "type": "icon",
-          "disabled": true,
           "settings": {
+            "icon": "shopify://shop_images/Group.png",
             "heading": "",
             "text": "Lorem ipsum"
           }
@@ -113,105 +149,153 @@
         "icon_height": 60,
         "alignment": "center",
         "theme": "primary",
-        "top_spacing": 100,
-        "bottom_spacing": 50
-      }
-    },
-    "c2746397-ffb7-4162-bca9-dc03520282d6": {
-      "type": "image-with-text",
-      "blocks": {
-        "template--16686755447006__c2746397-ffb7-4162-bca9-dc03520282d6-1678750637b5ca67c2-0": {
-          "type": "heading",
-          "settings": {
-            "heading": "Ingredients + Benefits",
-            "heading_size": "h4"
-          }
-        },
-        "template--16686755447006__c2746397-ffb7-4162-bca9-dc03520282d6-1678750637b5ca67c2-1": {
-          "type": "text",
-          "settings": {
-            "text": "<p><strong>Our adaptogenic juices are designed to support your body's natural ability to adapt to stress and promote overall health and well-being. <\/strong><\/p><p><\/p><ol><li><strong>Ashwagandha<\/strong> This herb has been used for centuries in Ayurvedic medicine to reduce stress and anxiety, improve brain function, and boost immunity.<br\/> ‎ <\/li><li><strong>Reishi Mushroom<\/strong> Known as the \"mushroom of immortality,\" reishi is a powerful adaptogen that supports the immune system, reduces inflammation, and promotes overall wellbeing.<br\/>‎ <\/li><li><strong>Turmeric<\/strong> This spice is a potent anti-inflammatory and antioxidant that helps to protect against chronic disease and supports brain function.<br\/>‎ <\/li><li><strong>Ginger<\/strong> A natural anti-inflammatory, ginger can help to reduce pain and inflammation in the body, support digestion, and boost immunity.<\/li><\/ol>"
-          }
-        }
-      },
-      "block_order": [
-        "template--16686755447006__c2746397-ffb7-4162-bca9-dc03520282d6-1678750637b5ca67c2-0",
-        "template--16686755447006__c2746397-ffb7-4162-bca9-dc03520282d6-1678750637b5ca67c2-1"
-      ],
-      "settings": {
-        "image": "shopify:\/\/shop_images\/Rawbry_Bottle_-_Strawberry2.jpg",
-        "image_style": "default",
-        "hero": false,
-        "alignment": "default",
-        "layout": "default",
-        "mobile_layout": "default",
-        "mobile_image_height": 450,
-        "theme": "primary",
-        "top_internal_spacing": 100,
-        "bottom_internal_spacing": 100,
         "top_spacing": 50,
         "bottom_spacing": 50
       }
     },
-    "787b9923-6dd5-4810-8c36-f947e2ddb220": {
-      "type": "multicolumn",
-      "blocks": {
-        "4326d0fe-765a-49db-b9ac-499d88cc4bf6": {
-          "type": "collections",
-          "settings": {
-            "collections": [
-              "skin-hair-care",
-              "green-drinks",
-              "tropical",
-              "blue-majik"
-            ],
-            "alignment": "left",
-            "button_label": ""
-          }
-        }
-      },
-      "block_order": [
-        "4326d0fe-765a-49db-b9ac-499d88cc4bf6"
-      ],
+    "divider-2": {
+      "type": "divider",
       "settings": {
-        "heading": "Juice Collections",
-        "heading_size": "h4",
-        "alt_heading": false,
-        "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.<\/p>",
-        "alignment": "center",
-        "columns_desktop": 4,
-        "columns_mobile": 2,
-        "layout": "default",
         "theme": "primary",
-        "top_spacing": 50,
-        "bottom_spacing": 50
+        "top_spacing": 0,
+        "bottom_spacing": 0
       }
     },
     "timeline": {
       "type": "timeline",
-      "disabled": true,
+      "blocks": {
+        "eb74b024-43e4-4343-8146-6c03e00cb3f1": {
+          "type": "part",
+          "settings": {
+            "heading": "Part of our story 1",
+            "heading_size": "h6",
+            "alt_heading": false,
+            "text": "<p></p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis ullamcorper donec at in tempor tortor facilisi egestas gravida. Porttitor sed amet mi elit eget blandit lacus, egestas laoreet. Magna mauris lobortis in laoreet venenatis tempus, non. Nisi suscipit tortor ornare eu, mattis. Velit sit elementum tristique aliquet viverra viverra ullamcorper sed. </p>",
+            "text_size": "p-sm",
+            "button_label": "See Ingredients",
+            "button_link": "shopify://collections"
+          }
+        },
+        "464bda83-5714-4bff-bcd6-ee1d1bcb4582": {
+          "type": "part",
+          "settings": {
+            "heading": "Part of our story 2",
+            "heading_size": "h6",
+            "alt_heading": false,
+            "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>",
+            "text_size": "p-sm",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "c0b903c8-fc19-4ea1-a9c4-c82d8a64ab52": {
+          "type": "part",
+          "settings": {
+            "heading": "Part of our story 3",
+            "heading_size": "h6",
+            "alt_heading": false,
+            "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>",
+            "text_size": "p-sm",
+            "button_label": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "eb74b024-43e4-4343-8146-6c03e00cb3f1",
+        "464bda83-5714-4bff-bcd6-ee1d1bcb4582",
+        "c0b903c8-fc19-4ea1-a9c4-c82d8a64ab52"
+      ],
       "settings": {
-        "heading": "Timeline Section",
-        "heading_size": "h4",
+        "heading": "Our story",
+        "heading_size": "h2",
         "alt_heading": false,
-        "text": "<p>Add a summary of the steps you'll outline below<\/p>",
-        "dot_color": "default",
-        "crop_shape": "default",
+        "text": "",
+        "text_size": "p-sm",
+        "dot_color": "3",
+        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_b7a4d983-d989-4953-bef4-812cea52aa7a.jpg",
+        "crop_shape": "square",
         "theme": "primary",
         "top_spacing": 50,
         "bottom_spacing": 50
       }
     },
+    "77926ee0-c4cd-4878-a4bf-192a1c0681ed": {
+      "type": "image-banner",
+      "blocks": {
+        "c993f2ef-94a4-4900-bf44-16be4b8cd605": {
+          "type": "heading",
+          "settings": {
+            "heading": "Our values drive our decisions: Sincerity, Equity, Compassion, and Commitment",
+            "heading_size": "h2"
+          }
+        },
+        "dfa21165-42de-44ad-b3ef-d70913dbfb50": {
+          "type": "button",
+          "settings": {
+            "button_label": "Learn more",
+            "button_link": "shopify://collections/cookie-collection",
+            "button_color": "default"
+          }
+        }
+      },
+      "block_order": [
+        "c993f2ef-94a4-4900-bf44-16be4b8cd605",
+        "dfa21165-42de-44ad-b3ef-d70913dbfb50"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_a6c4dcf8-a5c2-45ab-8711-f1aa9365378c.jpg",
+        "overlay": 40,
+        "overlay_theme": "3",
+        "crop_shape": "circle",
+        "hero": false,
+        "alignment": "left",
+        "theme": "primary",
+        "top_internal_spacing": 100,
+        "bottom_internal_spacing": 100,
+        "top_spacing": 100,
+        "bottom_spacing": 100
+      }
+    },
     "video": {
       "type": "video",
-      "disabled": true,
       "settings": {
-        "heading": "Video Section",
+        "heading": "Video",
         "heading_size": "h4",
         "alt_heading": false,
-        "text": "<p>Add some text that introduces the video they will watch<\/p>",
-        "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
-        "crop_shape": "video",
+        "text": "<p>All our cookies use natural ingredients and are made in Williamsburg at our Brooklyn bakery.</p>",
+        "text_size": "p-sm",
+        "text_placement": "space-between",
+        "cover_image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_cd0b890c-b357-4857-9c0d-36126dbfab86.jpg",
+        "video_url": "https://www.youtube.com/watch?v=B-ytMSuwbf8",
+        "overlay": 0,
+        "overlay_theme": "4",
+        "crop_shape": "dome",
+        "fullwidth": true,
+        "theme": "primary",
+        "top_spacing": 50,
+        "bottom_spacing": 50
+      }
+    },
+    "1663294968d8440c8d": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "cookie-collection",
+        "theme_slideshow": false,
+        "include_border": true,
+        "show_phrase": false,
+        "show_description": true,
+        "quick_add": false,
+        "show_bg_color": false,
+        "alt_title": false,
+        "product_text_alignment": "default",
+        "price": "bottom",
+        "crop_shape": "square",
+        "heading": "Shop Our Bestsellers",
+        "alt_heading": true,
+        "text": "<p>Functional handbags made of luxurious and honest materials to improve people's lives in small but mighty ways.</p>",
+        "text_size": "p",
+        "collection_text_content": false,
         "theme": "primary",
         "top_spacing": 50,
         "bottom_spacing": 50
@@ -223,32 +307,32 @@
         "470fd417-3f1a-44c7-8382-ae14c26554b8": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/jasmin-chew-aDIV3azXhv4-unsplash_1.jpg",
-            "overlay": 0,
-            "overlay_theme": "5",
-            "crop_shape": "arch",
-            "heading": "Grace Jang",
-            "heading_size": "h5",
-            "overlap": true,
-            "text": "<p>Co-Founder<\/p>",
-            "alignment": "center",
+            "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_7b0b0d8f-1e3a-4e12-b022-81094f666af6.jpg",
+            "overlay": 40,
+            "overlay_theme": "3",
+            "crop_shape": "semicircle-portrait",
+            "heading": "Alisha Garric",
+            "heading_size": "h4",
+            "overlap": false,
+            "text": "<p><strong>Head Chef</strong></p><p><strong>A little About Me<br/></strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mattis pellentesque velit convallis scelerisque. Ultrices quis aliquet nulla at magna imperdiet. Eu eget tristique ipsum malesuada convallis felis.</p>",
+            "alignment": "left",
             "button_label": "",
             "button_link": "",
-            "button_color": "3"
+            "button_color": "default"
           }
         },
         "61ff9c84-50f8-4831-8a55-c57073c1bcd2": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/stephan-louis-RSNMCJ9QcPI-unsplash_1.jpg",
-            "overlay": 0,
-            "overlay_theme": "primary",
-            "crop_shape": "arch",
-            "heading": "Dr. Jeanette Meyer",
-            "heading_size": "h5",
-            "overlap": true,
-            "text": "<p>Co-Founder<\/p>",
-            "alignment": "center",
+            "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_112c03f8-1fc2-4410-ab1f-e27a23e650a1.jpg",
+            "overlay": 40,
+            "overlay_theme": "5",
+            "crop_shape": "rounded-portrait",
+            "heading": "Daniel Day Clueless",
+            "heading_size": "h4",
+            "overlap": false,
+            "text": "<p><strong>Head Chef</strong></p><p><strong>A little About Me<br/></strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mattis pellentesque velit convallis scelerisque. Ultrices quis aliquet nulla at magna imperdiet. Eu eget tristique ipsum malesuada convallis felis.</p>",
+            "alignment": "left",
             "button_label": "",
             "button_link": "",
             "button_color": "default"
@@ -257,15 +341,15 @@
         "99b8531b-074b-4667-998e-bbe00d2e275e": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/ha-nguy-n-OFSQ6bHjFjs-unsplash_1.jpg",
-            "overlay": 0,
-            "overlay_theme": "4",
+            "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_a6c4dcf8-a5c2-45ab-8711-f1aa9365378c.jpg",
+            "overlay": 40,
+            "overlay_theme": "2",
             "crop_shape": "arch",
-            "heading": "Bryce Howard Jr.",
-            "heading_size": "h5",
-            "overlap": true,
-            "text": "<p>Herbalist<\/p>",
-            "alignment": "center",
+            "heading": "Danny “Thunder” McBride",
+            "heading_size": "h4",
+            "overlap": false,
+            "text": "<p><strong>Head Chef</strong></p><p><strong>A little About Me<br/></strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mattis pellentesque velit convallis scelerisque. Ultrices quis aliquet nulla at magna imperdiet. Eu eget tristique ipsum malesuada convallis felis.</p>",
+            "alignment": "left",
             "button_label": "",
             "button_link": "",
             "button_color": "default"
@@ -274,15 +358,15 @@
         "4387cb75-4bc2-4503-95b5-dd98f7f824ae": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/jason-moyer-A73ah5JKtVA-unsplash_1.jpg",
-            "overlay": 0,
-            "overlay_theme": "5",
-            "crop_shape": "arch",
-            "heading": "Amanda Parks",
-            "heading_size": "h5",
-            "overlap": true,
-            "text": "<p>COO<\/p>",
-            "alignment": "center",
+            "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_7b0b0d8f-1e3a-4e12-b022-81094f666af6.jpg",
+            "overlay": 40,
+            "overlay_theme": "4",
+            "crop_shape": "semicircle-portrait",
+            "heading": "Alisha Garric",
+            "heading_size": "h4",
+            "overlap": false,
+            "text": "<p><strong>Head Chef</strong></p><p><strong>A little About Me<br/></strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mattis pellentesque velit convallis scelerisque. Ultrices quis aliquet nulla at magna imperdiet. Eu eget tristique ipsum malesuada convallis felis.</p>",
+            "alignment": "left",
             "button_label": "",
             "button_link": "",
             "button_color": "default"
@@ -296,72 +380,111 @@
         "4387cb75-4bc2-4503-95b5-dd98f7f824ae"
       ],
       "settings": {
-        "heading": "Our team",
-        "heading_size": "h4",
+        "heading": "Team",
+        "heading_size": "h2",
         "alt_heading": false,
-        "text": "<p>Founders Jang and Meyer wanted to share their love for nourishing foods and encourage other to steal back their health.<\/p>",
+        "text": "",
+        "text_size": "p-sm",
         "alignment": "center",
-        "columns_desktop": 4,
+        "columns_desktop": 3,
         "columns_mobile": 2,
-        "layout": "default",
-        "theme": "2",
-        "top_spacing": 40,
-        "bottom_spacing": 40
+        "layout": "slideshow",
+        "theme": "primary",
+        "top_spacing": 50,
+        "bottom_spacing": 50
       }
     },
-    "726fbb3a-9b0b-48f9-8a22-ba357f3bf00a": {
-      "type": "multicolumn",
+    "bd10db7c-6fad-4554-8a11-8fb51fd79804": {
+      "type": "content-marquee",
       "blocks": {
-        "5167a2e6-6089-4dcb-9865-a6f40969cf4b": {
+        "830e5ff8-b1ac-469b-91e1-0a5d71ab525c": {
           "type": "quote",
           "settings": {
-            "quote": "<p>I'm in love with Rawbry juices. Truly the best part of my morning.<\/p>",
+            "quote": "<p>1 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.</p>",
+            "text_size": "p-sm",
             "quotations": true,
             "details": "",
-            "alignment": "center",
-            "background_theme": "5",
-            "card_corners": "semicircle"
+            "logo": "shopify://shop_images/image_14.png",
+            "background_theme": "3",
+            "card_corners": "rounded"
           }
         },
-        "4269bb9c-4039-4d0f-8032-96eed0f2bec3": {
+        "5bfa76eb-f1fb-4649-8d9f-0771396e136f": {
           "type": "quote",
           "settings": {
-            "quote": "<p>Nana Knows Best is the banana and maca pick me up that makes me feel eneergized and keeps my skin glowing!<\/p>",
+            "quote": "<p>2 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.</p>",
+            "text_size": "p-sm",
             "quotations": true,
             "details": "",
-            "alignment": "center",
+            "logo": "shopify://shop_images/image_14.png",
+            "background_theme": "4",
+            "card_corners": "rounded"
+          }
+        },
+        "6ba997ed-491d-48f4-bad3-c9cb67930f72": {
+          "type": "quote",
+          "settings": {
+            "quote": "<p>3 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.</p>",
+            "text_size": "p-sm",
+            "quotations": true,
+            "details": "",
+            "logo": "shopify://shop_images/image_14.png",
             "background_theme": "5",
-            "card_corners": "semicircle"
+            "card_corners": "rounded"
+          }
+        },
+        "367cc0c5-6fad-45cb-aa18-67496c784724": {
+          "type": "quote",
+          "settings": {
+            "quote": "<p>4 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.</p>",
+            "text_size": "p-sm",
+            "quotations": true,
+            "details": "",
+            "logo": "shopify://shop_images/image_14.png",
+            "background_theme": "3",
+            "card_corners": "rounded"
+          }
+        },
+        "367cc0c5-6fad-45cb-aa18-67496c784724-1": {
+          "type": "quote",
+          "settings": {
+            "quote": "<p>5 Ritual Baking’s ingenius recipes are paritcularly appealing. House-made ingredients and daring combinations bring big flavor.</p>",
+            "text_size": "p-sm",
+            "quotations": true,
+            "details": "",
+            "logo": "shopify://shop_images/image_14.png",
+            "background_theme": "4",
+            "card_corners": "rounded"
           }
         }
       },
       "block_order": [
-        "5167a2e6-6089-4dcb-9865-a6f40969cf4b",
-        "4269bb9c-4039-4d0f-8032-96eed0f2bec3"
+        "830e5ff8-b1ac-469b-91e1-0a5d71ab525c",
+        "5bfa76eb-f1fb-4649-8d9f-0771396e136f",
+        "6ba997ed-491d-48f4-bad3-c9cb67930f72",
+        "367cc0c5-6fad-45cb-aa18-67496c784724",
+        "367cc0c5-6fad-45cb-aa18-67496c784724-1"
       ],
       "settings": {
-        "heading": "From Rawbry customers",
-        "heading_size": "h4",
-        "alt_heading": false,
-        "text": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.<\/p>",
         "alignment": "center",
-        "columns_desktop": 2,
-        "columns_mobile": 2,
-        "layout": "default",
-        "theme": "primary",
+        "speed": 6,
+        "theme": "2",
         "top_spacing": 50,
         "bottom_spacing": 50
       }
     }
   },
   "order": [
-    "77926ee0-c4cd-4878-a4bf-192a1c0681ed",
+    "166214275854e11719",
+    "9d904fcd-6812-4896-8f08-b91f0da96ef5",
+    "divider",
     "f2989769-c365-432b-8663-172dec4d23d5",
-    "c2746397-ffb7-4162-bca9-dc03520282d6",
-    "787b9923-6dd5-4810-8c36-f947e2ddb220",
+    "divider-2",
     "timeline",
+    "77926ee0-c4cd-4878-a4bf-192a1c0681ed",
     "video",
+    "1663294968d8440c8d",
     "e5e39d6c-0c2d-4004-afca-0d6f713ac1cb",
-    "726fbb3a-9b0b-48f9-8a22-ba357f3bf00a"
+    "bd10db7c-6fad-4554-8a11-8fb51fd79804"
   ]
 }

@@ -3259,15 +3259,12 @@
         "logo": {
           "label": "Logo"
         },
-        "logo_placement": {
-          "label": "Logo Placement",
-          "options": {
-            "label_1": "Left",
-            "label_2": "Center"
-          }
-        },
         "link_list": {
           "label": "Main Menu"
+        },
+        "link_list_2": {
+          "label": "Second Menu",
+          "info": "Choose a second menu if you'd like to center the logo between them"
         },
         "always_show_nav": {
           "label": "Don't hide navigation bar on scroll down"
