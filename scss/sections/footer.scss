@@ -54,11 +54,11 @@
   }
 
   &__payment {
-    &__payment-types{
+    &__payment-types {
       display: flex;
       width: 100%;
       flex-wrap: wrap;
-      justify-content: space-between;
+      gap: calc(var(--pxSize) / 6) calc(var(--pxSize) / 4);
     }
   }
 
@@ -178,7 +178,8 @@
     &__badges,
     &__social,
     &__copywright,
-    &__sec-links {
+    &__sec-links,
+    &__payment__payment-types {
       justify-content: center;
       text-align: center;
     }

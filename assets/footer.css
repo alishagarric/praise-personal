@@ -37,7 +37,7 @@
     display: flex;
     width: 100%;
     flex-wrap: wrap;
-    justify-content: space-between; }
+    gap: calc(var(--pxSize) / 6) calc(var(--pxSize) / 4); }
   .section-footer__newsletter {
     margin-top: calc(var(--pxSize) / 2); }
   .section-footer__localization {
@@ -108,7 +108,7 @@
   @media screen and (max-width: 1024px) {
     .section-footer {
       display: block; }
-      .section-footer__badges, .section-footer__social, .section-footer__copywright, .section-footer__sec-links {
+      .section-footer__badges, .section-footer__social, .section-footer__copywright, .section-footer__sec-links, .section-footer__payment__payment-types {
         justify-content: center;
         text-align: center; }
       .section-footer__row {
