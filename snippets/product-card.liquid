@@ -82,7 +82,8 @@
 
       {% render 'next-gen-img', image: this_product.featured_image, width: img_width: widths: img_widths, sizes: img_sizes, preload: img_preload %}
     {% elsif this_product == blank %}
-      . <img src="{{ 'svg-placeholder.svg' | asset_url }}" height="300" width="300" alt="placeholder" loading="lazy">
+      {% assign placeholder_url = 'svg-placeholder.liquid' | asset_url %}
+      {% render 'next-gen-img', image: placeholder_url, width: img_width: widths: img_widths, sizes: img_sizes, preload: img_preload %}
     {% else %}
       <h3 class="p-lg">{{ product_title }}</h3>
     {% endif %}

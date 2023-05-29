@@ -35,7 +35,7 @@ class FeaturedCollection extends HTMLElement {
     });
     this.flickityBackground = new Flickity(this.background, {
       accessibility: false,
-      rightToLeft: theme.cxwonfig.rtl,
+      rightToLeft: theme.config.rtl,
       prevNextButtons: false,
       pageDots: false,
       wrapAround: false,
