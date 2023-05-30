@@ -16,7 +16,7 @@
 
 <div
   id="Price-{{ form_id }}"
-  class="form-price no-js-hidden {{ price_size }} {{ class }}" 
+  class="form-price no-js-hidden {{ price_size }} {{ class }} {% if product.selected_variant.available == false %}visibility-hidden{% endif %}" 
   role="status"
   {{ block.shopify_attributes }}
 >

@@ -113,7 +113,8 @@
             {% comment %} Type price {% endcomment %}
             {%- when 'price' -%}
                {% if section.settings.product != blank %}
-                  {% render 'form-price' product: section.settings.product, price_size: block.settings.heading_size, form_id: section.id %}
+                  {% assign form_id = section.id | append: section.settings.product.id %}
+                  {% render 'form-price' product: section.settings.product, price_size: block.settings.heading_size, form_id: form_id %}
                {% endif %}
 
           {%- endcase -%}
