@@ -9,6 +9,7 @@ if (
     }
 
     onVariantChange() {
+      console.log("change");
       this.updateOptions();
       this.updateVariantId();
       this.toggleAddButton(true);
@@ -55,6 +56,7 @@ if (
       const mediaGallery = document.getElementById(
         `Product-MediaGallery-${this.dataset.section}${this.dataset.productId}`
       );
+      console.log("updateMedia", mediaGallery);
       if (!mediaGallery) return;
 
       mediaGallery.setActiveMedia(

@@ -1135,7 +1135,10 @@ details.overlay[open] > summary::before {
   overflow: hidden;
   width: 100%; }
   .image-container img,
-  .image-container svg {
+  .image-container svg,
+  .image-container iframe,
+  .image-container video,
+  .image-container .media img {
     position: absolute;
     inset: 0;
     width: 100%;

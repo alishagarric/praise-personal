@@ -49,6 +49,23 @@
 
   &__image {
     padding-left: var(--featuredProductSpace);
+    position: relative;
+
+    ul {
+      > li:not(:first-child) {
+        display: none;
+      }
+
+      li .media {
+        position: static;
+        padding: 0;
+      }
+    }
+
+    &__phrase {
+      z-index: 2;
+      margin-left: var(--featuredProductSpace);
+    }
   }
 
   //block wrapper that wraps some product blocks
@@ -82,6 +99,11 @@
         grid-column: 1 / 2;
         padding-left: 0;
         padding-right: var(--featuredProductSpace);
+
+        &__phrase {
+          margin-left: 0;
+          margin-right: var(--featuredProductSpace);
+        }
       }
     }
   }
@@ -98,6 +120,13 @@
             &:before {
               left: calc(-1 * var(--sectionGuttersSpacing));
             }
+          }
+        }
+
+        &__image {
+          &__phrase {
+            margin-right: 0;
+            margin-left: 0;
           }
         }
       }

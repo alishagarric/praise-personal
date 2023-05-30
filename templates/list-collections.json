@@ -32,6 +32,75 @@
         "bottom_spacing": 50
       }
     },
+    "e016bbbd-0856-455a-8d09-653c667e35b41": {
+      "type": "featured-product",
+      "blocks": {
+        "f32215fb-217e-480f-a8dd-dfe0fcde58ba": {
+          "type": "divider",
+          "settings": {
+            "top": 0,
+            "bottom": 0,
+            "hide_divider": true
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h2",
+            "alt_heading": false
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "text_size": "p-sm"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "layout": "buttons",
+            "show_option_labels": true,
+            "include_border": true
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_quantity": true,
+            "hide_dynamic_buttons": true,
+            "include_border": true
+          }
+        },
+        "shop_button": {
+          "type": "shop_button",
+          "settings": {
+            "button_label": "More Details"
+          }
+        }
+      },
+      "block_order": [
+        "f32215fb-217e-480f-a8dd-dfe0fcde58ba",
+        "title",
+        "description",
+        "variant_picker",
+        "buy_buttons",
+        "shop_button"
+      ],
+      "settings": {
+        "product": "all-hail-sugar-baby",
+        "hero": false,
+        "alignment": "left",
+        "theme_section": "half",
+        "layout": "reversed",
+        "crop_shape": "rounded-square",
+        "show_phrase": true,
+        "mobile_layout": "default",
+        "theme": "primary",
+        "top_spacing": 100,
+        "bottom_spacing": 50
+      }
+    },
     "85c58e07-278d-42c1-b9f3-f6bab28fee7f": {
       "type": "image-with-text",
       "blocks": {
@@ -45,7 +114,7 @@
         "template--16398178844894__85c58e07-278d-42c1-b9f3-f6bab28fee7f-16703627747c9db086-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Indulge in our delicious and nutritious juices made from fresh fruits and vegetables that will energize your body and tantalize your taste buds<\/p>",
+            "text": "<p>Indulge in our delicious and nutritious juices made from fresh fruits and vegetables that will energize your body and tantalize your taste buds</p>",
             "text_size": "p"
           }
         },
@@ -53,7 +122,7 @@
           "type": "button",
           "settings": {
             "button_label": "Shop Tropical",
-            "button_link": "shopify:\/\/collections\/tropical",
+            "button_link": "shopify://collections/tropical",
             "button_color": "2"
           }
         }
@@ -64,7 +133,7 @@
         "template--16398178844894__85c58e07-278d-42c1-b9f3-f6bab28fee7f-16703627747c9db086-2"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/AdobeStock_97733626.jpg",
+        "image": "shopify://shop_images/AdobeStock_97733626.jpg",
         "image_style": "wide",
         "hero": false,
         "alignment": "center",
@@ -106,6 +175,7 @@
     }
   },
   "order": [
+    "e016bbbd-0856-455a-8d09-653c667e35b41",
     "main",
     "85c58e07-278d-42c1-b9f3-f6bab28fee7f",
     "7691bbe1-f26e-4754-a188-f70a1bca5076"

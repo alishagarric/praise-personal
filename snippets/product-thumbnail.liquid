@@ -14,24 +14,21 @@
 {% endcomment %}
 
 {%- if media.media_type == 'video' or media.media_type == 'external_video' -%}
-  {% comment %} Video thumbnail {% endcomment %}
-  <a href="{% if media.media_type == 'video' %}{{ media.sources[1].url }}{% else %}{{ media | external_video_url }}{% endif %}">
-    <div
-      class="media play-icon" 
-      style="--width: {{ media.preview_image.width }}; --height: {{ media.preview_image.height }};"
-    >
-      {{
-        media.preview_image |
-        image_url: width: 1440 |
-        image_tag:
-          widths: '360, 450, 540, 630, 720, 900, 1050, 1200, 1320, 1440',
-          sizes: "(min-width: 1200px) 269px, (min-width: 990px) calc(25vw - 30px - 96px), (min-width: 750px) calc(50vw - 30px - 32px), calc(100vw - 30px)",
-          loading: loading,
-          alt: media.preview_image.alt | escape
-      }}
+  
+    {% if media.host == 'youtube' %}
+      <div class="image-container __crop-video">
+      {{ media | external_video_url: color: 'white' | external_video_tag }}
+        </div>
+      {% elsif media.host == 'vimeo' %}
+    <div class="image-container __crop-video">
+      {{ media | external_video_url: loop: '1', muted: '1' | external_video_tag }}
     </div>
-    <span class="visually-hidden">{{ 'accessibility.video_exit_message' | t: title: product.title | escape }}</span>
-  </a>
+      {% else %}
+      <div class="image-container __crop-default" style="--imageRatio: {{ media.preview_image.height | divided_by: 1.00 | divided_by: media.preview_image.width | times: 100}}%;">
+      {{ media | video_tag: controls: true }}
+      </div>
+    {% endif %}
+  
 {%- elsif media.media_type == 'model' -%}
 {% comment %} 3D model thumbnail {% endcomment %}
     <product-model class="model-icon" data-label="{{ 'general.media.3d' | t }}">

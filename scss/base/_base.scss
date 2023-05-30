@@ -707,7 +707,10 @@ details.overlay[open] > summary::before {
   width: 100%;
 
   img,
-  svg {
+  svg,
+  iframe,
+  video,
+  .media img {
     position: absolute;
     inset: 0;
     width: 100%;

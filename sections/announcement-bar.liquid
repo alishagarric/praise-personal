@@ -2,27 +2,27 @@
 
 {% style %}
   #Announcement-bar-{{ section.id }} {
-    --marqueeCharacterCount: {{ settings.announcement_bar_text | size }}ch;
-    --marqueeSpeed: {{ settings.announcement_bar_speed | minus: 11 | times: -10 }}s;
+    --marqueeCharacterCount: {{ section.settings.announcement_bar_text | size }}ch;
+    --marqueeSpeed: {{ section.settings.announcement_bar_speed | minus: 11 | times: -10 }}s;
   }
 {% endstyle %}
 
-{% unless settings.announcement_bar_text == blank %}
-  {% if template == 'index' or settings.announcement_bar_home_only == false %}
+{% unless section.settings.announcement_bar_text == blank %}
+  {% if template == 'index' or section.settings.announcement_bar_home_only == false %}
     <div
       id="Announcement-bar-{{ section.id }}"
-      class="announcement-bar __theme-{{ settings.announcement_bar_theme }} {% if settings.announcement_bar_marquee %}marquee-styles __style-fullwidth{% endif %}"
+      class="announcement-bar __theme-{{ section.settings.announcement_bar_theme }} {% if section.settings.announcement_bar_marquee %}marquee-styles __style-fullwidth{% endif %}"
     >
 
-      {% if settings.announcement_bar_marquee %}
+      {% if section.settings.announcement_bar_marquee %}
         <div class="marquee-styles__inner">
-          <p class="marquee-styles__text {{ settings.announcement_bar_text_size }}">
-            {{ settings.announcement_bar_text }}
+          <p class="marquee-styles__text {{ section.settings.announcement_bar_text_size }}">
+            {{ section.settings.announcement_bar_text }}
           </p>
         </div>
       {% else %}
-        <div class="announcement-bar__text {{ settings.announcement_bar_text_size }}">
-          {{ settings.announcement_bar_text }}
+        <div class="announcement-bar__text {{ section.settings.announcement_bar_text_size }}">
+          {{ section.settings.announcement_bar_text }}
         </div>
       {% endif %}
 

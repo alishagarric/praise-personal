@@ -13,17 +13,17 @@
             "text_0": "Revitalize your body and mind with our delicious and nutritious juices!",
             "text_size_0": "p-sm",
             "button_label": "Shop All",
-            "button_link": "shopify:\/\/collections",
+            "button_link": "shopify://collections",
             "heading_1": "Greens",
             "text_1": "Nutrient-dense powerhouse juices that can help boost your immune system",
             "text_size_1": "p-sm",
-            "link_1": "shopify:\/\/collections\/green-drinks",
-            "image_1": "shopify:\/\/shop_images\/Rawbry_Bottle_-_Green_2.jpg",
+            "link_1": "shopify://collections/green-drinks",
+            "image_1": "shopify://shop_images/Rawbry_Bottle_-_Green_2.jpg",
             "heading_2": "Bundles + Kits",
             "text_2": "Try out different products, and stock up on essentials all at once",
             "text_size_2": "p-sm",
-            "link_2": "shopify:\/\/collections\/bundles-kits",
-            "image_2": "shopify:\/\/shop_images\/angelica-echeverry-VjJr17GkX1M-unsplash.jpg"
+            "link_2": "shopify://collections/bundles-kits",
+            "image_2": "shopify://shop_images/angelica-echeverry-VjJr17GkX1M-unsplash.jpg"
           }
         },
         "aa838210-3e0c-4205-91cf-6bd3b96a73a1": {
@@ -38,13 +38,13 @@
             "heading_1": "Journal",
             "text_1": "Discover the latest news, trends, and tips about all things juice",
             "text_size_1": "p-sm",
-            "link_1": "shopify:\/\/blogs\/journal",
-            "image_1": "shopify:\/\/shop_images\/AdobeStock_517844496.jpg",
+            "link_1": "shopify://blogs/journal",
+            "image_1": "shopify://shop_images/AdobeStock_517844496.jpg",
             "heading_2": "About Us",
             "text_2": "Experience our brand's unique story and exceptional quality",
             "text_size_2": "p-sm",
-            "link_2": "shopify:\/\/pages\/about",
-            "image_2": "shopify:\/\/shop_images\/angelica-echeverry-oZ1u0l17lns-unsplash.jpg"
+            "link_2": "shopify://pages/about",
+            "image_2": "shopify://shop_images/angelica-echeverry-oZ1u0l17lns-unsplash.jpg"
           }
         }
       },
@@ -53,7 +53,7 @@
         "aa838210-3e0c-4205-91cf-6bd3b96a73a1"
       ],
       "settings": {
-        "logo": "shopify:\/\/shop_images\/raw_logo_tag_black.png",
+        "logo": "shopify://shop_images/raw_logo_tag_black.png",
         "menu": "mega-menu-ritual",
         "menu_second": "",
         "always_show_nav": false
@@ -65,14 +65,11 @@
         "announcement_bar_text": "Welcome to our store",
         "announcement_bar_text_size": "p-sm",
         "announcement_bar_theme": "2",
-        "announcement_bar_home_only": false,
-        "announcement_bar_marquee": false,
+        "announcement_bar_home_only": true,
+        "announcement_bar_marquee": true,
         "announcement_bar_speed": 5
       }
     }
   },
-  "order": [
-    "header",
-    "f2eec3fc-e211-4466-95d9-b68a8648781f"
-  ]
+  "order": ["f2eec3fc-e211-4466-95d9-b68a8648781f", "header"]
 }
