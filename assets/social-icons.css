@@ -1,15 +1,20 @@
 .social-icons {
+  --iconMinHeight: 2.75rem;
   display: flex;
-  gap: calc(var(--pxSize) / 2.5); }
+  gap: calc(var(--iconMinHeight) / 4); }
+  .social-icons__item a {
+    display: grid;
+    min-width: var(--iconMinHeight);
+    place-content: center; }
+    .social-icons__item a:hover {
+      opacity: 0.6; }
+      .social-icons__item a:hover svg {
+        transform: scale(0.75); }
   .social-icons__item svg {
-    height: calc(var(--pxSize) / 2.5);
-    width: auto; }
+    height: calc(var(--iconMinHeight));
+    width: auto;
+    transform: scale(0.65);
+    will-change: transform;
+    transition: transform 0.25s ease; }
     .social-icons__item svg path {
       fill: RGB(var(--color-text)); }
-  @media screen and (max-width: 676px) {
-    .social-icons {
-      gap: var(--pxSize); }
-      .social-icons__item svg {
-        height: var(--pxSize); } }
-
-/*# sourceMappingURL=social-icons.css.map */

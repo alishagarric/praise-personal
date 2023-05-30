@@ -1,24 +1,32 @@
 .social-icons {
+  --iconMinHeight: 2.75rem;
   display: flex;
-  gap: calc(var(--pxSize) / 2.5);
+  gap: calc(var(--iconMinHeight) / 4);
 
   &__item {
+    a {
+      display: grid;
+      min-width: var(--iconMinHeight);
+      place-content: center;
+
+      &:hover {
+        opacity: 0.6;
+
+        svg {
+          transform: scale(0.75);
+        }
+      }
+    }
+
     svg {
-      height: calc(var(--pxSize) / 2.5);
+      height: calc(var(--iconMinHeight));
       width: auto;
+      transform: scale(0.65);
+      will-change: transform;
+      transition: transform 0.25s ease;
 
       path {
         fill: RGB(var(--color-text));
-      }
-    }
-  }
-
-  @media screen and (max-width: 676px) {
-    gap: var(--pxSize);
-
-    &__item {
-      svg {
-        height: var(--pxSize);
       }
     }
   }
