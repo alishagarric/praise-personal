@@ -9,6 +9,7 @@
   --overlayOpacity: 0.5;
   --inputHeight: 48px;
   --customIconHeight: var(var(--pxSize));
+  --iconMinHeight: 2.75rem;
   --expandableContentIconWidth: 0.75rem;
   --maxWidth: 750px;
   --siteMaxWidth: 1680px;

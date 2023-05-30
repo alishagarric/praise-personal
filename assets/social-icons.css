@@ -1,5 +1,4 @@
 .social-icons {
-  --iconMinHeight: 2.75rem;
   display: flex;
   gap: calc(var(--iconMinHeight) / 4); }
   .social-icons__item a {

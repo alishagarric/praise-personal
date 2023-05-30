@@ -20,7 +20,9 @@
     {% assign style = 'relative' %}
   {% endif %}
 
-  <{% if style == "on-scroll" %}sticky-header{% else %}relative-header{% endif %} class="{{ className }} __style-{{ style }} {% if section.settings.always_show_nav %}__always-show-nav{% endif %} {% if menu_count == 2 %}__center-links{% endif %}">
+  <{% if style == "on-scroll" %}sticky-header{% else %}relative-header{% endif %} 
+    class="{{ className }} __style-{{ style }} {% if section.settings.always_show_nav %}__always-show-nav{% endif %} {% if menu_count == 2 %}__center-links{% endif %}"
+  >
     
     {% comment %} Mobile hamburger button {% endcomment %}
     {% capture hamburger_class %}{{ className }}__hamburger{% endcapture %}

@@ -18,10 +18,12 @@
     transform: translateY(-100%);
     background: RGB(var(--color-background));
     opacity: 0;
+    display: none;
     will-change: transform, opacity;
     transition: all 0.25s ease;
 
     &.__visible {
+      display: grid;
       transform: translateY(0);
       opacity: 1;
     }
@@ -111,15 +113,34 @@
     height: var(--navHeight);
     align-items: center;
     justify-content: flex-end;
-    gap: 0.75rem;
     z-index: 4;
     order: 4;
+
+    > a,
+    > details > summary {
+      min-width: var(--iconMinHeight);
+      display: grid;
+      place-content: center;
+
+      > svg {
+        height: var(--iconMinHeight);
+        width: auto;
+        transform: scale(0.6);
+        will-change: transform;
+        transition: all ease 0.25s;
+      }
+
+      &:hover {
+        > svg {
+          transform: scale(0.65);
+        }
+      }
+    }
 
     &__cart {
       --cartBubbleSize: 17px;
       position: relative;
-      padding: 0 calc(var(--cartBubbleSize) / 2) calc(var(--cartBubbleSize) / 5)
-        0;
+      //  padding: 0 calc(var(--cartBubbleSize) / 2) calc(var(--cartBubbleSize) / 5) 0;
 
       > summary > span {
         position: absolute;
@@ -148,13 +169,13 @@
     padding: 0.5rem 0;
     order: var(--linkOrder);
     z-index: var(--linkOrder); // for when multiple are open on no-js sites
+  }
 
-    &a,
-    .disclosure__summary {
-      &:hover {
-        cursor: pointer;
-        color: RGB(var(--color-text) / 0.6);
-      }
+  &__plain-link,
+  &__label .disclosure__summary {
+    &:hover {
+      cursor: pointer;
+      color: RGB(var(--color-text) / 0.6);
     }
   }
 
@@ -368,6 +389,19 @@
 
   &__hamburger.dialog {
     position: relative;
+
+    > summary {
+      min-width: var(--iconMinHeight);
+      display: grid;
+
+      > svg {
+        height: var(--iconMinHeight);
+        width: auto;
+        transform: scale(0.45);
+        will-change: transform;
+        transition: all ease 0.25s;
+      }
+    }
 
     &[open] {
       z-index: 5;

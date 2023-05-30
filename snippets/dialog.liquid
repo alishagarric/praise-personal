@@ -22,7 +22,7 @@
   <details class="dialog {{ class }} __style-{{ style }}">
     <summary class="dialog__summary" aria-label="{{ aria_label }}" aria-haspopup="dialog" aria-controls="dialog-{{ id }}">
       {{ title }}
-      <div class="dialog__summary__close" aria-label="Close modal" role="button">{% render 'svg-exit' %}</div>
+      <div class="dialog__summary__close" aria-label="Close modal" role="button" aria-controls="dialog-{{ id }}">{% render 'svg-exit' %}</div>
     </summary>
     <div class="dialog__content" id="dialog-{{ id }}" role="dialog" aria-modal="true">
       <div class="dialog__content__body">

@@ -16,9 +16,11 @@
     transform: translateY(-100%);
     background: RGB(var(--color-background));
     opacity: 0;
+    display: none;
     will-change: transform, opacity;
     transition: all 0.25s ease; }
     .site-header.__style-on-scroll.__visible {
+      display: grid;
       transform: translateY(0);
       opacity: 1; }
   .site-header.__style-relative {
@@ -72,13 +74,26 @@
     height: var(--navHeight);
     align-items: center;
     justify-content: flex-end;
-    gap: 0.75rem;
     z-index: 4;
     order: 4; }
+    .site-header__utility-links > a,
+    .site-header__utility-links > details > summary {
+      min-width: var(--iconMinHeight);
+      display: grid;
+      place-content: center; }
+      .site-header__utility-links > a > svg,
+      .site-header__utility-links > details > summary > svg {
+        height: var(--iconMinHeight);
+        width: auto;
+        transform: scale(0.6);
+        will-change: transform;
+        transition: all ease 0.25s; }
+      .site-header__utility-links > a:hover > svg,
+      .site-header__utility-links > details > summary:hover > svg {
+        transform: scale(0.65); }
     .site-header__utility-links__cart {
       --cartBubbleSize: 17px;
-      position: relative;
-      padding: 0 calc(var(--cartBubbleSize) / 2) calc(var(--cartBubbleSize) / 5) 0; }
+      position: relative; }
       .site-header__utility-links__cart > summary > span {
         position: absolute;
         bottom: 0;
@@ -100,11 +115,9 @@
     padding: 0.5rem 0;
     order: var(--linkOrder);
     z-index: var(--linkOrder); }
-    .site-header__plain-linka:hover,
-    .site-header__plain-link .disclosure__summary:hover, .site-header__labela:hover,
-    .site-header__label .disclosure__summary:hover {
-      cursor: pointer;
-      color: RGB(var(--color-text)/0.6); }
+  .site-header__plain-link:hover, .site-header__label .disclosure__summary:hover {
+    cursor: pointer;
+    color: RGB(var(--color-text)/0.6); }
   .site-header__label.disclosure .disclosure__summary {
     height: 100%;
     display: flex;
@@ -212,6 +225,15 @@
     display: none; }
   .site-header__hamburger.dialog {
     position: relative; }
+    .site-header__hamburger.dialog > summary {
+      min-width: var(--iconMinHeight);
+      display: grid; }
+      .site-header__hamburger.dialog > summary > svg {
+        height: var(--iconMinHeight);
+        width: auto;
+        transform: scale(0.45);
+        will-change: transform;
+        transition: all ease 0.25s; }
     .site-header__hamburger.dialog[open] {
       z-index: 5; }
   @media screen and (max-width: 1200px) {
