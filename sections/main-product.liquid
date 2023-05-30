@@ -101,8 +101,8 @@
                 {%- endfor -%}
               </ul>
 
-              {% if block.settings.layout != "stacked" and product.media.size > 1 %}
-                <ul class="main-product__media__dots" style="--dotsColumns: {% if product.media.size > 5 %}5{% else %}{{ product.media.size }}{% endif %}; --dotsRows: {{ product.media.size | divided_by: 5.0 | ceil }}">
+              {% if product.media.size > 1 %}
+                <ul class="main-product__media__dots {% if block.settings.layout == "stacked" %}__mobile-only{% endif %}" style="--dotsColumns: {% if product.media.size > 5 %}5{% else %}{{ product.media.size }}{% endif %}; --dotsRows: {{ product.media.size | divided_by: 5.0 | ceil }}">
                   {%- for media in product.media -%}
                     {% if product.has_only_default_variant and forloop.index == 1 %}
                       {% assign default_and_first = true %}
@@ -116,6 +116,10 @@
                   <li class="main-product__media__dots__prev btn classic-arrow prev">
                     <span class="visually-hidden">Previous Slide</span>
                     {% render 'svg-slider-arrow' %}
+                  </li>
+                  <li class="main-product__media__dots__count p-sm">
+                    <span>1</span>
+                    <span>&nbsp;/&nbsp;{{ product.media.size }}</span>
                   </li>
                   <li class="main-product__media__dots__next btn classic-arrow next">
                     <span class="visually-hidden">Next Slide</span>

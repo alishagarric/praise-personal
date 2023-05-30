@@ -8,6 +8,9 @@ if (!customElements.get("media-gallery")) {
         this.dots = this.querySelectorAll(`.main-product__media__dots__dot`);
         this.prev = this.querySelector(`.main-product__media__dots__prev`);
         this.next = this.querySelector(`.main-product__media__dots__next`);
+        this.count = this.querySelector(
+          `.main-product__media__dots__count span:first-child`
+        );
 
         if (!this.dots.length != 0 || !this.prev || !this.next) return;
 
@@ -28,6 +31,8 @@ if (!customElements.get("media-gallery")) {
           this.setActiveMedia(
             activeDot.previousElementSibling.dataset.mediaDotId
           );
+
+          this.updateCount(-1);
         });
 
         this.next.addEventListener("click", () => {
@@ -35,6 +40,7 @@ if (!customElements.get("media-gallery")) {
             `.main-product__media__dots__dot.__active`
           );
           this.setActiveMedia(activeDot.nextElementSibling.dataset.mediaDotId);
+          this.updateCount(1);
         });
       }
 
@@ -58,6 +64,10 @@ if (!customElements.get("media-gallery")) {
             dot.classList.remove("__active");
           }
         });
+      }
+
+      updateCount(increase) {
+        this.count.innerHTML = parseInt(this.count.innerHTML) + increase;
       }
     }
   );

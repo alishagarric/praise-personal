@@ -129,51 +129,63 @@
               display: none;
             }
           }
+        }
+      }
+    }
 
-          &__dots {
-            display: grid;
-            gap: calc(var(--pxSize) / 8) 0;
-            grid-template-columns: 1fr repeat(var(--dotsColumns), auto) 1fr;
-            justify-content: center;
-            margin-top: var(--pxSize);
-            align-items: center;
+    &__dots {
+      display: grid;
+      gap: calc(var(--pxSize) / 8) 0;
+      grid-template-columns: 1fr repeat(var(--dotsColumns), auto) 1fr;
+      justify-content: center;
+      margin-top: var(--pxSize);
+      align-items: center;
 
-            &__dot {
-              &.__active {
-                opacity: 1;
+      &__dot {
+        &.__active {
+          opacity: 1;
 
-                //disabled prev and next buttons depending on active media
-                &:first-child ~ .main-product__media__dots__prev,
-                + .main-product__media__dots__prev
-                  + .main-product__media__dots__next {
-                  opacity: 0.5;
-                  pointer-events: none;
-                  cursor: auto;
-                }
-              }
-            }
-
-            &__prev,
-            &__next {
-              background: transparent;
-              grid-row: 1 / calc(var(--dotsRows) + 1);
-              border: none;
-
-              svg * {
-                fill: RGB(var(--color-text));
-              }
-            }
-
-            &__prev {
-              grid-column: 1 / 2;
-            }
-
-            &__next {
-              grid-column: -2 / -1;
-              margin-left: auto;
-            }
+          //disabled prev and next buttons depending on active media
+          &:first-child ~ .main-product__media__dots__prev,
+          + .main-product__media__dots__prev
+            + .main-product__media__dots__count
+            + .main-product__media__dots__next {
+            opacity: 0.5;
+            pointer-events: none;
+            cursor: auto;
           }
         }
+      }
+
+      &__count {
+        display: none;
+        margin-bottom: 0;
+        align-items: center;
+        height: var(--arrowBtnHeight);
+      }
+
+      &__prev,
+      &__next {
+        background: transparent;
+        grid-row: 1 / calc(var(--dotsRows) + 1);
+        border: none;
+
+        svg * {
+          fill: RGB(var(--color-text));
+        }
+      }
+
+      &__prev {
+        grid-column: 1 / 2;
+      }
+
+      &__next {
+        grid-column: -2 / -1;
+        margin-left: auto;
+      }
+
+      &.__mobile-only {
+        display: none;
       }
     }
   }
@@ -214,6 +226,22 @@
       //themed background
       &__container {
         content: none;
+      }
+
+      &__dots {
+        margin-bottom: var(--pxSize);
+
+        &__count {
+          display: flex;
+        }
+
+        &__dot {
+          display: none;
+        }
+
+        &.__mobile-only {
+          display: grid;
+        }
       }
 
       // All from shopify starter
