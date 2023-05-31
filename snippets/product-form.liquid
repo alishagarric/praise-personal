@@ -1,7 +1,7 @@
 {% comment %}
   Renders a the product form used in main product
 
-  Expects: 
+  Expects:
   - product {object} required, product in question
   - id: {string} required
   - class: {String} optional
@@ -13,7 +13,6 @@
 
   Usage:
     {% render 'product-form' class: "class" %}
-
 {% endcomment %}
 
 {%- liquid
@@ -68,13 +67,16 @@
       {%- endif -%}
     </span>
   </button>
-{% endcapture%}
+{% endcapture %}
 
-<product-form class="{{ class }}" {{ block.shopify_attributes }} data-hide-errors="{{ gift_card_recipient_feature_active }}">
-  <div class="message-error" role="alert" hidden></div>
+<product-form
+  class="{{ class }}"
+  {{ block.shopify_attributes }}
+  data-hide-errors="{{ gift_card_recipient_feature_active }}"
+>
+  <div class="message-error p-sm" role="alert" hidden></div>
 
-  {%-
-    form 'product',
+  {%- form 'product',
     product,
     id: id,
     class: 'product-form __no-form-styles',
@@ -86,20 +88,20 @@
       name="id"
       value="{{ product.selected_or_first_available_variant.id }}"
     >
-      {% if hide_dynamic_buttons == true %}
-        <div class="product-form__row">
-          {{ quantity }}
-          {{ add_to_cart }}
-        </div>
-      {% else %}
-        {% if show_quantity == true %}
-          <div class="product-form__row {% if include_border %}__include-border{% endif %}">{{ quantity }}</div>
-        {% endif %}
-        <div class="product-form__column">
-          {{ add_to_cart }}
-          {% comment %} Dynamic checkout buttons {% endcomment %}
-          {{ form | payment_button }}
-        </div>
+    {% if hide_dynamic_buttons == true %}
+      <div class="product-form__row">
+        {{ quantity }}
+        {{ add_to_cart }}
+      </div>
+    {% else %}
+      {% if show_quantity == true %}
+        <div class="product-form__row {% if include_border %}__include-border{% endif %}">{{ quantity }}</div>
       {% endif %}
+      <div class="product-form__column">
+        {{ add_to_cart }}
+        {% comment %} Dynamic checkout buttons {% endcomment %}
+        {{ form | payment_button }}
+      </div>
+    {% endif %}
   {%- endform -%}
 </product-form>

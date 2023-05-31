@@ -9,6 +9,8 @@
   {% render 'gift-card-recipient-form', product: product, form: form, section: section %}
 {% endcomment %}
 
+{{ 'gift-card-recipient-form.css' | asset_url | stylesheet_tag }}
+
 <div class="customer-forms">
   {%- assign gift_card_recipient_control_flag = 'properties[__shopify_send_gift_card_to_recipient]' -%}
   <script src="{{ 'recipient-form.js' | asset_url }}" defer="defer"></script>
@@ -21,7 +23,6 @@
       id="Recipient-Checkbox-{{ section.id }}"
       type="checkbox"
       name="{{ gift_card_recipient_control_flag }}"
-      disabled
       unchecked
     >
     <label class="recipient-checkbox" for="Recipient-Checkbox-{{ section.id }}">
@@ -77,29 +78,27 @@
       </ul>
     </div>
 
-    <hr>
-    
-    <div>
-      <label for="Recipient-email-{{ section.id }}">
-        <span class="recipient-email-label required">{{ 'recipient.form.email_label' | t }}</span>
-        <span class="recipient-email-label optional">{{ 'recipient.form.email_label_optional' | t }}</span>
-      </label>
-      <input
-        id="Recipient-email-{{ section.id }}"
-        type="email"
-        placeholder="{{ 'recipient.form.email' | t }}"
-        name="properties[Recipient email]"
-        value="{{ form.email }}"
-        {% if form.errors contains 'email' %}
-          aria-invalid="true"
-          aria-describedby="RecipientForm-email-error-{{ section.id }}"
-        {% endif %}
-      >
-    </div>
-
     <div class="recipient-fields">
-      
+      <hr>
+
       <div class="recipient-fields__field">
+        <div>
+          <label for="Recipient-email-{{ section.id }}">
+            <span class="recipient-email-label required">{{ 'recipient.form.email_label' | t }}</span>
+            <span class="recipient-email-label optional">{{ 'recipient.form.email_label_optional' | t }}</span>
+          </label>
+          <input
+            id="Recipient-email-{{ section.id }}"
+            type="email"
+            placeholder="{{ 'recipient.form.email' | t }}"
+            name="properties[Recipient email]"
+            value="{{ form.email }}"
+            {% if form.errors contains 'email' %}
+              aria-invalid="true"
+              aria-describedby="RecipientForm-email-error-{{ section.id }}"
+            {% endif %}
+          >
+        </div>
 
         <div
           id="RecipientForm-email-error-{{ section.id }}"
@@ -108,8 +107,7 @@
           {% render 'icon-error' %}
           <span class="error-message">
             {%- if form.errors contains 'email' -%}
-              {{ form.errors.translated_fields.email | capitalize }}
-              {{ form.errors.messages.email }}.
+              Error here.
             {%- endif -%}
           </span>
         </div>
