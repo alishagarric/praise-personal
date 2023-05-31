@@ -4,11 +4,11 @@
     margin-bottom: 0.5rem; }
     .variant-picker__fieldset__label span {
       display: block; }
-  .variant-picker__fieldset__input {
-    display: none; }
-    .variant-picker__fieldset__input:checked + label {
-      --valueHoverColor: RGBA(var(--color-foreground) / 1);
-      color: RGB(var(--color-foreground-text)); }
+  .variant-picker__fieldset__input:checked + label {
+    --valueHoverColor: RGBA(var(--color-foreground) / 1);
+    color: RGB(var(--color-foreground-text)); }
+  .variant-picker__fieldset__input:focus + label {
+    transform: scale(1.1); }
   .variant-picker__fieldset__value {
     --valueMinWidth: 70px;
     --valueHoverColor: RGBA(var(--color-foreground) / 0);
@@ -19,7 +19,9 @@
     min-width: 70px;
     text-align: center;
     display: inline-flex;
-    justify-content: center; }
+    justify-content: center;
+    will-change: transform;
+    transition: transform 0.25s ease; }
     .variant-picker__fieldset__value__text {
       position: relative;
       padding: calc(var(--pxSize) / 6) calc(var(--pxSize) / 4);
@@ -92,15 +94,29 @@ form.product-form .shopify-payment-button__button {
     /* Physically hide visually hidden dynamic buttons */
     display: none; }
 form.product-form .shopify-payment-button__more-options {
-  all: unset;
+  letter-spacing: var(--font-body-spacing);
+  font-family: var(--font-body-family);
+  font-style: var(--font-body-style);
+  font-weight: var(--font-body-weight);
+  line-height: 1.4;
+  margin: 0 0 1rem 0;
+  font-size: calc(0.9rem * var(--font-body-scale));
   position: relative;
   color: RGB(var(--color-text));
   opacity: 1;
   will-change: opacity;
   transition: all 0.25s ease;
+  height: unset;
+  display: inline;
+  text-align: left;
+  width: fit-content;
+  padding: 0;
+  text-transform: none;
   cursor: pointer;
   position: relative;
-  margin: 1rem auto 0 auto; }
+  margin: 1rem 0; }
+  form.product-form .shopify-payment-button__more-options:is(p) {
+    max-width: 400px; }
   form.product-form .shopify-payment-button__more-options:after {
     content: "";
     position: absolute;

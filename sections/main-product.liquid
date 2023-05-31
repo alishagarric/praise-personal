@@ -37,7 +37,7 @@
 <div class="main-product product {% if template == "product.modal" %}main-modal{% endif %} __theme-{{ section.settings.theme }}" style="  {% if product.metafields.custom.color %}--metafield-color-background: {{ product.metafields.custom.color.value.rgb }};{% endif %}">
   
     {% comment %} Product info {% endcomment %}
-    <div id="Product-Info-{{ section.id }}{{ product.id }}" class="main-product__container __offset-{% if section.blocks.first.type == "media" %}left{% elsif section.blocks.last.type == "media" %}right{% else %}none{% endif %}">
+    <div class="main-product__container __offset-{% if section.blocks.first.type == "media" %}left{% elsif section.blocks.last.type == "media" %}right{% else %}none{% endif %}">
       {% comment %} 
         Seems weird but we need to open this container without a closing tag. 
         Either the end of the loop of the media block within the loop will close 
@@ -102,30 +102,30 @@
               </ul>
 
               {% if product.media.size > 1 %}
-                <ul class="main-product__media__dots {% if block.settings.layout == "stacked" %}__mobile-only{% endif %}" style="--dotsColumns: {% if product.media.size > 5 %}5{% else %}{{ product.media.size }}{% endif %}; --dotsRows: {{ product.media.size | divided_by: 5.0 | ceil }}">
+                <div class="main-product__media__dots {% if block.settings.layout == "stacked" %}__mobile-only{% endif %}" style="--dotsColumns: {% if product.media.size > 5 %}5{% else %}{{ product.media.size }}{% endif %}; --dotsRows: {{ product.media.size | divided_by: 5.0 | ceil }}">
                   {%- for media in product.media -%}
                     {% if product.has_only_default_variant and forloop.index == 1 %}
                       {% assign default_and_first = true %}
                     {% else %}
                       {% assign default_and_first = false %}
                     {% endif %}
-                    <li class="main-product__media__dots__dot standard-flickity-dot {% if media == product.selected_or_first_available_variant.featured_media or  default_and_first %}__active{% endif %}" data-media-dot-id="{{ section.id }}{{ product.id }}-{{ media.id }}">
+                    <button class="main-product__media__dots__dot standard-flickity-dot {% if media == product.selected_or_first_available_variant.featured_media or default_and_first %}__active{% endif %}" data-media-dot-id="{{ section.id }}{{ product.id }}-{{ media.id }}" role="button" aria-label="Image {{ forloop.index }}">
                       <span class="visually-hidden">{{ forloop.index }}</span>
-                    </li>
+                    </button>
                   {%- endfor -%}
-                  <li class="main-product__media__dots__prev btn classic-arrow prev">
+                  <button class="main-product__media__dots__prev btn classic-arrow prev" role="button" aria-label="Previous Image">
                     <span class="visually-hidden">Previous Slide</span>
                     {% render 'svg-slider-arrow' %}
-                  </li>
+                  </button>
                   <li class="main-product__media__dots__count p-sm">
                     <span>1</span>
                     <span>&nbsp;/&nbsp;{{ product.media.size }}</span>
                   </li>
-                  <li class="main-product__media__dots__next btn classic-arrow next">
+                  <button class="main-product__media__dots__next btn classic-arrow next" role="button" aria-label="Next Image">
                     <span class="visually-hidden">Next Slide</span>
                     {% render 'svg-slider-arrow' %}
-                  </li>
-                </ul>
+                  </button>
+                </div>
               {% endif %}
               
             </media-gallery>
@@ -137,6 +137,7 @@
             <div 
               class="main-product__blocks-after-media"
               style="{% if product.metafields.custom.color %}--color-foreground: {{ product.metafields.custom.color.value.rgb }}; {% endif %} {% if product.metafields.custom.text_color %} --color-foreground-text: {{ product.metafields.custom.text_color.value.rgb }};{% endif %}"
+              id="Product-Info-{{ section.id }}{{ product.id }}"
             >
             
           {% comment %} Type app {% endcomment %}

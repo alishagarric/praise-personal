@@ -74,6 +74,8 @@
 } */
 .standard-flickity-dot, .flickity-page-dots .dot {
   display: inline-block;
+  padding: 0;
+  border: none;
   width: calc(var(--pxSize) / 4);
   height: calc(var(--pxSize) / 4);
   margin: 0 calc(var(--pxSize) / 8);

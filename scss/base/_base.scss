@@ -438,7 +438,9 @@ input[type="submit"] {
     background: RGB(var(--color-foreground-text));
   }
 
-  &:hover:not(:disabled):not([aria-disabled="true"]) {
+  &:hover:not(:disabled):not([aria-disabled="true"]):not(
+      .shopify-payment-button__more-options
+    ):not(.standard-flickity-dot) {
     background: RGB(var(--color-foreground-text));
     color: RGB(var(--color-foreground));
     border: 1px solid RGB(var(--color-foreground));

@@ -46,7 +46,7 @@
                 form="{{ product_form_id }}"
                 {%- if option.selected_value == value %}checked {% endif -%}
                 data-option-value="{{ value | escape }}"
-                class="variant-picker__fieldset__input"
+                class="variant-picker__fieldset__input visually-hidden"
               />
                 <label for="{{ section.id }}-{{ this_product.id }}-{{ option.name }}-{{ forloop.index0 }}" class="p-sm variant-picker__fieldset__value">
                   <span class="p-sm variant-picker__fieldset__value__text">{{ value }}</span>
