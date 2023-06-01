@@ -9,6 +9,17 @@
   {% render 'gift-card-recipient-form', product: product, form: form, section: section %}
 {% endcomment %}
 
+{% comment %}
+  Renders gift card recipient form.
+  Accepts:
+  - product: {Object} product object.
+  - form: {Object} the product form object.
+  - section: {Object} section to which this snippet belongs.
+
+  Usage:
+  {% render 'gift-card-recipient-form', product: product, form: form, section: section %}
+{% endcomment %}
+
 {{ 'gift-card-recipient-form.css' | asset_url | stylesheet_tag }}
 
 <div class="customer-forms">
@@ -20,12 +31,12 @@
     data-product-variant-id="{{ product.selected_or_first_available_variant.id }}"
   >
     <input
-      id="Recipient-Checkbox-{{ section.id }}"
+      id="Recipient-checkbox-{{ section.id }}"
       type="checkbox"
       name="{{ gift_card_recipient_control_flag }}"
       unchecked
     >
-    <label class="recipient-checkbox" for="Recipient-Checkbox-{{ section.id }}">
+    <label class="recipient-checkbox" for="Recipient-checkbox-{{ section.id }}">
       <svg
         width="1.6rem"
         height="1.6rem"
@@ -80,13 +91,8 @@
 
     <div class="recipient-fields">
       <hr>
-
       <div class="recipient-fields__field">
         <div>
-          <label for="Recipient-email-{{ section.id }}">
-            <span class="recipient-email-label required">{{ 'recipient.form.email_label' | t }}</span>
-            <span class="recipient-email-label optional">{{ 'recipient.form.email_label_optional' | t }}</span>
-          </label>
           <input
             id="Recipient-email-{{ section.id }}"
             type="email"
@@ -98,6 +104,10 @@
               aria-describedby="RecipientForm-email-error-{{ section.id }}"
             {% endif %}
           >
+          <label for="Recipient-email-{{ section.id }}">
+            <span class="recipient-email-label required">{{ 'recipient.form.email_label' | t }}</span>
+            <span class="recipient-email-label optional">{{ 'recipient.form.email_label_optional' | t }}</span>
+          </label>
         </div>
 
         <div
@@ -107,7 +117,7 @@
           {% render 'icon-error' %}
           <span class="error-message">
             {%- if form.errors contains 'email' -%}
-              Error here.
+              {{ form.errors.messages.email }}.
             {%- endif -%}
           </span>
         </div>
@@ -192,7 +202,7 @@
       type="hidden"
       name="{{ gift_card_recipient_control_flag }}"
       value="if_present"
-      id="Recipient-Control-{{ section.id }}"
+      id="Recipient-control-{{ section.id }}"
     >
   </recipient-form>
 </div>
