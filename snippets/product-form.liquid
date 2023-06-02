@@ -15,23 +15,20 @@
     {% render 'product-form' class: "class" %}
 {% endcomment %}
 
-{%- liquid
-  assign gift_card_recipient_feature_active = false
-  if show_gift_card_recipient and product.gift_card?
-    assign gift_card_recipient_feature_active = true
-  endif
+<div {{ block.shopify_attributes }}>
+  {%- liquid
+    assign gift_card_recipient_feature_active = false
+    if show_gift_card_recipient and product.gift_card?
+      assign gift_card_recipient_feature_active = true
+    endif
 
-  assign hide_dynamic_buttons = false
-  if hide_dynamic_buttons and gift_card_recipient_feature_active == true
-    assign hide_dynamic_buttons = true
-  endif
--%}
+    assign hide_dynamic_buttons = false
+    if hide_dynamic_buttons and gift_card_recipient_feature_active == true
+      assign hide_dynamic_buttons = true
+    endif
+  -%}
 
-{%- if gift_card_recipient_feature_active -%}
-  {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
-{%- endif -%}
-
-{% capture quantity %}
+  {% capture quantity %}
   {% if show_quantity == true %}
     <number-input {{ block.shopify_attributes }} class="product-form__quantity number-input">
       <label for="Quantity-{{ section.id }}" class="visually-hidden">
@@ -50,7 +47,7 @@
   {% endif %}
 {% endcapture %}
 
-{% capture add_to_cart %}
+  {% capture add_to_cart %}
   <button
     type="submit"
     name="add"
@@ -69,39 +66,45 @@
   </button>
 {% endcapture %}
 
-<product-form
-  class="{{ class }}"
-  {{ block.shopify_attributes }}
-  data-hide-errors="{{ gift_card_recipient_feature_active }}"
->
-  <div class="message-error p-sm" role="alert" hidden></div>
+  <product-form
+    class="{{ class }}"
+    {{ block.shopify_attributes }}
+    data-hide-errors="{{ gift_card_recipient_feature_active }}"
+  >
+    <div class="message-error p-sm product-form__error-message-wrapper" role="alert" hidden></div>
 
-  {%- form 'product',
-    product,
-    id: id,
-    class: 'product-form __no-form-styles',
-    novalidate: 'novalidate',
-    data-type: 'add-to-cart-form'
-  -%}
-    <input
-      type="hidden"
-      name="id"
-      value="{{ product.selected_or_first_available_variant.id }}"
-    >
-    {% if hide_dynamic_buttons == true %}
-      <div class="product-form__row">
-        {{ quantity }}
-        {{ add_to_cart }}
-      </div>
-    {% else %}
-      {% if show_quantity == true %}
-        <div class="product-form__row {% if include_border %}__include-border{% endif %}">{{ quantity }}</div>
+    {%- form 'product',
+      product,
+      id: id,
+      class: 'product-form __no-form-styles',
+      novalidate: 'novalidate',
+      data-type: 'add-to-cart-form'
+    -%}
+      <input
+        type="hidden"
+        name="id"
+        value="{{ product.selected_or_first_available_variant.id }}"
+        class="product-variant-id"
+        disabled
+      >
+      {%- if gift_card_recipient_feature_active -%}
+        {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
+      {%- endif -%}
+      {% if hide_dynamic_buttons == true %}
+        <div class="product-form__row">
+          {{ quantity }}
+          {{ add_to_cart }}
+        </div>
+      {% else %}
+        {% if show_quantity == true %}
+          <div class="product-form__row {% if include_border %}__include-border{% endif %}">{{ quantity }}</div>
+        {% endif %}
+        <div class="product-form__column">
+          {{ add_to_cart }}
+          {% comment %} Dynamic checkout buttons {% endcomment %}
+          {{ form | payment_button }}
+        </div>
       {% endif %}
-      <div class="product-form__column">
-        {{ add_to_cart }}
-        {% comment %} Dynamic checkout buttons {% endcomment %}
-        {{ form | payment_button }}
-      </div>
-    {% endif %}
-  {%- endform -%}
-</product-form>
+    {%- endform -%}
+  </product-form>
+</div>
