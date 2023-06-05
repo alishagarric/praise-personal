@@ -26,37 +26,6 @@
     {% capture form_title %}{{ 'recipient.form.label' | t }}{% endcapture %}
 
     {% capture form_content %}
-
-      {% comment %} Errors summary {% endcomment %}
-      <div
-        id="Recipient-errors-{{ section.id }}"
-        role="alert"
-        {% unless form.errors %}
-          hidden
-        {% endunless %}
-      >
-        <h2 tabindex="-1" autofocus>
-          <p class="message-error">{{ 'templates.contact.form.error_heading' | t }}</p>
-        </h2>
-
-        <ul>
-          {%- if form.errors -%}
-            {%- for field in form.errors -%}
-              <li>
-                {%- if field == 'form' -%}
-                  {{ form.errors.messages[field] }}
-                {%- else -%}
-                  <a href="#Recipient-{{ field }}-{{ section.id }}">
-                    {{ form.errors.translated_fields[field] | capitalize }}
-                    {{ form.errors.messages[field] }}
-                  </a>
-                {%- endif -%}
-              </li>
-            {%- endfor -%}
-          {%- endif -%}
-        </ul>
-      </div>
-
       {% comment %} Checkbox field {% endcomment %}
       <div class="form-styles__row">
         <input
@@ -71,20 +40,8 @@
         </label>
       </div>
 
-      {% comment %} Email field's error, label and input {% endcomment %}
+      {% comment %} Email field's, label and input {% endcomment %}
       <div>
-        <div
-          id="RecipientForm-email-error-{{ section.id }}"
-          class="recipient-fields__error {% unless form.errors contains 'email' %} hidden{% endunless %}"
-        >
-          <p class="message-error">
-            {%- if form.errors contains 'email' -%}
-              {{ form.errors.translated_fields.email | capitalize }}
-              {{ form.errors.messages.email }}.
-            {%- endif -%}
-          </p>
-        </div>
-
         <label for="Recipient-email-{{ section.id }}">
           <span class="recipient-email-label">{{ 'recipient.form.email_label' | t }}</span>
         </label>
@@ -94,27 +51,11 @@
           placeholder="{{ 'recipient.form.email' | t }}"
           name="properties[Recipient email]"
           value="{{ form.email }}"
-          {% if form.errors contains 'email' %}
-            aria-invalid="true"
-            aria-describedby="RecipientForm-email-error-{{ section.id }}"
-          {% endif %}
         >
       </div>
 
-      {% comment %} Name field's error, label and input {% endcomment %}
+      {% comment %} Name field's, label and input {% endcomment %}
       <div>
-        <div
-          id="RecipientForm-name-error-{{ section.id }}"
-          class="recipient-fields__error {% unless form.errors contains 'name' %} hidden{% endunless %}"
-        >
-          <p class="message-error">
-            {%- if form.errors contains 'name' -%}
-              {{ form.errors.translated_fields.name | capitalize }}
-              {{ form.errors.messages.name }}.
-            {%- endif -%}
-          </p>
-        </div>
-
         <label class="field__label" for="Recipient-name-{{ section.id }}">
           {{- 'recipient.form.name_label' | t -}}
         </label>
@@ -126,27 +67,11 @@
           name="properties[Recipient name]"
           placeholder="{{ 'recipient.form.name' | t }}"
           value="{{ form.name }}"
-          {% if form.errors contains 'name' %}
-            aria-invalid="true"
-            aria-describedby="RecipientForm-name-error-{{ section.id }}"
-          {% endif %}
         >
       </div>
       
-      {% comment %} Message field's error, labels and textarea {% endcomment %}
+      {% comment %} Message field's, labels and textarea {% endcomment %}
       <div>
-        <div
-          id="RecipientForm-message-error-{{ section.id }}"
-          class="recipient-fields__error {% unless form.errors contains 'message' %} hidden{% endunless %}"
-        >
-          <p class="message-error">
-            {%- if form.errors contains 'message' -%}
-              {{ form.errors.translated_fields.message | capitalize }}
-              {{ form.errors.messages.message }}.
-            {%- endif -%}
-          </p>
-        </div>
-
         <label class="form__label field__label" for="Recipient-message-{{ section.id }}">
           {{ message_label_rendered }}
         </label>
@@ -158,10 +83,6 @@
           maxlength="{{ max_chars_message }}"
           placeholder="{{ 'recipient.form.message' | t }}"
           aria-label="{{ message_label_rendered }} {{ max_chars_message_rendered }}"
-          {% if form.errors contains 'message' %}
-            aria-invalid="true"
-            aria-describedby="RecipientForm-message-error-{{ section.id }}"
-          {% endif %}
         >{{ form.message }}</textarea>
 
         <label class="form__label recipient-form-field-label recipient-form-field-label--space-between">
