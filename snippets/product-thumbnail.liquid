@@ -31,7 +31,10 @@
   
 {%- elsif media.media_type == 'model' -%}
 {% comment %} 3D model thumbnail {% endcomment %}
-    <product-model class="model-icon" data-label="{{ 'general.media.3d' | t }}">
+    <product-model data-label="url({{ 'svg-3d.liquid' | asset_url }})">
+
+      {% render 'svg-3d.liquid' %}
+
       {% comment %} Model poster image/button {% endcomment %}
       <button
         id="Deferred-Poster-{{ media.id }}"
@@ -64,6 +67,7 @@
       data-shopify-title="title"
       data-shopify-xr-hidden
       >
+        {% render 'svg-3d.liquid' %}
         {{ 'products.product.xr_button' | t }}
     </button>
 {%- else -%}

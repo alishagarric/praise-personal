@@ -311,6 +311,55 @@ product-model {
   display: block;
   position: relative;
 
+  > svg {
+    position: absolute;
+    top: calc(var(--pxSize) / 2);
+    left: calc(var(--pxSize) / 2);
+    width: var(--iconMinHeight);
+    height: var(--iconMinHeight);
+    z-index: 2;
+
+    path:first-of-type {
+      fill: RGB(var(--color-background));
+      border: 1px solid RGB(var(--color-border));
+    }
+
+    path:nth-of-type(2) {
+      stroke: RGB(var(--color-border));
+      stroke-opacity: 1;
+    }
+
+    path:last-of-type {
+      fill: RGB(var(--color-text));
+      opacity: 1;
+    }
+  }
+
+  + button.xr-button {
+    background: RGBA(var(--color-text) / 0.05);
+    border: none;
+    margin-top: 0;
+    color: RGB(var(--color-text));
+    border-radius: 0;
+    width: 100%;
+    display: flex;
+    gap: calc(var(--pxSize) / 2);
+    justify-content: center;
+
+    svg {
+      path:first-of-type,
+      :nth-of-type(2) {
+        fill: none;
+        stroke: none;
+      }
+
+      path:last-of-type {
+        fill: RGB(var(--color-text));
+        opacity: 1;
+      }
+    }
+  }
+
   button {
     position: relative;
     width: 100%;
@@ -335,11 +384,7 @@ product-model {
 }
 
 .xr-button[data-shopify-xr-hidden] {
-  visibility: hidden;
-
-  @media screen and (min-width: 750px) {
-    display: none;
-  }
+  display: none;
 }
 
 .shopify-design-mode .xr-button[data-shopify-xr-hidden],
