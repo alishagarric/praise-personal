@@ -97,7 +97,7 @@ if (!customElements.get("product-form")) {
           this.errorMessage || this.querySelector(".message-error");
         if (!this.errorMessage) return;
 
-        this.errorMessage.toggleAttribute("hidden", !errorText);
+        this.errorMessage.classList.toggle("hidden", !errorText);
 
         this.errorMessage.textContent = errorText ? errorText : "";
       }

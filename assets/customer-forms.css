@@ -10,9 +10,11 @@
       display: flex; }
       .customer-forms__container#recover:target ~ #login {
         display: none; }
+.customer-forms.__hide-fields input:not([type="checkbox"]),
+.customer-forms.__hide-fields label:not(input[type="checkbox"] + label),
+.customer-forms.__hide-fields textarea {
+  display: none; }
 .customer-forms__text {
   margin-bottom: calc(var(--sectionVerticalSpacing) / 4); }
 .customer-forms__form {
   margin-bottom: 1rem; }
-
-/*# sourceMappingURL=customer-forms.css.map */

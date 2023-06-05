@@ -19,6 +19,14 @@
     }
   }
 
+  &.__hide-fields {
+    input:not([type="checkbox"]),
+    label:not(input[type="checkbox"] + label),
+    textarea {
+      display: none;
+    }
+  }
+
   &__text {
     margin-bottom: calc(var(--sectionVerticalSpacing) / 4);
   }

@@ -27,9 +27,6 @@
   endif
 -%}
 
-{%- if gift_card_recipient_feature_active -%}
-  {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
-{%- endif -%}
 
 {% capture quantity %}
   {% if show_quantity == true %}
@@ -97,6 +94,11 @@
       {% if show_quantity == true %}
         <div class="product-form__row {% if include_border %}__include-border{% endif %}">{{ quantity }}</div>
       {% endif %}
+
+      {%- if gift_card_recipient_feature_active -%}
+        {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
+      {%- endif -%}
+
       <div class="product-form__column">
         {{ add_to_cart }}
         {% comment %} Dynamic checkout buttons {% endcomment %}

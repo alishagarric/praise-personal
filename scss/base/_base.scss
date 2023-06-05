@@ -316,6 +316,7 @@ form:not(.__no-form-styles),
     min-height: calc(var(--inputHeight) / 2);
     min-width: calc(var(--inputHeight) / 2);
     position: relative;
+    margin-bottom: 1rem;
 
     &:checked {
       &::after {
@@ -369,6 +370,10 @@ form:not(.__no-form-styles),
 
   &__row {
     display: flex;
+  }
+
+  .hidden {
+    display: none;
   }
 
   label {

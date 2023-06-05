@@ -742,7 +742,8 @@ form:not(.__no-form-styles) input[type="radio"],
   width: calc(var(--inputHeight) / 2);
   min-height: calc(var(--inputHeight) / 2);
   min-width: calc(var(--inputHeight) / 2);
-  position: relative; }
+  position: relative;
+  margin-bottom: 1rem; }
   form:not(.__no-form-styles) input[type="checkbox"]:checked::after,
   form:not(.__no-form-styles) input[type="radio"]:checked::after,
   .form-styles input[type="checkbox"]:checked::after,
@@ -798,6 +799,8 @@ form:not(.__no-form-styles) ::placeholder,
   margin: 0 auto; }
   .form-styles__row {
     display: flex; }
+  .form-styles .hidden {
+    display: none; }
   .form-styles label {
     letter-spacing: var(--font-body-spacing);
     font-family: var(--font-body-family);

@@ -258,6 +258,7 @@
       "include_taxes": "Tax included.",
       "on_sale": "Sale",
       "sold_out": "Sold out",
+      "provide_recipient_email": "Provide Recipient Email",
       "close": "Close",
       "quick_buy": "Quick Buy",
       "view_product": "View Product",
@@ -362,6 +363,7 @@
   },
   "recipient": {
     "form": {
+      "label": "Gift Card Recipient",
       "checkbox": "I want to send this as a gift",
       "email_label": "Recipient email",
       "email_label_optional": "Recipient email (optional)",
