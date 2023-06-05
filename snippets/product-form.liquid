@@ -27,24 +27,23 @@
   endif
 -%}
 
-
 {% capture quantity %}
-  {% if show_quantity == true %}
-    <number-input {{ block.shopify_attributes }} class="product-form__quantity number-input">
-      <label for="Quantity-{{ section.id }}" class="visually-hidden">
-        {{ 'products.product.quantity.label' | t }}
-      </label>
-      <button class="decrement __style-secondary" type="button">-</button>
-      <input
-        type="number"
-        name="quantity"
-        min="1"
-        value="1"
-        aria-label="{{ 'products.product.quantity.label' | t }}"
-      >
-      <button class="increment __style-secondary" type="button">+</button>
-    </number-input>
-  {% endif %}
+{% if show_quantity == true %}
+  <number-input {{ block.shopify_attributes }} class="product-form__quantity number-input">
+    <label for="Quantity-{{ section.id }}" class="visually-hidden">
+      {{ 'products.product.quantity.label' | t }}
+    </label>
+    <button class="decrement __style-secondary" type="button">-</button>
+    <input
+      type="number"
+      name="quantity"
+      min="1"
+      value="1"
+      aria-label="{{ 'products.product.quantity.label' | t }}"
+    >
+    <button class="increment __style-secondary" type="button">+</button>
+  </number-input>
+{% endif %}
 {% endcapture %}
 
 {% capture add_to_cart %}
@@ -71,7 +70,7 @@
   {{ block.shopify_attributes }}
   data-hide-errors="{{ gift_card_recipient_feature_active }}"
 >
-  <div class="message-error p-sm" role="alert" hidden></div>
+  <div class="message-error p-sm product-form__error-message-wrapper" role="alert" hidden></div>
 
   {%- form 'product',
     product,
@@ -84,7 +83,12 @@
       type="hidden"
       name="id"
       value="{{ product.selected_or_first_available_variant.id }}"
+      class="product-variant-id"
+      disabled
     >
+    {%- if gift_card_recipient_feature_active -%}
+      {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
+    {%- endif -%}
     {% if hide_dynamic_buttons == true %}
       <div class="product-form__row">
         {{ quantity }}
@@ -94,11 +98,6 @@
       {% if show_quantity == true %}
         <div class="product-form__row {% if include_border %}__include-border{% endif %}">{{ quantity }}</div>
       {% endif %}
-
-      {%- if gift_card_recipient_feature_active -%}
-        {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
-      {%- endif -%}
-
       <div class="product-form__column">
         {{ add_to_cart }}
         {% comment %} Dynamic checkout buttons {% endcomment %}
@@ -107,3 +106,4 @@
     {% endif %}
   {%- endform -%}
 </product-form>
+
