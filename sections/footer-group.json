@@ -22,31 +22,29 @@
         "5ca5bb4b-199c-4f4d-b86a-c18ed9b02856": {
           "type": "icon",
           "settings": {
-            "icon": "shopify://shop_images/bacon.png"
+            "icon": "shopify:\/\/shop_images\/bacon.png"
           }
         },
         "7cc3256d-ce8b-4784-ab7f-fb4875a12546": {
           "type": "icon",
           "settings": {
-            "icon": "shopify://shop_images/vanilla.png"
+            "icon": "shopify:\/\/shop_images\/vanilla.png"
           }
         },
         "abaaef85-4b2f-460e-8d2c-9d1098f5ab1f": {
           "type": "icon",
           "settings": {
-            "icon": "shopify://shop_images/lemon.png"
+            "icon": "shopify:\/\/shop_images\/lemon.png"
           }
         },
         "226f68f7-2648-489f-b5ad-35e8776022cc": {
           "type": "text_block",
           "settings": {
-            "label": "This label",
-            "max_width": 100,
-            "text": "<p>Testing some stuff right here</p>",
+            "text": "<p>Testing some stuff right here<\/p>",
             "text_size": "p-sm",
             "alignment": "center",
             "button_label": "BUtton",
-            "button_link": "shopify://pages/about",
+            "button_link": "shopify:\/\/pages\/about",
             "button_color": "default"
           }
         }
@@ -62,8 +60,7 @@
       "settings": {
         "heading": "Stay in the know",
         "description": "Be the first to receive new releases, special offers and more",
-        "text_size": "p-sm",
-        "logo": "shopify://shop_images/raw_logo_light_763448e2-7d93-4842-b26a-ebb2cb459052.png",
+        "logo": "shopify:\/\/shop_images\/raw_logo_light_763448e2-7d93-4842-b26a-ebb2cb459052.png",
         "logo_width": 110,
         "stack_logo": true,
         "show_social": true,
@@ -75,5 +72,7 @@
       }
     }
   },
-  "order": ["footer"]
+  "order": [
+    "footer"
+  ]
 }
