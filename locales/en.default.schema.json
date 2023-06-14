@@ -56,39 +56,39 @@
         },
         "social_twitter_link": {
           "label": "Twitter",
-          "info": "https://twitter.com/shopify"
+          "info": "https:\/\/twitter.com\/shopify"
         },
         "social_facebook_link": {
           "label": "Facebook",
-          "info": "https://facebook.com/shopify"
+          "info": "https:\/\/facebook.com\/shopify"
         },
         "social_pinterest_link": {
           "label": "Pinterest",
-          "info": "https://pinterest.com/shopify"
+          "info": "https:\/\/pinterest.com\/shopify"
         },
         "social_instagram_link": {
           "label": "Instagram",
-          "info": "http://instagram.com/shopify"
+          "info": "http:\/\/instagram.com\/shopify"
         },
         "social_tiktok_link": {
           "label": "TikTok",
-          "info": "https://tiktok.com/@shopify"
+          "info": "https:\/\/tiktok.com\/@shopify"
         },
         "social_tumblr_link": {
           "label": "Tumblr",
-          "info": "https://shopify.tumblr.com"
+          "info": "https:\/\/shopify.tumblr.com"
         },
         "social_snapchat_link": {
           "label": "Snapchat",
-          "info": "https://www.snapchat.com/add/shopify"
+          "info": "https:\/\/www.snapchat.com\/add\/shopify"
         },
         "social_youtube_link": {
           "label": "YouTube",
-          "info": "https://www.youtube.com/shopify"
+          "info": "https:\/\/www.youtube.com\/shopify"
         },
         "social_vimeo_link": {
           "label": "Vimeo",
-          "info": "https://vimeo.com/shopify"
+          "info": "https:\/\/vimeo.com\/shopify"
         }
       }
     },
@@ -97,7 +97,7 @@
       "settings": {
         "type_header_font": {
           "label": "Font",
-          "info": "Selecting a different font can affect the speed of your store. [Learn more about system fonts.](https://help.shopify.com/en/manual/online-store/os/store-speed/improving-speed#fonts)"
+          "info": "Selecting a different font can affect the speed of your store. [Learn more about system fonts.](https:\/\/help.shopify.com\/en\/manual\/online-store\/os\/store-speed\/improving-speed#fonts)"
         },
         "heading_scale": {
           "label": "Size scale"
@@ -113,7 +113,7 @@
         },
         "type_body_font": {
           "label": "Font",
-          "info": "Selecting a different font can affect the speed of your store. [Learn more about system fonts.](https://help.shopify.com/en/manual/online-store/os/store-speed/improving-speed#fonts)"
+          "info": "Selecting a different font can affect the speed of your store. [Learn more about system fonts.](https:\/\/help.shopify.com\/en\/manual\/online-store\/os\/store-speed\/improving-speed#fonts)"
         },
         "body_scale": {
           "label": "Size scale"
@@ -584,7 +584,7 @@
           }
         },
         "divider": {
-          "name": "Divider/Space",
+          "name": "Divider\/Space",
           "top_spacing": {
             "label": "Top Spacing"
           },
@@ -620,7 +620,7 @@
           "name": "Product rating",
           "settings": {
             "paragraph": {
-              "content": "To display a rating, add a product rating app. [Learn more](https://help.shopify.com/manual/online-store/themes/theme-structure/theme-features#featured-product-rating)"
+              "content": "To display a rating, add a product rating app. [Learn more](https:\/\/help.shopify.com\/manual\/online-store\/themes\/theme-structure\/theme-features#featured-product-rating)"
             }
           }
         }
@@ -665,7 +665,7 @@
         },
         "hero": {
           "label": "Use as hero",
-          "info": "Select this setting if this section contains the page title. Try to include one page title/hero section per page. Learn More TODO: Link to documentation."
+          "info": "Select this setting if this section contains the page title. Try to include one page title\/hero section per page. Learn More TODO: Link to documentation."
         },
         "alignment": {
           "options": {
@@ -2000,7 +2000,7 @@
           "label": "Heading"
         },
         "paragraph": {
-          "content": "Dynamic recommendations use order and product information to change and improve over time. [Learn more](https://help.shopify.com/themes/development/recommended-products)"
+          "content": "Dynamic recommendations use order and product information to change and improve over time. [Learn more](https:\/\/help.shopify.com\/themes\/development\/recommended-products)"
         },
         "heading_size": {
           "options": {
@@ -3082,7 +3082,7 @@
         },
         "hero": {
           "label": "Use as hero",
-          "info": "Select this setting if this section contains the page title. Try to include one page title/hero section per page. Learn More TODO: Link to documentation."
+          "info": "Select this setting if this section contains the page title. Try to include one page title\/hero section per page. Learn More TODO: Link to documentation."
         },
         "alignment": {
           "label": "Alignment",
@@ -3243,7 +3243,7 @@
           }
         },
         "buy_buttons": {
-          "name": "Buy buttons/quantity",
+          "name": "Buy buttons\/quantity",
           "settings": {
             "show_quantity": {
               "label": "Show quantity selector"
@@ -3279,7 +3279,7 @@
           }
         },
         "divider": {
-          "name": "Divider/Space",
+          "name": "Divider\/Space",
           "settings": {
             "top": {
               "label": "Top Spacing"
@@ -3296,7 +3296,7 @@
           "name": "Product rating",
           "settings": {
             "paragraph": {
-              "content": "To display a rating, add a product rating app. [Learn more](https://help.shopify.com/manual/online-store/themes/theme-structure/theme-features#featured-product-rating)"
+              "content": "To display a rating, add a product rating app. [Learn more](https:\/\/help.shopify.com\/manual\/online-store\/themes\/theme-structure\/theme-features#featured-product-rating)"
             }
           }
         }
@@ -3888,7 +3888,7 @@
         },
         "hero": {
           "label": "Use as hero",
-          "info": "Select this setting if this section contains the page title. Try to include one page title/hero section per page. Learn More TODO: Link to documentation."
+          "info": "Select this setting if this section contains the page title. Try to include one page title\/hero section per page. Learn More TODO: Link to documentation."
         },
         "header_3": {
           "content": "Article Cards"
