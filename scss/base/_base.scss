@@ -564,6 +564,13 @@ input[type="submit"] {
       background: RGB(var(--color-foreground-text));
     }
   }
+
+  &.btn:not(:empty) {
+    padding-right: calc(
+      calc(var(--btnHeight) * var(--btnSidesSpace)) +
+        var(--expandableContentIconWidth)
+    );
+  }
 }
 
 // Placeholder SVG styles

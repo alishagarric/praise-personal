@@ -1,11 +1,11 @@
 {
   "current": {
-    "social_twitter_link": "https:\/\/twitter.com\/shopify",
-    "social_facebook_link": "https:\/\/facebook.com\/shopify",
+    "social_twitter_link": "https://twitter.com/shopify",
+    "social_facebook_link": "https://facebook.com/shopify",
     "social_pinterest_link": "",
-    "social_instagram_link": "http:\/\/instagram.com\/shopify",
-    "social_tiktok_link": "https:\/\/tiktok.com\/@shopify",
-    "social_youtube_link": "https:\/\/www.youtube.com\/shopify",
+    "social_instagram_link": "http://instagram.com/shopify",
+    "social_tiktok_link": "https://tiktok.com/@shopify",
+    "social_youtube_link": "https://www.youtube.com/shopify",
     "type_heading_font": "work_sans_n6",
     "heading_scale": 100,
     "type_body_font": "inter_n4",
@@ -16,6 +16,7 @@
     "background_color": "#f6f5f3",
     "text_color": "#4f4d4d",
     "border_color": "#d0d0d0",
+    "button_sides_space": "2",
     "button_color": "#447108",
     "button_text_color": "#f6f5f3",
     "background_color_2": "#edebe6",
@@ -40,25 +41,21 @@
     "button_text_color_5": "#fcfcfc",
     "button_height": 38,
     "custom_icon_title_1": "Fresh",
-    "custom_icon_1": "shopify:\/\/shop_images\/noun-flowers-2418113.png",
+    "custom_icon_1": "shopify://shop_images/noun-flowers-2418113.png",
     "custom_icon_title_2": "Flavorful",
-    "custom_icon_2": "shopify:\/\/shop_images\/noun-plant-3309113.png",
+    "custom_icon_2": "shopify://shop_images/noun-plant-3309113.png",
     "custom_icon_title_3": "Skin Boost",
-    "custom_icon_3": "shopify:\/\/shop_images\/noun-berries-2418110.png",
+    "custom_icon_3": "shopify://shop_images/noun-berries-2418110.png",
     "custom_icon_title_4": "Nutritious",
-    "custom_icon_4": "shopify:\/\/shop_images\/noun-plant-2229880_245f09f6-0298-4c28-9ad3-f1af0c512b96.png",
+    "custom_icon_4": "shopify://shop_images/noun-plant-2229880_245f09f6-0298-4c28-9ad3-f1af0c512b96.png",
     "checkout_accent_color": "#447108",
     "checkout_button_color": "#447108",
     "type_header_font": "abril_fatface_n4",
-    "custom_heading_font_link": "https:\/\/cdn.shopify.com\/s\/files\/1\/0662\/3235\/2990\/files\/MyFontsWebfontsKit.css?v=1661972191",
+    "custom_heading_font_link": "https://cdn.shopify.com/s/files/1/0662/3235/2990/files/MyFontsWebfontsKit.css?v=1661972191",
     "custom_heading_font_family_name": "Bebas Neue",
-    "content_for_index": [
-
-    ]
+    "content_for_index": []
   },
   "platform_customizations": {
-    "custom_css": [
-
-    ]
+    "custom_css": []
   }
 }

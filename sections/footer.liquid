@@ -91,9 +91,9 @@
       {% endif %}
 
       {% if section.settings.information %}
-        <p class="{{ section.settings.text_size }}">
+        <div class="__article-txt-{{ section.settings.description_text_size }} {{ section.settings.description_text_size }}">
           {{ section.settings.information }}
-        </p>
+        </div>
       {% endif %}
       {% if section.settings.heading %}
         <h2 class="h6 alt">
@@ -101,7 +101,7 @@
         </h2>
       {% endif %}
       {% if section.settings.description %}
-        <p class="{{ section.settings.text_size }}">
+        <p class="{{ section.settings.description_text_size }}">
           {{ section.settings.description }}
         </p>
       {% endif %}
@@ -113,9 +113,9 @@
     {% endif %}
 
     {% if section.settings.details %}
-      <p class="{{ section.settings.text_size }}">
+      <div class="__article-txt-{{ section.settings.description_text_size }} {{ section.settings.description_text_size }}">
         {{ section.settings.details }}
-      </p>
+      </div>
     {% endif %}
 
     {% comment %} Social Icons {% endcomment %}
@@ -354,7 +354,7 @@
     },
     {
       "type": "select",
-      "id": "text_size",
+      "id": "description_text_size",
       "options": [
         {
           "value": "p-sm",

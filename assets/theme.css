@@ -1064,6 +1064,8 @@ input[type="submit"] {
     transform: rotate(90deg); }
   .__with-plus.btn:not(.__style-secondary):not(.__style-underline):before, .__with-plus.btn:not(.__style-secondary):not(.__style-underline):after {
     background: RGB(var(--color-foreground-text)); }
+  .__with-plus.btn:not(:empty) {
+    padding-right: calc( calc(var(--btnHeight) * var(--btnSidesSpace)) + var(--expandableContentIconWidth) ); }
 
 .placeholder-svg,
 .page-placeholder {
