@@ -109,6 +109,10 @@
     flex-wrap: wrap;
     gap: var(--pxSize);
 
+    &__block {
+      min-width: fit-content;
+    }
+
     + * {
       margin-top: var(--pxSize);
     }

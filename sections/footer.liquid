@@ -54,7 +54,10 @@
     {%- when 'text_block' -%}
       {% capture link_list_and_text_blocks %}
         {{ link_list_and_text_blocks }}
-        <div class="section-footer__blocks__block __align-{{ block.settings.alignment }}">
+        <div class="section-footer__blocks__block __align-{{ block.settings.alignment }}" style="max-width:{{ block.settings.max_width }}px;">
+          {%- if block.settings.label -%}
+            <p class="section-footer__header h6 alt">{{- block.settings.label | escape -}}</p>
+          {%- endif -%}
           {%- if block.settings.text -%}
             <div class="__article-txt-{{ block.settings.text_size }} {{ block.settings.text_size }}" {{ block.shopify_attributes }}>
               {{ block.settings.text }}
@@ -72,11 +75,6 @@
 {%- endfor -%}
 
 
-
-
-
-
-
 <footer id="Section-footer-{{ section.id }}" class="section-footer">
   <div class="section-footer__col __theme-{{section.settings.accent_theme}}">
     {% comment %} Text content and logo {% endcomment %}
@@ -92,6 +90,11 @@
         </div>
       {% endif %}
 
+      {% if section.settings.information %}
+        <p class="{{ section.settings.text_size }}">
+          {{ section.settings.information }}
+        </p>
+      {% endif %}
       {% if section.settings.heading %}
         <h2 class="h6 alt">
           {{ section.settings.heading }}
@@ -100,6 +103,11 @@
       {% if section.settings.description %}
         <p class="{{ section.settings.text_size }}">
           {{ section.settings.description }}
+        </p>
+      {% endif %}
+      {% if section.settings.details %}
+        <p class="{{ section.settings.text_size }}">
+          {{ section.settings.detailsn }}
         </p>
       {% endif %}
     </div>
@@ -212,6 +220,11 @@
           "content": "t:sections.footer.blocks.text-block.settings.header_2.content"
         },
         {
+          "type": "text",
+          "id": "label",
+          "label": "t:sections.footer.blocks.text-block.settings.label.label"
+        },
+        {
           "type": "richtext",
           "id": "text",
           "label": "t:sections.footer.blocks.text-block.settings.text.label"
@@ -255,6 +268,17 @@
             }
           ],
           "default": "left"
+        },
+        {
+          "type": "range",
+          "id": "max_width",
+          "min": 100,
+          "max": 600,
+          "step": 20,
+          "unit": "px",
+          "label": "t:sections.footer.blocks.text-block.settings.max_width.label",
+          "default": 200,
+          "label": "t:sections.footer.blocks.text-block.settings.max_width.info"
         },
         {
           "type": "text",
@@ -307,6 +331,11 @@
       "content": "t:sections.footer.settings.header.content"
     },
     {
+      "type": "richtext",
+      "id": "information",
+      "label": "t:sections.footer.settings.information.label"
+    },
+    {
       "type": "text",
       "id": "heading",
       "default": "Subscribe to our newsletter",
@@ -318,24 +347,9 @@
       "label": "t:sections.footer.settings.description.label"
     },
     {
-      "type": "select",
-      "id": "text_size",
-      "options": [
-        {
-          "value": "p-sm",
-          "label": "t:sections.footer.settings.description_text_size.options.label_1"
-        },
-        {
-          "value": "p",
-          "label": "t:sections.footer.settings.description_text_size.options.label_2"
-        },
-        {
-          "value": "p-lg",
-          "label": "t:sections.footer.settings.description_text_size.options.label_3"
-        }
-      ],
-      "default": "p-sm",
-      "label": "t:sections.footer.settings.description_text_size.label"
+      "type": "richtext",
+      "id": "details",
+      "label": "t:sections.footer.settings.details.label"
     },
     {
       "type": "header",
