@@ -86,6 +86,6 @@
             background: RGB(var(--color-background)); }
           .featured-product:not(.__layout-mobile-reversed) .featured-product__image > * {
             position: relative; } }
-  @media screen and (min-width: 1680px) {
+  @media screen and (min-width: 1920px) {
     .featured-product__text__first-half:before {
       width: var(--siteMaxWidth); } }

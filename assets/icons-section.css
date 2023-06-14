@@ -1,20 +1,24 @@
 .icons-section {
-  --iconsSectionGap: var(--vwSize); }
+  --iconsSectionGap: calc(var(--vwSize) * var(--gapMultiplier)); }
   .icons-section__heading + * {
     padding-top: calc(var(--pxSize) / 2); }
   .icons-section__icons {
     display: flex;
-    flex-flow: row wrap;
-    gap: var(--vwSize) 0; }
+    flex-flow: row wrap; }
     .icons-section__icons__icon {
       text-align: center; }
       .icons-section__icons__icon img,
       .icons-section__icons__icon svg {
         height: min(var(--iconHeight), calc( 100vw - var(--sectionGuttersSpacing) - var(--sectionGuttersSpacing) ));
-        width: auto;
+        width: auto; }
+      .icons-section__icons__icon:has(p, h3) img,
+      .icons-section__icons__icon:has(p, h3) svg {
         margin-bottom: 1rem; }
     .icons-section__icons.__layout-rows {
       gap: var(--iconsSectionGap); }
+      .icons-section__icons.__layout-rows .icons-section__icons__icon {
+        margin-left: 0;
+        margin-right: 0; }
     .icons-section__icons:not(.__layout-rows) {
       gap: var(--iconsSectionGap) 0; }
       .icons-section__icons:not(.__layout-rows) .icons-section__icons__icon {

@@ -8,11 +8,74 @@
 {% endstyle %}
 
 {% liquid
-  assign icons = false
   assign img_width = section.settings.logo_width | times: 2
   assign img_widths = img_width | append: ', ' | append: section.settings.logo_width
   assign img_sizes = section.settings.logo_width | append: 'px'
 %}
+
+{% comment %}
+  Seperate the blocks into groups to display in different spots
+{% endcomment %}
+ 
+{%- for block in section.blocks -%}
+  {%- case block.type -%}
+
+    {%- when 'link_list' -%}
+      {% capture link_list_and_text_blocks %}
+        {{ link_list_and_text_blocks }}
+        <div class="section-footer__blocks__block" {{ block.shopify_attributes }}>
+          {%- if block.settings.heading != blank -%}
+            <p class="section-footer__header h6 alt">{{- block.settings.heading | escape -}}</p>
+          {%- endif -%}
+          {%- if block.settings.menu != blank -%}
+            <ul class="section-footer__links list-unstyled">
+              {%- for link in block.settings.menu.links -%}
+                <li class="section-footer__links__item">
+                  <a class="section-footer__links__item__link p-sm" href="{{ link.url }}">
+                    {{ link.title }}
+                  </a>
+                </li>
+              {%- endfor -%}
+            </ul>
+          {%- endif -%}
+        </div>
+      {% endcapture %}
+
+    {%- when 'icon' -%}
+      {% capture icon_blocks %}
+        {{ icon_blocks }}
+        <div class="section-footer__badges__badge">
+          {%- if block.settings.icon != blank -%}
+            {% render 'next-gen-img', image: block.settings.icon, height: 100 %}
+          {%- endif -%}
+        </div>
+      {% endcapture %}
+
+    {%- when 'text_block' -%}
+      {% capture link_list_and_text_blocks %}
+        {{ link_list_and_text_blocks }}
+        <div class="section-footer__blocks__block __align-{{ block.settings.alignment }}">
+          {%- if block.settings.text -%}
+            <div class="__article-txt-{{ block.settings.text_size }} {{ block.settings.text_size }}" {{ block.shopify_attributes }}>
+              {{ block.settings.text }}
+            </div>
+          {%- endif -%}
+          {% render 'button',
+            button_label: block.settings.button_label,
+            button_link: block.settings.button_link,
+            button_color: block.settings.button_color
+          %}                
+        </div>
+      {% endcapture %}
+
+  {%- endcase -%}
+{%- endfor -%}
+
+
+
+
+
+
 
 <footer id="Section-footer-{{ section.id }}" class="section-footer">
   <div class="section-footer__col __theme-{{section.settings.accent_theme}}">
@@ -58,48 +121,16 @@
 
   {% comment %} Primary links {% endcomment %}
   <div class="section-footer__col __theme-{{ section.settings.theme }}">
-    {%- if section.blocks.size > 0 -%}
+    {%- if link_list_and_text_blocks != blank -%}
       <div class="section-footer__blocks">
-        {%- for block in section.blocks -%}
-          {%- case block.type -%}
-            {%- when 'link_list' -%}
-              <div class="section-footer__blocks__block" {{ block.shopify_attributes }}>
-                {%- if block.settings.heading != blank -%}
-                  <p class="section-footer__header h6 alt">{{- block.settings.heading | escape -}}</p>
-                {%- endif -%}
-                {%- if block.settings.menu != blank -%}
-                  <ul class="section-footer__links list-unstyled">
-                    {%- for link in block.settings.menu.links -%}
-                      <li class="section-footer__links__item">
-                        <a class="section-footer__links__item__link p-sm" href="{{ link.url }}">
-                          {{ link.title }}
-                        </a>
-                      </li>
-                    {%- endfor -%}
-                  </ul>
-                {%- endif -%}
-              </div>
-
-            {%- when 'icon' -%}
-              {% assign icons = true %}
-          {%- endcase -%}
-        {%- endfor -%}
+        {{ link_list_and_text_blocks }}
       </div>
     {%- endif -%}
 
     {% comment %} Badges/icons {% endcomment %}
-    {% if icons == true %}
+    {% if icon_blocks != blank %}
       <div class="section-footer__badges">
-        {%- for block in section.blocks -%}
-          {%- case block.type -%}
-            {%- when 'icon' -%}
-              <div class="section-footer__badges__badge">
-                {%- if block.settings.icon != blank -%}
-                  {% render 'next-gen-img', image: block.settings.icon, height: 100 %}
-                {%- endif -%}
-              </div>
-          {%- endcase -%}
-        {%- endfor -%}
+        {{ icon_blocks }}
       </div>
     {% endif %}
 
@@ -169,6 +200,103 @@
           "type": "image_picker",
           "id": "icon",
           "label": "t:sections.footer.blocks.icon.settings.image_picker.label"
+        }
+      ]
+    },
+    {
+      "type": "text_block",
+      "name": "t:sections.footer.blocks.text-block.name",
+      "settings": [
+        {
+          "type": "header",
+          "content": "t:sections.footer.blocks.text-block.settings.header_2.content"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "t:sections.footer.blocks.text-block.settings.text.label"
+        },
+        {
+          "type": "select",
+          "id": "text_size",
+          "options": [
+            {
+              "value": "p-sm",
+              "label": "t:sections.footer.blocks.text-block.settings.text_size.options.label_1"
+            },
+            {
+              "value": "p",
+              "label": "t:sections.footer.blocks.text-block.settings.text_size.options.label_2"
+            },
+            {
+              "value": "p-lg",
+              "label": "t:sections.footer.blocks.text-block.settings.text_size.options.label_3"
+            }
+          ],
+          "default": "p-sm",
+          "label": "t:sections.footer.blocks.text-block.settings.text_size.label"
+        },
+        {
+          "type": "radio",
+          "id": "alignment",
+          "label": "Text Alignment",
+          "options": [
+            {
+              "value": "left",
+              "label": "t:sections.footer.blocks.text-block.settings.alignment.options.label_1"
+            },
+            {
+              "value": "center",
+              "label": "t:sections.footer.blocks.text-block.settings.alignment.options.label_2"
+            },
+            {
+              "value": "right",
+              "label": "t:sections.footer.blocks.text-block.settings.alignment.options.label_3"
+            }
+          ],
+          "default": "left"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "t:sections.footer.blocks.text-block.settings.button_label.label"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "t:sections.footer.blocks.text-block.settings.button_link.label"
+        },
+        {
+          "type": "select",
+          "id": "button_color",
+          "label": "t:sections.footer.blocks.text-block.settings.button_color.label",
+          "default": "default",
+          "options": [
+            {
+              "value": "default",
+              "label": "t:sections.footer.blocks.text-block.settings.button_color.options.label_0"
+            },
+            {
+              "value": "primary",
+              "label": "t:sections.footer.blocks.text-block.settings.button_color.options.label_1"
+            },
+            {
+              "value": "2",
+              "label": "t:sections.footer.blocks.text-block.settings.button_color.options.label_2"
+            },
+            {
+              "value": "3",
+              "label": "t:sections.footer.blocks.text-block.settings.button_color.options.label_3"
+            },
+            {
+              "value": "4",
+              "label": "t:sections.footer.blocks.text-block.settings.button_color.options.label_4"
+            },
+            {
+              "value": "5",
+              "label": "t:sections.footer.blocks.text-block.settings.button_color.options.label_5"
+            }
+          ]
         }
       ]
     }

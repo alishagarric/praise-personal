@@ -5,11 +5,15 @@
 {{ 'number-input.css' | asset_url | stylesheet_tag }}
 {{ 'overlay-nav.css' | asset_url | stylesheet_tag }}
 
-{% assign className = 'site-header' %}
-{% assign menu_count = 1 %}
-{% if section.settings.menu_second != blank %}
-  {% assign menu_count = 2 %}
-{% endif %}
+{% liquid
+  assign className = 'site-header'
+  assign menu_count = 1
+  assign img_height = section.settings.logo_height | times: 75 | times: 2 | append: 'px'
+  assign logo_alt = section.settings.logo.alt | default: shop.name
+  if section.settings.menu_second != blank
+    assign menu_count = 2
+  endif
+ %}
 
 
 {% comment %} Output navigation twice, one to display on scroll up and one that always exists at the top of the page content {% endcomment %}
@@ -35,17 +39,17 @@
     {% comment %} Logo {% endcomment %}
     <div
       class="{{ className }}__logo"
+      style="--logoMultiplier: {{ section.settings.logo_height }}"
     >
       <a href="{{ routes.root_url }}">
         {%- if section.settings.logo != blank -%}
-          {% assign logo_alt = section.settings.logo.alt | default: shop.name %}
-          {{
-            section.settings.logo
-            | image_url: width: 250
-            | image_tag: width: 125, alt: logo_alt
-            | default: shop.name
-            | escape
-          }}
+
+          {% render 'next-gen-img',
+            image: section.settings.logo,
+            height: img_height,
+            alt: logo_alt
+            preload: true
+          %}
         {%- else -%}
           <span class="{{ className }}__logo__text h4">{{ shop.name }}</span>
         {%- endif -%}
@@ -243,6 +247,16 @@
       "type": "image_picker",
       "id": "logo",
       "label": "t:sections.header.settings.logo.label"
+    },
+    {
+      "type": "range",
+      "id": "logo_height",
+      "min": 1,
+      "max": 2,
+      "step": 0.1,
+      "unit": "x",
+      "label": "t:sections.header.settings.logo_height.label",
+      "default": 1
     },
     {
       "type": "link_list",

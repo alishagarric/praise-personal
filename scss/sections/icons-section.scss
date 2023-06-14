@@ -1,5 +1,5 @@
 .icons-section {
-  --iconsSectionGap: var(--vwSize);
+  --iconsSectionGap: calc(var(--vwSize) * var(--gapMultiplier));
 
   &__heading {
     + * {
@@ -10,7 +10,6 @@
   &__icons {
     display: flex;
     flex-flow: row wrap;
-    gap: var(--vwSize) 0;
 
     &__icon {
       text-align: center;
@@ -24,12 +23,24 @@
           )
         );
         width: auto;
-        margin-bottom: 1rem;
+      }
+
+      &:has(p, h3) {
+        img,
+        svg {
+          margin-bottom: 1rem;
+        }
       }
     }
 
     &.__layout-rows {
       gap: var(--iconsSectionGap);
+
+      .icons-section__icons__icon {
+        //overiide __align-center margin autos
+        margin-left: 0;
+        margin-right: 0;
+      }
     }
 
     &:not(.__layout-rows) {

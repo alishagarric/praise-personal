@@ -44,6 +44,7 @@
   &.__style-password {
     background-color: RGB(var(--color-background));
     display: flex;
+    position: relative;
     padding-right: var(--siteHeaderGuttersSpace);
   }
 
@@ -83,7 +84,8 @@
     }
 
     img {
-      height: calc(var(--navHeight) * 0.6);
+      height: calc(calc(var(--navHeight) * 0.6) * var(--logoMultiplier));
+      margin: calc(calc(var(--navHeight) * 0.2) * var(--logoMultiplier)) 0;
       width: auto;
     }
   }
@@ -431,6 +433,8 @@
 
     // Logo
     &__logo {
+      --logoMultiplier: 1 !important;
+
       &__text {
         font-size: calc(0.9rem * var(--font-heading-scale));
       }
