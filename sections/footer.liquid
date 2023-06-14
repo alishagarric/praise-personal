@@ -105,16 +105,17 @@
           {{ section.settings.description }}
         </p>
       {% endif %}
-      {% if section.settings.details %}
-        <p class="{{ section.settings.text_size }}">
-          {{ section.settings.detailsn }}
-        </p>
-      {% endif %}
     </div>
 
     {% comment %} Newsletter {% endcomment %}
     {% if section.settings.newsletter_enable %}
       {% render 'newsletter-signup', class: 'section-footer__newsletter', style: 'bold' %}
+    {% endif %}
+
+    {% if section.settings.details %}
+      <p class="{{ section.settings.text_size }}">
+        {{ section.settings.details }}
+      </p>
     {% endif %}
 
     {% comment %} Social Icons {% endcomment %}
@@ -350,6 +351,26 @@
       "type": "richtext",
       "id": "details",
       "label": "t:sections.footer.settings.details.label"
+    },
+    {
+      "type": "select",
+      "id": "text_size",
+      "options": [
+        {
+          "value": "p-sm",
+          "label": "t:sections.footer.settings.description_text_size.options.label_1"
+        },
+        {
+          "value": "p",
+          "label": "t:sections.footer.settings.description_text_size.options.label_2"
+        },
+        {
+          "value": "p-lg",
+          "label": "t:sections.footer.settings.description_text_size.options.label_3"
+        }
+      ],
+      "default": "p-sm",
+      "label": "t:sections.footer.settings.description_text_size.label"
     },
     {
       "type": "header",
