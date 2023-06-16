@@ -445,7 +445,7 @@ input[type="submit"] {
 
   &:hover:not(:disabled):not([aria-disabled="true"]):not(
       .shopify-payment-button__more-options
-    ):not(.standard-flickity-dot):not(.xr-button) {
+    ):not(.standard-flickity-dot):not(.xr-button):not(.__style-underline) {
     background: RGB(var(--color-foreground-text));
     color: RGB(var(--color-foreground));
     border: 1px solid RGB(var(--color-foreground));

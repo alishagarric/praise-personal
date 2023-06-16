@@ -248,7 +248,7 @@
     },
     "main-product": {
       "name": "Main Product",
-      "paragraph": "Explore re-ordering the media block to see how it affects the layout. Ordering it as the first block or last block breaks the layout into two columns, where ordering it somewhere in the middle breaks it into three columns.",
+      "paragraph": "Explore re-ordering the media block to see how it affects the layout. Ordering it as the first block or last block divides the layout into two columns. However, ordering it somewhere in the middle divides the layout into three columns.",
       "blocks": {
         "custom_liquid": {
           "name": "Custom Liquid"
@@ -3331,9 +3331,12 @@
         "link_list": {
           "label": "Main Menu"
         },
-        "link_list_2": {
-          "label": "Second Menu",
-          "info": "Choose a second menu if you'd like to center the logo between them"
+        "logo_placement": {
+          "label": "Logo Placement",
+          "options": {
+            "label_1": "Left",
+            "label_2": "Center"
+          }
         },
         "always_show_nav": {
           "label": "Don't hide navigation bar on scroll down"
@@ -3825,6 +3828,21 @@
             "label_11": "Arch"
           },
           "label": "Image Crop Shape"
+        },
+        "header_4": {
+          "content": "General"
+        },
+        "dot_color": {
+          "label": "Dot Color",
+          "info": "By default, the dots assume the color you set for 'Button' in the theme assigned to this section. However, you can override that dots color using this setting. Furthermore, if you'd like each dot to assume its product's assigned color, leave this setting as 'Default' and set up product color metafields instead. [Learn More](https://commencecommerce.zendesk.com/hc/en-us/articles/16575057325844-Product-Color-And-Text-Color-Metafields).",
+          "options": {
+            "label_1": "Default",
+            "label_2": "Primary Theme",
+            "label_3": "2nd Theme",
+            "label_4": "3rd Theme",
+            "label_5": "4th Theme",
+            "label_6": "5th Theme"
+          }
         },
         "header_3": {
           "content": "Section"
