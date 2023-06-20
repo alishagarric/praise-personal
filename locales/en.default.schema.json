@@ -3516,6 +3516,85 @@
         }
       }
     },
+    "gallery": {
+      "presets": {
+        "name": "Gallery"
+      },
+      "settings": {
+        "header": {
+          "content": "General"
+        },
+        "gallery_sapce": {
+          "label": "Image Spacing",
+          "info": "Specify the amount of space between each image"
+        },
+        "section_width": {
+          "label": "Section Width"
+        },
+        "alignment": {
+          "label": "Alignment",
+          "options": {
+            "label_1": "Left",
+            "label_2": "Center",
+            "label_3": "Right"
+          }
+        },
+        "header_2": {
+          "content": "Section"
+        },
+        "theme": {
+          "options": {
+            "label_1": "Primary Theme",
+            "label_2": "2nd Theme",
+            "label_3": "3rd Theme",
+            "label_4": "4th Theme",
+            "label_5": "5th Theme"
+          },
+          "label": "Theme"
+        },
+        "top_spacing": {
+          "label": "Top Spacing"
+        },
+        "bottom_spacing": {
+          "label": "Bottom Spacing"
+        }
+      },
+      "blocks": {
+        "image": {
+          "name": "image",
+          "settings": {
+            "image": {
+              "label": "Image"
+            },
+            "crop_shape": {
+              "options": {
+                "label_1": "No Crop",
+                "label_2": "Square",
+                "label_3": "Rounded Square",
+                "label_4": "Circle",
+                "label_5": "Portrait",
+                "label_6": "Rounded Portrait",
+                "label_7": "Semicircle Portrait",
+                "label_8": "Landscape",
+                "label_9": "Rounded Landscape",
+                "label_10": "Semicircle Landscape",
+                "label_11": "Wide",
+                "label_12": "Rounded Wide",
+                "label_13": "Semicircle Wide",
+                "label_14": "Arch"
+              },
+              "label": "Crop Shape"
+            },
+            "width": {
+              "label": "Width"
+            },
+            "mobile_width": {
+              "label": "Mobile Width"
+            }
+          }
+        }
+      }
+    },
     "image-banner": {
       "name": "Image banner",
       "presets": {
