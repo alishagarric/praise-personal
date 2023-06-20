@@ -15,26 +15,50 @@
 {% endstyle %}
 
 <div id="Gallery-{{ section.id }}" class="gallery __theme-{{ section_theme }} __align-{{ alignment }} __style-{{ section.settings.section_width }}" style="--gallerySpaceMultiplier: {{ section.settings.gallery_space }};">
-  {%- for block in section.blocks -%}
-    {%- case block.type -%}
-        {% comment %} Type image {% endcomment %}
-      {%- when 'image' -%}
-        <div class="gallery__image" style="--desktopWidth: {{ block.settings.width }}); --mobileWidth: {{ block.settings.width_mobile }};">
-          <div class="gallery__image__inner image-container __crop-{{ block.settings.crop_shape }}"  style="--imageRatio: {{ block.image.height | divided_by: 1.00 | divided_by: block.image.width | times: 100 }}%;">
-            {% if block.settings.image != null %}
-              {% render 'next-gen-img',
-                image: block.settings.image,
-                width: 1920,
-                widths: '1920, 1400, 1100, 900, 600',
-                sizes: '(max-width: 676px) 100vw, 50vw',
-                preload: false
-              %}
-            {% endif %}
-          </div>
-        </div>
+  <div class="gallery__container">
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+      
+          {% comment %} Type image {% endcomment %}
+        {%- when 'image' -%}
+          <div class="gallery__image" style="--desktopWidth: {{ block.settings.width }}; --mobileWidth: {{ block.settings.mobile_width }};">
+            <div class="gallery__image__inner image-container __crop-{{ block.settings.crop_shape }}"  style="--imageRatio: {{ block.settings.image.height | divided_by: 1.00 | divided_by: block.settings.image.width | times: 100 }}%;">
+              {% if block.settings.image != null %}
 
-    {% endcase %}
-  {%- endfor -%}
+                {% liquid
+                  if block.settings.width == "1/5"
+                    assign width = 1920
+                    assign widths = '1920, '
+                    assign sizes = '20vw'
+                  elsif columns_desktop == 4
+                    assign width = 800
+                    assign widths = '800, 400'
+                    assign sizes = '25vw'
+                  elsif columns_desktop == 3
+                    assign width = 1100
+                    assign widths = '1100, 600'
+                    assign sizes = '33vw'
+                  else
+                    assign width = 1700
+                    assign widths = '1700, 815'
+                    assign sizes = '50vw'
+                  endif
+                %}
+                {% comment %} TODO - calculate this {% endcomment %}
+                {% render 'next-gen-img',
+                  image: block.settings.image,
+                  width: 1920,
+                  widths: '1920, 1400, 1100, 900, 600',
+                  sizes: '(max-width: 676px) 100vw, 50vw',
+                  preload: false
+                %}
+              {% endif %}
+            </div>
+          </div>
+
+      {% endcase %}
+    {%- endfor -%}
+  </div>
 </div>
 
 {% schema %}
@@ -56,7 +80,7 @@
       "unit": "x",
       "label": "t:sections.gallery.settings.gallery_space.label",
       "info": "t:sections.gallery.settings.gallery_space.info",
-      "default": 100
+      "default": 1
     },
     {
       "type": "select",
@@ -75,7 +99,7 @@
           "label": "Fullwidth With Image Spacing"
         }
       ],
-      "default": "primary",
+      "default": "default",
       "label": "t:sections.gallery.settings.section_width.label"
     },
     {

@@ -3517,6 +3517,7 @@
       }
     },
     "gallery": {
+      "name": "Gallery",
       "presets": {
         "name": "Gallery"
       },
@@ -3524,7 +3525,7 @@
         "header": {
           "content": "General"
         },
-        "gallery_sapce": {
+        "gallery_space": {
           "label": "Image Spacing",
           "info": "Specify the amount of space between each image"
         },
@@ -3561,7 +3562,7 @@
       },
       "blocks": {
         "image": {
-          "name": "image",
+          "name": "Image",
           "settings": {
             "image": {
               "label": "Image"
