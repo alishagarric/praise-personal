@@ -24,26 +24,6 @@
           <div class="gallery__image" style="--desktopWidth: {{ block.settings.width }}; --mobileWidth: {{ block.settings.mobile_width }};">
             <div class="gallery__image__inner image-container __crop-{{ block.settings.crop_shape }}"  style="--imageRatio: {{ block.settings.image.height | divided_by: 1.00 | divided_by: block.settings.image.width | times: 100 }}%;">
               {% if block.settings.image != null %}
-
-                {% liquid
-                  if block.settings.width == "1/5"
-                    assign width = 1920
-                    assign widths = '1920, '
-                    assign sizes = '20vw'
-                  elsif columns_desktop == 4
-                    assign width = 800
-                    assign widths = '800, 400'
-                    assign sizes = '25vw'
-                  elsif columns_desktop == 3
-                    assign width = 1100
-                    assign widths = '1100, 600'
-                    assign sizes = '33vw'
-                  else
-                    assign width = 1700
-                    assign widths = '1700, 815'
-                    assign sizes = '50vw'
-                  endif
-                %}
                 {% comment %} TODO - calculate this {% endcomment %}
                 {% render 'next-gen-img',
                   image: block.settings.image,
@@ -61,6 +41,7 @@
   </div>
 </div>
 
+{% comment %}
 {% schema %}
 {
   "name": "t:sections.gallery.name",
@@ -360,3 +341,4 @@
   ]
 }
 {% endschema %}
+{% endcomment %}
