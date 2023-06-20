@@ -1,7 +1,7 @@
 .site-header {
   --siteHeaderGuttersSpace: calc(var(--pxSize) * 1.5);
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto 1fr;
   gap: 0 var(--pxSize);
   justify-content: space-between;
   align-items: center;
@@ -51,7 +51,7 @@
   //center the logo between the links
   &.__center-links {
     justify-content: center;
-    grid-template-columns: 1fr auto 1fr auto;
+    grid-template-columns: 1fr auto 1fr;
 
     .site-header {
       &__logo {
@@ -64,7 +64,7 @@
   &__logo {
     display: flex;
     min-height: var(--navHeight);
-    order: 2; //preset order for when user wants to center the logo. Doesn't effect the output if they don't
+    order: 1; //preset order for when user wants to center the logo. Doesn't effect the output if they don't
 
     * {
       margin-bottom: 0;
@@ -90,6 +90,23 @@
     }
   }
 
+  //wrapper around the links containers
+  &__col {
+    display: flex;
+    gap: 0 var(--pxSize);
+
+    order: 0; //preset order for when user wants to center the logo. Doesn't effect the output if they don't
+
+    + .site-header__col,
+    &:last-child {
+      order: 2;
+
+      .site-header__main {
+        justify-content: flex-start;
+      }
+    }
+  }
+
   // All the links container (can be two of these output if they decide to center logo)
   &__main {
     display: flex;
@@ -100,12 +117,7 @@
     align-self: stretch;
     min-height: var(--navHeight);
     z-index: 3;
-    order: 3; //preset order for when user wants to center the logo. Doesn't effect the output if they don't
-
-    + .site-header__main {
-      order: 1;
-      justify-content: flex-end;
-    }
+    justify-content: flex-end;
   }
 
   // Search, Account and Cart
@@ -116,7 +128,6 @@
     align-items: center;
     justify-content: flex-end;
     z-index: 4;
-    order: 4;
 
     > a,
     > details > summary {
@@ -415,8 +426,16 @@
       grid-template-columns: 1fr auto 1fr;
 
       .site-header {
-        &__main {
+        &__col {
           display: none;
+
+          &:has(.site-header__utility-links) {
+            display: block;
+
+            .site-header__main {
+              display: none;
+            }
+          }
         }
 
         // All the links text (dropdown labels and plain links)
