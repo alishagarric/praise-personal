@@ -19,9 +19,12 @@
     id="Main-collection-grid-{{ section.id }}"
     class="main-collection-grid __theme-{{ section.settings.theme }} {% if section.settings.show_bg_color == true %}__mobile-fw{% endif %}"
   >
-    {% if collection.products.size > 0 and collection.filters.size > 0 %}
-      {% comment %} Filter and sort {% endcomment %}
-      {% render 'filter-and-sort', results: collection %}
+    {% if collection.products.size > 0 %}
+
+      {% if collection.filters.size > 0 %}
+        {% comment %} Filter and sort {% endcomment %}
+        {% render 'filter-and-sort', results: collection %}
+      {% endif %}
 
       {% comment %} No products found in general or with current filters applied {% endcomment %}
       {%- if collection.products.size == 0 -%}

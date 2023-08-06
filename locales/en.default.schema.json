@@ -2757,6 +2757,9 @@
         "name": "Collection",
         "settings": {
           "label": "Collection",
+          "image": {
+            "label": "Custom Image"
+          },
           "presets": {
             "name": "Collections List"
           }

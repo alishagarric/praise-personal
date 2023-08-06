@@ -36,6 +36,7 @@
           <li>
             {% render 'collection-card',
               collection: block.settings.collection,
+              custom_image: block.settings.image,
               alignment: section.settings.collections_text_alignment,
               button_label: section.settings.button_label,
               img_width: 1000,
@@ -198,6 +199,11 @@
           "type": "collection",
           "id": "collection",
           "label": "t:sections.collections-list.blocks.settings.label"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.collections-list.blocks.settings.image.label"
         }
       ]
     }

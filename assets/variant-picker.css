@@ -5,13 +5,12 @@
     .variant-picker__fieldset__label span {
       display: block; }
   .variant-picker__fieldset__input:checked + label {
-    --valueHoverColor: RGBA(var(--color-foreground) / 1);
+    background-color: RGB(var(--color-foreground));
     color: RGB(var(--color-foreground-text)); }
   .variant-picker__fieldset__input:focus + label {
     transform: scale(1.1); }
   .variant-picker__fieldset__value {
     --valueMinWidth: 70px;
-    --valueHoverColor: RGBA(var(--color-foreground) / 0);
     display: inline-block;
     border-radius: 100%;
     cursor: pointer;
@@ -21,7 +20,8 @@
     display: inline-flex;
     justify-content: center;
     will-change: transform;
-    transition: transform 0.25s ease; }
+    transition: transform 0.25s ease;
+    border-radius: var(--btnBorderRadius); }
     .variant-picker__fieldset__value__text {
       position: relative;
       padding: calc(var(--pxSize) / 6) calc(var(--pxSize) / 4);
@@ -29,34 +29,9 @@
       height: 100%;
       display: block;
       margin: 0; }
-    .variant-picker__fieldset__value span:not(.p-sm) {
-      display: block;
-      position: absolute;
-      height: 100%;
-      left: 50%;
-      top: 0;
-      transform: translateX(-50%);
-      bottom: 0;
-      background-color: var(--valueHoverColor);
-      width: max(0px, calc(100% - var(--valueMinWidth))); }
-    .variant-picker__fieldset__value:before, .variant-picker__fieldset__value:after {
-      content: "";
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: min(100%, var(--valueMinWidth)); }
-    .variant-picker__fieldset__value:before {
-      left: 0;
-      border-top-left-radius: 100%;
-      background: linear-gradient(to right, var(--valueHoverColor) 50%, RGBA(var(--color-foreground)/0) 50%);
-      border-bottom-left-radius: 100%; }
-    .variant-picker__fieldset__value:after {
-      right: 0;
-      background: linear-gradient(to left, var(--valueHoverColor) 50%, RGBA(var(--color-foreground)/0) 50%);
-      border-top-right-radius: 100%;
-      border-bottom-right-radius: 100%; }
     .variant-picker__fieldset__value:hover {
-      --valueHoverColor: RGBA(var(--color-foreground) / 0.2); }
+      background-color: RGB(var(--color-foreground));
+      color: RGB(var(--color-foreground-text)); }
 .variant-picker__dropdown__label {
   display: block;
   margin-bottom: 0.5rem; }
@@ -64,3 +39,5 @@
   width: 100%;
   margin-bottom: 0.5rem;
   border: 1px solid RGBA(var(--color-border)); }
+
+/*# sourceMappingURL=variant-picker.css.map */

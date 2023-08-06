@@ -4,8 +4,8 @@
     "theme_name": "Praise",
     "theme_version": "1.0.0",
     "theme_author": "Commence Studio",
-    "theme_documentation_url": "https:\/\/commence.studio",
-    "theme_support_url": "https:\/\/commence.studio"
+    "theme_documentation_url": "https://commencecommerce.zendesk.com/",
+    "theme_support_url": "https://commence.studio"
   },
   {
     "name": "t:settings_schema.cart.name",

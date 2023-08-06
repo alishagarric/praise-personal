@@ -13,7 +13,7 @@
 
     &__input {
       &:checked + label {
-        --valueHoverColor: RGBA(var(--color-foreground) / 1);
+        background-color: RGB(var(--color-foreground));
         color: RGB(var(--color-foreground-text));
       }
 
@@ -24,7 +24,6 @@
 
     &__value {
       --valueMinWidth: 70px;
-      --valueHoverColor: RGBA(var(--color-foreground) / 0);
       display: inline-block;
       border-radius: 100%;
       cursor: pointer;
@@ -35,6 +34,7 @@
       justify-content: center;
       will-change: transform;
       transition: transform 0.25s ease;
+      border-radius: var(--btnBorderRadius);
 
       &__text {
         position: relative;
@@ -45,51 +45,9 @@
         margin: 0;
       }
 
-      span:not(.p-sm) {
-        display: block;
-        position: absolute;
-        height: 100%;
-        left: 50%;
-        top: 0;
-        transform: translateX(-50%);
-        bottom: 0;
-        background-color: var(--valueHoverColor);
-        width: max(0px, calc(100% - var(--valueMinWidth)));
-      }
-
-      &:before,
-      &:after {
-        content: "";
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        width: min(100%, var(--valueMinWidth));
-      }
-
-      &:before {
-        left: 0;
-        border-top-left-radius: 100%;
-        background: linear-gradient(
-          to right,
-          var(--valueHoverColor) 50%,
-          RGBA(var(--color-foreground) / 0) 50%
-        );
-        border-bottom-left-radius: 100%;
-      }
-
-      &:after {
-        right: 0;
-        background: linear-gradient(
-          to left,
-          var(--valueHoverColor) 50%,
-          RGBA(var(--color-foreground) / 0) 50%
-        );
-        border-top-right-radius: 100%;
-        border-bottom-right-radius: 100%;
-      }
-
       &:hover {
-        --valueHoverColor: RGBA(var(--color-foreground) / 0.2);
+        background-color: RGB(var(--color-foreground));
+        color: RGB(var(--color-foreground-text));
       }
     }
   }

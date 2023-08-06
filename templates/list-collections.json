@@ -101,6 +101,13 @@
         "bottom_spacing": 50
       }
     },
+    "featured-product": {
+      "type": "featured-product",
+      "settings": {
+        "product": "all-hail-sugar-baby",
+        "theme_section": "default"
+      }
+    },
     "85c58e07-278d-42c1-b9f3-f6bab28fee7f": {
       "type": "image-with-text",
       "blocks": {
@@ -178,6 +185,7 @@
     "e016bbbd-0856-455a-8d09-653c667e35b41",
     "main",
     "85c58e07-278d-42c1-b9f3-f6bab28fee7f",
+    "featured-product",
     "7691bbe1-f26e-4754-a188-f70a1bca5076"
   ]
 }
