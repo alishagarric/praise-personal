@@ -62,9 +62,16 @@
 
 
             <media-gallery 
-              class="main-product__media __layout-{{ block.settings.layout }}" 
+              class="main-product__media __layout-{{ block.settings.layout }} {% if product.metafields.custom.color and product.metafields.custom.text_color %}__mobile-custom-colors{% endif %}" 
               id="Product-MediaGallery-{{ section.id }}{{ product.id }}" 
-              style="{% if product.metafields.custom.color %}--mobile-color-background: {{ product.metafields.custom.color.value.rgb }}; --mobile-color-foreground-text: {{ product.metafields.custom.color.value.rgb }};{% endif %} {% if product.metafields.custom.text_color %} --mobile-color-text: {{ product.metafields.custom.text_color.value.rgb }}; --mobile-color-foreground: {{ product.metafields.custom.text_color.value.rgb }}; --mobile-color-border: {{ product.metafields.custom.text_color.value.rgb }} / .3;{% endif %}"
+              style="
+                {% if product.metafields.custom.color and product.metafields.custom.text_color %}
+                  --mobile-color-background: {{ product.metafields.custom.color.value.rgb }}; 
+                  --mobile-color-foreground-text: {{ product.metafields.custom.color.value.rgb }};
+                  --mobile-color-text: {{ product.metafields.custom.text_color.value.rgb }}; 
+                  --mobile-color-foreground: {{ product.metafields.custom.text_color.value.rgb }}; 
+                  --mobile-color-border: {{ product.metafields.custom.text_color.value.rgb }} / .3;
+                {% endif %}"
               data-section="{{ section.id }}"
             >
 

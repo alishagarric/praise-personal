@@ -212,16 +212,19 @@
     }
 
     &__media {
-      --color-background: var(--mobile-color-background);
-      --color-foreground: var(--mobile-color-foreground);
-      --color-border: var(--mobile-color-border);
-      --color-text: var(--mobile-color-text);
-      --color-foreground-text: var(--mobile-color-foreground-text);
       position: relative;
       order: -1;
       padding-top: var(--sectionGuttersSpacing);
       padding-bottom: 0;
       background-color: RGB(var(--color-background));
+
+      &.__mobile-custom-colors {
+        --color-background: var(--mobile-color-background);
+        --color-foreground: var(--mobile-color-foreground);
+        --color-border: var(--mobile-color-border);
+        --color-text: var(--mobile-color-text);
+        --color-foreground-text: var(--mobile-color-foreground-text);
+      }
 
       //themed background
       &__container {
