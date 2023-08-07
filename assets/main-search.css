@@ -1,23 +1,54 @@
 .main-search {
-  --mainSearchColumns: 3; }
+  --mainSearchColumns: 3;
+  min-height: 100vh; }
   .main-search__heading {
     text-align: center; }
   .main-search__form {
     max-width: var(--maxWidth);
     margin: 0 auto;
     display: flex;
-    margin-bottom: var(--sectionVerticalSpacing); }
+    margin-bottom: var(--sectionVerticalSpacing);
+    position: relative; }
     .main-search__form > input[type="search"]:first-of-type {
       border-bottom-right-radius: 0px !important;
       border-top-right-radius: 0px !important;
-      flex: 1; }
+      flex: 1;
+      /* Fallback for browsers that don't support `:focus-visible` */
+      /* Negate fallback if browser supports `:focus-visible` */ }
+      .main-search__form > input[type="search"]:first-of-type:focus-visible ~ button {
+        outline: 3px solid RGBA(var(--color-foreground)/1);
+        outline-offset: 0; }
+      .main-search__form > input[type="search"]:first-of-type:focus ~ button {
+        outline: 3px solid RGBA(var(--color-foreground)/1);
+        outline-offset: 0; }
+      .main-search__form > input[type="search"]:first-of-type:focus:not(:focus-visible) ~ button {
+        outline: none; }
     .main-search__form button {
       border-bottom-left-radius: 0px;
-      border-top-left-radius: 0px; }
+      border-top-left-radius: 0px;
+      height: var(--inputHeight);
+      line-height: var(--inputHeight); }
       .main-search__form button svg {
         transform: scaleX(-1); }
     .main-search__form label {
       display: none; }
+  .main-search__predictive {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: 100%;
+    bottom: unset;
+    background: RGB(var(--color-background));
+    color: RGB(var(--color-text));
+    margin-top: calc(var(--pxSize) / 2); }
+    .main-search__predictive__cards {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: var(--pxSize);
+      margin-bottom: var(--pxSize); }
+      .main-search__predictive__cards > * {
+        flex: 0 1 200px; }
   .main-search__container {
     display: flex;
     flex-direction: column;
@@ -55,7 +86,9 @@
         margin: 0;
         z-index: 2;
         border-radius: var(--btnBorderRadius);
-        padding: calc(var(--sideSpace) / 4) var(--sideSpace); }
+        padding: 0 var(--sideSpace);
+        height: var(--btnHeight);
+        line-height: var(--btnHeight); }
         .main-search__results li:after:is(p) {
           max-width: 400px; }
       .main-search__results li > .content-card {
@@ -66,3 +99,5 @@
   @media screen and (max-width: 676px) {
     .main-search {
       --mainSearchColumns: 1; } }
+
+/*# sourceMappingURL=main-search.css.map */

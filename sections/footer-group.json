@@ -70,6 +70,7 @@
         "newsletter_enable": true,
         "secondary_links": "footer",
         "payment_enable": true,
+        "follow_enable": true,
         "theme": "5",
         "accent_theme": "3"
       }

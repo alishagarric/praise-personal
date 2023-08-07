@@ -488,12 +488,12 @@ i {
   box-sizing: inherit; }
 
 *:focus-visible {
-  outline: 5px solid RGBA(var(--color-foreground)/0.5);
+  outline: 3px solid RGBA(var(--color-foreground)/1);
   outline-offset: 0; }
 
 /* Fallback for browsers that don't support `:focus-visible` */
 *:focus {
-  outline: 5px solid RGBA(var(--color-foreground)/0.5);
+  outline: 3px solid RGBA(var(--color-foreground)/1);
   outline-offset: 0; }
 
 /* Negate fallback if browser supports `:focus-visible` */

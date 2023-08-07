@@ -7,6 +7,8 @@
 {{ 'filter-and-sort.css' | asset_url | stylesheet_tag }}
 {{ 'custom-icons.css' | asset_url | stylesheet_tag }}
 
+<script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
+
 {% liquid
   assign title = 'general.search.search' | t
   assign alt_title = section.settings.alt_title
@@ -32,80 +34,91 @@
   {% comment %} Heading {% endcomment %}
   {% render 'heading', class: 'main-search', heading: title, heading_tag: 'h1', heading_size: 'h2' %}
 
-  {% comment %} Search Form {% endcomment %}
-  <form action="{{ routes.search_url }}" method="get" role="search" class="main-search__form">
-    <label for="Search">{{ 'general.search.search' | t }}</label>
-    <input
-      id="Search"
-      type="search"
-      name="q"
-      value="{{ search.terms }}"
-    >
-    <input name="options[prefix]" type="hidden" value="{{ 'general.search.last' | t }}">
-    <button aria-label="{{ 'general.search.search' | t }}">{% render 'svg-slider-arrow' %}</button>
-  </form>
+  <predictive-search>
+    {% comment %} Search Form {% endcomment %}
+    <form action="{{ routes.search_url }}" method="get" role="search" class="main-search__form">
+      <label for="Search">{{ 'general.search.search' | t }}</label>
+      <input
+        id="Search"
+        type="search"
+        name="q"
+        value="{{ search.terms | escape }}"
+        role="combobox"
+        aria-expanded="false"
+        aria-owns="predictive-search-results"
+        aria-controls="predictive-search-results"
+        aria-haspopup="listbox"
+        aria-autocomplete="list"
+      >
+      <input name="options[prefix]" type="hidden" value="{{ 'general.search.last' | t }}">
+      <div class="main-search__form__predictive" id="predictive-search" tabindex="-1"></div>
+      <button aria-label="{{ 'general.search.search' | t }}">{% render 'svg-slider-arrow' %}</button>
+    </form>
 
-  {% comment %} No results and no filters {% endcomment %}
-  {% if search.results == empty and search.filters == empty %}
-    <div class="main-search__container">
-      {% if search.performed %}
-        <p class="p-lg">{{ 'general.search.no_results' | t }}</p>
-      {% else %}
-        <p class="p-lg">{{ 'general.search.no_terms' | t }}</p>
-      {% endif %}
-    </div>
+    {% comment %} No results and no filters {% endcomment %}
+    {% if search.results == empty and search.filters == empty %}
+      <div class="main-search__container" id="main-search-results">
+        {% if search.performed %}
+          <p class="p-lg">{{ 'general.search.no_results' | t }}</p>
+        {% else %}
+          <p class="p-lg">{{ 'general.search.no_terms' | t }}</p>
+        {% endif %}
+      </div>
 
-    {% comment %} No results, but filters applied {% endcomment %}
-  {% elsif search.results.size == 0 and search.filters != empty %}
-    <div class="main-search__container">
-      {%- liquid
-        assign sort_by = search.sort_by | default: search.default_sort_by
-        assign terms = search.terms | escape
-        assign search_url = '?q=' | append: terms | append: '&options%5Bprefix%5D=last&sort_by=' | append: sort_by
-      -%}
+      {% comment %} No results, but filters applied {% endcomment %}
+    {% elsif search.results.size == 0 and search.filters != empty %}
+      <div class="main-search__container" id="main-search-results">
+        {%- liquid
+          assign sort_by = search.sort_by | default: search.default_sort_by
+          assign terms = search.terms | escape
+          assign search_url = '?q=' | append: terms | append: '&options%5Bprefix%5D=last&sort_by=' | append: sort_by
+        -%}
 
-      <p class="p-lg">{{ 'products.facets.use_fewer_filters_html' | t: link: search_url }}</p>
+        <p class="p-lg">{{ 'products.facets.use_fewer_filters_html' | t: link: search_url }}</p>
 
-      {% render 'filter-and-sort', results: search %}
-    </div>
+        {% render 'filter-and-sort', results: search %}
+      </div>
 
-    {% comment %} The results {% endcomment %}
-  {% else %}
-    {% render 'filter-and-sort', results: search %}
+      {% comment %} The results {% endcomment %}
+    {% else %}
+      <div id="main-search-results">
+        {% render 'filter-and-sort', results: search %}
 
-    {% if search.performed %}
-      <h2 class="main-search__size p">
-        {{ 'general.search.results' | t: terms: search.terms, count: search.results_count }}
-      </h2>
+        {% if search.performed %}
+          <h2 class="main-search__size p">
+            {{ 'general.search.results' | t: terms: search.terms, count: search.results_count }}
+          </h2>
+        {% endif %}
+
+        {%- paginate search.results by 8 -%}
+          <ul class="main-search__results list-unstyled" role="list">
+            {%- for item in search.results -%}
+              <li style="--searchType:'{{ item.object_type | capitalize }}'">
+                {% liquid
+                  assign preload = false
+                  if forloop.index0 < 3
+                    assign preload = true
+                  endif
+
+                  case item.object_type
+                    when 'product'
+                      render 'product-card', this_product: item, price_position: price, crop: crop_shape, alignment: alignment, alt_heading: alt_title, show_description: show_description, quick_add: quick_add, img_width: 1280, img_widths: '1280, 900, 700, 500', img_sizes: '(max-width: 676px) 100vw, (max-width: 1024px) 45vw, 25vw', img_preload: preload
+                    when 'article'
+                      render 'article-card', article: item, crop: crop_shape, assc_product_crop_shape: assc_product_crop_shape, alignment: alignment, alt_heading: alt_title, show_description: show_description, img_width: 1280, img_widths: '1280, 900, 700, 500', img_sizes: '(max-width: 676px) 100vw, (max-width: 1024px) 45vw, 25vw', img_preload: preload
+                    when 'page'
+                      assign text = item.content | strip_html | truncatewords: 20 | prepend: '</p><p class="p-sm">' | prepend: item.title | prepend: '<p class="p-lg">' | append: '</p>'
+                      render 'content-card', heading: item.title, heading_size: 'h2', text: text, overlap: true, crop_shape: crop_shape, alignment: alignment, button_link: item.url
+                  endcase
+                %}
+              </li>
+            {%- endfor -%}
+          </ul>
+
+          {% render 'pagination', paginate: paginate %}
+        {%- endpaginate -%}
+      </div>
     {% endif %}
-
-    {%- paginate search.results by 8 -%}
-      <ul class="main-search__results list-unstyled" role="list">
-        {%- for item in search.results -%}
-          <li style="--searchType:'{{ item.object_type | capitalize }}'">
-            {% liquid
-              assign preload = false
-              if forloop.index0 < 3
-                assign preload = true
-              endif
-
-              case item.object_type
-                when 'product'
-                  render 'product-card', this_product: item, price_position: price, crop: crop_shape, alignment: alignment, alt_heading: alt_title, show_description: show_description, quick_add: quick_add, img_width: 1280, img_widths: '1280, 900, 700, 500', img_sizes: '(max-width: 676px) 100vw, (max-width: 1024px) 45vw, 25vw', img_preload: preload
-                when 'article'
-                  render 'article-card', article: item, crop: crop_shape, assc_product_crop_shape: assc_product_crop_shape, alignment: alignment, alt_heading: alt_title, show_description: show_description, img_width: 1280, img_widths: '1280, 900, 700, 500', img_sizes: '(max-width: 676px) 100vw, (max-width: 1024px) 45vw, 25vw', img_preload: preload
-                when 'page'
-                  assign text = item.content | strip_html | truncatewords: 20 | prepend: '</p><p class="p-sm">' | prepend: item.title | prepend: '<p class="p-lg">' | append: '</p>'
-                  render 'content-card', heading: item.title, heading_size: 'h2', text: text, overlap: true, crop_shape: crop_shape, alignment: alignment, button_link: item.url
-              endcase
-            %}
-          </li>
-        {%- endfor -%}
-      </ul>
-
-      {% render 'pagination', paginate: paginate %}
-    {%- endpaginate -%}
-  {% endif %}
+  </predictive-search>
 </div>
 
 {% schema %}

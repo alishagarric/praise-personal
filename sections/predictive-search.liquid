@@ -1,0 +1,25 @@
+{%- if predictive_search.performed -%}
+  <div class="main-search__predictive" id="predictive-search-results">
+    {%- if predictive_search.resources.products.size > 0 -%}
+      <h3 id="predictive-search-products">
+        Products
+      </h3>
+      <ul role="listbox" aria-labelledby="predictive-search-products" class="main-search__predictive__cards">
+        {%- for product in predictive_search.resources.products -%}
+          <li role="option">
+            {% render 'product-card',
+              this_product: product,
+              img_width: 930,
+              img_widths: '930, 650, 400',
+              img_sizes: '(max-width: 676px) 75vw, (max-width: 1024px) 33vw, 25vw',
+              class: 'main-search__predictive__cards__card'
+            %}
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+    <button>
+      Search for “{{ predictive_search.terms }}”
+    </button>
+  </div>
+{%- endif -%}

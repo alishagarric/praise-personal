@@ -2,6 +2,7 @@
 
 .main-search {
   --mainSearchColumns: 3;
+  min-height: 100vh;
 
   &__heading {
     text-align: center;
@@ -12,16 +13,35 @@
     margin: 0 auto;
     display: flex;
     margin-bottom: var(--sectionVerticalSpacing);
+    position: relative;
 
     > input[type="search"]:first-of-type {
       border-bottom-right-radius: 0px !important;
       border-top-right-radius: 0px !important;
       flex: 1;
+
+      &:focus-visible ~ button {
+        outline: 3px solid RGBA(var(--color-foreground) / 1);
+        outline-offset: 0;
+      }
+
+      /* Fallback for browsers that don't support `:focus-visible` */
+      &:focus ~ button {
+        outline: 3px solid RGBA(var(--color-foreground) / 1);
+        outline-offset: 0;
+      }
+
+      /* Negate fallback if browser supports `:focus-visible` */
+      &:focus:not(:focus-visible) ~ button {
+        outline: none;
+      }
     }
 
     button {
       border-bottom-left-radius: 0px;
       border-top-left-radius: 0px;
+      height: var(--inputHeight);
+      line-height: var(--inputHeight);
 
       svg {
         transform: scaleX(-1);
@@ -30,6 +50,29 @@
 
     label {
       display: none;
+    }
+  }
+
+  &__predictive {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: 100%;
+    bottom: unset;
+    background: RGB(var(--color-background));
+    color: RGB(var(--color-text));
+    margin-top: calc(var(--pxSize) / 2);
+
+    &__cards {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: var(--pxSize);
+      margin-bottom: var(--pxSize);
+
+      > * {
+        flex: 0 1 200px;
+      }
     }
   }
 
@@ -72,7 +115,9 @@
         margin: 0;
         z-index: 2;
         border-radius: var(--btnBorderRadius);
-        padding: calc(var(--sideSpace) / 4) var(--sideSpace);
+        padding: 0 var(--sideSpace);
+        height: var(--btnHeight);
+        line-height: var(--btnHeight);
       }
 
       > .content-card {

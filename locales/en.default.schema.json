@@ -223,7 +223,7 @@
             "label_12": "Arch"
           },
           "label": "Article Associated Product Image Crop Shape",
-          "info": "Relies on the addition of article metafields. TODO: Link to documentation"
+          "info": "Relies on the addition of article metafields. [Learn More](https://commencecommerce.zendesk.com/hc/en-us/articles/16575072474004-Article-Associated-Products-Metafield)"
         },
         "header_2": {
           "content": "Section"
@@ -310,7 +310,7 @@
           "name": "Complementary Products",
           "settings": {
             "paragraph": {
-              "content": "This is generated from the complementary products you specify inside the Search and Discovery app. TODO: Link to documentation"
+              "content": "This is generated from the complementary products you specify inside the Search and Discovery app. [Learn More](https://help.shopify.com/en/manual/online-store/search-and-discovery/product-recommendations#complementary-products)"
             },
             "title": {
               "label": "Title"
@@ -352,7 +352,7 @@
           "name": "Featured Metafield Icons",
           "settings": {
             "paragraph": {
-              "content": "These are generated from the featured icons product metafield. If you'd rather use basic icons, choose the 'Featured Basic Icons' block instead. TODO: Link to documentation"
+              "content": "These are generated from the featured icons product metafield. If you'd rather use basic icons, choose the 'Featured Basic Icons' block instead. [Learn More](https://commencecommerce.zendesk.com/hc/en-us/articles/16575083245076-Product-Featured-Icons-Metafield)"
             },
             "icon_height": {
               "label": "Icons Height"
@@ -559,7 +559,7 @@
             },
             "show_option_labels": {
               "label": "Show option labels and option descriptions",
-              "info": "Option descriptions can be added using metafields TODO: Link to documentation"
+              "info": "Option descriptions can be added using metafields [Learn More](https://commencecommerce.zendesk.com/hc/en-us/articles/16575121601044-Product-Option-Description-Metafields)"
             },
             "include_border": {
               "label": "Include Border"
@@ -666,7 +666,7 @@
         },
         "hero": {
           "label": "Use as hero",
-          "info": "Select this setting if this section contains the page title. Try to include one page title/hero section per page. Learn More TODO: Link to documentation."
+          "info": "Select this setting if this section contains the page title. Try to include one page title/hero section per page. [Learn More](https://commencecommerce.zendesk.com/hc/en-us/articles/16575091419668-Page-Structure-and-SEO)"
         },
         "alignment": {
           "options": {
@@ -884,7 +884,7 @@
         },
         "display_featured_icons": {
           "label": "Display featured icons",
-          "info": "This feature depends on the addition of the product featured icons metafield. TODO: Link to documentation"
+          "info": "This feature depends on the addition of the product featured icons metafield. [Learn More](https://commencecommerce.zendesk.com/hc/en-us/articles/16575083245076-Product-Featured-Icons-Metafield)"
         },
         "enable_icons_marquee": {
           "label": "Enable featured icons marquee"
@@ -894,7 +894,7 @@
         },
         "display_featured_stats": {
           "label": "Display featured stats",
-          "info": "This feature depends on the addition of the collection featured stats metafield. TODO: Link to documentation"
+          "info": "This feature depends on the addition of the collection featured stats metafield. [Learn More](https://commencecommerce.zendesk.com/hc/en-us/articles/16575069661204-Collection-Featured-Stats-Metafield)"
         },
         "stats_color": {
           "label": "Stats Color",
@@ -1189,11 +1189,11 @@
             "label": "Label",
             "content": {
               "label": "Content",
-              "info": "Add content here, or by utilizing the article metafield. TODO: Link to documentation"
+              "info": "Add content here, or by utilizing the article sidebar metafield. [Learn More](https://commencecommerce.zendesk.com/hc/en-us/articles/16575110986772-Article-Sidebar-Content-Metafield)"
             },
             "associated_products": {
               "label": "Show associated products",
-              "info": "This feature is dependent on the article metafield. TODO: Link to documentation"
+              "info": "This feature is dependent on the article associated products metafield. [Learn More](https://commencecommerce.zendesk.com/hc/en-us/articles/16575072474004-Article-Associated-Products-Metafield)"
             }
           }
         },
@@ -1315,7 +1315,7 @@
             "label_12": "Arch"
           },
           "label": "Associated Product Image Crop Shape",
-          "info": "Relies on the addition of article metafields. TODO: Link to documentation"
+          "info": "Relies on the addition of article metafields. [Learn More](https://commencecommerce.zendesk.com/hc/en-us/articles/16575072474004-Article-Associated-Products-Metafield)"
         },
         "button_label": {
           "label": "Article Button Label",
@@ -2081,7 +2081,7 @@
             "label_12": "Arch"
           },
           "label": "Associated Product Image Crop Shape",
-          "info": "This feature relies on the addition of article metafields. TODO: Link to documentation"
+          "info": "This feature relies on the addition of article metafields. [Learn More](https://commencecommerce.zendesk.com/hc/en-us/articles/16575072474004-Article-Associated-Products-Metafield)"
         },
         "button_label": {
           "label": "Article Button Label",
@@ -2346,6 +2346,9 @@
         "payment_enable": {
           "label": "Show payment icons"
         },
+        "follow_enable": {
+          "label": "Follow on shop"
+        },
         "header_5": {
           "content": "Footer Theme"
         },
@@ -2589,7 +2592,7 @@
         },
         "display_featured_icons": {
           "label": "Display featured icons",
-          "info": "This is dependent on the product featured icons metafield being added. TODO: Link to documentation"
+          "info": "This is dependent on the product featured icons metafield being added. [Learn More](https://commencecommerce.zendesk.com/hc/en-us/articles/16575083245076-Product-Featured-Icons-Metafield)"
         },
         "enable_icons_marquee": {
           "label": "Enable featured icons marquee"
@@ -2599,7 +2602,7 @@
         },
         "display_featured_stats": {
           "label": "Display featured stats",
-          "info": "This is dependent on the collection featured stats metafield being added. TODO: Link to documentation"
+          "info": "This is dependent on the collection featured stats metafield being added. [Learn More](https://commencecommerce.zendesk.com/hc/en-us/articles/16575069661204-Collection-Featured-Stats-Metafield)"
         },
         "stats_color": {
           "label": "Featured Stats Theme",
@@ -2987,7 +2990,7 @@
         "info": "Only displays first 10 products within collection.",
         "theme_slideshow": {
           "label": "Theme collection slideshow with product colors",
-          "info": "This relies on the addition of product metafields. In addition, the slideshow only appears when there's enough products in the collection. TODO: Link to documentation"
+          "info": "This relies on the addition of product metafields. In addition, the slideshow only appears when there's enough products in the collection. [Learn More](https://commencecommerce.zendesk.com/hc/en-us/articles/16575057325844-Product-Color-And-Text-Color-Metafields)"
         },
         "include_border": {
           "label": "Include border"
@@ -3099,7 +3102,7 @@
         },
         "hero": {
           "label": "Use as hero",
-          "info": "Select this setting if this section contains the page title. Try to include one page title/hero section per page. Learn More TODO: Link to documentation."
+          "info": "Select this setting if this section contains the page title. Try to include one page title/hero section per page. [Learn More](https://commencecommerce.zendesk.com/hc/en-us/articles/16575091419668-Page-Structure-and-SEO)"
         },
         "alignment": {
           "label": "Alignment",
@@ -3116,7 +3119,7 @@
             "label_2": "Theme First Half of Blocks",
             "label_3": "Theme All but Last Block"
           },
-          "info": "Relies on the addition of product metafields. TODO: Link to documentation"
+          "info": "Relies on the addition of product metafields. [Learn More](https://commencecommerce.zendesk.com/hc/en-us/articles/16575057325844-Product-Color-And-Text-Color-Metafields)"
         },
         "layout": {
           "options": {
@@ -3252,7 +3255,7 @@
             },
             "show_option_labels": {
               "label": "Show option labels and option descriptions",
-              "info": "Use metafields to add option descriptions. TODO: Link to documentation"
+              "info": "Use metafields to add option descriptions. [Learn More](https://commencecommerce.zendesk.com/hc/en-us/articles/16575121601044-Product-Option-Description-Metafields)"
             },
             "include_border": {
               "label": "Include border"
@@ -3712,7 +3715,7 @@
             "label_12": "Arch"
           },
           "label": "Associated Product Image Crop Shape",
-          "info": "Relies on the addition of article metafields. TODO: Link to documentation"
+          "info": "Relies on the addition of article metafields. [Learn More](https://commencecommerce.zendesk.com/hc/en-us/articles/16575072474004-Article-Associated-Products-Metafield)"
         },
         "button_label": {
           "label": "Article Button Label",
@@ -3855,7 +3858,7 @@
           "settings": {
             "label": "Product",
             "paragraph": {
-              "content": "Add product metafields in order to theme the slideshow with associated product colors. TODO: Link to documentation"
+              "content": "Add product metafields in order to theme the slideshow with associated product colors. [Learn More](https://commencecommerce.zendesk.com/hc/en-us/articles/16575057325844-Product-Color-And-Text-Color-Metafields)"
             },
             "horizontal_pos": {
               "label": "Dot Horizontal Position"
@@ -3905,7 +3908,7 @@
         },
         "hero": {
           "label": "Use as hero",
-          "info": "Select this setting if this section contains the page title. Try to include one page title/hero section per page. Learn More TODO: Link to documentation."
+          "info": "Select this setting if this section contains the page title. Try to include one page title/hero section per page. [Learn More](https://commencecommerce.zendesk.com/hc/en-us/articles/16575091419668-Page-Structure-and-SEO)"
         },
         "header_3": {
           "content": "Article Cards"
