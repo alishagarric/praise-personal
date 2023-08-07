@@ -1,0 +1,344 @@
+{{ 'gallery.css' | asset_url | stylesheet_tag }}
+
+{% liquid
+  assign section_theme = section.settings.theme
+  assign top_spacing = section.settings.top_spacing
+  assign bottom_spacing = section.settings.bottom_spacing
+  assign alignment = section.settings.alignment
+%}
+
+{% style %}
+  #Gallery-{{ section.id }} {
+    --topSpacingRatio: {{ top_spacing }} / 100;
+    --bottomSpacingRatio: {{ bottom_spacing }} / 100;
+  }
+{% endstyle %}
+
+<div id="Gallery-{{ section.id }}" class="gallery __theme-{{ section_theme }} __align-{{ alignment }} __style-{{ section.settings.section_width }}" style="--gallerySpaceMultiplier: {{ section.settings.gallery_space }};">
+  <div class="gallery__container">
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+      
+          {% comment %} Type image {% endcomment %}
+        {%- when 'image' -%}
+          <div class="gallery__image" style="--desktopWidth: {{ block.settings.width }}; --mobileWidth: {{ block.settings.mobile_width }};">
+            <div class="gallery__image__inner image-container __crop-{{ block.settings.crop_shape }}"  style="--imageRatio: {{ block.settings.image.height | divided_by: 1.00 | divided_by: block.settings.image.width | times: 100 }}%;">
+              {% if block.settings.image != null %}
+                {% comment %} TODO - calculate this {% endcomment %}
+                {% render 'next-gen-img',
+                  image: block.settings.image,
+                  width: 1920,
+                  widths: '1920, 1400, 1100, 900, 600',
+                  sizes: '(max-width: 676px) 100vw, 50vw',
+                  preload: false
+                %}
+              {% endif %}
+            </div>
+          </div>
+
+      {% endcase %}
+    {%- endfor -%}
+  </div>
+</div>
+
+{% comment %}
+{% schema %}
+{
+  "name": "t:sections.gallery.name",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.gallery.settings.header.content"
+    },
+    {
+      "type": "range",
+      "id": "gallery_space",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "x",
+      "label": "t:sections.gallery.settings.gallery_space.label",
+      "info": "t:sections.gallery.settings.gallery_space.info",
+      "default": 1
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "options": [
+        {
+          "value": "default",
+          "label": "Default"
+        },
+        {
+          "value": "fullwidth",
+          "label": "Fullwidth"
+        },
+        {
+          "value": "space",
+          "label": "Fullwidth With Image Spacing"
+        }
+      ],
+      "default": "default",
+      "label": "t:sections.gallery.settings.section_width.label"
+    },
+    {
+      "type": "radio",
+      "id": "alignment",
+      "label": "t:sections.gallery.settings.alignment.label",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.gallery.settings.alignment.options.label_1"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.gallery.settings.alignment.options.label_2"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.gallery.settings.alignment.options.label_3"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.gallery.settings.header_2.content"
+    },
+    {
+      "type": "select",
+      "id": "theme",
+      "options": [
+        {
+          "value": "primary",
+          "label": "t:sections.gallery.settings.theme.options.label_1"
+        },
+        {
+          "value": "2",
+          "label": "t:sections.gallery.settings.theme.options.label_2"
+        },
+        {
+          "value": "3",
+          "label": "t:sections.gallery.settings.theme.options.label_3"
+        },
+        {
+          "value": "4",
+          "label": "t:sections.gallery.settings.theme.options.label_4"
+        },
+        {
+          "value": "5",
+          "label": "t:sections.gallery.settings.theme.options.label_5"
+        }
+      ],
+      "default": "primary",
+      "label": "t:sections.gallery.settings.theme.label"
+    },
+    {
+      "type": "range",
+      "id": "top_spacing",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "t:sections.gallery.settings.top_spacing.label",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "bottom_spacing",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "t:sections.gallery.settings.bottom_spacing.label",
+      "default": 50
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "t:sections.gallery.blocks.image.name",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.gallery.blocks.image.settings.image.label"
+        },
+        {
+          "type": "select",
+          "id": "crop_shape",
+          "options": [
+            {
+              "value": "default",
+              "label": "t:sections.gallery.blocks.image.settings.crop_shape.options.label_1"
+            },
+            {
+              "value": "square",
+              "label": "t:sections.gallery.blocks.image.settings.crop_shape.options.label_2"
+            },
+            {
+              "value": "rounded-square",
+              "label": "t:sections.gallery.blocks.image.settings.crop_shape.options.label_3"
+            },
+            {
+              "value": "circle",
+              "label": "t:sections.gallery.blocks.image.settings.crop_shape.options.label_4"
+            },
+            {
+              "value": "portrait",
+              "label": "t:sections.gallery.blocks.image.settings.crop_shape.options.label_5"
+            },
+            {
+              "value": "rounded-portrait",
+              "label": "t:sections.gallery.blocks.image.settings.crop_shape.options.label_6"
+            },
+            {
+              "value": "semicircle-portrait",
+              "label": "t:sections.gallery.blocks.image.settings.crop_shape.options.label_7"
+            },
+            {
+              "value": "landscape",
+              "label": "t:sections.gallery.blocks.image.settings.crop_shape.options.label_8"
+            },
+            {
+              "value": "rounded-landscape",
+              "label": "t:sections.gallery.blocks.image.settings.crop_shape.options.label_9"
+            },
+            {
+              "value": "semicircle-landscape",
+              "label": "t:sections.gallery.blocks.image.settings.crop_shape.options.label_10"
+            },
+            {
+              "value": "wide",
+              "label": "t:sections.gallery.blocks.image.settings.crop_shape.options.label_11"
+            },
+            {
+              "value": "rounded-wide",
+              "label": "t:sections.gallery.blocks.image.settings.crop_shape.options.label_12"
+            },
+            {
+              "value": "semicircle-wide",
+              "label": "t:sections.gallery.blocks.image.settings.crop_shape.options.label_13"
+            },
+            {
+              "value": "arch",
+              "label": "t:sections.gallery.blocks.image.settings.crop_shape.options.label_14"
+            }
+          ],
+          "default": "default",
+          "label": "t:sections.gallery.blocks.image.settings.crop_shape.label"
+        },
+        {
+          "type": "radio",
+          "id": "width",
+          "label": "t:sections.gallery.blocks.image.settings.width.label",
+          "options": [
+            {
+              "value": "1",
+              "label": "Fullwidth"
+            },
+            {
+              "value": "4/5",
+              "label": "4/5"
+            },
+            {
+              "value": "3/4",
+              "label": "3/4"
+            },
+            {
+              "value": "2/3",
+              "label": "2/3"
+            },
+            {
+              "value": "3/5",
+              "label": "3/5"
+            },
+            {
+              "value": "1/2",
+              "label": "1/2"
+            },
+            {
+              "value": "1/3",
+              "label": "1/3"
+            },
+            {
+              "value": "2/5",
+              "label": "2/5"
+            },
+            {
+              "value": "1/4",
+              "label": "1/4"
+            },
+            {
+              "value": "1/5",
+              "label": "1/5"
+            }
+          ],
+          "default": "1"
+        },
+        {
+          "type": "radio",
+          "id": "mobile_width",
+          "label": "t:sections.gallery.blocks.image.settings.mobile_width.label",
+          "options": [
+            {
+              "value": "1",
+              "label": "Fullwidth"
+            },
+            {
+              "value": "4/5",
+              "label": "4/5"
+            },
+            {
+              "value": "3/4",
+              "label": "3/4"
+            },
+            {
+              "value": "2/3",
+              "label": "2/3"
+            },
+            {
+              "value": "3/5",
+              "label": "3/5"
+            },
+            {
+              "value": "1/2",
+              "label": "1/2"
+            },
+            {
+              "value": "1/3",
+              "label": "1/3"
+            },
+            {
+              "value": "2/5",
+              "label": "2/5"
+            },
+            {
+              "value": "1/4",
+              "label": "1/4"
+            },
+            {
+              "value": "1/5",
+              "label": "1/5"
+            }
+          ],
+          "default": "1"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.gallery.presets.name",
+      "blocks": [
+        {
+          "type": "image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+{% endcomment %}

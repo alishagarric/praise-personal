@@ -2,7 +2,7 @@
   --color-foreground: var(--color-text);
   --color-foreground-text: var(--color-background);
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr 2fr;
   gap: calc(var(--pxSize) / 6) calc(var(--pxSize) / 3); }
   .quick-product > * {
     margin: 0; }
@@ -11,11 +11,12 @@
     grid-row: 1 / 4;
     display: flex;
     flex-direction: column;
-    justify-content: center; }
+    justify-content: center;
+    min-width: 5rem; }
     .quick-product__image__container {
       width: 100%; }
   .quick-product__title, .quick-product__btn, .quick-product__variants {
-    grid-column: 2 / 4; }
+    grid-column: 2 / 3; }
   .quick-product__btn .btn {
     margin: 0;
     width: auto;

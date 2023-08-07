@@ -65,9 +65,9 @@
       ],
       "settings": {
         "logo": "shopify://shop_images/Logo_Wide.png",
-        "logo_height": 1.3,
+        "logo_height": 1,
         "menu": "mega-menu-ritual",
-        "menu_second": "",
+        "logo_placement": "center",
         "always_show_nav": false
       }
     }

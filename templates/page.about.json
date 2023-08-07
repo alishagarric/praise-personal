@@ -284,6 +284,13 @@
         "crop_shape": "video"
       }
     },
+    "video-3": {
+      "type": "video",
+      "settings": {
+        "video_url": "https://www.youtube.com/watch?v=B-ytMSuwbf8",
+        "crop_shape": "video"
+      }
+    },
     "1663294968d8440c8d": {
       "type": "featured-collection",
       "settings": {
@@ -491,6 +498,7 @@
     "77926ee0-c4cd-4878-a4bf-192a1c0681ed",
     "video",
     "video-2",
+    "video-3",
     "1663294968d8440c8d",
     "e5e39d6c-0c2d-4004-afca-0d6f713ac1cb",
     "bd10db7c-6fad-4554-8a11-8fb51fd79804"

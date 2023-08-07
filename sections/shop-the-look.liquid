@@ -45,10 +45,15 @@
 
         {% comment %} Dots {% endcomment %}
         <div class="shop-the-look__dots">
+          {% capture custom_dot_class %}
+            {% if section.settings.dot_color != "default" %}
+                __btn-clr-{{ section.settings.dot_color }}
+            {% endif %}
+          {% endcapture %}
+
           {% for block in section.blocks %}
             {% case block.type %}
               {% when 'product' %}
-                {% assign border_color = '0,0,0' %}
                 {% if block.settings.product == blank %}
                   {% assign horizontal_pos = 50 %}
                   {% assign vertical_pos = 50 %}
@@ -57,22 +62,24 @@
                   {% assign horizontal_pos = block.settings.horizontal_pos %}
                   {% assign vertical_pos = block.settings.vertical_pos %}
 
-                  {% if block.settings.product.metafields.custom.color != blank %}
-                    {% assign border_color = block.settings.product.metafields.custom.color.value.red
-                      | append: ','
-                      | append: block.settings.product.metafields.custom.color.value.green
-                      | append: ','
-                      | append: block.settings.product.metafields.custom.color.value.blue
-                    %}
-                  {% endif %}
+                  {% capture custom_dot_color %}
+                    {% if block.settings.product.metafields.custom.color != blank and section.settings.dot_color == "default" %}          
+                        --color-foreground: {{ block.settings.product.metafields.custom.color.value.red
+                        | append: ' '
+                        | append: block.settings.product.metafields.custom.color.value.green
+                        | append: ' '
+                        | append: block.settings.product.metafields.custom.color.value.blue }};
+                    {% endif %}
+                  {% endcapture %}
                 {% endif %}
                 <div
-                  class="shop-the-look__dots__dot"
+                  class="shop-the-look__dots__dot {{ custom_dot_class }}"
                   style="
+                    {{ custom_dot_color }}
                     --shopTheLookDotleft: {{ horizontal_pos }}%;
                     --shopTheLookDotTop: {{ vertical_pos }}%;
-                    background-color: rgb({{ border_color }});
-                    border-color:rgba({{ border_color }}, .5);
+                    background-color: rgb(var(--color-foreground));
+                    border-color: RGBA(var(--color-foreground) / .5);
                   "
                   {{ block.shopify_attributes }}
                 >
@@ -270,6 +277,43 @@
     {
       "type": "header",
       "content": "t:sections.shop-the-look.settings.header_3.content"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.shop-the-look.settings.header_4.content"
+    },
+    {
+      "type": "select",
+      "id": "dot_color",
+      "label": "t:sections.shop-the-look.settings.dot_color.label",
+      "info": "t:sections.shop-the-look.settings.dot_color.info",
+      "default": "default",
+      "options": [
+        {
+          "value": "default",
+          "label": "t:sections.shop-the-look.settings.dot_color.options.label_1"
+        },
+        {
+          "value": "primary",
+          "label": "t:sections.shop-the-look.settings.dot_color.options.label_2"
+        },
+        {
+          "value": "2",
+          "label": "t:sections.shop-the-look.settings.dot_color.options.label_3"
+        },
+        {
+          "value": "3",
+          "label": "t:sections.shop-the-look.settings.dot_color.options.label_4"
+        },
+        {
+          "value": "4",
+          "label": "t:sections.shop-the-look.settings.dot_color.options.label_5"
+        },
+        {
+          "value": "5",
+          "label": "t:sections.shop-the-look.settings.dot_color.options.label_6"
+        }
+      ]
     },
     {
       "type": "select",

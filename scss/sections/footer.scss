@@ -73,6 +73,7 @@
     gap: calc(var(--pxSize) / 3);
     margin-top: calc(var(--pxSize) / 2);
     align-items: flex-end;
+    align-content: flex-end;
     max-width: var(--maxWidth);
     margin-left: auto;
     margin-right: auto;

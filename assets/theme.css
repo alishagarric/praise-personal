@@ -871,56 +871,56 @@ input[type="submit"] {
   input[type="submit"]:after {
     background: RGB(var(--color-foreground-text)); }
   .btn:hover:not(:disabled):not([aria-disabled="true"]):not(.shopify-payment-button__more-options
-  ):not(.standard-flickity-dot):not(.xr-button),
+  ):not(.standard-flickity-dot):not(.xr-button):not(.__style-underline),
   .button:hover:not(:disabled):not([aria-disabled="true"]):not(.shopify-payment-button__more-options
-  ):not(.standard-flickity-dot):not(.xr-button),
+  ):not(.standard-flickity-dot):not(.xr-button):not(.__style-underline),
   button:hover:not(:disabled):not([aria-disabled="true"]):not(.shopify-payment-button__more-options
-  ):not(.standard-flickity-dot):not(.xr-button),
+  ):not(.standard-flickity-dot):not(.xr-button):not(.__style-underline),
   .shopify-payment-button__button--unbranded:hover:not(:disabled):not([aria-disabled="true"]):not(.shopify-payment-button__more-options
-  ):not(.standard-flickity-dot):not(.xr-button),
+  ):not(.standard-flickity-dot):not(.xr-button):not(.__style-underline),
   .shopify-payment-button__button button:hover:not(:disabled):not([aria-disabled="true"]):not(.shopify-payment-button__more-options
-  ):not(.standard-flickity-dot):not(.xr-button),
+  ):not(.standard-flickity-dot):not(.xr-button):not(.__style-underline),
   input[type="submit"]:hover:not(:disabled):not([aria-disabled="true"]):not(.shopify-payment-button__more-options
-  ):not(.standard-flickity-dot):not(.xr-button) {
+  ):not(.standard-flickity-dot):not(.xr-button):not(.__style-underline) {
     background: RGB(var(--color-foreground-text));
     color: RGB(var(--color-foreground));
     border: 1px solid RGB(var(--color-foreground)); }
     .btn:hover:not(:disabled):not([aria-disabled="true"]):not(.shopify-payment-button__more-options
-    ):not(.standard-flickity-dot):not(.xr-button) svg *,
+    ):not(.standard-flickity-dot):not(.xr-button):not(.__style-underline) svg *,
     .button:hover:not(:disabled):not([aria-disabled="true"]):not(.shopify-payment-button__more-options
-    ):not(.standard-flickity-dot):not(.xr-button) svg *,
+    ):not(.standard-flickity-dot):not(.xr-button):not(.__style-underline) svg *,
     button:hover:not(:disabled):not([aria-disabled="true"]):not(.shopify-payment-button__more-options
-    ):not(.standard-flickity-dot):not(.xr-button) svg *,
+    ):not(.standard-flickity-dot):not(.xr-button):not(.__style-underline) svg *,
     .shopify-payment-button__button--unbranded:hover:not(:disabled):not([aria-disabled="true"]):not(.shopify-payment-button__more-options
-    ):not(.standard-flickity-dot):not(.xr-button) svg *,
+    ):not(.standard-flickity-dot):not(.xr-button):not(.__style-underline) svg *,
     .shopify-payment-button__button button:hover:not(:disabled):not([aria-disabled="true"]):not(.shopify-payment-button__more-options
-    ):not(.standard-flickity-dot):not(.xr-button) svg *,
+    ):not(.standard-flickity-dot):not(.xr-button):not(.__style-underline) svg *,
     input[type="submit"]:hover:not(:disabled):not([aria-disabled="true"]):not(.shopify-payment-button__more-options
-    ):not(.standard-flickity-dot):not(.xr-button) svg * {
+    ):not(.standard-flickity-dot):not(.xr-button):not(.__style-underline) svg * {
       fill: RGB(var(--color-foreground)); }
     .btn:hover:not(:disabled):not([aria-disabled="true"]):not(.shopify-payment-button__more-options
-    ):not(.standard-flickity-dot):not(.xr-button):before, .btn:hover:not(:disabled):not([aria-disabled="true"]):not(.shopify-payment-button__more-options
-    ):not(.standard-flickity-dot):not(.xr-button):after,
+    ):not(.standard-flickity-dot):not(.xr-button):not(.__style-underline):before, .btn:hover:not(:disabled):not([aria-disabled="true"]):not(.shopify-payment-button__more-options
+    ):not(.standard-flickity-dot):not(.xr-button):not(.__style-underline):after,
     .button:hover:not(:disabled):not([aria-disabled="true"]):not(.shopify-payment-button__more-options
-    ):not(.standard-flickity-dot):not(.xr-button):before,
+    ):not(.standard-flickity-dot):not(.xr-button):not(.__style-underline):before,
     .button:hover:not(:disabled):not([aria-disabled="true"]):not(.shopify-payment-button__more-options
-    ):not(.standard-flickity-dot):not(.xr-button):after,
+    ):not(.standard-flickity-dot):not(.xr-button):not(.__style-underline):after,
     button:hover:not(:disabled):not([aria-disabled="true"]):not(.shopify-payment-button__more-options
-    ):not(.standard-flickity-dot):not(.xr-button):before,
+    ):not(.standard-flickity-dot):not(.xr-button):not(.__style-underline):before,
     button:hover:not(:disabled):not([aria-disabled="true"]):not(.shopify-payment-button__more-options
-    ):not(.standard-flickity-dot):not(.xr-button):after,
+    ):not(.standard-flickity-dot):not(.xr-button):not(.__style-underline):after,
     .shopify-payment-button__button--unbranded:hover:not(:disabled):not([aria-disabled="true"]):not(.shopify-payment-button__more-options
-    ):not(.standard-flickity-dot):not(.xr-button):before,
+    ):not(.standard-flickity-dot):not(.xr-button):not(.__style-underline):before,
     .shopify-payment-button__button--unbranded:hover:not(:disabled):not([aria-disabled="true"]):not(.shopify-payment-button__more-options
-    ):not(.standard-flickity-dot):not(.xr-button):after,
+    ):not(.standard-flickity-dot):not(.xr-button):not(.__style-underline):after,
     .shopify-payment-button__button button:hover:not(:disabled):not([aria-disabled="true"]):not(.shopify-payment-button__more-options
-    ):not(.standard-flickity-dot):not(.xr-button):before,
+    ):not(.standard-flickity-dot):not(.xr-button):not(.__style-underline):before,
     .shopify-payment-button__button button:hover:not(:disabled):not([aria-disabled="true"]):not(.shopify-payment-button__more-options
-    ):not(.standard-flickity-dot):not(.xr-button):after,
+    ):not(.standard-flickity-dot):not(.xr-button):not(.__style-underline):after,
     input[type="submit"]:hover:not(:disabled):not([aria-disabled="true"]):not(.shopify-payment-button__more-options
-    ):not(.standard-flickity-dot):not(.xr-button):before,
+    ):not(.standard-flickity-dot):not(.xr-button):not(.__style-underline):before,
     input[type="submit"]:hover:not(:disabled):not([aria-disabled="true"]):not(.shopify-payment-button__more-options
-    ):not(.standard-flickity-dot):not(.xr-button):after {
+    ):not(.standard-flickity-dot):not(.xr-button):not(.__style-underline):after {
       background: RGB(var(--color-foreground)); }
   .btn.__style-secondary,
   .button.__style-secondary,
