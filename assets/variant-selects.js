@@ -136,10 +136,6 @@ if (
             !this.currentVariant.available,
             window.variantStrings.soldOut
           );
-
-          if (!this.currentVariant.available) {
-            this.setUnavailable();
-          }
         });
     }
 

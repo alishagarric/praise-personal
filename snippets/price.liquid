@@ -66,7 +66,7 @@
       <span class="visually-hidden">
         {{ 'products.product.price.regular_price' | t }}
       </span>
-      <span class="price__regular">
+      <span class="price__regular {% if product.selected_variant.inventory_management and product.selected_variant.inventory_quantity <= 0 %}__strikethrough{% endif %}">
         {{ money_price }}
       </span>
     {%- endif -%}

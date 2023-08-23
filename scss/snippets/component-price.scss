@@ -12,6 +12,7 @@
     &.__strikethrough {
       margin-right: calc(var(--pxSize) / 6);
       opacity: 0.6;
+      text-decoration: line-through;
     }
   }
 
