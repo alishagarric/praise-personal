@@ -125,8 +125,9 @@ if (
           const source = html.getElementById(
             `Price-${this.dataset.section}${this.dataset.productId}`
           );
-          if (source && destination) destination.innerHTML = source.innerHTML;
-
+          if (source && destination) {
+            destination.innerHTML = source.innerHTML;
+          }
           const price = document.getElementById(
             `Price-${this.dataset.section}${this.dataset.productId}`
           );

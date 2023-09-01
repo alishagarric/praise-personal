@@ -72,6 +72,9 @@
             "include_border": true
           }
         },
+        "price": {
+          "type": "price"
+        },
         "shop_button": {
           "type": "shop_button",
           "settings": {
@@ -82,13 +85,14 @@
       "block_order": [
         "f32215fb-217e-480f-a8dd-dfe0fcde58ba",
         "title",
+        "price",
         "description",
         "variant_picker",
         "buy_buttons",
         "shop_button"
       ],
       "settings": {
-        "product": "all-hail-sugar-baby",
+        "product": "all-hail-sugar-bear",
         "hero": false,
         "alignment": "left",
         "theme_section": "half",

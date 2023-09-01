@@ -57,7 +57,9 @@
       {{ product_title }}
     </h3>
     {% if price_position == 'default' %}
-      {%- render 'price', class: 'product-card__price', product: this_product -%}
+      <div id="Price-{{ section.id }}{{ this_product.id }}">
+        {%- render 'price', class: 'product-card__price', product: this_product -%}
+      </div>
     {% endif %}
   </div>
 {% endcapture %}
@@ -94,7 +96,7 @@
     {% capture quick_add_content %}
       <p class="product-card__desc p-sm">{{ this_product.description | strip_html | truncatewords: 20 }}</p>
 
-      {% render 'variant_picker' this_product: this_product, layout: 'buttons', product_form_id: quick_add_product_id %}
+      {% render 'variant_picker' this_product: this_product, layout: 'buttons', product_form_id: quick_add_product_id, update_URL: false %}
       {% render 'product-form' id: quick_add_product_id, product: this_product, show_quantity: true, hide_dynamic_buttons: true %}
     {% endcapture %}
     <quick-add-dropdown class="product-card__quick-add-btn no-js-hidden">
@@ -131,6 +133,8 @@
   {% endif %}
 
   {% if price_position == 'bottom' %}
-    {%- render 'price', product: this_product, class: 'product-card__bottom-price' -%}
+    <div id="Price-{{ section.id }}{{ this_product.id }}">
+      {%- render 'price', product: this_product, class: 'product-card__bottom-price' -%}
+    </div>
   {% endif %}
 </div>

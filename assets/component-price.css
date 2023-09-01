@@ -5,10 +5,11 @@
   align-items: center; }
   .price > *:not(.price__badge) {
     flex: 1; }
-  .price__regular.__strikethrough {
-    margin-right: calc(var(--pxSize) / 6);
+  .price .__strikethrough {
     opacity: 0.6;
     text-decoration: line-through; }
+  .price__regular.__strikethrough {
+    margin-right: calc(var(--pxSize) / 6); }
   .price__unit-price {
     display: block;
     margin-top: 0.25rem;

@@ -48,32 +48,37 @@ if (!customElements.get("product-form")) {
               return;
             }
 
-            document.getElementById(
-              "CartBubble-0"
-            ).innerHTML = `${response.sections["cart-bubble"].match(/\d+/)}`;
+            let cartBubbleOne = document.getElementById("CartBubble-1");
 
-            document.getElementById(
-              "CartBubble-1"
-            ).innerHTML = `${response.sections["cart-bubble"].match(/\d+/)}`;
+            if (cartBubbleOne) {
+              cartBubbleOne.innerHTML = `${response.sections[
+                "cart-bubble"
+              ].match(/\d+/)}`;
+            }
 
-            console.log(
-              document
-                .getElementById("dialog-cart-1")
-                .querySelector(".dialog__content__body"),
-              typeof response.sections["cart-drawer"]
-            );
+            let cartBubbleTwo = document.getElementById("CartBubble-2");
 
-            document
+            if (cartBubbleTwo) {
+              cartBubbleTwo.innerHTML = `${response.sections[
+                "cart-bubble"
+              ].match(/\d+/)}`;
+            }
+
+            let dialogCartOne = document
               .getElementById("dialog-cart-1")
-              .querySelector(
-                ".dialog__content__body"
-              ).innerHTML = `${response.sections["cart-drawer"]}`;
+              .querySelector(".dialog__content__body");
 
-            document
+            if (dialogCartOne) {
+              dialogCartOne.innerHTML = `${response.sections["cart-drawer"]}`;
+            }
+
+            let dialogCartTwo = document
               .getElementById("dialog-cart-2")
-              .querySelector(
-                ".dialog__content__body"
-              ).innerHTML = `${response.sections["cart-drawer"]}`;
+              .querySelector(".dialog__content__body");
+
+            if (dialogCartTwo) {
+              dialogCartTwo.innerHTML = `${response.sections["cart-drawer"]}`;
+            }
 
             document.getElementById("dialog-cart-2").parentNode.open = true;
 
@@ -91,6 +96,7 @@ if (!customElements.get("product-form")) {
       }
 
       handleErrorMessage(errorText = false) {
+        console.log("THis is an error");
         if (this.hideErrors) return;
 
         this.errorMessage =

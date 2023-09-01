@@ -146,10 +146,10 @@
 
             {% comment %} Cart Drawer button {% endcomment %}
             {% capture cart_class %}{{ className }}__utility-links__cart{% endcapture %}
-            {% capture cart_id %}cart-{{ forloop.index }}{% endcapture %}
+            {% capture cart_id %}cart-{{ nav_index }}{% endcapture %}
             {% capture cart_title %}
               {% render 'svg-cart' %}
-              <span id="CartBubble-{{ forloop.index0 }}">
+              <span id="CartBubble-{{ nav_index }}">
                 {{ cart.item_count }}
               </span>
             {% endcapture %}

@@ -8,6 +8,7 @@
   - layout: {String} optional. dropdown (default), buttons
   - include_border: {Bool} optional bool
   - show_option_labels {bool} optional
+  - update_URL {bool} optional
 
   Usage:
     {% render 'variant_picker' this_product: section.settings.product, layout: block.settings.layout, include_border: block.settings.include_border, show_option_labels: block.settings.show_option_labels, class: "featured-product__block" %}
@@ -18,7 +19,7 @@
 
   {% comment %} Layout button {% endcomment %}
   {%- if layout == 'buttons' -%}
-    <variant-radios class="no-js-hidden variant-picker__radios" data-section="{{ section.id }}" data-product-id="{{ this_product.id }}" data-url="{{ this_product.url }}" {{ block.shopify_attributes }}>
+    <variant-radios class="no-js-hidden variant-picker__radios" data-section="{{ section.id }}" data-product-id="{{ this_product.id }}" data-url="{{ this_product.url }}" {{ block.shopify_attributes }} {% if update_URL %}data-updateURL="{{update_URL}}"{% endif %}>
       {%- for option in this_product.options_with_values -%}
         {% capture option_variable_name %}option_{{ forloop.index }}_description{% endcapture %}
 

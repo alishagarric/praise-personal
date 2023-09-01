@@ -58,7 +58,7 @@
       <span class="visually-hidden">
         {{ 'products.product.price.sale_price' | t }}
       </span>
-      <span class="sale-price">
+      <span class="sale-price {% if product.selected_variant.inventory_management and product.selected_variant.inventory_quantity <= 0 %}__strikethrough{% endif %}">
         {{ money_price }}
       </span>
     {%- else -%}
