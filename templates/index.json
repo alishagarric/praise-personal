@@ -32,7 +32,6 @@
         "1662063884b661ea2d-1"
       ],
       "settings": {
-        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_d3a7cff6-0921-4968-b1ed-0fa616e17727.jpg",
         "image_style": "wide",
         "hero": true,
         "alignment": "center",
@@ -116,7 +115,6 @@
         "1662066517b59e31e0-2"
       ],
       "settings": {
-        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_cd0b890c-b357-4857-9c0d-36126dbfab86.jpg",
         "image_style": "wide",
         "hero": false,
         "alignment": "center",
@@ -138,7 +136,6 @@
         "1662067471e878020c-0": {
           "type": "icon",
           "settings": {
-            "icon": "shopify://shop_images/Frame.png",
             "heading": "One-of-a-kind treats",
             "text": "We make your treats fresh and full of fresh homemade ingredients"
           }
@@ -146,7 +143,6 @@
         "1662067471e878020c-1": {
           "type": "icon",
           "settings": {
-            "icon": "shopify://shop_images/Frame.png",
             "heading": "One-of-a-kind treats",
             "text": "We make your treats fresh and full of fresh homemade ingredients"
           }
@@ -154,7 +150,6 @@
         "1662067471e878020c-2": {
           "type": "icon",
           "settings": {
-            "icon": "shopify://shop_images/Frame.png",
             "heading": "One-of-a-kind treats",
             "text": "We make your treats fresh and full of fresh homemade ingredients"
           }
@@ -172,6 +167,7 @@
         "layout": "3",
         "mobile_layout": "1",
         "icon_height": 50,
+        "gap": 1,
         "alignment": "center",
         "theme": "2",
         "top_spacing": 70,
@@ -229,7 +225,7 @@
         "1663290308334a8c59-0": {
           "type": "product",
           "settings": {
-            "product": "all-hail-sugar-bear",
+            "product": "white-bed-clothes",
             "horizontal_pos": 50,
             "vertical_pos": 50
           }
@@ -237,7 +233,7 @@
         "1663290308334a8c59-1": {
           "type": "product",
           "settings": {
-            "product": "all-hail-sugar-baby",
+            "product": "copper-light",
             "horizontal_pos": 80,
             "vertical_pos": 19
           }
@@ -245,7 +241,7 @@
         "1663290308334a8c59-2": {
           "type": "product",
           "settings": {
-            "product": "jelly-cravings-beware",
+            "product": "brown-throw-pillows",
             "horizontal_pos": 70,
             "vertical_pos": 82
           }
@@ -253,7 +249,7 @@
         "ba22128a-7bef-4e8c-9156-243b55f0136f": {
           "type": "product",
           "settings": {
-            "product": "moose-munchsters-crackle",
+            "product": "bedside-table",
             "horizontal_pos": 16,
             "vertical_pos": 28
           }
@@ -266,17 +262,16 @@
         "ba22128a-7bef-4e8c-9156-243b55f0136f"
       ],
       "settings": {
-        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_bbf54c90-3c31-4e00-962c-f12d6b17cf77.jpg",
         "image_crop_shape": "square",
         "show_phrase": false,
         "show_description": false,
         "quick_add": true,
         "show_bg_color": false,
-        "dot_color": "default",
         "alt_title": false,
         "product_text_alignment": "default",
         "price": "default",
         "crop_shape": "rounded-square",
+        "dot_color": "default",
         "theme": "3",
         "top_spacing": 50,
         "bottom_spacing": 50
@@ -306,7 +301,6 @@
         "dfa21165-42de-44ad-b3ef-d70913dbfb50"
       ],
       "settings": {
-        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_a6c4dcf8-a5c2-45ab-8711-f1aa9365378c.jpg",
         "overlay": 40,
         "overlay_theme": "3",
         "crop_shape": "circle",
@@ -351,7 +345,6 @@
         "66fa0e52-e179-47ed-951d-4756ccecc86c"
       ],
       "settings": {
-        "image": "shopify://shop_images/strvnge-films-vYOld7oc7Zo-unsplash_e7c90847-70c1-47f4-a82d-2369a2b4a718.jpg",
         "overlay": 20,
         "overlay_theme": "4",
         "crop_shape": "default",
@@ -457,7 +450,6 @@
             "text_size": "p-sm",
             "quotations": true,
             "details": "",
-            "logo": "shopify://shop_images/image_14.png",
             "background_theme": "3",
             "card_corners": "rounded"
           }
@@ -469,7 +461,6 @@
             "text_size": "p-sm",
             "quotations": true,
             "details": "",
-            "logo": "shopify://shop_images/image_14.png",
             "background_theme": "4",
             "card_corners": "rounded"
           }
@@ -481,7 +472,6 @@
             "text_size": "p-sm",
             "quotations": true,
             "details": "",
-            "logo": "shopify://shop_images/image_14.png",
             "background_theme": "5",
             "card_corners": "rounded"
           }
@@ -493,7 +483,6 @@
             "text_size": "p-sm",
             "quotations": true,
             "details": "",
-            "logo": "shopify://shop_images/image_14.png",
             "background_theme": "3",
             "card_corners": "rounded"
           }
@@ -505,7 +494,6 @@
             "text_size": "p-sm",
             "quotations": true,
             "details": "",
-            "logo": "shopify://shop_images/image_14.png",
             "background_theme": "4",
             "card_corners": "rounded"
           }
@@ -527,7 +515,6 @@
       }
     }
   },
-
   "order": [
     "1662063884d9fa6284",
     "text-marquee",
