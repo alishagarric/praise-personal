@@ -9,7 +9,7 @@
     .main-product__container:before {
       content: "";
       width: 150%;
-      background: RGB(var(--metafield-color-background)); }
+      background: RGB(var(--themed-color-background)); }
     .main-product__container.__offset-left {
       grid-template-columns: 0px repeat(2, 1fr); }
       .main-product__container.__offset-left:before {
@@ -44,6 +44,18 @@
   .main-product__blocks-after-media {
     grid-column: 3 / -1;
     padding-right: calc(var(--sectionGuttersSpacing) / 2); }
+  .main-product__blocks-before-media {
+    color: RGB(var(--color-text)); }
+    .main-product__blocks-before-media.__desktop-custom-colors {
+      --color-foreground-text: var(--themed-color-text);
+      --color-foreground: var(--themed-color-background); }
+      @media screen and (min-width: 677px) {
+        .main-product__blocks-before-media.__desktop-custom-colors {
+          --color-background: var(--themed-color-background);
+          --color-foreground: var(--themed-color-foreground);
+          --color-border: var(--themed-color-border);
+          --color-text: var(--themed-color-text);
+          --color-foreground-text: var(--themed-color-foreground-text); } }
   .main-product__block {
     display: block; }
     .main-product__block.__border-top {
@@ -108,13 +120,14 @@
       order: -1;
       padding-top: var(--sectionGuttersSpacing);
       padding-bottom: 0;
-      background-color: RGB(var(--color-background)); }
+      background-color: RGB(var(--color-background));
+      color: RGB(var(--color-text)); }
       .main-product__media.__mobile-custom-colors {
-        --color-background: var(--mobile-color-background);
-        --color-foreground: var(--mobile-color-foreground);
-        --color-border: var(--mobile-color-border);
-        --color-text: var(--mobile-color-text);
-        --color-foreground-text: var(--mobile-color-foreground-text); }
+        --color-background: var(--themed-color-background);
+        --color-foreground: var(--themed-color-foreground);
+        --color-border: var(--themed-color-border);
+        --color-text: var(--themed-color-text);
+        --color-foreground-text: var(--themed-color-foreground-text); }
       .main-product__media__container {
         content: none; }
       .main-product__media__dots {
@@ -225,5 +238,3 @@ product-model {
 @media screen and (max-width: 749px) {
   .active .xr-button:not([data-shopify-xr-hidden]) {
     display: block; } }
-
-/*# sourceMappingURL=main-product.css.map */

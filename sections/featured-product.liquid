@@ -31,14 +31,20 @@
 <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'variant-selects.js' | asset_url }}" defer="defer"></script>
 
-<div id="Featured-product-{{ section.id }}" class="featured-product __layout-{{ section.settings.layout }} __layout-mobile-{{ section.settings.mobile_layout }} __theme-{{ section_theme }}">
+<div id="Featured-product-{{ section.id }}" class="featured-product __layout-{{ section.settings.layout }} __layout-mobile-{{ section.settings.mobile_layout }} __theme-{{ section_theme }}"         
+   style="
+      {% if section.settings.product.metafields.custom.color and section.settings.product.metafields.custom.text_color %}
+         --themed-color-background: {{ section.settings.product.metafields.custom.color.value.rgb }}; 
+         --themed-color-foreground-text: {{ section.settings.product.metafields.custom.color.value.rgb }}; 
+         --themed-color-text: {{ section.settings.product.metafields.custom.text_color.value.rgb }}; 
+         --themed-color-foreground: {{ section.settings.product.metafields.custom.text_color.value.rgb }}; 
+         --themed-color-border: {{ section.settings.product.metafields.custom.text_color.value.rgb }} / .3;
+      {% endif %}"
+>
 
   {% comment %} Text content column {% endcomment %}
   <div class="featured-product__text" id="Product-Info-{{ section.id }}{{ section.settings.product.id }}">
-      <div 
-        class="featured-product__text__first-half"
-        style="{% if section.settings.theme_section != "default" %}{% if section.settings.product.metafields.custom.color %}--color-background: {{ section.settings.product.metafields.custom.color.value.rgb }}; --color-foreground-text: {{ section.settings.product.metafields.custom.color.value.rgb }};{% endif %} {% if section.settings.product.metafields.custom.text_color %} --color-text: {{ section.settings.product.metafields.custom.text_color.value.rgb }}; --color-foreground: {{ section.settings.product.metafields.custom.text_color.value.rgb }}; --color-border: {{ section.settings.product.metafields.custom.text_color.value.rgb }} / .3;{% endif %}{% endif %}"
-      >
+      <div  class="featured-product__text__first-half {% if section.settings.theme_section != "default" and section.settings.product.metafields.custom.color and section.settings.product.metafields.custom.text_color %}__custom-colors{% endif %}">
         {%- for block in section.blocks -%}
           {%- case block.type -%}
             {% comment %} Type app {% endcomment %}
@@ -121,7 +127,7 @@
 
           {% if forloop.index == half_blocks_count %}
             </div>
-            <div class="featured-product__text__last-half">
+            <div class="featured-product__text__last-half {% if section.settings.theme_section != "default" and section.settings.product.metafields.custom.color and section.settings.product.metafields.custom.text_color %}__custom-colors{% endif %}">
           {% endif %}
         {%- endfor -%}
       </div>

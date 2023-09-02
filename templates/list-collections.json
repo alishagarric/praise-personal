@@ -95,7 +95,7 @@
         "product": "white-bed-clothes",
         "hero": false,
         "alignment": "left",
-        "theme_section": "most",
+        "theme_section": "half",
         "layout": "reversed",
         "crop_shape": "rounded-square",
         "show_phrase": true,

@@ -10,6 +10,15 @@
       color: RGB(var(--color-text));
       position: relative;
 
+      &.__custom-colors {
+        //if custom colors are set for this product make entire part of section themed on desktop
+        --color-background: var(--themed-color-background);
+        --color-foreground: var(--themed-color-foreground);
+        --color-border: var(--themed-color-border);
+        --color-text: var(--themed-color-text);
+        --color-foreground-text: var(--themed-color-foreground-text);
+      }
+
       > * {
         position: relative;
       }
@@ -32,6 +41,12 @@
         );
         background: RGB(var(--color-background));
       }
+    }
+
+    &__last-half {
+      //if custom colors are set for this product make buttons themed
+      --color-foreground-text: var(--themed-color-text);
+      --color-foreground: var(--themed-color-background);
     }
 
     &__btn.__style-underline {

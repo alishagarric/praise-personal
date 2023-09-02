@@ -33,7 +33,15 @@
   <link id="ModelViewerStyle" rel="stylesheet" href="https://cdn.shopify.com/shopifycloud/model-viewer-ui/assets/v1.0/model-viewer-ui.css" media="print" onload="this.media='all'">
 {%- endif -%}
 
-<div class="main-product product {% if template == "product.modal" %}main-modal{% endif %} __theme-{{ section.settings.theme }}" style="  {% if product.metafields.custom.color %}--metafield-color-background: {{ product.metafields.custom.color.value.rgb }};{% endif %}">
+<div class="main-product product {% if template == "product.modal" %}main-modal{% endif %} __theme-{{ section.settings.theme }}" 
+  style="{% if product.metafields.custom.color and product.metafields.custom.text_color %}
+    --themed-color-background: {{ product.metafields.custom.color.value.rgb }}; 
+    --themed-color-foreground-text: {{ product.metafields.custom.color.value.rgb }};
+    --themed-color-text: {{ product.metafields.custom.text_color.value.rgb }}; 
+    --themed-color-foreground: {{ product.metafields.custom.text_color.value.rgb }}; 
+    --themed-color-border: {{ product.metafields.custom.text_color.value.rgb }} / .3;
+  {% endif %}"
+>
   
     {% comment %} Product info {% endcomment %}
     <div class="main-product__container __offset-{% if section.blocks.first.type == "media" %}left{% elsif section.blocks.last.type == "media" %}right{% else %}none{% endif %}">
@@ -43,8 +51,7 @@
         this div. Goal here is to contain all blocks that are ordered before the media block.
       {% endcomment %}
       <div 
-        class="main-product__blocks-before-media"
-        style="{% if product.metafields.custom.color %}--color-background: {{ product.metafields.custom.color.value.rgb }}; --color-foreground-text: {{ product.metafields.custom.color.value.rgb }};{% endif %} {% if product.metafields.custom.text_color %} --color-text: {{ product.metafields.custom.text_color.value.rgb }}; --color-foreground: {{ product.metafields.custom.text_color.value.rgb }}; --color-border: {{ product.metafields.custom.text_color.value.rgb }} / .3;{% endif %}"
+        class="main-product__blocks-before-media {% if product.metafields.custom.color and product.metafields.custom.text_color %}__desktop-custom-colors{% endif %}"
       > 
 
       {% comment %} Loop through blocks {% endcomment %}
@@ -64,14 +71,6 @@
             <media-gallery 
               class="main-product__media __layout-{{ block.settings.layout }} {% if product.metafields.custom.color and product.metafields.custom.text_color %}__mobile-custom-colors{% endif %}" 
               id="Product-MediaGallery-{{ section.id }}{{ product.id }}" 
-              style="
-                {% if product.metafields.custom.color and product.metafields.custom.text_color %}
-                  --mobile-color-background: {{ product.metafields.custom.color.value.rgb }}; 
-                  --mobile-color-foreground-text: {{ product.metafields.custom.color.value.rgb }};
-                  --mobile-color-text: {{ product.metafields.custom.text_color.value.rgb }}; 
-                  --mobile-color-foreground: {{ product.metafields.custom.text_color.value.rgb }}; 
-                  --mobile-color-border: {{ product.metafields.custom.text_color.value.rgb }} / .3;
-                {% endif %}"
               data-section="{{ section.id }}"
             >
 

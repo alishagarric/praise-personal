@@ -13,7 +13,7 @@
     &:before {
       content: "";
       width: 150%;
-      background: RGB(var(--metafield-color-background));
+      background: RGB(var(--themed-color-background));
     }
 
     &.__offset {
@@ -85,6 +85,25 @@
   &__blocks-after-media {
     grid-column: 3 / -1;
     padding-right: calc(var(--sectionGuttersSpacing) / 2);
+  }
+
+  //blocks before media column position coloring
+  &__blocks-before-media {
+    color: RGB(var(--color-text));
+
+    &.__desktop-custom-colors {
+      //if custom colors are set for this product, make the buttons themed on mobile, and make entire part of section themed on desktop
+      --color-foreground-text: var(--themed-color-text);
+      --color-foreground: var(--themed-color-background);
+
+      @media screen and (min-width: 677px) {
+        --color-background: var(--themed-color-background);
+        --color-foreground: var(--themed-color-foreground);
+        --color-border: var(--themed-color-border);
+        --color-text: var(--themed-color-text);
+        --color-foreground-text: var(--themed-color-foreground-text);
+      }
+    }
   }
 
   //block wrapper that wraps some product blocks
@@ -217,13 +236,15 @@
       padding-top: var(--sectionGuttersSpacing);
       padding-bottom: 0;
       background-color: RGB(var(--color-background));
+      color: RGB(var(--color-text));
 
       &.__mobile-custom-colors {
-        --color-background: var(--mobile-color-background);
-        --color-foreground: var(--mobile-color-foreground);
-        --color-border: var(--mobile-color-border);
-        --color-text: var(--mobile-color-text);
-        --color-foreground-text: var(--mobile-color-foreground-text);
+        //if custom colors are set for this product make entire part of section themed on desktop
+        --color-background: var(--themed-color-background);
+        --color-foreground: var(--themed-color-foreground);
+        --color-border: var(--themed-color-border);
+        --color-text: var(--themed-color-text);
+        --color-foreground-text: var(--themed-color-foreground-text);
       }
 
       //themed background
