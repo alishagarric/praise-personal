@@ -15,11 +15,12 @@
 
 {% endcomment %}
 
+
 {%- unless this_product.has_only_default_variant -%}
 
   {% comment %} Layout button {% endcomment %}
   {%- if layout == 'buttons' -%}
-    <variant-radios class="no-js-hidden variant-picker__radios" data-section="{{ section.id }}" data-product-id="{{ this_product.id }}" data-url="{{ this_product.url }}" {{ block.shopify_attributes }} {% if update_URL %}data-updateURL="{{update_URL}}"{% endif %}>
+    <variant-radios class="no-js-hidden variant-picker__radios" data-section="{{ section.id }}" data-product-id="{{ this_product.id }}" data-url="{{ this_product.url }}" {{ block.shopify_attributes }} data-update-url="{{ update_URL }}">
       {%- for option in this_product.options_with_values -%}
         {% capture option_variable_name %}option_{{ forloop.index }}_description{% endcapture %}
 

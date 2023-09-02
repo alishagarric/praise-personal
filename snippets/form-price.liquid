@@ -2,7 +2,7 @@
   Renders price for product form
 
   Expects: 
-  - product: {Object} Product object
+  - this_product: {Object} Product object
   - class: {String} optional
   - form_id: {string} required
   - price_size: {string }
@@ -20,7 +20,7 @@
   role="status"
   {{ block.shopify_attributes }}
 >
-  {%- render 'price', product: product, use_variant: true, show_badges: true -%}
+  {%- render 'price', this_product: this_product, use_variant: true, show_badges: true -%}
 </div>
 
 {%- if cart.taxes_included or shop.shipping_policy.body != blank -%}
@@ -38,13 +38,13 @@
   {%- assign installment_id = 'Installment-' | append: section.id -%}
   {%-
     form 'product',
-    product,
+    this_product,
     id: installment_id
   -%}
     <input
       type="hidden"
       name="id"
-      value="{{ product.selected_or_first_available_variant.id }}"
+      value="{{ this_product.selected_or_first_available_variant.id }}"
     >
     {{ form | payment_terms }}
   {%- endform -%}

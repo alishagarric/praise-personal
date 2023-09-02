@@ -2,21 +2,22 @@
     Renders product price info
 
     Accepts:
-    - product: {Object} Product Liquid object (optional)
+    - this_product: {Object} Product Liquid object (optional)
     - use_variant: {Boolean} Renders selected or first variant price instead of overall product pricing (optional)
     - show_badges: {Boolean} Renders 'Sale' and 'Sold Out' tags if the product matches the condition (optional)
     - class: {String}
 
     Usage:
-    {% render 'price', product: product %}
+    {% render 'price', this_product: product %}
 {% endcomment %}
 
 
 {% comment %} Gather all variables: target, onsale, money_price {% endcomment %}
+
 {%- liquid
-  assign target = product
+  assign target = this_product
   if use_variant
-    assign target = product.selected_or_first_available_variant
+    assign target = this_product.selected_or_first_available_variant
   endif
 
   assign compare_at_price = target.compare_at_price
@@ -33,7 +34,7 @@
     assign money_price = price | money_with_currency
   endif
 
-  if target == product and product.price_varies
+  if target == this_product and this_product.price_varies
     assign money_price = 'products.product.price.from_price_html' | t: price: money_price
   endif
 -%}
@@ -41,7 +42,7 @@
 <div class="price {{ class }}">
   <div>
     {%- if onsale %}
-      {%- unless product.price_varies == false and product.compare_at_price_varies %}
+      {%- unless this_product.price_varies == false and this_product.compare_at_price_varies %}
         {% comment %} On sale - Regular price {% endcomment %}
         <span class="visually-hidden">
           {{ 'products.product.price.regular_price' | t }}
@@ -58,7 +59,7 @@
       <span class="visually-hidden">
         {{ 'products.product.price.sale_price' | t }}
       </span>
-      <span class="sale-price {% if product.selected_variant.inventory_management and product.selected_variant.inventory_quantity <= 0 %}__strikethrough{% endif %}">
+      <span class="sale-price">
         {{ money_price }}
       </span>
     {%- else -%}
@@ -66,12 +67,12 @@
       <span class="visually-hidden">
         {{ 'products.product.price.regular_price' | t }}
       </span>
-      <span class="price__regular {% if product.selected_variant.inventory_management and product.selected_variant.inventory_quantity <= 0 %}__strikethrough{% endif %}">
+      <span class="price__regular">
         {{ money_price }}
       </span>
     {%- endif -%}
 
-  {% unless product.selected_or_first_available_variant.unit_price_measurement == nil %}
+  {% unless this_product.selected_or_first_available_variant.unit_price_measurement == nil %}
     {% comment %} Unit price (Only available for stores in Germany and France at time of build) {% endcomment %}
     <small class="price__unit-price p-sm">
       <span class="visually-hidden">
@@ -79,16 +80,16 @@
       </span>
       <span>
         {% comment %} Price {% endcomment %}
-        <span>{{- product.selected_or_first_available_variant.unit_price | money -}}</span>
+        <span>{{- this_product.selected_or_first_available_variant.unit_price | money -}}</span>
         {% comment %} Separator {% endcomment %}
         <span aria-hidden="true">/</span>
         <span class="visually-hidden">&nbsp;{{ 'accessibility.unit_price_separator' | t }}&nbsp;</span>
         {% comment %} Unit {% endcomment %}
         <span>
-          {%- if product.selected_or_first_available_variant.unit_price_measurement.reference_value != 1 -%}
-            {{- product.selected_or_first_available_variant.unit_price_measurement.reference_value -}}
+          {%- if this_product.selected_or_first_available_variant.unit_price_measurement.reference_value != 1 -%}
+            {{- this_product.selected_or_first_available_variant.unit_price_measurement.reference_value -}}
           {%- endif -%}
-          {{ product.selected_or_first_available_variant.unit_price_measurement.reference_unit }}
+          {{ this_product.selected_or_first_available_variant.unit_price_measurement.reference_unit }}
         </span>
       </span>
     </small>
@@ -97,7 +98,7 @@
 
 
 
-  {%- if available == false and show_badges -%}
+  {%- if available == false and show_badges and this_product -%}
     <span class="price__badge p-sm">
       {{ 'products.product.sold_out' | t }}
     </span>

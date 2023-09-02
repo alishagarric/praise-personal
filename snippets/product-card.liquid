@@ -58,7 +58,7 @@
     </h3>
     {% if price_position == 'default' %}
       <div id="Price-{{ section.id }}{{ this_product.id }}">
-        {%- render 'price', class: 'product-card__price', product: this_product -%}
+        {%- render 'price', class: 'product-card__price', this_product: this_product, show_badges: true, use_variant: true -%}
       </div>
     {% endif %}
   </div>
@@ -76,18 +76,22 @@
     {% render 'product-phrase', phrase: this_product.metafields.custom.phrase, class: 'product-card__phrase' %}
   {% endif %}
 
-  <div class="product-card__image image-container __crop-{{ crop }}" style="--imageRatio: {{ image_ratio }}%">
-    {% if this_product and this_product.featured_image %}
-      {% if settings.product_card_hover and this_product.images[2] %}
-        {% render 'next-gen-img', image: this_product.images[2], width: img_width: widths: img_widths, sizes: img_sizes %}
+  {% if quick_add == true and this_product.images.size > 1 %}
+    {% render 'media-gallery' this_product: this_product, class: "product-card__image", section: section, featured_media: this_product.selected_or_first_available_variant.featured_media %}
+  {% else %}
+    <div class="product-card__image image-container __crop-{{ crop }}" style="--imageRatio: {{ image_ratio }}%">
+      {% if this_product and this_product.featured_image %}
+        {% if settings.product_card_hover and this_product.images[2] %}
+          {% render 'next-gen-img', image: this_product.images[2], width: img_width: widths: img_widths, sizes: img_sizes %}
+        {% endif %}
+        {% render 'next-gen-img', image: this_product.featured_image, width: img_width, widths: img_widths, sizes: img_sizes, preload: img_preload %}
+      {% elsif this_product == blank %}
+        <img src="{{ 'svg-placeholder.svg' | asset_url }}" width="{{ img_width }}" height="{{ img_width }}"/>
+      {% else %}
+        <h3 class="p-lg">{{ product_title }}</h3>
       {% endif %}
-      {% render 'next-gen-img', image: this_product.featured_image, width: img_width, widths: img_widths, sizes: img_sizes, preload: img_preload %}
-    {% elsif this_product == blank %}
-      <img src="{{ 'svg-placeholder.svg' | asset_url }}" width="{{ img_width }}" height="{{ img_width }}"/>
-    {% else %}
-      <h3 class="p-lg">{{ product_title }}</h3>
-    {% endif %}
-  </div>
+    </div>
+  {% endif %}
 
   {% assign quick_add_style = 'dropdown' %}
   {% if quick_add and quick_add_style == 'dropdown' %}
@@ -96,7 +100,7 @@
     {% capture quick_add_content %}
       <p class="product-card__desc p-sm">{{ this_product.description | strip_html | truncatewords: 20 }}</p>
 
-      {% render 'variant_picker' this_product: this_product, layout: 'buttons', product_form_id: quick_add_product_id, update_URL: false %}
+      {% render 'variant_picker' this_product: this_product, layout: 'buttons', product_form_id: quick_add_product_id %} {% comment %} Warning: If you add update_URL: false to this, then variant.selected_or_first_available_variant won't know what variant is 'selected' to fetch a price & badges for since it seems to base selection on the browser url containing the variant id query {% endcomment %} 
       {% render 'product-form' id: quick_add_product_id, product: this_product, show_quantity: true, hide_dynamic_buttons: true %}
     {% endcapture %}
     <quick-add-dropdown class="product-card__quick-add-btn no-js-hidden">
@@ -134,7 +138,7 @@
 
   {% if price_position == 'bottom' %}
     <div id="Price-{{ section.id }}{{ this_product.id }}">
-      {%- render 'price', product: this_product, class: 'product-card__bottom-price' -%}
+      {%- render 'price', this_product: this_product, class: 'product-card__bottom-price', show_badges: true, use_variant: true -%}
     </div>
   {% endif %}
 </div>

@@ -92,10 +92,10 @@
         "shop_button"
       ],
       "settings": {
-        "product": "all-hail-sugar-bear",
+        "product": "white-bed-clothes",
         "hero": false,
         "alignment": "left",
-        "theme_section": "half",
+        "theme_section": "most",
         "layout": "reversed",
         "crop_shape": "rounded-square",
         "show_phrase": true,

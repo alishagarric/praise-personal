@@ -105,6 +105,19 @@
   &__image {
     z-index: 1;
     margin-bottom: var(--spaceBeneathImage);
+    position: relative;
+    display: block;
+
+    ul {
+      > li:not(:first-child) {
+        display: none;
+      }
+
+      li .media {
+        position: static;
+        padding: 0;
+      }
+    }
 
     img,
     svg {
@@ -141,6 +154,14 @@
       display: inline-flex;
       gap: 1rem;
       margin: 0;
+
+      &__badge {
+        background: transparent;
+        color: RGB(var(--color-text));
+        padding: 0;
+        height: auto;
+        line-height: 1.4;
+      }
     }
 
     * {

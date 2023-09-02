@@ -6,7 +6,7 @@ form.product-form {
     margin-bottom: calc(var(--pxSize) / 4);
   }
 
-  //get super specific so overwriting form feidl styles isn't miserable
+  //get super specific so overwriting form feild styles isn't miserable
   .product-form {
     &__row,
     &__column {
@@ -26,6 +26,12 @@ form.product-form {
         padding-bottom: calc(var(--pxSize) / 4);
         margin-bottom: calc(var(--pxSize) / 4);
         border-bottom: 1px solid RGBA(var(--color-border));
+      }
+    }
+
+    &__quantity {
+      input {
+        color: RGB(var(--color-text));
       }
     }
 

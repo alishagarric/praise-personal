@@ -1,0 +1,71 @@
+  {% comment %} Media Gallery {% endcomment %}
+  {% comment %}
+  Renders a media gallery component for use on items that display a product in a simpler form than the product page
+
+  Expects:
+  - this_product: {Object} Product object
+  - class: {String} optional
+  - section: {Oject} section object
+    - id
+    - settings.show_phrase
+    - settings.crop_shape
+  - featured_media: {Object} optional. media object
+  
+  Usage:
+
+{% endcomment %}
+
+<script src="{{ 'media-gallery.js' | asset_url }}" defer="defer"></script>
+{% assign class = class | default: "media-gallery" %} {% comment %} No styles associated to media gallery, but don't want this to be empty because of BEM naming for child class names {% endcomment %}
+
+
+<media-gallery
+   class="{{ class }}"
+   id="Product-MediaGallery-{{ section.id }}{{ this_product.id }}" 
+   data-section="{{ section.id }}"
+   style="{% if this_product.metafields.custom.color %}--color-background: {{ this_product.metafields.custom.color.value.rgb }};{% endif %}"
+   >
+
+      {% comment %} Skip to content anchor link {% endcomment %}
+      <a class="skip-to-content-link visually-hidden" href="#Product-Info-{{ section.id }}{{ this_product.id }}">
+         {{ 'accessibility.skip_to_product_info' | t }}
+      </a>
+
+      {% if section.settings.show_phrase == true and this_product.metafields.custom.phrase %}
+         <div class="{{ class }}__phrase">
+            {% assign phrase_class = class | append: "__phrase" %}
+            {% render 'product-phrase' phrase: this_product.metafields.custom.phrase, class: phrase_class %}
+         </div>
+      {% endif %}
+
+      <ul class="product-media list-unstyled" role="list">
+
+         {% comment %} Output first image (not lazyloaded) (changes depengind on variant availability and assigned variant images) {% endcomment %}
+         {%- if featured_media != null -%}
+         <li class="image-container __crop-{{ section.settings.crop_shape }}" style="--imageRatio: {{ this_product.featured_image.height | divided_by: 1.00 | divided_by: this_product.featured_image.width | times: 100 }}%" data-media-id="{{ section.id }}{{ this_product.id }}-{{ featured_media.id }}">
+            {% render 'product-thumbnail', media: featured_media, loading: 'eager' %}
+         </li>
+         {%- else -%}
+         <li class="image-container __crop-{{ section.settings.crop_shape }}" style="--imageRatio: 100%">
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+         </li>
+         {% endif %}
+
+         {% comment %} Loop through available media, excluding featured media item {% endcomment %}
+         {% comment %} What does the parent <media-gallery> component do, why do these li's have data-media-id attr on them? {% endcomment %}
+         {%- for media in this_product.media -%}
+            {%- unless media.id == featured_media.id -%}
+               <li class="main-product__media__item image-container __crop-{{ section.settings.crop_shape }}" style="--imageRatio: {{ this_product.featured_image.height | divided_by: 1.00 | divided_by: this_product.featured_image.width | times: 100 }}%" data-media-id="{{ section.id }}{{ this_product.id }}-{{ media.id }}">
+                 {%- liquid
+                  assign media_position = media_position | default: 0 | plus: 1
+                  assign loading = 'eager'
+                  if media_position > 1
+                     assign loading = 'lazy'
+                  endif
+                  render 'product-thumbnail', media: media, loading: loading
+                  -%}
+               </li>
+            {%- endunless -%}
+         {%- endfor -%}
+      </ul>
+</media-gallery>

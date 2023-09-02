@@ -54,6 +54,8 @@ form.product-form .product-form__row {
     padding-bottom: calc(var(--pxSize) / 4);
     margin-bottom: calc(var(--pxSize) / 4);
     border-bottom: 1px solid RGBA(var(--color-border)); }
+form.product-form .product-form__quantity input {
+  color: RGB(var(--color-text)); }
 form.product-form .product-form__add-to-cart {
   flex: 1; }
 form.product-form .shopify-payment-button__button {
@@ -113,5 +115,3 @@ form.product-form button {
   margin: 0;
   justify-content: center;
   width: 100%; }
-
-/*# sourceMappingURL=product-form.css.map */

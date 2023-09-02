@@ -102,7 +102,6 @@
         }
       },
       "block_order": [
-        "media",
         "eedbfe43-d044-47db-85d2-aa3ca122f3ff",
 
         "title",
@@ -115,6 +114,7 @@
         "expandable-2",
         "88e2925f-4ec2-4dba-bb3f-5d98cbcf9ca9",
         "buy_buttons",
+        "media",
         "d8a7d326-a0a3-470d-adc4-60f860c02b34",
         "pickup-availability"
       ],

@@ -175,7 +175,7 @@
           {% comment %} Type price {% endcomment %}
           {%- when 'price' -%}
             {% assign form_id = section.id | append: product.id %}
-            {% render 'form-price' product: product, price_size: block.settings.heading_size, form_id: form_id %}
+            {% render 'form-price' this_product: product, price_size: block.settings.heading_size, form_id: form_id %}
 
           
           {% comment %} Type variant picker {% endcomment %}
