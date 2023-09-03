@@ -35,7 +35,6 @@ class VideoSection extends HTMLElement {
   }
 
   initYoutubeVideo() {
-    console.log("initYoutubeVideo");
     this.setAsLoading();
     this.loadScript("youtube").then(this.setupYoutubePlayer.bind(this));
   }
@@ -65,7 +64,6 @@ class VideoSection extends HTMLElement {
   }
 
   loadScript(videoType) {
-    console.log("loadScript");
     return new Promise((resolve, reject) => {
       const script = document.createElement("script");
       document.body.appendChild(script);
@@ -89,12 +87,10 @@ class VideoSection extends HTMLElement {
   }
 
   setupYoutubePlayer() {
-    console.log("setupYoutubePlayer");
     const videoId = this.dataset.videoId;
 
     const playerInterval = setInterval(() => {
       if (window.YT) {
-        console.log("windowYT");
         window.YT.ready(() => {
           const element = document.createElement("div");
           this.appendChild(element);
@@ -127,7 +123,6 @@ class VideoSection extends HTMLElement {
   }
 
   onYoutubeReady() {
-    console.log("youtube ready");
     this.iframe = this.querySelector("iframe"); // iframe once YT loads
     this.iframe.setAttribute("tabindex", "-1");
 

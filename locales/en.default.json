@@ -313,6 +313,7 @@
     "footer": {
       "payment": "Payment methods"
     },
+    "video": { "load_video": "Load video: {{ description }}" },
     "cart": {
       "title": "Your cart",
       "total": "Total",
