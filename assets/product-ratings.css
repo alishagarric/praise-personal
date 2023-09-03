@@ -18,5 +18,3 @@
       bottom: 0;
       width: calc( 98% - calc(calc(var(--ratingWidth)) * 100%) );
       background: RGB(var(--color-background)); }
-
-/*# sourceMappingURL=product-ratings.css.map */

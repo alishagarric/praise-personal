@@ -24,5 +24,3 @@
   @media screen and (max-width: 676px) {
     .gallery__image {
       flex: 0 0 calc(calc(var(--mobileWidth)) * 100%); } }
-
-/*# sourceMappingURL=gallery.css.map */

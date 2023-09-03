@@ -22,5 +22,3 @@
     .featured-blog.__mobile-stacked-4 .featured-blog__articles__article-container:not(:nth-of-type(1)):not(:nth-of-type(2)):not(:nth-of-type(3)
     ):not(:nth-of-type(4)) {
       display: none; } }
-
-/*# sourceMappingURL=featured-blog.css.map */

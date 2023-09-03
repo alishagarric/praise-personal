@@ -10,5 +10,3 @@
     padding-right: calc( var(--sectionGuttersSpacing) - var(--collections-list-space) ); }
   .collections-list__slider {
     --overflowSliderItemGap: var(--collections-list-space) !important; }
-
-/*# sourceMappingURL=collections-list.css.map */

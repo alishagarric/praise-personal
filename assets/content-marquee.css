@@ -43,5 +43,3 @@
         transform: translateX(0%); }
       to {
         transform: translateX(calc(var(--contentMarqueeCardSize) * -1)); } } }
-
-/*# sourceMappingURL=content-marquee.css.map */

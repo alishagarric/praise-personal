@@ -16,5 +16,3 @@
         margin-left: var(--pxSize); }
   .pagination span[aria-current="page"] {
     font-weight: bold; }
-
-/*# sourceMappingURL=pagination.css.map */

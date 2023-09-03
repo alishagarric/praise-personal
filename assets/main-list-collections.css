@@ -3,5 +3,3 @@
   .main-list-collections .pagination {
     margin-top: calc(var(--sectionVerticalSpacing) * var(--topSpacingRatio));
     margin-bottom: calc( var(--sectionVerticalSpacing) * var(--bottomSpacingRatio) ); }
-
-/*# sourceMappingURL=main-list-collections.css.map */

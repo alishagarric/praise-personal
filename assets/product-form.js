@@ -96,7 +96,6 @@ if (!customElements.get("product-form")) {
       }
 
       handleErrorMessage(errorText = false) {
-        console.log("THis is an error");
         if (this.hideErrors) return;
 
         this.errorMessage =
@@ -105,7 +104,15 @@ if (!customElements.get("product-form")) {
 
         this.errorMessage.classList.toggle("hidden", !errorText);
 
-        this.errorMessage.textContent = errorText ? errorText : "";
+        let icon = this.errorMessage.querySelector("svg").outerHTML;
+
+        if (icon == undefined || icon == null) {
+          icon = "";
+        }
+
+        this.errorMessage.innerHTML = errorText
+          ? icon + `<span>${errorText}</span>`
+          : icon;
       }
     }
   );

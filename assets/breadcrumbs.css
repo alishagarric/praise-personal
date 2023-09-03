@@ -27,5 +27,3 @@
       opacity: 1; }
       .breadcrumbs__link[aria-current="page"]:hover, .breadcrumbs__link[aria-current="page"]:focus {
         opacity: 0.5; }
-
-/*# sourceMappingURL=breadcrumbs.css.map */

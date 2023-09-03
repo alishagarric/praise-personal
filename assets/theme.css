@@ -1138,7 +1138,6 @@ details.overlay[open] > summary::before {
 /* Message */
 .message-error:not[hidden],
 .message-success:not[hidden] {
-  display: block;
   color: var(--color-text); }
   .message-error:not[hidden]:after,
   .message-success:not[hidden]:after {
@@ -1162,6 +1161,35 @@ details.overlay[open] > summary::before {
   background-color: RGB(var(--color-success));
   transform: scaleX(-1) rotate(45deg);
   line-height: calc(var(--pxSize) / 2.5); }
+
+.message-error,
+.message-success {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--pxSize) / 6); }
+  .message-error svg,
+  .message-success svg {
+    min-height: calc(var(--pxSize) / 2);
+    min-width: calc(var(--pxSize) / 2);
+    border-radius: 100%; }
+    .message-error svg path,
+    .message-success svg path {
+      transform: scale(0.6);
+      transform-origin: center center; }
+  .message-error svg:first-child:last-child,
+  .message-success svg:first-child:last-child {
+    display: none; }
+
+.message-success svg {
+  border: 1px solid RGB(var(--color-foreground));
+  background: RGB(var(--color-foreground)); }
+  .message-success svg * {
+    fill: RGB(var(--color-foreground-text)); }
+
+.message-error svg {
+  border: 1px solid RGB(var(--color-text)); }
+.message-error * {
+  fill: RGB(var(--color-text)); }
 
 .image-container {
   position: relative;
@@ -1578,5 +1606,3 @@ https://flickity.metafizzy.co
 
 .flickity-page-dots .dot.is-selected {
   opacity: 1; }
-
-/*# sourceMappingURL=theme.css.map */

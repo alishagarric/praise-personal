@@ -27,5 +27,3 @@
   @media screen and (max-width: 676px) {
     .quote-card {
       --quoteCardPadding: calc(var(--pxSize) * 2) calc(var(--pxSize) / 2); } }
-
-/*# sourceMappingURL=quote-card.css.map */

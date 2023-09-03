@@ -69,7 +69,7 @@
   {{ block.shopify_attributes }}
   data-hide-errors="{{ gift_card_recipient_feature_active }}"
 >
-  <div class="message-error p-sm product-form__error-message-wrapper" role="alert" hidden></div>
+  <div class="message-error p-sm product-form__error-message-wrapper" role="alert" hidden>{% render 'svg-exit' %}</div>
 
   {%- form 'product',
     product,

@@ -41,5 +41,3 @@
   @media screen and (max-width: 676px) {
     .main-modal {
       --mainModalButtonSize: calc(var(--sectionVerticalSpacing) / 2); } }
-
-/*# sourceMappingURL=main-modal.css.map */
