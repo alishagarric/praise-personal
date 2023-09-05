@@ -6,9 +6,9 @@
         "heading": "Video",
         "heading_size": "h4",
         "alt_heading": false,
-        "text": "<p>All our cookies use natural ingredients and are made in Williamsburg at our Brooklyn bakery.<\/p>",
+        "text": "<p>All our cookies use natural ingredients and are made in Williamsburg at our Brooklyn bakery.</p>",
         "text_size": "p-sm",
-        "video_url": "https:\/\/www.youtube.com\/watch?v=B-ytMSuwbf8",
+        "video_url": "https://www.youtube.com/watch?v=B-ytMSuwbf8",
         "description": "",
         "full_width": false,
         "theme": "primary",
@@ -22,11 +22,12 @@
         "heading": "Video Section",
         "heading_size": "h4",
         "alt_heading": false,
-        "text": "<p>Add some text that introduces the video they will watch<\/p>",
+        "text": "<p>Add some text that introduces the video they will watch</p>",
         "text_size": "p-sm",
-        "video_url": "https:\/\/vimeo.com\/165700724",
+        "video_url": "https://vimeo.com/165700724",
         "description": "",
         "full_width": false,
+        "cover_image": "shopify://shop_images/angelica-echeverry-VjJr17GkX1M-unsplash.jpg",
         "theme": "primary",
         "top_spacing": 50,
         "bottom_spacing": 50
@@ -38,9 +39,9 @@
         "heading": "Video Section",
         "heading_size": "h4",
         "alt_heading": false,
-        "text": "<p>Add some text that introduces the video they will watch<\/p>",
+        "text": "<p>Add some text that introduces the video they will watch</p>",
         "text_size": "p-sm",
-        "video_url": "https:\/\/www.youtube.com\/watch?v=B-ytMSuwbf8",
+        "video_url": "https://www.youtube.com/watch?v=B-ytMSuwbf8",
         "description": "",
         "full_width": false,
         "theme": "primary",
@@ -49,9 +50,5 @@
       }
     }
   },
-  "order": [
-    "video",
-    "video-2",
-    "video-3"
-  ]
+  "order": ["video", "video-2", "video-3"]
 }

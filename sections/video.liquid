@@ -1,5 +1,6 @@
-{{ 'video-section.css' | asset_url | stylesheet_tag }}
 {{ 'deferred-media.css' | asset_url | stylesheet_tag }}
+{{ 'video-section.css' | asset_url | stylesheet_tag }}
+
 
 {% style %}
   #Video-section-{{ section.id }} {
@@ -7,6 +8,8 @@
     --bottomSpacingRatio: {{section.settings.bottom_spacing}} / 100;
   }
 {% endstyle %}
+
+<script src="{{ 'video-section.js' | asset_url }}" defer></script>
 
 <div class="video-section __theme-{{ section.settings.theme }} {% if section.settings.fullwidth %}__fullwidth{% endif %}" id="Video-section-{{ section.id }}">
 
@@ -50,7 +53,7 @@
   <deferred-media class="video-section__media deferred-media no-js-hidden media-wrapper media-wrapper--large" data-media-id="{{ section.settings.video_url.id }}"
     {% if section.settings.cover_image != blank %} style="padding-bottom: {{ 1 | divided_by: section.settings.cover_image.aspect_ratio | times: 100 }}%;"{% endif %}
   >
-    <button
+    <div
       id="Deferred-Poster-{{ section.settings.video_url.id }}"
       class="video-section__poster media deferred-media__poster media--landscape"
       type="button"
@@ -59,7 +62,7 @@
       <span class="deferred-media__poster-button motion-reduce">
         {%- render 'icon', icon: 'play' -%}
       </span>
-    </button>
+    </div>
     <template>
       {%- if section.settings.video_url.type == 'youtube' -%}
         <video-section
