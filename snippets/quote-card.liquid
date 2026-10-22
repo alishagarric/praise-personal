@@ -41,8 +41,19 @@
 
     {%- if logo != blank -%}
       <div class="quote-card__image image-container">
-          {% render 'next-gen-img', image: logo, img_width: widths: img_widths, sizes: img_sizes, preload: img_preload %}
+          {% render 'next-gen-img', image: logo, img_width: widths, sizes: img_sizes, preload: img_preload %}
       </div>
     {%- endif -%}
   </div>
-</div>
+</div>{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'next-gen-img', image: logo, img_width: widths: img_widths, sizes:
+    img_sizes, preload: img_preload %}"
+  to: "{% render 'next-gen-img', image: logo, img_width: widths, sizes: img_sizes,
+    preload: img_preload %}"
+  position: 1737..1836
+{%- endcomment -%}

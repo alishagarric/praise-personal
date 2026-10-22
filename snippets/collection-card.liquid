@@ -43,7 +43,7 @@
 <a class="collection-card {{ class }} __align-{{ alignment }}" href="{{ collection_url }}">
   <div class="collection-card__image image-container">
     {% if collection and collection.image %}
-      {% render 'next-gen-img', image: collection_image, width: img_width: widths: img_widths, sizes: img_sizes, preload: img_preload %}
+      {% render 'next-gen-img', image: collection_image, width: img_width, widths: img_widths, sizes: img_sizes, preload: img_preload %}
     {% elsif collection == blank %}
       {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
     {% else %}
@@ -61,4 +61,15 @@
   {% if button_label %}
     {% render 'button', button_label: button_label class: "collection-card", style: "underline" %}
   {% endif %}
-</a>
+</a>{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'next-gen-img', image: collection_image, width: img_width: widths:
+    img_widths, sizes: img_sizes, preload: img_preload %}"
+  to: "{% render 'next-gen-img', image: collection_image, width: img_width, widths:
+    img_widths, sizes: img_sizes, preload: img_preload %}"
+  position: 1476..1606
+{%- endcomment -%}

@@ -54,7 +54,7 @@
     style="--imageRatio: {{ image.height | divided_by: 1.00 | divided_by: image.width | times: 100 }}%; --overlayOpacity: calc({{ overlay }} / 100);"
   >
     {%- if image != blank -%}
-      {% render 'next-gen-img', image: image, width: img_width: widths: img_widths, sizes: img_sizes, preload: img_preload %}
+      {% render 'next-gen-img', image: image, width: img_width, widths: img_widths, sizes: img_sizes, preload: img_preload %}
     {%- endif -%}
     {% if overlap == true %}
       {%
@@ -87,3 +87,15 @@
     %}
   </div>
 </{{ card_tag }}>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'next-gen-img', image: image, width: img_width: widths: img_widths,
+    sizes: img_sizes, preload: img_preload %}"
+  to: "{% render 'next-gen-img', image: image, width: img_width, widths: img_widths,
+    sizes: img_sizes, preload: img_preload %}"
+  position: 2736..2855
+{% endcomment %}

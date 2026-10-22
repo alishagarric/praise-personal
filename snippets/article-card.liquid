@@ -61,7 +61,7 @@
       {% assign assc_product_count = article.metafields.custom.associated_products | split: "," | size | minus: 1 %}
       <div class="article-card__assc-products">
         <div class="article-card__assc-products__product image-container __crop-{{ assc_product_crop_shape }}" style="--imageRatio: {{ featured_product.featured_image.height | divided_by: 1.00 | divided_by: featured_product.featured_image.width | times: 100 }}%">
-          {% render 'next-gen-img', image: featured_product.featured_image, width: img_width: widths: img_widths, sizes: img_sizes, preload: img_preload %}
+          {% render 'next-gen-img', image: featured_product.featured_image, width: img_width, widths: img_widths, sizes: img_sizes, preload: img_preload %}
         </div>
         {% if assc_product_count > 0 %}
           <div class="article-card__assc-products__bubble p-sm" style="--articleCardProductsCount: '+{{ assc_product_count }}''"></div>
@@ -71,7 +71,7 @@
 
     {% if article and article.image %}
       <div class="article-card__image image-container __crop-{{ crop }}" style="--imageRatio: {{ image_ratio }}%">
-        {% render 'next-gen-img', image: article.image, width: img_width: widths: img_widths, sizes: img_sizes, preload: img_preload %}
+        {% render 'next-gen-img', image: article.image, width: img_width, widths: img_widths, sizes: img_sizes, preload: img_preload %}
       </div>
     {% elsif article == blank %}
       {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
@@ -100,3 +100,20 @@
     {% render 'button', button_label: button_label, style: "underline" %}
   {% endif %}
 </a>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'next-gen-img', image: featured_product.featured_image, width:
+    img_width: widths: img_widths, sizes: img_sizes, preload: img_preload %}"
+  to: "{% render 'next-gen-img', image: featured_product.featured_image, width: img_width,
+    widths: img_widths, sizes: img_sizes, preload: img_preload %}"
+  position: 2851..2996
+- from: "{% render 'next-gen-img', image: article.image, width: img_width: widths:
+    img_widths, sizes: img_sizes, preload: img_preload %}"
+  to: "{% render 'next-gen-img', image: article.image, width: img_width, widths: img_widths,
+    sizes: img_sizes, preload: img_preload %}"
+  position: 3400..3527
+{% endcomment %}

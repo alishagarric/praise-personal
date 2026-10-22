@@ -98,7 +98,7 @@
           {% case block.type %}
             {% when 'product' %}
               <div class="shop-the-look__products__product" {{ block.shopify_attributes }}>
-                {% render 'product-card' this_product: block.settings.product, show_bg_color: section.settings.show_bg_color, quick_add: section.settings.quick_add, crop: section.settings.crop_shape, show_phrase: section.settings.show_phrase, alignment: section.settings.product_text_alignment, section.settings.show_description: section.settings.show_description, price_position: section.settings.price, alt_heading: section.settings.alt_title, img_width: 1100, img_widths: "1100, 600, 300", img_sizes: "(max-width: 676px) 85vw, (max-width: 1024px) 30vw" %}
+                {% render 'product-card', this_product: block.settings.product, show_bg_color: section.settings.show_bg_color, quick_add: section.settings.quick_add, crop: section.settings.crop_shape, show_phrase: section.settings.show_phrase, alignment: section.settings.product_text_alignment, show_description: section.settings.show_description, price_position: section.settings.price, alt_heading: section.settings.alt_title, img_width: 1100, img_widths: "1100, 600, 300", img_sizes: "(max-width: 676px) 85vw, (max-width: 1024px) 30vw" %}
               </div>
           {% endcase %}
         {% endfor %}
@@ -417,3 +417,24 @@
   ]
 }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: '{% render ''product-card'' this_product: block.settings.product, show_bg_color:
+    section.settings.show_bg_color, quick_add: section.settings.quick_add, crop: section.settings.crop_shape,
+    show_phrase: section.settings.show_phrase, alignment: section.settings.product_text_alignment,
+    section.settings.show_description: section.settings.show_description, price_position:
+    section.settings.price, alt_heading: section.settings.alt_title, img_width: 1100,
+    img_widths: "1100, 600, 300", img_sizes: "(max-width: 676px) 85vw, (max-width:
+    1024px) 30vw" %}'
+  to: '{% render ''product-card'', this_product: block.settings.product, show_bg_color:
+    section.settings.show_bg_color, quick_add: section.settings.quick_add, crop: section.settings.crop_shape,
+    show_phrase: section.settings.show_phrase, alignment: section.settings.product_text_alignment,
+    show_description: section.settings.show_description, price_position: section.settings.price,
+    alt_heading: section.settings.alt_title, img_width: 1100, img_widths: "1100, 600,
+    300", img_sizes: "(max-width: 676px) 85vw, (max-width: 1024px) 30vw" %}'
+  position: 4181..4707
+{% endcomment %}
